@@ -7,6 +7,17 @@ export interface MockRuleCondition {
   value?: string;
 }
 
+export interface MockExtractRule {
+  source?: 'query' | 'header' | 'body' | 'param' | 'form';
+  key?: string;
+  as?: string;
+}
+
+export interface MockRouteCounter {
+  every?: number;
+  offset?: number;
+}
+
 export interface MockRouteRules {
   operator?: 'AND' | 'OR';
   conditions?: MockRuleCondition[];
@@ -32,6 +43,13 @@ export interface MockRouteEntry {
     };
   };
   rules?: MockRouteRules;
+  // Optional response-behavior knobs; all default to legacy behavior when
+  // missing (backward compatible with existing mock files).
+  delay?: number;
+  probability?: number;
+  counter?: MockRouteCounter;
+  template?: boolean;
+  extract?: MockExtractRule[];
   copiedFrom?: {
     example?: string | null;
     requestPath?: string | null;
@@ -77,6 +95,11 @@ export interface BrunoMockRoute {
     operator: 'AND' | 'OR';
     conditions: Array<{ target: string; key: string; operator: string; value: string }>;
   };
+  delay?: number;
+  probability?: number;
+  counter?: MockRouteCounter;
+  template?: boolean;
+  extract?: MockExtractRule[];
   copiedFrom?: {
     exampleName: string | null;
     requestPathname: string | null;

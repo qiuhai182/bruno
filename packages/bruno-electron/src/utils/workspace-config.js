@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
 const { writeFile, validateName, isValidCollectionDirectory } = require('./filesystem');
+const { readTextFileSync } = require('@usebruno/filestore');
 const { generateUidBasedOnHash } = require('./common');
 const { withLock, getWorkspaceLockKey } = require('./workspace-lock');
 
@@ -223,7 +224,7 @@ const readWorkspaceConfig = (workspacePath) => {
     throw new Error('Invalid workspace: workspace.yml not found');
   }
 
-  const yamlContent = fs.readFileSync(workspaceFilePath, 'utf8');
+  const yamlContent = readTextFileSync(workspaceFilePath).data;
   const workspaceConfig = yaml.load(yamlContent);
 
   if (!workspaceConfig || typeof workspaceConfig !== 'object') {
@@ -393,7 +394,7 @@ const addCollectionToWorkspaceGitignore = async (workspacePath, collectionPath) 
   if (!entry) return;
 
   const gitignorePath = path.join(workspacePath, '.gitignore');
-  const existing = fs.existsSync(gitignorePath) ? fs.readFileSync(gitignorePath, 'utf8') : '';
+  const existing = fs.existsSync(gitignorePath) ? readTextFileSync(gitignorePath).data : '';
   const lines = existing.split('\n');
 
   if (lines.some((line) => line.trim() === entry)) return;
@@ -417,7 +418,7 @@ const removeCollectionFromWorkspaceGitignore = async (workspacePath, collectionP
   const gitignorePath = path.join(workspacePath, '.gitignore');
   if (!fs.existsSync(gitignorePath)) return;
 
-  const lines = fs.readFileSync(gitignorePath, 'utf8').split('\n');
+  const lines = readTextFileSync(gitignorePath).data.split('\n');
   const managedBlock = findGitignoreManagedBlock(lines);
   if (!managedBlock) return;
 

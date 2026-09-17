@@ -7,6 +7,7 @@ const { ipcMain, dialog } = require('electron');
 const isDev = require('electron-is-dev');
 const { createDirectory, sanitizeName, writeFile, DEFAULT_GITIGNORE } = require('../utils/filesystem');
 const yaml = require('js-yaml');
+const { readTextFileSync } = require('@usebruno/filestore');
 const LastOpenedWorkspaces = require('../store/last-opened-workspaces');
 const { defaultWorkspaceManager } = require('../store/default-workspace');
 const { globalEnvironmentsManager } = require('../store/workspace-environments');
@@ -222,7 +223,7 @@ const registerWorkspaceIpc = (mainWindow, workspaceWatcher) => {
         throw new Error('Invalid workspace: workspace.yml not found');
       }
 
-      const yamlContent = fs.readFileSync(workspaceFilePath, 'utf8');
+      const yamlContent = readTextFileSync(workspaceFilePath).data;
       const workspaceConfig = yaml.load(yamlContent);
 
       if (!workspaceConfig || typeof workspaceConfig !== 'object') {
@@ -376,7 +377,7 @@ const registerWorkspaceIpc = (mainWindow, workspaceWatcher) => {
           throw new Error('Invalid workspace: workspace.yml not found in the zip file');
         }
 
-        const workspaceConfig = yaml.load(fs.readFileSync(workspaceYmlPath, 'utf8'));
+        const workspaceConfig = yaml.load(readTextFileSync(workspaceYmlPath).data);
         const workspaceName = workspaceConfig.info.name || 'Imported Workspace';
         const sanitizedName = sanitizeName(workspaceName);
 
@@ -633,7 +634,7 @@ const registerWorkspaceIpc = (mainWindow, workspaceWatcher) => {
         try {
           const workspaceYmlPath = path.join(workspacePath, 'workspace.yml');
           if (fs.existsSync(workspaceYmlPath)) {
-            const workspaceConfig = yaml.load(fs.readFileSync(workspaceYmlPath, 'utf8')) || {};
+            const workspaceConfig = yaml.load(readTextFileSync(workspaceYmlPath).data) || {};
             const collections = workspaceConfig.collections || [];
 
             const hasCollection = collections.some((c) => {

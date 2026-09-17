@@ -37,6 +37,22 @@ export const updateMockResponseRules = (state, action) => {
   editor.rules = cloneDeep(rules);
 };
 
+export const updateMockResponseBehavior = (state, action) => {
+  const { responseUid, behavior } = action.payload;
+  const editor = state.mockResponseEditors[responseUid];
+
+  if (!editor) {
+    return;
+  }
+
+  const examples = editor.item?.draft?.examples;
+  const example = examples?.find((entry) => entry.uid === responseUid);
+
+  if (example) {
+    example.behavior = cloneDeep(behavior);
+  }
+};
+
 export const cancelMockResponseEditorEdit = (state, action) => {
   const { responseUid } = action.payload;
   const editor = state.mockResponseEditors[responseUid];

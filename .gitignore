@@ -51,7 +51,7 @@ yarn-error.log*
 #dev editor
 bruno.iml
 .idea
-.vscode
+/.vscode
 .cursor
 .codex
 .agents
@@ -75,3 +75,8 @@ packages/bruno-filestore/dist
 packages/bruno-requests/dist
 packages/bruno-schema-types/dist
 packages/bruno-converters/dist
+
+参考项目/
+.trae/
+output/
+

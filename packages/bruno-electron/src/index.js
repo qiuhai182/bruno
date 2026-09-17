@@ -66,6 +66,12 @@ const { cookiesStore } = require('./store/cookies');
 const SystemMonitor = require('./app/system-monitor');
 const { getIsRunningInRosetta } = require('./utils/arch');
 const { handleAppProtocolUrl, getAppProtocolUrlFromArgv } = require('./utils/deeplink');
+const { ipcBridge, startWebServer, DEFAULT_WEB_SERVER_PORT } = require('./web-server');
+const AppTray = require('./tray');
+
+// Record ipc handlers as they register, so the web server bridge can dispatch
+// browser-originated invokes to the exact same handlers.
+ipcBridge.install();
 
 const systemMonitor = new SystemMonitor();
 const terminalManager = new TerminalManager();
@@ -98,6 +104,8 @@ const isLinux = process.platform === 'linux';
 
 let mainWindow;
 let appProtocolUrl;
+let webServerInstance = null;
+let appTray = null;
 
 // Helper function to save zoom percentage to preferences and notify renderer
 const saveZoomPreferences = async (percentage) => {
@@ -227,6 +235,34 @@ app.on('ready', async () => {
   const WindowStateStore = require('./store/window-state');
   const windowStateStore = new WindowStateStore();
   const themeBg = windowStateStore.getThemeBg();
+
+  // Browser web client: serves the renderer over http://127.0.0.1:<port>
+  // with a WebSocket IPC bridge so the browser UI is functionally identical
+  // to the desktop app.
+  if (preferencesUtil.isWebServerEnabled()) {
+    startWebServer({
+      port: preferencesUtil.getWebServerPort() || DEFAULT_WEB_SERVER_PORT,
+      devPort: process.env.BRUNO_DEV_PORT || 3000,
+      webDir: path.join(__dirname, '../web')
+    })
+      .then((instance) => {
+        webServerInstance = instance;
+        console.log(`Bruno web server listening on ${instance.url}`);
+        if (appTray) {
+          appTray.rebuildMenu();
+        }
+      })
+      .catch((err) => {
+        console.error('Failed to start Bruno web server:', err);
+      });
+  }
+
+  appTray = new AppTray({
+    getMainWindow: () => mainWindow,
+    getWebServerUrl: () => (webServerInstance ? webServerInstance.url : null),
+    isTrayResident: () => preferencesUtil.isTrayResident()
+  });
+  appTray.init();
 
   mainWindow = new BrowserWindow({
     x,
@@ -411,6 +447,13 @@ app.on('ready', async () => {
   });
 
   mainWindow.on('close', (e) => {
+    // Tray resident mode: hide the window instead of quitting so the app
+    // (and its browser web client) stays available in the tray.
+    if (preferencesUtil.isTrayResident()) {
+      e.preventDefault();
+      mainWindow.hide();
+      return;
+    }
     e.preventDefault();
     terminalManager.cleanup(mainWindow.webContents);
     ipcMain.emit('main:start-quit-flow');
@@ -486,10 +529,16 @@ app.on('ready', async () => {
     try {
       let ogSend = mainWindow.webContents.send;
       mainWindow.webContents.send = function (channel, ...args) {
-        return ogSend.apply(this, [channel, ...args.map((_) => {
+        const safeArgs = args.map((_) => {
           // todo: replace this with @msgpack/msgpack encode/decode
           return safeParseJSON(safeStringifyJSON(_));
-        })]);
+        });
+        // Mirror main->renderer events to browser web clients over the
+        // WebSocket IPC bridge.
+        if (webServerInstance) {
+          webServerInstance.broadcastEvent(channel, safeArgs);
+        }
+        return ogSend.apply(this, [channel, ...safeArgs]);
       };
     } catch (err) {
       console.error('Error wrapping webContents.send:', err);
@@ -576,6 +625,10 @@ app.on('before-quit', (event) => {
       terminalManager.killAll();
     } catch (err) {
       console.error('Failed to kill all terminals on quit', err);
+    }
+
+    if (appTray) {
+      appTray.destroy();
     }
 
     app.exit(0);

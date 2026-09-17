@@ -8,6 +8,8 @@ const { v4: uuidv4 } = require('uuid');
 const { preferencesUtil } = require('../../store/preferences');
 const { buildRouteMapFromMockResponses, countRouteResponses } = require('./mock-response-routes');
 const { buildRequestContext, evaluateResponseCandidates } = require('./mock-rule-matcher');
+const { buildTemplateContext, renderTemplate } = require('./mock-template');
+const { parseQueryParamsPreservingPlus } = require('../../utils/parse-query-params');
 const DEFAULT_GATEWAY_PORT = 4000;
 
 const MAX_LOG_ENTRIES = 500;
@@ -249,11 +251,20 @@ const findParameterizedMatch = (routeMap, method, reqPath) => {
     const routeSegments = pathParts.join(' ').split('/');
     if (routeSegments.length !== reqSegments.length) continue;
 
-    const matches = routeSegments.every((seg, i) =>
-      seg.startsWith(':') || seg === reqSegments[i]
-    );
+    const params = {};
+    const matches = routeSegments.every((seg, i) => {
+      if (seg.startsWith(':')) {
+        try {
+          params[seg.slice(1)] = decodeURIComponent(reqSegments[i]);
+        } catch {
+          params[seg.slice(1)] = reqSegments[i];
+        }
+        return true;
+      }
+      return seg === reqSegments[i];
+    });
 
-    if (matches) return examples;
+    if (matches) return { examples, params };
   }
 
   return null;
@@ -303,8 +314,13 @@ const handleRequest = (mockServerUid, req, res) => {
   const routeKey = `${method} ${reqPath}`;
 
   let examples = collection.routeMap.get(routeKey);
+  let routeParams = {};
   if (!examples) {
-    examples = findParameterizedMatch(collection.routeMap, method, reqPath);
+    const paramMatch = findParameterizedMatch(collection.routeMap, method, reqPath);
+    if (paramMatch) {
+      examples = paramMatch.examples;
+      routeParams = paramMatch.params;
+    }
   }
 
   if (!examples || examples.length === 0) {
@@ -333,8 +349,17 @@ const handleRequest = (mockServerUid, req, res) => {
     return;
   }
 
-  const requestContext = buildRequestContext(req);
-  const { selected, trace } = evaluateResponseCandidates(examples, requestContext);
+  const requestContext = buildRequestContext(req, routeParams);
+
+  // Counter-based selection counts every request reaching the strategy layer
+  // for this route, so `every: N` responses rotate deterministically.
+  collection.routeCounters = collection.routeCounters || new Map();
+  const routeCount = (collection.routeCounters.get(routeKey) || 0) + 1;
+  collection.routeCounters.set(routeKey, routeCount);
+
+  const { selected, trace } = evaluateResponseCandidates(examples, requestContext, {
+    routeCounter: { count: routeCount }
+  });
   const matchTrace = { ...trace, routeKey };
 
   if (!selected) {
@@ -358,7 +383,22 @@ const handleRequest = (mockServerUid, req, res) => {
     return;
   }
 
-  const delay = collection.globalDelay;
+  // Template rendering happens after strategy selection and extract
+  // evaluation; per-response delay stacks on top of the global delay.
+  const templateContext = selected.template
+    ? buildTemplateContext(requestContext, selected.extract)
+    : null;
+  const responseBodyContent = templateContext
+    ? renderTemplate(selected.response.body.content, templateContext)
+    : selected.response.body.content;
+  const responseHeaders = templateContext
+    ? selected.response.headers.map((header) => ({
+        name: header.name,
+        value: renderTemplate(header.value, templateContext)
+      }))
+    : selected.response.headers;
+
+  const delay = (collection.globalDelay || 0) + (Number(selected.delay) || 0);
 
   const sendResponse = () => {
     const statusCode = selected.response.status || 200;
@@ -374,7 +414,7 @@ const handleRequest = (mockServerUid, req, res) => {
     };
 
     try {
-      for (const header of selected.response.headers) {
+      for (const header of responseHeaders) {
         if (!header.name || !header.value) continue;
 
         const name = header.name.toLowerCase();
@@ -401,7 +441,7 @@ const handleRequest = (mockServerUid, req, res) => {
       if (statusCode === 204) {
         res.status(204).end();
       } else {
-        res.status(statusCode).send(selected.response.body.content || '');
+        res.status(statusCode).send(responseBodyContent || '');
       }
     } catch (err) {
       const message = err.message || 'Mock response failed';
@@ -562,6 +602,7 @@ const start = async ({
   resolvedPort = await resolveIsolatedPort(resolvedPort, mockServerUid);
 
   const app = express();
+  app.set('query parser', parseQueryParamsPreservingPlus);
   applyMockMiddleware(app);
   app.all('*', (req, res) => handleRequest(mockServerUid, req, res));
 

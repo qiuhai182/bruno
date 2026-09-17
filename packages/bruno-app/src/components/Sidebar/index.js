@@ -9,6 +9,7 @@ import { setLocalStorageValue, SIDEBAR_WIDTH_KEY } from 'utils/common/localStora
 import CollectionsSection from './Sections/CollectionsSection/index';
 import ApiSpecsSection from './Sections/ApiSpecsSection/index';
 import MockServersSection from './Sections/MockServersSection/index';
+import ToolsSection from './Sections/ToolsSection/index';
 import useKeybinding from 'hooks/useKeybinding';
 import useClearSidebarSelectionOnEscape from 'hooks/useClearSidebarSelectionOnEscape';
 import { useBetaFeature, BETA_FEATURES } from 'utils/beta-features';
@@ -36,6 +37,11 @@ const Sidebar = () => {
         component: MockServersSection
       });
     }
+
+    sections.push({
+      id: 'tools',
+      component: ToolsSection
+    });
 
     return sections;
   }, [isMockServerEnabled]);

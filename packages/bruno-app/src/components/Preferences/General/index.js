@@ -60,6 +60,21 @@ const General = () => {
     oauth2: Yup.object({
       useSystemBrowser: Yup.boolean()
     }),
+    trayResident: Yup.boolean(),
+    webServer: Yup.object({
+      enabled: Yup.boolean(),
+      port: Yup.mixed()
+        .transform((value, originalValue) => {
+          return originalValue === '' ? undefined : value;
+        })
+        .nullable()
+        .test('isNumber', 'Web Server Port must be a number', (value) => {
+          return value === undefined || !isNaN(value);
+        })
+        .test('isValidPort', 'Web Server Port must be between 1 and 65535', (value) => {
+          return value === undefined || (Number(value) >= 1 && Number(value) <= 65535);
+        })
+    }),
     defaultLocation: Yup.string().max(1024)
   });
 
@@ -82,6 +97,11 @@ const General = () => {
       },
       oauth2: {
         useSystemBrowser: get(preferences, 'request.oauth2.useSystemBrowser', false)
+      },
+      trayResident: get(preferences, 'tray.resident', true),
+      webServer: {
+        enabled: get(preferences, 'web.enabled', true),
+        port: get(preferences, 'web.port', 43110)
       },
       defaultLocation: get(preferences, 'general.defaultLocation', '')
     },
@@ -120,6 +140,13 @@ const General = () => {
         autoSave: {
           enabled: newPreferences.autoSave.enabled,
           interval: newPreferences.autoSave.interval
+        },
+        tray: {
+          resident: newPreferences.trayResident
+        },
+        web: {
+          enabled: newPreferences.webServer.enabled,
+          port: Number(newPreferences.webServer.port)
         },
         general: {
           defaultLocation: newPreferences.defaultLocation
@@ -358,6 +385,53 @@ const General = () => {
         )}
         {formik.touched.autoSave?.interval && formik.errors.autoSave?.interval && (
           <div className="text-red-500">{formik.errors.autoSave.interval}</div>
+        )}
+        <div className="flex items-center mt-6">
+          <input
+            id="trayResident"
+            type="checkbox"
+            name="trayResident"
+            checked={formik.values.trayResident}
+            onChange={formik.handleChange}
+            className="mousetrap mr-0"
+          />
+          <label className="block ml-2 select-none" htmlFor="trayResident">
+            Keep app running in the tray when the window is closed
+          </label>
+        </div>
+        <div className="flex items-center mt-2">
+          <input
+            id="webServerEnabled"
+            type="checkbox"
+            name="webServer.enabled"
+            checked={formik.values.webServer.enabled}
+            onChange={formik.handleChange}
+            className="mousetrap mr-0"
+          />
+          <label className="block ml-2 select-none" htmlFor="webServerEnabled">
+            Enable browser web client (127.0.0.1)
+          </label>
+        </div>
+        <div className={`flex flex-col mt-2 ${!formik.values.webServer.enabled ? 'opacity-50' : ''}`}>
+          <label className="block select-none" htmlFor="webServerPort">
+            Web Server Port
+          </label>
+          <input
+            type="text"
+            name="webServer.port"
+            id="webServerPort"
+            className="block textbox mt-2 w-24"
+            autoComplete="off"
+            autoCorrect="off"
+            autoCapitalize="off"
+            spellCheck="false"
+            onChange={formik.handleChange}
+            value={formik.values.webServer.port}
+            disabled={!formik.values.webServer.enabled}
+          />
+        </div>
+        {formik.touched.webServer?.port && formik.errors.webServer?.port && (
+          <div className="text-red-500">{formik.errors.webServer.port}</div>
         )}
         <div className="flex flex-col mt-6">
           <label className="block select-none default-location-label" htmlFor="defaultLocation">

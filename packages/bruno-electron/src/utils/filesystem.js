@@ -7,6 +7,7 @@ const os = require('os');
 // Single shared implementation lives in @usebruno/common; re-exported below so
 // `require('../utils/filesystem')` consumers keep working unchanged.
 const { sanitizeName, validateName } = require('@usebruno/common').utils;
+const { writeTextFile } = require('@usebruno/filestore');
 
 const DEFAULT_GITIGNORE = [
   '# Secrets',
@@ -98,9 +99,15 @@ function normalizeWSLPath(pathname) {
 
 const writeFile = async (pathname, content, isBinary = false) => {
   try {
-    await safeWriteFile(pathname, content, {
-      encoding: !isBinary ? 'utf-8' : null
-    });
+    if (!isBinary && typeof content === 'string') {
+      // Write via the shared encoding core so the file's original encoding
+      // (detected on read) is preserved; new files default to utf-8.
+      await writeTextFile(getSafePathToWrite(pathname), content);
+    } else {
+      await safeWriteFile(pathname, content, {
+        encoding: !isBinary ? 'utf-8' : null
+      });
+    }
   } catch (err) {
     console.error(`Error writing file at ${pathname}:`, err);
     return Promise.reject(err);

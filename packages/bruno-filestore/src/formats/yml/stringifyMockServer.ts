@@ -77,6 +77,36 @@ const toOcMockRoute = (route: BrunoMockRoute): MockRouteEntry => {
     };
   }
 
+  const delay = Number(route.delay);
+  if (delay > 0) {
+    ocRoute.delay = delay;
+  }
+
+  const probability = Number(route.probability);
+  if (probability > 0 && probability <= 100) {
+    ocRoute.probability = probability;
+  }
+
+  const every = Number(route.counter?.every);
+  if (every >= 1) {
+    ocRoute.counter = {
+      every,
+      offset: Number(route.counter?.offset) || 0
+    };
+  }
+
+  if (route.template === true) {
+    ocRoute.template = true;
+  }
+
+  if (route.extract?.length) {
+    ocRoute.extract = route.extract.map((rule) => ({
+      source: rule.source || 'query',
+      key: rule.key || '',
+      as: rule.as || rule.key || ''
+    }));
+  }
+
   if (route.copiedFrom && (route.copiedFrom.exampleName || route.copiedFrom.requestPathname)) {
     ocRoute.copiedFrom = {};
     if (route.copiedFrom.exampleName) {

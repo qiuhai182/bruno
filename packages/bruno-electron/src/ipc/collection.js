@@ -18,6 +18,8 @@ const {
   stringifyFolder,
   stringifyEnvironment,
   parseEnvironment,
+  readTextFileSync,
+  readTextFile,
   DEFAULT_COLLECTION_FORMAT
 } = require('@usebruno/filestore');
 const { dotenvToJson } = require('@usebruno/lang');
@@ -144,7 +146,7 @@ const findCollectionPathByItemPath = (filePath) => {
     const transientDirPath = path.join(transientBase, transientDirName);
     const metadataPath = path.join(transientDirPath, 'metadata.json');
     try {
-      const metadataContent = fs.readFileSync(metadataPath, 'utf8');
+      const metadataContent = readTextFileSync(metadataPath).data;
       const metadata = JSON.parse(metadataContent);
 
       if (metadata.type === 'scratch') {
@@ -288,7 +290,7 @@ const registerRendererEventHandlers = (mainWindow, watcher) => {
 
       if (format === 'yml') {
         const configFilePath = path.join(previousPath, 'opencollection.yml');
-        const content = fs.readFileSync(configFilePath, 'utf8');
+        const content = readTextFileSync(configFilePath).data;
         const {
           brunoConfig: parsedBrunoConfig,
           collectionRoot
@@ -301,7 +303,7 @@ const registerRendererEventHandlers = (mainWindow, watcher) => {
         await writeFile(path.join(dirPath, 'opencollection.yml'), newContent);
       } else if (format === 'bru') {
         const configFilePath = path.join(previousPath, 'bruno.json');
-        const content = fs.readFileSync(configFilePath, 'utf8');
+        const content = readTextFileSync(configFilePath).data;
         brunoConfig = JSON.parse(content);
         brunoConfig.name = collectionName;
         const newContent = await stringifyJson(brunoConfig);
@@ -472,7 +474,7 @@ const registerRendererEventHandlers = (mainWindow, watcher) => {
 
       if (format === 'yml') {
         const configFilePath = path.join(collectionPathname, 'opencollection.yml');
-        const content = fs.readFileSync(configFilePath, 'utf8');
+        const content = readTextFileSync(configFilePath).data;
         const {
           brunoConfig,
           collectionRoot
@@ -484,7 +486,7 @@ const registerRendererEventHandlers = (mainWindow, watcher) => {
         await writeFile(path.join(collectionPathname, 'opencollection.yml'), newContent);
       } else if (format === 'bru') {
         const configFilePath = path.join(collectionPathname, 'bruno.json');
-        const content = fs.readFileSync(configFilePath, 'utf8');
+        const content = readTextFileSync(configFilePath).data;
         const brunoConfig = JSON.parse(content);
         brunoConfig.name = newName;
         const newContent = await stringifyJson(brunoConfig);
@@ -534,7 +536,7 @@ const registerRendererEventHandlers = (mainWindow, watcher) => {
       const content = await stringifyCollection(collectionRoot, brunoConfig, { format });
 
       const filePath = path.join(collectionPathname, filename);
-      const existing = fs.existsSync(filePath) ? fs.readFileSync(filePath, 'utf8') : null;
+      const existing = fs.existsSync(filePath) ? readTextFileSync(filePath).data : null;
       if (content === existing) return; // skip write if content unchanged
       await writeFile(filePath, content);
     } catch (error) {
@@ -624,7 +626,7 @@ const registerRendererEventHandlers = (mainWindow, watcher) => {
       let finalContent;
       if (needsConversion) {
         const { parseRequest, stringifyRequest } = require('@usebruno/filestore');
-        const sourceContent = await fs.promises.readFile(sourcePathname, 'utf8');
+        const sourceContent = (await readTextFile(sourcePathname)).data;
         const parsedRequest = parseRequest(sourceContent, { format: actualSourceFormat });
         const mergedRequest = { ...parsedRequest, ...request };
         syncExampleUidsCache(sourcePathname, mergedRequest.examples);
@@ -727,7 +729,7 @@ const registerRendererEventHandlers = (mainWindow, watcher) => {
       }
 
       // Read and parse the file
-      const fileContent = fs.readFileSync(pathname, 'utf8');
+      const fileContent = readTextFileSync(pathname).data;
       const parsedData = await parseFileByType(fileContent, scopeType, format);
 
       // Update the specific variable or create it if it doesn't exist
@@ -816,7 +818,7 @@ const registerRendererEventHandlers = (mainWindow, watcher) => {
         }
 
         const content = await stringifyEnvironment(environment, { format });
-        const existing = fs.readFileSync(envFilePath, 'utf8');
+        const existing = readTextFileSync(envFilePath).data;
         if (content === existing) return; // skip write if content unchanged
         await writeFile(envFilePath, content);
       });
@@ -846,7 +848,7 @@ const registerRendererEventHandlers = (mainWindow, watcher) => {
       // only the yml format persists the name; bru derives it from the filename
       if (format === 'yml') {
         await withFileLock(newEnvFilePath, async () => {
-          const environment = parseEnvironment(fs.readFileSync(newEnvFilePath, 'utf8'), { format });
+          const environment = parseEnvironment(readTextFileSync(newEnvFilePath).data, { format });
           if (environment.name === newName) return;
 
           environment.name = newName;
@@ -981,7 +983,7 @@ const registerRendererEventHandlers = (mainWindow, watcher) => {
       }
 
       await withFileLock(envFilePath, async () => {
-        const fileContent = fs.readFileSync(envFilePath, 'utf8');
+        const fileContent = readTextFileSync(envFilePath).data;
         const environment = parseEnvironment(fileContent, { format });
 
         if (inheritedEnvironmentName) {
@@ -1009,7 +1011,7 @@ const registerRendererEventHandlers = (mainWindow, watcher) => {
       }
 
       await withFileLock(envFilePath, async () => {
-        const fileContent = fs.readFileSync(envFilePath, 'utf8');
+        const fileContent = readTextFileSync(envFilePath).data;
         const environment = parseEnvironment(fileContent, { format });
         environment.color = color;
         const updatedContent = stringifyEnvironment(environment, { format });
@@ -1117,7 +1119,7 @@ const registerRendererEventHandlers = (mainWindow, watcher) => {
         const folderFilePath = path.join(itemPath, `folder.${format}`);
         let folderFileJsonContent;
         if (fs.existsSync(folderFilePath)) {
-          const oldFolderFileContent = await fs.promises.readFile(folderFilePath, 'utf8');
+          const oldFolderFileContent = (await readTextFile(folderFilePath)).data;
           folderFileJsonContent = await parseFolder(oldFolderFileContent, { format });
           folderFileJsonContent.meta.name = newName;
         } else {
@@ -1139,7 +1141,7 @@ const registerRendererEventHandlers = (mainWindow, watcher) => {
         throw new Error(`path: ${itemPath} is not a valid request file`);
       }
 
-      const data = fs.readFileSync(itemPath, 'utf8');
+      const data = readTextFileSync(itemPath).data;
       const jsonData = parseRequest(data, { format });
       jsonData.name = newName;
       const content = stringifyRequest(jsonData, { format });
@@ -1174,7 +1176,7 @@ const registerRendererEventHandlers = (mainWindow, watcher) => {
         const folderFilePath = path.join(oldPath, `folder.${format}`);
         let folderFileJsonContent;
         if (fs.existsSync(folderFilePath)) {
-          const oldFolderFileContent = await fs.promises.readFile(folderFilePath, 'utf8');
+          const oldFolderFileContent = (await readTextFile(folderFilePath)).data;
           folderFileJsonContent = await parseFolder(oldFolderFileContent, { format });
           folderFileJsonContent.meta.name = newName;
         } else {
@@ -1226,7 +1228,7 @@ const registerRendererEventHandlers = (mainWindow, watcher) => {
       }
 
       // update name in file and save new copy, then delete old copy
-      const data = await fs.promises.readFile(oldPath, 'utf8'); // Use async read
+      const data = (await readTextFile(oldPath)).data; // Use async read
       const jsonData = parseRequest(data, { format });
       jsonData.name = newName;
       moveRequestUid(oldPath, newPath);
@@ -1698,7 +1700,7 @@ const registerRendererEventHandlers = (mainWindow, watcher) => {
             }
           };
           if (fs.existsSync(folderRootPath)) {
-            const folderContent = fs.readFileSync(folderRootPath, 'utf8');
+            const folderContent = readTextFileSync(folderRootPath).data;
             folderJsonData = await parseFolder(folderContent, { format });
             if (!folderJsonData?.meta) {
               folderJsonData.meta = {
@@ -1721,7 +1723,7 @@ const registerRendererEventHandlers = (mainWindow, watcher) => {
           }
         } else if (item?.type === 'app') {
           if (fs.existsSync(item.pathname)) {
-            const existingContent = fs.readFileSync(item.pathname, 'utf8');
+            const existingContent = readTextFileSync(item.pathname).data;
             const appJson = parseRequest(existingContent, { format });
             if (appJson?.seq === item.seq) {
               continue;
@@ -1744,7 +1746,7 @@ const registerRendererEventHandlers = (mainWindow, watcher) => {
       validatePathIsInsideCollection(itemPath);
       validatePathIsInsideCollection(destinationPath);
 
-      const itemContent = fs.readFileSync(itemPath, 'utf8');
+      const itemContent = readTextFileSync(itemPath).data;
       const newItemPath = path.join(destinationPath, path.basename(itemPath));
 
       moveRequestUid(itemPath, newItemPath);
@@ -1821,7 +1823,7 @@ const registerRendererEventHandlers = (mainWindow, watcher) => {
         const filenameWithoutExt = sourceBasename.replace(/\.(bru|yml|yaml)$/, '');
         const targetExt = targetFormat === 'yml' ? 'yml' : 'bru';
 
-        const sourceContent = await fs.promises.readFile(sourcePathname, 'utf8');
+        const sourceContent = (await readTextFile(sourcePathname)).data;
         const parsedRequest = parseRequest(sourceContent, { format: sourceFormat });
         const finalContent = stringifyRequest(parsedRequest, { format: targetFormat });
 
@@ -1891,7 +1893,7 @@ const registerRendererEventHandlers = (mainWindow, watcher) => {
       if (!rootToWrite) {
         const ocYmlPath = path.join(collectionPath, 'opencollection.yml');
         if (fs.existsSync(ocYmlPath)) {
-          const existing = fs.readFileSync(ocYmlPath, 'utf8');
+          const existing = readTextFileSync(ocYmlPath).data;
           rootToWrite = parseCollection(existing, { format }).collectionRoot;
         }
       }
@@ -1942,7 +1944,7 @@ const registerRendererEventHandlers = (mainWindow, watcher) => {
         return;
       }
 
-      const jsonData = fs.readFileSync(filePaths[0], 'utf8');
+      const jsonData = readTextFileSync(filePaths[0]).data;
       return safeParseJSON(jsonData);
     } catch (err) {
       return Promise.reject(new Error('Failed to load GraphQL schema file'));
@@ -2245,7 +2247,7 @@ const registerRendererEventHandlers = (mainWindow, watcher) => {
             name: path.basename(pathname)
           }
         };
-        const bruContent = fs.readFileSync(pathname, 'utf8');
+        const bruContent = readTextFileSync(pathname).data;
         const metaJson = parseBruFileMeta(bruContent);
         file.data = metaJson;
         file.loading = true;
@@ -2269,7 +2271,7 @@ const registerRendererEventHandlers = (mainWindow, watcher) => {
             name: path.basename(pathname)
           }
         };
-        const bruContent = fs.readFileSync(pathname, 'utf8');
+        const bruContent = readTextFileSync(pathname).data;
         const metaJson = parseBruFileMeta(bruContent);
         file.data = metaJson;
         file.partial = true;
@@ -2295,7 +2297,7 @@ const registerRendererEventHandlers = (mainWindow, watcher) => {
             name: path.basename(pathname)
           }
         };
-        const bruContent = fs.readFileSync(pathname, 'utf8');
+        const bruContent = readTextFileSync(pathname).data;
         const metaJson = parseBruFileMeta(bruContent);
         file.data = metaJson;
         file.loading = true;
@@ -2319,7 +2321,7 @@ const registerRendererEventHandlers = (mainWindow, watcher) => {
             name: path.basename(pathname)
           }
         };
-        const bruContent = fs.readFileSync(pathname, 'utf8');
+        const bruContent = readTextFileSync(pathname).data;
         const metaJson = parseBruFileMeta(bruContent);
         file.data = metaJson;
         file.partial = true;
@@ -2349,7 +2351,7 @@ const registerRendererEventHandlers = (mainWindow, watcher) => {
     try {
       fileStats = fs.statSync(pathname);
 
-      const bruContent = fs.readFileSync(pathname, 'utf8');
+      const bruContent = readTextFileSync(pathname).data;
       const metaJson = parseBruFileMeta(bruContent);
 
       file.data = metaJson;
@@ -2599,7 +2601,7 @@ const registerRendererEventHandlers = (mainWindow, watcher) => {
 
             if (isBrunoConfigFile(filePath, collectionPath)) {
               try {
-                const content = fs.readFileSync(filePath, 'utf8');
+                const content = readTextFileSync(filePath).data;
                 const brunoConfig = JSON.parse(content);
 
                 name = brunoConfig?.name;
@@ -2610,7 +2612,7 @@ const registerRendererEventHandlers = (mainWindow, watcher) => {
 
             if (isDotEnvFile(filePath, collectionPath)) {
               try {
-                const content = fs.readFileSync(filePath, 'utf8');
+                const content = readTextFileSync(filePath).data;
                 const jsonData = dotenvToJson(content);
                 variables = {
                   ...variables,
@@ -2627,7 +2629,7 @@ const registerRendererEventHandlers = (mainWindow, watcher) => {
 
             if (isBruEnvironmentConfig(filePath, collectionPath)) {
               try {
-                const bruContent = fs.readFileSync(filePath, 'utf8');
+                const bruContent = readTextFileSync(filePath).data;
                 const environmentFilepathBasename = path.basename(filePath);
                 const environmentName = environmentFilepathBasename.substring(0, environmentFilepathBasename.length - 4);
                 const data = await parseEnvironment(bruContent);
@@ -2646,7 +2648,7 @@ const registerRendererEventHandlers = (mainWindow, watcher) => {
 
             if (isCollectionRootBruFile(filePath, collectionPath)) {
               try {
-                const bruContent = fs.readFileSync(filePath, 'utf8');
+                const bruContent = readTextFileSync(filePath).data;
                 const data = await parseCollection(bruContent);
                 // TODO
                 continue;
@@ -2655,7 +2657,7 @@ const registerRendererEventHandlers = (mainWindow, watcher) => {
               }
             }
             if (!stats.isDirectory() && path.extname(filePath) === '.bru' && file !== 'folder.bru') {
-              const bruContent = fs.readFileSync(filePath, 'utf8');
+              const bruContent = readTextFileSync(filePath).data;
               const bruJson = parseRequest(bruContent);
 
               currentDirBruJsons.push({
@@ -2850,7 +2852,7 @@ const registerRendererEventHandlers = (mainWindow, watcher) => {
         let brunoConfig = { name: collectionName, version: '1', type: 'collection', ignore: ['node_modules', '.git'] };
         if (fs.existsSync(openCollectionYmlPath)) {
           try {
-            const content = fs.readFileSync(openCollectionYmlPath, 'utf8');
+            const content = readTextFileSync(openCollectionYmlPath).data;
             const parsed = parseCollection(content, { format: 'yml' });
             brunoConfig = parsed.brunoConfig || brunoConfig;
             collectionName = brunoConfig.name || collectionName;
@@ -2859,7 +2861,7 @@ const registerRendererEventHandlers = (mainWindow, watcher) => {
           }
         } else if (fs.existsSync(brunoJsonPath)) {
           try {
-            brunoConfig = JSON.parse(fs.readFileSync(brunoJsonPath, 'utf8'));
+            brunoConfig = JSON.parse(readTextFileSync(brunoJsonPath).data);
             collectionName = brunoConfig.name || collectionName;
           } catch (e) {
             console.error(`Error parsing bruno.json at ${brunoJsonPath}:`, e);

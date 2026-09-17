@@ -174,3 +174,4 @@ export type { RedactedBlock, RedactionResult } from './formats/bru/utils/redact-
 export { BruParserWorker };
 export * from './types';
 export * from './constants';
+export * from './utils/encoding';

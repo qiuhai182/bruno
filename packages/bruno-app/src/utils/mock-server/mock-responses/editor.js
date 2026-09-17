@@ -16,6 +16,57 @@ export const getMockResponseUidFromItemUid = (itemUid) => {
 
 export const isMockResponseEditorItemUid = (itemUid) => Boolean(getMockResponseUidFromItemUid(itemUid));
 
+const asString = (value) => (value === null || value === undefined ? '' : String(value));
+
+export const buildMockResponseBehavior = (mockResponse) => ({
+  delay: asString(mockResponse?.delay),
+  probability: asString(mockResponse?.probability),
+  counterEvery: asString(mockResponse?.counter?.every),
+  counterOffset: asString(mockResponse?.counter?.offset),
+  template: mockResponse?.template === true,
+  extract: cloneDeep(mockResponse?.extract || [])
+});
+
+export const buildMockResponseFromBehavior = (behavior) => {
+  const result = {};
+
+  const delay = Number(behavior?.delay);
+  if (delay > 0) {
+    result.delay = delay;
+  }
+
+  const probability = Number(behavior?.probability);
+  if (probability > 0 && probability <= 100) {
+    result.probability = probability;
+  }
+
+  const every = Number(behavior?.counterEvery);
+  if (every >= 1) {
+    result.counter = {
+      every,
+      offset: Number(behavior?.counterOffset) || 0
+    };
+  }
+
+  if (behavior?.template === true) {
+    result.template = true;
+  }
+
+  const extract = (behavior?.extract || [])
+    .filter((rule) => rule?.as || rule?.key)
+    .map((rule) => ({
+      source: rule.source || 'query',
+      key: rule.key || '',
+      as: rule.as || rule.key || ''
+    }));
+
+  if (extract.length) {
+    result.extract = extract;
+  }
+
+  return result;
+};
+
 export const buildMockResponseEditorItem = (mockResponse) => {
   const responseUid = mockResponse.uid;
   const itemUid = getMockResponseItemUid(responseUid);
@@ -43,7 +94,8 @@ export const buildMockResponseEditorItem = (mockResponse) => {
       statusText: mockResponse.response?.statusText || '',
       headers: cloneDeep(mockResponse.response?.headers || []),
       body: cloneDeep(mockResponse.response?.body || { type: 'json', content: '' })
-    }
+    },
+    behavior: buildMockResponseBehavior(mockResponse)
   };
 
   const request = cloneDeep(example.request);
@@ -89,6 +141,7 @@ export const mockResponseFromEditorItem = (item, responseUid, rules, savedMockRe
       url: extractMockResponseRoutePath(example.request?.url, { preserveTemplateVars: true })
     },
     response: cloneDeep(example.response),
+    ...buildMockResponseFromBehavior(example.behavior),
     rules: stripConditionUids(rules),
     ...(savedMockResponse.copiedFrom ? { copiedFrom: cloneDeep(savedMockResponse.copiedFrom) } : {})
   };

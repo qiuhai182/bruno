@@ -22,6 +22,12 @@ it before non-trivial cross-package or architectural work.
   filestore, js, lang, requests); bruno-electron → (common, converters, filestore, js, lang,
   requests, schema); bruno-app → (common, converters, graphql-docs, schema).
 
+**Exception — `packages/bruno-vscode`:** the VSCode extension is NOT an npm workspace. It is
+installed/built independently (its own package-lock, driven via root `vscode:*` scripts with
+`npm --prefix`) and pins its own npm-registry `@usebruno/*` versions. Do NOT convert its
+`@usebruno/*` deps into workspace dependencies (registry versions, e.g. filestore 0.11.0, do not
+match local workspace versions).
+
 Guardrails this enforces:
 
 1. **bruno-common is the browser-safe base leaf.** It runs in the web renderer (`bruno-app`), not

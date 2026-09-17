@@ -1,0 +1,483 @@
+import * as vscode from 'vscode';
+import * as path from 'path';
+import * as fs from 'fs';
+import { WebviewHelper } from '../webview/helper';
+import { stateManager } from '../webview/state-manager';
+import { findCollectionRoot } from '../utils/path';
+import { generateUidBasedOnHash } from '../utils/common';
+import {
+  setCurrentWebview,
+  clearCurrentWebview,
+  handleInvoke,
+  hasHandler,
+  registerHandler
+} from '../ipc/handlers';
+import {
+  openCollection,
+  openCollectionForSingleRequest,
+  setMessageSender as setCollectionsMessageSender
+} from '../app/collections';
+import {
+  setMessageSender as setWatcherMessageSender,
+  isCollectionRootFile,
+  isFolderRootFile
+} from '../app/collection-watcher';
+import collectionWatcher from '../app/collection-watcher';
+import { parseFileMeta } from '../utils/collection';
+import { getCollectionFormat } from '../utils/filesystem';
+import { readTextFile } from '../utils/encoding';
+import { defaultWorkspaceManager } from '../store/default-workspace';
+import { registerDocument, unregisterDocument } from './dirty-state-manager';
+import { notifyActiveItemToSidebar, clearActiveItemFromSidebar } from '../ipc/collection';
+
+interface IpcMessage {
+  type: 'invoke' | 'send';
+  channel: string;
+  args?: unknown[];
+  requestId?: string;
+}
+
+interface CollectionLoadParams {
+  filePath: string;
+  collectionRoot: string;
+  isVariablesMode: boolean;
+  notLoadedParentRoot: string | null;
+  webviewPanel: vscode.WebviewPanel;
+}
+
+interface ScriptErrorFocus {
+  scriptPhase: string;
+  line?: number;
+}
+
+const pendingVariablesModeRequests = new Map<string, { collectionRoot: string }>();
+const pendingNotLoadedRequests = new Map<string, { parentCollectionRoot: string }>();
+const pendingScriptErrorFocus = new Map<string, ScriptErrorFocus>();
+// Stores view data per webview so renderer:ready can re-send as fallback
+const viewDataByWebview = new Map<vscode.Webview, Record<string, unknown>>();
+const webviewByFilePath = new Map<string, vscode.Webview>();
+
+export function setPendingVariablesMode(filePath: string, collectionRoot: string): void {
+  pendingVariablesModeRequests.set(filePath, { collectionRoot });
+}
+
+export function setPendingNotLoadedRequest(filePath: string, parentCollectionRoot: string): void {
+  pendingNotLoadedRequests.set(filePath, { parentCollectionRoot });
+}
+
+export function registerScriptErrorSourceHandler(): void {
+  registerHandler('renderer:reveal-script-error-source', async (args: unknown[]) => {
+    const [payload] = args as [{ filePath?: string; scriptPhase?: string; line?: number }];
+
+    if (!payload?.filePath || !payload.scriptPhase || !fs.existsSync(payload.filePath)) {
+      return { success: false };
+    }
+
+    const focus: ScriptErrorFocus = { scriptPhase: payload.scriptPhase, line: payload.line };
+    const key = path.normalize(payload.filePath);
+    pendingScriptErrorFocus.set(key, focus);
+
+    await ensureBrunoEditorIntent(payload.filePath, 'default');
+    await vscode.commands.executeCommand(
+      'vscode.openWith',
+      vscode.Uri.file(payload.filePath),
+      BrunoEditorProvider.viewType
+    );
+
+    const webview = webviewByFilePath.get(key);
+    const viewData = webview && viewDataByWebview.get(webview);
+    if (webview && viewData && pendingScriptErrorFocus.delete(key)) {
+      stateManager.sendTo(webview, 'main:set-view', { ...viewData, focusScriptError: focus });
+    }
+
+    return { success: true };
+  });
+}
+
+const currentIntentByFilePath = new Map<string, string>();
+
+export async function ensureBrunoEditorIntent(filePath: string, intent: string): Promise<void> {
+  const key = vscode.Uri.file(filePath).fsPath;
+  const current = currentIntentByFilePath.get(key);
+  if (current === undefined || current === intent) {
+    return;
+  }
+  for (const group of vscode.window.tabGroups.all) {
+    for (const tab of group.tabs) {
+      const input = tab.input;
+      if (input && typeof input === 'object' && 'uri' in input) {
+        const uri = (input as { uri: vscode.Uri }).uri;
+        if (uri.fsPath === key) {
+          await vscode.window.tabGroups.close(tab);
+        }
+      }
+    }
+  }
+  currentIntentByFilePath.delete(key);
+}
+
+export class BrunoEditorProvider implements vscode.CustomTextEditorProvider {
+  public static readonly viewType = 'bruno.requestEditor';
+
+  constructor(private readonly context: vscode.ExtensionContext) {}
+
+  public async resolveCustomTextEditor(
+    document: vscode.TextDocument,
+    webviewPanel: vscode.WebviewPanel,
+    _token: vscode.CancellationToken
+  ): Promise<void> {
+    const filePath = document.uri.fsPath;
+    const fileContent = document.getText().trim();
+
+    if (!fileContent) {
+      const fileName = path.basename(filePath);
+      vscode.window.showErrorMessage(
+        `Cannot open "${fileName}" in Bruno editor: file is empty. Please add content or open with a text editor.`
+      );
+      vscode.commands.executeCommand('workbench.action.closeActiveEditor').then(() => {
+        vscode.commands.executeCommand('vscode.openWith', document.uri, 'default');
+      });
+      return;
+    }
+
+    webviewPanel.webview.options = WebviewHelper.getWebviewOptions(this.context.extensionUri);
+    webviewPanel.webview.html = WebviewHelper.getHtmlForWebview(webviewPanel.webview, this.context.extensionUri);
+
+    stateManager.addWebview(webviewPanel.webview);
+
+    registerDocument(document);
+    webviewByFilePath.set(path.normalize(filePath), webviewPanel.webview);
+
+    const collectionRoot = findCollectionRoot(filePath);
+
+    // The sidebar item this editor represents, so the sidebar can highlight it
+    // (collection.bru → collection, folder.bru → folder, otherwise the request).
+    // Reuses the collection-watcher detection helpers, which apply the
+    // collection-root check and collection-format awareness, so the editor and
+    // the watcher agree on what a given file represents.
+    let activeItemUid: string;
+    if (collectionRoot && isCollectionRootFile(filePath, collectionRoot)) {
+      activeItemUid = generateUidBasedOnHash(collectionRoot);
+    } else if (collectionRoot && isFolderRootFile(filePath, collectionRoot)) {
+      activeItemUid = generateUidBasedOnHash(path.dirname(filePath));
+    } else {
+      activeItemUid = generateUidBasedOnHash(filePath);
+    }
+
+    stateManager.setActiveEditorWebview(webviewPanel.webview);
+    notifyActiveItemToSidebar(activeItemUid);
+    webviewPanel.onDidChangeViewState((e) => {
+      if (e.webviewPanel.active) {
+        stateManager.setActiveEditorWebview(webviewPanel.webview);
+        notifyActiveItemToSidebar(activeItemUid);
+      } else {
+        clearActiveItemFromSidebar(activeItemUid);
+      }
+    });
+
+    webviewPanel.onDidDispose(() => {
+      clearActiveItemFromSidebar(activeItemUid);
+      stateManager.removeWebview(webviewPanel.webview);
+      unregisterDocument(document.uri.fsPath);
+      viewDataByWebview.delete(webviewPanel.webview);
+      webviewByFilePath.delete(path.normalize(document.uri.fsPath));
+      currentIntentByFilePath.delete(document.uri.fsPath);
+    });
+
+    const pendingVariables = pendingVariablesModeRequests.get(filePath);
+    if (pendingVariables) {
+      pendingVariablesModeRequests.delete(filePath);
+    }
+    const isVariablesMode = !!pendingVariables;
+
+    const pendingNotLoaded = pendingNotLoadedRequests.get(filePath);
+    if (pendingNotLoaded) {
+      pendingNotLoadedRequests.delete(filePath);
+    }
+    const notLoadedParentRoot = pendingNotLoaded?.parentCollectionRoot ?? null;
+
+    currentIntentByFilePath.set(filePath, notLoadedParentRoot ? 'not-loaded' : 'default');
+
+    webviewPanel.webview.onDidReceiveMessage((message: IpcMessage) => {
+      this._handleMessage(webviewPanel.webview, document, message);
+    });
+
+    // Start collection loading immediately in parallel with webview initialization.
+    if (collectionRoot) {
+      this._loadCollection({
+        filePath,
+        collectionRoot,
+        isVariablesMode,
+        notLoadedParentRoot,
+        webviewPanel
+      });
+    }
+  }
+
+  private async _loadCollection(pending: CollectionLoadParams): Promise<void> {
+    const { filePath, collectionRoot, isVariablesMode, notLoadedParentRoot, webviewPanel } = pending;
+
+    const fileName = path.basename(filePath);
+    const isCollectionFile = fileName === 'collection.bru' || fileName === 'opencollection.yml';
+    const isFolderFile = fileName === 'folder.bru' || fileName === 'folder.yml';
+
+    const isNestedCollectionConfig = !isVariablesMode && !!notLoadedParentRoot;
+
+    let effectiveRoot: string;
+    if (isNestedCollectionConfig) {
+      effectiveRoot = notLoadedParentRoot as string;
+    } else if (isFolderFile && !isVariablesMode) {
+      effectiveRoot = findCollectionRoot(path.dirname(filePath)) || collectionRoot;
+    } else {
+      effectiveRoot = collectionRoot;
+    }
+
+    const webviewSender = (channel: string, ...args: unknown[]) => {
+      stateManager.sendTo(webviewPanel.webview, channel, ...args);
+    };
+
+    const originalBroadcastSender = (channel: string, ...args: unknown[]) => {
+      stateManager.broadcast(channel, ...args);
+    };
+
+    try {
+      let collectionUid: string | null = null;
+
+      if (isVariablesMode) {
+        setCollectionsMessageSender(webviewSender);
+        setWatcherMessageSender(webviewSender);
+
+        await openCollection(collectionWatcher, collectionRoot);
+
+        setCollectionsMessageSender(originalBroadcastSender);
+        setWatcherMessageSender(originalBroadcastSender);
+
+        collectionUid = generateUidBasedOnHash(collectionRoot);
+      } else {
+        collectionUid = await openCollectionForSingleRequest(
+          collectionWatcher,
+          effectiveRoot,
+          filePath,
+          {},
+          webviewSender
+        );
+      }
+
+      if (collectionUid) {
+        await defaultWorkspaceManager.addCollectionToWorkspace(effectiveRoot);
+
+        let isAppFile = false;
+        if (!isCollectionFile && !isFolderFile && !isVariablesMode) {
+          try {
+            const format = getCollectionFormat(collectionRoot);
+            const fileContent = (await readTextFile(filePath)).data;
+            const meta = parseFileMeta(fileContent, format);
+            if (meta && meta.type === 'app') {
+              isAppFile = true;
+            }
+          } catch (err) {
+            // If we can't read/parse, fall through to the default request view.
+          }
+        }
+
+        let viewData: {
+          viewType: string;
+          collectionUid: string;
+          collectionPath: string;
+          itemUid?: string;
+          folderUid?: string;
+        };
+
+        if (isVariablesMode) {
+          viewData = {
+            viewType: 'variables',
+            collectionUid,
+            collectionPath: effectiveRoot
+          };
+        } else if (isNestedCollectionConfig) {
+          // Nested collection config file → not-loaded request of the parent.
+          viewData = {
+            viewType: 'request',
+            collectionUid,
+            collectionPath: effectiveRoot,
+            itemUid: generateUidBasedOnHash(filePath)
+          };
+        } else if (isCollectionFile) {
+          viewData = {
+            viewType: 'collection-settings',
+            collectionUid,
+            collectionPath: effectiveRoot
+          };
+        } else if (isFolderFile) {
+          const folderPath = path.dirname(filePath);
+          viewData = {
+            viewType: 'folder-settings',
+            collectionUid,
+            collectionPath: effectiveRoot,
+            folderUid: generateUidBasedOnHash(folderPath)
+          };
+        } else if (isAppFile) {
+          viewData = {
+            viewType: 'app-unsupported',
+            collectionUid,
+            collectionPath: collectionRoot,
+            itemUid: generateUidBasedOnHash(filePath)
+          };
+        } else {
+          viewData = {
+            viewType: 'request',
+            collectionUid,
+            collectionPath: effectiveRoot,
+            itemUid: generateUidBasedOnHash(filePath)
+          };
+        }
+
+        viewDataByWebview.set(webviewPanel.webview, viewData);
+
+        const focusKey = path.normalize(filePath);
+        const focusScriptError = pendingScriptErrorFocus.get(focusKey);
+        pendingScriptErrorFocus.delete(focusKey);
+
+        stateManager.sendTo(
+          webviewPanel.webview,
+          'main:set-view',
+          focusScriptError ? { ...viewData, focusScriptError } : viewData
+        );
+
+        // Collection/folder settings dashboards need the full request tree (e.g.
+        // the Overview shows request counts). The single-request open above only
+        // loaded the clicked root file, so this webview's store has items: [] and
+        // would show "0 requests". Stream the rest of the tree to this webview.
+        // Unlike the shared watcher scan, loadFullCollection targets this webview
+        // and has no already-scanned guard, so it works regardless of prior opens.
+        if (!isVariablesMode && !isNestedCollectionConfig && (isCollectionFile || isFolderFile)) {
+          await collectionWatcher.loadFullCollection(effectiveRoot, collectionUid, webviewSender);
+        }
+      }
+    } catch (error) {
+      console.error('BrunoEditorProvider: Error opening collection:', error);
+    }
+  }
+
+  private async _handleMessage(
+    webview: vscode.Webview,
+    document: vscode.TextDocument,
+    message: IpcMessage
+  ): Promise<void> {
+    const { type, channel, args, requestId } = message;
+
+    if (type === 'invoke' && requestId) {
+      setCurrentWebview(webview);
+
+      try {
+        let result: unknown;
+
+        if (hasHandler(channel)) {
+          result = await handleInvoke(channel, args || []);
+        } else {
+          result = await this._handleLocalInvoke(channel, args || [], document);
+        }
+
+        webview.postMessage({
+          type: 'response',
+          requestId,
+          result
+        });
+
+        if (channel === 'renderer:ready') {
+          // Collection loading already started in resolveCustomTextEditor.
+          // The renderer:ready handler (preferences/global-envs) was invoked above.
+          // Re-send view data as fallback in case the proactive send was missed.
+          const storedViewData = viewDataByWebview.get(webview);
+          if (storedViewData) {
+            stateManager.sendTo(webview, 'main:set-view', storedViewData);
+          }
+          clearCurrentWebview();
+          return;
+        }
+      } catch (error) {
+        webview.postMessage({
+          type: 'response',
+          requestId,
+          error: error instanceof Error ? error.message : 'Unknown error'
+        });
+      } finally {
+        clearCurrentWebview();
+      }
+    } else if (type === 'send') {
+      setCurrentWebview(webview);
+      try {
+        this._handleIpcSend(channel, args || []);
+      } finally {
+        clearCurrentWebview();
+      }
+    }
+  }
+
+  private async _handleLocalInvoke(channel: string, _args: unknown[], document: vscode.TextDocument): Promise<unknown> {
+    switch (channel) {
+      case 'renderer:get-file-content':
+        return {
+          path: document.uri.fsPath,
+          content: document.getText()
+        };
+
+      default:
+        return null;
+    }
+  }
+
+  private _handleIpcSend(channel: string, args: unknown[]): void {
+    switch (channel) {
+      case 'open-external':
+        if (typeof args[0] === 'string') {
+          vscode.env.openExternal(vscode.Uri.parse(args[0]));
+        }
+        break;
+
+      case 'sidebar:open-collection-runner':
+        if (args[0] && typeof args[0] === 'object') {
+          const { collectionPath } = args[0] as { collectionPath?: string };
+          if (collectionPath) {
+            vscode.commands.executeCommand('bruno.runCollection', vscode.Uri.file(collectionPath));
+          }
+        }
+        break;
+
+      case 'sidebar:open-collection-settings':
+        if (args[0] && typeof args[0] === 'object') {
+          const { collectionPath } = args[0] as { collectionPath?: string };
+          if (collectionPath) {
+            vscode.commands.executeCommand('bruno.openSettings', vscode.Uri.file(collectionPath));
+          }
+        }
+        break;
+
+      case 'sidebar:open-collection-variables':
+        if (args[0] && typeof args[0] === 'object') {
+          const { collectionPath } = args[0] as { collectionPath?: string };
+          if (collectionPath) {
+            vscode.commands.executeCommand('bruno.openVariables', vscode.Uri.file(collectionPath));
+          }
+        }
+        break;
+
+      case 'sidebar:open-environment-settings':
+        if (args[0] && typeof args[0] === 'object') {
+          const { collectionPath } = args[0] as { collectionPath?: string };
+          if (collectionPath) {
+            vscode.commands.executeCommand('bruno.openEnvironmentSettings', vscode.Uri.file(collectionPath));
+          }
+        }
+        break;
+
+      case 'sidebar:open-global-environments':
+        vscode.commands.executeCommand('bruno.openGlobalEnvironments');
+        break;
+
+      case 'open-in-text-editor':
+        vscode.commands.executeCommand('bruno.switchToTextEditor');
+        break;
+    }
+  }
+}

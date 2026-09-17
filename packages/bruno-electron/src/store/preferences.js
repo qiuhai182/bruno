@@ -81,6 +81,13 @@ const defaultPreferences = {
       enabled: false
     }
   },
+  tray: {
+    resident: true
+  },
+  web: {
+    enabled: true,
+    port: 43110
+  },
   ai: {
     enabled: false,
     providers: {
@@ -202,6 +209,13 @@ const preferencesSchema = Yup.object().shape({
     file: Yup.object({
       enabled: Yup.boolean()
     })
+  }).optional(),
+  tray: Yup.object({
+    resident: Yup.boolean()
+  }).optional(),
+  web: Yup.object({
+    enabled: Yup.boolean(),
+    port: Yup.number().min(1).max(65535)
   }).optional(),
   ai: Yup.object({
     enabled: Yup.boolean(),
@@ -445,6 +459,15 @@ const preferencesUtil = {
   },
   isFileCacheEnabled: () => {
     return get(getPreferences(), 'cache.file.enabled', false);
+  },
+  isTrayResident: () => {
+    return get(getPreferences(), 'tray.resident', true);
+  },
+  isWebServerEnabled: () => {
+    return get(getPreferences(), 'web.enabled', true);
+  },
+  getWebServerPort: () => {
+    return get(getPreferences(), 'web.port', 43110);
   },
   hasLaunchedBefore: () => {
     return get(getPreferences(), 'onboarding.hasLaunchedBefore', false);

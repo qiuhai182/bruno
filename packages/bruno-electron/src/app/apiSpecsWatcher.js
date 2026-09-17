@@ -3,6 +3,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const chokidar = require('chokidar');
 const { getApiSpecUid } = require('../cache/apiSpecUids');
+const { readTextFileSync } = require('@usebruno/filestore');
 const { isDirectory } = require('../utils/filesystem');
 const { parseApiSpecContent, resolveExternalApiSpecRefs } = require('../utils/apiSpecs');
 
@@ -31,7 +32,7 @@ const add = async (win, pathname, refWatchState) => {
   try {
     const basename = path.basename(pathname);
     const file = {};
-    const raw = fs.readFileSync(pathname, 'utf8');
+    const raw = readTextFileSync(pathname).data;
     const extension = path.extname(pathname);
     const apiSpecContent = parseApiSpecContent(raw, extension);
     const { resolvedJson, refFilePaths } = await resolveExternalApiSpecRefs(apiSpecContent, pathname);
@@ -55,7 +56,7 @@ const change = async (win, pathname, refWatchState) => {
   try {
     const basename = path.basename(pathname);
     const file = {};
-    const raw = fs.readFileSync(pathname, 'utf8');
+    const raw = readTextFileSync(pathname).data;
     const extension = path.extname(pathname);
     const apiSpecContent = parseApiSpecContent(raw, extension);
     const { resolvedJson, refFilePaths } = await resolveExternalApiSpecRefs(apiSpecContent, pathname);

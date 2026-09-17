@@ -1,4 +1,5 @@
 const { isSensitiveName, REDACTED_VALUE } = require('../../ipc/ai/context');
+const { parseQueryParamsPreservingPlus } = require('../../utils/parse-query-params');
 
 const getJsonPathValue = (body, jsonPath) => {
   if (body === undefined || body === null) {
@@ -155,7 +156,20 @@ const evaluateRulesDetail = (rules, context) => {
   };
 };
 
-const buildRequestContext = (req) => {
+const parseFormBody = (req, body) => {
+  const contentType = String(req?.headers?.['content-type'] || '');
+  if (typeof body !== 'string' || !contentType.includes('application/x-www-form-urlencoded')) {
+    return {};
+  }
+
+  try {
+    return parseQueryParamsPreservingPlus(body);
+  } catch {
+    return {};
+  }
+};
+
+const buildRequestContext = (req, params = {}) => {
   const headers = {};
   for (const [name, value] of Object.entries(req.headers || {})) {
     headers[name.toLowerCase()] = Array.isArray(value) ? value.join(', ') : String(value);
@@ -164,11 +178,39 @@ const buildRequestContext = (req) => {
   return {
     headers,
     query: req.query || {},
-    body: req.body
+    body: req.body,
+    param: params || {},
+    form: parseFormBody(req, req.body)
   };
 };
 
-const evaluateResponseCandidates = (candidates, context) => {
+const passesResponseStrategy = (candidate, routeCounter, traceEntry) => {
+  const probability = Number(candidate?.probability);
+
+  if (!Number.isNaN(probability) && candidate?.probability !== undefined && candidate?.probability !== null) {
+    const hit = Math.random() * 100 < probability;
+    traceEntry.strategy = { ...(traceEntry.strategy || {}), probability: { value: probability, hit } };
+    if (!hit) {
+      return false;
+    }
+  }
+
+  const every = Number(candidate?.counter?.every);
+  if (every >= 1) {
+    const count = Number(routeCounter?.count) || 0;
+    const offset = Number(candidate?.counter?.offset) || 0;
+    const hit = ((count - 1 + offset) % every) === 0;
+    traceEntry.strategy = { ...(traceEntry.strategy || {}), counter: { every, offset, hit } };
+    if (!hit) {
+      return false;
+    }
+  }
+
+  return true;
+};
+
+const evaluateResponseCandidates = (candidates, context, options = {}) => {
+  const routeCounter = options?.routeCounter || null;
   const trace = {
     candidates: [],
     selectedResponseUid: null,
@@ -193,20 +235,36 @@ const evaluateResponseCandidates = (candidates, context) => {
 
   const specificMatches = evaluated.filter(({ ruleEval, isFallback }) => !isFallback && ruleEval.matched);
   const fallbackMatches = evaluated.filter(({ ruleEval, isFallback }) => isFallback && ruleEval.matched);
-  const selectedEntry = specificMatches[0] || fallbackMatches[0] || null;
 
-  for (const { candidate, ruleEval, isFallback } of evaluated) {
-    const isSelected = Boolean(selectedEntry && selectedEntry.candidate === candidate);
+  // Strategy layer (probability / counter) walks rule-matched candidates in
+  // order; the first candidate that passes its gates wins.
+  const pickWithStrategy = (entries) => {
+    for (const entry of entries) {
+      const traceEntry = trace.candidates.find((t) => t.candidate === entry.candidate);
+      if (passesResponseStrategy(entry.candidate, routeCounter, traceEntry)) {
+        return entry;
+      }
+    }
+    return null;
+  };
 
-    trace.candidates.push({
-      responseUid: candidate.responseUid || null,
-      responseName: candidate.responseName || candidate.exampleName || 'Mock Response',
-      matched: ruleEval.matched,
-      selected: isSelected,
-      isFallback,
-      ruleOperator: ruleEval.operator,
-      conditions: ruleEval.conditions
-    });
+  const evaluatedTraceEntries = evaluated.map(({ candidate, ruleEval, isFallback }) => ({
+    candidate,
+    responseUid: candidate.responseUid || null,
+    responseName: candidate.responseName || candidate.exampleName || 'Mock Response',
+    matched: ruleEval.matched,
+    selected: false,
+    isFallback,
+    ruleOperator: ruleEval.operator,
+    conditions: ruleEval.conditions,
+    strategy: null
+  }));
+  trace.candidates = evaluatedTraceEntries;
+
+  const selectedEntry = pickWithStrategy(specificMatches) || pickWithStrategy(fallbackMatches) || null;
+
+  for (const entry of evaluatedTraceEntries) {
+    entry.selected = Boolean(selectedEntry && selectedEntry.candidate === entry.candidate);
   }
 
   if (selectedEntry) {
@@ -216,7 +274,7 @@ const evaluateResponseCandidates = (candidates, context) => {
     return { selected: selectedEntry.candidate, trace };
   }
 
-  trace.failureReason = 'no_rule_match';
+  trace.failureReason = (specificMatches.length || fallbackMatches.length) ? 'strategy_no_hit' : 'no_rule_match';
   return { selected: null, trace };
 };
 

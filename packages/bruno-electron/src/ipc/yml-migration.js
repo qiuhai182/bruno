@@ -10,7 +10,9 @@ const {
   parseFolderViaWorker,
   stringifyFolderViaWorker,
   parseEnvironmentViaWorker,
-  stringifyEnvironmentViaWorker
+  stringifyEnvironmentViaWorker,
+  readTextFileSync,
+  readTextFile
 } = require('@usebruno/filestore');
 const { transformProxyConfig } = require('@usebruno/requests');
 const { getCollectionFormat, getCollectionStats, writeFile } = require('../utils/filesystem');
@@ -389,7 +391,7 @@ const migrateCollectionOnDisk = async ({
   try {
     let collectionRoot = {};
     if (fs.existsSync(collectionBruPath)) {
-      collectionRoot = parseCollection(fs.readFileSync(collectionBruPath, 'utf8'), { format: 'bru' });
+      collectionRoot = parseCollection(readTextFileSync(collectionBruPath).data, { format: 'bru' });
       stripBruExtInParsedScripts(collectionRoot);
     }
 
@@ -440,7 +442,7 @@ const migrateCollectionOnDisk = async ({
       }
 
       try {
-        const bruContent = await fs.promises.readFile(bruFilePath, 'utf8');
+        const bruContent = (await readTextFile(bruFilePath)).data;
 
         let ymlPath;
         let ymlContent;
@@ -565,7 +567,7 @@ const migrateCollectionToYml = async ({ mainWindow, watcher, collectionPathname,
     if (getCollectionFormat(collectionPathname) === 'yml') {
       throw new Error('Collection is already in YML format');
     }
-    brunoConfig = JSON.parse(fs.readFileSync(brunoJsonPath, 'utf8'));
+    brunoConfig = JSON.parse(readTextFileSync(brunoJsonPath).data);
   } catch (error) {
     try {
       await openCollection(mainWindow, watcher, collectionPathname);

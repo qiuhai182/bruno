@@ -36,6 +36,36 @@ const toBrunoRuleConditions = (conditions: MockRuleCondition[] | null | undefine
   }));
 };
 
+const toBrunoExtractRules = (extract: MockRouteEntry['extract']) => {
+  if (!Array.isArray(extract)) {
+    return undefined;
+  }
+
+  const rules = extract
+    .filter((rule) => isNonEmptyString(rule?.key) || isNonEmptyString(rule?.as))
+    .map((rule) => ({
+      source: (['query', 'header', 'body', 'param', 'form'] as string[]).includes(rule?.source as string)
+        ? rule.source
+        : 'query',
+      key: ensureString(rule?.key),
+      as: ensureString(rule?.as, ensureString(rule?.key))
+    }));
+
+  return rules.length ? rules : undefined;
+};
+
+const toBrunoCounter = (counter: MockRouteEntry['counter']) => {
+  const every = Number(counter?.every);
+  if (!every || every < 1) {
+    return undefined;
+  }
+
+  return {
+    every,
+    offset: Number(counter?.offset) || 0
+  };
+};
+
 const toBrunoMockRoute = (route: MockRouteEntry): BrunoMockRoute => {
   const responseStatus = Number(route?.response?.status) || 200;
   const responseStatusText = ensureString(route?.response?.statusText);
@@ -64,6 +94,30 @@ const toBrunoMockRoute = (route: MockRouteEntry): BrunoMockRoute => {
       conditions: toBrunoRuleConditions(route?.rules?.conditions)
     }
   };
+
+  const delay = Number(route?.delay);
+  if (delay > 0) {
+    brunoRoute.delay = delay;
+  }
+
+  const probability = Number(route?.probability);
+  if (probability >= 0 && probability <= 100) {
+    brunoRoute.probability = probability;
+  }
+
+  const counter = toBrunoCounter(route?.counter);
+  if (counter) {
+    brunoRoute.counter = counter;
+  }
+
+  if (route?.template === true) {
+    brunoRoute.template = true;
+  }
+
+  const extract = toBrunoExtractRules(route?.extract);
+  if (extract) {
+    brunoRoute.extract = extract;
+  }
 
   const rawExample = route?.copiedFrom?.example;
   const rawRequestPath = route?.copiedFrom?.requestPath;

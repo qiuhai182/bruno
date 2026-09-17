@@ -4,6 +4,7 @@ const { dialog, ipcMain } = require('electron');
 const { normalizeAndResolvePath } = require('../utils/filesystem');
 const { generateUidBasedOnHash } = require('../utils/common');
 const { parseApiSpecContent, resolveExternalApiSpecRefs } = require('../utils/apiSpecs');
+const { readTextFileSync } = require('@usebruno/filestore');
 const {
   addApiSpecToWorkspace,
   readWorkspaceConfig,
@@ -92,7 +93,7 @@ const openApiSpec = async (win, watcher, apiSpecPath, options = {}) => {
     if (!watcher.hasWatcher(apiSpecPath)) {
       ipcMain.emit('main:apispec-opened', win, apiSpecPath, uid, options.workspacePath);
     } else {
-      const rawContent = fs.readFileSync(apiSpecPath, 'utf8');
+      const rawContent = readTextFileSync(apiSpecPath).data;
       const extension = path.extname(apiSpecPath);
       const apiSpecContent = parseApiSpecContent(rawContent, extension);
       const { resolvedJson } = await resolveExternalApiSpecRefs(apiSpecContent, apiSpecPath);

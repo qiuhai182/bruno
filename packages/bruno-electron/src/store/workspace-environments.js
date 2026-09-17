@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
-const { parseEnvironment, stringifyEnvironment } = require('@usebruno/filestore');
+const { parseEnvironment, stringifyEnvironment, readTextFileSync } = require('@usebruno/filestore');
 const { parseValueByDataType } = require('@usebruno/common/utils');
 const { writeFile, createDirectory, withFileLock } = require('../utils/filesystem');
 const { renameEnvironmentExtendsReferences } = require('../utils/environments');
@@ -56,7 +56,7 @@ class GlobalEnvironmentsManager {
   }
 
   async parseEnvironmentFile(filePath, workspacePath) {
-    const content = fs.readFileSync(filePath, 'utf8');
+    const content = readTextFileSync(filePath).data;
     const environment = await parseEnvironment(content, { format: 'yml' });
 
     const fileName = path.basename(filePath);

@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { parseEnvironment, stringifyEnvironment } = require('@usebruno/filestore');
+const { parseEnvironment, stringifyEnvironment, readTextFileSync } = require('@usebruno/filestore');
 const { writeFile, withFileLock } = require('./filesystem');
 
 /**
@@ -21,7 +21,7 @@ const renameEnvironmentExtendsReferences = async ({ environmentsDirPath, format,
 
     try {
       await withFileLock(filePath, async () => {
-        const environment = parseEnvironment(fs.readFileSync(filePath, 'utf8'), { format });
+        const environment = parseEnvironment(readTextFileSync(filePath).data, { format });
 
         if (environment.extends !== oldName) {
           return;

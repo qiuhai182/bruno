@@ -24,6 +24,7 @@ import { mockResponseFromEditorItem } from 'utils/mock-server/mock-responses/edi
 import ResponseExampleResponsePane from 'components/ResponseExample/ResponseExampleResponsePane';
 import MockResponseTopBar from './MockResponseTopBar';
 import MockResponseRequestPane from './MockResponseRequestPane';
+import MockResponseBehavior from './MockResponseBehavior';
 import StyledWrapper from 'components/ResponseExample/StyledWrapper';
 
 const MIN_LEFT_PANE_WIDTH = 300;
@@ -431,6 +432,8 @@ const MockResponse = ({ instance, collection, responseUid }) => {
         onDelete={handleDelete}
         copiedFrom={editor.savedMockResponse?.copiedFrom}
       />
+
+      <MockResponseBehavior responseUid={responseUid} editMode={editMode} />
 
       <section ref={mainSectionRef} className={`main wrapper flex mt-4 ${isVerticalLayout ? 'flex-col' : ''} flex-grow pb-4 relative overflow-auto scrollbar-hover`}>
         <section className="request-pane" data-testid="mock-response-request-pane">

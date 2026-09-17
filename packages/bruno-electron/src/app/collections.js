@@ -5,7 +5,7 @@ const Yup = require('yup');
 const { isDirectory, getCollectionStats, normalizeAndResolvePath } = require('../utils/filesystem');
 const { generateUidBasedOnHash } = require('../utils/common');
 const { transformBrunoConfigAfterRead } = require('../utils/transformBrunoConfig');
-const { parseCollection } = require('@usebruno/filestore');
+const { parseCollection, readTextFileSync } = require('@usebruno/filestore');
 
 // Track scratch collection paths (temp directories for workspace scratch requests)
 const scratchCollectionPaths = new Set();
@@ -43,7 +43,7 @@ const configSchema = Yup.object({
 
 const readConfigFile = async (pathname) => {
   try {
-    const jsonData = fs.readFileSync(pathname, 'utf8');
+    const jsonData = readTextFileSync(pathname).data;
     return JSON.parse(jsonData);
   } catch (err) {
     return Promise.reject(new Error(`Unable to parse json in bruno.json in ${pathname}`));
@@ -63,7 +63,7 @@ const getCollectionConfigFile = async (pathname) => {
   const ocYmlPath = path.join(pathname, 'opencollection.yml');
   if (fs.existsSync(ocYmlPath)) {
     try {
-      const content = fs.readFileSync(ocYmlPath, 'utf8');
+      const content = readTextFileSync(ocYmlPath).data;
       const {
         brunoConfig
       } = parseCollection(content, { format: 'yml' });

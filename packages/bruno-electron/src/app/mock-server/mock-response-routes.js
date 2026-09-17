@@ -55,7 +55,12 @@ const buildRouteMapFromMockResponses = ({ mockServerUid, workspacePath }) => {
       responseName: mockResponse.name || 'Mock Response',
       sourceFile: 'mock-response',
       rules: mockResponse.rules || { operator: 'AND', conditions: [] },
-      response: normalizeMockResponseEntry(mockResponse.response)
+      response: normalizeMockResponseEntry(mockResponse.response),
+      delay: Number(mockResponse.delay) || 0,
+      probability: mockResponse.probability,
+      counter: mockResponse.counter,
+      template: mockResponse.template === true,
+      extract: mockResponse.extract || []
     });
   }
 

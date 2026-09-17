@@ -5,7 +5,7 @@ const chokidar = require('chokidar');
 const yaml = require('js-yaml');
 const { generateUidBasedOnHash, uuid } = require('../utils/common');
 const { getWorkspaceUid, normalizeWorkspaceConfig } = require('../utils/workspace-config');
-const { parseEnvironment } = require('@usebruno/filestore');
+const { parseEnvironment, readTextFileSync } = require('@usebruno/filestore');
 const { parseValueByDataType } = require('@usebruno/common/utils');
 const EnvironmentSecretsStore = require('../store/env-secrets');
 const { decryptStringSafe } = require('../utils/encryption');
@@ -35,7 +35,7 @@ const handleWorkspaceFileChange = (win, workspacePath) => {
       return;
     }
 
-    const yamlContent = fs.readFileSync(workspaceFilePath, 'utf8');
+    const yamlContent = readTextFileSync(workspaceFilePath).data;
     const rawConfig = yaml.load(yamlContent);
     const workspaceConfig = normalizeWorkspaceConfig(rawConfig);
 
@@ -69,7 +69,7 @@ const parseGlobalEnvironmentFile = async (pathname, workspacePath, workspaceUid)
     }
   };
 
-  const content = fs.readFileSync(pathname, 'utf8');
+  const content = readTextFileSync(pathname).data;
   file.data = await parseEnvironment(content, { format: 'yml' });
   file.data.name = environmentName;
   file.data.uid = generateUidBasedOnHash(pathname);

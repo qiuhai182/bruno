@@ -1,0 +1,141 @@
+name: nightly vsix build
+
+on:
+  workflow_dispatch:
+    inputs:
+      TAG_NAME:
+        description: 'Tag name for the release (default: v{version}-{today})'
+        required: false
+        default: ''
+      branch:
+        description: 'Branch to build from'
+        required: true
+        default: 'main'
+  schedule:
+    - cron: '30 16 * * 1-5'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    outputs:
+      tag_name: ${{ steps.set_tag_name.outputs.TAG_NAME }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.branch || 'main' }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      # make sure the package.json version is a valid semver and create a TAG_NAME variable (ex: v5.0.0-2025.04.11)
+      - name: Validate version and create TAG_NAME var
+        id: set_tag_name
+        shell: bash
+        run: |
+          VERSION=$(jq -r '.version' package.json)
+          if [[ ! "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+ ]]; then
+            echo "Invalid version: $VERSION"
+            exit 1
+          fi
+          INPUT_TAG_NAME="${{ github.event.inputs.TAG_NAME }}"
+          TODAY=$(date '+%Y.%m.%d')
+          if [ -z "$INPUT_TAG_NAME" ]; then
+            TAG_NAME="v${VERSION}-${TODAY}"
+          else
+            TAG_NAME="$INPUT_TAG_NAME"
+          fi
+          echo "TAG_NAME=$TAG_NAME"
+          echo "TAG_NAME=$TAG_NAME" >> $GITHUB_ENV
+          echo "TAG_NAME=$TAG_NAME" >> $GITHUB_OUTPUT
+
+      - name: Fetch dependencies
+        run: |
+          npm install --legacy-peer-deps
+
+      - name: Package VSIX
+        shell: bash
+        run: |
+          npm run package
+
+      - name: Rename VSIX with tag
+        shell: bash
+        run: |
+          VSIX_FILE=$(ls *.vsix)
+          EXTENSION_NAME=$(jq -r '.name' package.json)
+          mv "$VSIX_FILE" "${EXTENSION_NAME}-${TAG_NAME}.vsix"
+
+      - name: Upload VSIX artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: vsix-build
+          path: ./*.vsix
+          retention-days: 1
+
+  publish:
+    needs: [build]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+
+    steps:
+      - name: Check if tag_name is present
+        shell: bash
+        run: |
+          if [ -z "${{ needs.build.outputs.tag_name }}" ]; then
+            echo "TAG_NAME is not present"
+            exit 1
+          else
+            echo "TAG_NAME is present: ${{ needs.build.outputs.tag_name }}"
+          fi
+
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Download VSIX build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: vsix-build
+          path: ./builds/vsix
+
+      - name: Check if release with the same tag exists
+        id: check_release
+        shell: bash
+        run: |
+          TAG_NAME="${{ needs.build.outputs.tag_name }}"
+          RELEASE_EXISTS=$(gh release view "$TAG_NAME" --json tagName --jq '.tagName' || echo "not_found")
+          if [ "$RELEASE_EXISTS" != "not_found" ]; then
+            echo "Release with tag $TAG_NAME already exists. Skipping creation of the tag."
+            echo "release_exists=true" >> $GITHUB_ENV
+          else
+            echo "Release does not exist. It will be created."
+            echo "release_exists=false" >> $GITHUB_ENV
+          fi
+
+      - name: Create GitHub Release and Upload Artifacts
+        if: ${{ env.release_exists == 'false' }}
+        shell: bash
+        run: |
+          TAG_NAME="${{ needs.build.outputs.tag_name }}"
+          gh release create "$TAG_NAME" \
+            ./builds/vsix/*.vsix \
+            --title "$TAG_NAME" \
+            --notes "Nightly VSIX build for $TAG_NAME" \
+            --prerelease
+
+      - name: Replace Artifacts if Release Exists
+        if: ${{ env.release_exists == 'true' }}
+        shell: bash
+        run: |
+          TAG_NAME="${{ needs.build.outputs.tag_name }}"
+          gh release upload "$TAG_NAME" \
+            ./builds/vsix/*.vsix \
+            --clobber

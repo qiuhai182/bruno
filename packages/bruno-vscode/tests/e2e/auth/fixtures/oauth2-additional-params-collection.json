@@ -1,0 +1,104 @@
+{
+  "name": "OAuth2 Additional Params",
+  "version": "1",
+  "items": [
+    {
+      "type": "http",
+      "name": "Get Resource With Additional Params",
+      "filename": "get-resource-with-additional-params.bru",
+      "seq": 1,
+      "settings": {
+        "encodeUrl": true
+      },
+      "tags": [],
+      "request": {
+        "url": "http://127.0.0.1:8081/api/auth/oauth2/resource",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {
+          "req": [
+            {
+              "uid": "var1",
+              "name": "tokenUrl",
+              "value": "http://127.0.0.1:8081/api/auth/oauth2/client_credentials/token_with_audience",
+              "enabled": true,
+              "local": false
+            },
+            {
+              "uid": "var2",
+              "name": "myClientId",
+              "value": "test-client",
+              "enabled": true,
+              "local": false
+            },
+            {
+              "uid": "var3",
+              "name": "myClientSecret",
+              "value": "test-secret",
+              "enabled": true,
+              "local": false
+            },
+            {
+              "uid": "var4",
+              "name": "myAudience",
+              "value": "my-api",
+              "enabled": true,
+              "local": false
+            }
+          ],
+          "res": []
+        },
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "oauth2",
+          "oauth2": {
+            "grantType": "client_credentials",
+            "accessTokenUrl": "{{tokenUrl}}",
+            "clientId": "{{myClientId}}",
+            "clientSecret": "{{myClientSecret}}",
+            "scope": "",
+            "credentialsPlacement": "body",
+            "credentialsId": "credentials",
+            "tokenPlacement": "header",
+            "tokenHeaderPrefix": "Bearer",
+            "tokenQueryKey": "access_token",
+            "autoFetchToken": true,
+            "autoRefreshToken": false,
+            "additionalParameters": {
+              "authorization": [],
+              "token": [
+                {
+                  "name": "audience",
+                  "value": "{{myAudience}}",
+                  "sendIn": "body",
+                  "enabled": true
+                }
+              ],
+              "refresh": []
+            }
+          }
+        }
+      }
+    }
+  ],
+  "environments": [],
+  "brunoConfig": {
+    "version": "1",
+    "name": "OAuth2 Additional Params",
+    "type": "collection",
+    "ignore": [
+      "node_modules",
+      ".git"
+    ]
+  }
+}
