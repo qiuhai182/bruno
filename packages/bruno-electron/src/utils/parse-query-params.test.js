@@ -1,4 +1,4 @@
-const { parseQueryParamsPreservingPlus } = require('./parse-query-params');
+const { parseQueryParamsPreservingPlus, encodeQueryPlusSigns } = require('./parse-query-params');
 
 describe('parseQueryParamsPreservingPlus', () => {
   it('keeps literal plus signs as plus signs', () => {
@@ -34,5 +34,29 @@ describe('parseQueryParamsPreservingPlus', () => {
 
   it('decodes keys as well as values', () => {
     expect(parseQueryParamsPreservingPlus('na%2Bme=v%2B1')).toEqual({ 'na+me': 'v+1' });
+  });
+});
+
+describe('encodeQueryPlusSigns', () => {
+  it('encodes literal plus signs in the query as %2B', () => {
+    expect(encodeQueryPlusSigns('http://api.test/x?sign=ab+cd')).toBe('http://api.test/x?sign=ab%2Bcd');
+  });
+
+  it('encodes every plus sign after the ? but leaves the path alone', () => {
+    expect(encodeQueryPlusSigns('http://a+b.test/pa+th?x=1+2&y=3+4')).toBe('http://a+b.test/pa+th?x=1%2B2&y=3%2B4');
+  });
+
+  it('leaves URLs without a query untouched', () => {
+    expect(encodeQueryPlusSigns('http://api.test/pa+th')).toBe('http://api.test/pa+th');
+  });
+
+  it('does not double-encode existing %2B escapes', () => {
+    expect(encodeQueryPlusSigns('http://api.test/x?sign=ab%2Bcd')).toBe('http://api.test/x?sign=ab%2Bcd');
+  });
+
+  it('returns non-string input unchanged', () => {
+    expect(encodeQueryPlusSigns(null)).toBe(null);
+    expect(encodeQueryPlusSigns(undefined)).toBe(undefined);
+    expect(encodeQueryPlusSigns('')).toBe('');
   });
 });

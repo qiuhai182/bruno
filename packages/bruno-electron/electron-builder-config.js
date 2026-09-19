@@ -14,7 +14,7 @@ const config = {
       to: 'data/sample-collection.json'
     }
   ],
-  files: ['**/*'],
+  files: ['**/*', '!out/**', '!out-build*/**', '!dist/**'],
   afterSign: 'notarize.js',
   mac: {
     artifactName: '${name}_${version}_${arch}_${os}.${ext}',
@@ -55,15 +55,15 @@ const config = {
     target: [
       {
         target: 'AppImage',
-        arch: ['x64', 'arm64']
+        arch: ['x64']
       },
       {
         target: 'deb',
-        arch: ['x64', 'arm64']
+        arch: ['x64']
       },
       {
         target: 'rpm',
-        arch: ['x64', 'arm64']
+        arch: ['x64']
       }
     ],
     protocols: [
@@ -98,7 +98,11 @@ const config = {
     target: [
       {
         target: 'nsis',
-        arch: ['x64', 'arm64']
+        arch: ['x64']
+      },
+      {
+        target: 'portable',
+        arch: ['x64']
       }
     ],
     sign: null,

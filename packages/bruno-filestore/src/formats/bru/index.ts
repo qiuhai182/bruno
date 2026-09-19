@@ -8,10 +8,22 @@ import {
   jsonToCollectionBru as _jsonToCollectionBru
 } from '@usebruno/lang';
 import { getOauth2AdditionalParameters } from './utils/oauth2-additional-params';
+import { redactLargeBruTextBlocks, restoreRedactedBlocks } from './utils/redact-large-text-blocks';
+
+// ohm-js parsing memory grows superlinearly with input size (a params-heavy file can
+// exhaust the heap), so large request files are parsed via redaction: large blocks are
+// replaced with placeholders, the small skeleton is parsed, then blocks are restored.
+const LARGE_REQUEST_PARSE_THRESHOLD = 512 * 1024;
 
 export const parseBruRequest = (data: string | any, parsed: boolean = false): any => {
   try {
-    const json = parsed ? data : bruToJsonV2(data);
+    let json: any;
+    if (!parsed && typeof data === 'string' && data.length > LARGE_REQUEST_PARSE_THRESHOLD) {
+      const { skeleton, blocks } = redactLargeBruTextBlocks(data);
+      json = restoreRedactedBlocks(bruToJsonV2(skeleton), blocks);
+    } else {
+      json = parsed ? data : bruToJsonV2(data);
+    }
 
     if (_.get(json, 'meta.type') === 'app') {
       const seq = _.get(json, 'meta.seq');

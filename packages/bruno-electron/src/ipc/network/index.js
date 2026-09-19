@@ -12,6 +12,7 @@ const { each, get, extend, cloneDeep, merge } = require('lodash');
 const { NtlmClient } = require('axios-ntlm');
 const { VarsRuntime, AssertRuntime, ScriptRuntime, TestRuntime, formatErrorWithContextV2 } = require('@usebruno/js');
 const { encodeUrl, hasExplicitScheme, DEFAULT_MAX_REDIRECTS } = require('@usebruno/common').utils;
+const { encodeQueryPlusSigns } = require('../../utils/parse-query-params');
 const { extractPromptVariables } = require('@usebruno/common').utils;
 const { interpolateString } = require('./interpolate-string');
 const { resolveAwsV4Credentials, addAwsV4Interceptor } = require('./awsv4auth-helper');
@@ -632,6 +633,10 @@ const registerNetworkIpc = (mainWindow) => {
     if (request.settings?.encodeUrl) {
       request.url = encodeUrl(request.url);
     }
+
+    // Literal '+' in the query must ride the wire as '%2B' so servers that
+    // decode '+' as a space still receive the plus sign as data.
+    request.url = encodeQueryPlusSigns(request.url);
 
     // if this is a graphql request, parse the variables, only after interpolation
     // https://github.com/usebruno/bruno/issues/884

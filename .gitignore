@@ -80,3 +80,6 @@ packages/bruno-converters/dist
 .trae/
 output/
 
+# packaging build outputs
+packages/bruno-electron/out-build*/
+
