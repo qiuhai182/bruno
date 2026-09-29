@@ -9,11 +9,13 @@ import ToggleSwitch from 'components/ToggleSwitch';
 import ActionIcon from 'ui/ActionIcon';
 import StyledWrapper from './StyledWrapper';
 import { formatSize } from 'utils/common';
+import { useTranslation } from 'react-i18next';
 
 const Cache = () => {
   const preferences = useSelector((state) => state.app.preferences);
   const dispatch = useDispatch();
   const { theme } = useTheme();
+  const { t } = useTranslation();
   const { ipcRenderer } = window;
 
   const fileCacheEnabled = get(preferences, 'cache.file.enabled', false);
@@ -35,7 +37,7 @@ const Cache = () => {
 
   const persist = (next) => {
     dispatch(savePreferences({ ...preferences, cache: next })).catch(() => {
-      toast.error('Failed to update cache preferences');
+      toast.error(t('preferences.cache.updateFailed'));
     });
   };
 
@@ -63,25 +65,25 @@ const Cache = () => {
       .invoke('renderer:clear-file-cache')
       .then((size) => {
         setFileCacheSize(size);
-        toast.success('File cache cleared');
+        toast.success(t('preferences.cache.fileCacheCleared'));
       })
-      .catch(() => toast.error('Failed to clear file cache'));
+      .catch(() => toast.error(t('preferences.cache.fileCacheClearFailed')));
   };
 
   const handleClearSslSession = () => {
     dispatch(clearHttpHttpsAgentCache())
-      .then(() => toast.success('SSL session cache cleared'))
-      .catch(() => toast.error('Failed to clear SSL session cache'));
+      .then(() => toast.success(t('preferences.cache.sslSessionCleared')))
+      .catch(() => toast.error(t('preferences.cache.sslSessionClearFailed')));
   };
 
   return (
     <StyledWrapper className="w-full">
-      <div className="cache-section-title">Cache</div>
+      <div className="cache-section-title">{t('preferences.cache.title')}</div>
 
       <div className="cache-item">
         <div className="cache-item-header">
           <div className="cache-item-title-group">
-            <span className="cache-item-title">File cache</span>
+            <span className="cache-item-title">{t('preferences.cache.fileCache')}</span>
             <span className="beta-badge">Beta</span>
           </div>
           <ToggleSwitch
@@ -95,15 +97,14 @@ const Cache = () => {
         <div className="cache-item-body">
           <div className="cache-item-body-text">
             <p className="cache-item-description">
-              Loads your workspace faster by caching opened collections. Bruno refreshes the cache when your collection
-              changes. Clearing it won't affect your original files.
+              {t('preferences.cache.fileCacheDescription')}
             </p>
             <p className="cache-item-size">
-              Cache size <strong>{fileCacheSize == null ? '—' : formatSize(fileCacheSize)}</strong>
+              {t('preferences.cache.cacheSize')} <strong>{fileCacheSize == null ? '—' : formatSize(fileCacheSize)}</strong>
             </p>
           </div>
           <ActionIcon
-            label="Clear cache"
+            label={t('preferences.cache.clearCache')}
             onClick={handleClearFileCache}
             disabled={!fileCacheSize}
             colorOnHover={theme.colors.text.danger}
@@ -116,7 +117,7 @@ const Cache = () => {
       <div className="cache-item">
         <div className="cache-item-header">
           <div className="cache-item-title-group">
-            <span className="cache-item-title">SSL session cache</span>
+            <span className="cache-item-title">{t('preferences.cache.sslSessionCache')}</span>
           </div>
           <ToggleSwitch
             data-testid="sslSession.enabled"
@@ -129,12 +130,11 @@ const Cache = () => {
         <div className="cache-item-body">
           <div className="cache-item-body-text">
             <p className="cache-item-description">
-              Reuses TLS sessions and connections across requests for faster handshakes. Disable to create a fresh
-              connection for every request.
+              {t('preferences.cache.sslSessionDescription')}
             </p>
           </div>
           <ActionIcon
-            label="Clear cache"
+            label={t('preferences.cache.clearCache')}
             onClick={handleClearSslSession}
             colorOnHover={theme.colors.text.danger}
           >

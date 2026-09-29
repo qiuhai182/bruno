@@ -3,6 +3,7 @@ import { rgba } from 'polished';
 import { useTheme } from 'providers/Theme';
 import themes, { getLightThemes, getDarkThemes } from 'themes/index';
 import { IconBrightnessUp, IconMoon, IconDeviceDesktop } from '@tabler/icons';
+import { useTranslation } from 'react-i18next';
 import StyledWrapper from './StyledWrapper';
 
 const ThemePreview = ({ themeId, isDark }) => {
@@ -36,6 +37,7 @@ const ThemeVariantCard = ({ theme, isSelected, onClick }) => {
 };
 
 const Themes = () => {
+  const { t } = useTranslation();
   const {
     storedTheme,
     setStoredTheme,
@@ -49,9 +51,9 @@ const Themes = () => {
   const darkThemes = getDarkThemes();
 
   const themeModes = [
-    { key: 'light', label: 'Light', icon: IconBrightnessUp },
-    { key: 'dark', label: 'Dark', icon: IconMoon },
-    { key: 'system', label: 'System', icon: IconDeviceDesktop }
+    { key: 'light', label: t('preferences.themes.light'), icon: IconBrightnessUp },
+    { key: 'dark', label: t('preferences.themes.dark'), icon: IconMoon },
+    { key: 'system', label: t('preferences.themes.system'), icon: IconDeviceDesktop }
   ];
 
   const handleModeChange = (mode) => {
@@ -78,7 +80,7 @@ const Themes = () => {
     <StyledWrapper>
       <div className="flex flex-col gap-4 w-full appearance-container">
         <div>
-          <div className="section-header">Appearance</div>
+          <div className="section-header">{t('preferences.themes.appearance')}</div>
         </div>
 
         <div className="flex gap-3 theme-mode-selector justify-start">
@@ -105,21 +107,21 @@ const Themes = () => {
 
         {storedTheme === 'light' && (
           <>
-            {renderThemeVariants(lightThemes, themeVariantLight, setThemeVariantLight, 'Light Theme')}
+            {renderThemeVariants(lightThemes, themeVariantLight, setThemeVariantLight, t('preferences.themes.lightTheme'))}
           </>
         )}
 
         {storedTheme === 'dark' && (
           <>
-            {renderThemeVariants(darkThemes, themeVariantDark, setThemeVariantDark, 'Dark Theme')}
+            {renderThemeVariants(darkThemes, themeVariantDark, setThemeVariantDark, t('preferences.themes.darkTheme'))}
           </>
         )}
 
         {storedTheme === 'system' && (
           <>
-            {renderThemeVariants(lightThemes, themeVariantLight, setThemeVariantLight, 'Light Theme')}
+            {renderThemeVariants(lightThemes, themeVariantLight, setThemeVariantLight, t('preferences.themes.lightTheme'))}
             <div className="section-divider" />
-            {renderThemeVariants(darkThemes, themeVariantDark, setThemeVariantDark, 'Dark Theme')}
+            {renderThemeVariants(darkThemes, themeVariantDark, setThemeVariantDark, t('preferences.themes.darkTheme'))}
           </>
         )}
       </div>

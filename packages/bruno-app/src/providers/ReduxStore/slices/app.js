@@ -58,7 +58,8 @@ const initialState = {
       codeFont: 'default'
     },
     general: {
-      defaultLocation: ''
+      defaultLocation: '',
+      language: 'zh-CN'
     },
     onboarding: {
       hasLaunchedBefore: false,
@@ -385,6 +386,23 @@ export const hydrateSidebarState = () => async (dispatch) => {
   } catch (error) {
     console.error('Failed to hydrate snapshot:', error);
   }
+};
+
+// Preferences open as a tab scoped to the active collection (if any); both the
+// `main:open-preferences` IPC listener and the Sidebar settings entry share this
+// so the same tab is reused instead of opening a second one.
+export const getPreferencesTabInfo = (state) => {
+  const activeWorkspaceUid = state.workspaces?.activeWorkspaceUid;
+  const workspaces = state.workspaces?.workspaces;
+  const tabs = state.tabs?.tabs;
+  const activeTabUid = state.tabs?.activeTabUid;
+  const activeTab = tabs?.find((tab) => tab.uid === activeTabUid);
+  const activeWorkspace = workspaces?.find((workspace) => workspace.uid === activeWorkspaceUid);
+  const collectionUid = activeTab?.collectionUid || activeWorkspace?.scratchCollectionUid;
+  return {
+    uid: collectionUid ? `${collectionUid}-preferences` : 'preferences',
+    collectionUid
+  };
 };
 
 export const savePreferences = (preferences) => (dispatch, getState) => {

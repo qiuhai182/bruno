@@ -6,7 +6,8 @@ const config = {
   electronVersion: '37.6.1',
   directories: {
     buildResources: 'resources',
-    output: 'out'
+    // Overridable to dodge IDE file locks on the default `out` directory (set BRUNO_BUILDER_OUT per build).
+    output: process.env.BRUNO_BUILDER_OUT || 'out'
   },
   extraResources: [
     {
@@ -92,6 +93,9 @@ const config = {
       'libasound2' // #1036
     ]
   },
+  // Disable publish auto-detection from the `repository` field; local builds
+  // have no GH_TOKEN and should never attempt a GitHub release upload.
+  publish: null,
   win: {
     artifactName: '${name}_${version}_${arch}_win.${ext}',
     icon: 'resources/icons/win/icon.ico',
@@ -109,12 +113,17 @@ const config = {
     publisherName: 'Bruno Software Inc'
   },
   nsis: {
+    // Distinct names so nsis and portable don't overwrite each other (both emit .exe).
+    artifactName: '${name}_${version}_${arch}_win_setup.${ext}',
     include: 'resources/installer.nsh',
     oneClick: false,
     allowToChangeInstallationDirectory: true,
     allowElevation: true,
     createDesktopShortcut: true,
     createStartMenuShortcut: true
+  },
+  portable: {
+    artifactName: '${name}_${version}_${arch}_win_portable.${ext}'
   },
   pkg: {
     installLocation: '/Applications',

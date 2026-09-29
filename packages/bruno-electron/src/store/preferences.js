@@ -64,7 +64,8 @@ const defaultPreferences = {
   },
   general: {
     defaultLocation: '',
-    defaultWorkspacePath: ''
+    defaultWorkspacePath: '',
+    language: 'zh-CN'
   },
   autoSave: {
     enabled: false,
@@ -193,7 +194,8 @@ const preferencesSchema = Yup.object().shape({
   }),
   general: Yup.object({
     defaultLocation: Yup.string().max(1024).nullable(),
-    defaultWorkspacePath: Yup.string().max(1024).nullable()
+    defaultWorkspacePath: Yup.string().max(1024).nullable(),
+    language: Yup.string().oneOf(['zh-CN', 'en']).nullable()
   }),
   autoSave: Yup.object({
     enabled: Yup.boolean(),
@@ -339,7 +341,7 @@ class PreferencesStore {
         this.store.set('preferences', preferences);
       }
 
-      // Migrate intermediate format: inherit boolean → source string
+      // Migrate intermediate format: inherit boolean — source string
       if (!hasOldFormat && proxy.hasOwnProperty('inherit')) {
         if (proxy.inherit === true) {
           preferences.proxy.source = 'inherit';

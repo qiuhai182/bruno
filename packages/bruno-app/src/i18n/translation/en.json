@@ -1,34 +1,325 @@
 {
-    "COMMON": {
-        "COLLECTIONS": "Collections",
-        "DOCUMENTATION": "Documentation",
-        "REPORT_ISSUES": "Report Issues",
-        "GITHUB": "GitHub",
-        "DISCORD": "Discord",
-        "TWITTER": "Twitter",
-        "LINKEDIN": "LinkedIn"
+  "COMMON": {
+    "COLLECTIONS": "Collections",
+    "DOCUMENTATION": "Documentation",
+    "REPORT_ISSUES": "Report Issues",
+    "GITHUB": "GitHub",
+    "DISCORD": "Discord",
+    "TWITTER": "Twitter",
+    "LINKEDIN": "LinkedIn"
+  },
+  "WELCOME": {
+    "ABOUT_BRUNO": "Opensource IDE for exploring and testing APIs",
+    "LINKS": "Links",
+    "CREATE_COLLECTION": "Create Collection",
+    "OPEN_COLLECTION": "Open Collection",
+    "IMPORT_COLLECTION": "Import Collection",
+    "COLLECTION_IMPORT_SUCCESS": "Collection imported successfully",
+    "COLLECTION_IMPORT_ERROR": "An error occurred while importing the collection. Check the logs for more information.",
+    "COLLECTION_OPEN_ERROR": "An error occurred while opening the collection",
+    "GLOBAL_SEARCH_TIP_PART1": "Press",
+    "GLOBAL_SEARCH_TIP_PART2": "(mac) or",
+    "GLOBAL_SEARCH_TIP_PART3": "(windows) anytime to quickly search collections, folders, and requests"
+  },
+  "SUPPORT": {
+    "HELP": "Help",
+    "COMMUNITY": "Community",
+    "DOCUMENTATION_DESCRIPTION": "Guides, references and examples",
+    "REPORT_ISSUES_DESCRIPTION": "File a bug or request a feature",
+    "DISCORD_DESCRIPTION": "Ask questions, talk to the team",
+    "GITHUB_DESCRIPTION": "Source, releases and discussions",
+    "TWITTER_DESCRIPTION": "Release notes and announcements",
+    "LINKEDIN_DESCRIPTION": "Company news and updates"
+  },
+  "app": {
+    "sidebar": {
+      "settings": "Settings"
     },
-    "WELCOME": {
-        "ABOUT_BRUNO": "Opensource IDE for exploring and testing APIs",
-        "LINKS": "Links",
-        "CREATE_COLLECTION": "Create Collection",
-        "OPEN_COLLECTION": "Open Collection",
-        "IMPORT_COLLECTION": "Import Collection",
-        "COLLECTION_IMPORT_SUCCESS": "Collection imported successfully",
-        "COLLECTION_IMPORT_ERROR": "An error occurred while importing the collection. Check the logs for more information.",
-        "COLLECTION_OPEN_ERROR": "An error occurred while opening the collection",
-        "GLOBAL_SEARCH_TIP_PART1": "Press",
-        "GLOBAL_SEARCH_TIP_PART2": "(mac) or",
-        "GLOBAL_SEARCH_TIP_PART3": "(windows) anytime to quickly search collections, folders, and requests"
+    "titleBar": {
+      "preferences": "Preferences",
+      "showSidebar": "Show sidebar",
+      "hideSidebar": "Hide sidebar",
+      "showDevtools": "Show devtools",
+      "hideDevtools": "Hide devtools"
     },
-    "SUPPORT": {
-        "HELP": "Help",
-        "COMMUNITY": "Community",
-        "DOCUMENTATION_DESCRIPTION": "Guides, references and examples",
-        "REPORT_ISSUES_DESCRIPTION": "File a bug or request a feature",
-        "DISCORD_DESCRIPTION": "Ask questions, talk to the team",
-        "GITHUB_DESCRIPTION": "Source, releases and discussions",
-        "TWITTER_DESCRIPTION": "Release notes and announcements",
-        "LINKEDIN_DESCRIPTION": "Company news and updates"
+    "menu": {
+      "menuButton": "Menu",
+      "file": {
+        "title": "File",
+        "openCollection": "Open Collection",
+        "preferences": "Preferences",
+        "quit": "Quit"
+      },
+      "edit": {
+        "title": "Edit",
+        "undo": "Undo",
+        "redo": "Redo",
+        "cut": "Cut",
+        "copy": "Copy",
+        "paste": "Paste",
+        "selectAll": "Select All"
+      },
+      "view": {
+        "title": "View",
+        "developerTools": "Developer Tools",
+        "resetZoom": "Reset Zoom",
+        "zoomIn": "Zoom In",
+        "zoomOut": "Zoom Out",
+        "fullScreen": "Full Screen"
+      },
+      "help": {
+        "title": "Help",
+        "about": "About Bruno",
+        "documentation": "Documentation"
+      }
     }
+  },
+  "common": {
+    "cancel": "Cancel",
+    "save": "Save",
+    "saveAll": "Save All",
+    "delete": "Delete",
+    "close": "Close",
+    "confirm": "Confirm"
+  },
+  "preferences": {
+    "saveFailed": "Failed to update preferences",
+    "tabs": {
+      "general": "General",
+      "themes": "Themes",
+      "display": "Display",
+      "proxy": "Proxy",
+      "clientCert": "Client Certificates",
+      "keybindings": "Keybindings",
+      "ai": "AI",
+      "cache": "Cache",
+      "support": "Support",
+      "beta": "Beta"
+    },
+    "general": {
+      "title": "General Settings",
+      "language": "Language",
+      "sslVerification": "SSL/TLS Certificate Verification",
+      "useCustomCaCertificate": "Use Custom CA Certificate",
+      "selectFile": "Select File",
+      "keepDefaultCaCertificates": "Keep Default CA Certificates",
+      "storeCookies": "Store Cookies automatically",
+      "sendCookies": "Send Cookies automatically",
+      "useSystemBrowserOauth2": "Use System Browser for OAuth2 Authorization",
+      "requestTimeout": "Request Timeout (in ms)",
+      "timeoutMustBeNumber": "Request Timeout must be a number",
+      "timeoutMustBeNonNegative": "Request Timeout must be equal or greater than 0",
+      "enableAutoSave": "Enable Auto Save",
+      "saveDelay": "Save Delay (in ms)",
+      "saveDelayMustBeNumber": "Save Delay must be a number",
+      "saveDelayMustBeAtLeast500": "Save Delay must be at least 500ms",
+      "saveDelayRequired": "Save Delay is required when Auto Save is enabled",
+      "trayResident": "Keep app running in the tray when the window is closed",
+      "webClientEnabled": "Enable browser web client (127.0.0.1)",
+      "webServerPort": "Web Server Port",
+      "portMustBeNumber": "Web Server Port must be a number",
+      "portMustBeValid": "Web Server Port must be between 1 and 65535",
+      "defaultLocation": "Default Location",
+      "defaultLocationHint": "Used as the default location for new workspaces and collections",
+      "clickToBrowse": "Click to browse for default location",
+      "browse": "Browse"
+    },
+    "themes": {
+      "appearance": "Appearance",
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System",
+      "lightTheme": "Light Theme",
+      "darkTheme": "Dark Theme"
+    },
+    "display": {
+      "title": "Display",
+      "codeEditorFont": "Code Editor Font",
+      "fontSize": "Font Size",
+      "interfaceZoom": "Interface Zoom"
+    },
+    "proxy": {
+      "title": "Proxy Settings",
+      "mode": "Mode",
+      "off": "Off",
+      "on": "On",
+      "systemProxy": "System Proxy",
+      "protocol": "Protocol",
+      "hostname": "Hostname",
+      "port": "Port",
+      "auth": "Auth",
+      "username": "Username",
+      "password": "Password",
+      "proxyBypass": "Proxy Bypass",
+      "selectFile": "Select File",
+      "pacUrlHint": "Enter the URL to your PAC file",
+      "pacFileHint": "Supports .pac files for automatic proxy configuration",
+      "refetch": "Refetch",
+      "pacUrlError": "Specify a valid PAC URL",
+      "portRangeError": "Specify port between 1 and 65535",
+      "pacCacheRefreshed": "PAC cache refreshed",
+      "pacCacheRefreshFailed": "Failed to refresh PAC cache",
+      "filePickerFailed": "Failed to open file picker",
+      "system": {
+        "title": "System Proxy",
+        "description": "Below values are sourced from your system proxy settings.",
+        "errorLoading": "Error loading system proxy settings: {{error}}",
+        "proxySource": "Proxy source:",
+        "infoText": "These values cannot be directly updated in Bruno. Please refer to your OS documentation to update these.",
+        "refresh": "Refresh",
+        "lastRefreshed": "Last refreshed: {{time}}"
+      }
+    },
+    "clientCert": {
+      "title": "Client Certificates",
+      "description": "Add client certificates to be used for specific domains.",
+      "emptyTitle": "No client certificates",
+      "emptyText": "Certificates added here are sent automatically with requests to their matching domains.",
+      "addCertificate": "Add Certificate",
+      "enableCertificate": "Enable certificate",
+      "disableCertificate": "Disable certificate",
+      "removeCertificate": "Remove certificate",
+      "removeFile": "Remove file",
+      "chooseFile": "Choose file",
+      "host": "Host",
+      "pfxFile": "PFX File",
+      "certFile": "Cert File",
+      "keyFile": "Key File",
+      "passphrase": "Passphrase",
+      "hidePassphrase": "Hide passphrase",
+      "showPassphrase": "Show passphrase",
+      "addModalTitle": "Add Client Certificate",
+      "addConfirm": "Add",
+      "addModalHint": "The certificate and key files are stored as absolute paths and apply to every collection.",
+      "domain": "Domain",
+      "domainRequired": "Domain is required",
+      "type": "Type",
+      "certAndKey": "Cert & Key",
+      "certFileField": "Cert file",
+      "keyFileField": "Key file",
+      "pfxFileField": "PFX file",
+      "certFilePathRequired": "Please select a certificate file",
+      "keyFilePathRequired": "Please select a key file",
+      "pfxFilePathRequired": "Please select a PFX file"
+    },
+    "cache": {
+      "title": "Cache",
+      "fileCache": "File cache",
+      "fileCacheDescription": "Loads your workspace faster by caching opened collections. Bruno refreshes the cache when your collection changes. Clearing it won't affect your original files.",
+      "cacheSize": "Cache size",
+      "clearCache": "Clear cache",
+      "fileCacheCleared": "File cache cleared",
+      "fileCacheClearFailed": "Failed to clear file cache",
+      "sslSessionCache": "SSL session cache",
+      "sslSessionDescription": "Reuses TLS sessions and connections across requests for faster handshakes. Disable to create a fresh connection for every request.",
+      "sslSessionCleared": "SSL session cache cleared",
+      "sslSessionClearFailed": "Failed to clear SSL session cache",
+      "updateFailed": "Failed to update cache preferences"
+    },
+    "beta": {
+      "title": "Beta Features",
+      "description": "Beta features are experimental previews that may change before full release. Try them and share feedback.",
+      "viewDocs": "View docs",
+      "noFeatures": "No beta features are currently available",
+      "updateFailed": "Failed to update beta preferences",
+      "features": {
+        "ai-assistant": {
+          "label": "AI Assistant",
+          "description": "Generate scripts, tests, and documentation directly from the request tab. Includes contextual chat, scripting autocomplete, and support for OpenAI, Anthropic, and OpenAI-compatible providers using your own API key.",
+          "action": "Go to AI settings"
+        },
+        "file-cache": {
+          "label": "File cache",
+          "description": "Speeds up how quickly your collections open by keeping a local cache on disk. Turn it on or clear it anytime from the Cache settings.",
+          "action": "Go to Cache settings"
+        },
+        "akamai-edgegrid": {
+          "label": "Akamai EdgeGrid",
+          "description": "Sign requests with the Akamai EdgeGrid authentication scheme. Select it from the Auth type dropdown on any request, folder, or collection."
+        },
+        "mock-server": {
+          "label": "Mock Server",
+          "description": "Run a local mock server using response examples defined in your collection. Serve mock API responses for frontend development without a real backend."
+        },
+        "grpc-scripting": {
+          "label": "gRPC Scripting",
+          "description": "Write scripts for gRPC requests. Inspect messages, metadata, and status across the call lifecycle."
+        }
+      }
+    },
+    "ai": {
+      "ariaLabel": "AI preferences",
+      "statusLoadFailed": "Failed to load AI status",
+      "saveFailed": "Failed to save AI preferences",
+      "tabConfig": "Configuration",
+      "tabAutocomplete": "Autocomplete",
+      "tabSecurity": "Security",
+      "aiFeatures": "AI Features",
+      "aiFeaturesSummary": "Turn on to configure providers and models. Your keys stay local.",
+      "disabledNotice": "Bring your own API key. Bruno talks to providers directly, your keys never leave your machine.",
+      "providers": "Providers",
+      "compatEndpoints": "OpenAI-Compatible Endpoints",
+      "addEndpoint": "Add endpoint",
+      "compatEmptyNotice": "Point Bruno at any OpenAI-compatible API — Ollama, LM Studio, Together, Groq, OpenRouter, vLLM, and more."
+    },
+    "keybindings": {
+      "title": "Keybindings",
+      "resetDefault": "Reset Default",
+      "resetSuccess": "All shortcuts have been reset to default",
+      "commandColumn": "Command",
+      "keybindingColumn": "Keybinding",
+      "noBindings": "No key bindings available",
+      "resetToDefault": "Reset to default",
+      "customizeKeys": "Customize keys",
+      "reservedShortcut": "Reserved shortcut",
+      "errors": {
+        "empty": "Shortcut can't be empty.",
+        "onlyModifiers": "Add a non-modifier key (e.g. Ctrl + K).",
+        "missingRequiredModMac": "macOS shortcuts must include at least one modifier (command/alt/shift/ctrl).",
+        "missingRequiredModWindows": "Windows shortcuts must include at least one modifier (ctrl/alt/shift).",
+        "multipleNonModifiers": "Only one non-modifier key allowed (e.g. Cmd + Shift + K).",
+        "reserved": "This shortcut is reserved by the OS.",
+        "duplicate": "This shortcut is already in use."
+      }
+    }
+  },
+  "dialogs": {
+    "unsavedChangesTitle": "Unsaved changes",
+    "saveAndClose": "Save and Close",
+    "closeWithoutSaving": "Close without saving",
+    "holdOn": "Hold on..",
+    "dontSave": "Don't Save",
+    "unsavedChangesIn": "You have unsaved changes in",
+    "itemType": {
+      "request": "request",
+      "example": "example"
+    },
+    "collectionSettingsSuffix": "collection settings.",
+    "folderSettingsSuffix": "folder settings.",
+    "switchEnv": {
+      "body": "You have unsaved changes in this environment."
+    },
+    "deleteCollection": {
+      "title": "Delete Collection",
+      "bodyPrefix": "Are you sure you want to permanently delete",
+      "warning": "This action cannot be undone. The collection files will be permanently deleted from disk.",
+      "typePrefix": "Type",
+      "toConfirm": "to confirm",
+      "notFound": "Collection or workspace not found",
+      "deleted": "Deleted \"{{name}}\" collection",
+      "deleteError": "An error occurred while deleting the collection"
+    },
+    "saveRequests": {
+      "body": "Do you want to save the changes you made to the following {{count}} item(s)?",
+      "type": {
+        "collection": "Collection: ",
+        "folder": "Folder: ",
+        "collectionEnvironment": "Collection Environment: ",
+        "globalEnvironment": "Global Environment: ",
+        "app": "App: ",
+        "request": "Request: "
+      },
+      "additional": "...{{count}} additional item(s) not shown"
+    }
+  }
 }

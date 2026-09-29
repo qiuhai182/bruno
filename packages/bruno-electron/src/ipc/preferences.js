@@ -54,6 +54,8 @@ const registerPreferencesIpc = (mainWindow) => {
   ipcMain.handle('renderer:save-preferences', async (event, preferences) => {
     try {
       await savePreferences(preferences);
+      // Tray labels follow the language preference, rebuild on every save.
+      ipcMain.emit('main:tray-rebuild');
     } catch (error) {
       return Promise.reject(error);
     }

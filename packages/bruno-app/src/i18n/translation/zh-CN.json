@@ -1,0 +1,325 @@
+{
+  "COMMON": {
+    "COLLECTIONS": "集合",
+    "DOCUMENTATION": "文档",
+    "REPORT_ISSUES": "报告问题",
+    "GITHUB": "GitHub",
+    "DISCORD": "Discord",
+    "TWITTER": "Twitter",
+    "LINKEDIN": "LinkedIn"
+  },
+  "WELCOME": {
+    "ABOUT_BRUNO": "用于探索和测试 API 的开源 IDE",
+    "LINKS": "链接",
+    "CREATE_COLLECTION": "创建集合",
+    "OPEN_COLLECTION": "打开集合",
+    "IMPORT_COLLECTION": "导入集合",
+    "COLLECTION_IMPORT_SUCCESS": "集合导入成功",
+    "COLLECTION_IMPORT_ERROR": "导入集合时发生错误。请查看日志了解详情。",
+    "COLLECTION_OPEN_ERROR": "打开集合时发生错误",
+    "GLOBAL_SEARCH_TIP_PART1": "随时按下",
+    "GLOBAL_SEARCH_TIP_PART2": "（mac）或",
+    "GLOBAL_SEARCH_TIP_PART3": "（windows）快速搜索集合、文件夹和请求"
+  },
+  "SUPPORT": {
+    "HELP": "帮助",
+    "COMMUNITY": "社区",
+    "DOCUMENTATION_DESCRIPTION": "指南、参考和示例",
+    "REPORT_ISSUES_DESCRIPTION": "提交缺陷或功能请求",
+    "DISCORD_DESCRIPTION": "提问交流，与团队对话",
+    "GITHUB_DESCRIPTION": "源码、发布与讨论",
+    "TWITTER_DESCRIPTION": "发布说明与公告",
+    "LINKEDIN_DESCRIPTION": "公司动态与更新"
+  },
+  "app": {
+    "sidebar": {
+      "settings": "设置"
+    },
+    "titleBar": {
+      "preferences": "偏好设置",
+      "showSidebar": "显示侧边栏",
+      "hideSidebar": "隐藏侧边栏",
+      "showDevtools": "显示开发者工具",
+      "hideDevtools": "隐藏开发者工具"
+    },
+    "menu": {
+      "menuButton": "菜单",
+      "file": {
+        "title": "文件",
+        "openCollection": "打开集合",
+        "preferences": "偏好设置",
+        "quit": "退出"
+      },
+      "edit": {
+        "title": "编辑",
+        "undo": "撤销",
+        "redo": "重做",
+        "cut": "剪切",
+        "copy": "复制",
+        "paste": "粘贴",
+        "selectAll": "全选"
+      },
+      "view": {
+        "title": "视图",
+        "developerTools": "开发者工具",
+        "resetZoom": "重置缩放",
+        "zoomIn": "放大",
+        "zoomOut": "缩小",
+        "fullScreen": "全屏"
+      },
+      "help": {
+        "title": "帮助",
+        "about": "关于 Bruno",
+        "documentation": "文档"
+      }
+    }
+  },
+  "common": {
+    "cancel": "取消",
+    "save": "保存",
+    "saveAll": "全部保存",
+    "delete": "删除",
+    "close": "关闭",
+    "confirm": "确认"
+  },
+  "preferences": {
+    "saveFailed": "更新偏好设置失败",
+    "tabs": {
+      "general": "常规",
+      "themes": "主题",
+      "display": "显示",
+      "proxy": "代理",
+      "clientCert": "客户端证书",
+      "keybindings": "快捷键",
+      "ai": "AI",
+      "cache": "缓存",
+      "support": "支持",
+      "beta": "Beta"
+    },
+    "general": {
+      "title": "常规设置",
+      "language": "语言",
+      "sslVerification": "SSL/TLS 证书验证",
+      "useCustomCaCertificate": "使用自定义 CA 证书",
+      "selectFile": "选择文件",
+      "keepDefaultCaCertificates": "保留默认 CA 证书",
+      "storeCookies": "自动存储 Cookies",
+      "sendCookies": "自动发送 Cookies",
+      "useSystemBrowserOauth2": "使用系统浏览器进行 OAuth2 授权",
+      "requestTimeout": "请求超时时间（毫秒）",
+      "timeoutMustBeNumber": "请求超时时间必须是数字",
+      "timeoutMustBeNonNegative": "请求超时时间必须大于等于 0",
+      "enableAutoSave": "启用自动保存",
+      "saveDelay": "保存延迟（毫秒）",
+      "saveDelayMustBeNumber": "保存延迟必须是数字",
+      "saveDelayMustBeAtLeast500": "保存延迟至少为 500 毫秒",
+      "saveDelayRequired": "启用自动保存时必须填写保存延迟",
+      "trayResident": "关闭窗口后保持在托盘运行",
+      "webClientEnabled": "启用浏览器 Web 客户端（127.0.0.1）",
+      "webServerPort": "Web 服务端口",
+      "portMustBeNumber": "Web 服务端口必须是数字",
+      "portMustBeValid": "Web 服务端口必须在 1 到 65535 之间",
+      "defaultLocation": "默认位置",
+      "defaultLocationHint": "作为新工作区和集合的默认保存位置",
+      "clickToBrowse": "点击浏览以选择默认位置",
+      "browse": "浏览"
+    },
+    "themes": {
+      "appearance": "外观",
+      "light": "浅色",
+      "dark": "深色",
+      "system": "跟随系统",
+      "lightTheme": "浅色主题",
+      "darkTheme": "深色主题"
+    },
+    "display": {
+      "title": "显示",
+      "codeEditorFont": "代码编辑器字体",
+      "fontSize": "字体大小",
+      "interfaceZoom": "界面缩放"
+    },
+    "proxy": {
+      "title": "代理设置",
+      "mode": "模式",
+      "off": "关闭",
+      "on": "开启",
+      "systemProxy": "系统代理",
+      "protocol": "协议",
+      "hostname": "主机名",
+      "port": "端口",
+      "auth": "认证",
+      "username": "用户名",
+      "password": "密码",
+      "proxyBypass": "代理例外",
+      "selectFile": "选择文件",
+      "pacUrlHint": "输入 PAC 文件的 URL",
+      "pacFileHint": "支持使用 .pac 文件进行自动代理配置",
+      "refetch": "重新获取",
+      "pacUrlError": "请指定有效的 PAC URL",
+      "portRangeError": "端口必须在 1 到 65535 之间",
+      "pacCacheRefreshed": "PAC 缓存已刷新",
+      "pacCacheRefreshFailed": "刷新 PAC 缓存失败",
+      "filePickerFailed": "打开文件选择器失败",
+      "system": {
+        "title": "系统代理",
+        "description": "以下值来自你的系统代理设置。",
+        "errorLoading": "加载系统代理设置出错：{{error}}",
+        "proxySource": "代理来源：",
+        "infoText": "这些值无法在 Bruno 中直接修改，请参考操作系统文档进行设置。",
+        "refresh": "刷新",
+        "lastRefreshed": "上次刷新：{{time}}"
+      }
+    },
+    "clientCert": {
+      "title": "客户端证书",
+      "description": "添加用于特定域名的客户端证书。",
+      "emptyTitle": "暂无客户端证书",
+      "emptyText": "这里添加的证书会随请求自动发送到匹配的域名。",
+      "addCertificate": "添加证书",
+      "enableCertificate": "启用证书",
+      "disableCertificate": "禁用证书",
+      "removeCertificate": "移除证书",
+      "removeFile": "移除文件",
+      "chooseFile": "选择文件",
+      "host": "主机",
+      "pfxFile": "PFX 文件",
+      "certFile": "证书文件",
+      "keyFile": "私钥文件",
+      "passphrase": "私钥口令",
+      "hidePassphrase": "隐藏口令",
+      "showPassphrase": "显示口令",
+      "addModalTitle": "添加客户端证书",
+      "addConfirm": "添加",
+      "addModalHint": "证书和私钥文件以绝对路径存储，并应用于所有集合。",
+      "domain": "域名",
+      "domainRequired": "域名为必填项",
+      "type": "类型",
+      "certAndKey": "证书和私钥",
+      "certFileField": "证书文件",
+      "keyFileField": "私钥文件",
+      "pfxFileField": "PFX 文件",
+      "certFilePathRequired": "请选择证书文件",
+      "keyFilePathRequired": "请选择私钥文件",
+      "pfxFilePathRequired": "请选择 PFX 文件"
+    },
+    "cache": {
+      "title": "缓存",
+      "fileCache": "文件缓存",
+      "fileCacheDescription": "通过缓存已打开的集合来加快工作区加载速度。集合变更时 Bruno 会自动刷新缓存，清除缓存不会影响你的原始文件。",
+      "cacheSize": "缓存大小",
+      "clearCache": "清除缓存",
+      "fileCacheCleared": "文件缓存已清除",
+      "fileCacheClearFailed": "清除文件缓存失败",
+      "sslSessionCache": "SSL 会话缓存",
+      "sslSessionDescription": "跨请求复用 TLS 会话和连接以加快握手速度。禁用后每个请求都会建立新连接。",
+      "sslSessionCleared": "SSL 会话缓存已清除",
+      "sslSessionClearFailed": "清除 SSL 会话缓存失败",
+      "updateFailed": "更新缓存偏好设置失败"
+    },
+    "beta": {
+      "title": "Beta 功能",
+      "description": "Beta 功能是实验性预览，正式发布前可能有所变化。欢迎试用并反馈。",
+      "viewDocs": "查看文档",
+      "noFeatures": "当前没有可用的 Beta 功能",
+      "updateFailed": "更新 Beta 偏好设置失败",
+      "features": {
+        "ai-assistant": {
+          "label": "AI 助手",
+          "description": "在请求标签页中直接生成脚本、测试和文档。包含上下文对话、脚本自动补全，支持使用自己的 API 密钥接入 OpenAI、Anthropic 及兼容 OpenAI 的服务商。",
+          "action": "前往 AI 设置"
+        },
+        "file-cache": {
+          "label": "文件缓存",
+          "description": "通过本地磁盘缓存加快集合打开速度。可随时在缓存设置中开启或清除。",
+          "action": "前往缓存设置"
+        },
+        "akamai-edgegrid": {
+          "label": "Akamai EdgeGrid",
+          "description": "使用 Akamai EdgeGrid 认证方案对请求签名。可在任意请求、文件夹或集合的 Auth 类型下拉框中选择。"
+        },
+        "mock-server": {
+          "label": "Mock 服务器",
+          "description": "使用集合中定义的响应示例运行本地 Mock 服务器，无需真实后端即可为前端开发提供模拟 API 响应。"
+        },
+        "grpc-scripting": {
+          "label": "gRPC 脚本",
+          "description": "为 gRPC 请求编写脚本，可在调用生命周期中检查消息、元数据和状态。"
+        }
+      }
+    },
+    "ai": {
+      "ariaLabel": "AI 偏好设置",
+      "statusLoadFailed": "加载 AI 状态失败",
+      "saveFailed": "保存 AI 偏好设置失败",
+      "tabConfig": "配置",
+      "tabAutocomplete": "自动补全",
+      "tabSecurity": "安全",
+      "aiFeatures": "AI 功能",
+      "aiFeaturesSummary": "开启后可配置服务商和模型。密钥仅保存在本地。",
+      "disabledNotice": "使用你自己的 API 密钥。Bruno 直接与服务商通信，密钥不会离开你的电脑。",
+      "providers": "服务商",
+      "compatEndpoints": "OpenAI 兼容端点",
+      "addEndpoint": "添加端点",
+      "compatEmptyNotice": "可将 Bruno 指向任何 OpenAI 兼容 API——Ollama、LM Studio、Together、Groq、OpenRouter、vLLM 等。"
+    },
+    "keybindings": {
+      "title": "快捷键",
+      "resetDefault": "恢复默认",
+      "resetSuccess": "所有快捷键已恢复为默认设置",
+      "commandColumn": "命令",
+      "keybindingColumn": "快捷键",
+      "noBindings": "暂无可用的快捷键绑定",
+      "resetToDefault": "恢复默认",
+      "customizeKeys": "自定义按键",
+      "reservedShortcut": "系统保留快捷键",
+      "errors": {
+        "empty": "快捷键不能为空。",
+        "onlyModifiers": "请添加一个非修饰键（例如 Ctrl + K）。",
+        "missingRequiredModMac": "macOS 快捷键必须包含至少一个修饰键（command/alt/shift/ctrl）。",
+        "missingRequiredModWindows": "Windows 快捷键必须包含至少一个修饰键（ctrl/alt/shift）。",
+        "multipleNonModifiers": "只允许一个非修饰键（例如 Cmd + Shift + K）。",
+        "reserved": "此快捷键已被操作系统保留。",
+        "duplicate": "此快捷键已被占用。"
+      }
+    }
+  },
+  "dialogs": {
+    "unsavedChangesTitle": "未保存的更改",
+    "saveAndClose": "保存并关闭",
+    "closeWithoutSaving": "不保存关闭",
+    "holdOn": "请稍候…",
+    "dontSave": "不保存",
+    "unsavedChangesIn": "以下内容有未保存的更改：",
+    "itemType": {
+      "request": "请求",
+      "example": "示例"
+    },
+    "collectionSettingsSuffix": "集合设置。",
+    "folderSettingsSuffix": "文件夹设置。",
+    "switchEnv": {
+      "body": "此环境中存在未保存的更改。"
+    },
+    "deleteCollection": {
+      "title": "删除集合",
+      "bodyPrefix": "确定要永久删除",
+      "warning": "此操作无法撤销。集合文件将从磁盘上永久删除。",
+      "typePrefix": "输入",
+      "toConfirm": "以确认",
+      "notFound": "未找到集合或工作区",
+      "deleted": "已删除集合“{{name}}”",
+      "deleteError": "删除集合时发生错误"
+    },
+    "saveRequests": {
+      "body": "是否保存对以下 {{count}} 个项目的更改？",
+      "type": {
+        "collection": "集合：",
+        "folder": "文件夹：",
+        "collectionEnvironment": "集合环境：",
+        "globalEnvironment": "全局环境：",
+        "app": "应用：",
+        "request": "请求："
+      },
+      "additional": "…还有 {{count}} 个项目未显示"
+    }
+  }
+}

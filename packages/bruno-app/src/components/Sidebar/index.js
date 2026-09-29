@@ -3,8 +3,10 @@ import SidebarContent from './SidebarContent';
 import StyledWrapper from './StyledWrapper';
 
 import { useState, useEffect, useRef, useMemo } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch, useStore } from 'react-redux';
 import { updateLeftSidebarWidth, updateIsDragging, toggleSidebarSearch } from 'providers/ReduxStore/slices/app';
+import { getPreferencesTabInfo } from 'providers/ReduxStore/slices/app';
+import { addTab } from 'providers/ReduxStore/slices/tabs';
 import { setLocalStorageValue, SIDEBAR_WIDTH_KEY } from 'utils/common/localStorage';
 import CollectionsSection from './Sections/CollectionsSection/index';
 import ApiSpecsSection from './Sections/ApiSpecsSection/index';
@@ -13,12 +15,16 @@ import ToolsSection from './Sections/ToolsSection/index';
 import useKeybinding from 'hooks/useKeybinding';
 import useClearSidebarSelectionOnEscape from 'hooks/useClearSidebarSelectionOnEscape';
 import { useBetaFeature, BETA_FEATURES } from 'utils/beta-features';
+import { IconSettings } from '@tabler/icons';
+import { useTranslation } from 'react-i18next';
 
 const MIN_LEFT_SIDEBAR_WIDTH = 220;
 const MAX_LEFT_SIDEBAR_WIDTH = 600;
 
 const Sidebar = () => {
   const isMockServerEnabled = useBetaFeature(BETA_FEATURES.MOCK_SERVER);
+  const { t } = useTranslation();
+  const store = useStore();
   const sidebarSections = useMemo(() => {
     const sections = [
       {
@@ -110,6 +116,17 @@ const Sidebar = () => {
     );
   };
 
+  const handleOpenPreferences = () => {
+    const { uid, collectionUid } = getPreferencesTabInfo(store.getState());
+    dispatch(
+      addTab({
+        type: 'preferences',
+        uid,
+        collectionUid
+      })
+    );
+  };
+
   useEffect(() => {
     document.addEventListener('mouseup', handleMouseUp);
     document.addEventListener('mousemove', handleMouseMove);
@@ -136,6 +153,12 @@ const Sidebar = () => {
                     sections={sidebarSections}
                   />
                 </div>
+              </div>
+              <div className="sidebar-footer" data-testid="sidebar-settings">
+                <button type="button" onClick={handleOpenPreferences}>
+                  <IconSettings size={14} strokeWidth={1.5} />
+                  <span>{t('app.sidebar.settings')}</span>
+                </button>
               </div>
             </div>
           </div>

@@ -10,11 +10,19 @@ import * as Yup from 'yup';
 import toast from 'react-hot-toast';
 import path from 'utils/common/path';
 import { IconTrash } from '@tabler/icons';
+import { useTranslation } from 'react-i18next';
+import i18n, { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES } from '../../../i18n';
+
+const LANGUAGE_LABELS = {
+  'zh-CN': '简体中文',
+  en: 'English'
+};
 
 const General = () => {
   const preferences = useSelector((state) => state.app.preferences);
   const dispatch = useDispatch();
   const inputFileCaCertificateRef = useRef();
+  const { t } = useTranslation();
 
   const preferencesSchema = Yup.object().shape({
     sslVerification: Yup.boolean(),
@@ -32,10 +40,10 @@ const General = () => {
         return originalValue === '' ? undefined : value;
       })
       .nullable()
-      .test('isNumber', 'Request Timeout must be a number', (value) => {
+      .test('isNumber', t('preferences.general.timeoutMustBeNumber'), (value) => {
         return value === undefined || !isNaN(value);
       })
-      .test('isValidTimeout', 'Request Timeout must be equal or greater than 0', (value) => {
+      .test('isValidTimeout', t('preferences.general.timeoutMustBeNonNegative'), (value) => {
         return value === undefined || Number(value) >= 0;
       }),
     autoSave: Yup.object({
@@ -44,13 +52,13 @@ const General = () => {
         .transform((value, originalValue) => {
           return originalValue === '' ? undefined : value;
         })
-        .test('isNumber', 'Save Delay must be a number', (value) => {
+        .test('isNumber', t('preferences.general.saveDelayMustBeNumber'), (value) => {
           return value === undefined || !isNaN(value);
         })
-        .test('isValidInterval', 'Save Delay must be at least 500ms', (value) => {
+        .test('isValidInterval', t('preferences.general.saveDelayMustBeAtLeast500'), (value) => {
           return value === undefined || Number(value) >= 500;
         })
-    }).test('intervalRequired', 'Save Delay is required when Auto Save is enabled', (value) => {
+    }).test('intervalRequired', t('preferences.general.saveDelayRequired'), (value) => {
       // If autosave is enabled, interval must be provided
       if (value.enabled && (value.interval === undefined || value.interval === '')) {
         return false;
@@ -68,10 +76,10 @@ const General = () => {
           return originalValue === '' ? undefined : value;
         })
         .nullable()
-        .test('isNumber', 'Web Server Port must be a number', (value) => {
+        .test('isNumber', t('preferences.general.portMustBeNumber'), (value) => {
           return value === undefined || !isNaN(value);
         })
-        .test('isValidPort', 'Web Server Port must be between 1 and 65535', (value) => {
+        .test('isValidPort', t('preferences.general.portMustBeValid'), (value) => {
           return value === undefined || (Number(value) >= 1 && Number(value) <= 65535);
         })
     }),
@@ -149,11 +157,31 @@ const General = () => {
           port: Number(newPreferences.webServer.port)
         },
         general: {
+          ...preferences.general,
           defaultLocation: newPreferences.defaultLocation
         }
       }))
-      .catch((err) => console.log(err) && toast.error('Failed to update preferences'));
-  }, [dispatch, preferences]);
+      .catch((err) => console.log(err) && toast.error(t('preferences.saveFailed')));
+  }, [dispatch, preferences, t]);
+
+  const currentLanguage = get(preferences, 'general.language', DEFAULT_LANGUAGE) || DEFAULT_LANGUAGE;
+
+  const handleLanguageChange = (e) => {
+    const newLanguage = e.target.value;
+    if (!SUPPORTED_LANGUAGES.includes(newLanguage) || newLanguage === currentLanguage) {
+      return;
+    }
+    i18n.changeLanguage(newLanguage);
+    dispatch(
+      savePreferences({
+        ...preferences,
+        general: {
+          ...preferences.general,
+          language: newLanguage
+        }
+      })
+    ).catch((err) => console.log(err) && toast.error(t('preferences.saveFailed')));
+  };
 
   const handleSaveRef = useRef(handleSave);
   handleSaveRef.current = handleSave;
@@ -205,7 +233,26 @@ const General = () => {
 
   return (
     <StyledWrapper className="w-full">
-      <div className="section-header">General Settings</div>
+      <div className="section-header">{t('preferences.general.title')}</div>
+      <div className="flex items-center mb-4">
+        <label className="block select-none w-40" htmlFor="language">
+          {t('preferences.general.language')}
+        </label>
+        <select
+          id="language"
+          name="language"
+          className="block textbox mt-0 w-40"
+          value={currentLanguage}
+          onChange={handleLanguageChange}
+          data-testid="language-select"
+        >
+          {SUPPORTED_LANGUAGES.map((lang) => (
+            <option key={lang} value={lang}>
+              {LANGUAGE_LABELS[lang] || lang}
+            </option>
+          ))}
+        </select>
+      </div>
       <form className="bruno-form" onSubmit={formik.handleSubmit}>
         <div className="flex items-center mb-2">
           <input
@@ -217,7 +264,7 @@ const General = () => {
             className="mousetrap mr-0"
           />
           <label className="block ml-2 select-none" htmlFor="sslVerification">
-            SSL/TLS Certificate Verification
+            {t('preferences.general.sslVerification')}
           </label>
         </div>
         <div className="flex items-center mt-2">
@@ -230,7 +277,7 @@ const General = () => {
             className="mousetrap mr-0"
           />
           <label className="block ml-2 select-none" htmlFor="customCaCertificateEnabled">
-            Use Custom CA Certificate
+            {t('preferences.general.useCustomCaCertificate')}
           </label>
         </div>
         {formik.values.customCaCertificate.filePath ? (
@@ -261,7 +308,7 @@ const General = () => {
               disabled={formik.values.customCaCertificate.enabled ? false : true}
               onClick={() => inputFileCaCertificateRef.current.click()}
             >
-              Select File
+              {t('preferences.general.selectFile')}
               <input
                 id="caCertFilePath"
                 type="file"
@@ -288,7 +335,7 @@ const General = () => {
             className={`block ml-2 select-none ${formik.values.customCaCertificate.enabled && formik.values.customCaCertificate.filePath ? '' : 'opacity-25'}`}
             htmlFor="keepDefaultCaCertificatesEnabled"
           >
-            Keep Default CA Certificates
+            {t('preferences.general.keepDefaultCaCertificates')}
           </label>
         </div>
         <div className="flex items-center mt-2">
@@ -301,7 +348,7 @@ const General = () => {
             className="mousetrap mr-0"
           />
           <label className="block ml-2 select-none" htmlFor="storeCookies">
-            Store Cookies automatically
+            {t('preferences.general.storeCookies')}
           </label>
         </div>
         <div className="flex items-center mt-2">
@@ -314,7 +361,7 @@ const General = () => {
             className="mousetrap mr-0"
           />
           <label className="block ml-2 select-none" htmlFor="sendCookies">
-            Send Cookies automatically
+            {t('preferences.general.sendCookies')}
           </label>
         </div>
         <div className="flex items-center mt-2">
@@ -327,12 +374,12 @@ const General = () => {
             className="mousetrap mr-0"
           />
           <label className="block ml-2 select-none" htmlFor="oauth2.useSystemBrowser">
-            Use System Browser for OAuth2 Authorization
+            {t('preferences.general.useSystemBrowserOauth2')}
           </label>
         </div>
         <div className="flex flex-col mt-6">
           <label className="block select-none" htmlFor="timeout">
-            Request Timeout (in ms)
+            {t('preferences.general.requestTimeout')}
           </label>
           <input
             type="text"
@@ -359,12 +406,12 @@ const General = () => {
             className="mousetrap mr-0"
           />
           <label className="block ml-2 select-none" htmlFor="autoSaveEnabled">
-            Enable Auto Save
+            {t('preferences.general.enableAutoSave')}
           </label>
         </div>
         <div className={`flex flex-col mt-2 ${!formik.values.autoSave.enabled ? 'opacity-50' : ''}`}>
           <label className="block select-none" htmlFor="autoSaveInterval">
-            Save Delay (in ms)
+            {t('preferences.general.saveDelay')}
           </label>
           <input
             type="text"
@@ -396,7 +443,7 @@ const General = () => {
             className="mousetrap mr-0"
           />
           <label className="block ml-2 select-none" htmlFor="trayResident">
-            Keep app running in the tray when the window is closed
+            {t('preferences.general.trayResident')}
           </label>
         </div>
         <div className="flex items-center mt-2">
@@ -409,12 +456,12 @@ const General = () => {
             className="mousetrap mr-0"
           />
           <label className="block ml-2 select-none" htmlFor="webServerEnabled">
-            Enable browser web client (127.0.0.1)
+            {t('preferences.general.webClientEnabled')}
           </label>
         </div>
         <div className={`flex flex-col mt-2 ${!formik.values.webServer.enabled ? 'opacity-50' : ''}`}>
           <label className="block select-none" htmlFor="webServerPort">
-            Web Server Port
+            {t('preferences.general.webServerPort')}
           </label>
           <input
             type="text"
@@ -435,10 +482,10 @@ const General = () => {
         )}
         <div className="flex flex-col mt-6">
           <label className="block select-none default-location-label" htmlFor="defaultLocation">
-            Default Location
+            {t('preferences.general.defaultLocation')}
           </label>
           <p className="text-muted mt-1 text-xs">
-            Used as the default location for new workspaces and collections
+            {t('preferences.general.defaultLocationHint')}
           </p>
           <input
             type="text"
@@ -453,14 +500,14 @@ const General = () => {
             onChange={formik.handleChange}
             value={formik.values.defaultLocation || ''}
             onClick={browseDefaultLocation}
-            placeholder="Click to browse for default location"
+            placeholder={t('preferences.general.clickToBrowse')}
           />
           <div className="mt-1">
             <span
               className="text-link cursor-pointer hover:underline default-location-browse"
               onClick={browseDefaultLocation}
             >
-              Browse
+              {t('preferences.general.browse')}
             </span>
           </div>
         </div>

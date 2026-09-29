@@ -3,7 +3,8 @@ import {
   updateCookies,
   updatePreferences,
   setGitVersion,
-  setIsOpeningCollection
+  setIsOpeningCollection,
+  getPreferencesTabInfo
 } from 'providers/ReduxStore/slices/app';
 import {
   updateServerStatus,
@@ -12,6 +13,7 @@ import {
 } from 'providers/ReduxStore/slices/mock-server/index';
 import { isMockServerLogListening } from 'utils/mock-server/mock-server-log-subscription';
 import { mockServerFileEvent, mockServerFileDeletedEvent } from 'utils/mock-server/mock-server-instances';
+import i18n from '../../i18n';
 import {
   addTab
 } from 'providers/ReduxStore/slices/tabs';
@@ -318,19 +320,12 @@ const useIpcEvents = () => {
 
     const removeShowPreferencesListener = ipcRenderer.on('main:open-preferences', () => {
       const state = store.getState();
-      const activeWorkspaceUid = state.workspaces?.activeWorkspaceUid;
-      const workspaces = state.workspaces?.workspaces;
-      const tabs = state.tabs?.tabs;
-      const activeTabUid = state.tabs?.activeTabUid;
-      const activeTab = tabs?.find((t) => t.uid === activeTabUid);
-
-      const activeWorkspace = workspaces?.find((w) => w.uid === activeWorkspaceUid);
-      const collectionUid = activeTab?.collectionUid || activeWorkspace?.scratchCollectionUid;
+      const { uid, collectionUid } = getPreferencesTabInfo(state);
 
       dispatch(
         addTab({
           type: 'preferences',
-          uid: collectionUid ? `${collectionUid}-preferences` : 'preferences',
+          uid,
           collectionUid
         })
       );
@@ -338,6 +333,10 @@ const useIpcEvents = () => {
 
     const removePreferencesUpdatesListener = ipcRenderer.on('main:load-preferences', (val) => {
       dispatch(updatePreferences(val));
+      const language = val?.general?.language;
+      if (language && language !== i18n.language) {
+        i18n.changeLanguage(language);
+      }
     });
 
     const removeCookieUpdateListener = ipcRenderer.on('main:cookies-update', (val) => {

@@ -14,6 +14,7 @@ import ToggleSwitch from 'components/ToggleSwitch';
 
 import { BETA_FEATURES as BETA_FEATURE_IDS } from 'utils/beta-features';
 import { getDocsUrlWithVersion } from 'utils/url';
+import { useTranslation } from 'react-i18next';
 
 /**
  * UI metadata for the Beta Features section in Preferences — one entry per toggle.
@@ -80,6 +81,7 @@ const BETA_FEATURES = [
 ];
 
 const Beta = ({ close }) => {
+  const { t } = useTranslation();
   const preferences = useSelector((state) => state.app.preferences);
   const dispatch = useDispatch();
 
@@ -128,8 +130,8 @@ const Beta = ({ close }) => {
         }
       })
     )
-      .catch((err) => console.log(err) && toast.error('Failed to update beta preferences'));
-  }, [dispatch, preferences]);
+      .catch((err) => console.log(err) && toast.error(t('preferences.beta.updateFailed')));
+  }, [dispatch, preferences, t]);
 
   const handleSaveRef = useRef(handleSave);
   handleSaveRef.current = handleSave;
@@ -164,11 +166,11 @@ const Beta = ({ close }) => {
 
   return (
     <StyledWrapper>
-      <div className="section-header">Beta Features</div>
+      <div className="section-header">{t('preferences.beta.title')}</div>
       <form onSubmit={formik.handleSubmit}>
         <div className="mb-6">
           <p className="text-gray-500 dark:text-gray-400 mb-4 text-wrap">
-            Beta features are experimental previews that may change before full release. Try them and share feedback.
+            {t('preferences.beta.description')}
           </p>
         </div>
 
@@ -177,11 +179,11 @@ const Beta = ({ close }) => {
             <div key={feature.id} className="beta-feature-item">
               <div className="beta-feature-header">
                 <span className="beta-feature-title select-none font-medium" id={`${feature.id}-label`}>
-                  {feature.label}
+                  {t(`preferences.beta.features.${feature.id}.label`)}
                 </span>
               </div>
               <div className="beta-feature-description text-xs text-gray-500 dark:text-gray-400 flex">
-                {feature.description}
+                {t(`preferences.beta.features.${feature.id}.description`)}
                 {feature.toggle && (
                   <div className="ml-auto">
                     <ToggleSwitch
@@ -201,7 +203,7 @@ const Beta = ({ close }) => {
                       className="beta-feature-link"
                       onClick={() => goToTab(feature.action.tab)}
                     >
-                      <span>{feature.action.label}</span>
+                      <span>{t(`preferences.beta.features.${feature.id}.action`)}</span>
                       <IconArrowRight size={14} strokeWidth={1.5} />
                     </button>
                   )}
@@ -212,7 +214,7 @@ const Beta = ({ close }) => {
                       target="_blank"
                       rel="noreferrer"
                     >
-                      <span>View docs</span>
+                      <span>{t('preferences.beta.viewDocs')}</span>
                       <IconExternalLink size={14} strokeWidth={1.5} />
                     </a>
                   )}
@@ -224,7 +226,7 @@ const Beta = ({ close }) => {
 
         {!hasAnyBetaFeatures && (
           <div className="no-features-message">
-            <p>No beta features are currently available</p>
+            <p>{t('preferences.beta.noFeatures')}</p>
           </div>
         )}
       </form>

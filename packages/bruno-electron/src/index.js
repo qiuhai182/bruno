@@ -25,6 +25,27 @@ if (isDev && process.env.ELECTRON_USER_DATA_PATH) {
   app.setPath('userData', process.env.ELECTRON_USER_DATA_PATH);
 }
 
+// Guardian: a crashing main process must never linger behind an error dialog
+// (Electron's default crash dialog keeps the process alive until dismissed).
+// Log the crash to file and exit hard instead.
+const logMainCrash = (err) => {
+  try {
+    const stamp = new Date().toISOString();
+    const detail = (err && err.stack) || String(err);
+    console.error(`[main-crash] ${stamp}\n${detail}`);
+    const logDir = path.join(app.getPath('userData'), 'logs');
+    fs.mkdirSync(logDir, { recursive: true });
+    fs.appendFileSync(path.join(logDir, 'main-crash.log'), `[${stamp}] ${detail}\n\n`);
+  } catch {}
+};
+process.on('uncaughtException', (err) => {
+  logMainCrash(err);
+  app.exit(1);
+});
+process.on('unhandledRejection', (reason) => {
+  logMainCrash(reason instanceof Error ? reason : new Error(String(reason)));
+});
+
 // Command line switches
 if (os.platform() === 'linux') {
   // Use portal version 4 that supports current_folder option
@@ -263,6 +284,13 @@ app.on('ready', async () => {
     isTrayResident: () => preferencesUtil.isTrayResident()
   });
   appTray.init();
+
+  // Rebuild the tray menu when preferences are saved (e.g. language change).
+  ipcMain.on('main:tray-rebuild', () => {
+    if (appTray) {
+      appTray.rebuildMenu();
+    }
+  });
 
   mainWindow = new BrowserWindow({
     x,
@@ -590,13 +618,35 @@ app.on('ready', async () => {
 // finishes, otherwise the main process exits while native watcher cleanup
 // is mid-flight, and Chromium helper processes can detect the broken IPC
 // channel and abort(), producing the macOS "quit unexpectedly" dialog.
+//
+// Guardian rules: no cleanup step may hold the app hostage. The whole
+// cleanup is capped, and on Windows the process tree is force-killed at the
+// very end so detached children (pty terminals, spawned shells, npm) can
+// never outlive the app.
+const killProcessTreeOnWindows = () => {
+  if (os.platform() !== 'win32') return;
+  try {
+    const { spawn } = require('node:child_process');
+    spawn('taskkill', ['/pid', String(process.pid), '/T', '/F'], {
+      detached: true,
+      stdio: 'ignore',
+      windowsHide: true
+    }).unref();
+  } catch {}
+};
+
 let quitInProgress = false;
 app.on('before-quit', (event) => {
   if (quitInProgress) return;
   quitInProgress = true;
   event.preventDefault();
 
-  (async () => {
+  const finish = (code) => {
+    killProcessTreeOnWindows();
+    app.exit(code);
+  };
+
+  const cleanup = (async () => {
     try {
       await Promise.race([
         closeAllWatchers(),
@@ -630,9 +680,16 @@ app.on('before-quit', (event) => {
     if (appTray) {
       appTray.destroy();
     }
-
-    app.exit(0);
   })();
+
+  // Cap the entire cleanup: even a hung step must not leave an invisible
+  // background process behind the destroyed window.
+  Promise.race([
+    cleanup,
+    new Promise((resolve) => setTimeout(resolve, 4000))
+  ])
+    .catch(() => {})
+    .then(() => finish(0));
 });
 
 app.on('window-all-closed', app.quit);

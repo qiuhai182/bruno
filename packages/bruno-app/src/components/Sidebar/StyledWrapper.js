@@ -63,6 +63,29 @@ const Wrapper = styled.div`
       height: 100%;
     }
 
+    .sidebar-footer {
+      border-top: 1px solid ${(props) => props.theme.sidebar.collection.item.hoverBg};
+      padding: 4px 8px;
+
+      button {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        width: 100%;
+        padding: 6px 8px;
+        border-radius: 4px;
+        font-size: 13px;
+        color: inherit;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+          background: ${(props) => props.theme.sidebar.collection.item.hoverBg};
+        }
+      }
+    }
+
     /* Expanded sections grow to fill available space but are constrained */
     .sidebar-section.expanded {
       flex: 1 1 0%;

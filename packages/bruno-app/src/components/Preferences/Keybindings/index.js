@@ -17,6 +17,7 @@ import {
 import { Tooltip } from 'react-tooltip';
 import ToggleSwitch from 'components/ToggleSwitch/index';
 import toast from 'react-hot-toast';
+import { useTranslation } from 'react-i18next';
 
 const getOS = () => (isMacOS() ? 'mac' : 'windows');
 
@@ -237,9 +238,9 @@ const normalizeKey = (e) => {
   if (k === 'Meta') return 'command';
 
   // For letter and digit keys always use e.code (the physical key) instead of e.key.
-  // When Option/Alt is held, e.key produces a composed character (e.g. Option+X → '≈')
-  // which Mousetrap does not recognise — it expects the base key name ('x').
-  // e.code is unaffected by modifier state: 'KeyX' → 'x', 'Digit1' → '1'.
+  // When Option/Alt is held, e.key produces a composed character (e.g. Option+X ?? '??')
+  // which Mousetrap does not recognise ?? it expects the base key name ('x').
+  // e.code is unaffected by modifier state: 'KeyX' ?? 'x', 'Digit1' ?? '1'.
   const code = e.code || '';
   if (code.startsWith('Key')) return code.slice(3).toLowerCase();
   if (code.startsWith('Digit')) return code.slice(5);
@@ -262,6 +263,7 @@ const ERROR = {
 
 const Keybindings = () => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const preferences = useSelector((state) => state.app.preferences);
   const { theme } = useTheme();
 
@@ -417,13 +419,13 @@ const Keybindings = () => {
     const sig = comboSignature(arr);
 
     if (!sig) {
-      return { code: ERROR.EMPTY, message: `Shortcut can’t be empty.` };
+      return { code: ERROR.EMPTY, message: t('preferences.keybindings.errors.empty') };
     }
 
     if (isOnlyModifiers(arr)) {
       return {
         code: ERROR.ONLY_MODIFIERS,
-        message: 'Add a non-modifier key (e.g. Ctrl + K).'
+        message: t('preferences.keybindings.errors.onlyModifiers')
       };
     }
 
@@ -432,8 +434,8 @@ const Keybindings = () => {
         code: ERROR.MISSING_REQUIRED_MOD,
         message:
           os === 'mac'
-            ? 'macOS shortcuts must include at least one modifier (command/alt/shift/ctrl).'
-            : 'Windows shortcuts must include at least one modifier (ctrl/alt/shift).'
+            ? t('preferences.keybindings.errors.missingRequiredModMac')
+            : t('preferences.keybindings.errors.missingRequiredModWindows')
       };
     }
 
@@ -441,21 +443,21 @@ const Keybindings = () => {
     if (nonModifierCount > 1) {
       return {
         code: ERROR.MULTIPLE_NON_MODIFIERS,
-        message: 'Only one non-modifier key allowed (e.g. Cmd + Shift + K).'
+        message: t('preferences.keybindings.errors.multipleNonModifiers')
       };
     }
 
     if (RESERVED_BY_OS[os]?.has(sig)) {
       return {
         code: ERROR.RESERVED,
-        message: 'This shortcut is reserved by the OS.'
+        message: t('preferences.keybindings.errors.reserved')
       };
     }
 
     if (buildUsedSignatures(action).has(sig)) {
       return {
         code: ERROR.DUPLICATE,
-        message: 'This shortcut is already in use.'
+        message: t('preferences.keybindings.errors.duplicate')
       };
     }
 
@@ -549,7 +551,7 @@ const Keybindings = () => {
     };
 
     dispatch(savePreferences(updatedPreferences));
-    toast.success('All shortcuts have been reset to default');
+    toast.success(t('preferences.keybindings.resetSuccess'));
   };
 
   const startEditing = (action) => {
@@ -586,7 +588,7 @@ const Keybindings = () => {
   };
 
   // Focus the input div after React has committed the editingAction state change.
-  // Runs only when editingAction changes — no extra renders beyond what already happens.
+  // Runs only when editingAction changes ?? no extra renders beyond what already happens.
   useEffect(() => {
     if (editingAction) {
       inputRefs.current[editingAction]?.focus?.();
@@ -656,7 +658,7 @@ const Keybindings = () => {
       setDraftByAction((prev) => ({ ...prev, [action]: [] }));
       setErrorByAction((prev) => ({
         ...prev,
-        [action]: { code: ERROR.EMPTY, message: `Shortcut can't be empty.` }
+        [action]: { code: ERROR.EMPTY, message: t('preferences.keybindings.errors.empty') }
       }));
       return;
     }
@@ -667,7 +669,7 @@ const Keybindings = () => {
     const keyName = normalizeKey(e);
     if (!keyName) return;
 
-    // Starting a new combo after a failed one — clear stale draft
+    // Starting a new combo after a failed one ?? clear stale draft
     if (pressedKeysRef.current.size === 0 && errorByAction[action]?.message) {
       setDraftByAction((prev) => ({ ...prev, [action]: [] }));
       setErrorByAction((prev) => {
@@ -724,7 +726,7 @@ const Keybindings = () => {
 
     // Commit as soon as the draft is valid, regardless of how many keys are still held.
     // On macOS, keyup events for non-Meta keys are swallowed when Cmd is held, so
-    // pressedKeysRef.size may never reach 0 — committing on any keyup fixes this.
+    // pressedKeysRef.size may never reach 0 ?? committing on any keyup fixes this.
     stopEditing(action);
   };
 
@@ -763,7 +765,7 @@ const Keybindings = () => {
   return (
     <StyledWrapper className="w-full">
       <div className="section-header">
-        <span>Keybindings</span>
+        <span>{t('preferences.keybindings.title')}</span>
 
         <div className="section-actions">
           <ToggleSwitch
@@ -779,7 +781,7 @@ const Keybindings = () => {
             data-testid="reset-all-keybindings-btn"
             disabled={!hasCustomizedKeybindings}
           >
-            Reset Default
+            {t('preferences.keybindings.resetDefault')}
           </button>
         </div>
       </div>
@@ -790,8 +792,8 @@ const Keybindings = () => {
             <table>
               <thead>
                 <tr>
-                  <td>Command</td>
-                  <td>Keybinding</td>
+                  <td>{t('preferences.keybindings.commandColumn')}</td>
+                  <td>{t('preferences.keybindings.keybindingColumn')}</td>
                 </tr>
               </thead>
               <tbody>
@@ -892,7 +894,7 @@ const Keybindings = () => {
                                       onClick={(e) => {
                                         e.stopPropagation(); resetRowToDefault(action);
                                       }}
-                                      title="Reset to default"
+                                      title={t('preferences.keybindings.resetToDefault')}
                                     >
                                       <IconReload size={14} stroke={1.5} />
                                     </button>
@@ -902,7 +904,7 @@ const Keybindings = () => {
                                     <span
                                       className="pencil-icon"
                                       data-testid={`keybinding-edit-${action}`}
-                                      title="Customize keys"
+                                      title={t('preferences.keybindings.customizeKeys')}
                                     >
                                       <IconPencil size={14} stroke={1.5} />
                                     </span>
@@ -913,7 +915,7 @@ const Keybindings = () => {
                                       type="button"
                                       className="edit-btn"
                                       data-testid={`keybinding-locked-${action}`}
-                                      title="Reserved shortcut"
+                                      title={t('preferences.keybindings.reservedShortcut')}
                                     >
                                       <IconLock size={14} stroke={1.5} />
                                     </button>
@@ -936,7 +938,7 @@ const Keybindings = () => {
             </table>
           </div>
         ) : (
-          <div className="empty-state">No key bindings available</div>
+          <div className="empty-state">{t('preferences.keybindings.noBindings')}</div>
         )}
       </div>
     </StyledWrapper>

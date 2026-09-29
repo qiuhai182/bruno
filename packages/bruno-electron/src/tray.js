@@ -1,5 +1,23 @@
 const path = require('path');
 const { Tray, Menu, ipcMain, nativeImage, shell } = require('electron');
+const { getPreferences } = require('../store/preferences');
+
+// The main process has no react-i18next; tray labels follow the language
+// preference with a simple map (kept in sync with the renderer translations).
+const LABELS = {
+  en: {
+    showWindow: 'Show Window',
+    openInBrowser: 'Open in Browser',
+    settings: 'Settings',
+    quit: 'Quit'
+  },
+  'zh-CN': {
+    showWindow: '显示主窗口',
+    openInBrowser: '在浏览器中打开',
+    settings: '设置',
+    quit: '退出'
+  }
+};
 
 /**
  * System tray icon that keeps Bruno resident when the main window is closed
@@ -29,9 +47,12 @@ class AppTray {
       return;
     }
 
+    const language = getPreferences()?.general?.language || 'zh-CN';
+    const labels = LABELS[language] || LABELS.en;
+
     const template = [
       {
-        label: 'Show Window',
+        label: labels.showWindow,
         click: () => this.showMainWindow()
       }
     ];
@@ -39,7 +60,7 @@ class AppTray {
     const webUrl = this.getWebServerUrl && this.getWebServerUrl();
     if (webUrl) {
       template.push({
-        label: 'Open in Browser',
+        label: labels.openInBrowser,
         click: () => shell.openExternal(webUrl)
       });
     }
@@ -47,7 +68,16 @@ class AppTray {
     template.push(
       { type: 'separator' },
       {
-        label: 'Quit',
+        label: labels.settings,
+        click: () => {
+          // Open the window first so the preferences tab is visible.
+          this.showMainWindow();
+          ipcMain.emit('main:open-preferences');
+        }
+      },
+      { type: 'separator' },
+      {
+        label: labels.quit,
         click: () => this.quitApp()
       }
     );

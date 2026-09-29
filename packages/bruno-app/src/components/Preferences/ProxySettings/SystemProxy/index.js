@@ -4,9 +4,11 @@ import { IconLoader2, IconRefresh } from '@tabler/icons';
 import { getSystemProxyVariables, refreshSystemProxy } from 'providers/ReduxStore/slices/app';
 import StyledWrapper from '../StyledWrapper';
 import { formatProxyTimestamp } from 'utils/common';
+import { useTranslation } from 'react-i18next';
 
 const SystemProxy = () => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const systemProxyVariables = useSelector((state) => state.app.systemProxyVariables);
   const lastRefreshedAt = useSelector((state) => state.app.systemProxyLastRefreshedAt);
   const { source, http_proxy, https_proxy, no_proxy, pac_url } = systemProxyVariables || {};
@@ -40,10 +42,10 @@ const SystemProxy = () => {
           <div className="flex flex-row items-center gap-2">
             <div>
               <h2 className="text-xs system-proxy-title flex flex-row">
-                System Proxy {isFetching ? <IconLoader2 className="animate-spin ml-1" size={16} strokeWidth={1.5} /> : null}
+                {t('preferences.proxy.system.title')} {isFetching ? <IconLoader2 className="animate-spin ml-1" size={16} strokeWidth={1.5} /> : null}
               </h2>
               <small className="system-proxy-description">
-                Below values are sourced from your system proxy settings.
+                {t('preferences.proxy.system.description')}
               </small>
             </div>
           </div>
@@ -51,7 +53,7 @@ const SystemProxy = () => {
         {error && (
           <div className="mb-2 p-3 system-proxy-error-container rounded">
             <small className="system-proxy-error-text">
-              Error loading system proxy settings: {error}
+              {t('preferences.proxy.system.errorLoading', { error })}
             </small>
           </div>
         )}
@@ -59,7 +61,7 @@ const SystemProxy = () => {
           <div className="mb-2">
             <small className="font-medium flex flex-row gap-2">
               <div className="system-proxy-source-label text-xs">
-                Proxy source:
+                {t('preferences.proxy.system.proxySource')}
               </div>
               <div className="system-proxy-source-value">
                 {source}
@@ -68,7 +70,7 @@ const SystemProxy = () => {
           </div>
         )}
         <small className="system-proxy-info-text">
-          These values cannot be directly updated in Bruno. Please refer to your OS documentation to update these.
+          {t('preferences.proxy.system.infoText')}
         </small>
         <div className="flex flex-col justify-start items-start pt-2">
           <div className="mb-1 flex items-center">
@@ -103,7 +105,7 @@ const SystemProxy = () => {
             data-testid="system-proxy-refresh-button"
           >
             <IconRefresh size={14} strokeWidth={1.5} className="mr-1" />
-            Refresh
+            {t('preferences.proxy.system.refresh')}
           </span>
           {lastRefreshedAt && (
             <small
@@ -111,7 +113,7 @@ const SystemProxy = () => {
               data-testid="system-proxy-last-refreshed"
               data-refreshed-at={lastRefreshedAt}
             >
-              Last refreshed: {formatProxyTimestamp(lastRefreshedAt)}
+              {t('preferences.proxy.system.lastRefreshed', { time: formatProxyTimestamp(lastRefreshedAt) })}
             </small>
           )}
         </div>

@@ -25,6 +25,7 @@ import StyledWrapper from './StyledWrapper';
 import ResponseLayoutToggle from 'components/ResponsePane/ResponseLayoutToggle';
 import { isMacOS, isWindowsOS, isLinuxOS } from 'utils/common/platform';
 import classNames from 'classnames';
+import { useTranslation } from 'react-i18next';
 
 const getOsClass = () => {
   if (isMacOS()) return 'os-mac';
@@ -41,6 +42,7 @@ export const getWorkspaceDisplayName = (name) => {
 
 const AppTitleBar = () => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [isMaximized, setIsMaximized] = useState(false);
   const osClass = getOsClass();
@@ -206,6 +208,10 @@ const AppTitleBar = () => {
     }
   };
 
+  const handleOpenPreferences = () => {
+    window?.ipcRenderer?.invoke('renderer:open-preferences');
+  };
+
   // Build workspace menu items
   const workspaceMenuItems = useMemo(() => {
     const items = sortedWorkspaces.map((workspace) => {
@@ -307,7 +313,7 @@ const AppTitleBar = () => {
             {/* Toggle sidebar */}
             <ActionIcon
               onClick={handleToggleSidebar}
-              label={sidebarCollapsed ? 'Show sidebar' : 'Hide sidebar'}
+              label={sidebarCollapsed ? t('app.titleBar.showSidebar') : t('app.titleBar.hideSidebar')}
               size="lg"
               data-testid="toggle-sidebar-button"
             >
@@ -317,7 +323,7 @@ const AppTitleBar = () => {
             {/* Toggle devtools */}
             <ActionIcon
               onClick={handleToggleDevtools}
-              label={isConsoleOpen ? 'Hide devtools' : 'Show devtools'}
+              label={isConsoleOpen ? t('app.titleBar.hideDevtools') : t('app.titleBar.showDevtools')}
               size="lg"
               data-testid="toggle-devtools-button"
             >
@@ -325,6 +331,16 @@ const AppTitleBar = () => {
             </ActionIcon>
 
             <ResponseLayoutToggle />
+
+            {/* Preferences */}
+            <ActionIcon
+              onClick={handleOpenPreferences}
+              label={t('app.titleBar.preferences')}
+              size="lg"
+              data-testid="preferences-button"
+            >
+              <IconSettings size={16} strokeWidth={1.5} />
+            </ActionIcon>
           </div>
 
           {showWindowControls && (
