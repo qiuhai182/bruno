@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import CodeEditor from 'components/CodeEditor';
 import { get } from 'lodash';
 import { useSelector } from 'react-redux';
@@ -8,6 +9,7 @@ import GrpcError from '../GrpcError';
 import { IconChevronDown, IconChevronUp } from '@tabler/icons';
 
 const GrpcQueryResult = ({ item, collection }) => {
+  const { t } = useTranslation();
   const { displayedTheme } = useTheme();
   const preferences = useSelector((state) => state.app.preferences);
   const [showErrorMessage, setShowErrorMessage] = useState(true);
@@ -40,7 +42,7 @@ const GrpcQueryResult = ({ item, collection }) => {
   if (!hasResponses && !hasError) {
     return (
       <StyledWrapper className="w-full h-full relative flex flex-col">
-        <div className="empty-state">No messages received</div>
+        <div className="empty-state">{t('responsePane.grpc.noMessagesReceived')}</div>
       </StyledWrapper>
     );
   }
@@ -80,8 +82,8 @@ const GrpcQueryResult = ({ item, collection }) => {
                       onClick={() => setExpandedIndex(isExpanded ? -1 : index)}
                     >
                       <span className="message-label">
-                        Response {originalIndex + 1}
-                        {index === 0 && <span className="latest-badge">Latest</span>}
+                        {t('responsePane.grpc.responseNo', { index: originalIndex + 1 })}
+                        {index === 0 && <span className="latest-badge">{t('responsePane.grpc.latest')}</span>}
                       </span>
                       <button className="toggle-btn">
                         {isExpanded ? (

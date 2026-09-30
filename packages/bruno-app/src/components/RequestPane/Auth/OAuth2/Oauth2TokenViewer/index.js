@@ -4,8 +4,10 @@ import StyledWrapper from './StyledWrapper';
 import { IconChevronDown, IconChevronRight, IconCopy, IconCheck } from '@tabler/icons';
 import { getAllVariables } from 'utils/collections/index';
 import { interpolate } from '@usebruno/common';
+import { useTranslation } from 'react-i18next';
 
 const TokenSection = ({ title, token }) => {
+  const { t } = useTranslation();
   if (!token) return null;
 
   const [isExpanded, setIsExpanded] = useState(false);
@@ -55,7 +57,7 @@ const TokenSection = ({ title, token }) => {
               <button
                 onClick={() => handleCopy(token)}
                 className="p-1 oauth2-copy-button rounded"
-                title="Copy token"
+                title={t('requestPane.oauth2.copyToken')}
               >
                 {copied
                   ? <IconCheck size={16} className="text-green-700" />
@@ -68,7 +70,7 @@ const TokenSection = ({ title, token }) => {
           </div>
           {decodedToken && (
             <div className="mt-3">
-              <div className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-2">Decoded Payload</div>
+              <div className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-2">{t('requestPane.oauth2.decodedPayload')}</div>
               <div className="grid grid-cols-2 gap-x-4 gap-y-1">
                 {Object.entries(decodedToken).map(([key, value]) => (
                   <div key={key} className="overflow-hidden text-ellipsis">
@@ -94,6 +96,7 @@ const formatExpiryTime = (seconds) => {
 };
 
 const ExpiryTimer = ({ expiresIn }) => {
+  const { t } = useTranslation();
   if (!expiresIn) return null;
 
   const calculateTimeLeft = () => Math.max(0, Math.floor(expiresIn - Date.now() / 1000));
@@ -117,12 +120,13 @@ const ExpiryTimer = ({ expiresIn }) => {
         : 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400'
       }`}
     >
-      {timeLeft > 0 ? `Expires in ${formatExpiryTime(timeLeft)}` : `Expired`}
+      {timeLeft > 0 ? t('requestPane.oauth2.expiresIn', { time: formatExpiryTime(timeLeft) }) : t('requestPane.oauth2.expired')}
     </div>
   );
 };
 
 const Oauth2TokenViewer = ({ collection, item, url, credentialsId, handleRun }) => {
+  const { t } = useTranslation();
   const { uid: collectionUid } = collection;
 
   const interpolatedUrl = useMemo(() => {
@@ -137,7 +141,7 @@ const Oauth2TokenViewer = ({ collection, item, url, credentialsId, handleRun }) 
     <StyledWrapper className="relative w-auto h-fit mt-2">
       {Object.keys(creds)?.length ? (
         creds?.error ? (
-          <pre className="text-red-600 dark:text-red-400">Error fetching token. Check network logs for more details.</pre>
+          <pre className="text-red-600 dark:text-red-400">{t('requestPane.oauth2.tokenFetchError')}</pre>
         ) : (
           <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-4 shadow-sm">
             <TokenSection title="Access Token" token={creds.access_token} />
@@ -148,13 +152,13 @@ const Oauth2TokenViewer = ({ collection, item, url, credentialsId, handleRun }) 
                 <div className="grid grid-cols-2 gap-2">
                   {creds.token_type ? (
                     <div className="flex items-center space-x-1">
-                      <span className="font-medium">Token Type:</span>
+                      <span className="font-medium">{t('requestPane.oauth2.tokenType')}</span>
                       <span className="text-gray-600 dark:text-gray-300">{creds.token_type}</span>
                     </div>
                   ) : null}
                   {creds?.scope ? (
                     <div className="flex items-center space-x-1 min-w-0">
-                      <span className="font-medium flex-shrink-0">Scope:</span>
+                      <span className="font-medium flex-shrink-0">{t('requestPane.oauth2.scopeLabel')}</span>
                       <span className="text-gray-600 dark:text-gray-300 truncate" title={creds.scope}>
                         {creds.scope}
                       </span>
@@ -166,7 +170,7 @@ const Oauth2TokenViewer = ({ collection, item, url, credentialsId, handleRun }) 
           </div>
         )
       ) : (
-        <div className="text-gray-500 dark:text-gray-400">No token found</div>
+        <div className="text-gray-500 dark:text-gray-400">{t('requestPane.oauth2.noTokenFound')}</div>
       )}
     </StyledWrapper>
   );

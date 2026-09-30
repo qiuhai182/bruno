@@ -4,12 +4,14 @@ import { IconCaretDown } from '@tabler/icons';
 import MenuDropdown from 'ui/MenuDropdown';
 import StatusBadge from 'ui/StatusBadge/index';
 import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { updateRequestAuthMode } from 'providers/ReduxStore/slices/collections';
 import { humanizeRequestAuthMode } from 'utils/collections';
 import StyledWrapper from './StyledWrapper';
 
 const AuthMode = ({ item, collection }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const authMode = item.draft ? get(item, 'draft.request.auth.mode') : get(item, 'request.auth.mode');
 
   const onModeChange = useCallback((value) => {
@@ -30,22 +32,22 @@ const AuthMode = ({ item, collection }) => {
     },
     {
       id: 'basic',
-      label: 'Basic Auth',
+      label: t('requestPane.authMode.basicAuth'),
       onClick: () => onModeChange('basic')
     },
     {
       id: 'bearer',
-      label: 'Bearer Token',
+      label: t('requestPane.authMode.bearerToken'),
       onClick: () => onModeChange('bearer')
     },
     {
       id: 'digest',
-      label: 'Digest Auth',
+      label: t('requestPane.authMode.digestAuth'),
       onClick: () => onModeChange('digest')
     },
     {
       id: 'ntlm',
-      label: 'NTLM Auth',
+      label: t('requestPane.authMode.ntlmAuth'),
       onClick: () => onModeChange('ntlm')
     },
     {
@@ -60,12 +62,12 @@ const AuthMode = ({ item, collection }) => {
     },
     {
       id: 'wsse',
-      label: 'WSSE Auth',
+      label: t('requestPane.authMode.wsseAuth'),
       onClick: () => onModeChange('wsse')
     },
     {
       id: 'apikey',
-      label: 'API Key',
+      label: t('requestPane.authMode.apiKey'),
       onClick: () => onModeChange('apikey')
     },
     {
@@ -81,15 +83,15 @@ const AuthMode = ({ item, collection }) => {
     },
     {
       id: 'inherit',
-      label: 'Inherit',
+      label: t('requestPane.authMode.inherit'),
       onClick: () => onModeChange('inherit')
     },
     {
       id: 'none',
-      label: 'No Auth',
+      label: t('requestPane.auth.noAuth'),
       onClick: () => onModeChange('none')
     }
-  ], [onModeChange]);
+  ], [onModeChange, t]);
 
   return (
     <StyledWrapper>

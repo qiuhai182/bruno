@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import StyledWrapper from './StyledWrapper';
 import { usePersistedState } from 'hooks/usePersistedState';
 import { useTrackScroll } from 'hooks/useTrackScroll';
@@ -10,10 +11,10 @@ import {
 } from '@tabler/icons';
 
 export const buildGrpcTestSections = (item) => [
-  { key: 'beforeCallStart', title: 'Before Call Start Tests', results: item.beforeCallStartTestResults || [] },
-  { key: 'beforeMessageSend', title: 'Before Message Send Tests', results: item.beforeMessageSendTestResults || [] },
-  { key: 'afterMessageReceive', title: 'After Message Receive Tests', results: item.afterMessageReceiveTestResults || [] },
-  { key: 'afterCallEnd', title: 'After Call End Tests', results: item.afterCallEndTestResults || [] }
+  { key: 'beforeCallStart', titleKey: 'responsePane.grpc.tests.beforeCallStart', results: item.beforeCallStartTestResults || [] },
+  { key: 'beforeMessageSend', titleKey: 'responsePane.grpc.tests.beforeMessageSend', results: item.beforeMessageSendTestResults || [] },
+  { key: 'afterMessageReceive', titleKey: 'responsePane.grpc.tests.afterMessageReceive', results: item.afterMessageReceiveTestResults || [] },
+  { key: 'afterCallEnd', titleKey: 'responsePane.grpc.tests.afterCallEnd', results: item.afterCallEndTestResults || [] }
 ];
 
 const groupResultsByMessage = (results) => {
@@ -31,18 +32,21 @@ const groupResultsByMessage = (results) => {
   return groups;
 };
 
-const ResultIcon = ({ status }) => (
-  <span
-    data-testid={status === 'pass' ? 'test-result-icon-pass' : 'test-result-icon-fail'}
-    className={`inline-flex items-center ${status === 'pass' ? 'test-success' : 'test-failure'}`}
-  >
-    {status === 'pass' ? (
-      <IconCircleCheck size={14} className="mr-1" aria-label="Test passed" />
-    ) : (
-      <IconCircleX size={14} className="mr-1" aria-label="Test failed" />
-    )}
-  </span>
-);
+const ResultIcon = ({ status }) => {
+  const { t } = useTranslation();
+  return (
+    <span
+      data-testid={status === 'pass' ? 'test-result-icon-pass' : 'test-result-icon-fail'}
+      className={`inline-flex items-center ${status === 'pass' ? 'test-success' : 'test-failure'}`}
+    >
+      {status === 'pass' ? (
+        <IconCircleCheck size={14} className="mr-1" aria-label={t('responsePane.tests.passed')} />
+      ) : (
+        <IconCircleX size={14} className="mr-1" aria-label={t('responsePane.tests.failed')} />
+      )}
+    </span>
+  );
+};
 
 const ErrorMessage = ({ error }) => error && (
   <>
@@ -64,6 +68,7 @@ const ResultItem = ({ result }) => (
 );
 
 const GrpcTestSection = ({ sectionKey, title, results, isExpanded, onToggle }) => {
+  const { t } = useTranslation();
   if (results.length === 0) return null;
 
   const passedCount = results.filter((result) => result.status === 'pass').length;
@@ -81,14 +86,14 @@ const GrpcTestSection = ({ sectionKey, title, results, isExpanded, onToggle }) =
             : <IconChevronRight size={18} stroke={1.5} />}
         </span>
         <span className="flex-grow">
-          {title} ({results.length}), Passed: {passedCount}, Failed: {failedCount}
+          {t('responsePane.tests.summary', { title, total: results.length, passed: passedCount, failed: failedCount })}
         </span>
       </div>
       {isExpanded && groupResultsByMessage(results).map((group) => (
         <div key={group.messageIndex ?? 'call'}>
           {group.messageIndex !== undefined && (
             <div className="message-group-label ml-5" data-testid={`grpc-test-message-group-${group.messageIndex}`}>
-              Message {group.messageIndex + 1}
+              {t('responsePane.grpc.tests.messageGroup', { index: group.messageIndex + 1 })}
             </div>
           )}
           <ul className="ml-5">
@@ -108,6 +113,7 @@ export const countGrpcTestResults = (sections) =>
   sections.reduce((total, section) => total + section.results.length, 0);
 
 const GrpcTestResults = ({ item, sections }) => {
+  const { t } = useTranslation();
   const wrapperRef = useRef(null);
   const [scroll, setScroll] = usePersistedState({ key: `grpc-response-tests-scroll-${item?.uid}`, default: 0 });
   useTrackScroll({ ref: wrapperRef, selector: '.response-tab-content', onChange: setScroll, initialValue: scroll });
@@ -124,7 +130,7 @@ const GrpcTestResults = ({ item, sections }) => {
   };
 
   if (!countGrpcTestResults(sections)) {
-    return <div>No tests found</div>;
+    return <div>{t('responsePane.tests.noTests')}</div>;
   }
 
   return (
@@ -133,7 +139,7 @@ const GrpcTestResults = ({ item, sections }) => {
         <GrpcTestSection
           key={section.key}
           sectionKey={section.key}
-          title={section.title}
+          title={t(section.titleKey)}
           results={section.results}
           isExpanded={isSectionExpanded(section)}
           onToggle={() => toggleSection(section)}

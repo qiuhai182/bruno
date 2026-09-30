@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import get from 'lodash/get';
 import find from 'lodash/find';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import CodeEditor from 'components/CodeEditor';
 import { updateCollectionRequestScript, updateCollectionResponseScript } from 'providers/ReduxStore/slices/collections';
 import { saveCollectionSettings } from 'providers/ReduxStore/slices/collections/actions';
@@ -16,6 +17,7 @@ import { usePersistedState } from 'hooks/usePersistedState';
 import { useFocusErrorLine } from 'hooks/useFocusErrorLine';
 
 const Script = ({ collection }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const preRequestEditorRef = useRef(null);
   const postResponseEditorRef = useRef(null);
@@ -103,19 +105,19 @@ const Script = ({ collection }) => {
   return (
     <StyledWrapper className="w-full flex flex-col h-full">
       <div className="text-xs mb-4 text-muted">
-        Write pre and post-request scripts that will run before and after any request in this collection is sent.
+        {t('collection.script.description')}
       </div>
 
       <Tabs value={activeTab} onValueChange={setActiveTab}>
         <TabsList>
           <TabsTrigger value="pre-request">
-            Pre Request
+            {t('common.preRequest')}
             {requestScript && requestScript.trim().length > 0 && (
               <StatusDot type={hasPreRequestScriptError ? 'error' : 'default'} />
             )}
           </TabsTrigger>
           <TabsTrigger value="post-response">
-            Post Response
+            {t('common.postResponse')}
             {responseScript && responseScript.trim().length > 0 && (
               <StatusDot type={hasPostResponseScriptError ? 'error' : 'default'} />
             )}
@@ -167,7 +169,7 @@ const Script = ({ collection }) => {
 
       <div className="mt-12">
         <Button type="submit" size="sm" onClick={handleSave}>
-          Save
+          {t('common.save')}
         </Button>
       </div>
     </StyledWrapper>

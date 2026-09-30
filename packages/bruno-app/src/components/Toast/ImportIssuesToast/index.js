@@ -2,15 +2,18 @@ import React, { useState, useMemo } from 'react';
 import toast from 'react-hot-toast';
 import { IconAlertCircle, IconBrandGithub, IconCopy, IconX } from '@tabler/icons';
 import StyledWrapper from './StyledWrapper';
+import { useTranslation } from 'react-i18next';
+import i18n from '../../../i18n';
 
 const GITHUB_ISSUES_URL = 'https://github.com/usebruno/bruno/issues/new';
 const MAX_URL_LENGTH = 8000;
 
 const ImportIssuesToastContent = ({ t, issues, summary }) => {
+  const { t: translate } = useTranslation();
   const [includeItems, setIncludeItems] = useState(false);
   const hasSourceItems = issues.some((i) => i.sourceItem);
 
-  const issuesSummary = issues.map((i) => `[${i.severity.toUpperCase()}] ${i.path} — ${i.message}`).join('\n');
+  const issuesSummary = issues.map((i) => `[${i.severity.toUpperCase()}] ${i.path} ?? ${i.message}`).join('\n');
 
   const buildIssueBody = () => {
     const sections = [
@@ -58,14 +61,14 @@ const ImportIssuesToastContent = ({ t, issues, summary }) => {
     const body = buildIssueBody();
     const params = new URLSearchParams({ title, body, labels: 'bug' });
     return `${GITHUB_ISSUES_URL}?${params.toString()}`.length > MAX_URL_LENGTH;
-  }, [issues, summary, includeItems]);
+  }, [issues, summary, includeItems, translate]);
 
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(issuesSummary);
-      toast.success('Copied to clipboard', { duration: 2000 });
+      toast.success(translate('app.importIssues.copied'), { duration: 2000 });
     } catch (err) {
-      toast.error('Failed to copy to clipboard', { duration: 3000 });
+      toast.error(translate('app.importIssues.copyFailed'), { duration: 3000 });
     }
   };
 
@@ -81,9 +84,9 @@ const ImportIssuesToastContent = ({ t, issues, summary }) => {
 
     try {
       await navigator.clipboard.writeText(body);
-      toast.success('Issue details copied — paste them into the GitHub issue body', { duration: 5000 });
+      toast.success(translate('app.importIssues.issueDetailsCopied'), { duration: 5000 });
     } catch (err) {
-      toast.error('Failed to copy to clipboard', { duration: 3000 });
+      toast.error(translate('app.importIssues.copyFailed'), { duration: 3000 });
     }
     const params = new URLSearchParams({ title, labels: 'bug' });
     window.open(`${GITHUB_ISSUES_URL}?${params.toString()}`, '_blank');
@@ -102,14 +105,14 @@ const ImportIssuesToastContent = ({ t, issues, summary }) => {
         <button
           type="button"
           className="toast-close"
-          aria-label="Close toast"
+          aria-label={translate('app.importIssues.closeToast')}
           data-testid="import-issues-toast-close"
           onClick={() => toast.dismiss(t.id)}
         >
           <IconX size={14} />
         </button>
-        <div className="toast-title" data-testid="import-issues-toast-title">Imported with issues: {summary}</div>
-        <div className="toast-hint">Open DevTools console to see which items failed and why.</div>
+        <div className="toast-title" data-testid="import-issues-toast-title">{translate('app.importIssues.title', { summary })}</div>
+        <div className="toast-hint">{translate('app.importIssues.hint')}</div>
         {hasSourceItems && (
           <label className="toast-checkbox">
             <input
@@ -119,25 +122,25 @@ const ImportIssuesToastContent = ({ t, issues, summary }) => {
               data-testid="import-issues-include-items-checkbox"
             />
             <div className="toast-checkbox-text">
-              <span className="toast-checkbox-label">Include failed request data</span>
-              <span className="toast-checkbox-desc">Attaches the raw Postman request items that failed. May contain API keys, tokens, or internal URLs.</span>
+              <span className="toast-checkbox-label">{translate('app.importIssues.includeFailedData')}</span>
+              <span className="toast-checkbox-desc">{translate('app.importIssues.includeFailedDataDesc')}</span>
             </div>
           </label>
         )}
         {isUrlTooLong && (
           <div className="toast-warning" data-testid="import-issues-url-too-long-warning">
             <IconAlertCircle size={14} className="toast-warning-icon" />
-            <span>Issue details are too long to embed in the URL. Clicking &quot;Report on GitHub&quot; will copy them to your clipboard — paste it once the GitHub issue page opens.</span>
+            <span>{translate('app.importIssues.urlTooLongWarning')}</span>
           </div>
         )}
         <div className="toast-actions">
           <button className="toast-btn" onClick={handleReport} data-testid="import-issues-report-btn">
             <IconBrandGithub size={13} />
-            Report on GitHub
+            {translate('app.importIssues.reportOnGitHub')}
           </button>
           <button className="toast-btn" onClick={handleCopy} data-testid="import-issues-copy-btn">
             <IconCopy size={13} />
-            Copy Issues
+            {translate('app.importIssues.copyIssues')}
           </button>
         </div>
       </div>
@@ -147,7 +150,7 @@ const ImportIssuesToastContent = ({ t, issues, summary }) => {
 
 /**
  * Show an import issues toast in the bottom-right corner.
- * Aggregates all issues into a single toast — does not stack.
+ * Aggregates all issues into a single toast ?? does not stack.
  */
 let activeImportToastId = null;
 
@@ -159,8 +162,8 @@ export const showImportIssuesToast = (issues) => {
   const errors = issues.filter((i) => i.severity === 'error');
   const warnings = issues.filter((i) => i.severity === 'warning');
   const parts = [];
-  if (errors.length > 0) parts.push(`${errors.length} item(s) skipped`);
-  if (warnings.length > 0) parts.push(`${warnings.length} warning(s)`);
+  if (errors.length > 0) parts.push(i18n.t('app.importIssues.itemsSkipped', { total: errors.length }));
+  if (warnings.length > 0) parts.push(i18n.t('app.importIssues.warningsCount', { total: warnings.length }));
   const summary = parts.join(', ');
 
   activeImportToastId = toast.custom(

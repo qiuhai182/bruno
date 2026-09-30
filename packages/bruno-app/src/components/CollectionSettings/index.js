@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import get from 'lodash/get';
+import { useTranslation } from 'react-i18next';
 import { updateSettingsSelectedTab } from 'providers/ReduxStore/slices/collections';
 import { useDispatch } from 'react-redux';
 import ProxySettings from './ProxySettings';
@@ -24,6 +25,7 @@ const AI_TABS = ['overview', 'script', 'tests'];
 
 const CollectionSettings = ({ collection }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const { isEditing } = useDocsEditingState();
   const tab = collection.settingsSelectedTab;
   const setTab = (tab) => {
@@ -115,42 +117,42 @@ const CollectionSettings = ({ collection }) => {
       <div className="flex items-start justify-between gap-4" data-testid="settings-tab-bar">
         <div className="flex flex-wrap items-center tabs" role="tablist">
           <div className={getTabClassname('overview')} role="tab" data-testid="collection-settings-tab-overview" onClick={() => setTab('overview')}>
-            Overview
+            {t('collection.settings.tabs.overview')}
           </div>
           <div className={getTabClassname('headers')} role="tab" data-testid="collection-settings-tab-headers" onClick={() => setTab('headers')}>
-            Headers
+            {t('collection.settings.tabs.headers')}
             {activeHeadersCount > 0 && <sup className="ml-1 font-medium">{activeHeadersCount}</sup>}
           </div>
           <div className={getTabClassname('vars')} role="tab" data-testid="collection-settings-tab-vars" onClick={() => setTab('vars')}>
-            Vars
+            {t('collection.settings.tabs.vars')}
             {activeVarsCount > 0 && <sup className="ml-1 font-medium">{activeVarsCount}</sup>}
           </div>
           <div className={getTabClassname('auth')} role="tab" data-testid="collection-settings-tab-auth" onClick={() => setTab('auth')}>
-            Auth
+            {t('collection.settings.tabs.auth')}
             {authMode !== 'none' && <StatusDot />}
           </div>
           <div className={getTabClassname('script')} role="tab" data-testid="collection-settings-tab-script" onClick={() => setTab('script')}>
-            Script
+            {t('collection.settings.tabs.script')}
             {hasScripts && <StatusDot />}
           </div>
           <div className={getTabClassname('tests')} role="tab" data-testid="collection-settings-tab-tests" onClick={() => setTab('tests')}>
-            Tests
+            {t('collection.settings.tabs.tests')}
             {hasTests && <StatusDot />}
           </div>
           <div className={getTabClassname('presets')} role="tab" data-testid="collection-settings-tab-presets" onClick={() => setTab('presets')}>
-            Presets
+            {t('collection.settings.tabs.presets')}
             {hasPresets && <StatusDot />}
           </div>
           <div className={getTabClassname('proxy')} role="tab" data-testid="collection-settings-tab-proxy" onClick={() => setTab('proxy')}>
-            Proxy
+            {t('collection.settings.tabs.proxy')}
             {Object.keys(proxyConfig).length > 0 && proxyEnabled && <StatusDot />}
           </div>
           <div className={getTabClassname('clientCert')} role="tab" data-testid="collection-settings-tab-clientCert" onClick={() => setTab('clientCert')}>
-            Client Certificates
+            {t('collection.settings.tabs.clientCert')}
             {clientCertConfig.length > 0 && <StatusDot />}
           </div>
           <div className={getTabClassname('protobuf')} role="tab" data-testid="collection-settings-tab-protobuf" onClick={() => setTab('protobuf')}>
-            Protobuf
+            {t('collection.settings.tabs.protobuf')}
             {protobufConfig.protoFiles && protobufConfig.protoFiles.length > 0 && <StatusDot />}
           </div>
         </div>

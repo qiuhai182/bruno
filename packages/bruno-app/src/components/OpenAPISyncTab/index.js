@@ -1,5 +1,6 @@
 import { useState, useMemo, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { v4 as uuid } from 'uuid';
 import { addTab } from 'providers/ReduxStore/slices/tabs';
 import { setTabUiState } from 'providers/ReduxStore/slices/openapi-sync';
@@ -15,6 +16,7 @@ import OverviewSection from './OverviewSection';
 import useOpenAPISync from './hooks/useOpenAPISync';
 
 const OpenAPISyncTab = ({ collection }) => {
+  const { t } = useTranslation();
   const {
     sourceUrl, setSourceUrl,
     isLoading,
@@ -69,18 +71,18 @@ const OpenAPISyncTab = ({ collection }) => {
   })();
 
   const syncTabs = useMemo(() => [
-    { key: 'overview', label: 'Overview' },
+    { key: 'overview', label: t('openApiSync.tabs.overview') },
     {
       key: 'collection-changes',
-      label: 'Collection Changes',
+      label: t('openApiSync.tabs.collectionChanges'),
       indicator: collectionChangesCount > 0 ? <span className="tab-count">{collectionChangesCount}</span> : null
     },
     {
       key: 'spec-updates',
-      label: 'Spec Updates',
+      label: t('openApiSync.tabs.specUpdates'),
       indicator: specUpdatesCount > 0 ? <span className="tab-count">{specUpdatesCount}</span> : null
     }
-  ], [collectionChangesCount, specUpdatesCount]);
+  ], [t, collectionChangesCount, specUpdatesCount]);
 
   return (
     <StyledWrapper className="flex flex-col h-full relative px-4 pt-4 overflow-auto">

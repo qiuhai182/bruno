@@ -1,6 +1,7 @@
 import React from 'react';
 import get from 'lodash/get';
 import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import AuthMode from './AuthMode';
 import AwsV4Auth from './AwsV4Auth';
 import BearerAuth from './BearerAuth';
@@ -17,6 +18,7 @@ import OAuth1 from './Oauth1';
 import Button from 'ui/Button';
 
 const Auth = ({ collection }) => {
+  const { t } = useTranslation();
   const authMode = collection.draft?.root ? get(collection, 'draft.root.request.auth.mode') : get(collection, 'root.request.auth.mode');
   const dispatch = useDispatch();
 
@@ -60,8 +62,9 @@ const Auth = ({ collection }) => {
   return (
     <StyledWrapper className="w-full h-full">
       <div className="text-xs mb-4 text-muted">
-        Configures authentication for the entire collection. This applies to all requests using the{' '}
-        <span className="font-medium">Inherit</span> option in the <span className="font-medium">Auth</span> tab.
+        {t('collection.auth.descriptionPrefix')}{' '}
+        <span className="font-medium">{t('collection.auth.inherit')}</span> {t('collection.auth.descriptionMiddle')}{' '}
+        <span className="font-medium">{t('collection.auth.authTab')}</span> {t('collection.auth.descriptionSuffix')}
       </div>
       <div className="flex flex-grow justify-start items-center">
         <AuthMode collection={collection} />
@@ -69,7 +72,7 @@ const Auth = ({ collection }) => {
       {getAuthView()}
       <div className="mt-6">
         <Button type="submit" size="sm" onClick={handleSave}>
-          Save
+          {t('common.save')}
         </Button>
       </div>
     </StyledWrapper>

@@ -1,0 +1,206 @@
+{
+  "environments": {
+    "action": {
+      "copy": "Copy",
+      "create": "Create",
+      "createDotEnvFile": "Create .env file",
+      "createEnvironment": "Create environment",
+      "exportEnvironment": "Export environment",
+      "importEnvironment": "Import environment",
+      "rename": "Rename",
+      "saveAll": "Save All",
+      "search": "Search"
+    },
+    "activateEnvironment": "Activate environment",
+    "activeEnvironment": "Active environment",
+    "clearSearch": "Clear search",
+    "copy": {
+      "defaultSuffix": " - Copy",
+      "title": "Copy Environment"
+    },
+    "create": {
+      "title": "Create Environment"
+    },
+    "createGlobal": {
+      "title": "Create Global Environment"
+    },
+    "delete": {
+      "confirmPrefix": "Are you sure you want to delete",
+      "confirmSuffix": "?",
+      "title": "Delete Environment"
+    },
+    "dotEnv": {
+      "changesSaved": "Changes saved successfully",
+      "confirmSuffix": " file?",
+      "deleteFileTooltip": "Delete .env file",
+      "deleteTitle": "Delete {{filename}} File",
+      "deleteVariable": "Delete variable",
+      "emptyDescription": "Add a variable below to create a .env file in this location.",
+      "fixValidationErrors": "Please fix validation errors before saving",
+      "nameColumn": "Name",
+      "noFile": "No .env File",
+      "rawSaveNotSupported": "Raw save is not supported",
+      "rawView": "Raw",
+      "reset": "Reset",
+      "saveChangesError": "An error occurred while saving the changes",
+      "tableView": "Table",
+      "valueColumn": "Value",
+      "viewModeAria": "View mode"
+    },
+    "empty": {
+      "createEnvironment": "Create Environment",
+      "importEnvironment": "Import Environment",
+      "noDotEnvFiles": "No .env files",
+      "noEnvironments": "No Environments",
+      "noEnvironmentsLower": "No environments"
+    },
+    "error": {
+      "noFileSelected": "No file selected"
+    },
+    "errors": {
+      "nameEmpty": "Name cannot be empty",
+      "nameInvalidChars": "Name contains invalid characters. Must only contain alphanumeric characters, \"-\", \"_\", \".\" and cannot start with a digit."
+    },
+    "export": {
+      "collectionEnvironments": "Collection Environments",
+      "deselectAll": "Deselect All",
+      "exportCount": "Export {{num}} Environments",
+      "exportOne": "Export {{num}} Environment",
+      "exported": "Environment(s) exported successfully",
+      "exportedToFolder": "Environments exported successfully to bruno-{{type}}-environments folder",
+      "exporting": "Exporting...",
+      "failed": "Failed to export environments",
+      "folder": "Separate files in folder",
+      "folderEach": "Each environment as a separate JSON file",
+      "format": "Export Format",
+      "globalEnvironments": "Global Environments",
+      "inherits": "inherits",
+      "location": "Location",
+      "noCollectionEnvironments": "No collection environments",
+      "noGlobalEnvironments": "No global environments",
+      "selectAll": "Select All",
+      "selectAtLeastOne": "Please select at least one environment to export",
+      "selectLocation": "Select a target location",
+      "selectLocationToast": "Please select a location to save the files",
+      "singleFile": "Single JSON file",
+      "singleFileAll": "All environments in one JSON array",
+      "singleObjectDesc": "Export as a single environment JSON object",
+      "title": "Export Environments"
+    },
+    "import": {
+      "couldNotBeRead": "Could not be read",
+      "dropHere": "Drop your environment files here",
+      "dropHint": "Drag & drop JSON files or click to browse. Supports both Bruno and Postman formats.",
+      "failedCount": "{{num}} environment(s) failed to import",
+      "filterByName": "Filter by name",
+      "found": "found",
+      "groupAlreadyExists": "Already exists",
+      "groupNew": "New",
+      "import": "Import",
+      "importCount": "Import ({{num}})",
+      "importFailed": "Import environment failed",
+      "importYourEnvironments": "Import your environments",
+      "noMatches": "No environments match your filter",
+      "noneSelected": "No environments selected to import",
+      "optionNew": "New",
+      "optionNewTitle": "Import as a new environment",
+      "optionReplace": "Replace",
+      "optionReplaceTitle": "Replace existing",
+      "partialSuccess": "{{imported}} environment(s) imported successfully, but {{failed}} failed.",
+      "selected": "selected",
+      "successOne": "Environment imported successfully",
+      "successOther": "{{num}} environments imported successfully",
+      "title": "Import environments",
+      "titleGlobal": "Import global environments",
+      "unknownFile": "Unknown",
+      "unreadableSkipped": "could not be read and will be skipped"
+    },
+    "inheritance": {
+      "circular": "Circular inheritance: {{path}}",
+      "groupLabel": "Inherit variables from",
+      "missingParent": "Referenced parent environment not found: {{name}}",
+      "pillLabel": "Inherit variables from"
+    },
+    "inheritedFrom": "Inherited from {{name}}",
+    "inheritedSection": "Inherited {{tab}}",
+    "label": {
+      "name": "Environment Name",
+      "newName": "New Environment Name"
+    },
+    "namePlaceholder": "Environment name...",
+    "noChangesToSave": "No changes to save",
+    "noResultsFor": "No results found for \"{{query}}\"",
+    "rename": {
+      "title": "Rename Environment"
+    },
+    "saving": "Saving...",
+    "searchPlaceholder": "Search environments...",
+    "searchSecretsPlaceholder": "Search secrets...",
+    "searchVariablesPlaceholder": "Search variables...",
+    "section": {
+      "dotEnvFiles": ".env Files",
+      "environments": "Environments"
+    },
+    "selector": {
+      "configure": "Configure",
+      "create": "Create",
+      "environmentChangedTo": "Environment changed to {{name}}",
+      "import": "Import",
+      "noEnvironment": "No Environment",
+      "noEnvironmentsActive": "No Environments are active now",
+      "noResults": "No results found",
+      "readyToGetStarted": "Ready to get started?",
+      "searchPlaceholder": "Search environments...",
+      "selectError": "An error occurred while selecting the environment"
+    },
+    "tab": {
+      "secrets": "Secrets",
+      "variables": "Variables"
+    },
+    "table": {
+      "description": "Description"
+    },
+    "toast": {
+      "activateFailed": "Failed to activate environment",
+      "activated": "Environment \"{{name}}\" activated",
+      "createError": "An error occurred while creating the environment",
+      "createErrorTypo": "An error occurred while created the environment",
+      "created": "Environment created!",
+      "createdInCollection": "Environment created in collection",
+      "deleteError": "An error occurred while deleting the environment",
+      "deleted": "Environment deleted successfully",
+      "dotEnvCreateFailed": "Failed to create .env file",
+      "dotEnvCreated": "{{name}} file created!",
+      "dotEnvDeleteFailed": "Failed to delete .env file",
+      "dotEnvDeleted": "{{name}} file deleted!",
+      "globalCreated": "Global environment created!",
+      "inheritingFrom": "Inheriting variables from {{name}}",
+      "renameError": "An error occurred while renaming the environment",
+      "renameSuccess": "Environment renamed!",
+      "renamed": "Environment renamed successfully",
+      "saveInheritError": "An error occurred while saving the inherited environment",
+      "stoppedInheriting": "Stopped inheriting variables"
+    },
+    "unsaved": {
+      "body": "You have unsaved changes in {{label}}.",
+      "collectionSettings": "collection environment settings",
+      "dontSave": "Don't Save",
+      "dotEnvFile": ".env file",
+      "globalSettings": "global environment settings",
+      "holdOn": "Hold on..."
+    },
+    "validation": {
+      "alreadyExists": "Environment already exists",
+      "dotEnvPrefix": "File name must start with .env",
+      "fileAlreadyExists": "File already exists",
+      "globalAlreadyExists": "Global environment already exists",
+      "invalidFileName": "Invalid file name",
+      "maxFiftyLower": "must be 50 characters or less",
+      "maxTwoFiftyFive": "Must be 255 characters or less",
+      "minOneChar": "Must be at least 1 character",
+      "minOneCharLower": "must be at least 1 character",
+      "nameRequired": "Name is required",
+      "nameRequiredLower": "name is required"
+    }
+  }
+}

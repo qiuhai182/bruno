@@ -21,6 +21,18 @@ import { useTranslation } from 'react-i18next';
 
 const getOS = () => (isMacOS() ? 'mac' : 'windows');
 
+// i18n key suffix for each section heading from KEY_BINDING_SECTIONS.
+const SECTION_HEADING_KEYS = {
+  'Tabs': 'tabs',
+  'Sidebar': 'sidebar',
+  'Requests': 'requests',
+  'Collections & Environment': 'collectionsEnvironment',
+  'Search': 'search',
+  'View': 'view',
+  'Developer Tool': 'developerTool',
+  'Others': 'others'
+};
+
 // Modifier tokens used in stored preferences.
 // These are lowercase on purpose so they match persisted values.
 const MODIFIERS = new Set(['ctrl', 'command', 'alt', 'shift']);
@@ -800,7 +812,11 @@ const Keybindings = () => {
                 {groupedKeyMappings.map((section, sectionIndex) => (
                   <Fragment key={section.heading}>
                     <tr className="section-heading-row">
-                      <td colSpan={2}>{section.heading}</td>
+                      <td colSpan={2}>
+                        {SECTION_HEADING_KEYS[section.heading]
+                          ? t(`preferences.keybindings.sections.${SECTION_HEADING_KEYS[section.heading]}`)
+                          : section.heading}
+                      </td>
                     </tr>
                     {section.rows.map((row, rowIndex) => {
                       const { action } = row;
@@ -831,7 +847,9 @@ const Keybindings = () => {
                             setHoveredAction((prev) => (prev === action ? null : prev))}
                           onClick={() => !isReadOnly && !isEditing && startEditing(action)}
                         >
-                          <td data-testid={`keybinding-name-${action}`}>{row.name}</td>
+                          <td data-testid={`keybinding-name-${action}`}>
+                            {t(`preferences.keybindings.actions.${action}`, { defaultValue: row.name })}
+                          </td>
 
                           <td>
                             <div className="keybinding-row">

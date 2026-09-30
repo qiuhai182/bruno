@@ -17,6 +17,7 @@ import { updateFolderAuth as _updateFolderAuth } from 'providers/ReduxStore/slic
 import { saveFolderRoot } from 'providers/ReduxStore/slices/collections/actions';
 import React, { useMemo } from 'react';
 import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import Button from 'ui/Button';
 import { getEffectiveAuthSource } from 'utils/auth';
 import { humanizeRequestAuthMode } from 'utils/collections/index';
@@ -24,6 +25,7 @@ import AuthMode from '../AuthMode';
 import StyledWrapper from './StyledWrapper';
 
 const GrantTypeComponentMap = ({ collection, folder, updateFolderAuth }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
 
   const save = () => {
@@ -44,11 +46,12 @@ const GrantTypeComponentMap = ({ collection, folder, updateFolderAuth }) => {
     case 'implicit':
       return <OAuth2Implicit save={save} item={folder} request={request} updateAuth={updateFolderAuth} collection={collection} folder={folder} />;
     default:
-      return <div>TBD</div>;
+      return <div>{t('collection.auth.oauth2.tbd')}</div>;
   }
 };
 
 const Auth = ({ collection, folder }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const folderRoot = folder?.draft || folder?.root;
   let request = get(folderRoot, 'request', {});
@@ -177,7 +180,7 @@ const Auth = ({ collection, folder }) => {
         return (
           <>
             <div className="flex flex-row w-full mt-2 gap-2">
-              <div>Auth inherited from {inheritedSource.name}: </div>
+              <div>{t('collection.folder.auth.inheritedFrom', { name: inheritedSource.name })} </div>
               <div className="inherit-mode-text" data-testid="inherited-auth-mode">{humanizeRequestAuthMode(inheritedSource.auth?.mode)}</div>
             </div>
           </>
@@ -207,8 +210,9 @@ const Auth = ({ collection, folder }) => {
   return (
     <StyledWrapper className="w-full">
       <div className="text-xs mb-4 text-muted">
-        Configures authentication for the entire folder. This applies to all requests using the{' '}
-        <span className="font-medium">Inherit</span> option in the <span className="font-medium">Auth</span> tab.
+        {t('collection.folder.auth.descriptionPrefix')}{' '}
+        <span className="font-medium">{t('collection.auth.inherit')}</span> {t('collection.auth.descriptionMiddle')}{' '}
+        <span className="font-medium">{t('collection.auth.authTab')}</span> {t('collection.auth.descriptionSuffix')}
       </div>
       <div className="flex flex-grow justify-start items-center">
         <AuthMode collection={collection} folder={folder} />
@@ -216,7 +220,7 @@ const Auth = ({ collection, folder }) => {
       {getAuthView()}
       <div className="mt-6">
         <Button type="submit" size="sm" onClick={handleSave}>
-          Save
+          {t('common.save')}
         </Button>
       </div>
     </StyledWrapper>

@@ -1,5 +1,6 @@
 import React, { useCallback, useMemo } from 'react';
 import { flattenItems } from 'utils/collections';
+import { useTranslation } from 'react-i18next';
 import { IconAlertTriangle } from '@tabler/icons';
 import StyledWrapper from './StyledWrapper';
 import { useDispatch, useSelector } from 'react-redux';
@@ -19,6 +20,7 @@ const toRelativePathname = (pathname, collectionPathname) => {
 };
 
 const RequestsNotLoaded = ({ collection }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const tabs = useSelector((state) => state.tabs.tabs);
 
@@ -63,16 +65,16 @@ const RequestsNotLoaded = ({ collection }) => {
     <StyledWrapper className="w-full card my-2">
       <div className="flex items-center gap-2 px-3 py-2 title">
         <IconAlertTriangle size={16} className="warning-icon" />
-        <span className="font-medium">Following requests were not loaded</span>
+        <span className="font-medium">{t('collection.overview.requestsNotLoaded.title')}</span>
       </div>
       <table className="w-full border-collapse">
         <thead>
           <tr>
             <th className="py-2 px-3 text-left font-medium">
-              Pathname
+              {t('collection.overview.requestsNotLoaded.pathname')}
             </th>
             <th className="py-2 px-3 text-left font-medium">
-              Size
+              {t('collection.overview.requestsNotLoaded.size')}
             </th>
           </tr>
         </thead>

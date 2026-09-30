@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import get from 'lodash/get';
 import { useDispatch } from 'react-redux';
 import GrpcAuthMode from './GrpcAuthMode';
@@ -16,6 +17,7 @@ import { saveRequest } from 'providers/ReduxStore/slices/collections/actions';
 import { AUTH_MODES_GRPC } from 'utils/common/constants';
 
 const GrpcAuth = ({ item, collection }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const authMode = item.draft ? get(item, 'draft.request.auth.mode') : get(item, 'request.auth.mode');
 
@@ -48,7 +50,7 @@ const GrpcAuth = ({ item, collection }) => {
   const getAuthView = () => {
     switch (authMode) {
       case 'none': {
-        return <div>No Auth</div>;
+        return <div>{t('requestPane.grpc.noAuth')}</div>;
       }
       case 'basic': {
         return <BasicAuth collection={collection} item={item} updateAuth={updateAuth} request={request} save={save} />;
@@ -71,7 +73,7 @@ const GrpcAuth = ({ item, collection }) => {
           return (
             <>
               <div className="flex flex-row w-full gap-2">
-                <div>Auth inherited from {inheritedSource.name}: </div>
+                <div>{t('requestPane.grpc.authInheritedFrom', { name: inheritedSource.name })}</div>
                 <div className="inherit-mode-text">{humanizeRequestAuthMode(inheritedSource.auth?.mode)}</div>
               </div>
             </>
@@ -80,7 +82,7 @@ const GrpcAuth = ({ item, collection }) => {
           return (
             <>
               <div className="flex flex-row w-full gap-2">
-                <div>Inherited auth not supported by gRPC. Using no auth instead.</div>
+                <div>{t('requestPane.grpc.inheritedAuthNotSupported')}</div>
               </div>
             </>
           );

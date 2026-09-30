@@ -421,7 +421,9 @@ app.on('ready', async () => {
   const url = isDev
     ? `http://localhost:${devPort}`
     : format({
-        pathname: path.join(__dirname, '../web/index.html'),
+        // Forward slashes only: Electron 37's file protocol handling rejects
+        // the backslash pathname produced by path.join on Windows (ERR_FAILED).
+        pathname: path.join(__dirname, '../web/index.html').replace(/\\/g, '/'),
         protocol: 'file:',
         slashes: true
       });

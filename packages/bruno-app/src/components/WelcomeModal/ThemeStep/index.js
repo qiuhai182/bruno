@@ -2,12 +2,13 @@ import React from 'react';
 import { rgba } from 'polished';
 import { IconBrightnessUp, IconMoon, IconDeviceDesktop } from '@tabler/icons';
 import themes, { getLightThemes, getDarkThemes } from 'themes/index';
+import { useTranslation } from 'react-i18next';
 import StyledWrapper from './StyledWrapper';
 
 const themeModes = [
-  { key: 'light', label: 'Light', icon: IconBrightnessUp },
-  { key: 'dark', label: 'Dark', icon: IconMoon },
-  { key: 'system', label: 'System', icon: IconDeviceDesktop }
+  { key: 'light', icon: IconBrightnessUp },
+  { key: 'dark', icon: IconMoon },
+  { key: 'system', icon: IconDeviceDesktop }
 ];
 
 const ThemePreviewBox = ({ themeId, isDark }) => {
@@ -29,6 +30,7 @@ const ThemePreviewBox = ({ themeId, isDark }) => {
 };
 
 const ThemeStep = ({ storedTheme, setStoredTheme, themeVariantLight, setThemeVariantLight, themeVariantDark, setThemeVariantDark }) => {
+  const { t } = useTranslation();
   const lightThemeList = getLightThemes();
   const darkThemeList = getDarkThemes();
 
@@ -37,10 +39,10 @@ const ThemeStep = ({ storedTheme, setStoredTheme, themeVariantLight, setThemeVar
 
   return (
     <StyledWrapper className="step-body">
-      <div className="step-label">Appearance</div>
-      <div className="step-title">Choose your theme</div>
+      <div className="step-label">{t('preferences.themes.appearance')}</div>
+      <div className="step-title">{t('welcome.theme.title')}</div>
       <div className="step-description">
-        Pick a look that feels right. You can always change this later in Preferences.
+        {t('welcome.theme.description')}
       </div>
 
       <div className="theme-mode-buttons">
@@ -53,7 +55,7 @@ const ThemeStep = ({ storedTheme, setStoredTheme, themeVariantLight, setThemeVar
               onClick={() => setStoredTheme(mode.key)}
             >
               <Icon size={16} stroke={1.5} />
-              {mode.label}
+              {t(`preferences.themes.${mode.key}`)}
             </button>
           );
         })}
@@ -61,16 +63,16 @@ const ThemeStep = ({ storedTheme, setStoredTheme, themeVariantLight, setThemeVar
 
       {showLight && (
         <div className="theme-variants-grid" style={{ marginBottom: showDark ? '1rem' : 0 }}>
-          {lightThemeList.map((t) => (
+          {lightThemeList.map((theme) => (
             <button
               type="button"
-              key={t.id}
-              className={`theme-variant-option ${themeVariantLight === t.id ? 'selected' : ''}`}
-              onClick={() => setThemeVariantLight(t.id)}
-              aria-pressed={themeVariantLight === t.id}
+              key={theme.id}
+              className={`theme-variant-option ${themeVariantLight === theme.id ? 'selected' : ''}`}
+              onClick={() => setThemeVariantLight(theme.id)}
+              aria-pressed={themeVariantLight === theme.id}
             >
-              <ThemePreviewBox themeId={t.id} isDark={false} />
-              <span className="variant-name">{t.name}</span>
+              <ThemePreviewBox themeId={theme.id} isDark={false} />
+              <span className="variant-name">{theme.name}</span>
             </button>
           ))}
         </div>
@@ -78,16 +80,16 @@ const ThemeStep = ({ storedTheme, setStoredTheme, themeVariantLight, setThemeVar
 
       {showDark && (
         <div className="theme-variants-grid">
-          {darkThemeList.map((t) => (
+          {darkThemeList.map((theme) => (
             <button
               type="button"
-              key={t.id}
-              className={`theme-variant-option ${themeVariantDark === t.id ? 'selected' : ''}`}
-              onClick={() => setThemeVariantDark(t.id)}
-              aria-pressed={themeVariantDark === t.id}
+              key={theme.id}
+              className={`theme-variant-option ${themeVariantDark === theme.id ? 'selected' : ''}`}
+              onClick={() => setThemeVariantDark(theme.id)}
+              aria-pressed={themeVariantDark === theme.id}
             >
-              <ThemePreviewBox themeId={t.id} isDark={true} />
-              <span className="variant-name">{t.name}</span>
+              <ThemePreviewBox themeId={theme.id} isDark={true} />
+              <span className="variant-name">{theme.name}</span>
             </button>
           ))}
         </div>

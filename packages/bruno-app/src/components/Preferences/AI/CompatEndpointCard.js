@@ -16,6 +16,7 @@ import {
 } from '@tabler/icons';
 import toast from 'react-hot-toast';
 import { clearAiApiKey, getAiApiKey, setAiApiKey, testAiProvider } from 'utils/ai';
+import { useTranslation } from 'react-i18next';
 
 const stopBubble = (e) => e.stopPropagation();
 
@@ -35,6 +36,7 @@ const CompatEndpointCard = ({
   onRemoveEndpoint,
   onStatusChange
 }) => {
+  const { t } = useTranslation();
   const [expanded, setExpanded] = useState(!endpoint.baseURL);
   const [keyDraft, setKeyDraft] = useState('');
   const [editing, setEditing] = useState(false);
@@ -65,9 +67,9 @@ const CompatEndpointCard = ({
       setKeyDraft('');
       setShowKey(false);
       setEditing(false);
-      setFeedback({ type: 'success', message: 'API key saved' });
+      setFeedback({ type: 'success', message: t('preferences.ai.card.keySaved') });
     } catch (err) {
-      setFeedback({ type: 'error', message: err.message || 'Failed to save API key' });
+      setFeedback({ type: 'error', message: err.message || t('preferences.ai.card.keySaveFailed') });
     } finally {
       setSaving(false);
     }
@@ -80,9 +82,9 @@ const CompatEndpointCard = ({
       onStatusChange?.(status);
       setEditing(false);
       setKeyDraft('');
-      toast.success(`${endpoint.name || 'Endpoint'} API key removed`);
+      toast.success(t('preferences.ai.card.keyRemovedToast', { name: endpoint.name || t('preferences.ai.endpoint.fallbackName') }));
     } catch (err) {
-      toast.error(err.message || 'Failed to clear API key');
+      toast.error(err.message || t('preferences.ai.card.keyClearFailed'));
     }
   };
 
@@ -92,12 +94,12 @@ const CompatEndpointCard = ({
     try {
       const result = await testAiProvider({ providerId: provider.id });
       if (result.ok) {
-        setFeedback({ type: 'success', message: 'Connection successful' });
+        setFeedback({ type: 'success', message: t('preferences.ai.card.connectionOk') });
       } else {
-        setFeedback({ type: 'error', message: result.error || 'Connection failed' });
+        setFeedback({ type: 'error', message: result.error || t('preferences.ai.card.connectionFailed') });
       }
     } catch (err) {
-      setFeedback({ type: 'error', message: err.message || 'Connection failed' });
+      setFeedback({ type: 'error', message: err.message || t('preferences.ai.card.connectionFailed') });
     } finally {
       setTesting(false);
     }
@@ -170,7 +172,7 @@ const CompatEndpointCard = ({
         <div className="flex items-center gap-2.5 min-w-0 flex-1">
           <IconServer size={16} strokeWidth={1.5} className="provider-logo flex-shrink-0" />
           <div className="flex flex-col min-w-0">
-            <span className="font-semibold text-[12.5px] truncate">{endpoint.name || 'Unnamed endpoint'}</span>
+            <span className="font-semibold text-[12.5px] truncate">{endpoint.name || t('preferences.ai.endpoint.unnamed')}</span>
             {endpoint.baseURL && (
               <span className="provider-status text-[10.5px] truncate">{endpoint.baseURL}</span>
             )}
@@ -180,8 +182,8 @@ const CompatEndpointCard = ({
           <span className={`provider-status inline-flex items-center gap-1.5 text-[11px] ${provider.configured ? 'configured' : ''}`}>
             <span className={`status-dot w-[7px] h-[7px] rounded-full ${provider.configured ? 'configured' : ''}`} />
             {provider.configured
-              ? `${enabledModelsCount}/${models.length} model${models.length === 1 ? '' : 's'}`
-              : 'Not configured'}
+              ? t('preferences.ai.card.modelsCount', { count: enabledModelsCount, total: models.length })
+              : t('preferences.ai.card.notConfigured')}
           </span>
           <span className="flex items-center" onClick={stopBubble}>
             {providerToggle}
@@ -199,13 +201,13 @@ const CompatEndpointCard = ({
             <div className="grid grid-cols-2 gap-2" onClick={stopBubble}>
               <div className="flex flex-col gap-1">
                 <label className="key-section-label text-[11px]" htmlFor={`endpoint-name-${endpoint.id}`}>
-                  Name
+                  {t('preferences.ai.endpoint.nameLabel')}
                 </label>
                 <input
                   id={`endpoint-name-${endpoint.id}`}
                   type="text"
                   className="key-input w-full h-8 box-border text-xs leading-none pl-2.5 pr-2"
-                  placeholder="e.g. Ollama local"
+                  placeholder={t('preferences.ai.endpoint.namePlaceholder')}
                   value={endpoint.name || ''}
                   onChange={(e) => onChangeName(e.target.value)}
                   onClick={stopBubble}
@@ -213,7 +215,7 @@ const CompatEndpointCard = ({
               </div>
               <div className="flex flex-col gap-1">
                 <label className="key-section-label text-[11px]" htmlFor={`endpoint-baseurl-${endpoint.id}`}>
-                  Base URL
+                  {t('preferences.ai.endpoint.baseUrlLabel')}
                 </label>
                 <input
                   id={`endpoint-baseurl-${endpoint.id}`}
@@ -233,7 +235,7 @@ const CompatEndpointCard = ({
             {/* API key */}
             <div>
               <div className="key-section-label flex items-center justify-between gap-2 text-[11px] mb-1">
-                <span>API Key <span className="opacity-60">(optional)</span></span>
+                <span>{t('preferences.ai.card.apiKeyLabel')} <span className="opacity-60">{t('preferences.ai.card.apiKeyOptional')}</span></span>
               </div>
 
               {!editing ? (
@@ -242,9 +244,9 @@ const CompatEndpointCard = ({
                   onClick={stopBubble}
                 >
                   {provider.hasApiKey ? (
-                    <span className="key-display-mask text-xs">â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢</span>
+                    <span className="key-display-mask text-xs">••••••••••••••••</span>
                   ) : (
-                    <span className="key-display-mask text-xs opacity-60">Not set</span>
+                    <span className="key-display-mask text-xs opacity-60">{t('preferences.ai.endpoint.notSet')}</span>
                   )}
                   <div className="flex items-center gap-0.5">
                     <button
@@ -252,8 +254,8 @@ const CompatEndpointCard = ({
                       className="btn-icon w-7 h-7 box-border inline-flex items-center justify-center cursor-pointer"
                       onClick={handleTest}
                       disabled={testing || pending || !providerEnabled || !endpoint.baseURL}
-                      title={endpoint.baseURL ? 'Test connection' : 'Set Base URL first'}
-                      aria-label="Test connection"
+                      title={endpoint.baseURL ? t('preferences.ai.card.testConnection') : t('preferences.ai.endpoint.setBaseUrlFirst')}
+                      aria-label={t('preferences.ai.card.testConnection')}
                       data-testid={`ai-endpoint-${endpoint.id}-test`}
                     >
                       {testing ? <IconLoader2 size={15} className="spin" /> : <IconBolt size={15} />}
@@ -263,8 +265,8 @@ const CompatEndpointCard = ({
                       className="btn-icon w-7 h-7 box-border inline-flex items-center justify-center cursor-pointer"
                       onClick={handleStartEditKey}
                       disabled={pending}
-                      title={provider.hasApiKey ? 'Replace key' : 'Add key'}
-                      aria-label={provider.hasApiKey ? 'Replace key' : 'Add key'}
+                      title={provider.hasApiKey ? t('preferences.ai.card.replaceKey') : t('preferences.ai.card.addKey')}
+                      aria-label={provider.hasApiKey ? t('preferences.ai.card.replaceKey') : t('preferences.ai.card.addKey')}
                       data-testid={`ai-endpoint-${endpoint.id}-edit-key`}
                     >
                       <IconPencil size={15} />
@@ -275,8 +277,8 @@ const CompatEndpointCard = ({
                         className="btn-icon danger w-7 h-7 box-border inline-flex items-center justify-center cursor-pointer"
                         onClick={handleClearKey}
                         disabled={pending}
-                        title="Remove key"
-                        aria-label="Remove key"
+                        title={t('preferences.ai.card.removeKey')}
+                        aria-label={t('preferences.ai.card.removeKey')}
                         data-testid={`ai-endpoint-${endpoint.id}-clear-key`}
                       >
                         <IconTrash size={15} />
@@ -308,7 +310,7 @@ const CompatEndpointCard = ({
                       className="key-eye-btn absolute right-1 p-1 inline-flex items-center cursor-pointer"
                       onClick={() => setShowKey(!showKey)}
                       tabIndex={-1}
-                      aria-label={showKey ? 'Hide API key' : 'Show API key'}
+                      aria-label={showKey ? t('preferences.ai.card.hideKey') : t('preferences.ai.card.showKey')}
                     >
                       {showKey ? <IconEyeOff size={14} /> : <IconEye size={14} />}
                     </button>
@@ -321,13 +323,13 @@ const CompatEndpointCard = ({
                     data-testid={`ai-endpoint-${endpoint.id}-save-key`}
                   >
                     {saving ? <IconLoader2 size={13} className="spin" /> : <IconCheck size={13} />}
-                    Save
+                    {t('common.save')}
                   </button>
                   <button
                     type="button"
                     className="btn-icon w-7 h-7 box-border inline-flex items-center justify-center cursor-pointer"
                     onClick={handleCancelEditKey}
-                    title="Cancel"
+                    title={t('common.cancel')}
                   >
                     <IconX size={15} />
                   </button>
@@ -337,7 +339,7 @@ const CompatEndpointCard = ({
               {pending && (
                 <div className="feedback flex items-center gap-1.5 text-[11px] px-2 py-1 mt-1.5" role="status">
                   <IconLoader2 size={12} className="spin" />
-                  Saving endpointâ€¦
+                  {t('preferences.ai.endpoint.saving')}
                 </div>
               )}
 
@@ -355,18 +357,18 @@ const CompatEndpointCard = ({
             {/* Models */}
             <div className="flex flex-col gap-1.5" onClick={stopBubble}>
               <div className="models-label-row flex items-center justify-between text-[11px]">
-                <span>Models</span>
+                <span>{t('preferences.ai.card.modelsLabel')}</span>
                 {!provider.configured && (
                   <span className="keyless-hint flex items-center gap-1.5 text-[11px] py-1">
                     <IconAlertCircle size={12} />
-                    Set a Base URL to enable
+                    {t('preferences.ai.endpoint.setBaseUrlHint')}
                   </span>
                 )}
               </div>
 
               {models.length === 0 && (
                 <div className="compat-models-empty text-[11px] px-2.5 py-2">
-                  No models yet. Add the model id your provider expects (e.g. <code>gpt-4o</code> or <code>llama3.1:8b</code>).
+                  {t('preferences.ai.endpoint.modelsEmpty')}
                 </div>
               )}
 
@@ -391,22 +393,22 @@ const CompatEndpointCard = ({
                           type="text"
                           className="compat-inline-input flex-1 text-xs"
                           value={model.label || ''}
-                          placeholder="Display name"
+                          placeholder={t('preferences.ai.endpoint.displayNamePlaceholder')}
                           onChange={(e) => onUpdateModel(model.id, { label: e.target.value })}
                         />
                         <input
                           type="text"
                           className="compat-inline-input compat-inline-id flex-1 text-xs"
                           value={model.modelId || ''}
-                          placeholder="Model id"
+                          placeholder={t('preferences.ai.endpoint.modelIdPlaceholder')}
                           onChange={(e) => onUpdateModel(model.id, { modelId: e.target.value })}
                         />
                         <button
                           type="button"
                           className="btn-icon danger w-6 h-6 box-border inline-flex items-center justify-center cursor-pointer"
                           onClick={() => onRemoveModel(model.id)}
-                          title="Remove model"
-                          aria-label="Remove model"
+                          title={t('preferences.ai.card.removeModel')}
+                          aria-label={t('preferences.ai.card.removeModel')}
                         >
                           <IconTrash size={13} />
                         </button>
@@ -420,7 +422,7 @@ const CompatEndpointCard = ({
                 <input
                   type="text"
                   className="key-input flex-1 h-8 box-border text-xs leading-none pl-2.5 pr-2"
-                  placeholder="Model id (required)"
+                  placeholder={t('preferences.ai.endpoint.modelIdRequiredPlaceholder')}
                   value={newModelId}
                   onChange={(e) => setNewModelId(e.target.value)}
                   onKeyDown={handleAddModelKeyDown}
@@ -429,7 +431,7 @@ const CompatEndpointCard = ({
                 <input
                   type="text"
                   className="key-input flex-1 h-8 box-border text-xs leading-none pl-2.5 pr-2"
-                  placeholder="Label (optional)"
+                  placeholder={t('preferences.ai.endpoint.labelOptionalPlaceholder')}
                   value={newModelLabel}
                   onChange={(e) => setNewModelLabel(e.target.value)}
                   onKeyDown={handleAddModelKeyDown}
@@ -443,7 +445,7 @@ const CompatEndpointCard = ({
                   data-testid={`ai-endpoint-${endpoint.id}-add-model`}
                 >
                   <IconPlus size={13} />
-                  Add
+                  {t('preferences.ai.card.add')}
                 </button>
               </div>
             </div>
@@ -456,7 +458,7 @@ const CompatEndpointCard = ({
                 data-testid={`ai-endpoint-${endpoint.id}-remove`}
               >
                 <IconTrash size={12} />
-                Remove endpoint
+                {t('preferences.ai.endpoint.removeEndpoint')}
               </button>
             </div>
           </div>

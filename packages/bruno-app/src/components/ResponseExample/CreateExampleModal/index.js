@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import Modal from 'components/Modal';
 import Portal from 'components/Portal';
 
-const CreateExampleModal = ({ isOpen, onClose, onSave, title = 'Create Response Example', initialName = '', confirmText = 'Create Example' }) => {
+const CreateExampleModal = ({ isOpen, onClose, onSave, title, initialName = '', confirmText }) => {
+  const { t } = useTranslation();
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [nameError, setNameError] = useState('');
@@ -23,7 +25,7 @@ const CreateExampleModal = ({ isOpen, onClose, onSave, title = 'Create Response 
       setDescription('');
       setNameError('');
     } else {
-      setNameError('Example name is required');
+      setNameError(t('collection.example.nameRequired'));
     }
   };
 
@@ -51,18 +53,18 @@ const CreateExampleModal = ({ isOpen, onClose, onSave, title = 'Create Response 
     <Portal>
       <Modal
         size="md"
-        title={title}
+        title={title ?? t('collection.example.createModalTitle')}
         handleCancel={handleClose}
         handleConfirm={handleConfirm}
-        confirmText={confirmText}
-        cancelText="Cancel"
+        confirmText={confirmText ?? t('collection.example.confirmCreate')}
+        cancelText={t('common.cancel')}
         isOpen={isOpen}
         dataTestId="create-example-modal"
       >
         <div className="space-y-4">
           <div>
             <label htmlFor="exampleName" className="block font-medium">
-              Example Name<span className="text-red-600">*</span>
+              {t('collection.example.nameLabel')}<span className="text-red-600">*</span>
             </label>
             <input
               id="exampleName"
@@ -83,7 +85,7 @@ const CreateExampleModal = ({ isOpen, onClose, onSave, title = 'Create Response 
 
           <div>
             <label htmlFor="exampleDescription" className="block font-medium">
-              Description
+              {t('collection.example.descriptionLabel')}
             </label>
             <textarea
               id="exampleDescription"

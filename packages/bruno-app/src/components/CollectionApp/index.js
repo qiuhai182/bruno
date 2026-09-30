@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import cloneDeep from 'lodash/cloneDeep';
 import get from 'lodash/get';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { resolveEnvironmentInheritance } from '@usebruno/common/utils';
 import { sendNetworkRequest } from 'utils/network/index';
 import {
@@ -37,7 +38,7 @@ import {
 } from '../AppView/webview-bridge';
 
 /*
- * Standalone collection-/folder-level app — a file (.bru/.yml) of type 'app'
+ * Standalone collection-/folder-level app 潩 a file (.bru/.yml) of type 'app'
  * that lives in the sidebar and opens as its own tab. The user toggles between
  * Code (CodeEditor) and Preview (sandboxed <webview>); preview re-runs whenever
  * the code prop changes.
@@ -46,7 +47,7 @@ import {
  *   shared:  theme, log, variables (.resolved / .runtime.set), onThemeChange, onVariablesChange
  *   added:   collection, listRequests(), runRequest(pathname, options?), onCollectionChange
  *   dropped: submitRequest, http.response, assertions, tests
- *             (and their on*Change hooks — they only make sense for one request)
+ *             (and their on*Change hooks 潩 they only make sense for one request)
  */
 
 const COLLECTION_CTX_BOOTSTRAP = `<script>
@@ -170,6 +171,7 @@ const listRequestSummaries = (collection) =>
     }));
 
 const CollectionApp = ({ item, collection }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const { displayedTheme, theme, themeVariantLight, themeVariantDark } = useTheme();
   const preferences = useSelector((state) => state.app.preferences);
@@ -279,7 +281,7 @@ const CollectionApp = ({ item, collection }) => {
     [collection, environment, dispatch]
   );
 
-  // pushToGuest is produced by useAppWebview, which itself needs handleGuestMessage —
+  // pushToGuest is produced by useAppWebview, which itself needs handleGuestMessage 潩
   // so we can't put it in handleGuestMessage's useCallback deps (circular). Instead
   // route guest replies through a ref that always points at the latest pushToGuest.
   // Without this, the callback closes over the first-render pushToGuest (which is a
@@ -348,7 +350,7 @@ const CollectionApp = ({ item, collection }) => {
   return (
     <StyledWrapper data-testid="collection-app">
       <div className="app-toolbar">
-        <span>App - {item.name}</span>
+        <span>{t('collection.app.title', { name: item.name })}</span>
         <div className="flex items-center gap-2">
           {view === 'code' && (
             <AIAssist
@@ -366,7 +368,7 @@ const CollectionApp = ({ item, collection }) => {
               className={classnames('view-btn', { active: view === 'code' })}
               onClick={() => setView('code')}
             >
-              Code
+              {t('collection.app.code')}
             </button>
             <button
               type="button"
@@ -374,7 +376,7 @@ const CollectionApp = ({ item, collection }) => {
               className={classnames('view-btn', { active: view === 'preview' })}
               onClick={() => setView('preview')}
             >
-              Preview
+              {t('collection.app.preview')}
             </button>
           </div>
         </div>
@@ -406,7 +408,7 @@ const CollectionApp = ({ item, collection }) => {
       ) : (
         <div className="app-pane" data-testid="collection-app-preview">
           <EmptyAppState
-            hint="Add HTML/JS in the Code view to render a custom UI for this app."
+            hint={t('collection.app.emptyHint')}
             onAddCode={() => setView('code')}
           />
         </div>

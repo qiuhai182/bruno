@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import path from 'utils/common/path';
@@ -16,6 +17,7 @@ import { findCollectionByUid } from 'utils/collections/index';
 import get from 'lodash/get';
 
 const CloneCollection = ({ onClose, collectionUid }) => {
+  const { t } = useTranslation();
   const inputRef = useRef();
   const dispatch = useDispatch();
   const [isEditing, toggleEditing] = useState(false);
@@ -40,18 +42,18 @@ const CloneCollection = ({ onClose, collectionUid }) => {
     },
     validationSchema: Yup.object({
       collectionName: Yup.string()
-        .min(1, 'must be at least 1 character')
-        .max(255, 'must be 255 characters or less')
-        .required('collection name is required'),
+        .min(1, t('sidebar.validation.min1Char'))
+        .max(255, t('sidebar.validation.max255'))
+        .required(t('sidebar.validation.nameRequired')),
       collectionFolderName: Yup.string()
-        .min(1, 'must be at least 1 character')
-        .max(255, 'must be 255 characters or less')
+        .min(1, t('sidebar.validation.min1Char'))
+        .max(255, t('sidebar.validation.max255'))
         .test('is-valid-collection-name', function (value) {
           const isValid = validateName(value);
           return isValid ? true : this.createError({ message: validateNameError(value) });
         })
-        .required('folder name is required'),
-      collectionLocation: Yup.string().min(1, 'location is required').required('location is required')
+        .required(t('sidebar.validation.folderNameRequired')),
+      collectionLocation: Yup.string().min(1, t('sidebar.validation.locationRequired')).required(t('sidebar.validation.locationRequired'))
     }),
     onSubmit: (values) => {
       dispatch(
@@ -63,10 +65,10 @@ const CloneCollection = ({ onClose, collectionUid }) => {
         )
       )
         .then(() => {
-          toast.success('Collection created!');
+          toast.success(t('sidebar.toast.collectionCreated'));
           onClose();
         })
-        .catch((e) => toast.error('An error occurred while creating the collection - ' + e));
+        .catch((e) => toast.error(t('sidebar.toast.errorCreatingCollectionWithError', { error: e })));
     }
   });
 
@@ -93,11 +95,11 @@ const CloneCollection = ({ onClose, collectionUid }) => {
   const onSubmit = () => formik.handleSubmit();
 
   return (
-    <Modal size="md" title="Clone Collection" confirmText="Create" handleConfirm={onSubmit} handleCancel={onClose}>
+    <Modal size="md" title={t('sidebar.cloneCollection.title')} confirmText={t('sidebar.create')} handleConfirm={onSubmit} handleCancel={onClose}>
       <form className="bruno-form" onSubmit={(e) => e.preventDefault()}>
         <div>
           <label htmlFor="collection-name" className="flex items-center font-medium">
-            Name
+            {t('sidebar.name')}
           </label>
           <input
             id="collection-name"
@@ -120,7 +122,7 @@ const CloneCollection = ({ onClose, collectionUid }) => {
           ) : null}
 
           <label htmlFor="collection-location" className="block font-medium mt-3">
-            Location
+            {t('sidebar.location')}
           </label>
           <input
             id="collection-location"
@@ -143,20 +145,20 @@ const CloneCollection = ({ onClose, collectionUid }) => {
               className="text-link cursor-pointer hover:underline"
               onClick={browse}
             >
-              Browse
+              {t('sidebar.browse')}
             </span>
           </div>
 
           <div className="mt-4">
             <div className="flex items-center justify-between">
               <label htmlFor="filename" className="flex items-center font-medium">
-                Folder Name
+                {t('sidebar.folderName')}
                 <Help width="300">
                   <p>
-                    The name of the folder used to store the collection.
+                    {t('sidebar.cloneCollection.folderNameHelp1')}
                   </p>
                   <p className="mt-2">
-                    You can choose a folder name different from your collection's name or one compatible with filesystem rules.
+                    {t('sidebar.cloneCollection.folderNameHelp2')}
                   </p>
                 </Help>
               </label>

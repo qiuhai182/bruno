@@ -1,0 +1,33 @@
+{
+  "globalSearch": {
+    "arrowsHintAria": "Use up and down arrows to navigate",
+    "browseDocumentation": "Browse the official Bruno documentation",
+    "brunoDocumentation": "Bruno Documentation",
+    "clearSearch": "Clear search query",
+    "enterHintAria": "Press Enter to select",
+    "escHintAria": "Press Escape to close",
+    "httpMethod": "HTTP method {{method}}",
+    "itemType": "Item type {{type}}",
+    "keyboardShortcuts": "Keyboard shortcuts",
+    "mountHint": "Mount a collection via the sidebar or this search modal, then try again.",
+    "noCollections": "No collections are currently mounted or visible.",
+    "noResults": "No results found",
+    "noResultsFor": "No results found for \"{{query}}\".",
+    "noResultsHintPrefix": "The item might not exist yet, or its collection isn't mounted. Press",
+    "noResultsHintSuffix": "here (or open it from the sidebar) to mount the collection automatically.",
+    "resultsFound": "{{num}} results found",
+    "searchAriaLabel": "Search collections, requests, or documentation",
+    "searchPlaceholder": "Search collections, requests, or documentation...",
+    "searchResults": "Search results",
+    "srDescription": "Search through collections, requests, folders, and documentation. Use arrow keys to navigate results and Enter to select.",
+    "title": "Global Search",
+    "toClose": "to close",
+    "toNavigate": "to navigate",
+    "toSelect": "to select",
+    "type": {
+      "collection": "Collection",
+      "documentation": "Documentation",
+      "folder": "Folder"
+    }
+  }
+}

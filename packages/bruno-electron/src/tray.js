@@ -1,6 +1,6 @@
 const path = require('path');
 const { Tray, Menu, ipcMain, nativeImage, shell } = require('electron');
-const { getPreferences } = require('../store/preferences');
+const { getPreferences } = require('./store/preferences');
 
 // The main process has no react-i18next; tray labels follow the language
 // preference with a simple map (kept in sync with the renderer translations).

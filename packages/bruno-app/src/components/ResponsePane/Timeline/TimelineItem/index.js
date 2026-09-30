@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { IconChevronDown, IconChevronRight } from '@tabler/icons';
 import Method from './Common/Method/index';
 import Status from './Common/Status/index';
@@ -38,6 +39,7 @@ const TimelineItem = ({
   phase
 }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const [isExpanded, _toggleExpand] = usePersistedState({
     key: `timeline-${timestamp}`,
     default: false
@@ -130,9 +132,9 @@ const TimelineItem = ({
   };
 
   const tabs = [
-    { id: 'request', label: 'Request' },
-    { id: 'response', label: 'Response' },
-    ...(showNetworkLogs ? [{ id: 'network', label: 'Network' }] : [])
+    { id: 'request', label: t('responsePane.timeline.tabs.request') },
+    { id: 'response', label: t('responsePane.timeline.tabs.response') },
+    ...(showNetworkLogs ? [{ id: 'network', label: t('responsePane.timeline.tabs.network') }] : [])
   ];
 
   return (
@@ -178,7 +180,7 @@ const TimelineItem = ({
                 <a
                   className={`tl-header-src${canNavigate ? '' : ' is-disabled'}`}
                   href="#"
-                  title={canNavigate ? `Open ${sourceFile}` : sourceFile}
+                  title={canNavigate ? t('responsePane.timeline.openFile', { file: sourceFile }) : sourceFile}
                   onClick={canNavigate ? handleNavigate : (ev) => ev.preventDefault()}
                   data-testid="timeline-source-link"
                 >

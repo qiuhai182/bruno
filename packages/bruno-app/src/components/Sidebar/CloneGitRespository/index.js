@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import {
@@ -28,6 +29,14 @@ import get from 'lodash/get';
 
 const EMPTY_BRANCH_LISTING = { branches: [], defaultBranch: '', loading: false, failed: false };
 
+// Confirm-button labels double as logic tokens for handleConfirm's switch ——
+// keep the tokens in English and only translate them at display time.
+const CONFIRM_ACTION_LABELS = {
+  Clone: 'sidebar.cloneGit.clone',
+  Close: 'sidebar.cloneGit.close',
+  Open: 'sidebar.cloneGit.open'
+};
+
 const CloneGitRepository = ({ onClose, onFinish, collectionRepositoryUrl = null }) => {
   const [collectionPaths, setCollectionPaths] = useState([]);
   const [skippedCollectionPaths, setSkippedCollectionPaths] = useState([]);
@@ -37,6 +46,7 @@ const CloneGitRepository = ({ onClose, onFinish, collectionRepositoryUrl = null 
   const [view, setView] = useState('form');
   const [branchListing, setBranchListing] = useState(EMPTY_BRANCH_LISTING);
 
+  const { t } = useTranslation();
   const progressData = useSelector((state) => state.app.gitOperationProgress[processUid]);
   const { gitVersion } = useSelector((state) => state.app);
   const { workspaces, activeWorkspaceUid } = useSelector((state) => state.workspaces);
@@ -54,12 +64,12 @@ const CloneGitRepository = ({ onClose, onFinish, collectionRepositoryUrl = null 
       setSteps((prev) =>
         prev.map((step) =>
           step.step === 'clone' && !step?.completed
-            ? { ...step, title: 'Cloning repository', completed: false, info: progressData.progressData }
+            ? { ...step, title: t('sidebar.cloneGit.cloningRepository'), completed: false, info: progressData.progressData }
             : step
         )
       );
     }
-  }, [progressData]);
+  }, [progressData, t]);
 
   const loadBranches = async (url) => {
     setBranchListing({ ...EMPTY_BRANCH_LISTING, loading: true });
@@ -86,18 +96,18 @@ const CloneGitRepository = ({ onClose, onFinish, collectionRepositoryUrl = null 
       ...prev,
       {
         step: 'clone',
-        title: 'Cloning repository',
+        title: t('sidebar.cloneGit.cloningRepository'),
         completed: false
       }
     ]);
   };
 
   const cloneFinished = () => {
-    toast.success('Repository cloned successfully');
+    toast.success(t('sidebar.cloneGit.clonedSuccessfully'));
     setSteps((prev) =>
       prev.map((step) =>
         step.step === 'clone'
-          ? { ...step, title: 'Cloning successful', completed: true, info: '' }
+          ? { ...step, title: t('sidebar.cloneGit.cloningSuccessful'), completed: true, info: '' }
           : step
       )
     );
@@ -107,7 +117,7 @@ const CloneGitRepository = ({ onClose, onFinish, collectionRepositoryUrl = null 
     setSteps((prev) =>
       prev.map((step) =>
         step.step === 'clone'
-          ? { ...step, title: 'Cloning failed', completed: true, error: true }
+          ? { ...step, title: t('sidebar.cloneGit.cloningFailed'), completed: true, error: true }
           : step
       )
     );
@@ -118,17 +128,17 @@ const CloneGitRepository = ({ onClose, onFinish, collectionRepositoryUrl = null 
       ...prev,
       {
         step: 'scan',
-        title: 'Scanning for Bruno files',
+        title: t('sidebar.cloneGit.scanningForBrunoFiles'),
         completed: false
       }
     ]);
   };
 
   const scanFinished = () => {
-    toast.success('Repository scanned successfully');
+    toast.success(t('sidebar.cloneGit.scannedSuccessfully'));
     setSteps((prev) =>
       prev.map((step) =>
-        step.step === 'scan' ? { ...step, title: 'Scan successful', completed: true, info: '' } : step
+        step.step === 'scan' ? { ...step, title: t('sidebar.cloneGit.scanSuccessful'), completed: true, info: '' } : step
       )
     );
   };
@@ -141,8 +151,8 @@ const CloneGitRepository = ({ onClose, onFinish, collectionRepositoryUrl = null 
       branch: ''
     },
     validationSchema: Yup.object({
-      repositoryUrl: Yup.string().required('Repository URL is required'),
-      collectionLocation: Yup.string().min(1, 'Location is required').required('Location is required')
+      repositoryUrl: Yup.string().required(t('sidebar.validation.repositoryUrlRequired')),
+      collectionLocation: Yup.string().min(1, t('sidebar.validation.locationRequired')).required(t('sidebar.validation.locationRequired'))
     }),
     onSubmit: async (values) => {
       try {
@@ -232,14 +242,14 @@ const CloneGitRepository = ({ onClose, onFinish, collectionRepositoryUrl = null 
           onClick={handleBackButtonClick}
           data-testid="clone-git-repository-modal-back-btn"
         >
-          Back
+          {t('sidebar.cloneGit.back')}
         </Button>
       );
     }
     if (isScanCompleted() && collectionPaths?.length > 0) {
       return (
         <SelectionFooter>
-          <span>{selectedCollectionPaths.length}</span> of {collectionPaths.length} selected
+          <span>{t('sidebar.cloneGit.selectedCount', { selected: selectedCollectionPaths.length, total: collectionPaths.length })}</span>
         </SelectionFooter>
       );
     }
@@ -282,8 +292,8 @@ const CloneGitRepository = ({ onClose, onFinish, collectionRepositoryUrl = null 
     <Portal id="clone-repository-portal">
       <Modal
         size="md"
-        title="Clone Git Repository"
-        confirmText={getConfirmText()}
+        title={t('sidebar.cloneGit.title')}
+        confirmText={t(CONFIRM_ACTION_LABELS[getConfirmText()])}
         handleConfirm={handleConfirm}
         handleCancel={onClose}
         confirmDisabled={isConfirmDisabled()}
@@ -312,7 +322,7 @@ const CloneGitRepository = ({ onClose, onFinish, collectionRepositoryUrl = null 
                   : (
                       <>
                         <label htmlFor="repository-url" className="flex items-center font-semibold">
-                          Git Repository URL
+                          {t('sidebar.cloneGit.repositoryUrlLabel')}
                         </label>
                         <input
                           id="repository-url"
@@ -333,7 +343,7 @@ const CloneGitRepository = ({ onClose, onFinish, collectionRepositoryUrl = null 
                   <div className="text-red-500">{formik.errors.repositoryUrl}</div>
                 )}
                 <label htmlFor="collection-location" className="block font-semibold mt-3">
-                  Location
+                  {t('sidebar.location')}
                 </label>
                 <input
                   id="collection-location"
@@ -353,12 +363,12 @@ const CloneGitRepository = ({ onClose, onFinish, collectionRepositoryUrl = null 
                 )}
                 <div className="mt-1">
                   <span className="text-link cursor-pointer hover:underline" onClick={browse}>
-                    Browse
+                    {t('sidebar.browse')}
                   </span>
                 </div>
                 <Select
                   className="branch-select mt-5"
-                  label="Branch"
+                  label={t('sidebar.cloneGit.branchLabel')}
                   data={branchListing.branches}
                   value={formik.values.branch || branchListing.defaultBranch}
                   onChange={(branch) => formik.setFieldValue('branch', branch || '')}
@@ -367,13 +377,13 @@ const CloneGitRepository = ({ onClose, onFinish, collectionRepositoryUrl = null 
                   loading={branchListing.loading}
                   rightSection={branchListing.loading ? undefined : <IconChevronDown size={12} strokeWidth={2} />}
                   disabled={!branchListing.branches.length}
-                  placeholder={branchListing.loading ? 'Loading branches...' : 'Repository default'}
-                  nothingFoundMessage="No branches match your search"
+                  placeholder={branchListing.loading ? t('sidebar.cloneGit.loadingBranches') : t('sidebar.cloneGit.repositoryDefault')}
+                  nothingFoundMessage={t('sidebar.cloneGit.noBranchesMatch')}
                   data-testid="clone-git-repository-branch-select"
                 />
                 {branchListing.failed && (
                   <div className="text-muted text-xs mt-1">
-                    Branches could not be listed for this repository. Cloning will use the default branch.
+                    {t('sidebar.cloneGit.branchesListFailed')}
                   </div>
                 )}
               </div>
@@ -410,13 +420,13 @@ const CloneGitRepository = ({ onClose, onFinish, collectionRepositoryUrl = null 
                   {collectionPaths.length === 0 && (
                     <div className="scan-warning flex items-start gap-2">
                       <IconAlertCircle className="scan-warning-icon" size={18} strokeWidth={1.5} />
-                      <div>No Bruno collections were found in this repository.</div>
+                      <div>{t('sidebar.cloneGit.noBrunoCollectionsFound')}</div>
                     </div>
                   )}
                   {collectionPaths.length > 0 && (
                     <SelectionList
-                      title="Collections"
-                      searchPlaceholder="Search Collections"
+                      title={t('sidebar.cloneGit.collectionsTitle')}
+                      searchPlaceholder={t('sidebar.cloneGit.searchCollections')}
                       items={collectionPaths}
                       selectedItems={selectedCollectionPaths}
                       onSelectAll={handleSelectAllCollections}

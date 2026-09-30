@@ -5,50 +5,55 @@ import {
   IconLock,
   IconRocket
 } from '@tabler/icons';
+import { useTranslation } from 'react-i18next';
 import StyledWrapper from './StyledWrapper';
 
 const highlights = [
   {
     icon: IconFolderTabler,
-    title: 'Filesystem only',
-    desc: 'Collections are plain files on your disk. No cloud sync, no proprietary lock-in.'
+    titleKey: 'welcome.highlights.filesystem.title',
+    descKey: 'welcome.highlights.filesystem.desc'
   },
   {
     icon: IconGitFork,
-    title: 'Git-friendly',
-    desc: 'Every request is a readable file. Commit, branch, review, and collaborate using the tools you already know.'
+    titleKey: 'welcome.highlights.git.title',
+    descKey: 'welcome.highlights.git.desc'
   },
   {
     icon: IconLock,
-    title: 'Privacy-focused',
-    desc: 'No account, no login. Bruno works entirely offline, your API keys never leave your machine.'
+    titleKey: 'welcome.highlights.privacy.title',
+    descKey: 'welcome.highlights.privacy.desc'
   },
   {
     icon: IconRocket,
-    title: 'Fast and lightweight',
-    desc: 'Built to be snappy. No bloated runtimes, just a fast, focused tool for exploring and testing APIs.'
+    titleKey: 'welcome.highlights.fast.title',
+    descKey: 'welcome.highlights.fast.desc'
   }
 ];
 
-const WelcomeStep = () => (
-  <StyledWrapper className="step-body">
-    <div className="highlights">
-      {highlights.map((item) => {
-        const Icon = item.icon;
-        return (
-          <div key={item.title} className="highlight-item">
-            <div className="highlight-icon">
-              <Icon size={18} stroke={1.5} />
+const WelcomeStep = () => {
+  const { t } = useTranslation();
+
+  return (
+    <StyledWrapper className="step-body">
+      <div className="highlights">
+        {highlights.map((item) => {
+          const Icon = item.icon;
+          return (
+            <div key={item.titleKey} className="highlight-item">
+              <div className="highlight-icon">
+                <Icon size={18} stroke={1.5} />
+              </div>
+              <div>
+                <div className="highlight-title">{t(item.titleKey)}</div>
+                <div className="highlight-desc">{t(item.descKey)}</div>
+              </div>
             </div>
-            <div>
-              <div className="highlight-title">{item.title}</div>
-              <div className="highlight-desc">{item.desc}</div>
-            </div>
-          </div>
-        );
-      })}
-    </div>
-  </StyledWrapper>
-);
+          );
+        })}
+      </div>
+    </StyledWrapper>
+  );
+};
 
 export default WelcomeStep;

@@ -3,6 +3,7 @@ import { IconPlus, IconDownload, IconSettings } from '@tabler/icons';
 import ToolHint from 'components/ToolHint';
 import ColorBadge from 'components/ColorBadge';
 import SearchInput from 'components/SearchInput';
+import { useTranslation } from 'react-i18next';
 
 const EnvironmentListContent = ({
   environments,
@@ -15,6 +16,7 @@ const EnvironmentListContent = ({
   searchText,
   setSearchText
 }) => {
+  const { t } = useTranslation();
   const searchInputRef = useRef(null);
 
   const handleKeyDown = (e) => {
@@ -69,7 +71,7 @@ const EnvironmentListContent = ({
             <div className="env-list-search">
               <SearchInput
                 ref={searchInputRef}
-                placeholder="Search environments..."
+                placeholder={t('environments.selector.searchPlaceholder')}
                 searchText={searchText}
                 setSearchText={setSearchText}
                 onKeyDown={handleKeyDown}
@@ -87,7 +89,7 @@ const EnvironmentListContent = ({
               data-testid="env-no-environment-item"
             >
               <span className="w-2 shrink-0" />
-              <span>No Environment</span>
+              <span>{t('environments.selector.noEnvironment')}</span>
             </div>
             <ToolHint
               tooltipId="environment-name-tooltip"
@@ -102,7 +104,7 @@ const EnvironmentListContent = ({
               <div>
                 {filteredEnvs.length === 0 && searchText ? (
                   <div className="text-center text-xs opacity-50 py-2 italic" data-testid="env-no-results">
-                    No results found
+                    {t('environments.selector.noResults')}
                   </div>
                 ) : (
                   filteredEnvs.map((env) => (
@@ -125,23 +127,23 @@ const EnvironmentListContent = ({
             <div className="dropdown-item configure-button">
               <button onClick={onSettingsClick} id="configure-env" data-testid="configure-env">
                 <IconSettings size={16} strokeWidth={1.5} />
-                <span>Configure</span>
+                <span>{t('environments.selector.configure')}</span>
               </button>
             </div>
           </div>
         </>
       ) : (
         <div className="empty-state">
-          <h3>Ready to get started?</h3>
+          <h3>{t('environments.selector.readyToGetStarted')}</h3>
           <p>{description}</p>
           <div className="space-y-2">
             <button onClick={onCreateClick} id="create-env" data-testid="create-env">
               <IconPlus size={16} strokeWidth={1.5} />
-              Create
+              {t('environments.selector.create')}
             </button>
             <button onClick={onImportClick} id="import-env" data-testid="empty-state-import-env-btn">
               <IconDownload size={16} strokeWidth={1.5} />
-              Import
+              {t('environments.selector.import')}
             </button>
           </div>
         </div>

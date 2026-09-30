@@ -1,0 +1,541 @@
+### OpenAPISyncTab/OverviewSection/index.js (HEAD)
+1: import { useMemo } from 'react';
+2: import { useSelector } from 'react-redux';
+3: import { getTotalRequestCountInCollection } from 'utils/collections/';
+4: import { countEndpoints } from '../utils';
+5: import moment from 'moment';
+6: import { IconCheck } from '@tabler/icons';
+7: import Button from 'ui/Button';
+8: import Help from 'components/Help';
+9: 
+10: const capitalize = (str) => str ? str.charAt(0).toUpperCase() + str.slice(1) : str;
+11: 
+12: const SUMMARY_CARDS = [
+13:   {
+14:     key: 'total',
+15:     label: 'Total in Collection',
+16:     color: 'blue',
+17:     tooltip: 'Total endpoints in your collection'
+18:   },
+19:   {
+20:     key: 'inSync',
+21:     label: 'In Sync with Spec',
+22:     color: 'green',
+23:     tooltip: 'Endpoints that currently match the latest spec from the source'
+24:   },
+25:   {
+26:     key: 'changed',
+27:     label: 'Changed in Collection',
+28:     color: 'muted',
+29:     tooltip: 'Endpoints modified, deleted, or added locally since last sync',
+30:     tab: 'collection-changes'
+31:   },
+32:   {
+33:     key: 'pending',
+34:     label: 'Spec Updates Pending',
+35:     color: 'amber',
+36:     tooltip: 'Spec changes available to sync to your collection',
+37:     tab: 'spec-updates'
+38:   }
+39: ];
+40: 
+41: const OverviewSection = ({ collection, storedSpec, collectionDrift, specDrift, remoteDrift, onTabSelect, error, onOpenSettings }) => {
+42:   const openApiSyncConfig = collection?.brunoConfig?.openapi?.[0];
+43: 
+44:   const reduxError = useSelector((state) => state.openapiSync?.collectionUpdates?.[collection.uid]?.error);
+45:   const specMeta = useSelector((state) => state.openapiSync?.storedSpecMeta?.[collection.uid] || null);
+46:   const activeError = error || reduxError;
+47: 
+48:   const version = specMeta?.version;
+49:   const endpointCount = specMeta?.endpointCount ?? null;
+50:   const lastSyncDate = openApiSyncConfig?.lastSyncDate;
+51:   const groupBy = openApiSyncConfig?.groupBy || 'tags';
+52:   const autoCheckEnabled = openApiSyncConfig?.autoCheck !== false;
+53:   const autoCheckInterval = openApiSyncConfig?.autoCheckInterval || 5;
+54: 
+55:   // Endpoint Summary counts
+56:   // Total: from collection items in Redux; In Sync: from remote spec comparison
+57:   // Changed/Conflicts: compare against stored spec in AppData (0 on initial sync)
+58:   const hasDriftData = collectionDrift && !collectionDrift.noStoredSpec;
+59: 
+60:   const totalInCollection = getTotalRequestCountInCollection(collection);
+61: 
+62:   const inSyncCount = remoteDrift
+63:     ? (remoteDrift.inSync?.length || 0)
+64:     : null;
+65: 
+66:   const changedInCollection = hasDriftData
+67:     ? (collectionDrift.modified?.length || 0) + (collectionDrift.missing?.length || 0) + (collectionDrift.localOnly?.length || 0)
+68:     : 0;
+69: 
+70:   const specUpdatesPending = hasDriftData
+71:     ? (specDrift?.added?.length || 0) + (specDrift?.modified?.length || 0) + (specDrift?.removed?.length || 0)
+72:     : (remoteDrift?.modified?.length || 0) + (remoteDrift?.missing?.length || 0);
+73: 
+74:   // Conflict count: endpoints modified in both spec and collection
+75:   const conflictCount = hasDriftData && specDrift?.modified
+76:     ? (() => {
+77:         const localModifiedIds = new Set((collectionDrift.modified || []).map((ep) => ep.id));
+78:         return specDrift.modified.filter((ep) => localModifiedIds.has(ep.id)).length;
+79:       })()
+80:     : 0;
+81: 
+82:   const summaryValues = {
+83:     total: totalInCollection,
+84:     inSync: inSyncCount,
+85:     changed: changedInCollection,
+86:     pending: activeError ? null : specDrift ? specUpdatesPending : null
+87:   };
+88: 
+89:   const details = [
+90:     { label: 'Spec Version', value: version ? `v${version}` : '–' },
+91:     { label: 'Endpoints in Spec', value: endpointCount != null ? endpointCount : '–' },
+92:     { label: 'Last Synced At', value: lastSyncDate ? moment(lastSyncDate).fromNow() : '–', tooltip: lastSyncDate ? moment(lastSyncDate).format('MMMM D, YYYY [at] h:mm A') : undefined },
+93:     { label: 'Folder Grouping', value: capitalize(groupBy) },
+94:     { label: 'Auto Check for Updates', value: autoCheckEnabled ? `Every ${autoCheckInterval} min` : 'Disabled' }
+95:   ];
+96: 
+97:   const hasCollectionChanges = changedInCollection > 0;
+98:   const hasSpecUpdates = specUpdatesPending > 0;
+99: 
+100:   const bannerState = useMemo(() => {
+101:     const versionInfo = (specDrift?.storedVersion && specDrift?.newVersion && specDrift.storedVersion !== specDrift.newVersion)
+102:       ? ` (v${specDrift.storedVersion} → v${specDrift.newVersion})`
+103:       : '';
+104: 
+105:     if (activeError) {
+106:       return {
+107:         variant: 'danger',
+108:         title: 'Failed to check for spec updates',
+109:         subtitle: activeError,
+110:         buttons: ['open-settings']
+111:       };
+112:     }
+113:     if (specDrift?.storedSpecMissing && !lastSyncDate) {
+114:       return {
+115:         variant: 'warning',
+116:         title: 'Initial sync required — your collection differs from the spec',
+117:         subtitle: 'Review the changes and sync to bring your collection up to date.',
+118:         buttons: ['review']
+119:       };
+120:     }
+121:     if (hasSpecUpdates && hasCollectionChanges) {
+122:       return {
+123:         variant: 'warning',
+124:         title: `OpenAPI spec has new updates${versionInfo} and the collection has changes`,
+125:         subtitle: 'New or changed requests are available. Some collection changes may be overwritten.',
+126:         buttons: ['sync', 'changes']
+127:       };
+128:     }
+129:     if (hasSpecUpdates) {
+130:       return {
+131:         variant: 'warning',
+132:         title: `OpenAPI spec has new updates${versionInfo}`,
+133:         subtitle: 'New or changed requests are available.',
+134:         buttons: ['sync']
+135:       };
+136:     }
+137:     if (specDrift?.storedSpecMissing && lastSyncDate) {
+138:       return {
+139:         variant: 'warning',
+140:         title: 'Last synced spec not found',
+141:         subtitle: 'The last synced spec is missing in the storage. Restore the latest spec from the source to track collection changes.',
+142:         buttons: ['spec-details']
+143:       };
+144:     }
+145:     if (!hasDriftData) return null;
+146:     if (hasCollectionChanges) {
+147:       return {
+148:         variant: 'muted',
+149:         title: 'Collection has changes not in the spec',
+150:         subtitle: 'Some requests have been modified or removed and no longer match the spec.',
+151:         buttons: ['changes']
+152:       };
+153:     }
+154:     return null;
+155:   }, [activeError, hasDriftData, hasSpecUpdates, hasCollectionChanges, specDrift?.storedSpecMissing, specDrift?.storedVersion, specDrift?.newVersion, lastSyncDate]);
+156: 
+157:   return (
+158:     <div className="overview-section">
+159:       {bannerState && (
+160:         <div className={`overview-status-banner ${bannerState.variant}`}>
+161:           <div className="banner-text">
+162:             <div className="banner-title-row">
+163:               {bannerState.variant === 'success'
+164:                 ? <IconCheck size={16} className="status-check-icon" />
+165:                 : <div className={`status-dot ${bannerState.variant}`} />}
+166:               <span className="banner-title">{bannerState.title}</span>
+167:             </div>
+168:             {bannerState.subtitle && (
+169:               <p className="banner-subtitle">{bannerState.subtitle}</p>
+170:             )}
+171:           </div>
+172:           {bannerState.buttons.length > 0 && (
+173:             <div className="banner-button-row">
+174:               {bannerState.buttons.includes('changes') && (
+175:                 <Button
+176:                   size="sm"
+177:                   variant={bannerState.buttons.includes('sync') ? 'outline' : 'filled'}
+178:                   color={bannerState.buttons.includes('sync') ? 'secondary' : 'primary'}
+179:                   onClick={() => onTabSelect('collection-changes')}
+180:                 >
+181:                   View Collection Changes
+182:                 </Button>
+183:               )}
+184:               {(bannerState.buttons.includes('sync') || bannerState.buttons.includes('review')) && (
+185:                 <Button size="sm" onClick={() => onTabSelect('spec-updates')}>
+186:                   Review and Sync Collection
+187:                 </Button>
+188:               )}
+189:               {bannerState.buttons.includes('spec-details') && (
+190:                 <Button variant="outline" size="sm" onClick={() => onTabSelect('spec-updates')}>
+191:                   Go to Spec Updates
+192:                 </Button>
+193:               )}
+194:               {bannerState.buttons.includes('open-settings') && (
+195:                 <Button variant="outline" size="sm" onClick={onOpenSettings}>
+196:                   Update connection settings
+197:                 </Button>
+198:               )}
+199:             </div>
+200:           )}
+201:         </div>
+202:       )}
+203: 
+204:       <h4 className="overview-section-title mt-5">Endpoint Summary</h4>
+205:       <div className="sync-summary-cards">
+206:         {SUMMARY_CARDS.map(({ key, label, tooltip, tab, color }) => {
+207:           const count = summaryValues[key];
+208:           const resolvedColor = count > 0 ? color : 'muted';
+209:           const isClickable = tab && count > 0;
+210:           return (
+211:             <div
+212:               className={`summary-card${isClickable ? ' clickable' : ''}`}
+213:               key={key}
+214:               onClick={isClickable ? () => onTabSelect(tab) : undefined}
+215:             >
+216:               <span className="card-info-icon">
+217:                 <Help icon="info" size={12} placement="top" width={220}>{tooltip}</Help>
+218:               </span>
+219:               <div className="summary-count-row">
+220:                 <span className={`summary-count ${resolvedColor}`}>{count != null ? count : '–'}</span>
+221:                 {key === 'pending' && conflictCount > 0 && (
+222:                   <span className="conflict-annotation">({conflictCount} {conflictCount === 1 ? 'conflict' : 'conflicts'})</span>
+223:                 )}
+224:               </div>
+225:               <div className="summary-label">
+226:                 {label}
+227:               </div>
+228:             </div>
+229:           );
+230:         })}
+231:       </div>
+232: 
+233:       <h4 className="overview-section-title mt-7">Last Synced Spec Details</h4>
+234:       <div className="spec-details-grid">
+235:         {details.map(({ label, value, tooltip }) => (
+236:           <div className="spec-detail-item" key={label}>
+237:             <div className="spec-detail-label">{label}</div>
+238:             <div className="spec-detail-value">
+239:               {value}
+240:               {tooltip && (
+241:                 <Help icon="info" size={11} placement="top" width={200}>{tooltip}</Help>
+242:               )}
+243:             </div>
+244:           </div>
+245:         ))}
+246:       </div>
+247:     </div>
+248:   );
+249: };
+250: 
+251: export default OverviewSection;
+252: 
+### OpenAPISyncTab/SpecStatusSection/index.js (HEAD)
+37: + (remoteDrift.modified?.length || 0)
+56: : (specDrift.added?.length || 0) + (specDrift.modified?.length || 0) + (specDrift.removed?.length || 0) > 0;
+62: variant: 'warning', message: `OpenAPI spec has been updated${versionInfo}`, actions: [],
+63: changes: { added: specDrift.added?.length || 0, modified: specDrift.modified?.length || 0, removed: specDrift.removed?.length || 0 }
+81: <> &middot; <code style={{ fontStyle: 'normal' }} className="checked-text">v{bannerState.version}</code></>
+84: <span className="checked-text"> &middot; Checked {bannerState.lastChecked}</span>
+89: {bannerState.changes.modified > 0 && <StatusBadge key="modified" status="warning" radius="full">{bannerState.changes.modified} {bannerState.changes.modified > 1 ? 'endpoints' : 'endpoint'} updated</StatusBadge>}
+90: {bannerState.changes.added > 0 && <StatusBadge key="added" status="success" radius="full">{bannerState.changes.added} {bannerState.changes.added > 1 ? 'endpoints' : 'endpoint'} added</StatusBadge>}
+91: {bannerState.changes.removed > 0 && <StatusBadge key="removed" status="danger" radius="full">{bannerState.changes.removed} {bannerState.changes.removed > 1 ? 'endpoints' : 'endpoint'} removed</StatusBadge>}
+116: <p>The spec endpoints have not been updated since the last sync. You can restore the spec file to track local collection changes.</p>
+### OpenAPISyncTab/CollectionStatusSection/index.js (HEAD)
+45: const hasDrift = hasStoredSpec && (collectionDrift.modified?.length > 0
+46: || collectionDrift.missing?.length > 0
+64: const modifiedCount = collectionDrift?.modified?.length || 0;
+65: const missingCount = collectionDrift?.missing?.length || 0;
+66: const localOnlyCount = collectionDrift?.localOnly?.length || 0;
+74: badges: { modifiedCount, missingCount, localOnlyCount },
+79: }, [hasDrift, modifiedCount, missingCount, localOnlyCount, version, lastSyncDate]);
+94: {bannerState.badges.modifiedCount > 0 && <StatusBadge status="warning" radius="full">{bannerState.badges.modifiedCount} modified</StatusBadge>}
+95: {bannerState.badges.missingCount > 0 && <StatusBadge status="danger" radius="full">{bannerState.badges.missingCount} deleted</StatusBadge>}
+96: {bannerState.badges.localOnlyCount > 0 && <StatusBadge status="muted" radius="full">{bannerState.badges.localOnlyCount} added</StatusBadge>}
+122: type="modified"
+123: endpoints={collectionDrift.modified || []}
+126: sectionKey="drift-modified"
+143: title="Reset all modified endpoints to match the spec"
+154: type="missing"
+155: endpoints={collectionDrift.missing || []}
+158: sectionKey="drift-missing"
+170: title="Add all deleted endpoints back to collection"
+203: title="Delete all locally added endpoints"
+222: ? 'The last synced spec is missing. Go to the \'Spec Updates\' tab to restore it, or sync the collection if updates are available to track future changes.'
+225: <Button variant="outline" size="sm" className="mt-4" onClick={() => onTabSelect('spec-updates')}>Go to Spec Updates</Button>
+### OpenAPISyncTab/SpecDiffModal/index.js (HEAD)
+20: const addedCount = specDrift?.added?.length || 0;
+21: const modifiedCount = specDrift?.modified?.length || 0;
+22: const removedCount = specDrift?.removed?.length || 0;
+83: const changeCount = changeBlocks.length;
+85: = changeCount === 0 ? 'No changes' : `${currentIndex + 1} of ${changeCount} changes`;
+94: {modifiedCount > 0 && <StatusBadge status="warning">Updated: {modifiedCount}</StatusBadge>}
+95: {addedCount > 0 && <StatusBadge status="success">Added: {addedCount}</StatusBadge>}
+96: {removedCount > 0 && <StatusBadge status="danger">Removed: {removedCount}</StatusBadge>}
+103: : 'Side-by-side diff of your current spec vs the updated spec from the spec URL.'}
+114: disabled={changeCount === 0}
+123: disabled={changeCount === 0}
+141: <span className="diff-column-label">Updated Spec</span>
+157: totalCount={rows.length}
+### OpenAPISyncTab/SyncReviewPage/index.js (HEAD)
+26: *  - specUpdatedEndpoints: modified in spec (includes conflicts where both sides changed)
+65: // Spec changed, both changed (conflict), no merge base, or sensitivity mismatch
+70: ...(specChanged && localChanged && { conflict: true, localAction: 'modified' })
+113: const conflictCount = specUpdatedEndpoints.filter((ep) => ep.conflict).length;
+114: const hasConflicts = conflictCount > 0;
+122: // Spec changes: accept-incoming by default, null for conflicts (must resolve manually)
+124: if (!(ep.id in merged)) merged[ep.id] = ep.conflict ? null : 'accept-incoming';
+165: const unresolvedConflicts = specUpdatedEndpoints.filter((ep) => ep.conflict && !decisions[ep.id]).length;
+183: addGroup('Keeping local version', 'keep', specUpdatedEndpoints.filter((ep) => ep.conflict && isSkipped(ep)));
+186: addGroup('Keeping current version (skipped updates)', 'keep', specUpdatedEndpoints.filter((ep) => !ep.conflict && isSkipped(ep)));
+199: (ep) => !ep.conflict && decisions[ep.id] === 'accept-incoming'
+213: resolvedConflicts: specUpdatedEndpoints.filter((ep) => ep.conflict && decisions[ep.id] === 'accept-incoming'),
+223: ? `Resolve ${unresolvedConflicts} conflict${unresolvedConflicts !== 1 ? 's and sync' : ' and sync'}`
+234: <h3 className="review-title">Review Changes</h3>
+236: <p className="review-subtitle">
+269: View Spec Diff
+323: subtitle="The spec has updates for these endpoints"
+324: headerExtra={conflictCount > 0 ? (
+329: {`This section has ${conflictCount} endpoint${conflictCount === 1 ? '' : 's'} modified in both the spec and your collection. Expand to review and resolve.`}
+333: {conflictCount} {conflictCount === 1 ? 'Conflict' : 'Conflicts'}
+360: subtitle="New endpoints from the spec"
+385: subtitle="These endpoints are in your collection but not in the spec"
+### OpenAPISyncTab/EndpointChangeSection/EndpointItem.js (HEAD)
+1: import React from 'react';
+2: import MethodBadge from 'ui/MethodBadge';
+3: 
+4: // Simple endpoint item for non-review mode
+5: const EndpointItem = ({ endpoint, type, actions }) => {
+6:   return (
+7:     <div className={`endpoint-item type-${type}`}>
+8:       <div className="endpoint-row">
+9:         <MethodBadge method={endpoint.method} />
+10:         <span className="endpoint-path">{endpoint.path}</span>
+11:         {endpoint.summary && <span className="endpoint-summary">{endpoint.summary}</span>}
+12:         {endpoint.name && !endpoint.summary && <span className="endpoint-summary">{endpoint.name}</span>}
+13:         {endpoint.deprecated && <span className="deprecated-tag">deprecated</span>}
+14:         {actions && <div className="endpoint-actions">{actions}</div>}
+15:       </div>
+16:     </div>
+17:   );
+18: };
+19: 
+20: export default EndpointItem;
+21: 
+### OpenAPISyncTab/EndpointChangeSection/EndpointVisualDiff.js (HEAD)
+5: import VisualDiffParams from 'components/Git/VisualDiffViewer/VisualDiffParams';
+6: import VisualDiffHeaders from 'components/Git/VisualDiffViewer/VisualDiffHeaders';
+7: import VisualDiffAuth from 'components/Git/VisualDiffViewer/VisualDiffAuth';
+8: import VisualDiffBody from 'components/Git/VisualDiffViewer/VisualDiffBody';
+11: // OpenAPI sync diff section configs (HTTP request sections only)
+21: const openAPISectionHasChanges = (sectionKey, oldData, newData) => {
+24: if (sectionKey === 'body') {
+25: const oldBody = get(oldData, 'request.body', {});
+26: const newBody = get(newData, 'request.body', {});
+27: if (oldBody.mode !== newBody.mode) return true;
+28: const mode = oldBody.mode || newBody.mode;
+30: return !isEqual(oldBody[mode], newBody[mode]);
+37: if (sectionKey === 'auth') {
+38: const oldAuth = get(oldData, 'request.auth', {});
+39: const newAuth = get(newData, 'request.auth', {});
+40: if (oldAuth.mode !== newAuth.mode) return true;
+41: const mode = oldAuth.mode || newAuth.mode;
+43: const oldConfig = oldAuth[mode] || {};
+44: const newConfig = newAuth[mode] || {};
+74: const paths = openAPIDiffSectionDataPaths[sectionKey];
+99: { key: 'url', title: 'URL', Component: VisualDiffUrlBar, hasContent: openAPIDiffHasContent.url },
+100: { key: 'params', title: 'Parameters', Component: VisualDiffParams, hasContent: openAPIDiffHasContent.params },
+101: { key: 'headers', title: 'Headers', Component: VisualDiffHeaders, hasContent: openAPIDiffHasContent.headers },
+102: { key: 'auth', title: 'Authentication', Component: VisualDiffAuth, hasContent: openAPIDiffHasContent.auth },
+103: { key: 'body', title: 'Body', Component: VisualDiffBody, hasContent: openAPIDiffHasContent.body }
+112: * - leftLabel/rightLabel: custom labels for diff panes
+122: const sections = openAPIDiffSections;
+132: sections={sections}
+133: sectionHasChanges={openAPISectionHasChanges}
+### ResponsePane/QueryResult/QueryResultTypeSelector/index.jsx (HEAD)
+1: import React, { forwardRef, useState } from 'react';
+2: import { IconEye, IconCaretDown, IconBraces, IconCode, IconFileCode, IconBrandJavascript, IconFileText, IconHexagons, IconBinaryTree } from '@tabler/icons';
+3: import classnames from 'classnames';
+4: import MenuDropdown from 'ui/MenuDropdown';
+5: import ToggleSwitch from 'components/ToggleSwitch';
+6: import StyledWrapper from './StyledWrapper';
+7: 
+8: // Icon mapping for format options
+9: const FORMAT_ICONS = {
+10:   json: IconBraces,
+11:   html: IconCode,
+12:   xml: IconFileCode,
+13:   javascript: IconBrandJavascript,
+14:   raw: IconFileText,
+15:   hex: IconHexagons,
+16:   base64: IconBinaryTree
+17: };
+18: 
+19: const ButtonIcon = forwardRef(({ disabled, className, style, prefix, selectedLabel, suffix, isActive, ...props }, ref) => {
+20:   return (
+21:     <button
+22:       ref={ref}
+23:       className={classnames('button-dropdown-button flex items-center gap-1.5 text-xs',
+24:         'cursor-pointer select-none',
+25:         'h-7 rounded-[6px] border px-2 transition-colors',
+26:         { 'opacity-50 cursor-not-allowed': disabled },
+27:         className)}
+28:       disabled={disabled}
+29:       data-testid={props['data-testid']}
+30:       style={style}
+31:       role="button"
+32:       {...props}
+33:     >
+34:       {prefix && <span className={isActive ? 'active' : 'icon-muted'}>{prefix}</span>}
+35:       <span>{selectedLabel}</span>
+36:       {suffix && <span>{suffix}</span>}
+37:       {isActive && <IconCaretDown className="caret ml-0.5" size={12} strokeWidth={2} />}
+38:     </button>
+39:   );
+40: });
+41: ButtonIcon.displayName = 'ButtonIcon';
+42: 
+43: const QueryResultTypeSelector = ({
+44:   formatOptions,
+45:   formatValue,
+46:   onFormatChange,
+47:   onPreviewTabSelect,
+48:   selectedTab,
+49:   isActiveTab,
+50:   onTabSelect
+51: }) => {
+52:   const [dropdownOpen, setDropdownOpen] = useState(false);
+53: 
+54:   // Handle dropdown state change - only allow opening when active tab
+55:   const handleDropdownChange = (open) => {
+56:     if (!isActiveTab && open) {
+57:       // First click when not active - select this tab, don't open dropdown
+58:       onTabSelect?.();
+59:       return;
+60:     }
+61:     setDropdownOpen(open);
+62:   };
+63:   // Find the selected item's label
+64:   const findSelectedLabel = () => {
+65:     if (formatValue != null) {
+66:       const selectedItem = formatOptions.find((item) => item.id === formatValue && (item.type === 'item' || !item.type));
+67:       if (selectedItem) return selectedItem.label;
+68:     }
+69:     return formatValue;
+70:   };
+71: 
+72:   const selectedLabel = findSelectedLabel();
+73: 
+74:   // Get the icon for the currently selected format
+75:   const SelectedFormatIcon = FORMAT_ICONS[formatValue];
+76: 
+77:   // Determine the prefix icon - eye icon when in preview mode, format icon otherwise
+78:   const getPrefixIcon = () => {
+79:     if (selectedTab === 'preview') {
+80:       return <IconEye size={14} strokeWidth={2} />;
+81:     }
+82:     if (SelectedFormatIcon) {
+83:       return <SelectedFormatIcon size={14} strokeWidth={1.5} />;
+84:     }
+85:     return null;
+86:   };
+87: 
+88:   // Enhance items with onChange handler and icons
+89:   const enhancedItems = formatOptions.map((item) => {
+90:     const IconComponent = FORMAT_ICONS[item.id];
+91:     return {
+92:       ...item,
+93:       leftSection: IconComponent ? <IconComponent size={14} strokeWidth={1.5} /> : null,
+94:       onClick: () => {
+95:         if (onFormatChange) {
+96:           onFormatChange(item.id);
+97:         }
+98:       }
+99:     };
+100:   });
+101: 
+102:   const header = (
+103:     <div className="flex items-center justify-between gap-3 py-[0.35rem] px-[0.6rem]">
+104:       <span className="text-[0.8125rem] preview-response-tab-label">Preview</span>
+105:       <ToggleSwitch
+106:         isOn={selectedTab === 'preview'}
+107:         handleToggle={(e) => {
+108:           e.preventDefault();
+109:           // e.stopPropagation();
+110:           onPreviewTabSelect(selectedTab === 'preview' ? 'editor' : 'preview');
+111:         }}
+112:         size="2xs"
+113:         data-testid="preview-response-tab"
+114:         title={selectedTab === 'preview' ? 'Turn off Preview Mode' : 'Turn on Preview Mode'}
+115:       />
+116:     </div>
+117:   );
+118: 
+119:   return (
+120:     <StyledWrapper className={isActiveTab ? 'tab-active' : ''}>
+121:       <MenuDropdown
+122:         items={enhancedItems}
+123:         header={header}
+124:         selectedItemId={formatValue}
+125:         showTickMark={true}
+126:         placement="bottom-end"
+127:         data-testid="format-response-tab"
+128:         opened={dropdownOpen}
+129:         onChange={handleDropdownChange}
+130:       >
+131:         <ButtonIcon
+132:           selectedLabel={selectedLabel}
+133:           prefix={getPrefixIcon()}
+134:           isActive={isActiveTab}
+135:           disabled={false}
+136:           className="h-[22px] text-[10px]"
+137:           data-testid="format-response-tab"
+138:         />
+139:       </MenuDropdown>
+140:     </StyledWrapper>
+141:   );
+142: };
+143: 
+144: export default QueryResultTypeSelector;
+145: 
+### RunnerResults/index.jsx (HEAD)
+8: import { findItemInCollection, getTotalRequestCountInCollection, areItemsLoading } from 'utils/collections';
+113: tags: [...(info.request?.tags || [])].sort()
+191: const savedOrder = get(collection, 'runnerConfiguration.requestItemsOrder', selectedRequestItems);
+232: const totalRequestsInCollection = getTotalRequestCountInCollection(collectionCopy);
+240: const isCollectionLoading = areItemsLoading(collection);
+246: <div className="font-medium mt-6 title flex items-center">
+251: You have <span className="font-medium text-xs">{totalRequestsInCollection}</span> {totalRequestsInCollection === 1 ? 'request' : 'requests'} in this collection.
+252: {isCollectionLoading && (
+254: (Loading...)
+258: {isCollectionLoading ? <div className="my-1 danger">Requests in this collection are still loading.</div> : null}
+261: <div className="runner-section-title mt-6">Timings</div>
+263: <label>Delay between requests (ms)</label>
+279: <div className="runner-section-title mt-6">Filters</div>
+289: disabled={selectedRequestItems.length === 0 || isCollectionLoading}
+409: ? <IconCircleOff className="skipped-request" size={20} strokeWidth={1.5} />
+416: className={`mr-1 ml-2 ${item.status == 'skipped' ? 'skipped-request' : anyTestFailed(item) ? 'danger' : ''}`}
+430: (request failed)
+542: ? <IconCircleOff className="skipped-request" size={20} strokeWidth={1.5} />
+549: title="Close"

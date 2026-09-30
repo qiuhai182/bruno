@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import EditableTable from 'components/EditableTable';
 import VariableValue from '../VariableValue';
 import StyledWrapper from './StyledWrapper';
@@ -16,10 +17,11 @@ const VariablesTable = ({
   onColumnWidthsChange,
   testId
 }) => {
+  const { t } = useTranslation();
   const columns = useMemo(() => [
     {
       key: 'name',
-      name: 'Name',
+      name: t('variables.name'),
       isKeyField: true,
       sortable: true,
       readOnly: true,
@@ -27,7 +29,7 @@ const VariablesTable = ({
     },
     {
       key: 'value',
-      name: 'Value',
+      name: t('variables.value'),
       width: '65%',
       render: ({ row }) => (
         <VariableValue
@@ -45,6 +47,7 @@ const VariablesTable = ({
       )
     }
   ], [
+    t,
     collection,
     selectedName,
     section,

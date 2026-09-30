@@ -1,0 +1,39 @@
+{
+  "welcome": {
+    "back": "返回",
+    "exploreOnMyOwn": "我自己逛逛",
+    "getStarted": {
+      "createDesc": "从零创建一个新的 API 集合",
+      "description": "创建一个新集合开始构建请求，或导入已有集合。",
+      "importDesc": "支持导入 Postman、OpenAPI/Swagger 或 Insomnia",
+      "label": "你的第一个集合",
+      "openDesc": "打开文件系统中的 Bruno 集合",
+      "openLabel": "打开现有集合",
+      "requestDesc": "直接发送一个新的 HTTP 请求",
+      "requestLabel": "从一个请求开始",
+      "title": "一切就绪！接下来做什么？"
+    },
+    "goToStep": "转到第 {{step}} 步",
+    "heading": "欢迎使用 Bruno",
+    "next": "下一步",
+    "readyToGo": "准备就绪！",
+    "setUp": "设置 Bruno",
+    "skip": "跳过",
+    "storage": {
+      "clickToChoose": "点击选择文件夹...",
+      "description": "Bruno 将集合以纯文本文件的形式保存在文件系统中，非常适合用 Git 进行版本控制。",
+      "hint": "每个集合和工作区都会在此目录中拥有独立的文件夹。之后可以随时更改。",
+      "label": "存储位置",
+      "title": "集合存储在哪里？"
+    },
+    "tagline": "一款快速、对 Git 友好的开源 API 客户端。",
+    "theme": {
+      "description": "选一个顺眼的外观吧，之后随时可以在偏好设置中更改。",
+      "title": "选择你的主题"
+    },
+    "toast": {
+      "savePreferencesFailed": "保存偏好设置失败"
+    },
+    "getStartedButton": "开始使用"
+  }
+}

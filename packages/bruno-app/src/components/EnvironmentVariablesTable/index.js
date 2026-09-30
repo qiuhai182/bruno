@@ -40,6 +40,7 @@ import { useMouseRowDrag, DRAG_ROW_KEY_ATTR } from 'hooks/useMouseRowDrag';
 import ColumnSortHeader from 'components/EditableTable/ColumnSortHeader';
 import { useReconcileSavedEnvironment } from './useReconcileSavedEnvironment';
 import InheritedVariableRow from './InheritedVariableRow';
+import { useTranslation } from 'react-i18next';
 
 const MIN_H = 35 * 2;
 const MIN_COLUMN_WIDTH = 80;
@@ -145,6 +146,7 @@ const EnvVarValueCell = ({
 }) => {
   const editorRef = useRef(null);
   const [compact, setCompact] = useState(true);
+  const { t } = useTranslation();
 
   const showAsSecret = variable.secret && !isLastEmptyRow;
   const [masked, setMasked] = useState(showAsSecret);
@@ -175,7 +177,7 @@ const EnvVarValueCell = ({
             collection={collection}
             name={`${actualIndex}.value`}
             value={valueToString(variable.value, 2)}
-            placeholder={variable.value == null || (typeof variable.value === 'string' && variable.value.trim() === '') ? 'Value' : ''}
+            placeholder={variable.value == null || (typeof variable.value === 'string' && variable.value.trim() === '') ? t('environments.dotEnv.valueColumn') : ''}
             isSecret={showAsSecret}
             hideSecretEye={showAsSecret}
             onMaskChange={setMasked}
@@ -235,6 +237,7 @@ const EnvironmentVariablesTable = ({
   variableType = 'variables'
 }) => {
   const isSecretTab = variableType === 'secrets';
+  const { t } = useTranslation();
   const { storedTheme } = useTheme();
   const { globalEnvironments, activeGlobalEnvironmentUid } = useSelector((state) => state.globalEnvironments);
   const activeWorkspace = useSelector((state) => {
@@ -371,7 +374,7 @@ const EnvironmentVariablesTable = ({
   );
   const workspaceProcessEnvVariables = activeWorkspace?.processEnvVariables;
   // `_collection` flows into every row's MultiLineEditor as the variable-resolution
-  // context. Without memoization, `cloneDeep(collection)` runs on every render —
+  // context. Without memoization, `cloneDeep(collection)` runs on every render ??
   // and Formik triggers a re-render on every keystroke, so a single env edit
   // session can deep-clone the entire collection 100+ times. That's the
   // dominant cost behind the test-budget flake.
@@ -428,8 +431,8 @@ const EnvironmentVariablesTable = ({
 
   const formik = useFormik({
     // enableReinitialize is intentionally OFF. It used to blindly reset the form
-    // to `environment.variables` whenever the saved snapshot changed — including
-    // when our own autosave echoed back — which discarded keystrokes typed during
+    // to `environment.variables` whenever the saved snapshot changed ?? including
+    // when our own autosave echoed back ?? which discarded keystrokes typed during
     // the async save window. Reconciliation is handled explicitly below (see the
     // reconcileSavedChange effect), so in-flight edits always win. Environment
     // switches are handled by the `key={environment.uid}` remount, not reinit.
@@ -443,10 +446,10 @@ const EnvironmentVariablesTable = ({
           then: (schema) => schema.optional(),
           otherwise: (schema) =>
             schema
-              .required('Name cannot be empty')
+              .required(t('environments.errors.nameEmpty'))
               .matches(
                 variableNameRegex,
-                'Name contains invalid characters. Must only contain alphanumeric characters, "-", "_", "." and cannot start with a digit.'
+                t('environments.errors.nameInvalidChars')
               )
               .trim()
         }),
@@ -472,11 +475,11 @@ const EnvironmentVariablesTable = ({
 
         if (!variable.name || variable.name.trim() === '') {
           if (!errors[index]) errors[index] = {};
-          errors[index].name = 'Name cannot be empty';
+          errors[index].name = t('environments.errors.nameEmpty');
         } else if (!variableNameRegex.test(variable.name)) {
           if (!errors[index]) errors[index] = {};
           errors[index].name
-            = 'Name contains invalid characters. Must only contain alphanumeric characters, "-", "_", "." and cannot start with a digit.';
+            = t('environments.errors.nameInvalidChars');
         } else if (variable.secret && duplicateSecrets.has(variable.name.trim())) {
           if (!errors[index]) errors[index] = {};
           errors[index].name = DUPLICATE_SECRET_NAME_FIELD_ERROR;
@@ -727,7 +730,7 @@ const EnvironmentVariablesTable = ({
 
     const hasChanges = JSON.stringify(activeCurrent.map(stripEnvVarUid)) !== JSON.stringify(activeSaved.map(stripEnvVarUid));
     if (!hasChanges) {
-      toast.error('No changes to save');
+      toast.error(t('environments.noChangesToSave'));
       return;
     }
 
@@ -742,7 +745,7 @@ const EnvironmentVariablesTable = ({
     });
 
     if (hasValidationErrors) {
-      toast.error('Please fix validation errors before saving');
+      toast.error(t('environments.dotEnv.fixValidationErrors'));
       return;
     }
 
@@ -756,7 +759,7 @@ const EnvironmentVariablesTable = ({
 
     onSave(cloneDeep(persistedVariables))
       .then(() => {
-        toast.success('Changes saved successfully');
+        toast.success(t('environments.dotEnv.changesSaved'));
 
         // Preserve unsaved edits on the other tab across the post-save reinit via the
         // draft: keep it if the other tab is still dirty, clear it otherwise.
@@ -790,9 +793,9 @@ const EnvironmentVariablesTable = ({
       })
       .catch((error) => {
         console.error(error);
-        toast.error('An error occurred while saving the changes');
+        toast.error(t('environments.dotEnv.saveChangesError'));
       });
-  }, [formik.values, environment.variables, onSave, onDraftChange, onDraftClear, setIsModified, isSecretTab, buildSortOrder, sortMode]);
+  }, [formik.values, environment.variables, onSave, onDraftChange, onDraftClear, setIsModified, isSecretTab, buildSortOrder, sortMode, t]);
 
   const handleReset = useCallback(() => {
     const belongsToActiveTab = (variable) => (isSecretTab ? !!variable.secret : !variable.secret);
@@ -844,7 +847,7 @@ const EnvironmentVariablesTable = ({
     const hasChanges
       = JSON.stringify(persistedVariables.map(stripEnvVarUid)) !== JSON.stringify(savedValues.map(stripEnvVarUid));
     if (!hasChanges) {
-      toast.error('No changes to save');
+      toast.error(t('environments.noChangesToSave'));
       return;
     }
 
@@ -859,7 +862,7 @@ const EnvironmentVariablesTable = ({
     });
 
     if (hasValidationErrors) {
-      toast.error('Please fix validation errors before saving');
+      toast.error(t('environments.dotEnv.fixValidationErrors'));
       return;
     }
 
@@ -870,7 +873,7 @@ const EnvironmentVariablesTable = ({
 
     onSave(cloneDeep(persistedVariables))
       .then(() => {
-        toast.success('Changes saved successfully');
+        toast.success(t('environments.dotEnv.changesSaved'));
         onDraftClear();
 
         sortOrderRef.current = buildSortOrder(persistedVariables, sortMode);
@@ -892,9 +895,9 @@ const EnvironmentVariablesTable = ({
       })
       .catch((error) => {
         console.error(error);
-        toast.error('An error occurred while saving the changes');
+        toast.error(t('environments.dotEnv.saveChangesError'));
       });
-  }, [formik.values, environment.variables, onSave, onDraftClear, setIsModified, isSecretTab, buildSortOrder, sortMode]);
+  }, [formik.values, environment.variables, onSave, onDraftClear, setIsModified, isSecretTab, buildSortOrder, sortMode, t]);
 
   const handleSaveRef = useRef(handleSave);
   handleSaveRef.current = handleSave;
@@ -970,13 +973,13 @@ const EnvironmentVariablesTable = ({
     return matching.map((variable) => ({ type: ROW_INHERITED_VARIABLE, variable }));
   }, [inheritedEnvironmentVariables, searchQuery]);
 
-  const tabLabel = isSecretTab ? 'Secrets' : 'Variables';
+  const tabLabel = isSecretTab ? t('environments.tab.secrets') : t('environments.tab.variables');
   const variableRows = inheritedEnvironmentVariables.length
     ? [
         {
           type: ROW_SECTION_HEADER,
           section: 'inherited',
-          label: `Inherited ${tabLabel}`,
+          label: t('environments.inheritedSection', { tab: tabLabel }),
           count: inheritedVariableRows.length
         },
         ...(collapsedSections.inherited ? [] : inheritedVariableRows),
@@ -996,7 +999,7 @@ const EnvironmentVariablesTable = ({
     >
       {isSearchActive && displayedVariables.length === 0 && inheritedVariableRows.length === 0 ? (
         <div className="no-results" data-testid="env-vars-no-results">
-          No results found for &ldquo;{searchQuery.trim()}&rdquo;
+          {t('environments.noResultsFor', { query: searchQuery.trim() })}
         </div>
       ) : (
         <TableVirtuoso
@@ -1019,7 +1022,7 @@ const EnvironmentVariablesTable = ({
                   if (!e.target.closest('.resize-handle')) cycleSortMode();
                 }}
               >
-                <ColumnSortHeader label="Name" SortIcon={SortIcon} sortLabel={sortLabel} />
+                <ColumnSortHeader label={t('environments.dotEnv.nameColumn')} SortIcon={SortIcon} sortLabel={sortLabel} />
                 <div
                   className={`resize-handle ${resizing === 'name' ? 'resizing' : ''}`}
                   style={{ height: tableHeight > 0 ? `${tableHeight}px` : undefined }}
@@ -1027,14 +1030,14 @@ const EnvironmentVariablesTable = ({
                 />
               </td>
               <td style={{ width: columnWidths.value }}>
-                Value
+                {t('environments.dotEnv.valueColumn')}
                 <div
                   className={`resize-handle ${resizing === 'value' ? 'resizing' : ''}`}
                   style={{ height: tableHeight > 0 ? `${tableHeight}px` : undefined }}
                   onMouseDown={(e) => handleResizeStart(e, 'value')}
                 />
               </td>
-              <td style={{ width: columnWidths.description }}>Description</td>
+              <td style={{ width: columnWidths.description }}>{t('environments.table.description')}</td>
               <td className="actions-column"></td>
             </tr>
           )}
@@ -1112,7 +1115,7 @@ const EnvironmentVariablesTable = ({
                         name={`${actualIndex}.name`}
                         data-testid="env-var-name-input"
                         value={variable.name}
-                        placeholder={!variable.name || (typeof variable.name === 'string' && variable.name.trim() === '') ? 'Name' : ''}
+                        placeholder={!variable.name || (typeof variable.name === 'string' && variable.name.trim() === '') ? t('environments.dotEnv.nameColumn') : ''}
                         onChange={(e) => handleNameChange(actualIndex, e)}
                         onFocus={() => handleRowFocus(variable.uid)}
                         onBlur={() => {
@@ -1146,7 +1149,7 @@ const EnvironmentVariablesTable = ({
                     collection={_collection}
                     name={`${actualIndex}.description`}
                     value={variable.description ?? ''}
-                    placeholder={isLastEmptyRow && (!variable.description || (typeof variable.description === 'string' && variable.description.trim() === '')) ? 'Description' : ''}
+                    placeholder={isLastEmptyRow && (!variable.description || (typeof variable.description === 'string' && variable.description.trim() === '')) ? t('environments.table.description') : ''}
                     onChange={(newValue) => {
                       formik.setFieldValue(`${actualIndex}.description`, newValue, false);
                       if (isLastRow) {
@@ -1183,10 +1186,10 @@ const EnvironmentVariablesTable = ({
       <div className="button-container">
         <div className="flex items-center">
           <button type="button" className="submit" onClick={handleSave} data-testid="save-env">
-            Save
+            {t('common.save')}
           </button>
           <button type="button" className="submit reset ml-2" onClick={handleReset} data-testid="reset-env">
-            Reset
+            {t('environments.dotEnv.reset')}
           </button>
         </div>
       </div>

@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { get, cloneDeep, find } from 'lodash';
 import { updateCollectionTagsList, updateRunnerTagsDetails } from 'providers/ReduxStore/slices/collections';
 import TagList from 'components/TagList';
 
 const RunnerTags = ({ collectionUid, className = '' }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const collections = useSelector((state) => state.collections.collections);
   const collection = cloneDeep(find(collections, (c) => c.uid === collectionUid));
@@ -20,13 +22,13 @@ const RunnerTags = ({ collectionUid, className = '' }) => {
   const handleValidation = (tag) => {
     const trimmedTag = tag.trim();
     if (!availableTags.includes(trimmedTag)) {
-      return 'tag does not exist!';
+      return t('runner.tags.doesNotExist');
     }
     if (tags.include.includes(trimmedTag)) {
-      return 'tag already present in the include list!';
+      return t('runner.tags.alreadyIncluded');
     }
     if (tags.exclude.includes(trimmedTag)) {
-      return 'tag is present in the exclude list!';
+      return t('runner.tags.alreadyExcluded');
     }
   };
 
@@ -75,7 +77,7 @@ const RunnerTags = ({ collectionUid, className = '' }) => {
     <div className={`flex flex-col ${className}`}>
       <div className="flex flex-row gap-4 w-full">
         <div className="flex-1 flex flex-col gap-2 min-w-0">
-          <span>Include tags</span>
+          <span>{t('runner.tags.include')}</span>
           <TagList
             tags={tags.include}
             handleAddTag={(tag) => handleAddTag({ tag, to: 'include' })}
@@ -85,7 +87,7 @@ const RunnerTags = ({ collectionUid, className = '' }) => {
           />
         </div>
         <div className="flex-1 flex flex-col gap-2 min-w-0">
-          <span>Exclude tags</span>
+          <span>{t('runner.tags.exclude')}</span>
           <TagList
             tags={tags.exclude}
             handleAddTag={(tag) => handleAddTag({ tag, to: 'exclude' })}

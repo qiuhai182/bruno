@@ -2,6 +2,7 @@ import 'github-markdown-css/github-markdown.css';
 import get from 'lodash/get';
 import { updateCollectionDocs } from 'providers/ReduxStore/slices/collections';
 import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { saveCollectionSettings } from 'providers/ReduxStore/slices/collections/actions';
 import StyledWrapper from './StyledWrapper';
 import { IconFileText } from '@tabler/icons';
@@ -11,6 +12,7 @@ import { useDocsEditingState } from 'components/Documentation/useDocsEditingStat
 import DocsEditor from 'components/Documentation/DocsEditor';
 
 const Docs = ({ collection }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const { isEditing, setEditing } = useDocsEditingState();
   const savedDocs = get(collection, 'root.docs', '');
@@ -53,16 +55,16 @@ const Docs = ({ collection }) => {
       <div className="flex flex-row w-full justify-between items-center mb-4">
         <div className="text-lg font-medium flex items-center gap-2">
           <IconFileText size={20} strokeWidth={1.5} />
-          Documentation
+          {t('collection.docs.title')}
         </div>
         <div className="flex flex-row gap-2 items-center justify-center">
           {isEditing ? (
             <>
               <Button type="button" color="secondary" onClick={handleDiscardChanges}>
-                Cancel
+                {t('common.cancel')}
               </Button>
               <Button type="button" onClick={onSave}>
-                Save
+                {t('common.save')}
               </Button>
             </>
           ) : null}
@@ -76,7 +78,7 @@ const Docs = ({ collection }) => {
           isEditing={isEditing}
           collection={collection}
           collectionPath={collection.pathname}
-          emptyPreviewContent={documentationPlaceholder}
+          emptyPreviewContent={t('collection.docs.placeholder')}
           onRequestEdit={toggleViewMode}
           initialScroll={scroll}
           onScroll={setScroll}
@@ -87,27 +89,3 @@ const Docs = ({ collection }) => {
 };
 
 export default Docs;
-
-const documentationPlaceholder = `
-Welcome to your collection documentation! This space is designed to help you document your API collection effectively.
-
-## Overview
-Use this section to provide a high-level overview of your collection. You can describe:
-- The purpose of these API endpoints
-- Key features and functionalities
-- Target audience or users
-
-## Best Practices
-- Keep documentation up to date
-- Include request/response examples
-- Document error scenarios
-- Add relevant links and references
-
-## Markdown Support
-This documentation supports Markdown formatting! You can use:
-- **Bold** and *italic* text
-- \`code blocks\` and syntax highlighting
-- Tables and lists
-- [Links](https://usebruno.com)
-- And more!
-`;

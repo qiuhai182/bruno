@@ -2,6 +2,7 @@ import React from 'react';
 import { IconTerminal, IconX } from '@tabler/icons';
 import styled from 'styled-components';
 import ToolHint from 'components/ToolHint/index';
+import { useTranslation } from 'react-i18next';
 
 const StyledSessionList = styled.div`
   .session-list-item {
@@ -78,6 +79,7 @@ const StyledSessionList = styled.div`
 `;
 
 const SessionList = ({ sessions, activeSessionId, onSelectSession, onCloseSession }) => {
+  const { t } = useTranslation();
   const getSessionDisplayInfo = (session) => {
     if (session.name) {
       return { name: session.name };
@@ -95,20 +97,20 @@ const SessionList = ({ sessions, activeSessionId, onSelectSession, onCloseSessio
 
       // If it's root or home directory
       if (normalizedPath === '' || normalizedPath === '/' || normalizedPath.match(/^[A-Z]:\/?$/)) {
-        return { name: 'Root' };
+        return { name: t('devtools.terminal.root') };
       }
     }
 
     // Fallback: use a cool name based on session ID
     const shortId = session.sessionId.split('_')[1]?.slice(-6) || session.sessionId.slice(-6);
-    return { name: `Terminal ${shortId}` };
+    return { name: t('devtools.terminal.fallbackName', { id: shortId }) };
   };
 
   const getFullPath = (session) => {
     if (session.cwd) {
       return session.cwd;
     }
-    return '~ (Home Directory)';
+    return t('devtools.terminal.homeDirectory');
   };
 
   return (

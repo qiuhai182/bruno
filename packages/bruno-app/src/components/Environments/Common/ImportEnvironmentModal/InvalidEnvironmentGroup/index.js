@@ -1,8 +1,10 @@
 import React from 'react';
 import { IconBan, IconChevronDown, IconChevronRight } from '@tabler/icons';
 import CountBadge from 'ui/CountBadge';
+import { useTranslation } from 'react-i18next';
 
 const InvalidEnvironmentGroup = ({ invalid, isExpanded, toggleExpanded }) => {
+  const { t } = useTranslation();
   return (
     <div
       className="group-container"
@@ -16,7 +18,7 @@ const InvalidEnvironmentGroup = ({ invalid, isExpanded, toggleExpanded }) => {
             <IconChevronRight size={16} className="chevron-icon" strokeWidth={1.6} />
           )}
           <IconBan size={16} className="blocked-icon" />
-          <span className="group-title">Could not be read</span>
+          <span className="group-title">{t('environments.import.couldNotBeRead')}</span>
           <CountBadge className="group-count" data-testid="env-import-invalid-count">
             {invalid.length}
           </CountBadge>

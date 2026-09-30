@@ -8,6 +8,7 @@ import {
   IconLoader2
 } from '@tabler/icons';
 import { toggleRowExpanded } from 'providers/ReduxStore/slices/openapi-sync';
+import { useTranslation } from 'react-i18next';
 import MethodBadge from 'ui/MethodBadge';
 import { formatIpcError } from 'utils/common/error';
 import StatusBadge from 'ui/StatusBadge';
@@ -17,6 +18,7 @@ import EndpointVisualDiff from './EndpointVisualDiff';
 // Expandable row - can be used with or without decision buttons
 const ExpandableEndpointRow = ({ endpoint, decision, onDecisionChange, collectionPath, newSpec, showDecisions = true, decisionLabels, diffLeftLabel, diffRightLabel, swapDiffSides, collectionUid, actions, preserveValues = true }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const rowKey = endpoint.id || `${endpoint.method}-${endpoint.path}`;
   const isExpanded = useSelector((state) => {
     return state.openapiSync?.tabUiState?.[collectionUid]?.expandedRows?.[rowKey] || false;
@@ -54,7 +56,7 @@ const ExpandableEndpointRow = ({ endpoint, decision, onDecisionChange, collectio
       }
     } catch (err) {
       if (requestId !== requestIdRef.current) return;
-      setError(formatIpcError(err) || 'Failed to load diff data');
+      setError(formatIpcError(err) || t('openApiSync.endpoint.failedToLoadDiff'));
     } finally {
       if (requestId === requestIdRef.current) setIsLoading(false);
     }
@@ -125,11 +127,11 @@ const ExpandableEndpointRow = ({ endpoint, decision, onDecisionChange, collectio
             status="danger"
             rightSection={(
               <Help icon="info" size={11} placement="top" width={250}>
-                This endpoint was modified in both the spec and your collection. Choose which version to keep.
+                {t('openApiSync.endpoint.conflictHelp')}
               </Help>
             )}
           >
-            Conflict
+            {t('openApiSync.endpoint.conflict')}
           </StatusBadge>
         )}
 
@@ -140,16 +142,16 @@ const ExpandableEndpointRow = ({ endpoint, decision, onDecisionChange, collectio
             <button
               className={`decision-btn keep ${decision === 'keep-mine' ? 'selected' : ''}`}
               onClick={() => onDecisionChange('keep-mine')}
-              title="Keep your local version"
+              title={t('openApiSync.endpoint.keepLocalTitle')}
             >
-              <IconX size={12} /> {decisionLabels?.keep || 'Keep Mine'}
+              <IconX size={12} /> {decisionLabels?.keep || t('openApiSync.endpoint.keepMine')}
             </button>
             <button
               className={`decision-btn accept ${decision === 'accept-incoming' ? 'selected' : ''}`}
               onClick={() => onDecisionChange('accept-incoming')}
-              title="Accept the spec version"
+              title={t('openApiSync.endpoint.acceptSpecTitle')}
             >
-              <IconCheck size={12} /> {decisionLabels?.accept || 'Accept Spec'}
+              <IconCheck size={12} /> {decisionLabels?.accept || t('openApiSync.endpoint.acceptSpec')}
             </button>
           </div>
         )}
@@ -163,20 +165,20 @@ const ExpandableEndpointRow = ({ endpoint, decision, onDecisionChange, collectio
           {isLoading && !diffData && !error && (
             <div className="diff-loading">
               <IconLoader2 size={16} className="spinning" />
-              <span>Loading diff...</span>
+              <span>{t('openApiSync.specDiff.loadingDiff')}</span>
             </div>
           )}
           {error && !diffData && (
             <div className="diff-error">
-              Error: {error}
+              {t('openApiSync.endpoint.errorWithMessage', { message: error })}
             </div>
           )}
           {diffData && !error && (
             <EndpointVisualDiff
               oldData={diffData.oldData}
               newData={diffData.newData}
-              leftLabel={diffLeftLabel || 'Current (in collection)'}
-              rightLabel={diffRightLabel || 'Expected (from spec)'}
+              leftLabel={diffLeftLabel || t('openApiSync.diff.currentInCollection')}
+              rightLabel={diffRightLabel || t('openApiSync.diff.expectedFromSpec')}
               swapSides={swapDiffSides}
             />
           )}

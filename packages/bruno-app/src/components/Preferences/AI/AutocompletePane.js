@@ -1,32 +1,33 @@
 import { IconChevronDown } from '@tabler/icons';
 import ToggleSwitch from 'components/ToggleSwitch';
 import { getPlatformModifierKey } from 'utils/common/platform';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Autocomplete tab content. Sibling of the Configuration tab inside
  * Preferences > AI.
  *
- *   - master AI off          → notice only; the whole card is hidden
- *   - no provider configured → notice in the card body, controls disabled
- *   - no enabled model       → notice in the card body, controls disabled
- *   - everything on          → fully interactive
+ *   - master AI off          →→ notice only; the whole card is hidden
+ *   - no provider configured →→ notice in the card body, controls disabled
+ *   - no enabled model       →→ notice in the card body, controls disabled
+ *   - everything on          →→ fully interactive
  */
 
 const TRIGGER_MODES = [
   {
     value: 'aggressive',
-    label: 'Aggressive',
-    description: 'Suggest after every keystroke'
+    labelKey: 'preferences.ai.autocomplete.triggerAggressive',
+    descriptionKey: 'preferences.ai.autocomplete.triggerAggressiveDesc'
   },
   {
     value: 'debounced',
-    label: 'Debounced',
-    description: 'Suggest after you pause typing (default)'
+    labelKey: 'preferences.ai.autocomplete.triggerDebounced',
+    descriptionKey: 'preferences.ai.autocomplete.triggerDebouncedDesc'
   },
   {
     value: 'manual',
-    label: 'Manual',
-    description: `Only on ${getPlatformModifierKey()}+\\`
+    labelKey: 'preferences.ai.autocomplete.triggerManual',
+    descriptionKey: 'preferences.ai.autocomplete.triggerManualDesc'
   }
 ];
 
@@ -41,11 +42,13 @@ const AutocompletePane = ({
   onChangeModel,
   onChangeTriggerMode
 }) => {
+  const { t } = useTranslation();
+
   if (!aiEnabled) {
     return (
       <div className="autocomplete-tab flex flex-col gap-3">
         <div className="ai-empty-notice px-3.5 py-3 text-xs">
-          Turn on AI in the Configuration tab to use autocomplete.
+          {t('preferences.ai.autocomplete.disabledNotice')}
         </div>
       </div>
     );
@@ -59,9 +62,9 @@ const AutocompletePane = ({
   // get suggestions yet.
   let blockerMessage = null;
   if (!hasConfiguredProvider) {
-    blockerMessage = 'Add a provider API key in the Configuration tab to enable autocomplete.';
+    blockerMessage = t('preferences.ai.autocomplete.blockerNoProvider');
   } else if (!hasUsableModel) {
-    blockerMessage = 'No models are available. Enable a model on its provider card in Configuration.';
+    blockerMessage = t('preferences.ai.autocomplete.blockerNoModel');
   }
 
   return (
@@ -69,9 +72,9 @@ const AutocompletePane = ({
       <div className="autocomplete-card">
         <div className="autocomplete-header flex items-center justify-between gap-3 px-3.5 py-3">
           <div className="flex flex-col gap-0.5 min-w-0">
-            <span className="text-[12.5px] font-semibold">Inline Autocomplete</span>
+            <span className="text-[12.5px] font-semibold">{t('preferences.ai.autocomplete.title')}</span>
             <span className="autocomplete-sub text-[11px]">
-              Ghost-text suggestions in Pre-Request, Post-Response, and Tests scripts
+              {t('preferences.ai.autocomplete.subtitle')}
             </span>
           </div>
           <ToggleSwitch
@@ -92,11 +95,11 @@ const AutocompletePane = ({
 
         <div className="autocomplete-row flex items-center justify-between gap-3 px-3.5 py-3">
           <div className="flex flex-col gap-0.5 min-w-0">
-            <span className="text-[11.5px] font-medium">Model</span>
+            <span className="text-[11.5px] font-medium">{t('preferences.ai.autocomplete.modelLabel')}</span>
             <span className="autocomplete-sub text-[10.5px]">
               {hasUsableModel
-                ? 'Lightweight models are recommended for speed'
-                : 'No model available yet'}
+                ? t('preferences.ai.autocomplete.modelHint')
+                : t('preferences.ai.autocomplete.modelEmpty')}
             </span>
           </div>
           <div className="model-select-wrap relative inline-flex items-center">
@@ -105,10 +108,10 @@ const AutocompletePane = ({
               value={model || ''}
               disabled={!isInteractive}
               onChange={(e) => onChangeModel(e.target.value)}
-              aria-label="Autocomplete model"
+              aria-label={t('preferences.ai.autocomplete.modelSelectAria')}
               data-testid="ai-autocomplete-model-select"
             >
-              <option value="">Auto (fastest available)</option>
+              <option value="">{t('preferences.ai.autocomplete.modelAuto')}</option>
               {availableModels.map((m) => (
                 <option key={m.id} value={m.id}>{m.label}</option>
               ))}
@@ -119,12 +122,14 @@ const AutocompletePane = ({
 
         <div className="autocomplete-row flex items-center justify-between gap-3 px-3.5 py-3">
           <div className="flex flex-col gap-0.5 min-w-0">
-            <span className="text-[11.5px] font-medium">Trigger</span>
+            <span className="text-[11.5px] font-medium">{t('preferences.ai.autocomplete.triggerLabel')}</span>
             <span className="autocomplete-sub text-[10.5px]">
-              {activeTrigger?.description}
+              {activeTrigger
+                ? t(activeTrigger.descriptionKey, { modifier: getPlatformModifierKey() })
+                : ''}
             </span>
           </div>
-          <div className="trigger-pills inline-flex" role="radiogroup" aria-label="Trigger mode">
+          <div className="trigger-pills inline-flex" role="radiogroup" aria-label={t('preferences.ai.autocomplete.triggerAria')}>
             {TRIGGER_MODES.map((m) => {
               const isSelected = (triggerMode || 'debounced') === m.value;
               return (
@@ -138,7 +143,7 @@ const AutocompletePane = ({
                   onClick={() => onChangeTriggerMode(m.value)}
                   data-testid={`ai-autocomplete-trigger-${m.value}`}
                 >
-                  {m.label}
+                  {t(m.labelKey)}
                 </button>
               );
             })}
@@ -147,9 +152,9 @@ const AutocompletePane = ({
 
         <div className="autocomplete-row px-3.5 py-3">
           <div className="flex flex-col gap-1">
-            <span className="text-[11.5px] font-medium">Keymap</span>
+            <span className="text-[11.5px] font-medium">{t('preferences.ai.autocomplete.keymapLabel')}</span>
             <div className="autocomplete-keymap text-[10.5px]">
-              <kbd>Tab</kbd> accept · <kbd>{getPlatformModifierKey()}</kbd>+<kbd>→</kbd> accept word · <kbd>Esc</kbd> dismiss · <kbd>{getPlatformModifierKey()}</kbd>+<kbd>\</kbd> trigger
+              <kbd>Tab</kbd> {t('preferences.ai.autocomplete.keymapAccept')} · <kbd>{getPlatformModifierKey()}</kbd>+<kbd>→</kbd> {t('preferences.ai.autocomplete.keymapAcceptWord')} · <kbd>Esc</kbd> {t('preferences.ai.autocomplete.keymapDismiss')} · <kbd>{getPlatformModifierKey()}</kbd>+<kbd>\</kbd> {t('preferences.ai.autocomplete.keymapTrigger')}
             </div>
           </div>
         </div>

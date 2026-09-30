@@ -2,6 +2,7 @@ import React from 'react';
 import { IconFilter, IconChevronDown } from '@tabler/icons';
 import Dropdown from 'components/Dropdown';
 import StyledWrapper, { FilterMenu } from './StyledWrapper';
+import { useTranslation } from 'react-i18next';
 
 export const DevToolsFilterDropdown = ({
   filters,
@@ -12,6 +13,7 @@ export const DevToolsFilterDropdown = ({
   title,
   renderIcon
 }) => {
+  const { t } = useTranslation();
   const filterEntries = Object.entries(filters);
   const allFiltersEnabled = filterEntries.every(([_, enabled]) => enabled);
   const activeFilterCount = filterEntries.filter(([_, enabled]) => enabled).length;
@@ -26,7 +28,7 @@ export const DevToolsFilterDropdown = ({
           <button className="filter-dropdown-trigger" title={title} data-testid="filter-dropdown-trigger">
             <IconFilter size={16} strokeWidth={1.5} />
             <span className="filter-summary">
-              {activeFilterCount === filterEntries.length ? 'All' : `${activeFilterCount}/${filterEntries.length}`}
+              {activeFilterCount === filterEntries.length ? t('devtools.filter.all') : `${activeFilterCount}/${filterEntries.length}`}
             </span>
             <IconChevronDown size={14} strokeWidth={1.5} />
           </button>
@@ -40,7 +42,7 @@ export const DevToolsFilterDropdown = ({
               data-testid="filter-toggle-all"
               onClick={() => onToggleAll(!allFiltersEnabled)}
             >
-              {allFiltersEnabled ? 'Hide All' : 'Show All'}
+              {allFiltersEnabled ? t('devtools.filter.hideAll') : t('devtools.filter.showAll')}
             </button>
           </div>
           <div className="filter-dropdown-options">

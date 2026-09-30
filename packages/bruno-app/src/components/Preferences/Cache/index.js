@@ -84,7 +84,7 @@ const Cache = () => {
         <div className="cache-item-header">
           <div className="cache-item-title-group">
             <span className="cache-item-title">{t('preferences.cache.fileCache')}</span>
-            <span className="beta-badge">Beta</span>
+            <span className="beta-badge">{t('preferences.tabs.beta')}</span>
           </div>
           <ToggleSwitch
             data-testid="cache.file.enabled"

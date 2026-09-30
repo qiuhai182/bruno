@@ -1,28 +1,30 @@
 import React, { useMemo } from 'react';
 import { IconSend } from '@tabler/icons';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import StyledWrapper from './StyledWrapper';
 import { isMacOS } from 'utils/common/platform';
 import { getKeyBindingDisplayTextByOS } from 'providers/Hotkeys/keyMappings';
 
 const KEY_BINDING_ACTIONS = [
-  { label: 'Send Request', action: 'sendRequest' },
-  { label: 'New Request', action: 'newRequest' },
-  { label: 'Edit Environments', action: 'editEnvironment' }
+  { labelKey: 'responsePane.placeholder.sendRequest', action: 'sendRequest' },
+  { labelKey: 'responsePane.placeholder.newRequest', action: 'newRequest' },
+  { labelKey: 'responsePane.placeholder.editEnvironments', action: 'editEnvironment' }
 ];
 
 const Placeholder = () => {
+  const { t } = useTranslation();
   const isMac = isMacOS();
   const os = isMac ? 'mac' : 'windows';
   const preferences = useSelector((state) => state.app.preferences);
   const isVerticalLayout = preferences?.layout?.responsePaneOrientation === 'vertical';
   const keyBindingActions = useMemo(() => {
-    return KEY_BINDING_ACTIONS.map(({ label, action }) => ({
-      label,
+    return KEY_BINDING_ACTIONS.map(({ labelKey, action }) => ({
+      label: t(labelKey),
       action,
       shortcut: getKeyBindingDisplayTextByOS(action, preferences?.keyBindings, os)
     }));
-  }, [preferences?.keyBindings, os]);
+  }, [preferences?.keyBindings, os, t]);
 
   const iconSize = isVerticalLayout ? 80 : 150;
 

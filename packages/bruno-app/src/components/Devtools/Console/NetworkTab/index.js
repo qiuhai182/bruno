@@ -12,16 +12,7 @@ import {
 import { useResizableColumns } from 'hooks/useResizableColumns';
 import StyledWrapper from './StyledWrapper';
 import { sortRequests } from './utils';
-
-const COLUMNS = [
-  { key: 'method', label: 'Method', width: 80, align: 'left' },
-  { key: 'status', label: 'Status', width: 70, align: 'left' },
-  { key: 'domain', label: 'Domain', width: 180, align: 'left' },
-  { key: 'path', label: 'Path', width: 300, align: 'left' },
-  { key: 'time', label: 'Time', width: 110, align: 'left' },
-  { key: 'duration', label: 'Duration', width: 100, align: 'right' },
-  { key: 'size', label: 'Size', width: 80, align: 'right' }
-];
+import { useTranslation } from 'react-i18next';
 
 const MethodBadge = ({ method }) => {
   const methodLower = method?.toLowerCase() || 'get';
@@ -44,6 +35,7 @@ const StatusBadge = ({ status, statusCode }) => {
 };
 
 const RequestRow = ({ request, isSelected, onClick, gridTemplateColumns }) => {
+  const { t } = useTranslation();
   const { data } = request;
   const { request: req, response: res, timestamp } = data;
 
@@ -72,7 +64,7 @@ const RequestRow = ({ request, isSelected, onClick, gridTemplateColumns }) => {
   };
 
   const getUrl = () => {
-    return req?.url || 'Unknown URL';
+    return req?.url || t('devtools.network.unknownUrl');
   };
 
   const getDomain = () => {
@@ -133,7 +125,17 @@ const RequestRow = ({ request, isSelected, onClick, gridTemplateColumns }) => {
 };
 
 const NetworkTab = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
+  const columns = [
+    { key: 'method', label: t('devtools.network.method'), width: 80, align: 'left' },
+    { key: 'status', label: t('devtools.network.status'), width: 70, align: 'left' },
+    { key: 'domain', label: t('devtools.network.domain'), width: 180, align: 'left' },
+    { key: 'path', label: t('devtools.network.path'), width: 300, align: 'left' },
+    { key: 'time', label: t('devtools.network.time'), width: 110, align: 'left' },
+    { key: 'duration', label: t('devtools.network.duration'), width: 100, align: 'right' },
+    { key: 'size', label: t('devtools.network.size'), width: 80, align: 'right' }
+  ];
   const [sortConfig, setSortConfig] = usePersistedState({ key: 'devtools-network-sort', default: { key: null, direction: null } });
   const [savedColWidths, setSavedColWidths] = usePersistedState({ key: 'devtools-network-col-widths', default: null });
 
@@ -144,7 +146,7 @@ const NetworkTab = () => {
     resizingIdx,
     handleResizeStart
   } = useResizableColumns({
-    defaultWidths: COLUMNS.map((c) => c.width),
+    defaultWidths: columns.map((c) => c.width),
     initialWidths: savedColWidths,
     minColWidth: 60,
     onResizeEnd: setSavedColWidths
@@ -199,13 +201,13 @@ const NetworkTab = () => {
         {filteredRequests.length === 0 ? (
           <div className="network-empty">
             <IconNetwork size={48} strokeWidth={1} />
-            <p>No network requests</p>
-            <span>Requests will appear here as you make API calls</span>
+            <p>{t('devtools.network.emptyTitle')}</p>
+            <span>{t('devtools.network.emptySubtitle')}</span>
           </div>
         ) : (
           <div className={`requests-container${resizingIdx !== null ? ' is-resizing' : ''}`}>
             <div className="requests-header" style={{ gridTemplateColumns }}>
-              {COLUMNS.map((col) => (
+              {columns.map((col) => (
                 <div
                   key={col.key}
                   className={`header-cell${col.align === 'right' ? ' text-right' : ''}`}

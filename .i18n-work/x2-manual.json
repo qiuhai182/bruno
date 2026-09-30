@@ -1,0 +1,224 @@
+[
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js",
+    "dels": "",
+    "adds": "  const groupingOptions = [\n    { value: 'tags', label: t('sidebar.bulkImport.groupingTags'), description: t('sidebar.bulkImport.groupingTagsDesc'), testId: 'grouping-option-tags' },\n    { value: 'path', label: t('sidebar.bulkImport.groupingPaths'), description: t('sidebar.bulkImport.groupingPathsDesc'), testId: 'grouping-option-path' }\n  ];",
+    "reason": "structural-split-failed"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js",
+    "dels": "          <span>{selectedCollectionPaths.length}</span> of {collectionPaths.length} selected",
+    "adds": "          <span>{t('sidebar.cloneGit.selectedCount', { selected: selectedCollectionPaths.length, total: collectionPaths.length })}</span>",
+    "reason": "structural-split-failed"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.js",
+    "dels": "const CollectionNotFound = ({ onClose }) => (\n  <Portal>\n    <Modal size=\"sm\" title=\"Change Collection Version\" confirmText=\"Close\" handleConfirm={onClose} hideCancel>\n      <StyledWrapper className=\"w-[480px]\">\n        <div className=\"flex items-center gap-2 text-warning\">\n          <IconAlertTriangle size={16} className=\"shrink-0\" />\n          <span>Collection not found. It may have been deleted or is no longer available.</span>\n        </div>\n      </StyledWrapper>\n    </Modal>\n  </Portal>\n);",
+    "adds": "const CollectionNotFound = ({ onClose }) => {\n  const { t } = useTranslation();\n\n  return (\n    <Portal>\n      <Modal size=\"sm\" title={t('sidebar.changeVersion.title')} confirmText={t('common.close')} handleConfirm={onClose} hideCancel>\n        <StyledWrapper className=\"w-[480px]\">\n          <div className=\"flex items-center gap-2 text-warning\">\n            <IconAlertTriangle size={16} className=\"shrink-0\" />\n            <span>{t('sidebar.changeVersion.notFound')}</span>\n          </div>\n        </StyledWrapper>\n      </Modal>\n    </Portal>\n  );\n};",
+    "reason": "structural-split-failed"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.js",
+    "dels": "            Collection: <span className=\"collection-name\">{collection.name}</span>",
+    "adds": "            {t('sidebar.changeVersion.collectionLabel')}\n            <span className=\"collection-name\">{collection.name}</span>",
+    "reason": "structural-split-failed"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+    "dels": "                    {isFolder ? 'Folder' : 'File'} Name <small className=\"font-normal text-muted ml-1\">(on filesystem)</small>",
+    "adds": "                    {isFolder ? t('sidebar.folderName') : t('sidebar.newRequest.fileName')} <small className=\"font-normal text-muted ml-1\">{t('sidebar.newRequest.onFilesystem')}</small>",
+    "reason": "structural-split-failed"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CollectionItemDragPreview/index.js",
+    "dels": "  if (parts.length === 0) return `${multiSelectedItems.length} items`;\n  return parts.join(', ').replace(/, ([^,]*)$/, ' and $1');",
+    "adds": "  if (parts.length === 0) return t('sidebar.dragPreview.items', { count: multiSelectedItems.length });\n  const and = ` ${t('sidebar.dragPreview.and')} `;\n  return parts.join(', ').replace(/, ([^,]*)$/, `${and}$1`);",
+    "reason": "structural-split-failed"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js",
+    "dels": "  const folderDescription = folderCount > 0 ? `${folderCount} ${pluralizeWord('folder', folderCount)}` : null;\n  const requestDescription = requestCount > 0 ? `${requestCount} ${pluralizeWord('request', requestCount)}` : null;\n  const appDescription = appCount > 0 ? `${appCount} ${pluralizeWord('app', appCount)}` : null;\n  const exampleDescription = exampleCount > 0 ? `${exampleCount} ${pluralizeWord('example', exampleCount)}` : null;",
+    "adds": "  const folderDescription = folderCount > 0 ? (folderCount === 1 ? t('sidebar.deleteItems.folderOne', { count: folderCount }) : t('sidebar.deleteItems.folderMany', { count: folderCount })) : null;\n  const requestDescription = requestCount > 0 ? (requestCount === 1 ? t('sidebar.deleteItems.requestOne', { count: requestCount }) : t('sidebar.deleteItems.requestMany', { count: requestCount })) : null;\n  const appDescription = appCount > 0 ? (appCount === 1 ? t('sidebar.deleteItems.appOne', { count: appCount }) : t('sidebar.deleteItems.appMany', { count: appCount })) : null;\n  const exampleDescription = exampleCount > 0 ? (exampleCount === 1 ? t('sidebar.deleteItems.exampleOne', { count: exampleCount }) : t('sidebar.deleteItems.exampleMany', { count: exampleCount })) : null;",
+    "reason": "structural-split-failed"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js",
+    "dels": "",
+    "adds": "  const and = ` ${t('sidebar.deleteItems.and')} `;",
+    "reason": "structural-split-failed"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js",
+    "dels": "      return `Delete ${pluralizeWord('Folder', folderCount)}`;",
+    "adds": "      return folderCount === 1 ? t('sidebar.deleteItems.titleFolderOne') : t('sidebar.deleteItems.titleFolderMany');",
+    "reason": "structural-split-failed"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js",
+    "dels": "      return `Delete ${pluralizeWord('App', appCount)}`;",
+    "adds": "      return appCount === 1 ? t('sidebar.deleteItems.titleAppOne') : t('sidebar.deleteItems.titleAppMany');",
+    "reason": "structural-split-failed"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js",
+    "dels": "      return `Delete ${pluralizeWord('Example', exampleCount)}`;",
+    "adds": "      return exampleCount === 1 ? t('sidebar.deleteItems.titleExampleOne') : t('sidebar.deleteItems.titleExampleMany');",
+    "reason": "structural-split-failed"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js",
+    "dels": "    return `Delete ${pluralizeWord('Request', requestCount)}`;",
+    "adds": "    return requestCount === 1 ? t('sidebar.deleteItems.titleRequestOne') : t('sidebar.deleteItems.titleRequestMany');",
+    "reason": "structural-split-failed"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/GenerateCodeItem/index.js",
+    "dels": "  const modalTitle = isExample ? `Generate Code - ${get(item, 'draft.examples', []).find((e) => e.uid === exampleUid)?.name || 'Example'}` : 'Generate Code';",
+    "adds": "  const modalTitle = isExample\n    ? t('sidebar.generateCode.titleWithExample', { name: get(item, 'draft.examples', []).find((e) => e.uid === exampleUid)?.name || t('sidebar.generateCode.example') })\n    : t('sidebar.generateCode.title');",
+    "reason": "structural-split-failed"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js",
+    "dels": "      Ignoring <span className=\"font-medium\">{item.name}</span> will hide it from this",
+    "adds": "      {t('sidebar.ignore.prefix')}\n      {' '}\n      <span className=\"font-medium\">{item.name}</span>\n      {' '}\n      {t('sidebar.ignore.hideFrom')}",
+    "reason": "structural-split-failed"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js",
+    "dels": "                    {isFolder ? 'Folder' : 'File'} Name <small className=\"font-normal text-muted ml-1\">(on filesystem)</small>",
+    "adds": "                    {isFolder ? t('sidebar.folderName') : t('sidebar.newRequest.fileName')} <small className=\"font-normal text-muted ml-1\">{t('sidebar.newRequest.onFilesystem')}</small>",
+    "reason": "structural-split-failed"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/DocsTagList/index.jsx",
+    "dels": "",
+    "adds": "  const { t } = useTranslation();\n  const resolvedPlaceholder = placeholder ?? t('sidebar.docs.tagPlaceholder');",
+    "reason": "structural-split-failed"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/index.jsx",
+    "dels": "",
+    "adds": "  const tagsHint = t('sidebar.docs.tagsHint');\n\n  const requestModeItems = [\n    { 'value': 'all', 'label': t('sidebar.docs.allRequests'), 'className': 'seg-option', 'data-testid': 'docs-requests-all' },\n    {\n      'value': 'tags',\n      'className': 'seg-option',\n      'label': (\n        <span className=\"seg-with-hint\">\n          {t('sidebar.docs.filterByTags')}\n          <span className=\"seg-hint\" data-tooltip-id=\"docs-tags-hint\" data-tooltip-content={tagsHint}>\n            <IconInfoCircle size={16} aria-hidden=\"true\" />\n          </span>\n        </span>\n      ),\n      'data-testid': 'docs-requests-filter'\n    }\n  ];\n",
+    "reason": "structural-split-failed"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/CollectionVersionInfo/index.js",
+    "dels": "  const folderLabel = folderCount === 1 ? 'Folder' : 'Folders';\n  const requestLabel = requestCount === 1 ? 'request' : 'requests';",
+    "adds": "  const { t } = useTranslation();\n  const folderLabel = folderCount === 1 ? t('sidebar.docs.folderOne') : t('sidebar.docs.folderMany');\n  const requestLabel = requestCount === 1 ? t('sidebar.docs.requestOne') : t('sidebar.docs.requestMany');",
+    "reason": "structural-split-failed"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/EnvironmentSelectionList/index.js",
+    "dels": "",
+    "adds": "  const { t } = useTranslation();\n  const heading = title ?? t('sidebar.docs.environments');\n",
+    "reason": "structural-split-failed"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js",
+    "dels": "const FEATURES = [\n  'Standalone HTML file - no server required',\n  'Interactive API playground',\n  'Host on any static file server'\n];\n\nconst CollectionNotFound = ({ onClose }) => (\n  <Portal>\n    <Modal size=\"md\" title=\"Generate Documentation\" confirmText=\"Close\" handleConfirm={onClose} hideCancel>\n      <StyledWrapper>\n        <div className=\"flex items-center gap-2 text-warning\">\n          <IconAlertTriangle size={16} className=\"shrink-0\" />\n          <span>Collection not found. It may have been deleted or is no longer available.</span>\n        </div>\n      </StyledWrapper>\n    </Modal>\n  </Portal>\n);",
+    "adds": "const CollectionNotFound = ({ onClose }) => {\n  const { t } = useTranslation();\n\n  return (\n    <Portal>\n      <Modal size=\"md\" title={t('sidebar.docs.title')} confirmText={t('common.close')} handleConfirm={onClose} hideCancel>\n        <StyledWrapper>\n          <div className=\"flex items-center gap-2 text-warning\">\n            <IconAlertTriangle size={16} className=\"shrink-0\" />\n            <span>{t('sidebar.docs.collectionNotFound')}</span>\n          </div>\n        </StyledWrapper>\n      </Modal>\n    </Portal>\n  );\n};",
+    "reason": "structural-split-failed"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js",
+    "dels": "",
+    "adds": "  const features = [\n    t('sidebar.docs.featureStandaloneHtml'),\n    t('sidebar.docs.featurePlayground'),\n    t('sidebar.docs.featureHostAnywhere')\n  ];\n",
+    "reason": "structural-split-failed"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js",
+    "dels": "          You have unsaved changes in <span className=\"font-medium\">{allDrafts.length}</span>{' '}\n          {pluralizeWord('request', allDrafts.length)}.",
+    "adds": "          {t('sidebar.drafts.unsavedChangesPrefix')}\n          <span className=\"font-medium\">{allDrafts.length}</span>{' '}\n          {allDrafts.length === 1 ? t('sidebar.drafts.requestItemOne') : t('sidebar.drafts.requestItemMany')}",
+    "reason": "structural-split-failed"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js",
+    "dels": "              Saved {pluralizeWord('Request', currentDrafts.length)} ({currentDrafts.length})",
+    "adds": "              {currentDrafts.length === 1 ? t('sidebar.drafts.savedRequestsOne', { count: currentDrafts.length }) : t('sidebar.drafts.savedRequestsMany', { count: currentDrafts.length })}",
+    "reason": "structural-split-failed"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js",
+    "dels": "                ...{currentDrafts.length - MAX_UNSAVED_REQUESTS_TO_SHOW} additional{' '}\n                {pluralizeWord('request', currentDrafts.length - MAX_UNSAVED_REQUESTS_TO_SHOW)} not shown",
+    "adds": "                {currentDrafts.length - MAX_UNSAVED_REQUESTS_TO_SHOW === 1\n                  ? t('sidebar.drafts.additionalOne', { count: currentDrafts.length - MAX_UNSAVED_REQUESTS_TO_SHOW })\n                  : t('sidebar.drafts.additionalMany', { count: currentDrafts.length - MAX_UNSAVED_REQUESTS_TO_SHOW })}",
+    "reason": "structural-split-failed"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js",
+    "dels": "              Transient {pluralizeWord('Request', currentTransientDrafts.length)} ({currentTransientDrafts.length})",
+    "adds": "              {currentTransientDrafts.length === 1 ? t('sidebar.drafts.transientRequestsOne', { count: currentTransientDrafts.length }) : t('sidebar.drafts.transientRequestsMany', { count: currentTransientDrafts.length })}",
+    "reason": "structural-split-failed"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/ImportCollection/FullscreenLoader/index.js",
+    "dels": "",
+    "adds": "    // Messages to cycle through while loading\n    const loadingMessages = [\n      t('sidebar.import.loading1'),\n      t('sidebar.import.loading2'),\n      t('sidebar.import.loading3'),\n      t('sidebar.import.loading4'),\n      t('sidebar.import.loading5')\n    ];\n",
+    "reason": "structural-split-failed"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js",
+    "dels": "",
+    "adds": "  const groupingOptions = [\n    { value: 'tags', label: t('sidebar.import.groupingTags'), description: t('sidebar.import.groupingTagsDesc'), testId: 'grouping-option-tags' },\n    { value: 'path', label: t('sidebar.import.groupingPaths'), description: t('sidebar.import.groupingPathsDesc'), testId: 'grouping-option-path' }\n  ];\n",
+    "reason": "structural-split-failed"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/NewApp/index.js",
+    "dels": "              Creates a standalone app file in {item ? 'this folder' : `collection \"${collection?.name || ''}\"`}.",
+    "adds": "              {t('sidebar.newApp.createsIn', {\n                target: item\n                  ? t('sidebar.newApp.thisFolder')\n                  : t('sidebar.newApp.collectionName', { name: collection?.name || '' })\n              })}",
+    "reason": "structural-split-failed"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js",
+    "dels": "      separator = idx === shown.length - 1 && remainder === 0 ? ' and ' : ', ';",
+    "adds": "      separator = idx === shown.length - 1 && remainder === 0 ? ` ${t('sidebar.postmanReport.and')} ` : ', ';",
+    "reason": "structural-split-failed"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js",
+    "dels": "        {idx === shown.length - 1 && remainder > 0 ? ` and ${remainder} more` : ''}",
+    "adds": "        {idx === shown.length - 1 && remainder > 0 ? ` ${t('sidebar.postmanReport.andMore', { count: remainder })}` : ''}",
+    "reason": "structural-split-failed"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js",
+    "dels": "          `Installed ${needsInstall.length} package${needsInstall.length === 1 ? '' : 's'}`",
+    "adds": "          needsInstall.length === 1\n            ? t('sidebar.postmanReport.installedOne', { count: needsInstall.length })\n            : t('sidebar.postmanReport.installedMany', { count: needsInstall.length })",
+    "reason": "structural-split-failed"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js",
+    "dels": "        ? `Install ${needsInstall.length} package${needsInstall.length === 1 ? '' : 's'}`\n        : 'Done';",
+    "adds": "        ? (needsInstall.length === 1 ? t('sidebar.postmanReport.installOne', { count: needsInstall.length }) : t('sidebar.postmanReport.installMany', { count: needsInstall.length }))\n        : t('sidebar.postmanReport.done');",
+    "reason": "structural-split-failed"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js",
+    "dels": "                <span>Installing {needsInstall.length} package{needsInstall.length === 1 ? '' : 's'}бн</span>",
+    "adds": "                <span>{needsInstall.length === 1 ? t('sidebar.postmanReport.installingOne', { count: needsInstall.length }) : t('sidebar.postmanReport.installingMany', { count: needsInstall.length })}</span>",
+    "reason": "structural-split-failed"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js",
+    "dels": "                  Installed {(installResult.installed || needsInstall).length} package\n                  {(installResult.installed || needsInstall).length === 1 ? '' : 's'} into this collection.",
+    "adds": "                  {(installResult.installed || needsInstall).length === 1\n                    ? t('sidebar.postmanReport.installedIntoOne', { count: (installResult.installed || needsInstall).length })\n                    : t('sidebar.postmanReport.installedIntoMany', { count: (installResult.installed || needsInstall).length })}",
+    "reason": "structural-split-failed"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js",
+    "dels": "              Your imported scripts call {renderPackageExamples(devMode)}\n              {', '}which need <strong>Developer Mode</strong> to run.",
+    "adds": "              {t('sidebar.postmanReport.devModeDescPrefix')}\n              {renderPackageExamples(devMode, t)}\n              {t('sidebar.postmanReport.devModeDescMid')}\n              <strong>{t('sidebar.postmanReport.developerMode')}</strong>\n              {t('sidebar.postmanReport.devModeDescSuffix')}",
+    "reason": "structural-split-failed"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js",
+    "dels": "                This collection runs in <strong>Developer Mode</strong> - your scripts can use these\n                packages right away.",
+    "adds": "                {t('sidebar.postmanReport.runsInDevModePrefix')}\n                <strong>{t('sidebar.postmanReport.developerMode')}</strong>\n                {t('sidebar.postmanReport.runsInDevModeSuffix')}",
+    "reason": "structural-split-failed"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js",
+    "dels": "                Custom npm packages (such as {renderPackageExamples(installResult.installed || needsInstall)})\n                {' '}are installed, but this collection is currently running in <strong>Safe Mode</strong>.",
+    "adds": "                {t('sidebar.postmanReport.customPackagesPrefix')}\n                {renderPackageExamples(installResult.installed || needsInstall, t)}\n                {t('sidebar.postmanReport.customPackagesMid')}\n                <strong>{t('sidebar.postmanReport.safeMode')}</strong>\n                {t('sidebar.postmanReport.customPackagesSuffix')}",
+    "reason": "structural-split-failed"
+  }
+]

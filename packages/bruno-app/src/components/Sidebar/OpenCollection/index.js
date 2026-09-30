@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import toast from 'react-hot-toast';
+import { useTranslation } from 'react-i18next';
 import { setIsOpeningCollection } from 'providers/ReduxStore/slices/app';
 import {
   browseDirectories,
@@ -16,6 +17,7 @@ import { getRelativePath, normalizePath } from 'utils/common/path';
 import StyledWrapper from './StyledWrapper';
 
 const OpenCollectionModal = ({ onClose }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
 
   const [showSelection, setShowSelection] = useState(false);
@@ -27,10 +29,10 @@ const OpenCollectionModal = ({ onClose }) => {
     const openedCount = result?.opened?.length || 0;
     const failedCount = (result?.failed?.length || 0) + (result?.invalid?.length || 0);
     if (openedCount > 0) {
-      toast.success(`${openedCount === 1 ? 'Collection' : 'Collections'} added to workspace`);
+      toast.success(t(openedCount === 1 ? 'sidebar.openCollection.collectionAdded' : 'sidebar.openCollection.collectionsAdded'));
     }
     if (failedCount > 0) {
-      toast.error(`Failed to open ${failedCount} collection${failedCount === 1 ? '' : 's'}`);
+      toast.error(t(failedCount === 1 ? 'sidebar.openCollection.failedToOpenOne' : 'sidebar.openCollection.failedToOpenMany', { count: failedCount }));
     }
   };
 
@@ -73,18 +75,18 @@ const OpenCollectionModal = ({ onClose }) => {
 
         if (items.length === 0) {
           if (failedScans.length) {
-            toast.error(`Failed to scan ${failedScans.length} folder${failedScans.length === 1 ? '' : 's'} for collections`);
+            toast.error(t(failedScans.length === 1 ? 'sidebar.openCollection.failedToScanOne' : 'sidebar.openCollection.failedToScanMany', { count: failedScans.length }));
           } else if (skippedItems.length) {
-            toast.error(`No Bruno collections found. ${skippedItems.length} skipped, config could not be read`);
+            toast.error(t('sidebar.openCollection.noneFoundSkipped', { count: skippedItems.length }));
           } else {
-            toast.error('No Bruno collections found. Couldn\'t find a bruno.json or opencollection.yml');
+            toast.error(t('sidebar.openCollection.noneFound'));
           }
           onClose();
           return;
         }
 
         if (failedScans.length) {
-          toast.error(`Failed to scan ${failedScans.length} folder${failedScans.length === 1 ? '' : 's'} for collections`);
+          toast.error(t(failedScans.length === 1 ? 'sidebar.openCollection.failedToScanOne' : 'sidebar.openCollection.failedToScanMany', { count: failedScans.length }));
         }
 
         // If all selected folders are collections, open them directly
@@ -100,7 +102,7 @@ const OpenCollectionModal = ({ onClose }) => {
             const result = await dispatch(openMultipleCollections(items.map((item) => item.pathname), { silent: true }));
             notifyOpenResult(result);
           } catch {
-            toast.error('An error occurred while opening the collections');
+            toast.error(t('sidebar.toast.errorOpeningCollections'));
           }
           onClose();
           return;
@@ -112,7 +114,7 @@ const OpenCollectionModal = ({ onClose }) => {
         setShowSelection(true);
       } catch (err) {
         console.error(err);
-        toast.error('An error occurred while scanning for collections');
+        toast.error(t('sidebar.toast.errorScanningCollections'));
         onClose();
       }
     })();
@@ -145,7 +147,7 @@ const OpenCollectionModal = ({ onClose }) => {
         onClose();
       }
     } catch {
-      toast.error('An error occurred while opening the collections');
+      toast.error(t('sidebar.toast.errorOpeningCollections'));
     }
   };
 
@@ -164,26 +166,26 @@ const OpenCollectionModal = ({ onClose }) => {
     <Portal id="open-collection-portal">
       <Modal
         size="md"
-        title="Open Collection"
-        confirmText="Open"
+        title={t('sidebar.openCollection.title')}
+        confirmText={t('sidebar.open')}
         handleConfirm={handleConfirm}
         handleCancel={onClose}
         confirmDisabled={selectedCollectionPaths.length === 0}
         footerLeft={(
           <SelectionFooter>
-            <span>{selectedCollectionPaths.length}</span> of {collectionPaths.length} selected
+            <span>{selectedCollectionPaths.length}</span> {t('sidebar.openCollection.selectedOfTotal', { total: collectionPaths.length })}
           </SelectionFooter>
         )}
       >
         <StyledWrapper>
           <p className="modal-description">
-            These collections were found inside your selection. Choose which ones to open.
+            {t('sidebar.openCollection.description')}
           </p>
           <div className="w-full min-w-0 flex flex-col gap-3">
-            <SkippedPathsWarning paths={skippedCollectionPaths} itemNoun="collections" />
+            <SkippedPathsWarning paths={skippedCollectionPaths} itemNoun={t('sidebar.openCollection.collectionsNoun')} />
             <SelectionList
-              title="Collections"
-              searchPlaceholder="Search Collections"
+              title={t('sidebar.collections')}
+              searchPlaceholder={t('sidebar.openCollection.searchPlaceholder')}
               items={collectionPaths}
               selectedItems={selectedCollectionPaths}
               onSelectAll={handleSelectAllCollections}

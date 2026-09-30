@@ -1,10 +1,12 @@
 import React from 'react';
 import { IconEdit, IconEye } from '@tabler/icons';
+import { useTranslation } from 'react-i18next';
 import Button from 'ui/Button';
 import { useDocsEditingState } from '../useDocsEditingState';
 import StyledWrapper from './StyledWrapper';
 
 const DocsAction = () => {
+  const { t } = useTranslation();
   const { isEditing, setEditing } = useDocsEditingState();
 
   return (
@@ -18,7 +20,7 @@ const DocsAction = () => {
         onClick={() => setEditing(!isEditing)}
         icon={isEditing ? <IconEye strokeWidth={1.5} /> : <IconEdit strokeWidth={1.5} />}
       >
-        {isEditing ? 'Preview' : 'Edit'}
+        {isEditing ? t('docs.preview') : t('docs.edit')}
       </Button>
     </StyledWrapper>
   );

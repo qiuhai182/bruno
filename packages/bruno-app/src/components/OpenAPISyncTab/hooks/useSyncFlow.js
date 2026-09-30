@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import toast from 'react-hot-toast';
 import { clearCollectionUpdate } from 'providers/ReduxStore/slices/openapi-sync';
 import { formatIpcError } from 'utils/common/error';
@@ -9,6 +10,7 @@ const useSyncFlow = ({
   setError, checkForUpdates
 }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const [pendingSyncMode, setPendingSyncMode] = useState(null);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
@@ -79,16 +81,16 @@ const useSyncFlow = ({
 
       dispatch(clearCollectionUpdate({ collectionUid: collection.uid }));
       toast.success(
-        mode === 'spec-only' ? 'Spec updated successfully'
-          : mode === 'reset' ? 'Collection reset to spec successfully'
-            : 'Collection synced successfully'
+        mode === 'spec-only' ? t('openApiSync.toast.specUpdated')
+          : mode === 'reset' ? t('openApiSync.toast.resetToSpec')
+            : t('openApiSync.toast.synced')
       );
 
       // Re-check to show "up to date" state
       await checkForUpdates();
     } catch (err) {
       console.error('Error syncing collection:', err);
-      setError(formatIpcError(err) || 'Failed to sync collection');
+      setError(formatIpcError(err) || t('openApiSync.errors.failedToSync'));
     } finally {
       setIsSyncing(false);
     }
@@ -143,14 +145,14 @@ const useSyncFlow = ({
     const groups = [];
     const actuallyAdded = (remoteDrift.missing || []).filter((ep) => specAddedIds.has(ep.id));
     if (actuallyAdded.length > 0) {
-      groups.push({ label: 'New endpoints to add', type: 'add', endpoints: actuallyAdded });
+      groups.push({ label: t('openApiSync.groups.newEndpointsToAdd'), type: 'add', endpoints: actuallyAdded });
     }
     if (remoteDrift.modified?.length > 0) {
-      groups.push({ label: 'Endpoints to update', type: 'update', endpoints: remoteDrift.modified });
+      groups.push({ label: t('openApiSync.groups.endpointsToUpdate'), type: 'update', endpoints: remoteDrift.modified });
     }
     const actuallyRemoved = (remoteDrift.localOnly || []).filter((ep) => specRemovedIds.has(ep.id));
     if (actuallyRemoved.length > 0) {
-      groups.push({ label: 'Endpoints to delete', type: 'remove', endpoints: actuallyRemoved });
+      groups.push({ label: t('openApiSync.groups.endpointsToDelete'), type: 'remove', endpoints: actuallyRemoved });
     }
     return groups;
   }, [remoteDrift, specAddedIds, specRemovedIds]);

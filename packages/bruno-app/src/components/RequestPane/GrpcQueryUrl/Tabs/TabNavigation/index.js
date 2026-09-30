@@ -1,7 +1,9 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import StyledWrapper from './StyledWrapper';
 
 const TabNavigation = ({ activeTab, onTabChange, collectionProtoFiles, collectionImportPaths }) => {
+  const { t } = useTranslation();
   return (
     <StyledWrapper className="px-3 py-2 border-b border-neutral-200 dark:border-neutral-700">
       <div className="tab-container flex space-x-1 rounded-lg p-1">
@@ -12,9 +14,7 @@ const TabNavigation = ({ activeTab, onTabChange, collectionProtoFiles, collectio
             onTabChange('protofiles');
           }}
         >
-          Proto Files (
-          {collectionProtoFiles?.length || 0}
-          )
+          {t('requestPane.grpc.protoFilesTab', { number: collectionProtoFiles?.length || 0 })}
         </button>
         <button
           className={`flex-1 px-3 py-1.5 text-xs font-medium rounded-md transition-colors tab-button ${activeTab === 'importpaths' ? 'active' : ''}`}
@@ -23,9 +23,7 @@ const TabNavigation = ({ activeTab, onTabChange, collectionProtoFiles, collectio
             onTabChange('importpaths');
           }}
         >
-          Import Paths (
-          {collectionImportPaths?.length || 0}
-          )
+          {t('requestPane.grpc.importPathsTab', { number: collectionImportPaths?.length || 0 })}
         </button>
       </div>
     </StyledWrapper>

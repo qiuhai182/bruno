@@ -1,3 +1,5 @@
+import i18n from '../../../i18n';
+
 export const SEARCH_TYPES = {
   DOCUMENTATION: 'documentation',
   COLLECTION: 'collection',
@@ -24,9 +26,9 @@ export const SEARCH_CONFIG = {
 
 export const DOCUMENTATION_RESULT = {
   type: SEARCH_TYPES.DOCUMENTATION,
-  item: { id: 'docs', name: 'Bruno Documentation' },
-  name: 'Bruno Documentation',
+  item: { id: 'docs', name: i18n.t('globalSearch.brunoDocumentation') },
+  name: i18n.t('globalSearch.brunoDocumentation'),
   path: '/',
-  description: 'Browse the official Bruno documentation',
+  description: i18n.t('globalSearch.browseDocumentation'),
   matchType: MATCH_TYPES.DOCUMENTATION
 };

@@ -1,0 +1,3772 @@
+[
+  {
+    "key": "sidebar.menu.remove",
+    "value": "Remove",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ApiSpecs/ApiSpecItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.apiSpecs.close.closed",
+    "value": "API Spec closed",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ApiSpecs/CloseApiSpec/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.apiSpecs.close.closeError",
+    "value": "An error occurred while closing the API Spec",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ApiSpecs/CloseApiSpec/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.apiSpecs.close.title",
+    "value": "Close Api Spec",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ApiSpecs/CloseApiSpec/index.js"
+    ]
+  },
+  {
+    "key": "common.close",
+    "value": "Close",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ApiSpecs/CloseApiSpec/index.js",
+      "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js",
+      "packages/bruno-app/src/components/Sidebar/CloseWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.apiSpecs.close.confirmPrefix",
+    "value": "Are you sure you want to close API Spec",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ApiSpecs/CloseApiSpec/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.apiSpecs.close.confirmSuffix",
+    "value": " in Bruno?",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ApiSpecs/CloseApiSpec/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.apiSpecs.close.stillAvailableNote",
+    "value": "It will still be available in the file system at the above location and can be re-opened later.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ApiSpecs/CloseApiSpec/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.validation.locationRequired",
+    "value": "location is required",
+    "status": "conflict",
+    "values": [
+      "location is required",
+      "Location is required"
+    ],
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js",
+      "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js",
+      "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CloneCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js",
+      "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.validation.min1Char",
+    "value": "Must be at least 1 character",
+    "status": "conflict",
+    "values": [
+      "Must be at least 1 character",
+      "must be at least 1 character"
+    ],
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js",
+      "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CloneCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/RenameCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js",
+      "packages/bruno-app/src/components/Sidebar/NewFolder/index.js",
+      "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.validation.max255",
+    "value": "Must be 255 characters or less",
+    "status": "conflict",
+    "values": [
+      "Must be 255 characters or less",
+      "must be 255 characters or less"
+    ],
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CloneCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js",
+      "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/NewApp/index.js",
+      "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.validation.nameRequired",
+    "value": "Name is required",
+    "status": "conflict",
+    "values": [
+      "Name is required",
+      "collection name is required",
+      "name is required"
+    ],
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CloneCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/RenameCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/NewFolder/index.js",
+      "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.apiSpecs.create.created",
+    "value": "ApiSpec created",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.apiSpecs.create.failedToLoadCollection",
+    "value": "Failed to load collection",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.apiSpecs.create.title",
+    "value": "Create API Spec",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.create",
+    "value": "Create",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CloneCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/CreateOrOpenCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/InlineCollectionCreator/index.js",
+      "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/NewApp/index.js",
+      "packages/bruno-app/src/components/Sidebar/NewFolder/index.js",
+      "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.apiSpecs.create.templateLabel",
+    "value": "Template",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.apiSpecs.create.blankSpec",
+    "value": "Blank spec",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.apiSpecs.create.fromCollection",
+    "value": "From Bruno Collection",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.apiSpecs.create.collectionLocationLabel",
+    "value": "Collection Location",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.browse",
+    "value": "Browse",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js",
+      "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js",
+      "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CloneCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js",
+      "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.apiSpecs.create.environmentLabel",
+    "value": "Environment",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.apiSpecs.create.specNameLabel",
+    "value": "Spec Name",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.apiSpecs.create.specLocationLabel",
+    "value": "Spec Location",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.apiSpecs.create.defaultsNote",
+    "value": "(defaults to workspace's apispec folder)",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.apiSpecs.openError",
+    "value": "An error occurred while opening the API spec",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ApiSpecs/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.apiSpecs.open",
+    "value": "Open",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ApiSpecs/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.apiSpecs.noSpecsFound",
+    "value": "No API Specs found.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ApiSpecs/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.apiSpecs.openLinkSuffix",
+    "value": " API Spec.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ApiSpecs/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.validation.max500",
+    "value": "must be 500 characters or less",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js",
+      "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.bulkImport.failedToAddEnvironment",
+    "value": "Failed to add environment",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.bulkImport.failedToImportCollection",
+    "value": "Failed to import collection",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.bulkImport.errorDetails",
+    "value": "Error Details",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.bulkImport.title",
+    "value": "Bulk Import",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.bulkImport.import",
+    "value": "Import",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.location",
+    "value": "Location",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js",
+      "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CloneCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js",
+      "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.bulkImport.noLocationSelected",
+    "value": "No location selected",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.bulkImport.seeError",
+    "value": "See error",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.bulkImport.itemsSkipped",
+    "value": "{{count}} item(s) skipped",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.copiedToClipboard",
+    "value": "Copied to clipboard",
+    "status": "conflict",
+    "values": [
+      "Copied to clipboard",
+      "Copied to clipboard!"
+    ],
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/GenerateCodeItem/CodeView/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.bulkImport.failedToCopy",
+    "value": "Failed to copy to clipboard",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.bulkImport.copy",
+    "value": "Copy",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.bulkImport.importingEnvironments",
+    "value": "Importing Environments ({{count}})",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.bulkImport.collectionsTitle",
+    "value": "Collections",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.bulkImport.searchCollections",
+    "value": "Search Collections",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.bulkImport.noCollectionsFound",
+    "value": "No collections found",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.bulkImport.environmentsTitle",
+    "value": "Environments",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.bulkImport.searchEnvironments",
+    "value": "Search Environments",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.bulkImport.noEnvironmentsFound",
+    "value": "No environments found",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.bulkImport.environmentAssignment",
+    "value": "Environment Assignment",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.bulkImport.globalEnvironment",
+    "value": "Global Environment",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.bulkImport.globalEnvTip",
+    "value": "Environments will be imported and stored as global, accessible across collections.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.bulkImport.duplicateAcrossCollections",
+    "value": "Duplicate Across Collections",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.bulkImport.duplicateEnvTip",
+    "value": "Each imported collection will receive its own copy of the environments.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.bulkImport.locationPlaceholder",
+    "value": "Select a location to save the collection",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.bulkImport.fileFormat",
+    "value": "File Format",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.bulkImport.fileFormatHelp",
+    "value": "Choose the file format for storing requests in this collection.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.bulkImport.openCollectionDesc",
+    "value": "Industry-standard YAML format (.yml files)",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.bulkImport.bruDesc",
+    "value": "Bruno's native file format (.bru files)",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.bulkImport.bruFormat",
+    "value": "BRU Format (.bru)",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.bulkImport.folderArrangement",
+    "value": "Folder arrangement",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.bulkImport.folderArrangementDesc",
+    "value": "Select whether to create folders according to the spec's paths or tags.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.cloneGit.cloningRepository",
+    "value": "Cloning repository",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.cloneGit.clonedSuccessfully",
+    "value": "Repository cloned successfully",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.cloneGit.cloningSuccessful",
+    "value": "Cloning successful",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.cloneGit.cloningFailed",
+    "value": "Cloning failed",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.cloneGit.scanningForBrunoFiles",
+    "value": "Scanning for Bruno files",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.cloneGit.scannedSuccessfully",
+    "value": "Repository scanned successfully",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.cloneGit.scanSuccessful",
+    "value": "Scan successful",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.validation.repositoryUrlRequired",
+    "value": "Repository URL is required",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.cloneGit.back",
+    "value": "Back",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.cloneGit.title",
+    "value": "Clone Git Repository",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.cloneGit.repositoryUrlLabel",
+    "value": "Git Repository URL",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.cloneGit.branchLabel",
+    "value": "Branch",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.cloneGit.loadingBranches",
+    "value": "Loading branches...",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.cloneGit.repositoryDefault",
+    "value": "Repository default",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.cloneGit.noBranchesMatch",
+    "value": "No branches match your search",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.cloneGit.branchesListFailed",
+    "value": "Branches could not be listed for this repository. Cloning will use the default branch.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.cloneGit.noBrunoCollectionsFound",
+    "value": "No Bruno collections were found in this repository.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.cloneGit.collectionsTitle",
+    "value": "Collections",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.cloneGit.searchCollections",
+    "value": "Search Collections",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.closeWorkspace.workspaceNotFound",
+    "value": "Workspace not found",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CloseWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.closeWorkspace.cannotCloseDefault",
+    "value": "Cannot close the default workspace",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CloseWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.closeWorkspace.closed",
+    "value": "Workspace closed",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CloseWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.closeWorkspace.closeError",
+    "value": "An error occurred while closing the workspace",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CloseWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.closeWorkspace.title",
+    "value": "Close Workspace",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CloseWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.closeWorkspace.confirmPrefix",
+    "value": "Are you sure you want to close workspace",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CloseWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.closeWorkspace.confirmSuffix",
+    "value": "?",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CloseWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.closeWorkspace.stillAvailableNote",
+    "value": "It will still be available in the file system at the above location and can be re-opened later.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CloseWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.toast.errorTogglingCollections",
+    "value": "An error occurred while toggling collections",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/BulkActionsDropdown/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.bulkActions.expand",
+    "value": "Expand",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/BulkActionsDropdown/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.bulkActions.collapse",
+    "value": "Collapse",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/BulkActionsDropdown/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.bulkActions.selected",
+    "value": "Selected",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/BulkActionsDropdown/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.bulkActions.removeSelected",
+    "value": "Remove Selected",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/BulkActionsDropdown/index.js"
+    ]
+  },
+  {
+    "key": "common.delete",
+    "value": "Delete",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/BulkActionsDropdown/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/ExampleItem/DeleteResponseExampleModal/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/ExampleItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.changeVersion.title",
+    "value": "Change Collection Version",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.changeVersion.updating",
+    "value": "Updating...",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.changeVersion.updateVersion",
+    "value": "Update Version",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.js"
+    ]
+  },
+  {
+    "key": "common.cancel",
+    "value": "Cancel",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/ExampleItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RunCollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/InlineCollectionCreator/index.js",
+      "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/NewFolder/index.js",
+      "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.changeVersion.currentVersion",
+    "value": "Current Version",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.changeVersion.notSet",
+    "value": "Not Set",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.changeVersion.newVersion",
+    "value": "New Version",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.changeVersion.versionPlaceholder",
+    "value": "e.g. v1.0.0",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.changeVersion.updates",
+    "value": "Updates",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.changeVersion.in",
+    "value": "in",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.changeVersion.from",
+    "value": "from{' '}",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.validation.folderNameRequired",
+    "value": "folder name is required",
+    "status": "conflict",
+    "values": [
+      "folder name is required",
+      "foldername is required"
+    ],
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CloneCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/NewFolder/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.toast.collectionCreated",
+    "value": "Collection created!",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CloneCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/InlineCollectionCreator/index.js",
+      "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.toast.errorCreatingCollectionWithError",
+    "value": "An error occurred while creating the collection - {{error}}",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CloneCollection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.cloneCollection.title",
+    "value": "Clone Collection",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CloneCollection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.name",
+    "value": "Name",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CloneCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/RenameCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js",
+      "packages/bruno-app/src/components/Sidebar/NewApp/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.folderName",
+    "value": "Folder Name",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CloneCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CollectionItemInfo/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.cloneCollection.folderNameHelp1",
+    "value": "The name of the folder used to store the collection.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CloneCollection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.cloneCollection.folderNameHelp2",
+    "value": "You can choose a folder name different from your collection's name or one compatible with filesystem rules.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CloneCollection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.validation.reservedFileNames",
+    "value": "`The file names \"collection\" and \"folder\" are reserved in bruno`",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.item.cloned",
+    "value": "{{type}} cloned!",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.item.cloneError",
+    "value": "An error occurred while cloning the \u0005{{type}}.toLowerCase()\u0006",
+    "status": "conflict",
+    "values": [
+      "An error occurred while cloning the \u0005{{type}}.toLowerCase()\u0006",
+      "An error occurred while cloning the {{type}}"
+    ],
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.options",
+    "value": "Options",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js",
+      "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js",
+      "packages/bruno-app/src/components/Sidebar/NewFolder/index.js",
+      "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.item.cloneTitle",
+    "value": "Clone {{type}}",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.item.nameLabel",
+    "value": "{{type}} Name",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CollectionItemInfo/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.item.namePlaceholder",
+    "value": "Enter Item name",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.item.folderNameHelp",
+    "value": "You can choose to save the folder as a different name on your file system versus what is displayed in the app.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.item.fileNameHelp1",
+    "value": "Bruno saves each request as a file in your collection's folder.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CollectionItemInfo/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.item.fileNameHelp2",
+    "value": "You can choose a file name different from your request's name or one compatible with filesystem rules.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.newRequest.fileName",
+    "value": "File Name",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CollectionItemInfo/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.hideFilesystemName",
+    "value": "Hide Filesystem Name",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/NewFolder/index.js",
+      "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.showFilesystemName",
+    "value": "Show Filesystem Name",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/NewFolder/index.js",
+      "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.menu.clone",
+    "value": "Clone",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/ExampleItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.menu.info",
+    "value": "Info",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CollectionItemInfo/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.newRequest.onFilesystem",
+    "value": "(on filesystem)",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CollectionItemInfo/index.js",
+      "packages/bruno-app/src/components/Sidebar/NewFolder/index.js",
+      "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.item.infoFolderNameHelp",
+    "value": "The name of the folder on your filesystem.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CollectionItemInfo/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.deleteItems.titleItems",
+    "value": "Delete Items",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.deleteItems.errorDeleting",
+    "value": "Error deleting {{name}}",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.deleteItems.confirmPrefix",
+    "value": "Are you sure you want to delete",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.deleteItems.confirmSuffix",
+    "value": "?",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/ExampleItem/DeleteResponseExampleModal/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.deleteItems.titleExampleOne",
+    "value": "Delete Example",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/ExampleItem/DeleteResponseExampleModal/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.deleteItems.confirmExamplePrefix",
+    "value": "Are you sure you want to delete the example",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/ExampleItem/DeleteResponseExampleModal/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.item.urlRequired",
+    "value": "URL is required",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/ExampleItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.item.exampleRenamed",
+    "value": "Example renamed to \"{{name}}\"",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/ExampleItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.menu.rename",
+    "value": "Rename",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/ExampleItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.menu.generateCode",
+    "value": "Generate Code",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/ExampleItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.example.renameTitle",
+    "value": "Rename Example",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/ExampleItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.example.nameLabel",
+    "value": "Example Name",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/ExampleItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.example.namePlaceholder",
+    "value": "Enter example name...",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/ExampleItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.generateCode.interpolateVariables",
+    "value": "Interpolate Variables",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/GenerateCodeItem/CodeViewToolbar/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.generateCode.invalidUrl",
+    "value": "Invalid URL: {{url}}",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/GenerateCodeItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.generateCode.checkUrl",
+    "value": "Please check the URL and try again",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/GenerateCodeItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.ignore.folderIgnored",
+    "value": "Folder ignored",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.ignore.errorIgnoring",
+    "value": "Error ignoring folder",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.ignore.title",
+    "value": "Ignore Folder",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.menu.ignore",
+    "value": "Ignore",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.ignore.collectionByAdding",
+    "value": "collection by adding it to the",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.ignore.listIn",
+    "value": "list in",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.ignore.notDeletedRestore",
+    "value": ". The folder and its files are not deleted. To restore it later, remove the entry from the",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.ignore.listInAfter",
+    "value": "list in",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.ignore.finalPeriod",
+    "value": ".",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.item.renameError",
+    "value": "An error occurred while renaming",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.item.renameTitle",
+    "value": "Rename {{type}}",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.runCollection.title",
+    "value": "Collection Runner",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RunCollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.menu.run",
+    "value": "Run",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RunCollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.runCollection.requestCount",
+    "value": "({{count}} requests)",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RunCollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.runCollection.folderOnly",
+    "value": "This will only run the requests in this folder.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RunCollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.runCollection.recursiveRun",
+    "value": "Recursive Run",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RunCollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.runCollection.recursiveDesc",
+    "value": "This will run all the requests in this folder and all its subfolders.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RunCollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.runCollection.stillLoading",
+    "value": "Requests in this folder are still loading.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RunCollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.runCollection.alreadyRunning",
+    "value": "A Collection Run is already in progress.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RunCollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.runCollection.delayLabel",
+    "value": "Delay between requests (ms)",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RunCollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.runCollection.delayPlaceholder",
+    "value": "e.g. 5",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RunCollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.runCollection.viewRun",
+    "value": "View Run",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RunCollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.newRequest.title",
+    "value": "New Request",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js",
+      "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.newFolder.title",
+    "value": "New Folder",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js",
+      "packages/bruno-app/src/components/Sidebar/NewFolder/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.newApp.title",
+    "value": "New App",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js",
+      "packages/bruno-app/src/components/Sidebar/NewApp/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.menu.copy",
+    "value": "Copy",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.menu.paste",
+    "value": "Paste",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.menu.createExample",
+    "value": "Create Example",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.menu.settings",
+    "value": "Settings",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.openInTerminal",
+    "value": "Open in Terminal",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js",
+      "packages/bruno-app/src/components/Sidebar/Sections/CollectionsSection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.item.errorOpeningFolder",
+    "value": "Error opening the folder",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.item.exampleCreated",
+    "value": "Example \"{{name}}\" created successfully",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.item.copied",
+    "value": "{{type}} copied",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.item.pasted",
+    "value": "Item pasted successfully",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.item.pasteError",
+    "value": "An error occurred while pasting the item",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.item.createExampleTitle",
+    "value": "Create Response Example",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.addRequest",
+    "value": "+ Add request",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.exportToPostman.fileExists",
+    "value": "FILE_EXISTS_ERROR",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.exportToPostman.exportedSuccess",
+    "value": "Collection exported successfully",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.exportToPostman.exportFailed",
+    "value": "Failed to export collection: {{message}}",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.exportToPostman.title",
+    "value": "Export to Postman",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.exportToPostman.replace",
+    "value": "Replace",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.exportToPostman.export",
+    "value": "Export",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.hideAdvancedOptions",
+    "value": "Hide Advanced Options",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js",
+      "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.showAdvancedOptions",
+    "value": "Show Advanced Options",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js",
+      "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.preserveScripts",
+    "value": "Preserve scripts",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js",
+      "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.exportToPostman.preserveScriptsDesc",
+    "value": "Export Bruno scripts without translating them.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.docs.tagNameRule",
+    "value": "Tags must only contain letters, numbers, spaces, \"-\", \"_\"",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/DocsTagList/index.jsx"
+    ]
+  },
+  {
+    "key": "sidebar.docs.tagExists",
+    "value": "Tag \"{{tag}}\" already exists",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/DocsTagList/index.jsx"
+    ]
+  },
+  {
+    "key": "sidebar.docs.removeTag",
+    "value": "Remove {{tag}}",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/DocsTagList/index.jsx"
+    ]
+  },
+  {
+    "key": "sidebar.docs.tagDoesNotExist",
+    "value": "Tag does not exist",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/IncludeExcludeTags/index.jsx"
+    ]
+  },
+  {
+    "key": "sidebar.docs.tagInInclude",
+    "value": "Tag is already in the include list",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/IncludeExcludeTags/index.jsx"
+    ]
+  },
+  {
+    "key": "sidebar.docs.tagInExclude",
+    "value": "Tag is already in the exclude list",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/IncludeExcludeTags/index.jsx"
+    ]
+  },
+  {
+    "key": "sidebar.docs.includeTags",
+    "value": "Include tags",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/IncludeExcludeTags/index.jsx"
+    ]
+  },
+  {
+    "key": "sidebar.docs.includePlaceholder",
+    "value": "e.g. Production ready",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/IncludeExcludeTags/index.jsx"
+    ]
+  },
+  {
+    "key": "sidebar.docs.excludeTags",
+    "value": "Exclude tags",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/IncludeExcludeTags/index.jsx"
+    ]
+  },
+  {
+    "key": "sidebar.docs.excludePlaceholder",
+    "value": "e.g, Work in progress",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/IncludeExcludeTags/index.jsx"
+    ]
+  },
+  {
+    "key": "sidebar.docs.advanced",
+    "value": "Advanced",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/index.jsx"
+    ]
+  },
+  {
+    "key": "sidebar.docs.requestsToInclude",
+    "value": "Requests to include",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/index.jsx"
+    ]
+  },
+  {
+    "key": "sidebar.docs.versionLabel",
+    "value": "Version: \u0005version || 'Not Set'\u0006",
+    "status": "interp-unresolved",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/CollectionVersionInfo/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.docs.noEnvironments",
+    "value": "0 environments",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/CollectionVersionInfo/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.docs.selectedCount",
+    "value": "({{selected}}/{{total}} selected)",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/EnvironmentSelectionList/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.docs.selectAll",
+    "value": "Select All",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/EnvironmentSelectionList/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.docs.generatedSuccess",
+    "value": "Documentation generated successfully",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.docs.generatedError",
+    "value": "Failed to generate documentation",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.docs.title",
+    "value": "Generate Documentation",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.docs.loading",
+    "value": "Loading...",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.docs.generate",
+    "value": "Generate",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.docs.loadingCollection",
+    "value": "Loading collection...",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.docs.interactiveDocs",
+    "value": "Interactive API Documentation",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.docs.description",
+    "value": "Generate a standalone HTML file that can be hosted anywhere or shared with your team.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.docs.environmentsToInclude",
+    "value": "Environments to include",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.docs.cdnNote",
+    "value": "The generated file loads Bruno's JavaScript and CSS files from a CDN, which requires an internet connection.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.moveToWorkspace.collectionMoved",
+    "value": "Collection moved into workspace",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.moveToWorkspace.moveError",
+    "value": "An error occurred while moving the collection",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.drafts.saveTransientFirst",
+    "value": "Please save or discard transient requests first",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js"
+    ]
+  },
+  {
+    "key": "sidebar.drafts.failedToSaveRequests",
+    "value": "Failed to save requests!",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js"
+    ]
+  },
+  {
+    "key": "sidebar.moveToWorkspace.title",
+    "value": "Move into Workspace",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "dialogs.holdOn",
+    "value": "Hold on..",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js"
+    ]
+  },
+  {
+    "key": "sidebar.drafts.transientHintMove",
+    "value": "These requests need to be saved individually before moving the collection.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js"
+    ]
+  },
+  {
+    "key": "common.save",
+    "value": "Save",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js"
+    ]
+  },
+  {
+    "key": "sidebar.moveToWorkspace.discardAllAndMove",
+    "value": "Discard All and Move",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js"
+    ]
+  },
+  {
+    "key": "sidebar.moveToWorkspace.moving",
+    "value": "Moving...",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js",
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.moveToWorkspace.saveAllAndMove",
+    "value": "Save All and Move",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js"
+    ]
+  },
+  {
+    "key": "sidebar.moveToWorkspace.saveAndMove",
+    "value": "Save and Move",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js"
+    ]
+  },
+  {
+    "key": "sidebar.collectionNotFound",
+    "value": "Collection not found",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.moveToWorkspace.move",
+    "value": "Move",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.moveToWorkspace.description",
+    "value": "This will move the following collection's files into {{name}} workspace.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.moveToWorkspace.destination",
+    "value": "Destination",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.moveToWorkspace.reloadNote",
+    "value": "The collection reloads from its new location, so any open request tabs will close.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.toast.collectionRenamed",
+    "value": "Collection renamed!",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/RenameCollection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.toast.errorRenamingCollection",
+    "value": "An error occurred while renaming the collection",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/RenameCollection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.renameCollection.title",
+    "value": "Rename Collection",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/RenameCollection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.renameCollection.rename",
+    "value": "Rename",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/RenameCollection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.menu.share",
+    "value": "Share",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.menu.generateDocs",
+    "value": "Generate Docs",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.menu.collapse",
+    "value": "Collapse",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.menu.createMockServer",
+    "value": "Create Mock server",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.menu.moveIntoWorkspace",
+    "value": "Move into Workspace",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.searchPlaceholder",
+    "value": "Search requests...",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/CollectionSearch/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.open",
+    "value": "Open",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/CreateOrOpenCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/OpenCollection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.createOrOpen.noCollectionsFound",
+    "value": "No collections found.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/CreateOrOpenCollection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.createOrOpen.or",
+    "value": "or",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/CreateOrOpenCollection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.createOrOpen.collection",
+    "value": "Collection.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/CreateOrOpenCollection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.gitRemote.urlCopied",
+    "value": "Git URL copied",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/GitRemoteCollectionRow/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.gitRemote.copyFailed",
+    "value": "Failed to copy URL",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/GitRemoteCollectionRow/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.gitRemote.cloneFromGit",
+    "value": "Clone from Git",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/GitRemoteCollectionRow/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.gitRemote.copyGitUrl",
+    "value": "Copy Git URL",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/GitRemoteCollectionRow/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.gitRemote.removeGitRemote",
+    "value": "Remove Git Remote",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/GitRemoteCollectionRow/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.gitRemote.clickToClone",
+    "value": "{{name}} ¡ª click to clone from {{remote}}",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/GitRemoteCollectionRow/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.inlineCollection.nameRequired",
+    "value": "Collection name is required",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/InlineCollectionCreator/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.inlineCollection.setDefaultLocation",
+    "value": "Please set a default location in Preferences > General",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/InlineCollectionCreator/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.toast.errorCreatingCollection",
+    "value": "An error occurred while creating the collection",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/InlineCollectionCreator/index.js",
+      "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.advancedOptions",
+    "value": "Advanced options",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/InlineCollectionCreator/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.selectCollection.title",
+    "value": "Select Collection",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/SelectCollection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.selectCollection.noCollectionsFound",
+    "value": "No collections found",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Collections/SelectCollection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.createCollection.nameEmpty",
+    "value": "Collection name can't be empty",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.createCollection.nameRequired",
+    "value": "Collection name is required",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.createCollection.folderNameRequired",
+    "value": "Folder name is required",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.createCollection.invalidFormat",
+    "value": "invalid format",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.createCollection.formatRequired",
+    "value": "Format is required",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.createCollection.title",
+    "value": "Create Collection",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.locationHelp1",
+    "value": "Bruno stores your collections on your computer's filesystem.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.locationHelp2",
+    "value": "Choose the location where you want to store this collection.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.createCollection.folderNameHelp1",
+    "value": "The name of the folder used to store the collection.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.createCollection.folderNameHelp2",
+    "value": "You can choose a folder name different from your collection's name or one compatible with filesystem rules.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.fileFormat",
+    "value": "File Format",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.fileFormatHelp1",
+    "value": "Choose the file format for storing requests in this collection.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.fileFormat.ocTitle",
+    "value": "OpenCollection (YAML):",
+    "status": "code-in-value",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.fileFormat.ocDesc",
+    "value": "Industry-standard YAML format (.yml files)",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.fileFormat.bruTitle",
+    "value": "BRU:",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.fileFormat.bruDesc",
+    "value": "Bruno's native file format (.bru files)",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.fileFormat.ocOption",
+    "value": "OpenCollection (YAML)",
+    "status": "code-in-value",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.fileFormat.bruOption",
+    "value": "BRU Format (.bru)",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.goldenEdition.featBruFileExplorer",
+    "value": "Inbuilt Bru File Explorer",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.goldenEdition.featVisualGit",
+    "value": "Visual Git (Like Gitlens for Vscode)",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.goldenEdition.featLoadData",
+    "value": "Load Data from File for Collection Run",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.goldenEdition.featDevTools",
+    "value": "Developer Tools",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.goldenEdition.featOpenApiDesigner",
+    "value": "OpenAPI Designer",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.goldenEdition.featLoadTesting",
+    "value": "Performance/Load Testing",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.goldenEdition.featTerminal",
+    "value": "Inbuilt Terminal",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.goldenEdition.featCustomThemes",
+    "value": "Custom Themes",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.goldenEdition.featLicenseMgmt",
+    "value": "Centralized License Management",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.goldenEdition.featSecretManagers",
+    "value": "Integration with Secret Managers",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.goldenEdition.featPrivateRegistry",
+    "value": "Private Collection Registry",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.goldenEdition.featRequestForms",
+    "value": "Request Forms",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.goldenEdition.featPrioritySupport",
+    "value": "Priority Support",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.goldenEdition.title",
+    "value": "Golden Edition",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.goldenEdition.buy",
+    "value": "Buy",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.goldenEdition.oneTimePayment",
+    "value": "One Time Payment",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.goldenEdition.individualsLicense",
+    "value": "perpetual license for 2 devices, with 2 years of updates",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.goldenEdition.perUser",
+    "value": "/&nbsp;user",
+    "status": "html-entity",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.goldenEdition.orgLicense",
+    "value": "perpetual license with 2 years of updates",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.goldenEdition.individuals",
+    "value": "Individuals",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.goldenEdition.organizations",
+    "value": "Organizations",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.goldenEdition.supportBruno",
+    "value": "Support Bruno's Development",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.goldenEdition.everythingInIndividual",
+    "value": "Everything in the Individual Plan",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.import.invalidZip",
+    "value": "The ZIP file is not a valid Bruno collection",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ImportCollection/FileTab.js"
+    ]
+  },
+  {
+    "key": "sidebar.import.zipFailed",
+    "value": "Import ZIP file failed",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ImportCollection/FileTab.js"
+    ]
+  },
+  {
+    "key": "sidebar.import.noValidCollections",
+    "value": "No valid collections found in the selected files",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ImportCollection/FileTab.js"
+    ]
+  },
+  {
+    "key": "sidebar.import.multiFilesFailed",
+    "value": "Import multiple files failed",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ImportCollection/FileTab.js"
+    ]
+  },
+  {
+    "key": "sidebar.import.parseContentFailed",
+    "value": "Failed to parse file content",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ImportCollection/FileTab.js"
+    ]
+  },
+  {
+    "key": "sidebar.import.unsupportedFormat",
+    "value": "Unsupported collection format",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ImportCollection/FileTab.js"
+    ]
+  },
+  {
+    "key": "sidebar.import.failed",
+    "value": "Import collection failed",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ImportCollection/FileTab.js"
+    ]
+  },
+  {
+    "key": "sidebar.import.mixZipError",
+    "value": "Cannot mix ZIP files with other file types. Please select either a single ZIP file OR collection files (JSON/YAML)",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ImportCollection/FileTab.js"
+    ]
+  },
+  {
+    "key": "sidebar.import.multiZipError",
+    "value": "Multiple ZIP files selected. Please select only one ZIP file at a time for import.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ImportCollection/FileTab.js"
+    ]
+  },
+  {
+    "key": "sidebar.import.dropFiles",
+    "value": "Drop file(s) to import or",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ImportCollection/FileTab.js"
+    ]
+  },
+  {
+    "key": "sidebar.import.chooseFiles",
+    "value": "choose file(s)",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ImportCollection/FileTab.js"
+    ]
+  },
+  {
+    "key": "sidebar.import.supportedFormats",
+    "value": "Supports Bruno, OpenCollection, Postman, Insomnia, OpenAPI 3.x / Swagger 2.0, WSDL, and ZIP formats",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ImportCollection/FileTab.js"
+    ]
+  },
+  {
+    "key": "sidebar.import.mayTakeMoment",
+    "value": "This may take a moment depending on the collection size",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ImportCollection/FullscreenLoader/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.import.invalidGitUrl",
+    "value": "Please enter a valid git repository URL",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ImportCollection/GitHubTab.js"
+    ]
+  },
+  {
+    "key": "sidebar.import.gitUrlPlaceholder",
+    "value": "Enter Git repository URL",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ImportCollection/GitHubTab.js"
+    ]
+  },
+  {
+    "key": "sidebar.import.clone",
+    "value": "Clone",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ImportCollection/GitHubTab.js"
+    ]
+  },
+  {
+    "key": "sidebar.import.invalidUrl",
+    "value": "Please enter a valid URL",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ImportCollection/UrlTab.js"
+    ]
+  },
+  {
+    "key": "sidebar.import.urlImportFailed",
+    "value": "URL import failed. Please check the URL and try again.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ImportCollection/UrlTab.js"
+    ]
+  },
+  {
+    "key": "sidebar.import.urlPlaceholder",
+    "value": "Enter URL (OpenAPI/Swagger, Postman, or Insomnia specification)",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ImportCollection/UrlTab.js"
+    ]
+  },
+  {
+    "key": "sidebar.import.import",
+    "value": "Import",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ImportCollection/UrlTab.js",
+      "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.import.title",
+    "value": "Import Collection",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ImportCollection/index.js",
+      "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.import.tabFile",
+    "value": "File",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ImportCollection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.import.tabGit",
+    "value": "Git Repository",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ImportCollection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.import.preserveScriptsDesc",
+    "value": "Import Postman scripts without translating them.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.import.folderArrangement",
+    "value": "Folder arrangement",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.import.folderArrangementDesc",
+    "value": "Select whether to create folders according to the spec's paths or tags.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.import.checkForSpecUpdates",
+    "value": "Check for Spec Updates",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.import.swagger2Unsupported",
+    "value": "OpenAPI Sync is not supported for Swagger 2.0 specs.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.import.checkForSpecUpdatesDesc",
+    "value": "Stay notified of spec changes and sync your collection with the spec.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.newApp.nameRequired",
+    "value": "App name is required",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/NewApp/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.toast.appCreated",
+    "value": "App created",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/NewApp/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.toast.errorCreatingApp",
+    "value": "Failed to create app",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/NewApp/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.validation.reservedFolderName",
+    "value": "The folder name \"environments\" at the root of the collection is reserved in bruno",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/NewFolder/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.toast.newFolderCreated",
+    "value": "New folder created!",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/NewFolder/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.toast.errorAddingFolder",
+    "value": "An error occurred while adding the folder",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/NewFolder/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.newFolder.folderName",
+    "value": "Folder Name",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/NewFolder/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.newFolder.folderNameHelp",
+    "value": "You can choose to save the folder as a different name on your file system versus what is displayed in the app.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/NewFolder/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.validation.filenameRequired",
+    "value": "filename is required",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.validation.curlRequired",
+    "value": "curlCommand is required",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.validation.invalidCurl",
+    "value": "`Invalid cURL Command`",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.toast.newRequestCreated",
+    "value": "New request created!",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.toast.errorAddingRequest",
+    "value": "An error occurred while adding the request",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.newRequest.type",
+    "value": "Type",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.newRequest.fromCurl",
+    "value": "From cURL",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.newRequest.requestName",
+    "value": "Request Name",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.newRequest.fileNameHelp1",
+    "value": "Bruno saves each request as a file in your collection's folder.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.newRequest.fileNameHelp2",
+    "value": "You can choose a file name different from your request's name or one compatible with filesystem rules.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.newRequest.requestUrl",
+    "value": "Request URL",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.newRequest.curlCommand",
+    "value": "cURL Command",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.newRequest.curlPlaceholder",
+    "value": "Enter cURL request here..",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.openCollection.noneFoundSkipped",
+    "value": "No Bruno collections found. {{count}} skipped, config could not be read",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/OpenCollection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.openCollection.noneFound",
+    "value": "No Bruno collections found. Couldn't find a bruno.json or opencollection.yml",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/OpenCollection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.toast.errorOpeningCollections",
+    "value": "An error occurred while opening the collections",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/OpenCollection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.toast.errorScanningCollections",
+    "value": "An error occurred while scanning for collections",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/OpenCollection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.openCollection.title",
+    "value": "Open Collection",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/OpenCollection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.openCollection.selectedOfTotal",
+    "value": "of {{total}} selected",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/OpenCollection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.openCollection.description",
+    "value": "These collections were found inside your selection. Choose which ones to open.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/OpenCollection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.openCollection.collectionsNoun",
+    "value": "collections",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/OpenCollection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.collections",
+    "value": "Collections",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/OpenCollection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.openCollection.searchPlaceholder",
+    "value": "Search Collections",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/OpenCollection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.postmanReport.npmNotFound",
+    "value": "npm was not found on your PATH. Install Node.js/npm, then retry or run the command manually.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.postmanReport.npmTimeout",
+    "value": "npm install timed out. Try running the command manually in a terminal.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.postmanReport.spawnFailed",
+    "value": "Could not start npm install. Try running the command manually.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.postmanReport.installFailedExitCode",
+    "value": "npm install failed (exit code {{exitCode}}). Try the manual command above.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.postmanReport.errorNoCollectionPath",
+    "value": "Cannot install: collection path not available.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.postmanReport.installFailedSeeDetails",
+    "value": "npm install failed. See details below.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.postmanReport.failedToStartInstall",
+    "value": "Failed to start npm install",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.postmanReport.couldNotLocateCollection",
+    "value": "Could not locate the imported collection to switch modes.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.postmanReport.developerModeEnabled",
+    "value": "Developer Mode enabled",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.postmanReport.failedToSwitchSandboxMode",
+    "value": "Failed to switch sandbox mode",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.postmanReport.copyFailed",
+    "value": "Could not copy to clipboard",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.postmanReport.done",
+    "value": "Done",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.postmanReport.installing",
+    "value": "Installing¡­",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.postmanReport.title",
+    "value": "Install packages",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.postmanReport.skip",
+    "value": "Skip",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.postmanReport.packagesUsedInScripts",
+    "value": "Packages used in scripts",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.postmanReport.packagesNotInstalledHelp",
+    "value": "These npm packages are referenced by scripts in your imported collection but aren't installed in this collection's folder.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.postmanReport.orInstallManually",
+    "value": "Or install manually",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.postmanReport.copyCommand",
+    "value": "Copy command",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.postmanReport.devModeTitle",
+    "value": "Scripts use libraries that need Developer Mode",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.postmanReport.onlyEnableForTrusted",
+    "value": "Only enable Developer Mode for collections you trust.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.postmanReport.switchToDeveloperMode",
+    "value": "Switch to Developer Mode",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.postmanReport.notSupportedTitle",
+    "value": "Not supported in Bruno",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.postmanReport.notSupportedHelp",
+    "value": "Postman-specific packages without a Bruno equivalent. Scripts that call these will fail at runtime.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.postmanReport.externalModulesTitle",
+    "value": "External modules require Developer Mode",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.toast.errorOpeningApiSpec",
+    "value": "An error occurred while opening the API spec",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Sections/ApiSpecsSection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.apiSpecs.createApiSpec",
+    "value": "Create API Spec",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Sections/ApiSpecsSection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.apiSpecs.openApiSpec",
+    "value": "Open API Spec",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Sections/ApiSpecsSection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.apiSpecs.addNewApiSpec",
+    "value": "Add new API Spec",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Sections/ApiSpecsSection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.sections.apiSpecs",
+    "value": "API Specs",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Sections/ApiSpecsSection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.toast.failedToSavePreferences",
+    "value": "Failed to save preferences",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Sections/CollectionsSection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.sortZA",
+    "value": "Sort Z-A",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Sections/CollectionsSection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.clearSort",
+    "value": "Clear sort",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Sections/CollectionsSection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.sortAZ",
+    "value": "Sort A-Z",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Sections/CollectionsSection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.toast.unableToCreateRequest",
+    "value": "Unable to create request",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Sections/CollectionsSection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.toast.errorCreatingRequest",
+    "value": "An error occurred while creating the request",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Sections/CollectionsSection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.menu.createCollection",
+    "value": "Create collection",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Sections/CollectionsSection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.menu.openCollection",
+    "value": "Open collection",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Sections/CollectionsSection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.menu.importCollection",
+    "value": "Import collection",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Sections/CollectionsSection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.menu.closeAll",
+    "value": "Close all",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Sections/CollectionsSection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.actions.searchRequests",
+    "value": "Search requests",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Sections/CollectionsSection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.actions.addNewCollection",
+    "value": "Add new collection",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Sections/CollectionsSection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.actions.moreActions",
+    "value": "More actions",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Sections/CollectionsSection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.sections.collections",
+    "value": "Collections",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Sections/CollectionsSection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.mockServers.createMockServer",
+    "value": "Create mock server",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Sections/MockServersSection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.sections.mockServers",
+    "value": "Mock Servers",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Sections/MockServersSection/index.js"
+    ]
+  },
+  {
+    "key": "sidebar.sections.tools",
+    "value": "Tools",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/Sidebar/Sections/ToolsSection/index.js"
+    ]
+  },
+  {
+    "key": "workspace.validation.nameEmpty",
+    "value": "Workspace name can't be empty",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "workspace.validation.maxTwoFiftyFive",
+    "value": "Must be 255 characters or less",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "workspace.validation.nameRequired",
+    "value": "Workspace name is required",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "workspace.validation.nameAlreadyExists",
+    "value": "A workspace with this name already exists",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "workspace.validation.minOneChar",
+    "value": "Must be at least 1 character",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "workspace.validation.folderNameRequired",
+    "value": "Folder name is required",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "workspace.validation.locationRequired",
+    "value": "Location is required",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "workspace.toast.created",
+    "value": "Workspace created!",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "workspace.toast.createError",
+    "value": "An error occurred while creating the workspace",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "workspace.create.title",
+    "value": "Create Workspace",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "workspace.create.description",
+    "value": "Give your new workspace a name and choose its type to get started.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "workspace.create.creating",
+    "value": "Creating...",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "workspace.create.confirm",
+    "value": "Create Workspace",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "workspace.label.name",
+    "value": "Name",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "workspace.label.folderName",
+    "value": "Folder Name",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "workspace.help.folderName1",
+    "value": "The name of the folder used to store the workspace.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "workspace.help.folderName2",
+    "value": "You can choose a folder name different from your workspace's name or one compatible with filesystem rules.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "workspace.label.location",
+    "value": "Location",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "workspace.help.location1",
+    "value": "Bruno stores your workspaces on your computer's filesystem.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "workspace.help.location2",
+    "value": "Choose the location where you want to store this workspace.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "preferences.general.browse",
+    "value": "Browse",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js",
+      "packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "workspace.validation.locationRequiredLower",
+    "value": "location is required",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "workspace.toast.imported",
+    "value": "Workspace imported successfully!",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "workspace.toast.importFailed",
+    "value": "Failed to import workspace",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "workspace.toast.invalidZip",
+    "value": "Please select a valid zip file",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "workspace.toast.couldNotGetFilePath",
+    "value": "Could not get file path",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "workspace.import.title",
+    "value": "Import Workspace",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "workspace.import.importing",
+    "value": "Importing...",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "workspace.import.confirm",
+    "value": "Import",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "workspace.import.fileLabel",
+    "value": "Workspace File",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "workspace.import.remove",
+    "value": "Remove",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "workspace.import.dropPrefix",
+    "value": "Drop workspace zip file here or",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "workspace.import.chooseFile",
+    "value": "choose a file",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "workspace.import.supportNote",
+    "value": "Supports exported Bruno workspace zip files",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "workspace.import.extractLocation",
+    "value": "Extract Location",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "workspace.help.extract1",
+    "value": "Choose the location where you want to extract this workspace.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js"
+    ]
+  },
+  {
+    "key": "workspace.help.extract2",
+    "value": "The workspace folder will be created at this location.",
+    "status": "ok",
+    "files": [
+      "packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js"
+    ]
+  }
+]

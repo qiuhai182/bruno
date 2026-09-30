@@ -413,7 +413,7 @@ const ProxySettings = ({ close }) => {
                       formik.setFieldValue('pac.source', '');
                     }}
                   >
-                    File
+                    {t('preferences.proxy.file')}
                   </button>
                 </div>
                 {pacInputMode === 'url' ? (

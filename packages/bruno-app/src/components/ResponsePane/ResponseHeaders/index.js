@@ -1,9 +1,11 @@
 import React, { useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import StyledWrapper from './StyledWrapper';
 import { usePersistedState } from 'hooks/usePersistedState';
 import { useTrackScroll } from 'hooks/useTrackScroll';
 
 const ResponseHeaders = ({ headers, item }) => {
+  const { t } = useTranslation();
   const headersArray = typeof headers === 'object' ? Object.entries(headers) : [];
   const wrapperRef = useRef(null);
   const [scroll, setScroll] = usePersistedState({ key: `response-headers-scroll-${item?.uid}`, default: 0 });
@@ -15,8 +17,8 @@ const ResponseHeaders = ({ headers, item }) => {
         <table>
           <thead>
             <tr>
-              <td>Name</td>
-              <td>Value</td>
+              <td>{t('responsePane.name')}</td>
+              <td>{t('responsePane.value')}</td>
             </tr>
           </thead>
           <tbody>

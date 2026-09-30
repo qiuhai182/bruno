@@ -15,8 +15,10 @@ import StyledWrapper from './StyledWrapper';
 import toast from 'react-hot-toast';
 import { variableNameRegex } from 'utils/common/regex';
 import { getAllVariables } from 'utils/collections';
+import { useTranslation } from 'react-i18next';
 
 const VarsTable = ({ item, collection, vars, varType, initialScroll = 0, isDraft }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const { storedTheme } = useTheme();
   const tabs = useSelector((state) => state.tabs.tabs);
@@ -57,10 +59,10 @@ const VarsTable = ({ item, collection, vars, varType, initialScroll = 0, isDraft
     if (key !== 'name') return null;
     if (!row.name || row.name.trim() === '') return null;
     if (!variableNameRegex.test(row.name)) {
-      return 'Variable contains invalid characters. Must only contain alphanumeric characters, "-", "_", "."';
+      return t('requestPane.varsTable.invalidName');
     }
     return null;
-  }, []);
+  }, [t]);
 
   const descriptionColumn = createDescriptionColumn({
     theme: storedTheme,
@@ -74,21 +76,21 @@ const VarsTable = ({ item, collection, vars, varType, initialScroll = 0, isDraft
   const columns = [
     {
       key: 'name',
-      name: 'Name',
+      name: t('requestPane.common.name'),
       isKeyField: true,
       sortable: true,
-      placeholder: 'Name',
+      placeholder: t('requestPane.common.name'),
       width: '20%'
     },
     {
       key: 'value',
-      name: varType === 'request' ? 'Value' : (
+      name: varType === 'request' ? t('requestPane.common.value') : (
         <div className="flex items-center">
-          <span>Expr</span>
-          <InfoTip className="tooltip-mod" content="You can write any valid JS expression here" infotipId={`request-${varType}-var`} />
+          <span>{t('requestPane.varsTable.expr')}</span>
+          <InfoTip className="tooltip-mod" content={t('requestPane.varsTable.exprTooltip')} infotipId={`request-${varType}-var`} />
         </div>
       ),
-      placeholder: varType === 'request' ? 'Value' : 'Expr',
+      placeholder: varType === 'request' ? t('requestPane.common.value') : t('requestPane.varsTable.expr'),
       render: ({ row, value, onChange, isLastEmptyRow, rowIndex }) => (
         <VarValueCell
           editor={(
@@ -101,7 +103,7 @@ const VarsTable = ({ item, collection, vars, varType, initialScroll = 0, isDraft
               onRun={handleRun}
               collection={collection}
               item={item}
-              placeholder={value == null || (typeof value === 'string' && value.trim() === '') ? (varType === 'request' ? 'Value' : 'Expr') : ''}
+              placeholder={value == null || (typeof value === 'string' && value.trim() === '') ? (varType === 'request' ? t('requestPane.common.value') : t('requestPane.varsTable.expr')) : ''}
             />
           )}
           renderTypeSelector={!isLastEmptyRow && varType === 'request'

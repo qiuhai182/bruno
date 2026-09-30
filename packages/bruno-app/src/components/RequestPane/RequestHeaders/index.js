@@ -32,6 +32,7 @@ import BulkEditor from '../../BulkEditor';
 import { headerNameRegex, headerValueRegex } from 'utils/common/regex';
 import { usePersistedState } from 'hooks/usePersistedState';
 import { useTrackScroll } from 'hooks/useTrackScroll';
+import { useTranslation } from 'react-i18next';
 import { version as appVersion } from '../../../../package.json';
 import { filterUnclaimedHeaders, getInheritedHeaders } from './getInheritedHeaders';
 
@@ -92,6 +93,7 @@ const getDefaultHeaderValue = (header, requestUrl) => {
 };
 
 const RequestHeaders = ({ item, collection, addHeaderText }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const { storedTheme } = useTheme();
   const tabs = useSelector((state) => state.tabs.tabs);
@@ -211,7 +213,7 @@ const RequestHeaders = ({ item, collection, addHeaderText }) => {
         uid: 'inherited-headers-section',
         rowType: ROW_TYPE.SECTION,
         section: ROW_TYPE.INHERITED,
-        label: 'Runtime Headers',
+        label: t('requestPane.headers.runtimeHeaders'),
         count: allInheritedHeaders.length,
         expanded: isInheritedHeadersExpanded
       },
@@ -220,13 +222,14 @@ const RequestHeaders = ({ item, collection, addHeaderText }) => {
         uid: 'request-headers-section',
         rowType: ROW_TYPE.SECTION,
         section: ROW_TYPE.REQUEST,
-        label: 'Request Headers',
+        label: t('requestPane.headers.requestHeaders'),
         count: (headers || []).length,
         expanded: isRequestHeadersExpanded
       },
       ...(isRequestHeadersExpanded ? requestRows : [])
     ];
   }, [
+    t,
     allInheritedHeaders,
     headers,
     isInheritedHeadersExpanded,
@@ -303,17 +306,17 @@ const RequestHeaders = ({ item, collection, addHeaderText }) => {
     if (key === 'name') {
       if (!row.name || row.name.trim() === '') return null;
       if (!headerNameRegex.test(row.name)) {
-        return 'Header name cannot contain spaces or newlines';
+        return t('requestPane.headers.nameError');
       }
     }
     if (key === 'value') {
       if (!row.value) return null;
       if (!headerValueRegex.test(row.value)) {
-        return 'Header value cannot contain newlines';
+        return t('requestPane.headers.valueError');
       }
     }
     return null;
-  }, []);
+  }, [t]);
 
   const toggleBulkEditMode = () => {
     setIsBulkEditMode(!isBulkEditMode);
@@ -369,21 +372,21 @@ const RequestHeaders = ({ item, collection, addHeaderText }) => {
 
   const renderInheritedHeaderAction = useCallback((row) => {
     if (row.rowType === ROW_TYPE.INHERITED) {
-      const sourceName = row.source.name || 'Unnamed';
+      const sourceName = row.source.name || t('requestPane.headers.unnamed');
       const sourceLabel = row.source.type === 'folder'
-        ? `folder “${sourceName}”`
-        : `collection “${sourceName}”`;
+        ? t('requestPane.headers.folderSource', { name: sourceName })
+        : t('requestPane.headers.collectionSource', { name: sourceName });
 
       return (
         <HeaderHint
           id={`inherited-header-source-hint-${row.uid}`}
-          text={`Open headers in ${sourceLabel}`}
+          text={t('requestPane.headers.openHeadersIn', { source: sourceLabel })}
           className="inherited-header-source"
           place="top-end"
         >
           <button
             type="button"
-            aria-label={`Open headers in ${sourceLabel}`}
+            aria-label={t('requestPane.headers.openHeadersIn', { source: sourceLabel })}
             data-testid={`inherited-header-source-${(row.name || 'unnamed').toLowerCase()}`}
             onClick={() => navigateToHeaderSource(row.source, row)}
           >
@@ -401,8 +404,8 @@ const RequestHeaders = ({ item, collection, addHeaderText }) => {
       <HeaderHint
         id={`default-header-info-hint-${row.uid}`}
         text={row.omittable
-          ? 'Automatically added at runtime'
-          : 'Required by HTTP, cannot be omitted'}
+          ? t('requestPane.headers.autoAdded')
+          : t('requestPane.headers.requiredByHttp')}
         className="default-header-info"
         testId={`default-header-info-${row.name.toLowerCase()}`}
         tooltipTestId={`default-header-info-tooltip-${row.name.toLowerCase()}`}
@@ -414,7 +417,7 @@ const RequestHeaders = ({ item, collection, addHeaderText }) => {
         />
       </HeaderHint>
     );
-  }, [navigateToHeaderSource]);
+  }, [t, navigateToHeaderSource]);
 
   const rowConfig = useMemo(() => ({
     isEditable: isRequestRow,
@@ -447,9 +450,9 @@ const RequestHeaders = ({ item, collection, addHeaderText }) => {
   const columns = [
     {
       key: 'name',
-      name: 'Name',
+      name: t('requestPane.common.name'),
       isKeyField: true,
-      placeholder: 'Name',
+      placeholder: t('requestPane.common.name'),
       width: '20%',
       render: ({ row, value, onChange }) => {
         if (row.rowType === ROW_TYPE.INHERITED) {
@@ -474,15 +477,15 @@ const RequestHeaders = ({ item, collection, addHeaderText }) => {
             onRun={handleRun}
             collection={collection}
             item={item}
-            placeholder={!value ? 'Name' : ''}
+            placeholder={!value ? t('requestPane.common.name') : ''}
           />
         );
       }
     },
     {
       key: 'value',
-      name: 'Value',
-      placeholder: 'Value',
+      name: t('requestPane.common.value'),
+      placeholder: t('requestPane.common.value'),
       render: ({ row, value, onChange }) => {
         if (row.rowType === ROW_TYPE.INHERITED) {
           return renderInheritedValue(value);
@@ -500,7 +503,7 @@ const RequestHeaders = ({ item, collection, addHeaderText }) => {
                 autocomplete={MimeTypes}
                 collection={collection}
                 item={item}
-                placeholder={!value ? 'Value' : ''}
+                placeholder={!value ? t('requestPane.common.value') : ''}
               />
             );
       }
@@ -580,14 +583,14 @@ const RequestHeaders = ({ item, collection, addHeaderText }) => {
                 : <IconEye size={16} strokeWidth={1.5} />}
               <span>
                 {showInheritedHeaders
-                  ? 'Hide Additional Headers'
-                  : `Show Additional Headers (${allInheritedHeaders.length})`}
+                  ? t('requestPane.headers.hideAdditional')
+                  : t('requestPane.headers.showAdditional', { count: allInheritedHeaders.length })}
               </span>
             </button>
           )}
         </div>
         <button className="btn-action text-link select-none" data-testid="bulk-edit-toggle" onClick={toggleBulkEditMode}>
-          Bulk Edit
+          {t('requestPane.common.bulkEdit')}
         </button>
       </div>
     </StyledWrapper>

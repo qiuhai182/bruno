@@ -17,9 +17,11 @@ import { formatIpcError } from 'utils/common/error';
 import { DEFAULT_COLLECTION_FORMAT } from 'utils/common/constants';
 import StyledWrapper from './StyledWrapper';
 import get from 'lodash/get';
+import { useTranslation } from 'react-i18next';
 import Button from 'ui/Button';
 
 const CreateCollection = ({ onClose, defaultLocation: propDefaultLocation, initialCollectionName = '' }) => {
+  const { t } = useTranslation();
   const inputRef = useRef();
   const dispatch = useDispatch();
   const workspaces = useSelector((state) => state.workspaces?.workspaces || []);
@@ -46,19 +48,19 @@ const CreateCollection = ({ onClose, defaultLocation: propDefaultLocation, initi
     validationSchema: Yup.object({
       collectionName: Yup.string()
         .trim()
-        .min(1, 'Collection name can\'t be empty')
-        .max(255, 'Must be 255 characters or less')
-        .required('Collection name is required'),
+        .min(1, t('sidebar.createCollection.nameEmpty'))
+        .max(255, t('sidebar.validation.max255'))
+        .required(t('sidebar.createCollection.nameRequired')),
       collectionFolderName: Yup.string()
-        .min(1, 'Must be at least 1 character')
-        .max(255, 'Must be 255 characters or less')
+        .min(1, t('sidebar.validation.min1Char'))
+        .max(255, t('sidebar.validation.max255'))
         .test('is-valid-collection-name', function (value) {
           const isValid = validateName(value);
           return isValid ? true : this.createError({ message: validateNameError(value) });
         })
-        .required('Folder name is required'),
-      collectionLocation: Yup.string().min(1, 'Location is required').required('Location is required'),
-      format: Yup.string().oneOf(['bru', 'yml'], 'invalid format').required('Format is required')
+        .required(t('sidebar.createCollection.folderNameRequired')),
+      collectionLocation: Yup.string().min(1, t('sidebar.validation.locationRequired')).required(t('sidebar.validation.locationRequired')),
+      format: Yup.string().oneOf(['bru', 'yml'], t('sidebar.createCollection.invalidFormat')).required(t('sidebar.createCollection.formatRequired'))
     }),
     onSubmit: async (values) => {
       try {
@@ -67,10 +69,10 @@ const CreateCollection = ({ onClose, defaultLocation: propDefaultLocation, initi
           values.collectionLocation,
           { format: values.format }));
 
-        toast.success('Collection created!');
+        toast.success(t('sidebar.toast.collectionCreated'));
         onClose();
       } catch (e) {
-        toast.error(multiLineMsg('An error occurred while creating the collection', formatIpcError(e)));
+        toast.error(multiLineMsg(t('sidebar.toast.errorCreatingCollection'), formatIpcError(e)));
       }
     }
   });
@@ -104,7 +106,7 @@ const CreateCollection = ({ onClose, defaultLocation: propDefaultLocation, initi
           className="btn-advanced"
           type="button"
         >
-          Options
+          {t('sidebar.options')}
         </button>
         <IconCaretDown className="caret ml-1" size={14} strokeWidth={2} />
       </div>
@@ -114,11 +116,11 @@ const CreateCollection = ({ onClose, defaultLocation: propDefaultLocation, initi
   return (
     <Portal>
       <StyledWrapper>
-        <Modal size="md" title="Create Collection" hideFooter={true} handleCancel={onClose}>
+        <Modal size="md" title={t('sidebar.createCollection.title')} hideFooter={true} handleCancel={onClose}>
           <form className="bruno-form" onSubmit={formik.handleSubmit}>
             <div>
               <label htmlFor="collection-name" className="flex items-center font-medium">
-                Name
+                {t('sidebar.name')}
               </label>
               <input
                 id="collection-name"
@@ -150,13 +152,13 @@ const CreateCollection = ({ onClose, defaultLocation: propDefaultLocation, initi
               ) : null}
 
               <label htmlFor="collection-location" className="font-medium mt-3 flex items-center">
-                Location
+                {t('sidebar.location')}
                 <Help>
                   <p>
-                    Bruno stores your collections on your computer's filesystem.
+                    {t('sidebar.locationHelp1')}
                   </p>
                   <p className="mt-2">
-                    Choose the location where you want to store this collection.
+                    {t('sidebar.locationHelp2')}
                   </p>
                 </Help>
               </label>
@@ -184,20 +186,20 @@ const CreateCollection = ({ onClose, defaultLocation: propDefaultLocation, initi
                   className="text-link cursor-pointer hover:underline"
                   onClick={browse}
                 >
-                  Browse
+                  {t('sidebar.browse')}
                 </span>
               </div>
               {formik.values.collectionName?.trim()?.length > 0 && (
                 <div className="mt-4">
                   <div className="flex items-center justify-between">
                     <label htmlFor="filename" className="flex items-center font-medium">
-                      Folder Name
+                      {t('sidebar.folderName')}
                       <Help width="300">
                         <p>
-                          The name of the folder used to store the collection.
+                          {t('sidebar.createCollection.folderNameHelp1')}
                         </p>
                         <p className="mt-2">
-                          You can choose a folder name different from your collection's name or one compatible with filesystem rules.
+                          {t('sidebar.createCollection.folderNameHelp2')}
                         </p>
                       </Help>
                     </label>
@@ -246,16 +248,16 @@ const CreateCollection = ({ onClose, defaultLocation: propDefaultLocation, initi
               {showAdvancedOptions && (
                 <div className="mt-4">
                   <label htmlFor="format" className="flex items-center font-medium">
-                    File Format
+                    {t('sidebar.fileFormat')}
                     <Help width="300">
                       <p>
-                        Choose the file format for storing requests in this collection.
+                        {t('sidebar.fileFormatHelp1')}
                       </p>
                       <p className="mt-2">
-                        <strong>OpenCollection (YAML):</strong> Industry-standard YAML format (.yml files)
+                        <strong>{t('sidebar.fileFormat.ocTitle')}</strong> {t('sidebar.fileFormat.ocDesc')}
                       </p>
                       <p className="mt-1">
-                        <strong>BRU:</strong> Bruno's native file format (.bru files)
+                        <strong>{t('sidebar.fileFormat.bruTitle')}</strong> {t('sidebar.fileFormat.bruDesc')}
                       </p>
                     </Help>
                   </label>
@@ -266,8 +268,8 @@ const CreateCollection = ({ onClose, defaultLocation: propDefaultLocation, initi
                     value={formik.values.format}
                     onChange={formik.handleChange}
                   >
-                    <option value="yml">OpenCollection (YAML)</option>
-                    <option value="bru">BRU Format (.bru)</option>
+                    <option value="yml">{t('sidebar.fileFormat.ocOption')}</option>
+                    <option value="bru">{t('sidebar.fileFormat.bruOption')}</option>
                   </select>
                   {formik.touched.format && formik.errors.format ? (
                     <div className="text-red-500">{formik.errors.format}</div>
@@ -287,16 +289,16 @@ const CreateCollection = ({ onClose, defaultLocation: propDefaultLocation, initi
                       setShowAdvancedOptions(!showAdvancedOptions);
                     }}
                   >
-                    {showAdvancedOptions ? 'Hide Advanced Options' : 'Show Advanced Options'}
+                    {showAdvancedOptions ? t('sidebar.hideAdvancedOptions') : t('sidebar.showAdvancedOptions')}
                   </div>
                 </Dropdown>
               </div>
               <div className="flex justify-end">
                 <Button type="button" color="secondary" variant="ghost" onClick={onClose} className="mr-2">
-                  Cancel
+                  {t('common.cancel')}
                 </Button>
                 <Button type="submit">
-                  Create
+                  {t('sidebar.create')}
                 </Button>
               </div>
             </div>

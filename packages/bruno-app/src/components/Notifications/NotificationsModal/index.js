@@ -5,6 +5,7 @@ import { usePersistedState } from 'hooks/usePersistedState';
 import Modal from 'components/Modal/index';
 import Portal from 'components/Portal';
 import StyledWrapper from './StyledWrapper';
+import { useTranslation } from 'react-i18next';
 import NotificationTabs from './NotificationTabs';
 import NotificationList from './NotificationList';
 import NotificationDetail from './NotificationDetail';
@@ -15,6 +16,7 @@ const SIDEBAR_MIN = 200;
 const DETAIL_MIN = 380;
 
 const NotificationsModal = ({ notifications, onClose }) => {
+  const { t } = useTranslation();
   const {
     visibleNotifications,
     listed,
@@ -46,8 +48,8 @@ const NotificationsModal = ({ notifications, onClose }) => {
     <Portal>
       <Modal
         size="md"
-        title="Notifications"
-        confirmText="Close"
+        title={t('notifications.title')}
+        confirmText={t('common.close')}
         handleConfirm={onClose}
         handleCancel={onClose}
         hideFooter={true}
@@ -71,11 +73,11 @@ const NotificationsModal = ({ notifications, onClose }) => {
             {...dragbarProps}
             role="separator"
             aria-orientation="vertical"
-            aria-label="Resize sidebar"
+            aria-label={t('notifications.resizeSidebarAriaLabel')}
           />
           {isEmpty ? (
             <div className="notif-empty">
-              <div className="notif-empty-text">You are all caught up!</div>
+              <div className="notif-empty-text">{t('notifications.allCaughtUp')}</div>
             </div>
           ) : (
             <NotificationDetail notification={selectedNotification} />

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import { IconFileCode, IconPlus } from '@tabler/icons';
+import { useTranslation } from 'react-i18next';
 
 import { openApiSpec } from 'providers/ReduxStore/slices/apiSpec';
 import MenuDropdown from 'ui/MenuDropdown';
@@ -11,13 +12,14 @@ import ApiSpecs from 'components/Sidebar/ApiSpecs';
 import SidebarSection from 'components/Sidebar/SidebarSection';
 
 const ApiSpecsSection = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const [createApiSpecModalOpen, setCreateApiSpecModalOpen] = useState(false);
 
   const handleOpenApiSpec = () => {
     dispatch(openApiSpec()).catch((err) => {
       console.error(err);
-      toast.error('An error occurred while opening the API spec');
+      toast.error(t('sidebar.toast.errorOpeningApiSpec'));
     });
   };
 
@@ -25,7 +27,7 @@ const ApiSpecsSection = () => {
     {
       id: 'create-api-spec',
       leftSection: IconPlus,
-      label: 'Create API Spec',
+      label: t('sidebar.apiSpecs.createApiSpec'),
       onClick: () => {
         setCreateApiSpecModalOpen(true);
       }
@@ -33,7 +35,7 @@ const ApiSpecsSection = () => {
     {
       id: 'open-api-spec',
       leftSection: IconFileCode,
-      label: 'Open API Spec',
+      label: t('sidebar.apiSpecs.openApiSpec'),
       onClick: () => {
         handleOpenApiSpec();
       }
@@ -48,7 +50,7 @@ const ApiSpecsSection = () => {
         placement="bottom-end"
       >
         <ActionIcon
-          label="Add new API Spec"
+          label={t('sidebar.apiSpecs.addNewApiSpec')}
         >
           <IconPlus size={14} stroke={1.5} aria-hidden="true" />
         </ActionIcon>
@@ -65,7 +67,7 @@ const ApiSpecsSection = () => {
       )}
       <SidebarSection
         id="api-specs"
-        title="API Specs"
+        title={t('sidebar.sections.apiSpecs')}
         icon={IconFileCode}
         actions={sectionActions}
         className="api-specs-section"

@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect, forwardRef } from 'react';
 import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { cloneDeep } from 'lodash';
@@ -13,9 +14,8 @@ import { browseDirectory, exportCollectionToPostman } from 'providers/ReduxStore
 import { exportPostmanCollection } from 'utils/exporters/postman-collection';
 import StyledWrapper from './StyledWrapper';
 
-const FILE_EXISTS_ERROR = 'Name already exists in this location.';
-
 const ExportToPostman = ({ onClose, onExported, collection }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const inputRef = useRef();
   const [preserveScripts, setPreserveScripts] = useState(false);
@@ -33,21 +33,21 @@ const ExportToPostman = ({ onClose, onExported, collection }) => {
     validationSchema: Yup.object({
       fileName: Yup.string()
         .trim()
-        .min(1, 'must be at least 1 character')
-        .max(255, 'must be 255 characters or less')
+        .min(1, t('sidebar.validation.min1Char'))
+        .max(255, t('sidebar.validation.max255'))
         .test('is-valid-name', function (value) {
           if (!value) return true;
           const isValid = validateName(value);
           return isValid ? true : this.createError({ message: validateNameError(value) });
         })
-        .required('Name is required'),
-      location: Yup.string().min(1, 'Location is required').required('Location is required')
+        .required(t('sidebar.validation.nameRequired')),
+      location: Yup.string().min(1, t('sidebar.validation.locationRequired')).required(t('sidebar.validation.locationRequired'))
     }),
     onSubmit: (values) => handleExport(values, false)
   });
 
   // a conflicting filename is tracked for showing error
-  const fileExists = formik.errors.fileName === FILE_EXISTS_ERROR;
+  const fileExists = formik.errors.fileName === t('sidebar.exportToPostman.fileExists');
 
   async function handleExport(values, overwrite) {
     if (isExporting) return;
@@ -56,17 +56,17 @@ const ExportToPostman = ({ onClose, onExported, collection }) => {
     try {
       const content = exportPostmanCollection(cloneDeep(collection), { preserveScripts });
       await dispatch(exportCollectionToPostman(values.location, `${values.fileName.trim()}.json`, content, overwrite));
-      toast.success('Collection exported successfully');
+      toast.success(t('sidebar.exportToPostman.exportedSuccess'));
       onExported();
     } catch (error) {
       const message = error?.message || String(error);
 
       // the filename already exists, surface it as a error message
       if (!overwrite && message.includes('already exists')) {
-        formik.setFieldError('fileName', FILE_EXISTS_ERROR);
+        formik.setFieldError('fileName', t('sidebar.exportToPostman.fileExists'));
         return;
       }
-      toast.error('Failed to export collection: ' + message);
+      toast.error(t('sidebar.exportToPostman.exportFailed', { message }));
     } finally {
       setIsExporting(false);
     }
@@ -98,7 +98,7 @@ const ExportToPostman = ({ onClose, onExported, collection }) => {
     return (
       <div ref={ref} className="flex items-center text-link cursor-pointer">
         <button className="btn-advanced" type="button">
-          Options
+          {t('sidebar.options')}
         </button>
         <IconCaretDown className="caret ml-1" size={14} strokeWidth={2} />
       </div>
@@ -110,9 +110,9 @@ const ExportToPostman = ({ onClose, onExported, collection }) => {
       <StyledWrapper>
         <Modal
           size="md"
-          title="Export to Postman"
+          title={t('sidebar.exportToPostman.title')}
           dataTestId="export-to-postman-modal"
-          confirmText={fileExists ? 'Replace' : 'Export'}
+          confirmText={fileExists ? t('sidebar.exportToPostman.replace') : t('sidebar.exportToPostman.export')}
           confirmButtonColor={fileExists ? 'danger' : 'primary'}
           confirmDisabled={isExporting}
           handleConfirm={() => (fileExists ? handleReplace() : formik.handleSubmit())}
@@ -128,7 +128,7 @@ const ExportToPostman = ({ onClose, onExported, collection }) => {
                     setShowAdvancedOptions(!showAdvancedOptions);
                   }}
                 >
-                  {showAdvancedOptions ? 'Hide Advanced Options' : 'Show Advanced Options'}
+                  {showAdvancedOptions ? t('sidebar.hideAdvancedOptions') : t('sidebar.showAdvancedOptions')}
                 </div>
               </Dropdown>
             </div>
@@ -136,7 +136,7 @@ const ExportToPostman = ({ onClose, onExported, collection }) => {
         >
           <form className="bruno-form" onSubmit={(e) => e.preventDefault()}>
             <label htmlFor="fileName" className="block font-medium">
-              Name
+              {t('sidebar.name')}
             </label>
             <div className="relative">
               <input
@@ -159,7 +159,7 @@ const ExportToPostman = ({ onClose, onExported, collection }) => {
             ) : null}
 
             <label htmlFor="location" className="block font-medium mt-4">
-              Location
+              {t('sidebar.location')}
             </label>
             <input
               id="location"
@@ -179,7 +179,7 @@ const ExportToPostman = ({ onClose, onExported, collection }) => {
             ) : null}
             <div className="mt-1">
               <span className="text-link cursor-pointer hover:underline" onClick={browse}>
-                Browse
+                {t('sidebar.browse')}
               </span>
             </div>
 
@@ -193,9 +193,9 @@ const ExportToPostman = ({ onClose, onExported, collection }) => {
                   data-testid="preserve-scripts-toggle"
                 />
                 <div>
-                  <span className="preserve-scripts-label">Preserve scripts</span>
+                  <span className="preserve-scripts-label">{t('sidebar.preserveScripts')}</span>
                   <p className="preserve-scripts-description">
-                    Export Bruno scripts without translating them.
+                    {t('sidebar.exportToPostman.preserveScriptsDesc')}
                   </p>
                 </div>
               </label>

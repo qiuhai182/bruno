@@ -1,0 +1,501 @@
+﻿TOTAL_SIDEBAR_KEYS: 500
+sidebar.actions.addNewCollection <- Sections/CollectionsSection/index.js
+sidebar.actions.moreActions <- Sections/CollectionsSection/index.js
+sidebar.actions.searchRequests <- Sections/CollectionsSection/index.js
+sidebar.addRequest <- Collections/Collection/CollectionItem/index.js, Collections/Collection/index.js
+sidebar.advancedOptions <- Collections/InlineCollectionCreator/index.js
+sidebar.apiSpecs.addNewApiSpec <- Sections/ApiSpecsSection/index.js
+sidebar.apiSpecs.close.closed <- ApiSpecs/CloseApiSpec/index.js
+sidebar.apiSpecs.close.closeError <- ApiSpecs/CloseApiSpec/index.js
+sidebar.apiSpecs.close.confirmPrefix <- ApiSpecs/CloseApiSpec/index.js
+sidebar.apiSpecs.close.confirmSuffix <- ApiSpecs/CloseApiSpec/index.js
+sidebar.apiSpecs.close.stillAvailableNote <- ApiSpecs/CloseApiSpec/index.js
+sidebar.apiSpecs.close.title <- ApiSpecs/CloseApiSpec/index.js
+sidebar.apiSpecs.create.blankSpec <- ApiSpecs/CreateApiSpec/index.js
+sidebar.apiSpecs.create.collectionLocationLabel <- ApiSpecs/CreateApiSpec/index.js
+sidebar.apiSpecs.create.created <- ApiSpecs/CreateApiSpec/index.js
+sidebar.apiSpecs.create.defaultsNote <- ApiSpecs/CreateApiSpec/index.js
+sidebar.apiSpecs.create.environmentLabel <- ApiSpecs/CreateApiSpec/index.js
+sidebar.apiSpecs.create.failedToLoadCollection <- ApiSpecs/CreateApiSpec/index.js
+sidebar.apiSpecs.create.fromCollection <- ApiSpecs/CreateApiSpec/index.js
+sidebar.apiSpecs.create.specLocationLabel <- ApiSpecs/CreateApiSpec/index.js
+sidebar.apiSpecs.create.specNameLabel <- ApiSpecs/CreateApiSpec/index.js
+sidebar.apiSpecs.create.templateLabel <- ApiSpecs/CreateApiSpec/index.js
+sidebar.apiSpecs.create.title <- ApiSpecs/CreateApiSpec/index.js
+sidebar.apiSpecs.createApiSpec <- Sections/ApiSpecsSection/index.js
+sidebar.apiSpecs.noSpecsFound <- ApiSpecs/index.js
+sidebar.apiSpecs.open <- ApiSpecs/index.js
+sidebar.apiSpecs.openApiSpec <- Sections/ApiSpecsSection/index.js
+sidebar.apiSpecs.openError <- ApiSpecs/index.js
+sidebar.apiSpecs.openLinkSuffix <- ApiSpecs/index.js
+sidebar.browse <- ApiSpecs/CreateApiSpec/index.js, BulkImportCollectionLocation/index.js, CloneGitRespository/index.js, Collections/Collection/CloneCollection/index.js, Collections/Collection/ExportCollection/ExportToPostman/index.js, CreateCollection/index.js, ImportCollectionLocation/index.js
+sidebar.bulkActions.collapse <- Collections/BulkActionsDropdown/index.js
+sidebar.bulkActions.expand <- Collections/BulkActionsDropdown/index.js
+sidebar.bulkActions.removeSelected <- Collections/BulkActionsDropdown/index.js
+sidebar.bulkActions.selected <- Collections/BulkActionsDropdown/index.js
+sidebar.bulkImport.bruDesc <- BulkImportCollectionLocation/index.js
+sidebar.bulkImport.bruFormat <- BulkImportCollectionLocation/index.js
+sidebar.bulkImport.collectionsTitle <- BulkImportCollectionLocation/index.js
+sidebar.bulkImport.copy <- BulkImportCollectionLocation/index.js
+sidebar.bulkImport.duplicateAcrossCollections <- BulkImportCollectionLocation/index.js
+sidebar.bulkImport.duplicateEnvTip <- BulkImportCollectionLocation/index.js
+sidebar.bulkImport.environmentAssignment <- BulkImportCollectionLocation/index.js
+sidebar.bulkImport.environmentsTitle <- BulkImportCollectionLocation/index.js
+sidebar.bulkImport.errorDetails <- BulkImportCollectionLocation/index.js
+sidebar.bulkImport.failedToAddEnvironment <- BulkImportCollectionLocation/index.js
+sidebar.bulkImport.failedToCopy <- BulkImportCollectionLocation/index.js
+sidebar.bulkImport.failedToImportCollection <- BulkImportCollectionLocation/index.js
+sidebar.bulkImport.fileFormat <- BulkImportCollectionLocation/index.js
+sidebar.bulkImport.fileFormatHelp <- BulkImportCollectionLocation/index.js
+sidebar.bulkImport.folderArrangement <- BulkImportCollectionLocation/index.js
+sidebar.bulkImport.folderArrangementDesc <- BulkImportCollectionLocation/index.js
+sidebar.bulkImport.globalEnvironment <- BulkImportCollectionLocation/index.js
+sidebar.bulkImport.globalEnvTip <- BulkImportCollectionLocation/index.js
+sidebar.bulkImport.groupingPaths <- BulkImportCollectionLocation/index.js
+sidebar.bulkImport.groupingPathsDesc <- BulkImportCollectionLocation/index.js
+sidebar.bulkImport.groupingTags <- BulkImportCollectionLocation/index.js
+sidebar.bulkImport.groupingTagsDesc <- BulkImportCollectionLocation/index.js
+sidebar.bulkImport.import <- BulkImportCollectionLocation/index.js
+sidebar.bulkImport.importingEnvironments <- BulkImportCollectionLocation/index.js
+sidebar.bulkImport.itemsSkipped <- BulkImportCollectionLocation/index.js
+sidebar.bulkImport.locationPlaceholder <- BulkImportCollectionLocation/index.js
+sidebar.bulkImport.noCollectionsFound <- BulkImportCollectionLocation/index.js
+sidebar.bulkImport.noEnvironmentsFound <- BulkImportCollectionLocation/index.js
+sidebar.bulkImport.noLocationSelected <- BulkImportCollectionLocation/index.js
+sidebar.bulkImport.openCollectionDesc <- BulkImportCollectionLocation/index.js
+sidebar.bulkImport.searchCollections <- BulkImportCollectionLocation/index.js
+sidebar.bulkImport.searchEnvironments <- BulkImportCollectionLocation/index.js
+sidebar.bulkImport.seeError <- BulkImportCollectionLocation/index.js
+sidebar.bulkImport.title <- BulkImportCollectionLocation/index.js
+sidebar.changeVersion.collectionLabel <- Collections/Collection/ChangeCollectionVersion/index.js
+sidebar.changeVersion.currentVersion <- Collections/Collection/ChangeCollectionVersion/index.js
+sidebar.changeVersion.from <- Collections/Collection/ChangeCollectionVersion/index.js
+sidebar.changeVersion.in <- Collections/Collection/ChangeCollectionVersion/index.js
+sidebar.changeVersion.newVersion <- Collections/Collection/ChangeCollectionVersion/index.js
+sidebar.changeVersion.notFound <- Collections/Collection/ChangeCollectionVersion/index.js
+sidebar.changeVersion.notSet <- Collections/Collection/ChangeCollectionVersion/index.js
+sidebar.changeVersion.title <- Collections/Collection/ChangeCollectionVersion/index.js
+sidebar.changeVersion.updates <- Collections/Collection/ChangeCollectionVersion/index.js
+sidebar.changeVersion.updateVersion <- Collections/Collection/ChangeCollectionVersion/index.js
+sidebar.changeVersion.updating <- Collections/Collection/ChangeCollectionVersion/index.js
+sidebar.changeVersion.versionPlaceholder <- Collections/Collection/ChangeCollectionVersion/index.js
+sidebar.clearSort <- Sections/CollectionsSection/index.js
+sidebar.cloneCollection.folderNameHelp1 <- Collections/Collection/CloneCollection/index.js
+sidebar.cloneCollection.folderNameHelp2 <- Collections/Collection/CloneCollection/index.js
+sidebar.cloneCollection.title <- Collections/Collection/CloneCollection/index.js
+sidebar.cloneGit.back <- CloneGitRespository/index.js
+sidebar.cloneGit.branchesListFailed <- CloneGitRespository/index.js
+sidebar.cloneGit.branchLabel <- CloneGitRespository/index.js
+sidebar.cloneGit.clonedSuccessfully <- CloneGitRespository/index.js
+sidebar.cloneGit.cloningFailed <- CloneGitRespository/index.js
+sidebar.cloneGit.cloningRepository <- CloneGitRespository/index.js
+sidebar.cloneGit.cloningSuccessful <- CloneGitRespository/index.js
+sidebar.cloneGit.collectionsTitle <- CloneGitRespository/index.js
+sidebar.cloneGit.loadingBranches <- CloneGitRespository/index.js
+sidebar.cloneGit.noBranchesMatch <- CloneGitRespository/index.js
+sidebar.cloneGit.noBrunoCollectionsFound <- CloneGitRespository/index.js
+sidebar.cloneGit.repositoryDefault <- CloneGitRespository/index.js
+sidebar.cloneGit.repositoryUrlLabel <- CloneGitRespository/index.js
+sidebar.cloneGit.scannedSuccessfully <- CloneGitRespository/index.js
+sidebar.cloneGit.scanningForBrunoFiles <- CloneGitRespository/index.js
+sidebar.cloneGit.scanSuccessful <- CloneGitRespository/index.js
+sidebar.cloneGit.searchCollections <- CloneGitRespository/index.js
+sidebar.cloneGit.selectedCount <- CloneGitRespository/index.js
+sidebar.cloneGit.title <- CloneGitRespository/index.js
+sidebar.closeWorkspace.cannotCloseDefault <- CloseWorkspace/index.js
+sidebar.closeWorkspace.closed <- CloseWorkspace/index.js
+sidebar.closeWorkspace.closeError <- CloseWorkspace/index.js
+sidebar.closeWorkspace.confirmPrefix <- CloseWorkspace/index.js
+sidebar.closeWorkspace.confirmSuffix <- CloseWorkspace/index.js
+sidebar.closeWorkspace.stillAvailableNote <- CloseWorkspace/index.js
+sidebar.closeWorkspace.title <- CloseWorkspace/index.js
+sidebar.closeWorkspace.workspaceNotFound <- CloseWorkspace/index.js
+sidebar.collectionNotFound <- Collections/Collection/MoveToWorkspace/index.js
+sidebar.collections <- OpenCollection/index.js
+sidebar.copiedToClipboard <- BulkImportCollectionLocation/index.js, Collections/Collection/CollectionItem/GenerateCodeItem/CodeView/index.js
+sidebar.create <- ApiSpecs/CreateApiSpec/index.js, Collections/Collection/CloneCollection/index.js, Collections/CreateOrOpenCollection/index.js, Collections/InlineCollectionCreator/index.js, CreateCollection/index.js, NewApp/index.js, NewFolder/index.js, NewRequest/index.js
+sidebar.createCollection.folderNameHelp1 <- CreateCollection/index.js
+sidebar.createCollection.folderNameHelp2 <- CreateCollection/index.js
+sidebar.createCollection.folderNameRequired <- CreateCollection/index.js
+sidebar.createCollection.formatRequired <- CreateCollection/index.js
+sidebar.createCollection.invalidFormat <- CreateCollection/index.js
+sidebar.createCollection.nameEmpty <- CreateCollection/index.js
+sidebar.createCollection.nameRequired <- CreateCollection/index.js
+sidebar.createCollection.title <- CreateCollection/index.js
+sidebar.createOrOpen.collection <- Collections/CreateOrOpenCollection/index.js
+sidebar.createOrOpen.noCollectionsFound <- Collections/CreateOrOpenCollection/index.js
+sidebar.createOrOpen.or <- Collections/CreateOrOpenCollection/index.js
+sidebar.deleteItems.and <- Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.deleteItems.appMany <- Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.deleteItems.appOne <- Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.deleteItems.confirmExamplePrefix <- Collections/Collection/CollectionItem/ExampleItem/DeleteResponseExampleModal/index.js
+sidebar.deleteItems.confirmPrefix <- Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.deleteItems.confirmSuffix <- Collections/Collection/CollectionItem/DeleteCollectionItems/index.js, Collections/Collection/CollectionItem/ExampleItem/DeleteResponseExampleModal/index.js
+sidebar.deleteItems.errorDeleting <- Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.deleteItems.exampleMany <- Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.deleteItems.exampleOne <- Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.deleteItems.folderMany <- Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.deleteItems.folderOne <- Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.deleteItems.requestMany <- Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.deleteItems.requestOne <- Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.deleteItems.titleAppMany <- Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.deleteItems.titleAppOne <- Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.deleteItems.titleExampleMany <- Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.deleteItems.titleExampleOne <- Collections/Collection/CollectionItem/DeleteCollectionItems/index.js, Collections/Collection/CollectionItem/ExampleItem/DeleteResponseExampleModal/index.js
+sidebar.deleteItems.titleFolderMany <- Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.deleteItems.titleFolderOne <- Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.deleteItems.titleItems <- Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.deleteItems.titleRequestMany <- Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.deleteItems.titleRequestOne <- Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.docs.advanced <- Collections/Collection/GenerateDocumentation/Advanced/index.jsx
+sidebar.docs.allRequests <- Collections/Collection/GenerateDocumentation/Advanced/index.jsx
+sidebar.docs.cdnNote <- Collections/Collection/GenerateDocumentation/index.js
+sidebar.docs.collectionNotFound <- Collections/Collection/GenerateDocumentation/index.js
+sidebar.docs.description <- Collections/Collection/GenerateDocumentation/index.js
+sidebar.docs.environments <- Collections/Collection/GenerateDocumentation/EnvironmentSelectionList/index.js
+sidebar.docs.environmentsToInclude <- Collections/Collection/GenerateDocumentation/index.js
+sidebar.docs.excludePlaceholder <- Collections/Collection/GenerateDocumentation/Advanced/IncludeExcludeTags/index.jsx
+sidebar.docs.excludeTags <- Collections/Collection/GenerateDocumentation/Advanced/IncludeExcludeTags/index.jsx
+sidebar.docs.featureHostAnywhere <- Collections/Collection/GenerateDocumentation/index.js
+sidebar.docs.featurePlayground <- Collections/Collection/GenerateDocumentation/index.js
+sidebar.docs.featureStandaloneHtml <- Collections/Collection/GenerateDocumentation/index.js
+sidebar.docs.filterByTags <- Collections/Collection/GenerateDocumentation/Advanced/index.jsx
+sidebar.docs.folderMany <- Collections/Collection/GenerateDocumentation/CollectionVersionInfo/index.js
+sidebar.docs.folderOne <- Collections/Collection/GenerateDocumentation/CollectionVersionInfo/index.js
+sidebar.docs.generate <- Collections/Collection/GenerateDocumentation/index.js
+sidebar.docs.generatedError <- Collections/Collection/GenerateDocumentation/index.js
+sidebar.docs.generatedSuccess <- Collections/Collection/GenerateDocumentation/index.js
+sidebar.docs.includePlaceholder <- Collections/Collection/GenerateDocumentation/Advanced/IncludeExcludeTags/index.jsx
+sidebar.docs.includeTags <- Collections/Collection/GenerateDocumentation/Advanced/IncludeExcludeTags/index.jsx
+sidebar.docs.interactiveDocs <- Collections/Collection/GenerateDocumentation/index.js
+sidebar.docs.loading <- Collections/Collection/GenerateDocumentation/index.js
+sidebar.docs.loadingCollection <- Collections/Collection/GenerateDocumentation/index.js
+sidebar.docs.noEnvironments <- Collections/Collection/GenerateDocumentation/CollectionVersionInfo/index.js
+sidebar.docs.notSet <- Collections/Collection/GenerateDocumentation/CollectionVersionInfo/index.js
+sidebar.docs.removeTag <- Collections/Collection/GenerateDocumentation/Advanced/DocsTagList/index.jsx
+sidebar.docs.requestMany <- Collections/Collection/GenerateDocumentation/CollectionVersionInfo/index.js
+sidebar.docs.requestOne <- Collections/Collection/GenerateDocumentation/CollectionVersionInfo/index.js
+sidebar.docs.requestsToInclude <- Collections/Collection/GenerateDocumentation/Advanced/index.jsx
+sidebar.docs.selectAll <- Collections/Collection/GenerateDocumentation/EnvironmentSelectionList/index.js
+sidebar.docs.selectedCount <- Collections/Collection/GenerateDocumentation/EnvironmentSelectionList/index.js
+sidebar.docs.tagDoesNotExist <- Collections/Collection/GenerateDocumentation/Advanced/IncludeExcludeTags/index.jsx
+sidebar.docs.tagExists <- Collections/Collection/GenerateDocumentation/Advanced/DocsTagList/index.jsx
+sidebar.docs.tagInExclude <- Collections/Collection/GenerateDocumentation/Advanced/IncludeExcludeTags/index.jsx
+sidebar.docs.tagInInclude <- Collections/Collection/GenerateDocumentation/Advanced/IncludeExcludeTags/index.jsx
+sidebar.docs.tagNameRule <- Collections/Collection/GenerateDocumentation/Advanced/DocsTagList/index.jsx
+sidebar.docs.tagPlaceholder <- Collections/Collection/GenerateDocumentation/Advanced/DocsTagList/index.jsx
+sidebar.docs.tagsHint <- Collections/Collection/GenerateDocumentation/Advanced/index.jsx
+sidebar.docs.title <- Collections/Collection/GenerateDocumentation/index.js
+sidebar.docs.versionLabel <- Collections/Collection/GenerateDocumentation/CollectionVersionInfo/index.js
+sidebar.drafts.additionalMany <- Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js
+sidebar.drafts.additionalOne <- Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js
+sidebar.drafts.failedToSaveRequests <- Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js
+sidebar.drafts.requestItemMany <- Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js
+sidebar.drafts.requestItemOne <- Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js
+sidebar.drafts.savedRequestsMany <- Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js
+sidebar.drafts.savedRequestsOne <- Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js
+sidebar.drafts.saveTransientFirst <- Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js
+sidebar.drafts.transientHintMove <- Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js
+sidebar.drafts.transientRequestsMany <- Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js
+sidebar.drafts.transientRequestsOne <- Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js
+sidebar.drafts.unsavedChangesPrefix <- Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js
+sidebar.dragPreview.and <- Collections/Collection/CollectionItem/CollectionItemDragPreview/index.js
+sidebar.dragPreview.items <- Collections/Collection/CollectionItem/CollectionItemDragPreview/index.js
+sidebar.example.nameLabel <- Collections/Collection/CollectionItem/ExampleItem/index.js
+sidebar.example.namePlaceholder <- Collections/Collection/CollectionItem/ExampleItem/index.js
+sidebar.example.renameTitle <- Collections/Collection/CollectionItem/ExampleItem/index.js
+sidebar.exportToPostman.export <- Collections/Collection/ExportCollection/ExportToPostman/index.js
+sidebar.exportToPostman.exportedSuccess <- Collections/Collection/ExportCollection/ExportToPostman/index.js
+sidebar.exportToPostman.exportFailed <- Collections/Collection/ExportCollection/ExportToPostman/index.js
+sidebar.exportToPostman.fileExists <- Collections/Collection/ExportCollection/ExportToPostman/index.js
+sidebar.exportToPostman.preserveScriptsDesc <- Collections/Collection/ExportCollection/ExportToPostman/index.js
+sidebar.exportToPostman.replace <- Collections/Collection/ExportCollection/ExportToPostman/index.js
+sidebar.exportToPostman.title <- Collections/Collection/ExportCollection/ExportToPostman/index.js
+sidebar.fileFormat <- CreateCollection/index.js, ImportCollectionLocation/index.js
+sidebar.fileFormat.bruDesc <- CreateCollection/index.js, ImportCollectionLocation/index.js
+sidebar.fileFormat.bruOption <- CreateCollection/index.js, ImportCollectionLocation/index.js
+sidebar.fileFormat.bruTitle <- CreateCollection/index.js, ImportCollectionLocation/index.js
+sidebar.fileFormat.ocDesc <- CreateCollection/index.js, ImportCollectionLocation/index.js
+sidebar.fileFormat.ocOption <- CreateCollection/index.js, ImportCollectionLocation/index.js
+sidebar.fileFormat.ocTitle <- CreateCollection/index.js, ImportCollectionLocation/index.js
+sidebar.fileFormatHelp1 <- CreateCollection/index.js, ImportCollectionLocation/index.js
+sidebar.folderName <- Collections/Collection/CloneCollection/index.js, Collections/Collection/CollectionItem/CloneCollectionItem/index.js, Collections/Collection/CollectionItem/CollectionItemInfo/index.js, Collections/Collection/CollectionItem/RenameCollectionItem/index.js, CreateCollection/index.js
+sidebar.generateCode.checkUrl <- Collections/Collection/CollectionItem/GenerateCodeItem/index.js
+sidebar.generateCode.example <- Collections/Collection/CollectionItem/GenerateCodeItem/index.js
+sidebar.generateCode.interpolateVariables <- Collections/Collection/CollectionItem/GenerateCodeItem/CodeViewToolbar/index.js
+sidebar.generateCode.invalidUrl <- Collections/Collection/CollectionItem/GenerateCodeItem/index.js
+sidebar.generateCode.title <- Collections/Collection/CollectionItem/GenerateCodeItem/index.js
+sidebar.generateCode.titleWithExample <- Collections/Collection/CollectionItem/GenerateCodeItem/index.js
+sidebar.gitRemote.clickToClone <- Collections/GitRemoteCollectionRow/index.js
+sidebar.gitRemote.cloneFromGit <- Collections/GitRemoteCollectionRow/index.js
+sidebar.gitRemote.copyFailed <- Collections/GitRemoteCollectionRow/index.js
+sidebar.gitRemote.copyGitUrl <- Collections/GitRemoteCollectionRow/index.js
+sidebar.gitRemote.removeGitRemote <- Collections/GitRemoteCollectionRow/index.js
+sidebar.gitRemote.urlCopied <- Collections/GitRemoteCollectionRow/index.js
+sidebar.goldenEdition.buy <- GoldenEdition/index.js
+sidebar.goldenEdition.everythingInIndividual <- GoldenEdition/index.js
+sidebar.goldenEdition.featBruFileExplorer <- GoldenEdition/index.js
+sidebar.goldenEdition.featCustomThemes <- GoldenEdition/index.js
+sidebar.goldenEdition.featDevTools <- GoldenEdition/index.js
+sidebar.goldenEdition.featLicenseMgmt <- GoldenEdition/index.js
+sidebar.goldenEdition.featLoadData <- GoldenEdition/index.js
+sidebar.goldenEdition.featLoadTesting <- GoldenEdition/index.js
+sidebar.goldenEdition.featOpenApiDesigner <- GoldenEdition/index.js
+sidebar.goldenEdition.featPrioritySupport <- GoldenEdition/index.js
+sidebar.goldenEdition.featPrivateRegistry <- GoldenEdition/index.js
+sidebar.goldenEdition.featRequestForms <- GoldenEdition/index.js
+sidebar.goldenEdition.featSecretManagers <- GoldenEdition/index.js
+sidebar.goldenEdition.featTerminal <- GoldenEdition/index.js
+sidebar.goldenEdition.featVisualGit <- GoldenEdition/index.js
+sidebar.goldenEdition.individuals <- GoldenEdition/index.js
+sidebar.goldenEdition.individualsLicense <- GoldenEdition/index.js
+sidebar.goldenEdition.oneTimePayment <- GoldenEdition/index.js
+sidebar.goldenEdition.organizations <- GoldenEdition/index.js
+sidebar.goldenEdition.orgLicense <- GoldenEdition/index.js
+sidebar.goldenEdition.perUser <- GoldenEdition/index.js
+sidebar.goldenEdition.supportBruno <- GoldenEdition/index.js
+sidebar.goldenEdition.title <- GoldenEdition/index.js
+sidebar.hideAdvancedOptions <- Collections/Collection/ExportCollection/ExportToPostman/index.js, CreateCollection/index.js, ImportCollectionLocation/index.js
+sidebar.hideFilesystemName <- Collections/Collection/CollectionItem/CloneCollectionItem/index.js, Collections/Collection/CollectionItem/RenameCollectionItem/index.js, NewFolder/index.js, NewRequest/index.js
+sidebar.ignore.collectionByAdding <- Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js
+sidebar.ignore.errorIgnoring <- Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js
+sidebar.ignore.finalPeriod <- Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js
+sidebar.ignore.folderIgnored <- Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js
+sidebar.ignore.hideFrom <- Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js
+sidebar.ignore.listIn <- Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js
+sidebar.ignore.listInAfter <- Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js
+sidebar.ignore.notDeletedRestore <- Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js
+sidebar.ignore.prefix <- Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js
+sidebar.ignore.title <- Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js
+sidebar.import.brunoFallback <- ImportCollectionLocation/index.js
+sidebar.import.checkForSpecUpdates <- ImportCollectionLocation/index.js
+sidebar.import.checkForSpecUpdatesDesc <- ImportCollectionLocation/index.js
+sidebar.import.chooseFiles <- ImportCollection/FileTab.js
+sidebar.import.clone <- ImportCollection/GitHubTab.js
+sidebar.import.dropFiles <- ImportCollection/FileTab.js
+sidebar.import.failed <- ImportCollection/FileTab.js
+sidebar.import.folderArrangement <- ImportCollectionLocation/index.js
+sidebar.import.folderArrangementDesc <- ImportCollectionLocation/index.js
+sidebar.import.gitUrlPlaceholder <- ImportCollection/GitHubTab.js
+sidebar.import.groupingPaths <- ImportCollectionLocation/index.js
+sidebar.import.groupingPathsDesc <- ImportCollectionLocation/index.js
+sidebar.import.groupingTags <- ImportCollectionLocation/index.js
+sidebar.import.groupingTagsDesc <- ImportCollectionLocation/index.js
+sidebar.import.import <- ImportCollection/UrlTab.js, ImportCollectionLocation/index.js
+sidebar.import.insomniaFallback <- ImportCollectionLocation/index.js
+sidebar.import.invalidGitUrl <- ImportCollection/GitHubTab.js
+sidebar.import.invalidUrl <- ImportCollection/UrlTab.js
+sidebar.import.invalidZip <- ImportCollection/FileTab.js
+sidebar.import.loading1 <- ImportCollection/FullscreenLoader/index.js
+sidebar.import.loading2 <- ImportCollection/FullscreenLoader/index.js
+sidebar.import.loading3 <- ImportCollection/FullscreenLoader/index.js
+sidebar.import.loading4 <- ImportCollection/FullscreenLoader/index.js
+sidebar.import.loading5 <- ImportCollection/FullscreenLoader/index.js
+sidebar.import.mayTakeMoment <- ImportCollection/FullscreenLoader/index.js
+sidebar.import.mixZipError <- ImportCollection/FileTab.js
+sidebar.import.multiFilesFailed <- ImportCollection/FileTab.js
+sidebar.import.multiZipError <- ImportCollection/FileTab.js
+sidebar.import.nameFallback <- ImportCollectionLocation/index.js
+sidebar.import.noValidCollections <- ImportCollection/FileTab.js
+sidebar.import.openapiFallback <- ImportCollectionLocation/index.js
+sidebar.import.parseContentFailed <- ImportCollection/FileTab.js
+sidebar.import.parseError <- ImportCollection/FileTab.js
+sidebar.import.postmanFallback <- ImportCollectionLocation/index.js
+sidebar.import.preserveScriptsDesc <- ImportCollectionLocation/index.js
+sidebar.import.supportedFormats <- ImportCollection/FileTab.js
+sidebar.import.swagger2Unsupported <- ImportCollectionLocation/index.js
+sidebar.import.tabFile <- ImportCollection/index.js
+sidebar.import.tabGit <- ImportCollection/index.js
+sidebar.import.title <- ImportCollection/index.js, ImportCollectionLocation/index.js
+sidebar.import.unknownFormat <- ImportCollectionLocation/index.js
+sidebar.import.unsupportedFormat <- ImportCollection/FileTab.js
+sidebar.import.urlImportFailed <- ImportCollection/UrlTab.js
+sidebar.import.urlPlaceholder <- ImportCollection/UrlTab.js
+sidebar.import.wsdlFallback <- ImportCollectionLocation/index.js
+sidebar.import.zipFailed <- ImportCollection/FileTab.js
+sidebar.inlineCollection.nameRequired <- Collections/InlineCollectionCreator/index.js
+sidebar.inlineCollection.setDefaultLocation <- Collections/InlineCollectionCreator/index.js
+sidebar.item.cloned <- Collections/Collection/CollectionItem/CloneCollectionItem/index.js, Collections/Collection/CollectionItem/index.js
+sidebar.item.cloneError <- Collections/Collection/CollectionItem/CloneCollectionItem/index.js, Collections/Collection/CollectionItem/index.js
+sidebar.item.cloneTitle <- Collections/Collection/CollectionItem/CloneCollectionItem/index.js
+sidebar.item.copied <- Collections/Collection/CollectionItem/index.js
+sidebar.item.createExampleTitle <- Collections/Collection/CollectionItem/index.js
+sidebar.item.errorOpeningFolder <- Collections/Collection/CollectionItem/index.js, Collections/Collection/index.js
+sidebar.item.exampleCreated <- Collections/Collection/CollectionItem/index.js
+sidebar.item.exampleRenamed <- Collections/Collection/CollectionItem/ExampleItem/index.js
+sidebar.item.fileNameHelp1 <- Collections/Collection/CollectionItem/CloneCollectionItem/index.js, Collections/Collection/CollectionItem/CollectionItemInfo/index.js, Collections/Collection/CollectionItem/RenameCollectionItem/index.js
+sidebar.item.fileNameHelp2 <- Collections/Collection/CollectionItem/CloneCollectionItem/index.js, Collections/Collection/CollectionItem/RenameCollectionItem/index.js
+sidebar.item.folderNameHelp <- Collections/Collection/CollectionItem/CloneCollectionItem/index.js, Collections/Collection/CollectionItem/RenameCollectionItem/index.js
+sidebar.item.infoFolderNameHelp <- Collections/Collection/CollectionItem/CollectionItemInfo/index.js
+sidebar.item.nameLabel <- Collections/Collection/CollectionItem/CloneCollectionItem/index.js, Collections/Collection/CollectionItem/CollectionItemInfo/index.js, Collections/Collection/CollectionItem/RenameCollectionItem/index.js
+sidebar.item.namePlaceholder <- Collections/Collection/CollectionItem/CloneCollectionItem/index.js
+sidebar.item.pasted <- Collections/Collection/CollectionItem/index.js, Collections/Collection/index.js
+sidebar.item.pasteError <- Collections/Collection/CollectionItem/index.js, Collections/Collection/index.js
+sidebar.item.renameError <- Collections/Collection/CollectionItem/RenameCollectionItem/index.js
+sidebar.item.renameTitle <- Collections/Collection/CollectionItem/RenameCollectionItem/index.js
+sidebar.item.urlRequired <- Collections/Collection/CollectionItem/ExampleItem/index.js, Collections/Collection/CollectionItem/index.js
+sidebar.location <- BulkImportCollectionLocation/index.js, CloneGitRespository/index.js, Collections/Collection/CloneCollection/index.js, Collections/Collection/ExportCollection/ExportToPostman/index.js, CreateCollection/index.js, ImportCollectionLocation/index.js
+sidebar.locationHelp1 <- CreateCollection/index.js, ImportCollectionLocation/index.js
+sidebar.locationHelp2 <- CreateCollection/index.js, ImportCollectionLocation/index.js
+sidebar.menu.clone <- Collections/Collection/CollectionItem/CloneCollectionItem/index.js, Collections/Collection/CollectionItem/ExampleItem/index.js, Collections/Collection/CollectionItem/index.js, Collections/Collection/index.js
+sidebar.menu.closeAll <- Sections/CollectionsSection/index.js
+sidebar.menu.collapse <- Collections/Collection/index.js
+sidebar.menu.copy <- Collections/Collection/CollectionItem/index.js
+sidebar.menu.createCollection <- Sections/CollectionsSection/index.js
+sidebar.menu.createExample <- Collections/Collection/CollectionItem/index.js
+sidebar.menu.createMockServer <- Collections/Collection/index.js
+sidebar.menu.generateCode <- Collections/Collection/CollectionItem/ExampleItem/index.js, Collections/Collection/CollectionItem/index.js
+sidebar.menu.generateDocs <- Collections/Collection/index.js
+sidebar.menu.ignore <- Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js, Collections/Collection/CollectionItem/index.js
+sidebar.menu.importCollection <- Sections/CollectionsSection/index.js
+sidebar.menu.info <- Collections/Collection/CollectionItem/CollectionItemInfo/index.js, Collections/Collection/CollectionItem/index.js
+sidebar.menu.moveIntoWorkspace <- Collections/Collection/index.js
+sidebar.menu.openCollection <- Sections/CollectionsSection/index.js
+sidebar.menu.paste <- Collections/Collection/CollectionItem/index.js, Collections/Collection/index.js
+sidebar.menu.remove <- ApiSpecs/ApiSpecItem/index.js, Collections/Collection/index.js
+sidebar.menu.rename <- Collections/Collection/CollectionItem/ExampleItem/index.js, Collections/Collection/CollectionItem/index.js, Collections/Collection/CollectionItem/RenameCollectionItem/index.js, Collections/Collection/index.js
+sidebar.menu.run <- Collections/Collection/CollectionItem/index.js, Collections/Collection/CollectionItem/RunCollectionItem/index.js, Collections/Collection/index.js
+sidebar.menu.settings <- Collections/Collection/CollectionItem/index.js, Collections/Collection/index.js
+sidebar.menu.share <- Collections/Collection/index.js
+sidebar.mockServers.createMockServer <- Sections/MockServersSection/index.js
+sidebar.moveToWorkspace.collectionMoved <- Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js, Collections/Collection/MoveToWorkspace/index.js
+sidebar.moveToWorkspace.description <- Collections/Collection/MoveToWorkspace/index.js
+sidebar.moveToWorkspace.destination <- Collections/Collection/MoveToWorkspace/index.js
+sidebar.moveToWorkspace.discardAllAndMove <- Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js
+sidebar.moveToWorkspace.move <- Collections/Collection/MoveToWorkspace/index.js
+sidebar.moveToWorkspace.moveError <- Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js, Collections/Collection/MoveToWorkspace/index.js
+sidebar.moveToWorkspace.moving <- Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js, Collections/Collection/MoveToWorkspace/index.js
+sidebar.moveToWorkspace.reloadNote <- Collections/Collection/MoveToWorkspace/index.js
+sidebar.moveToWorkspace.saveAllAndMove <- Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js
+sidebar.moveToWorkspace.saveAndMove <- Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js
+sidebar.moveToWorkspace.title <- Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js, Collections/Collection/MoveToWorkspace/index.js
+sidebar.name <- Collections/Collection/CloneCollection/index.js, Collections/Collection/ExportCollection/ExportToPostman/index.js, Collections/Collection/RenameCollection/index.js, CreateCollection/index.js, ImportCollectionLocation/index.js, NewApp/index.js
+sidebar.newApp.collectionName <- NewApp/index.js
+sidebar.newApp.createsIn <- NewApp/index.js
+sidebar.newApp.nameRequired <- NewApp/index.js
+sidebar.newApp.thisFolder <- NewApp/index.js
+sidebar.newApp.title <- Collections/Collection/CollectionItem/index.js, Collections/Collection/index.js, NewApp/index.js
+sidebar.newFolder.folderName <- NewFolder/index.js
+sidebar.newFolder.folderNameHelp <- NewFolder/index.js
+sidebar.newFolder.title <- Collections/Collection/CollectionItem/index.js, Collections/Collection/index.js, NewFolder/index.js
+sidebar.newRequest.curlCommand <- NewRequest/index.js
+sidebar.newRequest.curlPlaceholder <- NewRequest/index.js
+sidebar.newRequest.fileName <- Collections/Collection/CollectionItem/CloneCollectionItem/index.js, Collections/Collection/CollectionItem/CollectionItemInfo/index.js, Collections/Collection/CollectionItem/RenameCollectionItem/index.js, NewRequest/index.js
+sidebar.newRequest.fileNameHelp1 <- NewRequest/index.js
+sidebar.newRequest.fileNameHelp2 <- NewRequest/index.js
+sidebar.newRequest.fromCurl <- NewRequest/index.js
+sidebar.newRequest.onFilesystem <- Collections/Collection/CollectionItem/CloneCollectionItem/index.js, Collections/Collection/CollectionItem/CollectionItemInfo/index.js, Collections/Collection/CollectionItem/RenameCollectionItem/index.js, NewFolder/index.js, NewRequest/index.js
+sidebar.newRequest.requestName <- NewRequest/index.js
+sidebar.newRequest.requestUrl <- NewRequest/index.js
+sidebar.newRequest.title <- Collections/Collection/CollectionItem/index.js, Collections/Collection/index.js, NewRequest/index.js
+sidebar.newRequest.type <- NewRequest/index.js
+sidebar.open <- Collections/CreateOrOpenCollection/index.js, OpenCollection/index.js
+sidebar.openCollection.collectionsNoun <- OpenCollection/index.js
+sidebar.openCollection.description <- OpenCollection/index.js
+sidebar.openCollection.noneFound <- OpenCollection/index.js
+sidebar.openCollection.noneFoundSkipped <- OpenCollection/index.js
+sidebar.openCollection.searchPlaceholder <- OpenCollection/index.js
+sidebar.openCollection.selectedOfTotal <- OpenCollection/index.js
+sidebar.openCollection.title <- OpenCollection/index.js
+sidebar.openInTerminal <- Collections/Collection/CollectionItem/index.js, Collections/Collection/index.js, Sections/CollectionsSection/index.js
+sidebar.options <- Collections/Collection/CollectionItem/CloneCollectionItem/index.js, Collections/Collection/CollectionItem/RenameCollectionItem/index.js, Collections/Collection/ExportCollection/ExportToPostman/index.js, CreateCollection/index.js, ImportCollectionLocation/index.js, NewFolder/index.js, NewRequest/index.js
+sidebar.postmanReport.and <- PostmanPackageReport/index.js
+sidebar.postmanReport.andMore <- PostmanPackageReport/index.js
+sidebar.postmanReport.copyCommand <- PostmanPackageReport/index.js
+sidebar.postmanReport.copyFailed <- PostmanPackageReport/index.js
+sidebar.postmanReport.couldNotLocateCollection <- PostmanPackageReport/index.js
+sidebar.postmanReport.customPackagesMid <- PostmanPackageReport/index.js
+sidebar.postmanReport.customPackagesPrefix <- PostmanPackageReport/index.js
+sidebar.postmanReport.customPackagesSuffix <- PostmanPackageReport/index.js
+sidebar.postmanReport.developerMode <- PostmanPackageReport/index.js
+sidebar.postmanReport.developerModeEnabled <- PostmanPackageReport/index.js
+sidebar.postmanReport.devModeDescMid <- PostmanPackageReport/index.js
+sidebar.postmanReport.devModeDescPrefix <- PostmanPackageReport/index.js
+sidebar.postmanReport.devModeDescSuffix <- PostmanPackageReport/index.js
+sidebar.postmanReport.devModeTitle <- PostmanPackageReport/index.js
+sidebar.postmanReport.done <- PostmanPackageReport/index.js
+sidebar.postmanReport.errorNoCollectionPath <- PostmanPackageReport/index.js
+sidebar.postmanReport.externalModulesTitle <- PostmanPackageReport/index.js
+sidebar.postmanReport.failedToStartInstall <- PostmanPackageReport/index.js
+sidebar.postmanReport.failedToSwitchSandboxMode <- PostmanPackageReport/index.js
+sidebar.postmanReport.installedIntoMany <- PostmanPackageReport/index.js
+sidebar.postmanReport.installedIntoOne <- PostmanPackageReport/index.js
+sidebar.postmanReport.installedMany <- PostmanPackageReport/index.js
+sidebar.postmanReport.installedOne <- PostmanPackageReport/index.js
+sidebar.postmanReport.installFailedExitCode <- PostmanPackageReport/index.js
+sidebar.postmanReport.installFailedSeeDetails <- PostmanPackageReport/index.js
+sidebar.postmanReport.installing <- PostmanPackageReport/index.js
+sidebar.postmanReport.installingMany <- PostmanPackageReport/index.js
+sidebar.postmanReport.installingOne <- PostmanPackageReport/index.js
+sidebar.postmanReport.installMany <- PostmanPackageReport/index.js
+sidebar.postmanReport.installOne <- PostmanPackageReport/index.js
+sidebar.postmanReport.notSupportedHelp <- PostmanPackageReport/index.js
+sidebar.postmanReport.notSupportedTitle <- PostmanPackageReport/index.js
+sidebar.postmanReport.npmNotFound <- PostmanPackageReport/index.js
+sidebar.postmanReport.npmTimeout <- PostmanPackageReport/index.js
+sidebar.postmanReport.onlyEnableForTrusted <- PostmanPackageReport/index.js
+sidebar.postmanReport.orInstallManually <- PostmanPackageReport/index.js
+sidebar.postmanReport.packagesNotInstalledHelp <- PostmanPackageReport/index.js
+sidebar.postmanReport.packagesUsedInScripts <- PostmanPackageReport/index.js
+sidebar.postmanReport.runsInDevModePrefix <- PostmanPackageReport/index.js
+sidebar.postmanReport.runsInDevModeSuffix <- PostmanPackageReport/index.js
+sidebar.postmanReport.safeMode <- PostmanPackageReport/index.js
+sidebar.postmanReport.skip <- PostmanPackageReport/index.js
+sidebar.postmanReport.spawnFailed <- PostmanPackageReport/index.js
+sidebar.postmanReport.switchToDeveloperMode <- PostmanPackageReport/index.js
+sidebar.postmanReport.title <- PostmanPackageReport/index.js
+sidebar.preserveScripts <- Collections/Collection/ExportCollection/ExportToPostman/index.js, ImportCollectionLocation/index.js
+sidebar.renameCollection.rename <- Collections/Collection/RenameCollection/index.js
+sidebar.renameCollection.title <- Collections/Collection/RenameCollection/index.js
+sidebar.runCollection.alreadyRunning <- Collections/Collection/CollectionItem/RunCollectionItem/index.js
+sidebar.runCollection.delayLabel <- Collections/Collection/CollectionItem/RunCollectionItem/index.js
+sidebar.runCollection.delayPlaceholder <- Collections/Collection/CollectionItem/RunCollectionItem/index.js
+sidebar.runCollection.folderOnly <- Collections/Collection/CollectionItem/RunCollectionItem/index.js
+sidebar.runCollection.recursiveDesc <- Collections/Collection/CollectionItem/RunCollectionItem/index.js
+sidebar.runCollection.recursiveRun <- Collections/Collection/CollectionItem/RunCollectionItem/index.js
+sidebar.runCollection.requestCount <- Collections/Collection/CollectionItem/RunCollectionItem/index.js
+sidebar.runCollection.stillLoading <- Collections/Collection/CollectionItem/RunCollectionItem/index.js
+sidebar.runCollection.title <- Collections/Collection/CollectionItem/RunCollectionItem/index.js
+sidebar.runCollection.viewRun <- Collections/Collection/CollectionItem/RunCollectionItem/index.js
+sidebar.searchPlaceholder <- Collections/CollectionSearch/index.js
+sidebar.sections.apiSpecs <- Sections/ApiSpecsSection/index.js
+sidebar.sections.collections <- Sections/CollectionsSection/index.js
+sidebar.sections.mockServers <- Sections/MockServersSection/index.js
+sidebar.sections.tools <- Sections/ToolsSection/index.js
+sidebar.selectCollection.noCollectionsFound <- Collections/SelectCollection/index.js
+sidebar.selectCollection.title <- Collections/SelectCollection/index.js
+sidebar.showAdvancedOptions <- Collections/Collection/ExportCollection/ExportToPostman/index.js, CreateCollection/index.js, ImportCollectionLocation/index.js
+sidebar.showFilesystemName <- Collections/Collection/CollectionItem/CloneCollectionItem/index.js, Collections/Collection/CollectionItem/RenameCollectionItem/index.js, NewFolder/index.js, NewRequest/index.js
+sidebar.sortAZ <- Sections/CollectionsSection/index.js
+sidebar.sortZA <- Sections/CollectionsSection/index.js
+sidebar.toast.appCreated <- NewApp/index.js
+sidebar.toast.collectionCreated <- Collections/Collection/CloneCollection/index.js, Collections/InlineCollectionCreator/index.js, CreateCollection/index.js
+sidebar.toast.collectionRenamed <- Collections/Collection/RenameCollection/index.js
+sidebar.toast.errorAddingFolder <- NewFolder/index.js
+sidebar.toast.errorAddingRequest <- NewRequest/index.js
+sidebar.toast.errorConvertingCollection <- ImportCollectionLocation/index.js
+sidebar.toast.errorCreatingApp <- NewApp/index.js
+sidebar.toast.errorCreatingCollection <- Collections/InlineCollectionCreator/index.js, CreateCollection/index.js
+sidebar.toast.errorCreatingCollectionWithError <- Collections/Collection/CloneCollection/index.js
+sidebar.toast.errorCreatingRequest <- Sections/CollectionsSection/index.js
+sidebar.toast.errorOpeningApiSpec <- Sections/ApiSpecsSection/index.js
+sidebar.toast.errorOpeningCollections <- OpenCollection/index.js
+sidebar.toast.errorRenamingCollection <- Collections/Collection/RenameCollection/index.js
+sidebar.toast.errorScanningCollections <- OpenCollection/index.js
+sidebar.toast.errorTogglingCollections <- Collections/BulkActionsDropdown/index.js
+sidebar.toast.failedToSavePreferences <- Sections/CollectionsSection/index.js
+sidebar.toast.newFolderCreated <- NewFolder/index.js
+sidebar.toast.newRequestCreated <- NewRequest/index.js
+sidebar.toast.unableToCreateRequest <- Sections/CollectionsSection/index.js
+sidebar.validation.curlRequired <- NewRequest/index.js
+sidebar.validation.filenameRequired <- NewRequest/index.js
+sidebar.validation.folderNameRequired <- Collections/Collection/CloneCollection/index.js, NewFolder/index.js
+sidebar.validation.invalidCurl <- NewRequest/index.js
+sidebar.validation.locationRequired <- ApiSpecs/CreateApiSpec/index.js, BulkImportCollectionLocation/index.js, CloneGitRespository/index.js, Collections/Collection/CloneCollection/index.js, Collections/Collection/ExportCollection/ExportToPostman/index.js, CreateCollection/index.js, ImportCollectionLocation/index.js
+sidebar.validation.max255 <- ApiSpecs/CreateApiSpec/index.js, Collections/Collection/CloneCollection/index.js, Collections/Collection/CollectionItem/CloneCollectionItem/index.js, Collections/Collection/CollectionItem/RenameCollectionItem/index.js, Collections/Collection/ExportCollection/ExportToPostman/index.js, CreateCollection/index.js, NewApp/index.js, NewRequest/index.js
+sidebar.validation.max500 <- BulkImportCollectionLocation/index.js, ImportCollectionLocation/index.js
+sidebar.validation.min1Char <- ApiSpecs/CreateApiSpec/index.js, BulkImportCollectionLocation/index.js, Collections/Collection/CloneCollection/index.js, Collections/Collection/CollectionItem/CloneCollectionItem/index.js, Collections/Collection/CollectionItem/RenameCollectionItem/index.js, Collections/Collection/ExportCollection/ExportToPostman/index.js, Collections/Collection/RenameCollection/index.js, CreateCollection/index.js, ImportCollectionLocation/index.js, NewFolder/index.js, NewRequest/index.js
+sidebar.validation.nameRequired <- ApiSpecs/CreateApiSpec/index.js, Collections/Collection/CloneCollection/index.js, Collections/Collection/CollectionItem/CloneCollectionItem/index.js, Collections/Collection/CollectionItem/RenameCollectionItem/index.js, Collections/Collection/ExportCollection/ExportToPostman/index.js, Collections/Collection/RenameCollection/index.js, NewFolder/index.js, NewRequest/index.js
+sidebar.validation.repositoryUrlRequired <- CloneGitRespository/index.js
+sidebar.validation.reservedFileNames <- Collections/Collection/CollectionItem/CloneCollectionItem/index.js, Collections/Collection/CollectionItem/RenameCollectionItem/index.js, NewRequest/index.js
+sidebar.validation.reservedFolderName <- NewFolder/index.js

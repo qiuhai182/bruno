@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { getTotalRequestCountInCollection } from 'utils/collections/';
 import { countEndpoints } from '../utils';
 import moment from 'moment';
@@ -12,33 +13,34 @@ const capitalize = (str) => str ? str.charAt(0).toUpperCase() + str.slice(1) : s
 const SUMMARY_CARDS = [
   {
     key: 'total',
-    label: 'Total in Collection',
+    labelKey: 'openApiSync.overview.totalInCollection',
     color: 'blue',
-    tooltip: 'Total endpoints in your collection'
+    tooltipKey: 'openApiSync.overview.totalInCollectionTooltip'
   },
   {
     key: 'inSync',
-    label: 'In Sync with Spec',
+    labelKey: 'openApiSync.overview.inSyncWithSpec',
     color: 'green',
-    tooltip: 'Endpoints that currently match the latest spec from the source'
+    tooltipKey: 'openApiSync.overview.inSyncTooltip'
   },
   {
     key: 'changed',
-    label: 'Changed in Collection',
+    labelKey: 'openApiSync.overview.changedInCollection',
     color: 'muted',
-    tooltip: 'Endpoints modified, deleted, or added locally since last sync',
+    tooltipKey: 'openApiSync.overview.changedTooltip',
     tab: 'collection-changes'
   },
   {
     key: 'pending',
-    label: 'Spec Updates Pending',
+    labelKey: 'openApiSync.overview.specUpdatesPending',
     color: 'amber',
-    tooltip: 'Spec changes available to sync to your collection',
+    tooltipKey: 'openApiSync.overview.pendingTooltip',
     tab: 'spec-updates'
   }
 ];
 
 const OverviewSection = ({ collection, storedSpec, collectionDrift, specDrift, remoteDrift, onTabSelect, error, onOpenSettings }) => {
+  const { t } = useTranslation();
   const openApiSyncConfig = collection?.brunoConfig?.openapi?.[0];
 
   const reduxError = useSelector((state) => state.openapiSync?.collectionUpdates?.[collection.uid]?.error);
@@ -87,11 +89,11 @@ const OverviewSection = ({ collection, storedSpec, collectionDrift, specDrift, r
   };
 
   const details = [
-    { label: 'Spec Version', value: version ? `v${version}` : '–' },
-    { label: 'Endpoints in Spec', value: endpointCount != null ? endpointCount : '–' },
-    { label: 'Last Synced At', value: lastSyncDate ? moment(lastSyncDate).fromNow() : '–', tooltip: lastSyncDate ? moment(lastSyncDate).format('MMMM D, YYYY [at] h:mm A') : undefined },
-    { label: 'Folder Grouping', value: capitalize(groupBy) },
-    { label: 'Auto Check for Updates', value: autoCheckEnabled ? `Every ${autoCheckInterval} min` : 'Disabled' }
+    { label: t('openApiSync.overview.specVersion'), value: version ? `v${version}` : '–' },
+    { label: t('openApiSync.overview.endpointsInSpec'), value: endpointCount != null ? endpointCount : '–' },
+    { label: t('openApiSync.overview.lastSyncedAt'), value: lastSyncDate ? moment(lastSyncDate).fromNow() : '–', tooltip: lastSyncDate ? moment(lastSyncDate).format('MMMM D, YYYY [at] h:mm A') : undefined },
+    { label: t('openApiSync.overview.folderGrouping'), value: capitalize(groupBy) },
+    { label: t('openApiSync.overview.autoCheck'), value: autoCheckEnabled ? t('openApiSync.overview.everyMinutes', { count: autoCheckInterval }) : t('openApiSync.overview.disabled') }
   ];
 
   const hasCollectionChanges = changedInCollection > 0;
@@ -105,7 +107,7 @@ const OverviewSection = ({ collection, storedSpec, collectionDrift, specDrift, r
     if (activeError) {
       return {
         variant: 'danger',
-        title: 'Failed to check for spec updates',
+        title: t('openApiSync.overview.failedToCheck'),
         subtitle: activeError,
         buttons: ['open-settings']
       };
@@ -113,32 +115,32 @@ const OverviewSection = ({ collection, storedSpec, collectionDrift, specDrift, r
     if (specDrift?.storedSpecMissing && !lastSyncDate) {
       return {
         variant: 'warning',
-        title: 'Initial sync required — your collection differs from the spec',
-        subtitle: 'Review the changes and sync to bring your collection up to date.',
+        title: t('openApiSync.overview.initialSyncRequired'),
+        subtitle: t('openApiSync.overview.initialSyncSubtitle'),
         buttons: ['review']
       };
     }
     if (hasSpecUpdates && hasCollectionChanges) {
       return {
         variant: 'warning',
-        title: `OpenAPI spec has new updates${versionInfo} and the collection has changes`,
-        subtitle: 'New or changed requests are available. Some collection changes may be overwritten.',
+        title: t('openApiSync.overview.specUpdatesAndCollectionChanges', { versionInfo }),
+        subtitle: t('openApiSync.overview.someOverwrittenSubtitle'),
         buttons: ['sync', 'changes']
       };
     }
     if (hasSpecUpdates) {
       return {
         variant: 'warning',
-        title: `OpenAPI spec has new updates${versionInfo}`,
-        subtitle: 'New or changed requests are available.',
+        title: t('openApiSync.overview.specHasNewUpdates', { versionInfo }),
+        subtitle: t('openApiSync.overview.newRequestsAvailable'),
         buttons: ['sync']
       };
     }
     if (specDrift?.storedSpecMissing && lastSyncDate) {
       return {
         variant: 'warning',
-        title: 'Last synced spec not found',
-        subtitle: 'The last synced spec is missing in the storage. Restore the latest spec from the source to track collection changes.',
+        title: t('openApiSync.overview.lastSyncedSpecNotFound'),
+        subtitle: t('openApiSync.overview.restoreToTrackSubtitle'),
         buttons: ['spec-details']
       };
     }
@@ -146,13 +148,13 @@ const OverviewSection = ({ collection, storedSpec, collectionDrift, specDrift, r
     if (hasCollectionChanges) {
       return {
         variant: 'muted',
-        title: 'Collection has changes not in the spec',
-        subtitle: 'Some requests have been modified or removed and no longer match the spec.',
+        title: t('openApiSync.overview.collectionHasChanges'),
+        subtitle: t('openApiSync.overview.noLongerMatchSubtitle'),
         buttons: ['changes']
       };
     }
     return null;
-  }, [activeError, hasDriftData, hasSpecUpdates, hasCollectionChanges, specDrift?.storedSpecMissing, specDrift?.storedVersion, specDrift?.newVersion, lastSyncDate]);
+  }, [activeError, hasDriftData, hasSpecUpdates, hasCollectionChanges, specDrift?.storedSpecMissing, specDrift?.storedVersion, specDrift?.newVersion, lastSyncDate, t]);
 
   return (
     <div className="overview-section">
@@ -178,22 +180,22 @@ const OverviewSection = ({ collection, storedSpec, collectionDrift, specDrift, r
                   color={bannerState.buttons.includes('sync') ? 'secondary' : 'primary'}
                   onClick={() => onTabSelect('collection-changes')}
                 >
-                  View Collection Changes
+                  {t('openApiSync.overview.viewCollectionChanges')}
                 </Button>
               )}
               {(bannerState.buttons.includes('sync') || bannerState.buttons.includes('review')) && (
                 <Button size="sm" onClick={() => onTabSelect('spec-updates')}>
-                  Review and Sync Collection
+                  {t('openApiSync.overview.reviewAndSync')}
                 </Button>
               )}
               {bannerState.buttons.includes('spec-details') && (
                 <Button variant="outline" size="sm" onClick={() => onTabSelect('spec-updates')}>
-                  Go to Spec Updates
+                  {t('openApiSync.overview.goToSpecUpdates')}
                 </Button>
               )}
               {bannerState.buttons.includes('open-settings') && (
                 <Button variant="outline" size="sm" onClick={onOpenSettings}>
-                  Update connection settings
+                  {t('openApiSync.banner.updateConnectionSettings')}
                 </Button>
               )}
             </div>
@@ -201,10 +203,12 @@ const OverviewSection = ({ collection, storedSpec, collectionDrift, specDrift, r
         </div>
       )}
 
-      <h4 className="overview-section-title mt-5">Endpoint Summary</h4>
+      <h4 className="overview-section-title mt-5">{t('openApiSync.overview.endpointSummary')}</h4>
       <div className="sync-summary-cards">
-        {SUMMARY_CARDS.map(({ key, label, tooltip, tab, color }) => {
+        {SUMMARY_CARDS.map(({ key, labelKey, tooltipKey, tab, color }) => {
           const count = summaryValues[key];
+          const label = t(labelKey);
+          const tooltip = t(tooltipKey);
           const resolvedColor = count > 0 ? color : 'muted';
           const isClickable = tab && count > 0;
           return (
@@ -219,7 +223,7 @@ const OverviewSection = ({ collection, storedSpec, collectionDrift, specDrift, r
               <div className="summary-count-row">
                 <span className={`summary-count ${resolvedColor}`}>{count != null ? count : '–'}</span>
                 {key === 'pending' && conflictCount > 0 && (
-                  <span className="conflict-annotation">({conflictCount} {conflictCount === 1 ? 'conflict' : 'conflicts'})</span>
+                  <span className="conflict-annotation">{t('openApiSync.overview.conflictCount', { count: conflictCount, s: conflictCount === 1 ? '' : 's' })}</span>
                 )}
               </div>
               <div className="summary-label">
@@ -230,7 +234,7 @@ const OverviewSection = ({ collection, storedSpec, collectionDrift, specDrift, r
         })}
       </div>
 
-      <h4 className="overview-section-title mt-7">Last Synced Spec Details</h4>
+      <h4 className="overview-section-title mt-7">{t('openApiSync.overview.lastSyncedSpecDetails')}</h4>
       <div className="spec-details-grid">
         {details.map(({ label, value, tooltip }) => (
           <div className="spec-detail-item" key={label}>

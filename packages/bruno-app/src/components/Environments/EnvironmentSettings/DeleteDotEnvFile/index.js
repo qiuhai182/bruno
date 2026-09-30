@@ -1,9 +1,11 @@
 import React from 'react';
 import Portal from 'components/Portal/index';
 import Modal from 'components/Modal/index';
+import { useTranslation } from 'react-i18next';
 import StyledWrapper from './StyledWrapper';
 
 const DeleteDotEnvFile = ({ onClose, onConfirm, filename = '.env' }) => {
+  const { t } = useTranslation();
   const handleConfirm = () => {
     onConfirm();
     onClose();
@@ -14,13 +16,13 @@ const DeleteDotEnvFile = ({ onClose, onConfirm, filename = '.env' }) => {
       <StyledWrapper>
         <Modal
           size="sm"
-          title={`Delete ${filename} File`}
-          confirmText="Delete"
+          title={t('environments.dotEnv.deleteTitle', { filename })}
+          confirmText={t('common.delete')}
           handleConfirm={handleConfirm}
           handleCancel={onClose}
           confirmButtonColor="danger"
         >
-          Are you sure you want to delete <span className="font-medium">{filename}</span> file?
+          {t('environments.delete.confirmPrefix')}<span className="font-medium">{filename}</span>{t('environments.dotEnv.confirmSuffix')}
         </Modal>
       </StyledWrapper>
     </Portal>

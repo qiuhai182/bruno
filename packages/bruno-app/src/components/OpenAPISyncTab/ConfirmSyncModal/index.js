@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { IconChevronRight } from '@tabler/icons';
 import Modal from 'components/Modal';
 import Button from 'ui/Button';
@@ -45,24 +46,25 @@ const ConfirmGroup = ({ group }) => {
 };
 
 const ConfirmSyncModal = ({ groups, onCancel, onSync, isSyncing }) => {
+  const { t } = useTranslation();
   const hasNoChanges = groups.length === 0;
 
   return (
     <Modal
       size="md"
-      title="Confirm Sync"
+      title={t('openApiSync.confirmSync.title')}
       handleCancel={onCancel}
       hideFooter={true}
     >
       <div className="sync-confirm-modal">
         {hasNoChanges ? (
           <p className="sync-confirm-description">
-            Your collection is already in sync with the remote spec. Syncing will update the local spec file to match the latest remote version.
+            {t('openApiSync.confirmSync.inSyncDescription')}
           </p>
         ) : (
           <>
             <p className="sync-confirm-description">
-              The following changes will be applied to your collection. This action cannot be undone. Are you sure you want to proceed?
+              {t('openApiSync.confirmSync.description')}
             </p>
 
             <div className="sync-confirm-groups">
@@ -75,10 +77,10 @@ const ConfirmSyncModal = ({ groups, onCancel, onSync, isSyncing }) => {
 
         <div className="sync-confirm-actions">
           <Button variant="ghost" color="secondary" onClick={onCancel}>
-            Cancel
+            {t('common.cancel')}
           </Button>
           <Button onClick={onSync} loading={isSyncing} disabled={isSyncing}>
-            {hasNoChanges ? 'Restore Spec File' : 'Confirm & Sync Collection'}
+            {hasNoChanges ? t('openApiSync.confirmSync.restoreSpecFile') : t('openApiSync.confirmSync.confirmAndSync')}
           </Button>
         </div>
       </div>

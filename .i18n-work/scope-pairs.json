@@ -1,0 +1,775 @@
+{
+  "devtools.console.emptyTitle": {
+    "file": "Devtools/Console/index.js",
+    "texts": [
+      "No logs to display"
+    ]
+  },
+  "devtools.console.emptySubtitle": {
+    "file": "Devtools/Console/index.js",
+    "texts": [
+      "Logs will appear here as your application runs"
+    ]
+  },
+  "devtools.console.filterByType": {
+    "file": "Devtools/Console/index.js",
+    "texts": [
+      "Filter by Type"
+    ]
+  },
+  "devtools.console.filterLogsByType": {
+    "file": "Devtools/Console/index.js",
+    "texts": [
+      "Filter logs by type"
+    ]
+  },
+  "devtools.console.clearAllLogs": {
+    "file": "Devtools/Console/index.js",
+    "texts": [
+      "Clear all logs"
+    ]
+  },
+  "devtools.console.filterByMethod": {
+    "file": "Devtools/Console/index.js",
+    "texts": [
+      "Filter by Method"
+    ]
+  },
+  "devtools.console.filterRequestsByMethod": {
+    "file": "Devtools/Console/index.js",
+    "texts": [
+      "Filter requests by method"
+    ]
+  },
+  "devtools.tab.console": {
+    "file": "Devtools/Console/index.js",
+    "texts": [
+      "Console"
+    ]
+  },
+  "devtools.tab.network": {
+    "file": "Devtools/Console/index.js",
+    "texts": [
+      "Network"
+    ]
+  },
+  "devtools.tab.performance": {
+    "file": "Devtools/Console/index.js",
+    "texts": [
+      "Performance"
+    ]
+  },
+  "devtools.tab.terminal": {
+    "file": "Devtools/Console/index.js",
+    "texts": [
+      "Terminal"
+    ]
+  },
+  "devtools.console.closeConsole": {
+    "file": "Devtools/Console/index.js",
+    "texts": [
+      "Close console"
+    ]
+  },
+  "devtools.filter.hideAll": {
+    "file": "Devtools/Console/FilterDropdown/index.js",
+    "texts": [
+      "Hide All",
+      "Show All"
+    ]
+  },
+  "devtools.network.unknownUrl": {
+    "file": "Devtools/Console/NetworkTab/index.js",
+    "texts": [
+      "Unknown URL"
+    ]
+  },
+  "devtools.network.emptyTitle": {
+    "file": "Devtools/Console/NetworkTab/index.js",
+    "texts": [
+      "No network requests"
+    ]
+  },
+  "devtools.network.emptySubtitle": {
+    "file": "Devtools/Console/NetworkTab/index.js",
+    "texts": [
+      "Requests will appear here as you make API calls"
+    ]
+  },
+  "devtools.requestDetails.general": {
+    "file": "Devtools/Console/RequestDetailsPanel/index.js",
+    "texts": [
+      "General"
+    ]
+  },
+  "devtools.requestDetails.requestUrl": {
+    "file": "Devtools/Console/RequestDetailsPanel/index.js",
+    "texts": [
+      "Request URL:"
+    ]
+  },
+  "devtools.requestDetails.requestMethod": {
+    "file": "Devtools/Console/RequestDetailsPanel/index.js",
+    "texts": [
+      "Request Method:"
+    ]
+  },
+  "devtools.requestDetails.requestHeaders": {
+    "file": "Devtools/Console/RequestDetailsPanel/index.js",
+    "texts": [
+      "Request Headers"
+    ]
+  },
+  "devtools.requestDetails.name": {
+    "file": "Devtools/Console/RequestDetailsPanel/index.js",
+    "texts": [
+      "Name"
+    ]
+  },
+  "devtools.requestDetails.value": {
+    "file": "Devtools/Console/RequestDetailsPanel/index.js",
+    "texts": [
+      "Value"
+    ]
+  },
+  "devtools.requestDetails.noHeaders": {
+    "file": "Devtools/Console/RequestDetailsPanel/index.js",
+    "texts": [
+      "No headers"
+    ]
+  },
+  "devtools.requestDetails.requestBody": {
+    "file": "Devtools/Console/RequestDetailsPanel/index.js",
+    "texts": [
+      "Request Body"
+    ]
+  },
+  "devtools.requestDetails.responseHeaders": {
+    "file": "Devtools/Console/RequestDetailsPanel/index.js",
+    "texts": [
+      "Response Headers"
+    ]
+  },
+  "devtools.requestDetails.responseBody": {
+    "file": "Devtools/Console/RequestDetailsPanel/index.js",
+    "texts": [
+      "Response Body"
+    ]
+  },
+  "devtools.requestDetails.noResponseData": {
+    "file": "Devtools/Console/RequestDetailsPanel/index.js",
+    "texts": [
+      "No response data"
+    ]
+  },
+  "devtools.requestDetails.networkLogs": {
+    "file": "Devtools/Console/RequestDetailsPanel/index.js",
+    "texts": [
+      "Network Logs"
+    ]
+  },
+  "devtools.requestDetails.noNetworkLogs": {
+    "file": "Devtools/Console/RequestDetailsPanel/index.js",
+    "texts": [
+      "No network logs available"
+    ]
+  },
+  "devtools.requestDetails.title": {
+    "file": "Devtools/Console/RequestDetailsPanel/index.js",
+    "texts": [
+      "Request Details"
+    ]
+  },
+  "devtools.requestDetails.closeDetailsPanel": {
+    "file": "Devtools/Console/RequestDetailsPanel/index.js",
+    "texts": [
+      "Close details panel"
+    ]
+  },
+  "devtools.errorDetails.errorInformation": {
+    "file": "Devtools/Console/ErrorDetailsPanel/index.js",
+    "texts": [
+      "Error Information"
+    ]
+  },
+  "devtools.errorDetails.message": {
+    "file": "Devtools/Console/ErrorDetailsPanel/index.js",
+    "texts": [
+      "Message:"
+    ]
+  },
+  "devtools.errorDetails.noMessage": {
+    "file": "Devtools/Console/ErrorDetailsPanel/index.js",
+    "texts": [
+      "No message available"
+    ]
+  },
+  "devtools.errorDetails.file": {
+    "file": "Devtools/Console/ErrorDetailsPanel/index.js",
+    "texts": [
+      "File:"
+    ]
+  },
+  "devtools.errorDetails.line": {
+    "file": "Devtools/Console/ErrorDetailsPanel/index.js",
+    "texts": [
+      "Line:"
+    ]
+  },
+  "devtools.errorDetails.timestamp": {
+    "file": "Devtools/Console/ErrorDetailsPanel/index.js",
+    "texts": [
+      "Timestamp:"
+    ]
+  },
+  "devtools.errorDetails.reportIssue": {
+    "file": "Devtools/Console/ErrorDetailsPanel/index.js",
+    "texts": [
+      "Report Issue"
+    ]
+  },
+  "devtools.errorDetails.reportHint": {
+    "file": "Devtools/Console/ErrorDetailsPanel/index.js",
+    "texts": [
+      "Found a bug? Help us improve Bruno by reporting this error on GitHub."
+    ]
+  },
+  "devtools.errorDetails.reportTooltip": {
+    "file": "Devtools/Console/ErrorDetailsPanel/index.js",
+    "texts": [
+      "Report this error on GitHub"
+    ]
+  },
+  "devtools.errorDetails.reportButton": {
+    "file": "Devtools/Console/ErrorDetailsPanel/index.js",
+    "texts": [
+      "Report Issue on GitHub"
+    ]
+  },
+  "devtools.errorDetails.noStackTrace": {
+    "file": "Devtools/Console/ErrorDetailsPanel/index.js",
+    "texts": [
+      "No stack trace"
+    ]
+  },
+  "devtools.errorDetails.stackTrace": {
+    "file": "Devtools/Console/ErrorDetailsPanel/index.js",
+    "texts": [
+      "Stack Trace"
+    ]
+  },
+  "devtools.errorDetails.noArguments": {
+    "file": "Devtools/Console/ErrorDetailsPanel/index.js",
+    "texts": [
+      "No arguments available"
+    ]
+  },
+  "devtools.errorDetails.argumentsFormatError": {
+    "file": "Devtools/Console/ErrorDetailsPanel/index.js",
+    "texts": [
+      "Arguments could not be formatted"
+    ]
+  },
+  "devtools.errorDetails.arguments": {
+    "file": "Devtools/Console/ErrorDetailsPanel/index.js",
+    "texts": [
+      "Arguments"
+    ]
+  },
+  "devtools.errorDetails.title": {
+    "file": "Devtools/Console/ErrorDetailsPanel/index.js",
+    "texts": [
+      "Error Details"
+    ]
+  },
+  "devtools.errorDetails.closeDetailsPanel": {
+    "file": "Devtools/Console/ErrorDetailsPanel/index.js",
+    "texts": [
+      "Close details panel"
+    ]
+  },
+  "devtools.debug.unknownError": {
+    "file": "Devtools/Console/DebugTab/index.js",
+    "texts": [
+      "Unknown error"
+    ]
+  },
+  "devtools.debug.emptyTitle": {
+    "file": "Devtools/Console/DebugTab/index.js",
+    "texts": [
+      "No errors"
+    ]
+  },
+  "devtools.debug.emptySubtitle": {
+    "file": "Devtools/Console/DebugTab/index.js",
+    "texts": [
+      "console.error() calls will appear here"
+    ]
+  },
+  "devtools.debug.colMessage": {
+    "file": "Devtools/Console/DebugTab/index.js",
+    "texts": [
+      "Message"
+    ]
+  },
+  "devtools.debug.colLocation": {
+    "file": "Devtools/Console/DebugTab/index.js",
+    "texts": [
+      "Location"
+    ]
+  },
+  "devtools.debug.colTime": {
+    "file": "Devtools/Console/DebugTab/index.js",
+    "texts": [
+      "Time"
+    ]
+  },
+  "devtools.terminal.sessions": {
+    "file": "Devtools/Console/TerminalTab/index.js",
+    "texts": [
+      "Sessions"
+    ]
+  },
+  "devtools.terminal.newSession": {
+    "file": "Devtools/Console/TerminalTab/index.js",
+    "texts": [
+      "New Terminal Session"
+    ]
+  },
+  "devtools.terminal.loadingSessions": {
+    "file": "Devtools/Console/TerminalTab/index.js",
+    "texts": [
+      "Loading sessions...",
+      "#888"
+    ]
+  },
+  "devtools.terminal.noActiveSessions": {
+    "file": "Devtools/Console/TerminalTab/index.js",
+    "texts": [
+      "No active sessions",
+      "#888"
+    ]
+  },
+  "devtools.terminal.noSessionSelected": {
+    "file": "Devtools/Console/TerminalTab/index.js",
+    "texts": [
+      "No terminal session selected"
+    ]
+  },
+  "devtools.terminal.homeDirectory": {
+    "file": "Devtools/Console/TerminalTab/SessionList.js",
+    "texts": [
+      "~ (Home Directory)"
+    ]
+  },
+  "devtools.performance.allProcesses": {
+    "file": "Devtools/Performance/index.js",
+    "texts": [
+      "Cumulative (All Processes)"
+    ]
+  },
+  "devtools.performance.systemResources": {
+    "file": "Devtools/Performance/index.js",
+    "texts": [
+      "System Resources"
+    ]
+  },
+  "devtools.performance.cpuUsage": {
+    "file": "Devtools/Performance/index.js",
+    "texts": [
+      "CPU Usage"
+    ]
+  },
+  "devtools.performance.totalCpu": {
+    "file": "Devtools/Performance/index.js",
+    "texts": [
+      "Total CPU usage"
+    ]
+  },
+  "devtools.performance.memoryUsage": {
+    "file": "Devtools/Performance/index.js",
+    "texts": [
+      "Memory Usage"
+    ]
+  },
+  "devtools.performance.totalMemory": {
+    "file": "Devtools/Performance/index.js",
+    "texts": [
+      "Total memory usage"
+    ]
+  },
+  "devtools.performance.uptime": {
+    "file": "Devtools/Performance/index.js",
+    "texts": [
+      "Uptime"
+    ]
+  },
+  "devtools.performance.processRuntime": {
+    "file": "Devtools/Performance/index.js",
+    "texts": [
+      "Process runtime"
+    ]
+  },
+  "devtools.performance.processId": {
+    "file": "Devtools/Performance/index.js",
+    "texts": [
+      "Process ID"
+    ]
+  },
+  "devtools.performance.mainProcessPid": {
+    "file": "Devtools/Performance/index.js",
+    "texts": [
+      "Main process PID"
+    ]
+  },
+  "devtools.performance.currentCpu": {
+    "file": "Devtools/Performance/index.js",
+    "texts": [
+      "Current CPU usage"
+    ]
+  },
+  "devtools.performance.currentMemory": {
+    "file": "Devtools/Performance/index.js",
+    "texts": [
+      "Current memory usage"
+    ]
+  },
+  "devtools.performance.processPid": {
+    "file": "Devtools/Performance/index.js",
+    "texts": [
+      "Process PID"
+    ]
+  },
+  "notifications.openAriaLabel": {
+    "file": "Notifications/index.js",
+    "texts": [
+      "Check all Notifications"
+    ]
+  },
+  "notifications.title": {
+    "file": "Notifications/NotificationsModal/index.js",
+    "texts": [
+      "Notifications"
+    ]
+  },
+  "notifications.resizeSidebarAriaLabel": {
+    "file": "Notifications/NotificationsModal/index.js",
+    "texts": [
+      "Resize sidebar"
+    ]
+  },
+  "notifications.allCaughtUp": {
+    "file": "Notifications/NotificationsModal/index.js",
+    "texts": [
+      "You are all caught up!"
+    ]
+  },
+  "notifications.empty": {
+    "file": "Notifications/NotificationsModal/NotificationList.js",
+    "texts": [
+      "No notifications to show."
+    ]
+  },
+  "notifications.selectToRead": {
+    "file": "Notifications/NotificationsModal/NotificationDetail.js",
+    "texts": [
+      "Select a notification to read more."
+    ]
+  },
+  "cookies.clearDomainSuccess": {
+    "file": "Cookies/index.js",
+    "texts": [
+      "Domain cookies cleared successfully"
+    ]
+  },
+  "cookies.clearDomainFailed": {
+    "file": "Cookies/index.js",
+    "texts": [
+      "Failed to clear domain cookies"
+    ]
+  },
+  "cookies.deleteSuccess": {
+    "file": "Cookies/index.js",
+    "texts": [
+      "Cookie deleted successfully"
+    ]
+  },
+  "cookies.deleteFailed": {
+    "file": "Cookies/index.js",
+    "texts": [
+      "Failed to delete cookie"
+    ]
+  },
+  "cookies.title": {
+    "file": "Cookies/index.js",
+    "texts": [
+      "Cookies",
+      "text-xs font-medium"
+    ]
+  },
+  "cookies.searchByDomain": {
+    "file": "Cookies/index.js",
+    "texts": [
+      "Search by domain"
+    ]
+  },
+  "cookies.addCookie": {
+    "file": "Cookies/index.js",
+    "texts": [
+      "Add Cookie"
+    ]
+  },
+  "cookies.noCookies": {
+    "file": "Cookies/index.js",
+    "texts": [
+      "No cookies found",
+      "text-lg font-medium mt-4"
+    ]
+  },
+  "cookies.emptyHint": {
+    "file": "Cookies/index.js",
+    "texts": [
+      "Add cookies to get started",
+      "empty-text mt-2"
+    ]
+  },
+  "cookies.noSearchResults": {
+    "file": "Cookies/index.js",
+    "texts": [
+      "No search results",
+      "text-lg font-medium mt-4"
+    ]
+  },
+  "cookies.tryDifferentSearch": {
+    "file": "Cookies/index.js",
+    "texts": [
+      "Try a different search term",
+      "empty-text mt-2"
+    ]
+  },
+  "cookies.colName": {
+    "file": "Cookies/index.js",
+    "texts": [
+      "Name",
+      "py-2 px-4 font-medium w-32"
+    ]
+  },
+  "cookies.colValue": {
+    "file": "Cookies/index.js",
+    "texts": [
+      "Value",
+      "py-2 px-4 font-medium w-52"
+    ]
+  },
+  "cookies.colPath": {
+    "file": "Cookies/index.js",
+    "texts": [
+      "Path",
+      "py-2 px-4 font-medium"
+    ]
+  },
+  "cookies.colExpires": {
+    "file": "Cookies/index.js",
+    "texts": [
+      "Expires",
+      "py-2 px-4 font-medium"
+    ]
+  },
+  "cookies.secure": {
+    "file": "Cookies/ModifyCookieModal/index.js",
+    "texts": [
+      "Secure"
+    ]
+  },
+  "cookies.httpOnly": {
+    "file": "Cookies/ModifyCookieModal/index.js",
+    "texts": [
+      "HTTP Only"
+    ]
+  },
+  "cookies.colActions": {
+    "file": "Cookies/index.js",
+    "texts": [
+      "Actions",
+      "py-2 px-4 font-medium text-right w-24"
+    ]
+  },
+  "cookies.keyRequired": {
+    "file": "Cookies/ModifyCookieModal/index.js",
+    "texts": [
+      "Key is required"
+    ]
+  },
+  "cookies.valueRequired": {
+    "file": "Cookies/ModifyCookieModal/index.js",
+    "texts": [
+      "Value is required"
+    ]
+  },
+  "cookies.domainRequired": {
+    "file": "Cookies/ModifyCookieModal/index.js",
+    "texts": [
+      "Domain is required"
+    ]
+  },
+  "cookies.expirationFuture": {
+    "file": "Cookies/ModifyCookieModal/index.js",
+    "texts": [
+      "Expiration date must be in the future"
+    ]
+  },
+  "cookies.modifyCookie": {
+    "file": "Cookies/ModifyCookieModal/index.js",
+    "texts": [
+      "Modify Cookie",
+      "Add Cookie"
+    ]
+  },
+  "cookies.modifySuccess": {
+    "file": "Cookies/ModifyCookieModal/index.js",
+    "texts": [
+      "Cookie modified successfully"
+    ]
+  },
+  "cookies.modifyFailed": {
+    "file": "Cookies/ModifyCookieModal/index.js",
+    "texts": [
+      "An error occurred while modifying cookie"
+    ]
+  },
+  "cookies.addSuccess": {
+    "file": "Cookies/ModifyCookieModal/index.js",
+    "texts": [
+      "Cookie added successfully"
+    ]
+  },
+  "cookies.addFailed": {
+    "file": "Cookies/ModifyCookieModal/index.js",
+    "texts": [
+      "An error occurred while adding cookie"
+    ]
+  },
+  "cookies.invalidCookieString": {
+    "file": "Cookies/ModifyCookieModal/index.js",
+    "texts": [
+      "Please enter a valid cookie string"
+    ]
+  },
+  "cookies.parseFailed": {
+    "file": "Cookies/ModifyCookieModal/index.js",
+    "texts": [
+      "An error occurred while parsing cookie string"
+    ]
+  },
+  "cookies.editRaw": {
+    "file": "Cookies/ModifyCookieModal/index.js",
+    "texts": [
+      "Edit Raw",
+      "font-normal mr-4 normal-case"
+    ]
+  },
+  "cookies.setCookieString": {
+    "file": "Cookies/ModifyCookieModal/index.js",
+    "texts": [
+      "Set-Cookie String"
+    ]
+  },
+  "cookies.immutableHint": {
+    "file": "Cookies/ModifyCookieModal/index.js",
+    "texts": [
+      "Key, Path, and Domain are immutable properties and cannot be modified for existing cookies"
+    ]
+  },
+  "cookies.fieldDomain": {
+    "file": "Cookies/ModifyCookieModal/index.js",
+    "texts": [
+      "*"
+    ]
+  },
+  "cookies.fieldPath": {
+    "file": "Cookies/ModifyCookieModal/index.js",
+    "texts": [
+      "Path",
+      "block mb-1"
+    ]
+  },
+  "cookies.fieldKey": {
+    "file": "Cookies/ModifyCookieModal/index.js",
+    "texts": [
+      "*"
+    ]
+  },
+  "cookies.fieldValue": {
+    "file": "Cookies/ModifyCookieModal/index.js",
+    "texts": [
+      "*"
+    ]
+  },
+  "cookies.expiration": {
+    "file": "Cookies/ModifyCookieModal/index.js",
+    "texts": [
+      "block mb-1"
+    ]
+  },
+  "app.skippedPaths.hideDetails": {
+    "file": "SkippedPathsWarning/index.js",
+    "texts": [
+      "Hide Details",
+      "View Details"
+    ]
+  },
+  "app.importIssues.copied": {
+    "file": "Toast/ImportIssuesToast/index.js",
+    "texts": [
+      "Copied to clipboard"
+    ]
+  },
+  "app.importIssues.copyFailed": {
+    "file": "Toast/ImportIssuesToast/index.js",
+    "texts": [
+      "Failed to copy to clipboard"
+    ]
+  },
+  "app.importIssues.issueDetailsCopied": {
+    "file": "Toast/ImportIssuesToast/index.js",
+    "texts": [
+      "Issue details copied ¡ª paste them into the GitHub issue body"
+    ]
+  },
+  "app.importIssues.closeToast": {
+    "file": "Toast/ImportIssuesToast/index.js",
+    "texts": [
+      "Close toast"
+    ]
+  },
+  "app.importIssues.hint": {
+    "file": "Toast/ImportIssuesToast/index.js",
+    "texts": [
+      "Open DevTools console to see which items failed and why."
+    ]
+  },
+  "app.importIssues.includeFailedData": {
+    "file": "Toast/ImportIssuesToast/index.js",
+    "texts": [
+      "Include failed request data"
+    ]
+  },
+  "app.importIssues.includeFailedDataDesc": {
+    "file": "Toast/ImportIssuesToast/index.js",
+    "texts": [
+      "Attaches the raw Postman request items that failed. May contain API keys, tokens, or internal URLs."
+    ]
+  },
+  "app.importIssues.urlTooLongWarning": {
+    "file": "Toast/ImportIssuesToast/index.js",
+    "texts": [
+      "Issue details are too long to embed in the URL. Clicking &quot;Report on GitHub&quot; will copy them to your clipboard ¡ª paste it once the GitHub issue page opens."
+    ]
+  },
+  "emptyAppState.title": {
+    "file": "EmptyAppState/index.js",
+    "texts": [
+      "No app yet"
+    ]
+  }
+}

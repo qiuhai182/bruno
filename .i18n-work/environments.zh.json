@@ -1,0 +1,206 @@
+{
+  "environments": {
+    "action": {
+      "copy": "复制",
+      "create": "创建",
+      "createDotEnvFile": "创建 .env 文件",
+      "createEnvironment": "创建环境",
+      "exportEnvironment": "导出环境",
+      "importEnvironment": "导入环境",
+      "rename": "重命名",
+      "saveAll": "全部保存",
+      "search": "搜索"
+    },
+    "activateEnvironment": "激活环境",
+    "activeEnvironment": "当前激活的环境",
+    "clearSearch": "清除搜索",
+    "copy": {
+      "defaultSuffix": " - 副本",
+      "title": "复制环境"
+    },
+    "create": {
+      "title": "创建环境"
+    },
+    "createGlobal": {
+      "title": "创建全局环境"
+    },
+    "delete": {
+      "confirmPrefix": "确定要删除",
+      "confirmSuffix": "？",
+      "title": "删除环境"
+    },
+    "dotEnv": {
+      "changesSaved": "更改已保存",
+      "confirmSuffix": "文件？",
+      "deleteFileTooltip": "删除 .env 文件",
+      "deleteTitle": "删除 {{filename}} 文件",
+      "deleteVariable": "删除变量",
+      "emptyDescription": "在下方添加一个变量，即可在此位置创建 .env 文件。",
+      "fixValidationErrors": "请先修复校验错误再保存",
+      "nameColumn": "名称",
+      "noFile": "无 .env 文件",
+      "rawSaveNotSupported": "原始视图不支持保存",
+      "rawView": "原始",
+      "reset": "重置",
+      "saveChangesError": "保存更改时发生错误",
+      "tableView": "表格",
+      "valueColumn": "值",
+      "viewModeAria": "视图模式"
+    },
+    "empty": {
+      "createEnvironment": "创建环境",
+      "importEnvironment": "导入环境",
+      "noDotEnvFiles": "无 .env 文件",
+      "noEnvironments": "暂无环境",
+      "noEnvironmentsLower": "暂无环境"
+    },
+    "error": {
+      "noFileSelected": "未选择文件"
+    },
+    "errors": {
+      "nameEmpty": "名称不能为空",
+      "nameInvalidChars": "名称包含无效字符。只能包含字母、数字、“-”、“_”、“.”，且不能以数字开头。"
+    },
+    "export": {
+      "collectionEnvironments": "集合环境",
+      "deselectAll": "全部不选",
+      "exportCount": "导出 {{num}} 个环境",
+      "exportOne": "导出 {{num}} 个环境",
+      "exported": "环境导出成功",
+      "exportedToFolder": "环境已成功导出到 bruno-{{type}}-environments 文件夹",
+      "exporting": "导出中...",
+      "failed": "导出环境失败",
+      "folder": "按文件夹分文件",
+      "folderEach": "每个环境导出为单独的 JSON 文件",
+      "format": "导出格式",
+      "globalEnvironments": "全局环境",
+      "inherits": "继承",
+      "location": "位置",
+      "noCollectionEnvironments": "暂无集合环境",
+      "noGlobalEnvironments": "暂无全局环境",
+      "selectAll": "全选",
+      "selectAtLeastOne": "请至少选择一个要导出的环境",
+      "selectLocation": "选择目标位置",
+      "selectLocationToast": "请先选择保存文件的位置",
+      "singleFile": "单个 JSON 文件",
+      "singleFileAll": "所有环境合并为一个 JSON 数组",
+      "singleObjectDesc": "导出为单个环境 JSON 对象",
+      "title": "导出环境"
+    },
+    "import": {
+      "couldNotBeRead": "无法读取",
+      "dropHere": "将环境文件拖放到此处",
+      "dropHint": "拖放 JSON 文件或点击浏览。支持 Bruno 和 Postman 两种格式。",
+      "failedCount": "{{num}} 个环境导入失败",
+      "filterByName": "按名称筛选",
+      "found": "个",
+      "groupAlreadyExists": "已存在",
+      "groupNew": "新增",
+      "import": "导入",
+      "importCount": "导入 ({{num}})",
+      "importFailed": "导入环境失败",
+      "importYourEnvironments": "导入你的环境",
+      "noMatches": "没有符合筛选条件的环境",
+      "noneSelected": "未选择要导入的环境",
+      "optionNew": "新建",
+      "optionNewTitle": "导入为新环境",
+      "optionReplace": "替换",
+      "optionReplaceTitle": "替换现有环境",
+      "partialSuccess": "已成功导入 {{imported}} 个环境，但有 {{failed}} 个失败。",
+      "selected": "已选择",
+      "successOne": "环境导入成功",
+      "successOther": "成功导入 {{num}} 个环境",
+      "title": "导入环境",
+      "titleGlobal": "导入全局环境",
+      "unknownFile": "未知",
+      "unreadableSkipped": "无法读取，将被跳过"
+    },
+    "inheritance": {
+      "circular": "循环继承：{{path}}",
+      "groupLabel": "继承变量自",
+      "missingParent": "引用的父环境不存在：{{name}}",
+      "pillLabel": "继承变量自"
+    },
+    "inheritedFrom": "继承自 {{name}}",
+    "inheritedSection": "继承的{{tab}}",
+    "label": {
+      "name": "环境名称",
+      "newName": "新环境名称"
+    },
+    "namePlaceholder": "环境名称...",
+    "noChangesToSave": "没有需要保存的更改",
+    "noResultsFor": "未找到与“{{query}}”匹配的结果",
+    "rename": {
+      "title": "重命名环境"
+    },
+    "saving": "保存中...",
+    "searchPlaceholder": "搜索环境...",
+    "searchSecretsPlaceholder": "搜索密钥...",
+    "searchVariablesPlaceholder": "搜索变量...",
+    "section": {
+      "dotEnvFiles": ".env 文件",
+      "environments": "环境"
+    },
+    "selector": {
+      "configure": "配置",
+      "create": "创建",
+      "environmentChangedTo": "环境已切换为 {{name}}",
+      "import": "导入",
+      "noEnvironment": "无环境",
+      "noEnvironmentsActive": "当前没有激活的环境",
+      "noResults": "未找到结果",
+      "readyToGetStarted": "准备好开始了吗？",
+      "searchPlaceholder": "搜索环境...",
+      "selectError": "选择环境时发生错误"
+    },
+    "tab": {
+      "secrets": "密钥",
+      "variables": "变量"
+    },
+    "table": {
+      "description": "描述"
+    },
+    "toast": {
+      "activateFailed": "激活环境失败",
+      "activated": "环境“{{name}}”已激活",
+      "createError": "创建环境时发生错误",
+      "createErrorTypo": "创建环境时发生错误",
+      "created": "环境创建成功！",
+      "createdInCollection": "环境已在集合中创建",
+      "deleteError": "删除环境时发生错误",
+      "deleted": "环境删除成功",
+      "dotEnvCreateFailed": "创建 .env 文件失败",
+      "dotEnvCreated": "{{name}} 文件创建成功！",
+      "dotEnvDeleteFailed": "删除 .env 文件失败",
+      "dotEnvDeleted": "{{name}} 文件删除成功！",
+      "globalCreated": "全局环境创建成功！",
+      "inheritingFrom": "正在继承 {{name}} 的变量",
+      "renameError": "重命名环境时发生错误",
+      "renameSuccess": "环境重命名成功！",
+      "renamed": "环境重命名成功",
+      "saveInheritError": "保存继承环境时发生错误",
+      "stoppedInheriting": "已停止继承变量"
+    },
+    "unsaved": {
+      "body": "{{label}}中存在未保存的更改。",
+      "collectionSettings": "集合环境设置",
+      "dontSave": "不保存",
+      "dotEnvFile": ".env 文件",
+      "globalSettings": "全局环境设置",
+      "holdOn": "请稍等..."
+    },
+    "validation": {
+      "alreadyExists": "环境已存在",
+      "dotEnvPrefix": "文件名必须以 .env 开头",
+      "fileAlreadyExists": "文件已存在",
+      "globalAlreadyExists": "全局环境已存在",
+      "invalidFileName": "文件名无效",
+      "maxFiftyLower": "长度不能超过 50 个字符",
+      "maxTwoFiftyFive": "长度不能超过 255 个字符",
+      "minOneChar": "长度至少为 1 个字符",
+      "minOneCharLower": "长度至少为 1 个字符",
+      "nameRequired": "名称必填",
+      "nameRequiredLower": "名称必填"
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import { useDragLayer } from 'react-dnd';
+import { useTranslation } from 'react-i18next';
 import {
   IconFile,
   IconFolder,
@@ -21,7 +22,7 @@ function getItemStyles({ x, y }) {
 }
 
 // Builds the "N folders, M requests and K apps"-style summary for a multi-item drag.
-function getMultiDragLabel(multiSelectedItems) {
+function getMultiDragLabel(multiSelectedItems, t) {
   const itemsCount = multiSelectedItems.reduce(
     (acc, i) => {
       if (i.type === 'folder') {
@@ -43,12 +44,13 @@ function getMultiDragLabel(multiSelectedItems) {
   for (const key of keyOrder) {
     const value = itemsCount[key];
     if (value > 0) {
-      parts.push(`${value} ${key}${value > 1 ? 's' : ''}`);
+      parts.push(value === 1 ? t(`sidebar.dragPreview.${key}One`, { count: value }) : t(`sidebar.dragPreview.${key}Many`, { count: value }));
     }
   }
 
-  if (parts.length === 0) return `${multiSelectedItems.length} items`;
-  return parts.join(', ').replace(/, ([^,]*)$/, ' and $1');
+  if (parts.length === 0) return t('sidebar.dragPreview.items', { count: multiSelectedItems.length });
+  const and = ` ${t('sidebar.dragPreview.and')} `;
+  return parts.join(', ').replace(/, ([^,]*)$/, `${and}$1`);
 }
 
 function getSingleDragIcon(itemType, itemData) {
@@ -59,6 +61,7 @@ function getSingleDragIcon(itemType, itemData) {
 }
 
 export const CollectionItemDragPreview = () => {
+  const { t } = useTranslation();
   const {
     item,
     itemType,
@@ -84,10 +87,10 @@ export const CollectionItemDragPreview = () => {
   let Icon = IconFile;
 
   if (multiCount > 1) {
-    label = getMultiDragLabel(item.multiSelectedItems);
+    label = getMultiDragLabel(item.multiSelectedItems, t);
     Icon = null;
   } else {
-    // A drag payload for exactly one multi-selected item still carries multiSelectedItems —
+    // A drag payload for exactly one multi-selected item still carries multiSelectedItems ——
     // resolve the label/icon from that entry rather than the (possibly stale) top-level item.
     const currentItemData = multiCount === 1 ? item.multiSelectedItems[0] : item;
     const currentItemType = multiCount === 1 && currentItemData.type ? currentItemData.type : itemType;

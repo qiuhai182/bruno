@@ -1,0 +1,155 @@
+===== Collections/Collection/ChangeCollectionVersion/index.js =====
+11: const CollectionNotFound = ({ onClose }) => (
+17: <span>Collection not found. It may have been deleted or is no longer available.</span>
+57: return <CollectionNotFound onClose={onClose} />;
+===== Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js =====
+4: import { ignoreFolder, closeTabs } from 'providers/ReduxStore/slices/collections/actions';
+8: const IgnoreCollectionItem = ({ onClose, item, collectionUid }) => {
+15: dispatch(ignoreFolder(item.uid, collectionUid))
+19: toast.success('Folder ignored');
+31: title="Ignore Folder"
+32: confirmText="Ignore"
+42: <span className="font-medium">ignore</span>
+59: export default IgnoreCollectionItem;
+===== Collections/Collection/GenerateDocumentation/Advanced/DocsTagList/index.jsx =====
+15: placeholder = 'e.g., smoke, regression'
+124: placeholder={placeholder}
+===== Collections/Collection/GenerateDocumentation/Advanced/index.jsx =====
+9: const TAGS_HINT = 'Tags are labels on requests (e.g. smoke, WIP). Manage tags in Request › Settings';
+12: { 'value': 'all', 'label': 'All requests', 'className': 'seg-option', 'data-testid': 'docs-requests-all' },
+18: Filter by Tags
+19: <span className="seg-hint" data-tooltip-id="docs-tags-hint" data-tooltip-content={TAGS_HINT}>
+28: const Advanced = ({
+42: <StyledWrapper className="advanced">
+45: className="advanced-toggle"
+48: data-testid="docs-advanced-toggle"
+50: <IconChevronRight className="advanced-chevron" size={16} strokeWidth={1.36} aria-hidden="true" />
+51: <span className="advanced-label">Advanced</span>
+54: <div className={`advanced-collapse ${open ? 'open' : ''}`} aria-hidden={!open} inert={!open}>
+55: <div className="advanced-collapse-inner">
+56: <div className="advanced-body">
+108: export default Advanced;
+===== Collections/Collection/GenerateDocumentation/index.js =====
+14: import EnvironmentSelectionList from './EnvironmentSelectionList';
+22: const FEATURES = [
+23: 'Standalone HTML file - no server required',
+24: 'Interactive API playground',
+25: 'Host on any static file server'
+54: const environments = useMemo(() => collection?.environments || [], [collection?.environments]);
+56: // Track *selected* environments, starting empty, so nothing is included by default.
+59: () => environments.filter((env) => selectedEnvUidsSet.has(env.uid)).map((env) => env.uid),
+60: [environments, selectedEnvUidsSet]
+76: (selectAll) => setSelectedEnvUidsSet(selectAll ? new Set(environments.map((env) => env.uid)) : new Set()),
+77: [environments]
+109: collectionCopy.environments = (collectionCopy.environments || []).filter((env) => selectedEnvUidsSet.has(env.uid));
+164: Generate a standalone HTML file that can be hosted anywhere or shared with your team.
+167: <ul className="features flex flex-col list-none gap-2 p-0 mb-4">
+168: {FEATURES.map((feature) => (
+177: <CollectionVersionInfo name={collection.name} version={currentVersion} folderCount={folderCount} requestCount={requestCount} environmentCount={environments.length} />
+178: {environments.length > 0 && (
+182: <EnvironmentSelectionList
+183: title="Environments to include"
+184: environments={environments}
+===== Collections/Collection/GenerateDocumentation/EnvironmentSelectionList/index.js =====
+6: // Show at most 6 environments at a glance; the list virtualises and scrolls beyond
+7: // that, so it stays performant even for collections with hundreds of environments
+16: * A selectable, virtualised list of collection environments (checkbox + color dot + name)
+23: const EnvironmentSelectionList = ({
+24: environments = [],
+28: title = 'Environments'
+30: // O(1) membership checks regardless of how many environments are rendered.
+34: () => environments.reduce((count, env) => (selectedSet.has(env?.uid) ? count + 1 : count), 0),
+35: [environments, selectedSet]
+37: const allSelected = environments.length > 0 && selectedCount === environments.length;
+68: if (!environments.length) {
+73: const visibleRows = Math.min(environments.length, MAX_VISIBLE_ROWS);
+84: ({selectedCount}/{environments.length} selected)
+104: data={environments}
+114: export default memo(EnvironmentSelectionList);
+===== ImportCollection/FullscreenLoader/index.js =====
+4: // Messages to cycle through while loading
+5: const loadingMessages = [
+13: const FullscreenLoader = ({ isLoading }) => {
+14: const [loadingMessage, setLoadingMessage] = useState('');
+17: if (!isLoading) return;
+21: messageIndex = (messageIndex + 1) % loadingMessages.length;
+22: setLoadingMessage(loadingMessages[messageIndex]);
+25: setLoadingMessage(loadingMessages[0]);
+28: }, [isLoading]);
+34: <h3 className="text-lg font-medium text-zinc-900 dark:text-zinc-50 mb-2">{loadingMessage}</h3>
+===== Collections/Collection/ExportCollection/ExportToPostman/index.js =====
+16: const FILE_EXISTS_ERROR = 'Name already exists in this location.';
+50: const fileExists = formik.errors.fileName === FILE_EXISTS_ERROR;
+64: // the filename already exists, surface it as a error message
+65: if (!overwrite && message.includes('already exists')) {
+115: confirmText={fileExists ? 'Replace' : 'Export'}
+116: confirmButtonColor={fileExists ? 'danger' : 'primary'}
+118: handleConfirm={() => (fileExists ? handleReplace() : formik.handleSubmit())}
+===== Collections/Collection/CollectionItem/GenerateCodeItem/index.js =====
+22: const GenerateCodeItem = ({ collectionUid, item, onClose, isExample = false, exampleUid = null }) => {
+44: // Function to handle request example data
+45: const getExampleRequestData = () => {
+46: if (!isExample || !exampleUid) {
+50: // Find the specific example - check both draft and non-draft examples
+51: const examples = item.draft ? get(item, 'draft.examples', []) : get(item, 'examples', []);
+52: const example = examples.find((e) => e.uid === exampleUid);
+54: if (!example) {
+58: // Use example request data
+59: const requestUrl = get(example, 'request.url');
+60: const requestParams = get(example, 'request.params');
+61: const requestData = get(example, 'request');
+71: const requestData = isExample ? getExampleRequestData() : getNormalRequestData();
+100: // requestData.request contains either the normal request or example request data.
+111: // Update modal title based on mode
+112: const modalTitle = isExample ? `Generate Code - ${get(item, 'draft.examples', []).find((e) => e.uid === exampleUid)?.name || 'Example'}` : 'Generate Code';
+115: <Modal size="lg" title={modalTitle} handleCancel={onClose} hideFooter={true}>
+===== ImportCollectionLocation/index.js =====
+59: const convertCollection = async (format, rawData, { groupingType, collectionFormat, preserveScripts } = {}) => {
+66: collection = convertOpenapiToBruno(rawData, { groupBy: groupingType, collectionFormat });
+102: const groupingOptions = [
+103: { value: 'tags', label: 'Tags', description: 'Group requests by OpenAPI/Swagger tags', testId: 'grouping-option-tags' },
+104: { value: 'path', label: 'Paths', description: 'Group requests by URL path structure', testId: 'grouping-option-path' }
+110: const [groupingType, setGroupingType] = useState('tags');
+148: const { collection: convertedCollection, issues } = await convertCollection(format, rawData, { groupingType, collectionFormat, preserveScripts });
+166: groupBy: groupingType,
+219: const GroupingDropdownIcon = forwardRef((props, ref) => {
+220: const selectedOption = groupingOptions.find((option) => option.value === groupingType);
+222: <div ref={ref} className="flex items-center justify-between w-full current-group" data-testid="grouping-dropdown">
+386: <label htmlFor="groupingType" className="block font-medium">
+390: Select whether to create folders according to the spec's paths or tags.
+394: <Dropdown onCreate={onDropdownCreate} icon={<GroupingDropdownIcon />} placement="bottom-start">
+395: {groupingOptions.map((option) => (
+402: setGroupingType(option.value);
+===== Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js =====
+3: import { flattenItems, isItemARequest, hasRequestChanges, findCollectionByUid } from 'utils/collections';
+5: import { saveRequest, saveMultipleRequests, moveCollectionToWorkspace } from 'providers/ReduxStore/slices/collections/actions';
+6: import { deleteRequestDraft } from 'providers/ReduxStore/slices/collections';
+13: const MAX_UNSAVED_REQUESTS_TO_SHOW = 5;
+27: ?.filter((item) => isItemARequest(item) && hasRequestChanges(item) && !item.isTransient)
+40: ?.filter((item) => isItemARequest(item) && hasRequestChanges(item) && item.isTransient)
+71: toast.error('Please save or discard transient requests first');
+77: dispatch(saveMultipleRequests(currentDrafts))
+80: toast.error('Failed to save requests!');
+95: dispatch(deleteRequestDraft({
+105: dispatch(saveRequest(draft.uid, collectionUid));
+128: You have unsaved changes in <span className="font-medium">{allDrafts.length}</span>{' '}
+129: {pluralizeWord('request', allDrafts.length)}.
+132: {/* Regular (saved) requests with changes */}
+136: Saved {pluralizeWord('Request', currentDrafts.length)} ({currentDrafts.length})
+139: {currentDrafts.slice(0, MAX_UNSAVED_REQUESTS_TO_SHOW).map((item) => {
+147: {currentDrafts.length > MAX_UNSAVED_REQUESTS_TO_SHOW && (
+149: ...{currentDrafts.length - MAX_UNSAVED_REQUESTS_TO_SHOW} additional{' '}
+150: {pluralizeWord('request', currentDrafts.length - MAX_UNSAVED_REQUESTS_TO_SHOW)} not shown
+156: {/* Transient (unsaved) requests */}
+160: Transient {pluralizeWord('Request', currentTransientDrafts.length)} ({currentTransientDrafts.length})
+163: These requests need to be saved individually before moving the collection.
+205: title={currentTransientDrafts.length > 0 ? 'Please save or discard transient requests first' : ''}
+===== Collections/Collection/RemoveCollections/index.js =====
+8: import ConfirmCollectionCloseDrafts from './ConfirmCollectionCloseDrafts';
+33: const onConfirm = () => {
+66: // If there are drafts, show the draft confirmation modal
+68: return <ConfirmCollectionCloseDrafts onClose={onClose} collectionUids={targetUids} />;
+73: // Otherwise, show the standard remove confirmation modal
+80: confirmText={isMultiple ? 'Remove All' : 'Remove'}
+81: confirmButtonColor="danger"
+82: handleConfirm={onConfirm}

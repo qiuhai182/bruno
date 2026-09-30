@@ -3,12 +3,14 @@ import { IconArrowUpRight } from '@tabler/icons';
 import { valueToString } from '@usebruno/common/utils';
 import SecretEyeButton from 'components/MultiLineEditor/SecretEyeButton';
 import { useEnvironmentSelection } from 'hooks/useEnvironmentSelection';
+import { useTranslation } from 'react-i18next';
 import { EnabledCell, NameCell, ValueCell, DescriptionCell, SourceCell } from './StyledWrapper';
 
 const MASK_CHARACTER = '*';
 const maskValue = (value) => value.replace(/[^\n]/g, MASK_CHARACTER);
 
 const InheritedVariableRow = ({ variable, columnWidths }) => {
+  const { t } = useTranslation();
   const [masked, setMasked] = useState(true);
   const { environments, onSelect } = useEnvironmentSelection();
   const value = valueToString(variable.value, 2);
@@ -51,7 +53,7 @@ const InheritedVariableRow = ({ variable, columnWidths }) => {
         <button
           type="button"
           className="inherited-source"
-          title={`Inherited from ${variable.inheritedFrom.name}`}
+          title={t('environments.inheritedFrom', { name: variable.inheritedFrom.name })}
           data-testid="inherited-source"
           onClick={openInheritedEnvironment}
         >

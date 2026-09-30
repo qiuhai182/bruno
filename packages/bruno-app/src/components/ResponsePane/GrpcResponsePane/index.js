@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import find from 'lodash/find';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { updateResponsePaneTab } from 'providers/ReduxStore/slices/tabs';
 import Overlay from '../Overlay';
 import Placeholder from '../Placeholder';
@@ -22,6 +23,7 @@ import ResponseLayoutToggle from '../ResponseLayoutToggle';
 import ResponsiveTabs from 'ui/ResponsiveTabs';
 
 const GrpcResponsePane = ({ item, collection }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const tabs = useSelector((state) => state.tabs.tabs);
   const activeTabUid = useSelector((state) => state.tabs.activeTabUid);
@@ -61,7 +63,7 @@ const GrpcResponsePane = ({ item, collection }) => {
   const allTabs = [
     {
       key: 'response',
-      label: 'Response',
+      label: t('responsePane.tabs.response'),
       indicator:
         responsesCount > 0 ? (
           <sup data-testid="grpc-tab-response-count" className="ml-1 font-medium">
@@ -71,17 +73,17 @@ const GrpcResponsePane = ({ item, collection }) => {
     },
     {
       key: 'headers',
-      label: 'Metadata',
+      label: t('responsePane.grpc.metadata'),
       indicator: metadataCount > 0 ? <sup className="ml-1 font-medium">{metadataCount}</sup> : null
     },
     {
       key: 'trailers',
-      label: 'Trailers',
+      label: t('responsePane.grpc.trailers'),
       indicator: trailersCount > 0 ? <sup className="ml-1 font-medium">{trailersCount}</sup> : null
     },
     {
       key: 'timeline',
-      label: 'Timeline',
+      label: t('responsePane.tabs.timeline'),
       indicator: null
     },
     {
@@ -109,7 +111,7 @@ const GrpcResponsePane = ({ item, collection }) => {
         return <GrpcTestResults key={item.uid} item={item} sections={testSections} />;
       }
       default: {
-        return <div>404 | Not found</div>;
+        return <div>{t('responsePane.notFound')}</div>;
       }
     }
   };
@@ -148,12 +150,12 @@ const GrpcResponsePane = ({ item, collection }) => {
   }
 
   if (!activeTabUid) {
-    return <div>Something went wrong</div>;
+    return <div>{t('responsePane.somethingWentWrong')}</div>;
   }
 
   const focusedTab = find(tabs, (t) => t.uid === activeTabUid);
   if (!focusedTab || !focusedTab.uid || !focusedTab.responsePaneTab) {
-    return <div className="pb-4 px-4">An error occurred!</div>;
+    return <div className="pb-4 px-4">{t('responsePane.errorOccurred')}</div>;
   }
 
   const rightContent = !isLoading ? (

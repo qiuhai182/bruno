@@ -1,19 +1,19 @@
 const inputsConfig = [
   {
     key: 'authorizationUrl',
-    label: 'Authorization URL'
+    labelKey: 'requestPane.oauth2.authorizationUrl'
   },
   {
     key: 'clientId',
-    label: 'Client ID'
+    labelKey: 'requestPane.oauth2.clientId'
   },
   {
     key: 'scope',
-    label: 'Scope'
+    labelKey: 'requestPane.oauth2.scope'
   },
   {
     key: 'state',
-    label: 'State'
+    labelKey: 'requestPane.oauth2.state'
   }
 ];
 

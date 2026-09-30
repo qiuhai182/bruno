@@ -1,29 +1,29 @@
 const inputsConfig = [
   {
     key: 'authorizationUrl',
-    label: 'Authorization URL'
+    labelKey: 'requestPane.oauth2.authorizationUrl'
   },
   {
     key: 'accessTokenUrl',
-    label: 'Access Token URL'
+    labelKey: 'requestPane.oauth2.accessTokenUrl'
   },
   {
     key: 'clientId',
-    label: 'Client ID'
+    labelKey: 'requestPane.oauth2.clientId'
   },
   {
     key: 'clientSecret',
-    label: 'Client Secret',
+    labelKey: 'requestPane.oauth2.clientSecret',
     isSecret: true
   },
   {
     key: 'scope',
-    label: 'Scope'
+    labelKey: 'requestPane.oauth2.scope'
   },
   {
     key: 'state',
-    label: 'State',
-    tooltip: 'If left empty, Bruno automatically generates a secure random value to help protect against CSRF attacks.'
+    labelKey: 'requestPane.oauth2.state',
+    tooltipKey: 'requestPane.oauth2.stateTooltip'
   }
 ];
 

@@ -3,9 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import toast from 'react-hot-toast';
 import Modal from 'components/Modal';
 import { disconnectCollectionFromGit } from 'providers/ReduxStore/slices/workspaces/actions';
+import { useTranslation } from 'react-i18next';
 
 const RemoveGitRemote = ({ collectionPath, collectionName, remoteUrl, onClose }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const activeWorkspaceUid = useSelector((state) => state.workspaces.activeWorkspaceUid);
 
   const handleConfirm = () => {
@@ -16,7 +18,7 @@ const RemoveGitRemote = ({ collectionPath, collectionName, remoteUrl, onClose })
       })
     )
       .then(() => {
-        toast.success('Git remote removed');
+        toast.success(t('workspace.git.toast.removed'));
         onClose();
       })
       .catch(() => {
@@ -27,26 +29,27 @@ const RemoveGitRemote = ({ collectionPath, collectionName, remoteUrl, onClose })
   return (
     <Modal
       size="md"
-      title="Remove Git Remote"
-      confirmText="Remove"
+      title={t('workspace.git.removeTitle')}
+      confirmText={t('workspace.git.removeAction')}
       confirmButtonColor="primary"
       handleConfirm={handleConfirm}
       handleCancel={onClose}
     >
       <div className="text-sm leading-relaxed break-words">
         <p className="m-0">
-          Disconnect{' '}
+          {t('workspace.git.disconnectPrefix')}{' '}
           <span className="font-medium break-words" title={collectionName}>
             {collectionName}
           </span>{' '}
-          from its Git remote?
+          {t('workspace.git.disconnectSuffix')}
         </p>
         {remoteUrl ? (
           <p className="mt-2 mb-0 font-mono text-xs text-muted break-all">{remoteUrl}</p>
         ) : null}
         <p className="mt-3 mb-0 text-xs text-muted">
-          This only removes the remote URL from <span className="font-mono">workspace.yml</span>. Local collection files
-          and any <span className="font-mono">.git</span> folder are left untouched.
+          {t('workspace.git.removeNotePrefix')} <span className="font-mono">workspace.yml</span>
+          {t('workspace.git.removeNoteMid')} <span className="font-mono">.git</span>{' '}
+          {t('workspace.git.removeNoteSuffix')}
         </p>
       </div>
     </Modal>

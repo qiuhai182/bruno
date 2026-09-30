@@ -10,8 +10,10 @@ import { sendRequest, saveRequest } from 'providers/ReduxStore/slices/collection
 import StyledWrapper from './StyledWrapper';
 import FileBody from '../FileBody/index';
 import { usePersistedState } from 'hooks/usePersistedState';
+import { useTranslation } from 'react-i18next';
 
 const RequestBody = ({ item, collection }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const editorRef = useRef(null);
   const body = item.draft ? get(item, 'draft.request.body') : get(item, 'request.body');
@@ -83,6 +85,6 @@ const RequestBody = ({ item, collection }) => {
     return <MultipartFormParams item={item} collection={collection} />;
   }
 
-  return <StyledWrapper className="w-full">No Body</StyledWrapper>;
+  return <StyledWrapper className="w-full">{t('requestPane.body.noBody')}</StyledWrapper>;
 };
 export default RequestBody;

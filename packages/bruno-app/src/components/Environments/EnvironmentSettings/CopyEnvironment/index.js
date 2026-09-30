@@ -5,29 +5,31 @@ import { copyEnvironment } from 'providers/ReduxStore/slices/collections/actions
 import { useEffect, useRef } from 'react';
 import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import * as Yup from 'yup';
 
 const CopyEnvironment = ({ collection, environment, onClose }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const inputRef = useRef();
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: {
-      name: environment.name + ' - Copy'
+      name: `${environment.name} - ${t('environments.copy.defaultSuffix')}`
     },
     validationSchema: Yup.object({
       name: Yup.string()
-        .min(1, 'must be at least 1 character')
-        .max(50, 'must be 50 characters or less')
-        .required('name is required')
+        .min(1, t('environments.validation.minOneCharLower'))
+        .max(50, t('environments.validation.maxFiftyLower'))
+        .required(t('environments.validation.nameRequiredLower'))
     }),
     onSubmit: (values) => {
       dispatch(copyEnvironment(values.name, environment.uid, collection.uid))
         .then(() => {
-          toast.success('Environment created in collection');
+          toast.success(t('environments.toast.createdInCollection'));
           onClose();
         })
-        .catch(() => toast.error('An error occurred while created the environment'));
+        .catch(() => toast.error(t('environments.toast.createErrorTypo')));
     }
   });
 
@@ -43,11 +45,11 @@ const CopyEnvironment = ({ collection, environment, onClose }) => {
 
   return (
     <Portal>
-      <Modal size="sm" title="Copy Environment" confirmText="Copy" handleConfirm={onSubmit} handleCancel={onClose}>
+      <Modal size="sm" title={t('environments.copy.title')} confirmText={t('environments.action.copy')} handleConfirm={onSubmit} handleCancel={onClose}>
         <form className="bruno-form" onSubmit={(e) => e.preventDefault()}>
           <div>
             <label htmlFor="name" className="block font-medium">
-              New Environment Name
+              {t('environments.label.newName')}
             </label>
             <input
               id="environment-name"

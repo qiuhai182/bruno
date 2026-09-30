@@ -1,5 +1,6 @@
 import React, { forwardRef, useImperativeHandle, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { savePreferences } from 'providers/ReduxStore/slices/app';
 import StyledWrapper from './StyledWrapper';
 import { IconLayoutColumns, IconLayoutRows } from '@tabler/icons';
@@ -72,6 +73,7 @@ export const useResponseLayoutToggle = () => {
 };
 
 const ResponseLayoutToggle = forwardRef(({ children }, ref) => {
+  const { t } = useTranslation();
   const { orientation, toggleOrientation } = useResponseLayoutToggle();
   const elementRef = useRef(null);
 
@@ -80,7 +82,7 @@ const ResponseLayoutToggle = forwardRef(({ children }, ref) => {
     isDisabled: false
   }), []);
 
-  const title = !children ? (orientation === 'horizontal' ? 'Switch to vertical layout' : 'Switch to horizontal layout') : null;
+  const title = !children ? (orientation === 'horizontal' ? t('responsePane.layout.vertical') : t('responsePane.layout.horizontal')) : null;
 
   return (
     <div

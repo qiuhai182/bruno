@@ -9,8 +9,10 @@ import StyledWrapper from './StyledWrapper';
 import FilePickerEditor from 'components/FilePickerEditor/index';
 import SingleLineEditor from 'components/SingleLineEditor/index';
 import MultiLineEditor from 'components/MultiLineEditor';
+import { useTranslation } from 'react-i18next';
 
 const FileBody = ({ item, collection }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const { storedTheme } = useTheme();
   const params = item.draft ? get(item, 'draft.request.body.file') : get(item, 'request.body.file');
@@ -73,18 +75,18 @@ const FileBody = ({ item, collection }) => {
         <thead>
           <tr>
             <td>
-              <div title="File" className="flex items-center justify-start">File</div>
+              <div title={t('requestPane.file.file')} className="flex items-center justify-start">{t('requestPane.file.file')}</div>
             </td>
             <td>
               <div title="Content-Type" className="flex items-center justify-start">Content-Type</div>
             </td>
             <td>
-              <div title="Selected" className="flex items-center justify-start min-w-0">
-                <span className="truncate">Selected</span>
+              <div title={t('requestPane.file.selected')} className="flex items-center justify-start min-w-0">
+                <span className="truncate">{t('requestPane.file.selected')}</span>
               </div>
             </td>
             <td>
-              <div title="Description" className="flex items-center justify-start">Description</div>
+              <div title={t('requestPane.common.description')} className="flex items-center justify-start">{t('requestPane.common.description')}</div>
             </td>
             <td></td>
           </tr>
@@ -117,7 +119,7 @@ const FileBody = ({ item, collection }) => {
                         className="flex items-center justify-center"
                         onSave={onSave}
                         theme={storedTheme}
-                        placeholder="Auto"
+                        placeholder={t('requestPane.common.auto')}
                         value={param.contentType}
                         onChange={(newValue) =>
                           handleParamChange(
@@ -164,7 +166,7 @@ const FileBody = ({ item, collection }) => {
                         onRun={handleRun}
                         collection={collection}
                         item={item}
-                        placeholder={!param.filePath && !param.description ? 'Description' : ''}
+                        placeholder={!param.filePath && !param.description ? t('requestPane.common.description') : ''}
                       />
                     </td>
                     <td>
@@ -182,7 +184,7 @@ const FileBody = ({ item, collection }) => {
       </table>
       <div>
         <button className="btn-add-param text-link pr-2 pt-3 select-none" onClick={addFile}>
-          + Add File
+          {t('requestPane.file.addFile')}
         </button>
       </div>
     </StyledWrapper>

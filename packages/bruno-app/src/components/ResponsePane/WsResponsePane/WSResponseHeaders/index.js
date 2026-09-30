@@ -1,7 +1,9 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import StyledWrapper from './StyledWrapper';
 
 const WSResponseHeaders = ({ response }) => {
+  const { t } = useTranslation();
   const formatHeaders = (headers) => {
     if (!headers) return [];
     if (Array.isArray(headers)) return headers;
@@ -15,8 +17,8 @@ const WSResponseHeaders = ({ response }) => {
       <table>
         <thead>
           <tr>
-            <td>Name</td>
-            <td>Value</td>
+            <td>{t('responsePane.name')}</td>
+            <td>{t('responsePane.value')}</td>
           </tr>
         </thead>
         <tbody>

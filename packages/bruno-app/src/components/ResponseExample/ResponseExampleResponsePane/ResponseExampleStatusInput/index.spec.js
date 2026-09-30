@@ -10,6 +10,10 @@ import { ThemeProvider } from 'styled-components';
 
 const mockDispatch = jest.fn();
 
+jest.mock('react-i18next', () => ({
+  useTranslation: () => ({ t: (key) => key })
+}));
+
 jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'),
   useDispatch: () => mockDispatch
@@ -72,7 +76,7 @@ describe('ResponseExampleStatusInput', () => {
 
     const select = screen.getByTestId('response-status-input');
     expect(select).toHaveValue('');
-    expect(screen.getByRole('option', { name: 'Select status' })).toBeInTheDocument();
+    expect(screen.getByRole('option', { name: 'collection.example.selectStatus' })).toBeInTheDocument();
   });
 
   it('keeps a custom statusText label for a known status code', () => {

@@ -12,8 +12,10 @@ import { clearSelectedError } from 'providers/ReduxStore/slices/logs';
 import { useApp } from 'providers/App';
 import platformLib from 'platform';
 import StyledWrapper from './StyledWrapper';
+import { useTranslation } from 'react-i18next';
 
 const ErrorInfoTab = ({ error }) => {
+  const { t } = useTranslation();
   const { version } = useApp();
 
   const formatTimestamp = (timestamp) => {
@@ -78,45 +80,45 @@ ${error.args ? error.args.map((arg, index) => {
   return (
     <div className="tab-content">
       <div className="section">
-        <h4>Error Information</h4>
+        <h4>{t('devtools.errorDetails.errorInformation')}</h4>
         <div className="info-grid">
           <div className="info-item">
-            <label>Message:</label>
-            <span className="error-message-full">{error.message || 'No message available'}</span>
+            <label>{t('devtools.errorDetails.message')}</label>
+            <span className="error-message-full">{error.message || t('devtools.errorDetails.noMessage')}</span>
           </div>
 
           {error.filename && (
             <div className="info-item">
-              <label>File:</label>
+              <label>{t('devtools.errorDetails.file')}</label>
               <span className="file-path">{error.filename}</span>
             </div>
           )}
 
           {error.lineno && (
             <div className="info-item">
-              <label>Line:</label>
+              <label>{t('devtools.errorDetails.line')}</label>
               <span>{error.lineno}{error.colno ? `:${error.colno}` : ''}</span>
             </div>
           )}
 
           <div className="info-item">
-            <label>Timestamp:</label>
+            <label>{t('devtools.errorDetails.timestamp')}</label>
             <span>{formatTimestamp(error.timestamp)}</span>
           </div>
         </div>
       </div>
 
       <div className="section">
-        <h4>Report Issue</h4>
+        <h4>{t('devtools.errorDetails.reportIssue')}</h4>
         <div className="report-section">
-          <p>Found a bug? Help us improve Bruno by reporting this error on GitHub.</p>
+          <p>{t('devtools.errorDetails.reportHint')}</p>
           <button
             className="report-button"
             onClick={handleReportIssue}
-            title="Report this error on GitHub"
+            title={t('devtools.errorDetails.reportTooltip')}
           >
             <IconBrandGithub size={16} strokeWidth={1.5} />
-            <span>Report Issue on GitHub</span>
+            <span>{t('devtools.errorDetails.reportButton')}</span>
           </button>
         </div>
       </div>
@@ -125,8 +127,9 @@ ${error.args ? error.args.map((arg, index) => {
 };
 
 const StackTraceTab = ({ error }) => {
+  const { t } = useTranslation();
   const formatStackTrace = (stack) => {
-    if (!stack) return 'Stack trace not available';
+    if (!stack) return t('devtools.errorDetails.noStackTrace');
 
     return stack
       .split('\n')
@@ -138,7 +141,7 @@ const StackTraceTab = ({ error }) => {
   return (
     <div className="tab-content">
       <div className="section">
-        <h4>Stack Trace</h4>
+        <h4>{t('devtools.errorDetails.stackTrace')}</h4>
         <div className="stack-trace-container">
           <pre className="stack-trace">
             {formatStackTrace(error.stack)}
@@ -150,14 +153,15 @@ const StackTraceTab = ({ error }) => {
 };
 
 const ArgumentsTab = ({ error }) => {
+  const { t } = useTranslation();
   const formatArguments = (args) => {
-    if (!args || args.length === 0) return 'No arguments available';
+    if (!args || args.length === 0) return t('devtools.errorDetails.noArguments');
 
     try {
       return args.map((arg, index) => {
         // Handle special Error object format
         if (arg && typeof arg === 'object' && arg.__type === 'Error') {
-          return `[${index}]: Error: ${arg.message}\n  Name: ${arg.name}\n  Stack: ${arg.stack || 'No stack trace'}`;
+          return `[${index}]: Error: ${arg.message}\n  Name: ${arg.name}\n  Stack: ${arg.stack || t('devtools.errorDetails.noStackTrace')}`;
         }
 
         if (typeof arg === 'object' && arg !== null) {
@@ -167,14 +171,14 @@ const ArgumentsTab = ({ error }) => {
         return `[${index}]: ${String(arg)}`;
       }).join('\n\n');
     } catch (e) {
-      return 'Arguments could not be formatted';
+      return t('devtools.errorDetails.argumentsFormatError');
     }
   };
 
   return (
     <div className="tab-content">
       <div className="section">
-        <h4>Arguments</h4>
+        <h4>{t('devtools.errorDetails.arguments')}</h4>
         <div className="arguments-container">
           <pre className="arguments">
             {formatArguments(error.args)}
@@ -187,6 +191,7 @@ const ArgumentsTab = ({ error }) => {
 
 const ErrorDetailsPanel = () => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const { selectedError } = useSelector((state) => state.logs);
   const [activeTab, setActiveTab] = useState('info');
 
@@ -219,14 +224,14 @@ const ErrorDetailsPanel = () => {
       <div className="panel-header">
         <div className="panel-title">
           <IconBug size={16} strokeWidth={1.5} />
-          <span>Error Details</span>
+          <span>{t('devtools.errorDetails.title')}</span>
           <span className="error-time">({formatTime(selectedError.timestamp)})</span>
         </div>
 
         <button
           className="close-button"
           onClick={handleClose}
-          title="Close details panel"
+          title={t('devtools.errorDetails.closeDetailsPanel')}
         >
           <IconX size={16} strokeWidth={1.5} />
         </button>
@@ -238,7 +243,7 @@ const ErrorDetailsPanel = () => {
           onClick={() => setActiveTab('info')}
         >
           <IconFileText size={14} strokeWidth={1.5} />
-          Info
+          {t('devtools.errorDetails.tabInfo')}
         </button>
 
         <button
@@ -246,7 +251,7 @@ const ErrorDetailsPanel = () => {
           onClick={() => setActiveTab('stack')}
         >
           <IconStack size={14} strokeWidth={1.5} />
-          Stack
+          {t('devtools.errorDetails.tabStack')}
         </button>
 
         <button
@@ -254,7 +259,7 @@ const ErrorDetailsPanel = () => {
           onClick={() => setActiveTab('args')}
         >
           <IconCode size={14} strokeWidth={1.5} />
-          Args
+          {t('devtools.errorDetails.tabArgs')}
         </button>
       </div>
 

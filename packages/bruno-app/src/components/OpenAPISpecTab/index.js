@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import find from 'lodash/find';
 import { IconLoader2, IconCloud } from '@tabler/icons';
 import fastJsonFormat from 'fast-json-format';
@@ -21,6 +22,7 @@ const prettyPrintSpec = (content) => {
 };
 
 const OpenAPISpecTab = ({ collection, tabUid }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const leftPaneWidth = useSelector((state) => {
     const tab = find(state.tabs.tabs, (t) => t.uid === tabUid);
@@ -78,7 +80,7 @@ const OpenAPISpecTab = ({ collection, tabUid }) => {
         setSpecContent(prettyPrintSpec(result.content));
       }
     } catch (err) {
-      setError(err.message || 'Failed to read spec file');
+      setError(err.message || t('openApiSpec.failedToReadSpecFile'));
     } finally {
       setIsLoading(false);
     }
@@ -94,7 +96,7 @@ const OpenAPISpecTab = ({ collection, tabUid }) => {
     return (
       <div className="flex items-center justify-center h-full gap-2 opacity-50">
         <IconLoader2 size={20} className="animate-spin" />
-        <span>Loading spec...</span>
+        <span>{t('openApiSpec.loadingSpec')}</span>
       </div>
     );
   }
@@ -102,7 +104,7 @@ const OpenAPISpecTab = ({ collection, tabUid }) => {
   if (error || !specContent) {
     return (
       <div className="flex items-center justify-center h-full opacity-50">
-        <span>{error || 'No spec file found. Sync your collection first.'}</span>
+        <span>{error || t('openApiSpec.noSpecFile')}</span>
       </div>
     );
   }
@@ -112,7 +114,7 @@ const OpenAPISpecTab = ({ collection, tabUid }) => {
       {isRemote && (
         <div className="flex items-center gap-1.5 px-3 py-1.5 text-xs opacity-60" style={{ borderBottom: '1px solid var(--color-border)' }}>
           <IconCloud size={14} />
-          <span>Showing spec file from {sourceUrl}.</span>
+          <span>{t('openApiSpec.showingRemoteSpec', { url: sourceUrl })}</span>
         </div>
       )}
       <SpecViewer

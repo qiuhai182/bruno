@@ -1,27 +1,29 @@
 import { useState, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { IconCheck } from '@tabler/icons';
 import Button from 'ui/Button';
 import { isHttpUrl } from 'utils/url/index';
 import { isOpenApiSpec } from 'utils/importers/openapi-collection';
 import { parseFileAsJsonOrYaml } from 'utils/importers/file-reader';
 
-const FEATURES = [
-  'Detect new, modified, and removed endpoints',
-  'Track local changes against the spec',
-  'Sync collection with a single click',
-  'Your tests, assertions, and scripts are preserved during sync'
+const FEATURE_KEYS = [
+  'openApiSync.connect.featureDetectEndpoints',
+  'openApiSync.connect.featureTrackLocalChanges',
+  'openApiSync.connect.featureSyncOneClick',
+  'openApiSync.connect.featurePreserved'
 ];
 
 const ConnectSpecForm = ({ sourceUrl, setSourceUrl, isLoading, error, setError, onConnect }) => {
+  const { t } = useTranslation();
   const [mode, setMode] = useState('url');
   const fileInputRef = useRef(null);
 
   return (
     <div className="setup-section">
       <div className="setup-header">
-        <h2 className="setup-title">Connect to OpenAPI Spec</h2>
+        <h2 className="setup-title">{t('openApiSync.connect.title')}</h2>
         <p className="setup-description">
-          Keep your collection synchronized with an OpenAPI specification. Changes in the spec will be detected automatically.
+          {t('openApiSync.connect.description')}
         </p>
       </div>
 
@@ -31,7 +33,7 @@ const ConnectSpecForm = ({ sourceUrl, setSourceUrl, isLoading, error, setError, 
           e.preventDefault(); onConnect();
         }}
       >
-        <label className="url-label">OpenAPI Specification</label>
+        <label className="url-label">{t('openApiSync.connect.specLabel')}</label>
         <div className="url-row">
           <div className="setup-mode-toggle">
             <button
@@ -50,7 +52,7 @@ const ConnectSpecForm = ({ sourceUrl, setSourceUrl, isLoading, error, setError, 
                 setMode('file'); setSourceUrl('');
               }}
             >
-              File
+              {t('openApiSync.settings.file')}
             </button>
           </div>
 
@@ -77,17 +79,17 @@ const ConnectSpecForm = ({ sourceUrl, setSourceUrl, isLoading, error, setError, 
                   try {
                     const data = await parseFileAsJsonOrYaml(file);
                     if (!isOpenApiSpec(data)) {
-                      setError('The selected file is not a valid OpenAPI 3.x specification');
+                      setError(t('openApiSync.settings.invalidSpecFile'));
                       return;
                     }
                     if (data.swagger && String(data.swagger).startsWith('2')) {
-                      setError('Swagger 2.0 is not supported. Please convert your spec to OpenAPI 3.x.');
+                      setError(t('openApiSync.connect.swaggerNotSupported'));
                       return;
                     }
                     const filePath = window.ipcRenderer.getFilePath(file);
                     if (filePath) setSourceUrl(filePath);
                   } catch (err) {
-                    setError(err.message || 'Failed to read the selected file');
+                    setError(err.message || t('openApiSync.settings.failedToReadFile'));
                   }
                 }}
               />
@@ -96,7 +98,7 @@ const ConnectSpecForm = ({ sourceUrl, setSourceUrl, isLoading, error, setError, 
                 className="url-input file-pick-btn"
                 onClick={() => fileInputRef.current?.click()}
               >
-                {sourceUrl ? sourceUrl.split(/[\\/]/).pop() : 'Select File'}
+                {sourceUrl ? sourceUrl.split(/[\\/]/).pop() : t('openApiSync.settings.selectFile')}
               </button>
             </>
           )}
@@ -107,13 +109,13 @@ const ConnectSpecForm = ({ sourceUrl, setSourceUrl, isLoading, error, setError, 
             disabled={mode === 'url' ? !isHttpUrl(sourceUrl.trim()) : !sourceUrl.trim()}
             loading={isLoading}
           >
-            Connect
+            {t('openApiSync.connect.button')}
           </Button>
         </div>
         <p className="setup-hint">
           {mode === 'url'
-            ? 'Supports OpenAPI 3.x specifications in JSON or YAML format'
-            : 'Select a local OpenAPI/Swagger JSON or YAML file'}
+            ? t('openApiSync.connect.urlHint')
+            : t('openApiSync.connect.fileHint')}
         </p>
         {error && (
           <p className="setup-error">{error}</p>
@@ -121,10 +123,10 @@ const ConnectSpecForm = ({ sourceUrl, setSourceUrl, isLoading, error, setError, 
       </form>
 
       <div className="setup-features">
-        {FEATURES.map((text) => (
-          <div className="setup-feature" key={text}>
+        {FEATURE_KEYS.map((key) => (
+          <div className="setup-feature" key={key}>
             <IconCheck size={16} />
-            <span>{text}</span>
+            <span>{t(key)}</span>
           </div>
         ))}
       </div>

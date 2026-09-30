@@ -19,17 +19,18 @@ import { updateRequestBody } from 'providers/ReduxStore/slices/collections/index
 import { toastError } from 'utils/common/error';
 import { prettifyJsonString } from 'utils/common/index';
 import xmlFormat from 'xml-formatter';
+import { useTranslation } from 'react-i18next';
 
 const DEFAULT_MODES = [
   {
-    name: 'Form',
+    nameKey: 'requestPane.bodyMode.groupForm',
     options: [
-      { id: 'multipartForm', label: 'Multipart Form', leftSection: IconForms },
-      { id: 'formUrlEncoded', label: 'Form URL Encoded', leftSection: IconForms }
+      { id: 'multipartForm', labelKey: 'requestPane.bodyMode.multipartForm', leftSection: IconForms },
+      { id: 'formUrlEncoded', labelKey: 'requestPane.bodyMode.formUrlEncoded', leftSection: IconForms }
     ]
   },
   {
-    name: 'Raw',
+    nameKey: 'requestPane.bodyMode.groupRaw',
     options: [
       { id: 'json', label: 'JSON', leftSection: IconBraces },
       { id: 'xml', label: 'XML', leftSection: IconCode },
@@ -38,15 +39,16 @@ const DEFAULT_MODES = [
     ]
   },
   {
-    name: 'Other',
+    nameKey: 'requestPane.bodyMode.groupOther',
     options: [
-      { id: 'file', label: 'File / Binary', leftSection: IconFile },
-      { id: 'none', label: 'No Body', leftSection: IconX }
+      { id: 'file', labelKey: 'requestPane.bodyMode.file', leftSection: IconFile },
+      { id: 'none', labelKey: 'requestPane.body.noBody', leftSection: IconX }
     ]
   }
 ];
 
 const RequestBodyMode = ({ item, collection }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const body = item.draft ? get(item, 'draft.request.body') : get(item, 'request.body');
   const bodyMode = body?.mode;
@@ -73,7 +75,7 @@ const RequestBodyMode = ({ item, collection }) => {
           })
         );
       } catch (e) {
-        toastError(new Error('Unable to prettify. Invalid JSON format.'));
+        toastError(new Error(t('requestPane.bodyMode.prettifyInvalidJson')));
       }
     } else if (body?.xml && bodyMode === 'xml') {
       try {
@@ -86,20 +88,21 @@ const RequestBodyMode = ({ item, collection }) => {
           })
         );
       } catch (e) {
-        toastError(new Error('Unable to prettify. Invalid XML format.'));
+        toastError(new Error(t('requestPane.bodyMode.prettifyInvalidXml')));
       }
     }
   };
 
   const menuItems = useMemo(() => {
     return DEFAULT_MODES.map((group) => ({
-      ...group,
+      name: t(group.nameKey),
       options: group.options.map((option) => ({
         ...option,
+        label: option.labelKey ? t(option.labelKey) : option.label,
         onClick: () => onModeChange(option.id)
       }))
     }));
-  }, [onModeChange]);
+  }, [t, onModeChange]);
 
   return (
     <StyledWrapper>
@@ -119,7 +122,7 @@ const RequestBodyMode = ({ item, collection }) => {
       </div>
       {(bodyMode === 'json' || bodyMode === 'xml') && (
         <button className="ml-2" onClick={onPrettify}>
-          Prettify
+          {t('requestPane.bodyMode.prettify')}
         </button>
       )}
     </StyledWrapper>

@@ -214,7 +214,7 @@ const AI = () => {
   const handleAddEndpoint = async () => {
     const newEndpoint = {
       id: uuid(),
-      name: `Endpoint ${endpoints.length + 1}`,
+      name: t('preferences.ai.defaultEndpointName', { index: endpoints.length + 1 }),
       baseURL: '',
       models: []
     };
@@ -305,7 +305,7 @@ const AI = () => {
       <div className="flex items-center gap-2">
         <div className="section-header">AI</div>
         <StatusBadge status="info" size="xs">
-          Beta
+          {t('preferences.tabs.beta')}
         </StatusBadge>
       </div>
 

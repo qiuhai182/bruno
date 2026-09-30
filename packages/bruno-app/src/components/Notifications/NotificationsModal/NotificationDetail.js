@@ -2,6 +2,7 @@ import Markdown from 'components/MarkDown';
 import { parseToRgb, rgba } from 'polished';
 import { useTheme } from 'providers/Theme';
 import { humanizeDate } from 'utils/common';
+import { useTranslation } from 'react-i18next';
 
 // color may be any CSS color (hex, rgb, hsl): solid text on a 15% tinted bg.
 // Falls back to the theme's purple when the supplied color can't be parsed.
@@ -20,12 +21,13 @@ export const getBadgeStyle = (color, theme) => {
 };
 
 const NotificationDetail = ({ notification }) => {
+  const { t } = useTranslation();
   const { theme } = useTheme();
 
   if (!notification) {
     return (
       <div className="notif-detail">
-        <div className="notif-empty">Select a notification to read more.</div>
+        <div className="notif-empty">{t('notifications.selectToRead')}</div>
       </div>
     );
   }

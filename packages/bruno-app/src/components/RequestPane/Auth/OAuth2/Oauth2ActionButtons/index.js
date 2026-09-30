@@ -9,9 +9,11 @@ import { responseReceived } from 'providers/ReduxStore/slices/collections';
 import { updateResponsePaneTab } from 'providers/ReduxStore/slices/tabs';
 import { getAllVariables } from 'utils/collections/index';
 import { formatIpcError } from 'utils/common/error';
+import { useTranslation } from 'react-i18next';
 import Button from 'ui/Button';
 
 const Oauth2ActionButtons = ({ item, request, collection, url: accessTokenUrl, credentialsId }) => {
+  const { t } = useTranslation();
   const { uid: collectionUid } = collection;
 
   const dispatch = useDispatch();
@@ -76,14 +78,14 @@ const Oauth2ActionButtons = ({ item, request, collection, url: accessTokenUrl, c
 
       // Check if the result contains error or if access_token is missing
       if (!result || !result.access_token) {
-        const errorMessage = result?.error || 'No access token received from authorization server';
+        const errorMessage = result?.error || t('requestPane.oauth2.noAccessTokenReceived');
         console.error(errorMessage);
         toast.error(errorMessage);
         showOauth2Error(errorMessage);
         return;
       }
 
-      toast.success('Token fetched successfully!');
+      toast.success(t('requestPane.oauth2.tokenFetched'));
     } catch (error) {
       console.error('could not fetch the token!');
       console.error(error);
@@ -91,7 +93,7 @@ const Oauth2ActionButtons = ({ item, request, collection, url: accessTokenUrl, c
       if (error?.message && error.message.includes('cancelled by user')) {
         return;
       }
-      const errorMessage = formatIpcError(error) || 'An error occurred while fetching token!';
+      const errorMessage = formatIpcError(error) || t('requestPane.oauth2.tokenFetchFailed');
       toast.error(errorMessage);
       showOauth2Error(errorMessage);
     } finally {
@@ -117,17 +119,17 @@ const Oauth2ActionButtons = ({ item, request, collection, url: accessTokenUrl, c
 
       // Check if the result contains error or if access_token is missing
       if (!result || !result.access_token) {
-        const errorMessage = result?.error || 'No access token received from authorization server';
+        const errorMessage = result?.error || t('requestPane.oauth2.noAccessTokenReceived');
         console.error(errorMessage);
         toast.error(errorMessage);
         return;
       }
 
-      toast.success('Token refreshed successfully!');
+      toast.success(t('requestPane.oauth2.tokenRefreshed'));
     } catch (error) {
       console.error(error);
       toggleRefreshingToken(false);
-      const errorMessage = formatIpcError(error) || 'An error occurred while refreshing token!';
+      const errorMessage = formatIpcError(error) || t('requestPane.oauth2.tokenRefreshFailed');
       toast.error(errorMessage);
     }
   };
@@ -135,7 +137,7 @@ const Oauth2ActionButtons = ({ item, request, collection, url: accessTokenUrl, c
   const handleClearCache = (e) => {
     dispatch(clearOauth2Cache({ collectionUid: collection?.uid, url: interpolatedAccessTokenUrl, credentialsId }))
       .then(() => {
-        toast.success('Cleared cache successfully');
+        toast.success(t('requestPane.oauth2.cacheCleared'));
       })
       .catch((err) => {
         toast.error(err.message);
@@ -146,13 +148,13 @@ const Oauth2ActionButtons = ({ item, request, collection, url: accessTokenUrl, c
     try {
       const result = await dispatch(cancelOauth2AuthorizationRequest());
       if (result.success && result.cancelled) {
-        toast.error('Authorization cancelled');
+        toast.error(t('requestPane.oauth2.authorizationCancelled'));
         toggleFetchingToken(false);
         toggleFetchingAuthorizationCode(false);
       }
     } catch (err) {
       console.error('Error cancelling authorization:', err);
-      toast.error('Failed to cancel authorization');
+      toast.error(t('requestPane.oauth2.authorizationCancelFailed'));
     }
   };
 
@@ -165,7 +167,7 @@ const Oauth2ActionButtons = ({ item, request, collection, url: accessTokenUrl, c
         disabled={fetchingToken || refreshingToken}
         loading={fetchingToken}
       >
-        Get Access Token
+        {t('requestPane.oauth2.getAccessToken')}
       </Button>
       {creds?.refresh_token
         ? (
@@ -176,7 +178,7 @@ const Oauth2ActionButtons = ({ item, request, collection, url: accessTokenUrl, c
               disabled={fetchingToken || refreshingToken}
               loading={refreshingToken}
             >
-              Refresh Token
+              {t('requestPane.oauth2.refreshTokenButton')}
             </Button>
           )
         : null}
@@ -189,7 +191,7 @@ const Oauth2ActionButtons = ({ item, request, collection, url: accessTokenUrl, c
               icon={<IconX size={16} />}
               iconPosition="left"
             >
-              Cancel Authorization
+              {t('requestPane.oauth2.cancelAuthorization')}
             </Button>
           ) : null}
       <Button
@@ -198,7 +200,7 @@ const Oauth2ActionButtons = ({ item, request, collection, url: accessTokenUrl, c
         variant="ghost"
         onClick={handleClearCache}
       >
-        Clear Cache
+        {t('requestPane.oauth2.clearCache')}
       </Button>
     </div>
   );

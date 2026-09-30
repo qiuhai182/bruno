@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { IconFolder, IconSettings, IconAlertCircle, IconFileImport } from '@tabler/icons';
 import StyledWrapper from './StyledWrapper';
 
@@ -9,12 +10,13 @@ const ImportPathsTab = ({
   onBrowseImportPath,
   onToggleImportPath
 }) => {
+  const { t } = useTranslation();
   return (
     <StyledWrapper>
       {collectionImportPaths && collectionImportPaths.length > 0 && (
         <div className="content-wrapper">
           <div className="header-wrapper">
-            <div className="header-text">From Collection Settings</div>
+            <div className="header-text">{t('requestPane.grpc.fromCollectionSettings')}</div>
             <button
               onClick={onOpenCollectionProtobufSettings}
               className="settings-button"
@@ -27,13 +29,13 @@ const ImportPathsTab = ({
             <div className="error-wrapper">
               <p className="error-text">
                 <IconAlertCircle size={16} strokeWidth={1.5} style={{ marginRight: '0.25rem' }} />
-                Some import paths could not be found.
+                {t('requestPane.grpc.someImportPathsNotFound')}
                 {' '}
                 <button
                   onClick={onOpenCollectionProtobufSettings}
                   className="error-link"
                 >
-                  Manage import paths
+                  {t('requestPane.grpc.manageImportPaths')}
                 </button>
               </p>
             </div>
@@ -57,7 +59,7 @@ const ImportPathsTab = ({
                           disabled={isInvalid}
                           onChange={() => onToggleImportPath(index)}
                           className="checkbox"
-                          title={importPath.enabled ? 'Import path enabled' : 'Import path disabled'}
+                          title={importPath.enabled ? t('requestPane.grpc.importPathEnabled') : t('requestPane.grpc.importPathDisabled')}
                         />
                       </div>
                       <IconFolder size={20} strokeWidth={1.5} style={{ marginRight: '0.5rem', color: 'inherit' }} />
@@ -81,7 +83,7 @@ const ImportPathsTab = ({
       {(!collectionImportPaths || collectionImportPaths.length === 0) && (
         <div className="empty-wrapper">
           <div className="empty-text">
-            No import paths configured in collection settings
+            {t('requestPane.grpc.noImportPathsConfigured')}
           </div>
         </div>
       )}
@@ -92,7 +94,7 @@ const ImportPathsTab = ({
           onClick={onBrowseImportPath}
         >
           <IconFileImport size={16} strokeWidth={1.5} style={{ marginRight: '0.25rem' }} />
-          Browse for Import Path
+          {t('requestPane.grpc.browseForImportPath')}
         </button>
       </div>
     </StyledWrapper>

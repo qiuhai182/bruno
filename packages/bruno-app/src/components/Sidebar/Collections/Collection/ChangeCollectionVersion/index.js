@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { IconArrowRight, IconAlertTriangle } from '@tabler/icons';
 
 import Modal from 'components/Modal';
@@ -8,18 +9,22 @@ import { findCollectionByUid, getCollectionVersion, isOpenCollectionFormat } fro
 import { saveCollectionVersion } from 'providers/ReduxStore/slices/collections/actions';
 import StyledWrapper, { ModalTitle } from './StyledWrapper';
 
-const CollectionNotFound = ({ onClose }) => (
-  <Portal>
-    <Modal size="sm" title="Change Collection Version" confirmText="Close" handleConfirm={onClose} hideCancel>
-      <StyledWrapper className="w-[480px]">
-        <div className="flex items-center gap-2 text-warning">
-          <IconAlertTriangle size={16} className="shrink-0" />
-          <span>Collection not found. It may have been deleted or is no longer available.</span>
-        </div>
-      </StyledWrapper>
-    </Modal>
-  </Portal>
-);
+const CollectionNotFound = ({ onClose }) => {
+  const { t } = useTranslation();
+
+  return (
+    <Portal>
+      <Modal size="sm" title={t('sidebar.changeVersion.title')} confirmText={t('common.close')} handleConfirm={onClose} hideCancel>
+        <StyledWrapper className="w-[480px]">
+          <div className="flex items-center gap-2 text-warning">
+            <IconAlertTriangle size={16} className="shrink-0" />
+            <span>{t('sidebar.changeVersion.notFound')}</span>
+          </div>
+        </StyledWrapper>
+      </Modal>
+    </Portal>
+  );
+};
 
 const ChangeCollectionVersion = ({ collectionUid, onClose }) => {
   const dispatch = useDispatch();
@@ -61,9 +66,9 @@ const ChangeCollectionVersion = ({ collectionUid, onClose }) => {
     <Portal>
       <Modal
         size="md"
-        customHeader={<ModalTitle>Change Collection Version</ModalTitle>}
-        confirmText={isSaving ? 'Updating...' : 'Update Version'}
-        cancelText="Cancel"
+        customHeader={<ModalTitle>{t('sidebar.changeVersion.title')}</ModalTitle>}
+        confirmText={isSaving ? t('sidebar.changeVersion.updating') : t('sidebar.changeVersion.updateVersion')}
+        cancelText={t('common.cancel')}
         handleConfirm={handleConfirm}
         handleCancel={onClose}
         confirmDisabled={!canSubmit || isSaving}
@@ -71,22 +76,23 @@ const ChangeCollectionVersion = ({ collectionUid, onClose }) => {
       >
         <StyledWrapper className="w-[560px]">
           <div className="subheader" data-testid="change-version-collection">
-            Collection: <span className="collection-name">{collection.name}</span>
+            {t('sidebar.changeVersion.collectionLabel')}
+            <span className="collection-name">{collection.name}</span>
           </div>
 
           <div className="version-card">
             <div className="version-row">
               <div className="version-col">
-                <div className="col-label">Current Version</div>
+                <div className="col-label">{t('sidebar.changeVersion.currentVersion')}</div>
                 <div className="current-value" data-testid="change-version-current">
-                  {currentVersion || <span className="text-muted italic">Not Set</span>}
+                  {currentVersion || <span className="text-muted italic">{t('sidebar.changeVersion.notSet')}</span>}
                 </div>
               </div>
 
               <IconArrowRight size={18} className="arrow" stroke={1.5} />
 
               <div className="version-col">
-                <div className="col-label">New Version</div>
+                <div className="col-label">{t('sidebar.changeVersion.newVersion')}</div>
                 <input
                   ref={inputRef}
                   type="text"
@@ -95,7 +101,7 @@ const ChangeCollectionVersion = ({ collectionUid, onClose }) => {
                   autoCorrect="off"
                   autoCapitalize="off"
                   spellCheck="false"
-                  placeholder="e.g. v1.0.0"
+                  placeholder={t('sidebar.changeVersion.versionPlaceholder')}
                   maxLength={50}
                   value={newVersion}
                   onChange={(e) => setNewVersion(e.target.value)}
@@ -105,8 +111,8 @@ const ChangeCollectionVersion = ({ collectionUid, onClose }) => {
             </div>
 
             <p className="preview m-0" data-testid="change-version-preview">
-              Updates <strong>{targetKey}</strong> in {targetFile} from{' '}
-              <span className="old">{currentVersion || <span className="text-muted italic not-set">(Not Set)</span>}</span>
+              {t('sidebar.changeVersion.updates')} <strong>{targetKey}</strong> {t('sidebar.changeVersion.in')} {targetFile} {t('sidebar.changeVersion.from')}
+              <span className="old">{currentVersion || <span className="text-muted italic not-set">({t('sidebar.changeVersion.notSet')})</span>}</span>
               <IconArrowRight size={13} className="preview-arrow" stroke={1.5} />
               <span className="new">{trimmedVersion || '…'}</span>
             </p>

@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { getInheritableEnvironments } from '@usebruno/common/utils';
 import { IconBinaryTree2, IconCaretDown } from '@tabler/icons';
+import { useTranslation } from 'react-i18next';
 import MenuDropdown from 'ui/MenuDropdown';
 import ActionIcon from 'ui/ActionIcon';
 import StyledWrapper from './StyledWrapper';
@@ -12,6 +13,7 @@ const ColorDot = ({ color }) => (
 );
 
 const InheritsFrom = ({ environment, environments, inheritedEnvironmentName, onChange }) => {
+  const { t } = useTranslation();
   const inheritableEnvironments = useMemo(
     () => getInheritableEnvironments({ environments, targetEnvironment: environment }),
     [environments, environment]
@@ -20,11 +22,11 @@ const InheritsFrom = ({ environment, environments, inheritedEnvironmentName, onC
   const items = useMemo(
     () => [
       {
-        name: 'Inherit variables from',
+        name: t('environments.inheritance.groupLabel'),
         options: [
           {
             id: NO_INHERITANCE_ID,
-            label: 'No Environment',
+            label: t('environments.selector.noEnvironment'),
             leftSection: <ColorDot />,
             onClick: () => onChange(null)
           },
@@ -37,7 +39,7 @@ const InheritsFrom = ({ environment, environments, inheritedEnvironmentName, onC
         ]
       }
     ],
-    [inheritableEnvironments, inheritedEnvironmentName, onChange]
+    [inheritableEnvironments, inheritedEnvironmentName, onChange, t]
   );
 
   if (!inheritableEnvironments.length && typeof inheritedEnvironmentName !== 'string') {
@@ -54,12 +56,12 @@ const InheritsFrom = ({ environment, environments, inheritedEnvironmentName, onC
         {typeof inheritedEnvironmentName === 'string' ? (
           <button type="button" className="inherits-from-pill" data-testid="env-inherits-from-action">
             <IconBinaryTree2 className="inherits-from-icon" size={14} strokeWidth={1.5} />
-            <span>Inherits from:</span>
+            <span>{t('environments.inheritance.pillLabel')}</span>
             <span className="inherits-from-name">{inheritedEnvironmentName}</span>
             <IconCaretDown size={12} strokeWidth={2} />
           </button>
         ) : (
-          <ActionIcon label="Inherit variables from" data-testid="env-inherits-from-action">
+          <ActionIcon label={t('environments.inheritance.groupLabel')} data-testid="env-inherits-from-action">
             <IconBinaryTree2 size={15} strokeWidth={1.5} />
           </ActionIcon>
         )}

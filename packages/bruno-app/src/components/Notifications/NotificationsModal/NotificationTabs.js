@@ -3,17 +3,18 @@ import { IconDotsVertical } from '@tabler/icons';
 import { useEffect, useRef } from 'react';
 import Dropdown from 'components/Dropdown';
 import { TABS } from '../hooks/useNotifications';
-
-const menuIcon = (
-  <span className="notif-menu-trigger" aria-label="Notifications menu">
-    <IconDotsVertical size={16} strokeWidth={1.5} />
-  </span>
-);
+import { useTranslation } from 'react-i18next';
 
 const NotificationTabs = ({ activeTab, unreadCount, onTabChange, onMarkAllRead, onClearAll }) => {
+  const { t } = useTranslation();
   const dropdownTippyRef = useRef(null);
   const onDropdownCreate = (ref) => (dropdownTippyRef.current = ref);
   const hideDropdown = () => dropdownTippyRef.current?.hide();
+  const menuIcon = (
+    <span className="notif-menu-trigger" aria-label={t('notifications.menuAriaLabel')}>
+      <IconDotsVertical size={16} strokeWidth={1.5} />
+    </span>
+  );
 
   // Clicks inside the detail iframe don't bubble to the parent document, so
   // tippy's outside-click dismissal never fires. Closing on iframe focus covers it.
@@ -35,14 +36,14 @@ const NotificationTabs = ({ activeTab, unreadCount, onTabChange, onMarkAllRead, 
           className={classnames('notif-tab', { active: activeTab === TABS.ALL })}
           onClick={() => onTabChange(TABS.ALL)}
         >
-          All
+          {t('notifications.tabAll')}
         </button>
         <button
           type="button"
           className={classnames('notif-tab', { active: activeTab === TABS.UNREAD })}
           onClick={() => onTabChange(TABS.UNREAD)}
         >
-          Unread
+          {t('notifications.tabUnread')}
           {unreadCount > 0 && <span className="notif-tab-badge">{unreadCount}</span>}
         </button>
       </div>
@@ -55,7 +56,7 @@ const NotificationTabs = ({ activeTab, unreadCount, onTabChange, onMarkAllRead, 
             onMarkAllRead();
           }}
         >
-          Mark all as read
+          {t('notifications.markAllRead')}
         </div>
         <div
           className="dropdown-item"
@@ -64,7 +65,7 @@ const NotificationTabs = ({ activeTab, unreadCount, onTabChange, onMarkAllRead, 
             onClearAll();
           }}
         >
-          Clear all
+          {t('notifications.clearAll')}
         </div>
       </Dropdown>
     </div>

@@ -1,0 +1,39 @@
+{
+  "welcome": {
+    "back": "Back",
+    "exploreOnMyOwn": "I'll explore on my own",
+    "getStartedButton": "Get Started",
+    "getStarted": {
+      "createDesc": "Start fresh with a new API collection",
+      "description": "Create a new collection to start building requests, or import one you already have.",
+      "importDesc": "Bring in Postman, OpenAPI/Swagger, or Insomnia",
+      "label": "Your first collection",
+      "openDesc": "Open a Bruno collection from your filesystem",
+      "openLabel": "Open existing collection",
+      "requestDesc": "Jump right in with a new HTTP request",
+      "requestLabel": "Get started with a request",
+      "title": "You're all set! What's next?"
+    },
+    "goToStep": "Go to step {{step}}",
+    "heading": "Welcome to Bruno",
+    "next": "Next",
+    "readyToGo": "Ready to go!",
+    "setUp": "Set up Bruno",
+    "skip": "Skip",
+    "storage": {
+      "clickToChoose": "Click to choose a folder...",
+      "description": "Bruno saves collections as plain files on your filesystem, perfect for version control with Git.",
+      "hint": "Each collection and workspace gets its own folder inside this directory. You can change this later.",
+      "label": "Storage",
+      "title": "Where should we store your collections?"
+    },
+    "tagline": "A fast, Git-friendly, and open-source API client.",
+    "theme": {
+      "description": "Pick a look that feels right. You can always change this later in Preferences.",
+      "title": "Choose your theme"
+    },
+    "toast": {
+      "savePreferencesFailed": "Failed to save preferences"
+    }
+  }
+}

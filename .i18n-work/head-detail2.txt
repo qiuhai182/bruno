@@ -1,0 +1,75 @@
+### SyncReviewPage HEAD 228-275
+228:   return (
+229:     <div className="sync-review-page sync-mode">
+230:       {hasRemoteUpdates && (
+231:         <div className="sync-review-header">
+232:           <div className="title-row">
+233:             <div className="title-left">
+234:               <h3 className="review-title">Review Changes</h3>
+235:               {totalChanges > 0 && (
+236:                 <p className="review-subtitle">
+237:                   Choose to keep the current version or accept the updated one.
+238:                 </p>
+239:               )}
+240:             </div>
+241:             {(specDrift?.unifiedDiff || decidableEndpoints.length > 0) && (
+242:               <div className="bulk-actions">
+243:                 <div className="preserve-values-control">
+244:                   <button
+245:                     type="button"
+246:                     role="switch"
+247:                     aria-pressed={preserveValues}
+248:                     className={`preserve-toggle ${preserveValues ? 'active' : ''}`}
+249:                     onClick={() => setPreserveValues((v) => !v)}
+250:                   >
+251:                     <span className="preserve-toggle-knob" />
+252:                   </button>
+253:                   <span className="preserve-values-label">Preserve values</span>
+254:                   <Help icon="info" size={12} placement="top" width={260}>
+255:                     When enabled, your edited values are preserved during sync. When disabled, all values are updated to match the OpenAPI spec.
+256:                   </Help>
+257:                 </div>
+258:                 {specDrift?.unifiedDiff && (
+259:                   <button
+260:                     className="bulk-btn"
+261:                     onClick={handleOpenSpecDiff}
+262:                     disabled={isOpeningSpecDiff || showSpecDiffModal}
+263:                   >
+264:                     {isOpeningSpecDiff ? (
+265:                       <IconLoader2 size={12} className="animate-spin" />
+266:                     ) : (
+267:                       <IconArrowsDiff size={12} />
+268:                     )}{' '}
+269:                     View Spec Diff
+270:                   </button>
+271:                 )}
+272:                 {decidableEndpoints.length > 0 && (
+273:                   <>
+274:                     <button
+275:                       className={`bulk-btn ${allSkipped ? 'active' : ''}`}
+### CURRENT OpenAPISyncTab/SpecStatusSection/index.js
+45: return { variant: 'danger', message: t('openApiSync.banner.sourceFileNotFound', { url: sourceUrl }), actions: ['open-settings'] };
+48: return { variant: 'danger', message: error || specDrift?.error || t('openApiSync.banner.invalidSpec'), actions: ['open-settings'] };
+64: variant: 'warning', message: t('openApiSync.banner.specUpdated', { versionInfo }), actions: [],
+86: <span className="checked-text"> &middot; {t('openApiSync.banner.checkedAt', { time: bannerState.lastChecked })}</span>
+91: {bannerState.changes.modified > 0 && <StatusBadge key="modified" status="warning" radius="full">{t('openApiSync.banner.endpointsUpdated', { count: bannerState.changes.modified, s: bannerState.changes.modified > 1 ? 's' : '' })}</StatusBadge>}
+92: {bannerState.changes.added > 0 && <StatusBadge key="added" status="success" radius="full">{t('openApiSync.banner.endpointsAdded', { count: bannerState.changes.added, s: bannerState.changes.added > 1 ? 's' : '' })}</StatusBadge>}
+93: {bannerState.changes.removed > 0 && <StatusBadge key="removed" status="danger" radius="full">{t('openApiSync.banner.endpointsRemoved', { count: bannerState.changes.removed, s: bannerState.changes.removed > 1 ? 's' : '' })}</StatusBadge>}
+100: {t('openApiSync.banner.updateConnectionSettings')}
+### CURRENT OpenAPISyncTab/SyncReviewPage/index.js
+225: ? t('openApiSync.review.resolveConflictsAndSync', { count: unresolvedConflicts, s: unresolvedConflicts !== 1 ? 's' : '' })
+335: {t('openApiSync.review.conflictCount', { count: conflictCount, s: conflictCount === 1 ? '' : 's' })}
+### CURRENT OpenAPISyncTab/CollectionStatusSection/index.js
+224: ? t('openApiSync.collection.specMissingDesc')
+### CURRENT OpenAPISyncTab/SpecDiffModal/index.js
+22: const addedCount = specDrift?.added?.length || 0;
+24: const removedCount = specDrift?.removed?.length || 0;
+87: = changeCount === 0 ? t('openApiSync.specDiff.noChanges') : t('openApiSync.specDiff.changeCounter', { current: currentIndex + 1, total: changeCount });
+96: {modifiedCount > 0 && <StatusBadge status="warning">{t('openApiSync.specDiff.updatedCount', { count: modifiedCount })}</StatusBadge>}
+97: {addedCount > 0 && <StatusBadge status="success">{t('openApiSync.specDiff.addedCount', { count: addedCount })}</StatusBadge>}
+98: {removedCount > 0 && <StatusBadge status="danger">{t('openApiSync.specDiff.removedCount', { count: removedCount })}</StatusBadge>}
+### CURRENT RunnerResults/index.jsx
+253: {t('runner.youHave')} <span className="font-medium text-xs">{totalRequestsInCollection}</span> {totalRequestsInCollection === 1 ? t('runner.request') : t('runner.requests')} {t('runner.inThisCollection')}
+256: ({t('runner.loading')}...)
+260: {isCollectionLoading ? <div className="my-1 danger">{t('runner.requestsStillLoading')}</div> : null}
+432: ({t('runner.requestFailed')})

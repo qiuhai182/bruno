@@ -1,0 +1,230 @@
+GlobalSearchModal/constants/index.js #2 || K: globalSearch.brunoDocumentation | globalSearch.brunoDocumentation || E: docs ~ Bruno Documentation ~ Bruno Documentation
+GlobalSearchModal/constants/index.js #3 || K: globalSearch.browseDocumentation || E: Browse the official Bruno documentation
+GlobalSearchModal/index.js #3 || K:  || E: JSXTEXT: // add an optional check for the item name to prevent a crash if it doesn��t exist.
+GlobalSearchModal/index.js #4 || K: globalSearch.title || E: search-modal-title ~ sr-only
+GlobalSearchModal/index.js #5 || K: globalSearch.srDescription || E: JSXTEXT: Search through collections, requests, folders, and documentation. Use arrow keys to navigate results and Enter to select.
+GlobalSearchModal/index.js #6 || K: globalSearch.resultsFound || E:  : 
+GlobalSearchModal/index.js #7 || K: globalSearch.noResults || E: No results found
+GlobalSearchModal/index.js #8 || K: globalSearch.searchPlaceholder || E: Search collections, requests, or documentation...
+GlobalSearchModal/index.js #9 || K: globalSearch.searchAriaLabel || E: Search collections, requests, or documentation
+GlobalSearchModal/index.js #10 || K: globalSearch.clearSearch || E: Clear search query
+GlobalSearchModal/index.js #11 || K: globalSearch.searchResults || E: Search results
+GlobalSearchModal/index.js #12 || K: globalSearch.noResultsFor || E: {query}
+GlobalSearchModal/index.js #13 || K: globalSearch.noResultsHintPrefix | globalSearch.noResultsHintSuffix || E: 
+GlobalSearchModal/index.js #14 || K: globalSearch.noCollections || E: JSXTEXT: No collections are currently mounted or visible.
+GlobalSearchModal/index.js #15 || K: globalSearch.mountHint || E: JSXTEXT: Mount a collection via the sidebar or this search modal, then try again.
+GlobalSearchModal/index.js #16 || K: globalSearch.httpMethod || E:  
+GlobalSearchModal/index.js #17 || K: globalSearch.itemType || E: result-type
+GlobalSearchModal/index.js #18 || K: globalSearch.keyboardShortcuts | globalSearch.arrowsHintAria | globalSearch.toNavigate || E: keyboard-hints ~ region ~ Keyboard shortcuts ~ Use up and down arrows to navigate ~ keycap ~ true ~ keycap ~ true ~ hint-label
+GlobalSearchModal/index.js #19 || K: globalSearch.enterHintAria | globalSearch.toSelect || E: Press Enter to select ~ keycap ~ true ~ hint-label
+GlobalSearchModal/index.js #20 || K: globalSearch.escHintAria || E: Press Escape to close
+GlobalSearchModal/index.js #21 || K: globalSearch.toClose || E: hint-label
+GlobalSearchModal/utils/searchUtils.js #2 || K: globalSearch.type.documentation | globalSearch.type.collection | globalSearch.type.folder || E: Documentation ~ Collection ~ Folder
+ManageWorkspace/DeleteWorkspace/index.js #3 || K: workspace.toast.removeError || E: An error occurred while removing the workspace
+ManageWorkspace/DeleteWorkspace/index.js #4 || K: workspace.remove.title | workspace.remove.removing | workspace.remove.confirm || E: Remove Workspace ~ Removing... ~ Remove
+ManageWorkspace/DeleteWorkspace/index.js #5 || K: workspace.remove.confirmPrefix | workspace.remove.confirmSuffix || E: font-semibold
+ManageWorkspace/DeleteWorkspace/index.js #6 || K: workspace.remove.note || E: JSXTEXT: The workspace will still be available in the file system and can be re-opened later.
+ManageWorkspace/RenameWorkspace/index.js #3 || K: workspace.validation.minOneCharLower | workspace.validation.maxTwoFiftyFiveLower | workspace.validation.nameRequiredLower | workspace.validation.nameAlreadyExists || E: must be at least 1 character ~ must be 255 characters or less ~ name is required ~ unique-name ~ A workspace with this name already exists
+ManageWorkspace/RenameWorkspace/index.js #4 || K: workspace.toast.renameError || E: An error occurred while renaming the workspace
+ManageWorkspace/RenameWorkspace/index.js #5 || K: workspace.rename.title | workspace.rename.confirm || E: Rename Workspace ~ Rename
+ManageWorkspace/RenameWorkspace/index.js #6 || K: workspace.label.workspaceName || E: JSXTEXT: Workspace Name
+ManageWorkspace/index.js #3 || K: workspace.toast.switchedTo || E: 
+ManageWorkspace/index.js #4 || K: workspace.toast.openFolderError || E: Error opening the folder
+ManageWorkspace/index.js #5 || K: workspace.toast.cannotRemoveDefault || E: Cannot remove the default workspace
+ManageWorkspace/index.js #6 || K: workspace.toast.createFailed || E: Failed to create workspace
+ManageWorkspace/index.js #7 || K: workspace.manage.title || E: header-title ~ manage-workspace-title
+ManageWorkspace/index.js #8 || K: workspace.create.confirm || E: JSXTEXT: Create Workspace
+ManageWorkspace/index.js #9 || K: workspace.manage.noWorkspaces || E: JSXTEXT: <span>No workspaces found</span>
+ManageWorkspace/index.js #10 || K: workspace.manage.defaultBadge || E: default-badge ~ workspace-default-badge
+ManageWorkspace/index.js #11 || K: workspace.manage.open || E: JSXTEXT: <span>Open</span>
+ManageWorkspace/index.js #12 || K: workspace.manage.openInTerminal | workspace.menu.rename | workspace.menu.remove || E: open-in-terminal ~ Open in Terminal ~ rename ~ Rename ~ remove ~ Remove
+WelcomeModal/GetStartedStep/index.js #2 || K:  || E: step-body ~ step-label ~ re all set! What ~ step-title ~ step-description ~ JSXTEXT: Create a new collection to start building requests, or import one you already have. ~ JSXTEXT: </div>
+WelcomeModal/GetStartedStep/index.js #3 || K: welcome.getStarted.label | welcome.getStarted.title | welcome.getStarted.description || E: primary-actions ~ primary-action-card ~ card-icon ~ JSXTEXT: </div> ~ card-title ~ card-desc ~ JSXTEXT: </button>
+WelcomeModal/GetStartedStep/index.js #4 || K: WELCOME.CREATE_COLLECTION | welcome.getStarted.createDesc || E: primary-action-card ~ card-icon ~ JSXTEXT: </div> ~ card-title ~ card-desc ~ JSXTEXT: </button> ~ JSXTEXT: </div>
+WelcomeModal/GetStartedStep/index.js #5 || K: WELCOME.IMPORT_COLLECTION | welcome.getStarted.importDesc | welcome.getStarted.openLabel | welcome.getStarted.openDesc | welcome.getStarted.requestLabel | welcome.getStarted.requestDesc || E: secondary-actions ~ secondary-action ~ secondary-icon ~ JSXTEXT: </span> ~ JSXTEXT: <div> ~ secondary-label ~ secondary-desc ~ JSXTEXT: </div> ~ JSXTEXT: </button> ~ secondary-action ~ secondary-icon ~ JSXTEXT: </span> ~ JSXTEXT: <div> ~ secondary-label ~ secondary-desc ~ JSXTEXT: </div> ~ JSXTEXT: </button> ~ JSXTEXT: </div> ~ JSXTEXT: </StyledWrapper>
+WelcomeModal/StorageStep/index.js #2 || K:  || E: step-body ~ step-label ~ step-title ~ step-description ~ JSXTEXT: Bruno saves collections as plain files on your filesystem, perfect for version control with Git. ~ JSXTEXT: </div>
+WelcomeModal/StorageStep/index.js #3 || K: welcome.storage.label | welcome.storage.title | welcome.storage.description || E: location-input-group ~ JSXTEXT: <div ~ location-path-display ~ Enter ~   ~ button ~ path-text ~ path-text path-placeholder ~ browse-label
+WelcomeModal/StorageStep/index.js #4 || K: welcome.storage.clickToChoose | preferences.general.browse | welcome.storage.hint || E: JSXTEXT: </div> ~ location-hint ~ JSXTEXT: Each collection and workspace gets its own folder inside this directory. You can change this later. ~ JSXTEXT: </div> ~ JSXTEXT: </StyledWrapper>
+WelcomeModal/ThemeStep/index.js #2 || K:  || E: light ~ Light ~ dark ~ Dark ~ system ~ System
+WelcomeModal/ThemeStep/index.js #4 || K: preferences.appearance | welcome.theme.title || E: step-label ~ step-title
+WelcomeModal/ThemeStep/index.js #5 || K: welcome.theme.description || E: JSXTEXT: Pick a look that feels right. You can always change this later in Preferences.
+WelcomeModal/ThemeStep/index.js #6 || K: preferences.themes.${mode.key} || E: 
+WelcomeModal/ThemeStep/index.js #8 || K:  || E: selected
+WelcomeModal/ThemeStep/index.js #9 || K:  || E: variant-name
+WelcomeModal/ThemeStep/index.js #11 || K:  || E: selected
+WelcomeModal/ThemeStep/index.js #12 || K:  || E: variant-name
+WelcomeModal/WelcomeStep/index.js #2 || K:  || E: Filesystem only ~ Collections are plain files on your disk. No cloud sync, no proprietary lock-in.
+WelcomeModal/WelcomeStep/index.js #3 || K:  || E: Git-friendly ~ Every request is a readable file. Commit, branch, review, and collaborate using the tools you already know.
+WelcomeModal/WelcomeStep/index.js #4 || K:  || E: Privacy-focused ~ No account, no login. Bruno works entirely offline, your API keys never leave your machine.
+WelcomeModal/WelcomeStep/index.js #5 || K:  || E: Fast and lightweight ~ Built to be snappy. No bloated runtimes, just a fast, focused tool for exploring and testing APIs.
+WelcomeModal/WelcomeStep/index.js #6 || K:  || E: step-body ~ highlights ~ JSXTEXT: const Icon = item.icon; ~ highlight-item ~ highlight-icon ~ JSXTEXT: </div> ~ JSXTEXT: <div> ~ highlight-title ~ highlight-desc
+WelcomeModal/WelcomeStep/index.js #7 || K:  || E: JSXTEXT: </div> ~ JSXTEXT: </div> ~ JSXTEXT: </StyledWrapper>
+WelcomeModal/index.js #3 || K: welcome.toast.savePreferencesFailed || E: Failed to save preferences
+WelcomeModal/index.js #4 || K: welcome.heading | welcome.readyToGo | welcome.setUp || E: Welcome to Bruno ~ Ready to go! ~ Set up Bruno
+WelcomeModal/index.js #5 || K: welcome.tagline || E: JSXTEXT: A fast, Git-friendly, and open-source API client.
+WelcomeModal/index.js #6 || K: welcome.goToStep || E: 
+WelcomeModal/index.js #7 || K: welcome.skip || E: JSXTEXT: Skip
+WelcomeModal/index.js #8 || K: welcome.back || E: JSXTEXT: Back
+WelcomeModal/index.js #9 || K: welcome.getStarted | welcome.next || E: Get Started ~ Next
+WelcomeModal/index.js #10 || K: welcome.exploreOnMyOwn || E: 
+WorkspaceHome/WorkspaceDocs/index.js #3 || K: workspace.docs.toast.workspaceNotFound || E: Workspace not found
+WorkspaceHome/WorkspaceDocs/index.js #4 || K: workspace.docs.toast.saved || E: Documentation saved successfully
+WorkspaceHome/WorkspaceDocs/index.js #5 || K: workspace.docs.toast.saveFailed || E: Failed to save documentation
+WorkspaceHome/WorkspaceDocs/index.js #6 || K: workspace.docs.title || E: JSXTEXT: <span>Documentation</span>
+WorkspaceHome/WorkspaceDocs/index.js #7 || K: common.save || E: JSXTEXT: Save
+WorkspaceHome/WorkspaceDocs/index.js #8 || K: workspace.docs.emptyText || E: JSXTEXT: Add documentation to help your team work smoothly.
+WorkspaceHome/WorkspaceDocs/index.js #9 || K: workspace.docs.youCanInclude || E: empty-subtext
+WorkspaceHome/WorkspaceDocs/index.js #10 || K: workspace.docs.suggestions.overview | workspace.docs.suggestions.setup | workspace.docs.suggestions.workflows | workspace.docs.suggestions.resources || E: JSXTEXT: <li>Project overview</li> ~ JSXTEXT: <li>Setup instructions</li> ~ JSXTEXT: <li>Key workflows</li> ~ JSXTEXT: <li>Resources & FAQs</li>
+WorkspaceHome/WorkspaceDocs/index.js #11 || K: workspace.docs.addDocumentation || E: JSXTEXT: Add Documentation
+WorkspaceHome/WorkspaceEnvironments/CopyEnvironment/index.js #3 || K: environments.copy.defaultSuffix || E:  - Copy
+WorkspaceHome/WorkspaceEnvironments/CopyEnvironment/index.js #4 || K: environments.validation.minOneCharLower | environments.validation.maxFiftyLower | environments.validation.nameRequiredLower || E: must be at least 1 character ~ must be 50 characters or less ~ name is required
+WorkspaceHome/WorkspaceEnvironments/CopyEnvironment/index.js #5 || K: environments.toast.created || E: Environment created!
+WorkspaceHome/WorkspaceEnvironments/CopyEnvironment/index.js #6 || K: environments.toast.createError || E: An error occurred while creating the environment
+WorkspaceHome/WorkspaceEnvironments/CopyEnvironment/index.js #7 || K: environments.copy.title | environments.action.copy || E: sm ~ Copy Environment ~ Copy
+WorkspaceHome/WorkspaceEnvironments/CopyEnvironment/index.js #8 || K: environments.label.newName || E: JSXTEXT: New Environment Name
+WorkspaceHome/WorkspaceEnvironments/CreateEnvironment/index.js #3 || K: environments.validation.minOneChar | environments.validation.maxTwoFiftyFive || E: Must be at least 1 character ~ Must be 255 characters or less
+WorkspaceHome/WorkspaceEnvironments/CreateEnvironment/index.js #4 || K: environments.validation.nameRequired | environments.validation.globalAlreadyExists || E: Name is required ~ duplicate-name ~ Global environment already exists
+WorkspaceHome/WorkspaceEnvironments/CreateEnvironment/index.js #5 || K: environments.toast.globalCreated || E: Global environment created!
+WorkspaceHome/WorkspaceEnvironments/CreateEnvironment/index.js #6 || K: environments.toast.createError || E: An error occurred while creating the environment
+WorkspaceHome/WorkspaceEnvironments/CreateEnvironment/index.js #7 || K: environments.createGlobal.title | environments.action.create || E: Create Global Environment ~ Create
+WorkspaceHome/WorkspaceEnvironments/CreateEnvironment/index.js #8 || K: environments.label.name || E: JSXTEXT: Environment Name
+WorkspaceHome/WorkspaceEnvironments/DeleteEnvironment/index.js #3 || K: environments.toast.deleted || E: Environment deleted successfully
+WorkspaceHome/WorkspaceEnvironments/DeleteEnvironment/index.js #4 || K: environments.toast.deleteError || E: An error occurred while deleting the environment
+WorkspaceHome/WorkspaceEnvironments/DeleteEnvironment/index.js #5 || K: environments.delete.title | common.delete || E: Delete Environment ~ Delete
+WorkspaceHome/WorkspaceEnvironments/DeleteEnvironment/index.js #6 || K: environments.delete.confirmPrefix | environments.delete.confirmSuffix || E: font-semibold
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js #3 || K: environments.validation.nameRequired || E: Name is required
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js #4 || K: environments.validation.minOneChar || E: Must be at least 1 character
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js #5 || K: environments.validation.maxTwoFiftyFive || E: Must be 255 characters or less
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js #6 || K: environments.validation.alreadyExists || E: Environment already exists
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js #7 || K: environments.toast.renameSuccess || E: Environment renamed!
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js #8 || K: environments.toast.renameError || E: An error occurred while renaming the environment
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js #9 || K: environments.toast.inheritingFrom | environments.toast.stoppedInheriting || E: Stopped inheriting variables
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js #10 || K: environments.toast.saveInheritError || E: An error occurred while saving the inherited environment
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js #11 || K: common.save || E: Save
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js #12 || K: common.cancel || E: Cancel
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js #13 || K: environments.action.saveAll || E: Save All ~ save-all-env
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js #14 || K: environments.action.rename || E: Rename ~ env-rename-action
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js #15 || K: environments.action.copy || E: Copy ~ env-copy-action
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js #16 || K: common.delete || E: Delete ~ danger ~ env-delete-action
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js #17 || K: environments.searchSecretsPlaceholder | environments.searchVariablesPlaceholder || E: secrets ~ Search secrets... ~ Search variables...
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js #18 || K: environments.clearSearch || E: Clear search
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js #19 || K: environments.action.search || E: Search ~ env-search-action
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #3 || K:  || E: JSXTEXT: // Scroll persistence for the environments list �� key follows the standard
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #4 || K: environments.toast.activated || E: ${env.name}
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #5 || K: environments.toast.activateFailed || E: Failed to activate environment
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #7 || K: environments.validation.nameRequired || E: Name is required
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #8 || K: environments.validation.alreadyExists || E: Environment already exists
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #9 || K: environments.toast.created || E: Environment created!
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #10 || K: environments.toast.createError || E: An error occurred while creating the environment
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #11 || K: environments.toast.renameSuccess || E: Environment renamed!
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #12 || K: environments.toast.renameError || E: An error occurred while renaming the environment
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #13 || K: environments.error.noFileSelected || E: No file selected
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #14 || K: environments.error.noFileSelected || E: No file selected
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #15 || K: environments.validation.nameRequired || E: Name is required
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #16 || K: environments.validation.dotEnvPrefix || E: File name must start with .env
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #17 || K: environments.validation.invalidFileName || E: Invalid file name
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #18 || K: environments.validation.fileAlreadyExists || E: File already exists
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #19 || K: environments.toast.dotEnvCreated || E: 
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #20 || K: environments.toast.dotEnvCreateFailed || E: Failed to create .env file
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #21 || K: environments.toast.dotEnvDeleted || E: 
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #22 || K: environments.toast.dotEnvDeleteFailed || E: Failed to delete .env file
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #23 || K: environments.empty.noEnvironments || E: title
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #24 || K: environments.empty.createEnvironment || E: JSXTEXT: Create Environment
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #25 || K: environments.empty.importEnvironment || E: JSXTEXT: Import Environment
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #26 || K: environments.section.environments || E: Environments
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #27 || K: environments.action.createEnvironment || E: Create environment
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #28 || K: environments.action.importEnvironment || E: Import environment
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #29 || K: environments.action.exportEnvironment || E: Export environment
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #30 || K: environments.searchPlaceholder || E: Search environments...
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #31 || K: environments.clearSearch || E: env-list-search-clear ~ Clear search
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #32 || K: common.save || E: Save
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #33 || K: common.cancel || E: Cancel
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #34 || K: environments.activeEnvironment || E: activated-checkmark ~ Active environment
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #35 || K: environments.activateEnvironment || E: Activate environment
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #36 || K: environments.namePlaceholder || E: Environment name...
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #37 || K: common.save || E: Save
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #38 || K: common.cancel || E: Cancel
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #39 || K: environments.empty.noEnvironmentsLower || E: JSXTEXT: <span>No environments</span>
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #40 || K: environments.section.dotEnvFiles || E: .env Files
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #41 || K: environments.action.createDotEnvFile || E: Create .env file
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #42 || K: environments.action.create || E: Create
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #43 || K: common.cancel || E: Cancel
+WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js #44 || K: environments.empty.noDotEnvFiles || E: JSXTEXT: <span>No .env files</span>
+WorkspaceHome/WorkspaceEnvironments/RenameEnvironment/index.js #3 || K: environments.validation.minOneCharLower | environments.validation.maxTwoFiftyFive || E: must be at least 1 character ~ Must be 255 characters or less
+WorkspaceHome/WorkspaceEnvironments/RenameEnvironment/index.js #4 || K: environments.validation.nameRequiredLower | environments.validation.alreadyExists || E: name is required ~ duplicate-name ~ Environment already exists
+WorkspaceHome/WorkspaceEnvironments/RenameEnvironment/index.js #5 || K: environments.toast.renamed || E: Environment renamed successfully
+WorkspaceHome/WorkspaceEnvironments/RenameEnvironment/index.js #6 || K: environments.toast.renameError || E: An error occurred while renaming the environment
+WorkspaceHome/WorkspaceEnvironments/RenameEnvironment/index.js #7 || K: environments.rename.title | environments.action.rename || E: Rename Environment ~ Rename
+WorkspaceHome/WorkspaceEnvironments/RenameEnvironment/index.js #8 || K: environments.label.name || E: JSXTEXT: Environment Name
+WorkspaceHome/WorkspaceOverview/CollectionsList/ConnectGitRemote/index.js #3 || K: workspace.git.validation.urlRequired | workspace.git.validation.invalidUrl || E: Git remote URL is required ~ is-git-url ~ Enter a valid Git URL
+WorkspaceHome/WorkspaceOverview/CollectionsList/ConnectGitRemote/index.js #4 || K: workspace.git.toast.connected || E: Git remote connected
+WorkspaceHome/WorkspaceOverview/CollectionsList/ConnectGitRemote/index.js #5 || K: workspace.git.updateTitle | workspace.git.connectTitle | workspace.git.updateAction | workspace.git.connectAction || E: Update Git Remote ~ Connect to Git ~ Update ~ Connect
+WorkspaceHome/WorkspaceOverview/CollectionsList/ConnectGitRemote/index.js #6 || K: workspace.git.linkingPrefix || E:  
+WorkspaceHome/WorkspaceOverview/CollectionsList/ConnectGitRemote/index.js #7 || K: workspace.git.linkingSuffix || E: JSXTEXT: to a remote Git repository.
+WorkspaceHome/WorkspaceOverview/CollectionsList/ConnectGitRemote/index.js #8 || K: workspace.git.urlNotePrefix | workspace.git.urlNoteSuffix || E: font-mono ~ JSXTEXT: modified.
+WorkspaceHome/WorkspaceOverview/CollectionsList/ConnectGitRemote/index.js #9 || K: workspace.git.remoteUrlLabel || E: JSXTEXT: Git Remote URL
+WorkspaceHome/WorkspaceOverview/CollectionsList/RemoveGitRemote/index.js #3 || K: workspace.git.toast.removed || E: Git remote removed
+WorkspaceHome/WorkspaceOverview/CollectionsList/RemoveGitRemote/index.js #4 || K: workspace.git.removeTitle | workspace.git.removeAction || E: Remove Git Remote ~ Remove
+WorkspaceHome/WorkspaceOverview/CollectionsList/RemoveGitRemote/index.js #5 || K: workspace.git.disconnectPrefix || E:  
+WorkspaceHome/WorkspaceOverview/CollectionsList/RemoveGitRemote/index.js #6 || K: workspace.git.disconnectSuffix || E: JSXTEXT: from its Git remote?
+WorkspaceHome/WorkspaceOverview/CollectionsList/RemoveGitRemote/index.js #7 || K: workspace.git.removeNotePrefix | workspace.git.removeNoteMid | workspace.git.removeNoteSuffix || E: font-mono ~ font-mono
+WorkspaceHome/WorkspaceOverview/CollectionsList/index.js #3 || K: workspace.toast.couldNotOpen || E: ${collection.name}
+WorkspaceHome/WorkspaceOverview/CollectionsList/index.js #4 || K: workspace.toast.needsClone || E: ${collection.name}
+WorkspaceHome/WorkspaceOverview/CollectionsList/index.js #5 || K: workspace.toast.notOnDisk || E: ${collection.name}
+WorkspaceHome/WorkspaceOverview/CollectionsList/index.js #6 || K: workspace.toast.cannotRenameNotCloned || E: Cannot rename collections that are not cloned yet
+WorkspaceHome/WorkspaceOverview/CollectionsList/index.js #7 || K: workspace.toast.cloneBeforeShare || E: Please clone this collection first before sharing it
+WorkspaceHome/WorkspaceOverview/CollectionsList/index.js #8 || K: workspace.toast.removedFromWorkspace | workspace.toast.removeError || E: Collection removed from workspace ~ An error occurred while removing the collection
+WorkspaceHome/WorkspaceOverview/CollectionsList/index.js #9 || K: workspace.toast.cannotRemoveNotLoaded || E: Cannot remove collections that are not loaded
+WorkspaceHome/WorkspaceOverview/CollectionsList/index.js #10 || K: workspace.toast.cannotDeleteNotLoaded || E: Cannot delete collections that are not loaded
+WorkspaceHome/WorkspaceOverview/CollectionsList/index.js #11 || K: workspace.toast.openFolderError || E: Error opening the folder
+WorkspaceHome/WorkspaceOverview/CollectionsList/index.js #12 || K: workspace.toast.cannotConnectGitNotLocal || E: Cannot connect a Git remote to a collection that is not present locally
+WorkspaceHome/WorkspaceOverview/CollectionsList/index.js #13 || K: workspace.toast.gitUrlCopied || E: Git URL copied
+WorkspaceHome/WorkspaceOverview/CollectionsList/index.js #14 || K: workspace.toast.copyUrlFailed || E: Failed to copy URL
+WorkspaceHome/WorkspaceOverview/CollectionsList/index.js #15 || K: workspace.collections.emptyTitle | workspace.collections.emptyDescription || E: empty-title ~ empty-description
+WorkspaceHome/WorkspaceOverview/CollectionsList/index.js #16 || K: workspace.badge.failedToOpen || E: danger ~ xs
+WorkspaceHome/WorkspaceOverview/CollectionsList/index.js #17 || K: workspace.badge.notCloned || E: warning ~ xs
+WorkspaceHome/WorkspaceOverview/CollectionsList/index.js #18 || K: workspace.menu.rename || E: JSXTEXT: <span>Rename</span>
+WorkspaceHome/WorkspaceOverview/CollectionsList/index.js #19 || K: workspace.menu.share || E: JSXTEXT: <span>Share</span>
+WorkspaceHome/WorkspaceOverview/CollectionsList/index.js #20 || K: workspace.menu.copyGitUrl || E: JSXTEXT: <span>Copy Git URL</span>
+WorkspaceHome/WorkspaceOverview/CollectionsList/index.js #21 || K: workspace.menu.connectToGit || E: JSXTEXT: <span>Connect to Git</span>
+WorkspaceHome/WorkspaceOverview/CollectionsList/index.js #22 || K: workspace.menu.removeGitRemote || E: JSXTEXT: <span>Remove Git Remote</span>
+WorkspaceHome/WorkspaceOverview/CollectionsList/index.js #23 || K: workspace.menu.remove || E: JSXTEXT: <span>Remove</span>
+WorkspaceHome/WorkspaceOverview/CollectionsList/index.js #24 || K: common.delete || E: JSXTEXT: <span>Delete</span>
+WorkspaceHome/WorkspaceOverview/index.js #3 || K: workspace.toast.workspacePathNotFound || E: Workspace path not found
+WorkspaceHome/WorkspaceOverview/index.js #4 || K: workspace.toast.prepareError || E: Error preparing workspace for collection creation
+WorkspaceHome/WorkspaceOverview/index.js #5 || K: COMMON.COLLECTIONS || E: stat-label
+WorkspaceHome/WorkspaceOverview/index.js #6 || K: workspace.stats.environments || E: stat-label
+WorkspaceHome/WorkspaceOverview/index.js #7 || K: workspace.quickActions || E: section-title
+WorkspaceHome/WorkspaceOverview/index.js #8 || K: WELCOME.CREATE_COLLECTION || E: JSXTEXT: Create Collection
+WorkspaceHome/WorkspaceOverview/index.js #9 || K: WELCOME.OPEN_COLLECTION || E: JSXTEXT: Open Collection
+WorkspaceHome/WorkspaceOverview/index.js #10 || K: WELCOME.IMPORT_COLLECTION || E: JSXTEXT: Import Collection
+WorkspaceHome/WorkspaceOverview/index.js #11 || K: COMMON.COLLECTIONS || E: section-title
+WorkspaceSidebar/CreateWorkspace/index.js #3 || K: workspace.validation.nameEmpty | workspace.validation.maxTwoFiftyFive | workspace.validation.nameRequired | workspace.validation.nameAlreadyExists || E: Workspace name can\ ~ Must be 255 characters or less ~ Workspace name is required ~ unique-name ~ A workspace with this name already exists
+WorkspaceSidebar/CreateWorkspace/index.js #4 || K: workspace.validation.minOneChar | workspace.validation.maxTwoFiftyFive || E: Must be at least 1 character ~ Must be 255 characters or less
+WorkspaceSidebar/CreateWorkspace/index.js #5 || K: workspace.validation.folderNameRequired | workspace.validation.locationRequired | workspace.validation.locationRequired || E: Folder name is required ~ Location is required ~ Location is required
+WorkspaceSidebar/CreateWorkspace/index.js #6 || K: workspace.toast.created || E: Workspace created!
+WorkspaceSidebar/CreateWorkspace/index.js #7 || K: workspace.toast.createError || E: An error occurred while creating the workspace
+WorkspaceSidebar/CreateWorkspace/index.js #8 || K: workspace.create.title | workspace.create.description | workspace.create.creating | workspace.create.confirm || E: Create Workspace ~ Give your new workspace a name and choose its type to get started. ~ Creating... ~ Create Workspace
+WorkspaceSidebar/CreateWorkspace/index.js #9 || K: workspace.label.name || E: JSXTEXT: Name
+WorkspaceSidebar/CreateWorkspace/index.js #10 || K: workspace.label.folderName || E: JSXTEXT: Folder Name
+WorkspaceSidebar/CreateWorkspace/index.js #11 || K: workspace.help.folderName1 || E: JSXTEXT: The name of the folder used to store the workspace.
+WorkspaceSidebar/CreateWorkspace/index.js #12 || K: workspace.help.folderName2 || E: 
+WorkspaceSidebar/CreateWorkspace/index.js #13 || K: workspace.label.location || E: JSXTEXT: Location
+WorkspaceSidebar/CreateWorkspace/index.js #14 || K: workspace.help.location1 || E: 
+WorkspaceSidebar/CreateWorkspace/index.js #15 || K: workspace.help.location2 || E: JSXTEXT: Choose the location where you want to store this workspace.
+WorkspaceSidebar/CreateWorkspace/index.js #16 || K: preferences.general.browse || E: JSXTEXT: Browse
+WorkspaceSidebar/ImportWorkspace/index.js #3 || K: workspace.validation.locationRequiredLower | workspace.validation.locationRequiredLower || E: location is required ~ location is required
+WorkspaceSidebar/ImportWorkspace/index.js #4 || K: workspace.toast.imported || E: Workspace imported successfully!
+WorkspaceSidebar/ImportWorkspace/index.js #5 || K: workspace.toast.importFailed || E: Failed to import workspace
+WorkspaceSidebar/ImportWorkspace/index.js #6 || K: workspace.toast.invalidZip || E: Please select a valid zip file
+WorkspaceSidebar/ImportWorkspace/index.js #7 || K: workspace.toast.couldNotGetFilePath || E: Could not get file path
+WorkspaceSidebar/ImportWorkspace/index.js #8 || K: workspace.import.title | workspace.import.importing | workspace.import.confirm || E: Import Workspace ~ Importing... ~ Import
+WorkspaceSidebar/ImportWorkspace/index.js #9 || K: workspace.import.fileLabel || E: font-semibold mb-2
+WorkspaceSidebar/ImportWorkspace/index.js #10 || K: workspace.import.remove || E: JSXTEXT: Remove
+WorkspaceSidebar/ImportWorkspace/index.js #11 || K: workspace.import.dropPrefix || E:  
+WorkspaceSidebar/ImportWorkspace/index.js #12 || K: workspace.import.chooseFile || E: JSXTEXT: choose a file
+WorkspaceSidebar/ImportWorkspace/index.js #13 || K: workspace.import.supportNote || E: JSXTEXT: Supports exported Bruno workspace zip files
+WorkspaceSidebar/ImportWorkspace/index.js #14 || K: workspace.import.extractLocation || E: JSXTEXT: Extract Location
+WorkspaceSidebar/ImportWorkspace/index.js #15 || K: workspace.help.extract1 || E: JSXTEXT: Choose the location where you want to extract this workspace.
+WorkspaceSidebar/ImportWorkspace/index.js #16 || K: workspace.help.extract2 || E: JSXTEXT: The workspace folder will be created at this location.
+WorkspaceSidebar/ImportWorkspace/index.js #17 || K: preferences.general.browse || E: JSXTEXT: Browse

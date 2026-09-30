@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { IconFile, IconSettings, IconAlertCircle } from '@tabler/icons';
 import { getBasename } from 'utils/common/path';
 import StyledWrapper from './StyledWrapper';
@@ -12,12 +13,13 @@ const ProtoFilesTab = ({
   onOpenCollectionProtobufSettings,
   onSelectProtoFile
 }) => {
+  const { t } = useTranslation();
   return (
     <StyledWrapper>
       {collectionProtoFiles && collectionProtoFiles.length > 0 && (
         <div className="content-wrapper">
           <div className="header-wrapper">
-            <div className="header-text">From Collection Settings</div>
+            <div className="header-text">{t('requestPane.grpc.fromCollectionSettings')}</div>
             <button
               onClick={onOpenCollectionProtobufSettings}
               className="settings-button"
@@ -30,13 +32,13 @@ const ProtoFilesTab = ({
             <div className="error-wrapper">
               <p className="error-text">
                 <IconAlertCircle size={16} strokeWidth={1.5} style={{ marginRight: '0.25rem' }} />
-                Some proto files could not be found.
+                {t('requestPane.grpc.someProtoFilesNotFound')}
                 {' '}
                 <button
                   onClick={onOpenCollectionProtobufSettings}
                   className="error-link"
                 >
-                  Manage proto files
+                  {t('requestPane.grpc.manageProtoFiles')}
                 </button>
               </p>
             </div>
@@ -85,7 +87,7 @@ const ProtoFilesTab = ({
       {(!collectionProtoFiles || collectionProtoFiles.length === 0) && (
         <div className="empty-wrapper">
           <div className="empty-text">
-            No proto files configured in collection settings
+            {t('requestPane.grpc.noProtoFilesConfigured')}
           </div>
         </div>
       )}
@@ -96,7 +98,7 @@ const ProtoFilesTab = ({
           onClick={onSelectProtoFile}
         >
           <IconFile size={16} strokeWidth={1.5} style={{ marginRight: '0.25rem' }} />
-          Browse for Proto File
+          {t('requestPane.grpc.browseForProtoFile')}
         </button>
       </div>
     </StyledWrapper>

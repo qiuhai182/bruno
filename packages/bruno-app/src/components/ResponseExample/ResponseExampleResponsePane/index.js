@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import get from 'lodash/get';
 import find from 'lodash/find';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { updateResponsePaneTab } from 'providers/ReduxStore/slices/tabs';
 import Tab from 'components/Tab';
 import ResponseLayoutToggle from 'components/ResponsePane/ResponseLayoutToggle';
@@ -19,12 +20,14 @@ const ResponseExampleResponsePane = ({
   editMode,
   exampleUid,
   onSave,
-  expectedResponseLabel = 'Response',
+  expectedResponseLabel,
   tryResult = null
 }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const tabs = useSelector((state) => state.tabs.tabs);
   const activeTabUid = useSelector((state) => state.tabs.activeTabUid);
+  const responseLabel = expectedResponseLabel ?? t('collection.example.responseTab');
 
   // Get the focused tab for reading persisted tab state
   const focusedTab = find(tabs, (t) => t.uid === activeTabUid);
@@ -75,7 +78,7 @@ const ResponseExampleResponsePane = ({
         );
       }
       default: {
-        return <div>404 | Not found</div>;
+        return <div>{t('collection.example.notFound')}</div>;
       }
     }
   };
@@ -83,16 +86,16 @@ const ResponseExampleResponsePane = ({
   const tabConfig = [
     {
       name: 'response',
-      label: expectedResponseLabel
+      label: responseLabel
     },
     {
       name: 'headers',
-      label: 'Headers',
+      label: t('collection.example.headersTab'),
       count: (exampleData?.response?.headers || []).length
     },
     ...(tryResult ? [{
       name: 'try-result',
-      label: 'Try Result'
+      label: t('collection.example.tryResultTab')
     }] : [])
   ];
 

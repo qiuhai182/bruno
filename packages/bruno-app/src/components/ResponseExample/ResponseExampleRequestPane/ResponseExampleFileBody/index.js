@@ -1,6 +1,7 @@
 import React, { useMemo, useCallback } from 'react';
 import { get } from 'lodash';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from 'providers/Theme';
 import { updateResponseExampleFileBodyParams } from 'providers/ReduxStore/slices/collections';
 import { updateTableColumnWidths } from 'providers/ReduxStore/slices/tabs';
@@ -14,6 +15,7 @@ import SingleLineEditor from 'components/SingleLineEditor/index';
 import RadioButton from 'components/RadioButton';
 
 const ResponseExampleFileBody = ({ item, collection, exampleUid, editMode = false }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const { storedTheme } = useTheme();
   const tabs = useSelector((state) => state.tabs.tabs);
@@ -129,9 +131,9 @@ const ResponseExampleFileBody = ({ item, collection, exampleUid, editMode = fals
   const columns = [
     {
       key: 'filePath',
-      name: 'File',
+      name: t('collection.table.file'),
       isKeyField: true,
-      placeholder: 'File',
+      placeholder: t('collection.table.file'),
       width: '30%',
       readOnly: !editMode,
       render: ({ row, value, onChange }) => (
@@ -148,7 +150,7 @@ const ResponseExampleFileBody = ({ item, collection, exampleUid, editMode = fals
     {
       key: 'contentType',
       name: 'Content-Type',
-      placeholder: 'Auto',
+      placeholder: t('collection.example.auto'),
       width: '20%',
       readOnly: !editMode,
       render: ({ value, onChange }) => (
@@ -156,7 +158,7 @@ const ResponseExampleFileBody = ({ item, collection, exampleUid, editMode = fals
           className="flex items-center justify-center"
           onSave={() => {}}
           theme={storedTheme}
-          placeholder={!value ? 'Auto' : ''}
+          placeholder={!value ? t('collection.example.auto') : ''}
           value={value || ''}
           onChange={onChange}
           onRun={() => {}}
@@ -167,7 +169,7 @@ const ResponseExampleFileBody = ({ item, collection, exampleUid, editMode = fals
     },
     {
       key: 'selected',
-      name: 'Selected',
+      name: t('collection.table.selected'),
       width: '15%',
       readOnly: !editMode,
       render: ({ row, rowIndex }) => (

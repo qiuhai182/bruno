@@ -3,6 +3,7 @@ import toast from 'react-hot-toast';
 import { buildClientSchema, buildSchema, validateSchema } from 'graphql';
 import { fetchGqlSchema } from 'utils/network';
 import { simpleHash, safeParseJSON } from 'utils/common';
+import { useTranslation } from 'react-i18next';
 
 const buildAndValidateSchema = (data) => {
   let schema;
@@ -26,6 +27,7 @@ const buildAndValidateSchema = (data) => {
 const schemaHashPrefix = 'bruno.graphqlSchema';
 
 const useGraphqlSchema = (endpoint, environment, request, collection) => {
+  const { t } = useTranslation();
   const { ipcRenderer } = window;
   const localStorageKey = `${schemaHashPrefix}.${simpleHash(endpoint)}`;
   const [error, setError] = useState(null);
@@ -95,18 +97,18 @@ const useGraphqlSchema = (endpoint, environment, request, collection) => {
 
         if (validationErrors.length > 0) {
           const errorMessages = validationErrors.map((e) => e.message).join('; ');
-          toast(`Schema validation issues: ${errorMessages}`, {
+          toast(t('requestPane.graphql.schemaValidationIssues', { errorMessages }), {
             icon: '⚠️',
             duration: 5000
           });
         } else {
-          toast.success('GraphQL Schema loaded successfully');
+          toast.success(t('requestPane.graphql.schemaLoaded'));
         }
       }
     } catch (err) {
       setError(err);
       console.error(err);
-      toast.error(`Error occurred while loading GraphQL Schema: ${err.message}`);
+      toast.error(t('requestPane.graphql.schemaLoadError', { errorMessage: err.message }));
     }
 
     setIsLoading(false);

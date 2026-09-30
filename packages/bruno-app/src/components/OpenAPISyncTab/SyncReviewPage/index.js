@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import {
   IconCheck,
   IconX,
@@ -87,6 +88,7 @@ const SyncReviewPage = ({
   onApplySync
 }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const tabUiState = useSelector((state) => state.openapiSync?.tabUiState?.[collectionUid] || {});
   const [preserveValues, setPreserveValues] = useState(true);
   const [showConfirmation, setShowConfirmation] = useState(false);
@@ -175,15 +177,15 @@ const SyncReviewPage = ({
     const isSkipped = (ep) => decisions[ep.id] === 'keep-mine';
 
     // Accepted — changes that will be applied
-    addGroup('New endpoints to add', 'add', specAddedEndpoints.filter(isAccepted));
-    addGroup('Endpoints to update', 'update', specUpdatedEndpoints.filter(isAccepted));
-    addGroup('Endpoints to delete', 'remove', specRemovedEndpoints.filter(isAccepted));
+    addGroup(t('openApiSync.groups.newEndpointsToAdd'), 'add', specAddedEndpoints.filter(isAccepted));
+    addGroup(t('openApiSync.groups.endpointsToUpdate'), 'update', specUpdatedEndpoints.filter(isAccepted));
+    addGroup(t('openApiSync.groups.endpointsToDelete'), 'remove', specRemovedEndpoints.filter(isAccepted));
 
     // Skipped — changes that will be preserved as-is
-    addGroup('Keeping local version', 'keep', specUpdatedEndpoints.filter((ep) => ep.conflict && isSkipped(ep)));
-    addGroup('Retaining removed endpoints', 'keep', specRemovedEndpoints.filter(isSkipped));
-    addGroup('Skipped new endpoints', 'keep', specAddedEndpoints.filter(isSkipped));
-    addGroup('Keeping current version (skipped updates)', 'keep', specUpdatedEndpoints.filter((ep) => !ep.conflict && isSkipped(ep)));
+    addGroup(t('openApiSync.groups.keepingLocalVersion'), 'keep', specUpdatedEndpoints.filter((ep) => ep.conflict && isSkipped(ep)));
+    addGroup(t('openApiSync.groups.retainingRemovedEndpoints'), 'keep', specRemovedEndpoints.filter(isSkipped));
+    addGroup(t('openApiSync.groups.skippedNewEndpoints'), 'keep', specAddedEndpoints.filter(isSkipped));
+    addGroup(t('openApiSync.groups.keepingCurrentVersion'), 'keep', specUpdatedEndpoints.filter((ep) => !ep.conflict && isSkipped(ep)));
 
     return groups;
   }, [specAddedEndpoints, specUpdatedEndpoints, specRemovedEndpoints, decisions]);
@@ -220,10 +222,10 @@ const SyncReviewPage = ({
   const hasRemoteUpdates = specAddedEndpoints.length + specUpdatedEndpoints.length + specRemovedEndpoints.length > 0;
 
   const buttonLabel = unresolvedConflicts > 0
-    ? `Resolve ${unresolvedConflicts} conflict${unresolvedConflicts !== 1 ? 's and sync' : ' and sync'}`
+    ? t('openApiSync.review.resolveConflictsAndSync', { count: unresolvedConflicts, s: unresolvedConflicts !== 1 ? 's' : '' })
     : !hasRemoteUpdates && specDrift?.storedSpecMissing
-        ? 'Restore Spec File'
-        : 'Sync Collection';
+        ? t('openApiSync.review.restoreSpecFile')
+        : t('openApiSync.review.syncCollection');
 
   return (
     <div className="sync-review-page sync-mode">
@@ -231,10 +233,10 @@ const SyncReviewPage = ({
         <div className="sync-review-header">
           <div className="title-row">
             <div className="title-left">
-              <h3 className="review-title">Review Changes</h3>
+              <h3 className="review-title">{t('openApiSync.review.title')}</h3>
               {totalChanges > 0 && (
                 <p className="review-subtitle">
-                  Choose to keep the current version or accept the updated one.
+                  {t('openApiSync.review.subtitle')}
                 </p>
               )}
             </div>
@@ -250,9 +252,9 @@ const SyncReviewPage = ({
                   >
                     <span className="preserve-toggle-knob" />
                   </button>
-                  <span className="preserve-values-label">Preserve values</span>
+                  <span className="preserve-values-label">{t('openApiSync.review.preserveValues')}</span>
                   <Help icon="info" size={12} placement="top" width={260}>
-                    When enabled, your edited values are preserved during sync. When disabled, all values are updated to match the OpenAPI spec.
+                    {t('openApiSync.review.preserveValuesHelp')}
                   </Help>
                 </div>
                 {specDrift?.unifiedDiff && (
@@ -266,7 +268,7 @@ const SyncReviewPage = ({
                     ) : (
                       <IconArrowsDiff size={12} />
                     )}{' '}
-                    View Spec Diff
+                    {t('openApiSync.review.viewSpecDiff')}
                   </button>
                 )}
                 {decidableEndpoints.length > 0 && (
@@ -275,13 +277,13 @@ const SyncReviewPage = ({
                       className={`bulk-btn ${allSkipped ? 'active' : ''}`}
                       onClick={() => setBulkDecision('keep-mine')}
                     >
-                      <IconX size={12} /> Skip All
+                      <IconX size={12} /> {t('openApiSync.review.skipAll')}
                     </button>
                     <button
                       className={`bulk-btn ${allAccepted ? 'active' : ''}`}
                       onClick={() => setBulkDecision('accept-incoming')}
                     >
-                      <IconCheck size={12} /> Accept All
+                      <IconCheck size={12} /> {t('openApiSync.review.acceptAll')}
                     </button>
                   </>
                 )}
@@ -297,14 +299,14 @@ const SyncReviewPage = ({
             {isLoading ? (
               <>
                 <IconLoader2 size={40} className="empty-state-icon animate-spin" />
-                <h4>Checking for updates</h4>
-                <p>Comparing your last synced spec with the latest spec...</p>
+                <h4>{t('openApiSync.checkingForUpdates')}</h4>
+                <p>{t('openApiSync.review.comparingSpec')}</p>
               </>
             ) : (
               <>
                 <IconCheck size={40} className="empty-state-icon" />
-                <h4>No updates from the spec</h4>
-                <p>The spec endpoints have not been updated since the last sync.</p>
+                <h4>{t('openApiSync.noUpdates')}</h4>
+                <p>{t('openApiSync.noUpdatesDesc')}</p>
               </>
             )}
           </div>
@@ -315,22 +317,22 @@ const SyncReviewPage = ({
               <div className="review-group">
 
                 <EndpointChangeSection
-                  title="Updated in Spec"
+                  title={t('openApiSync.review.updatedInSpec')}
                   type="spec-modified"
                   endpoints={specUpdatedEndpoints}
                   defaultExpanded={true}
                   expandableLayout
-                  subtitle="The spec has updates for these endpoints"
+                  subtitle={t('openApiSync.review.updatedInSpecSubtitle')}
                   headerExtra={conflictCount > 0 ? (
                     <StatusBadge
                       status="danger"
                       rightSection={(
                         <Help icon="info" size={11} placement="top" width={250}>
-                          {`This section has ${conflictCount} endpoint${conflictCount === 1 ? '' : 's'} modified in both the spec and your collection. Expand to review and resolve.`}
+                          {t('openApiSync.review.conflictsHelp', { count: conflictCount, s: conflictCount === 1 ? '' : 's' })}
                         </Help>
                       )}
                     >
-                      {conflictCount} {conflictCount === 1 ? 'Conflict' : 'Conflicts'}
+                      {t('openApiSync.review.conflictCount', { count: conflictCount, s: conflictCount === 1 ? '' : 's' })}
                     </StatusBadge>
                   ) : null}
                   collectionUid={collectionUid}
@@ -344,7 +346,7 @@ const SyncReviewPage = ({
                       collectionPath={collectionPath}
                       newSpec={newSpec}
                       showDecisions={true}
-                      decisionLabels={{ keep: 'Keep Current', accept: 'Update' }}
+                      decisionLabels={{ keep: t('openApiSync.decision.keepCurrent'), accept: t('openApiSync.decision.update') }}
                       collectionUid={collectionUid}
                       preserveValues={preserveValues}
                     />
@@ -352,12 +354,12 @@ const SyncReviewPage = ({
                 />
 
                 <EndpointChangeSection
-                  title="New in Spec"
+                  title={t('openApiSync.review.newInSpec')}
                   type="added"
                   endpoints={specAddedEndpoints}
                   defaultExpanded={true}
                   expandableLayout
-                  subtitle="New endpoints from the spec"
+                  subtitle={t('openApiSync.review.newInSpecSubtitle')}
                   collectionUid={collectionUid}
                   sectionKey="review-added"
                   renderItem={(endpoint, idx) => (
@@ -369,7 +371,7 @@ const SyncReviewPage = ({
                       collectionPath={collectionPath}
                       newSpec={newSpec}
                       showDecisions={true}
-                      decisionLabels={{ keep: 'Skip', accept: 'Add' }}
+                      decisionLabels={{ keep: t('openApiSync.decision.skip'), accept: t('openApiSync.decision.add') }}
                       collectionUid={collectionUid}
                       preserveValues={preserveValues}
                     />
@@ -377,12 +379,12 @@ const SyncReviewPage = ({
                 />
 
                 <EndpointChangeSection
-                  title="Removed from Spec"
+                  title={t('openApiSync.review.removedFromSpec')}
                   type="removed"
                   endpoints={specRemovedEndpoints}
                   defaultExpanded={true}
                   expandableLayout
-                  subtitle="These endpoints are in your collection but not in the spec"
+                  subtitle={t('openApiSync.review.removedFromSpecSubtitle')}
                   collectionUid={collectionUid}
                   sectionKey="review-removed"
                   renderItem={(endpoint, idx) => (
@@ -394,7 +396,7 @@ const SyncReviewPage = ({
                       collectionPath={collectionPath}
                       newSpec={newSpec}
                       showDecisions={true}
-                      decisionLabels={{ keep: 'Keep', accept: 'Delete' }}
+                      decisionLabels={{ keep: t('openApiSync.decision.keep'), accept: t('openApiSync.decision.delete') }}
                       collectionUid={collectionUid}
                       preserveValues={preserveValues}
                     />
@@ -410,7 +412,7 @@ const SyncReviewPage = ({
       {hasRemoteUpdates && (
         <div className="sync-info-notice mt-4">
           <IconInfoCircle size={14} className="sync-info-icon" />
-          <span><span className="whats-updated-title">What gets updated:</span> Parameters, headers, body and auth will be updated. Tests, scripts, and assertions are always preserved.</span>
+          <span><span className="whats-updated-title">{t('openApiSync.review.whatsUpdatedTitle')}</span> {t('openApiSync.review.whatsUpdatedBody')}</span>
         </div>
       )}
 
@@ -419,7 +421,7 @@ const SyncReviewPage = ({
           <div className="bar-stats">
             {totalChanges === 0 && (
               <span className="stats-prefix">
-                {specDrift?.storedSpecMissing ? 'Sync will update the spec file' : 'No endpoint changes to apply'}
+                {specDrift?.storedSpecMissing ? t('openApiSync.review.syncWillUpdateSpecFile') : t('openApiSync.review.noEndpointChanges')}
               </span>
             )}
           </div>

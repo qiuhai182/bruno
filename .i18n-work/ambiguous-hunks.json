@@ -1,0 +1,1860 @@
+[
+ {
+  "file": "packages/bruno-app/src/components/ResponseExample/ResponseExampleResponsePane/index.js",
+  "strs": [],
+  "keys": [
+   "collection.example.responseTab"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponseExample/ResponseExampleResponsePane/ResponseExampleResponseHeaders/index.js",
+  "strs": [],
+  "keys": [
+   "common.bulkEdit"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISpecTab/index.js",
+  "strs": [],
+  "keys": [
+   "openApiSpec.showingRemoteSpec"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/hooks/useEndpointActions.js",
+  "strs": [
+   "Reset Endpoint",
+   "${endpoint.method} ${endpoint.path}",
+   "`Are you sure you want to reset \"${endpoint.method} ${endpoint.path}\" to match the spec? Your local changes will be lost.`"
+  ],
+  "keys": [
+   "openApiSync.actions.resetEndpoint",
+   "openApiSync.actions.resetEndpointMessage"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/hooks/useEndpointActions.js",
+  "strs": [
+   "Delete Endpoint",
+   "${endpoint.method} ${endpoint.path}",
+   "`Are you sure you want to delete \"${endpoint.method} ${endpoint.path}\"? This action cannot be undone.`"
+  ],
+  "keys": [
+   "openApiSync.actions.deleteEndpoint",
+   "openApiSync.actions.deleteEndpointMessage"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/hooks/useEndpointActions.js",
+  "strs": [
+   "Restore Endpoint",
+   "${endpoint.method} ${endpoint.path}",
+   "`Are you sure you want to restore \"${endpoint.method} ${endpoint.path}\" to your collection?`"
+  ],
+  "keys": [
+   "openApiSync.actions.restoreEndpoint",
+   "openApiSync.actions.restoreEndpointMessage"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/SpecStatusSection/index.js",
+  "strs": [
+   "danger",
+   "open-settings",
+   "danger",
+   "Invalid OpenAPI specification",
+   "open-settings",
+   "`Source file not found at ${sourceUrl}`"
+  ],
+  "keys": [
+   "openApiSync.banner.sourceFileNotFound",
+   "openApiSync.banner.invalidSpec"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/SpecStatusSection/index.js",
+  "strs": [
+   "warning",
+   "`OpenAPI spec has been updated${versionInfo}`"
+  ],
+  "keys": [
+   "openApiSync.banner.specUpdated"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/SpecStatusSection/index.js",
+  "strs": [
+   "modified",
+   "warning",
+   "full",
+   "endpoints",
+   "endpoint",
+   "added",
+   "success",
+   "full",
+   "endpoints",
+   "endpoint",
+   "removed",
+   "danger",
+   "full",
+   "endpoints",
+   "endpoint",
+   "0 &&",
+   "0 &&",
+   "0 &&"
+  ],
+  "keys": [
+   "openApiSync.banner.endpointsUpdated",
+   "openApiSync.banner.endpointsAdded",
+   "openApiSync.banner.endpointsRemoved"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/SpecStatusSection/index.js",
+  "strs": [],
+  "keys": [
+   "openApiSync.banner.updateConnectionSettings"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/SpecStatusSection/index.js",
+  "strs": [
+   "No updates from the spec",
+   "The spec endpoints have not been updated since the last sync. You can restore the spec file to track local collection changes."
+  ],
+  "keys": [
+   "openApiSync.noUpdates",
+   "openApiSync.noUpdatesRestoreDesc",
+   "openApiSync.review.restoreSpecFile"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/OverviewSection/index.js",
+  "strs": [
+   "Spec Version",
+   "¨C",
+   "Endpoints in Spec",
+   "¨C",
+   "Last Synced At",
+   "¨C",
+   "MMMM D, YYYY [at] h:mm A",
+   "Folder Grouping",
+   "Auto Check for Updates",
+   "Disabled",
+   "`v${version}`",
+   "`Every ${autoCheckInterval} min`"
+  ],
+  "keys": [
+   "openApiSync.overview.specVersion",
+   "openApiSync.overview.endpointsInSpec",
+   "openApiSync.overview.lastSyncedAt",
+   "openApiSync.overview.folderGrouping",
+   "openApiSync.overview.autoCheck",
+   "openApiSync.overview.everyMinutes",
+   "openApiSync.overview.disabled"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/OverviewSection/index.js",
+  "strs": [],
+  "keys": [
+   "openApiSync.overview.viewCollectionChanges"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/OverviewSection/index.js",
+  "strs": [],
+  "keys": [
+   "openApiSync.overview.reviewAndSync"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/OverviewSection/index.js",
+  "strs": [],
+  "keys": [
+   "openApiSync.overview.goToSpecUpdates"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/OverviewSection/index.js",
+  "strs": [],
+  "keys": [
+   "openApiSync.banner.updateConnectionSettings"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/OverviewSection/index.js",
+  "strs": [
+   "overview-section-title mt-5",
+   "Endpoint Summary"
+  ],
+  "keys": [
+   "openApiSync.overview.endpointSummary"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/OverviewSection/index.js",
+  "strs": [
+   "conflict-annotation",
+   "conflict",
+   "conflicts"
+  ],
+  "keys": [
+   "openApiSync.overview.conflictCount"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/OverviewSection/index.js",
+  "strs": [
+   "overview-section-title mt-7",
+   "Last Synced Spec Details"
+  ],
+  "keys": [
+   "openApiSync.overview.lastSyncedSpecDetails"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/CollectionStatusSection/index.js",
+  "strs": [
+   "warning",
+   "full",
+   "danger",
+   "full",
+   "muted",
+   "full",
+   "0 &&",
+   "0 &&",
+   "0 &&"
+  ],
+  "keys": [
+   "openApiSync.collection.modifiedCount",
+   "openApiSync.collection.deletedCount",
+   "openApiSync.collection.addedCount"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/CollectionStatusSection/index.js",
+  "strs": [],
+  "keys": [
+   "openApiSync.collection.revertAllToSpec"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/CollectionStatusSection/index.js",
+  "strs": [
+   "whats-updated-title",
+   "What's tracked:",
+   "Changes to parameters, headers, body and auth compared to the synced spec. Your variables, scripts, tests, assertions, settings etc. are not tracked here."
+  ],
+  "keys": [
+   "openApiSync.collection.whatsTrackedTitle",
+   "openApiSync.collection.whatsTrackedBody"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/CollectionStatusSection/index.js",
+  "strs": [
+   "xs",
+   "ghost",
+   "Open in tab",
+   "xs",
+   "ghost",
+   "Reset to spec",
+   "Open"
+  ],
+  "keys": [
+   "openApiSync.collection.openInTab",
+   "openApiSync.collection.open",
+   "openApiSync.collection.resetToSpec",
+   "openApiSync.collection.reset"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/CollectionStatusSection/index.js",
+  "strs": [
+   "Reset all modified endpoints to match the spec"
+  ],
+  "keys": [
+   "openApiSync.collection.resetAllTitle",
+   "openApiSync.collection.resetAll"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/CollectionStatusSection/index.js",
+  "strs": [
+   "xs",
+   "ghost",
+   "Restore to collection"
+  ],
+  "keys": [
+   "openApiSync.collection.restoreToCollection",
+   "openApiSync.collection.restore"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/CollectionStatusSection/index.js",
+  "strs": [
+   "Add all deleted endpoints back to collection"
+  ],
+  "keys": [
+   "openApiSync.collection.restoreAllTitle",
+   "openApiSync.collection.restoreAll"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/CollectionStatusSection/index.js",
+  "strs": [
+   "xs",
+   "ghost",
+   "Open in tab",
+   "xs",
+   "ghost",
+   "danger",
+   "Delete endpoint",
+   "Open"
+  ],
+  "keys": [
+   "openApiSync.collection.openInTab",
+   "openApiSync.collection.open",
+   "openApiSync.collection.deleteEndpointTitle",
+   "openApiSync.collection.delete"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/CollectionStatusSection/index.js",
+  "strs": [
+   "Delete all locally added endpoints"
+  ],
+  "keys": [
+   "openApiSync.collection.deleteAllTitle",
+   "openApiSync.collection.deleteAll"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/CollectionStatusSection/index.js",
+  "strs": [
+   "Cannot track collection changes",
+   "Waiting for initial sync",
+   "The last synced spec is missing. Go to the \\",
+   " tab to restore it, or sync the collection if updates are available to track future changes.",
+   "Once you sync your collection with the spec, local changes will appear here.",
+   "outline",
+   "sm",
+   "mt-4",
+   "spec-updates",
+   "Go to Spec Updates"
+  ],
+  "keys": [
+   "openApiSync.collection.cannotTrack",
+   "openApiSync.collection.waitingForInitialSync",
+   "openApiSync.collection.specMissingDesc",
+   "openApiSync.collection.onceYouSync",
+   "openApiSync.overview.goToSpecUpdates"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/CollectionStatusSection/index.js",
+  "strs": [],
+  "keys": [
+   "common.cancel"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/CollectionStatusSection/index.js",
+  "strs": [],
+  "keys": [
+   "common.confirm"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/SyncReviewPage/index.js",
+  "strs": [
+   "New endpoints to add",
+   "add",
+   "Endpoints to update",
+   "update",
+   "Endpoints to delete",
+   "remove",
+   "Keeping local version",
+   "keep",
+   "Retaining removed endpoints",
+   "keep",
+   "Skipped new endpoints",
+   "keep",
+   "Keeping current version (skipped updates)",
+   "keep"
+  ],
+  "keys": [
+   "openApiSync.groups.newEndpointsToAdd",
+   "openApiSync.groups.endpointsToUpdate",
+   "openApiSync.groups.endpointsToDelete",
+   "openApiSync.groups.keepingLocalVersion",
+   "openApiSync.groups.retainingRemovedEndpoints",
+   "openApiSync.groups.skippedNewEndpoints",
+   "openApiSync.groups.keepingCurrentVersion"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/SyncReviewPage/index.js",
+  "strs": [
+   "s and sync",
+   " and sync",
+   "Restore Spec File",
+   "Sync Collection",
+   "`Resolve ${unresolvedConflicts} conflict${unresolvedConflicts !== 1 ? 's and sync' : ' and sync'}`"
+  ],
+  "keys": [
+   "openApiSync.review.resolveConflictsAndSync",
+   "openApiSync.review.restoreSpecFile",
+   "openApiSync.review.syncCollection"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/SyncReviewPage/index.js",
+  "strs": [],
+  "keys": [
+   "openApiSync.review.viewSpecDiff"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/SyncReviewPage/index.js",
+  "strs": [],
+  "keys": [
+   "openApiSync.review.skipAll"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/SyncReviewPage/index.js",
+  "strs": [],
+  "keys": [
+   "openApiSync.review.acceptAll"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/SyncReviewPage/index.js",
+  "strs": [
+   " : ",
+   "`This section has ${conflictCount} endpoint${conflictCount === 1 ? '' : 's'} modified in both the spec and your collection. Expand to review and resolve.`"
+  ],
+  "keys": [
+   "openApiSync.review.conflictsHelp"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/SyncReviewPage/index.js",
+  "strs": [
+   "Conflict",
+   "Conflicts"
+  ],
+  "keys": [
+   "openApiSync.review.conflictCount"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/SyncReviewPage/index.js",
+  "strs": [
+   "whats-updated-title",
+   "What gets updated:",
+   "Parameters, headers, body and auth will be updated. Tests, scripts, and assertions are always preserved."
+  ],
+  "keys": [
+   "openApiSync.review.whatsUpdatedTitle",
+   "openApiSync.review.whatsUpdatedBody"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/ConfirmSyncModal/index.js",
+  "strs": [],
+  "keys": [
+   "openApiSync.confirmSync.inSyncDescription"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/ConfirmSyncModal/index.js",
+  "strs": [],
+  "keys": [
+   "openApiSync.confirmSync.description"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/ConfirmSyncModal/index.js",
+  "strs": [
+   "Restore Spec File",
+   "Confirm & Sync Collection"
+  ],
+  "keys": [
+   "common.cancel",
+   "openApiSync.confirmSync.restoreSpecFile",
+   "openApiSync.confirmSync.confirmAndSync"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/ConnectSpecForm/index.js",
+  "strs": [
+   "url-label",
+   "OpenAPI Specification"
+  ],
+  "keys": [
+   "openApiSync.connect.specLabel"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/ConnectSpecForm/index.js",
+  "strs": [],
+  "keys": [
+   "openApiSync.settings.file"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/ConnectSpecForm/index.js",
+  "strs": [],
+  "keys": [
+   "openApiSync.connect.button"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/EndpointChangeSection/ExpandableEndpointRow.js",
+  "strs": [],
+  "keys": [
+   "openApiSync.endpoint.conflictHelp"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/EndpointChangeSection/ExpandableEndpointRow.js",
+  "strs": [],
+  "keys": [
+   "openApiSync.endpoint.conflict"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/EndpointChangeSection/ExpandableEndpointRow.js",
+  "strs": [],
+  "keys": [
+   "openApiSync.endpoint.errorWithMessage"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/DisconnectSyncModal/index.js",
+  "strs": [],
+  "keys": [
+   "common.cancel",
+   "openApiSync.disconnect.confirm"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/OpenAPISyncHeader/index.js",
+  "strs": [],
+  "keys": [
+   "openApiSync.header.checkForUpdates"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/OpenAPISyncHeader/index.js",
+  "strs": [
+   "More options"
+  ],
+  "keys": [
+   "openApiSync.header.viewSpec",
+   "openApiSync.header.moreOptions"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/OpenAPISyncHeader/index.js",
+  "strs": [
+   "spec-url-label",
+   "Source File:",
+   "Source URL:"
+  ],
+  "keys": [
+   "openApiSync.header.sourceFile",
+   "openApiSync.header.sourceUrl"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/OpenAPISyncHeader/index.js",
+  "strs": [
+   "copy-btn",
+   "Copy path",
+   "Copy URL",
+   "button"
+  ],
+  "keys": [
+   "openApiSync.header.copyPath",
+   "openApiSync.header.copyUrl"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/OpenAPISyncHeader/index.js",
+  "strs": [
+   "spec-url-label",
+   "Linked Collection:"
+  ],
+  "keys": [
+   "openApiSync.header.linkedCollection"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/OpenAPISyncHeader/index.js",
+  "strs": [],
+  "keys": [
+   "openApiSync.header.inSyncTooltip"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/OpenAPISyncHeader/index.js",
+  "strs": [],
+  "keys": [
+   "openApiSync.header.notInSyncTooltip"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/EndpointChangeSection/EndpointItem.js",
+  "strs": [
+   "deprecated-tag",
+   "deprecated"
+  ],
+  "keys": [
+   "openApiSync.endpoint.deprecated"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/hooks/useSyncFlow.js",
+  "strs": [
+   "spec-only",
+   "Spec updated successfully",
+   "reset",
+   "Collection reset to spec successfully",
+   "Collection synced successfully"
+  ],
+  "keys": [
+   "openApiSync.toast.specUpdated",
+   "openApiSync.toast.resetToSpec",
+   "openApiSync.toast.synced"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/hooks/useSyncFlow.js",
+  "strs": [
+   "New endpoints to add",
+   "add",
+   "Endpoints to update",
+   "update"
+  ],
+  "keys": [
+   "openApiSync.groups.newEndpointsToAdd",
+   "openApiSync.groups.endpointsToUpdate"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/hooks/useSyncFlow.js",
+  "strs": [
+   "Endpoints to delete",
+   "remove"
+  ],
+  "keys": [
+   "openApiSync.groups.endpointsToDelete"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/ConnectionSettingsModal/index.js",
+  "strs": [
+   "settings-label",
+   "Spec Source"
+  ],
+  "keys": [
+   "openApiSync.settings.specSource"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/ConnectionSettingsModal/index.js",
+  "strs": [],
+  "keys": [
+   "openApiSync.settings.file"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/ConnectionSettingsModal/index.js",
+  "strs": [
+   "settings-label",
+   "Auto-check for updates"
+  ],
+  "keys": [
+   "openApiSync.settings.autoCheck"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/ConnectionSettingsModal/index.js",
+  "strs": [],
+  "keys": [
+   "openApiSync.settings.autoCheckDescription"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/ConnectionSettingsModal/index.js",
+  "strs": [
+   "settings-label",
+   "Check interval"
+  ],
+  "keys": [
+   "openApiSync.settings.checkInterval"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/ConnectionSettingsModal/index.js",
+  "strs": [],
+  "keys": [
+   "openApiSync.settings.intervalMinutes"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/ConnectionSettingsModal/index.js",
+  "strs": [
+   "ghost",
+   "secondary",
+   "sm",
+   "sm",
+   "Cancel",
+   "Save"
+  ],
+  "keys": [
+   "openApiSync.settings.disconnectSync",
+   "common.cancel",
+   "common.save"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/SpecDiffModal/index.js",
+  "strs": [
+   "No changes",
+   "xl",
+   "Spec Diff",
+   "`${currentIndex + 1} of ${changeCount} changes`"
+  ],
+  "keys": [
+   "openApiSync.specDiff.noChanges",
+   "openApiSync.specDiff.changeCounter",
+   "openApiSync.specDiff.title"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/SpecDiffModal/index.js",
+  "strs": [
+   "warning",
+   "success",
+   "danger",
+   "Endpoint Changes:",
+   "0 &&",
+   "0 &&",
+   "0 &&"
+  ],
+  "keys": [
+   "openApiSync.specDiff.endpointChanges",
+   "openApiSync.specDiff.updatedCount",
+   "openApiSync.specDiff.addedCount",
+   "openApiSync.specDiff.removedCount"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/SpecDiffModal/index.js",
+  "strs": [
+   "Previous change"
+  ],
+  "keys": [
+   "openApiSync.specDiff.previousChange",
+   "openApiSync.specDiff.previous"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/SpecDiffModal/index.js",
+  "strs": [
+   "Next change"
+  ],
+  "keys": [
+   "openApiSync.specDiff.nextChange",
+   "openApiSync.specDiff.next"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/SpecDiffModal/index.js",
+  "strs": [
+   "Current Spec (missing)",
+   "Current Spec",
+   "diff-column-label",
+   "Updated Spec"
+  ],
+  "keys": [
+   "openApiSync.specDiff.currentSpecMissing",
+   "openApiSync.specDiff.currentSpec",
+   "openApiSync.specDiff.updatedSpec"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/SpecDiffModal/index.js",
+  "strs": [],
+  "keys": [
+   "openApiSync.specDiff.renderError"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/SpecDiffModal/index.js",
+  "strs": [
+   "text-diff-empty",
+   "No changes to display."
+  ],
+  "keys": [
+   "openApiSync.specDiff.noChangesToDisplay"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/SpecDiffModal/index.js",
+  "strs": [
+   "text-diff-empty",
+   "No text diff available."
+  ],
+  "keys": [
+   "openApiSync.specDiff.noTextDiff"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/OpenAPISyncTab/index.js",
+  "strs": [
+   "overview",
+   "Overview",
+   "Collection Changes"
+  ],
+  "keys": [
+   "openApiSync.tabs.overview",
+   "openApiSync.tabs.collectionChanges"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RequestTabs/CollectionHeader/index.js",
+  "strs": [
+   "variables",
+   "Variables"
+  ],
+  "keys": [
+   "requestTabs.specialTab.variables"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RequestTabs/CollectionHeader/index.js",
+  "strs": [
+   "file-mode",
+   "Switch to Code Mode",
+   "Switch to File Mode"
+  ],
+  "keys": [
+   "requestTabs.header.switchToCodeMode",
+   "requestTabs.header.switchToFileMode"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RequestTabs/CollectionHeader/index.js",
+  "strs": [
+   "mock-server",
+   "Mock Server",
+   "collection-settings",
+   "Collection Settings"
+  ],
+  "keys": [
+   "requestTabs.specialTab.mockServer",
+   "requestTabs.header.menu.collectionSettings"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RequestTabs/CollectionHeader/index.js",
+  "strs": [
+   "label-item",
+   "Workspace"
+  ],
+  "keys": [
+   "requestTabs.header.workspaceLabel"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RequestTabs/CollectionHeader/index.js",
+  "strs": [
+   "label-item",
+   "Collections"
+  ],
+  "keys": [
+   "COMMON.COLLECTIONS"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RequestTabs/CollectionHeader/index.js",
+  "strs": [
+   "dropdown-label collection-header-dropdown-label",
+   "Untitled Collection"
+  ],
+  "keys": [
+   "requestTabs.header.untitledCollection"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RequestTabs/CollectionHeader/index.js",
+  "strs": [
+   "Request",
+   "ViewModeRequestToolhintId",
+   "bottom"
+  ],
+  "keys": [
+   "requestTabs.header.viewMode.request"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RequestTabs/CollectionHeader/index.js",
+  "strs": [
+   "App",
+   "ViewModeAppToolhintId",
+   "bottom"
+  ],
+  "keys": [
+   "requestTabs.header.viewMode.app"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RequestTabs/CollectionHeader/index.js",
+  "strs": [
+   "File",
+   "ViewModeFileToolhintId",
+   "bottom"
+  ],
+  "keys": [
+   "requestTabs.header.viewMode.file"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RequestTabs/CollectionHeader/index.js",
+  "strs": [
+   "AI Assistant",
+   "AiAssistantToolhintId",
+   "bottom",
+   "AI Assistant"
+  ],
+  "keys": [
+   "requestTabs.header.aiAssistant",
+   "requestTabs.header.aiAssistant"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RequestTabs/CollectionHeader/index.js",
+  "strs": [
+   "pill-label",
+   "Migrate to YML"
+  ],
+  "keys": [
+   "requestTabs.header.migrateToYml"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RequestTabs/CollectionHeader/index.js",
+  "strs": [
+   "OpenAPI Error",
+   "OpenAPI Updates Available",
+   "OpenAPI"
+  ],
+  "keys": [
+   "requestTabs.header.openapiError",
+   "requestTabs.header.openapiUpdates"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RequestTabs/CollectionHeader/index.js",
+  "strs": [
+   "Runner",
+   "RunnerToolhintId",
+   "bottom",
+   "Runner",
+   "sm",
+   "runner"
+  ],
+  "keys": [
+   "requestTabs.specialTab.runner",
+   "requestTabs.specialTab.runner"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RequestTabs/CollectionHeader/index.js",
+  "strs": [
+   "More actions",
+   "sm",
+   "`1px solid ${theme.border.border1}`"
+  ],
+  "keys": [
+   "requestTabs.header.moreActions"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RequestTabs/RequestTab/index.js",
+  "strs": [
+   "tab-method flex items-center",
+   "App"
+  ],
+  "keys": [
+   "requestTabs.tab.app"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RequestTabs/RequestTab/RequestTabNotFound.js",
+  "strs": [
+   "ml-1",
+   "Not Found"
+  ],
+  "keys": [
+   "requestTabs.notFound"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RequestTabs/index.js",
+  "strs": [
+   "lg",
+   "Left Chevron",
+   "3px"
+  ],
+  "keys": [
+   "requestTabs.scroll.left"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RequestTabs/index.js",
+  "strs": [
+   "lg",
+   "Right Chevron",
+   "3px"
+  ],
+  "keys": [
+   "requestTabs.scroll.right"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RequestTabs/RequestTab/SpecialTab.js",
+  "strs": [
+   "ml-1 tab-name",
+   "Collection"
+  ],
+  "keys": [
+   "requestTabs.specialTab.collection"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RequestTabs/RequestTab/SpecialTab.js",
+  "strs": [
+   "ml-1 tab-name",
+   "Overview"
+  ],
+  "keys": [
+   "requestTabs.specialTab.overview"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RequestTabs/RequestTab/SpecialTab.js",
+  "strs": [
+   "ml-1 tab-name",
+   "Folder"
+  ],
+  "keys": [
+   "requestTabs.specialTab.folder"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RequestTabs/RequestTab/SpecialTab.js",
+  "strs": [
+   "ml-1 tab-name",
+   "Variables"
+  ],
+  "keys": [
+   "requestTabs.specialTab.variables"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RequestTabs/RequestTab/SpecialTab.js",
+  "strs": [
+   "ml-1 tab-name",
+   "Runner"
+  ],
+  "keys": [
+   "requestTabs.specialTab.runner"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RequestTabs/RequestTab/SpecialTab.js",
+  "strs": [
+   "ml-1 tab-name",
+   "Environments"
+  ],
+  "keys": [
+   "requestTabs.specialTab.environments"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RequestTabs/RequestTab/SpecialTab.js",
+  "strs": [
+   "ml-1 tab-name",
+   "Global Environments"
+  ],
+  "keys": [
+   "requestTabs.specialTab.globalEnvironments"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RequestTabs/RequestTab/SpecialTab.js",
+  "strs": [
+   "ml-1 tab-name",
+   "Preferences"
+  ],
+  "keys": [
+   "app.titleBar.preferences"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RequestTabs/RequestTab/SpecialTab.js",
+  "strs": [
+   "ml-1 tab-name",
+   "Overview"
+  ],
+  "keys": [
+   "requestTabs.specialTab.overview"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RequestTabs/RequestTab/SpecialTab.js",
+  "strs": [
+   "ml-1 tab-name",
+   "Environments"
+  ],
+  "keys": [
+   "requestTabs.specialTab.environments"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RequestTabs/RequestTab/SpecialTab.js",
+  "strs": [
+   "ml-1 tab-name",
+   "API Spec"
+  ],
+  "keys": [
+   "requestTabs.specialTab.apiSpec"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RequestTabs/RequestTab/SpecialTab.js",
+  "strs": [
+   "ml-1 tab-name mr-1",
+   "Mock Server",
+   "info",
+   "xs",
+   "Beta"
+  ],
+  "keys": [
+   "requestTabs.specialTab.mockServer",
+   "requestTabs.specialTab.beta"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RequestTabs/RequestTab/SpecialTab.js",
+  "strs": [
+   "ml-1 tab-name",
+   "What's New"
+  ],
+  "keys": [
+   "requestTabs.specialTab.whatsNew"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/ResponsePaneActions/index.js",
+  "strs": [],
+  "keys": [
+   "responsePane.actions.moreActions"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/ResponseBookmark/index.js",
+  "strs": [],
+  "keys": [
+   "responsePane.bookmark.streamingNotSupported",
+   "responsePane.bookmark.tooLarge",
+   "responsePane.bookmark.saveTitle"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/ResponseBookmark/index.js",
+  "strs": [
+   "${name}",
+   "`Example \"${name}\" created successfully`"
+  ],
+  "keys": [
+   "responsePane.bookmark.createdSuccessfully"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/Overlay/index.js",
+  "strs": [],
+  "keys": [
+   "responsePane.cancelRequest"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/ResponseClear/index.js",
+  "strs": [
+   "Clear response",
+   "response-clear-btn"
+  ],
+  "keys": [
+   "responsePane.clear"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/ClearTimeline/index.js",
+  "strs": [
+   "button",
+   "text-link hover:underline whitespace-nowrap",
+   "Clear Timeline"
+  ],
+  "keys": [
+   "responsePane.clearTimeline",
+   "responsePane.clearTimeline"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/LargeResponseWarning/index.js",
+  "strs": [
+   "error.message",
+   "Something went wrong!"
+  ],
+  "keys": [
+   "responsePane.genericError"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/LargeResponseWarning/index.js",
+  "strs": [
+   "size-highlight supported-size",
+   "size-highlight current-size",
+   "could degrade performance.\n            Size of current response:"
+  ],
+  "keys": [
+   "responsePane.largeResponse.title",
+   "responsePane.largeResponse.descriptionPrefix",
+   "responsePane.largeResponse.descriptionSuffix",
+   "responsePane.largeResponse.currentSizePrefix"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/LargeResponseWarning/index.js",
+  "strs": [],
+  "keys": [
+   "responsePane.largeResponse.view"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/LargeResponseWarning/index.js",
+  "strs": [],
+  "keys": [
+   "responsePane.largeResponse.download"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/LargeResponseWarning/index.js",
+  "strs": [],
+  "keys": [
+   "responsePane.largeResponse.copy"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/ResponseDownload/index.js",
+  "strs": [
+   "error.message",
+   "Something went wrong!"
+  ],
+  "keys": [
+   "responsePane.genericError"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/GrpcResponsePane/index.js",
+  "strs": [
+   "pb-4 px-4",
+   "An error occurred!"
+  ],
+  "keys": [
+   "responsePane.errorOccurred"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/index.js",
+  "strs": [
+   "pb-4 px-4",
+   "An error occurred!"
+  ],
+  "keys": [
+   "responsePane.errorOccurred"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/WsResponsePane/index.js",
+  "strs": [
+   "pb-4 px-4",
+   "An error occurred!"
+  ],
+  "keys": [
+   "responsePane.errorOccurred"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/Timeline/GrpcTimelineItem/index.js",
+  "strs": [],
+  "keys": [
+   "responsePane.grpc.proxy"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/Timeline/GrpcTimelineItem/index.js",
+  "strs": [
+   "content-request-label mb-1",
+   "Metadata"
+  ],
+  "keys": [
+   "responsePane.grpc.metadata"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/Timeline/GrpcTimelineItem/index.js",
+  "strs": [
+   "content-request-label mb-1",
+   "Message"
+  ],
+  "keys": [
+   "responsePane.grpc.message"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/Timeline/GrpcTimelineItem/index.js",
+  "strs": [
+   "content-message-label mb-1",
+   "Message"
+  ],
+  "keys": [
+   "responsePane.grpc.message"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/Timeline/GrpcTimelineItem/index.js",
+  "strs": [
+   "content-metadata-label mb-1",
+   "Metadata Headers"
+  ],
+  "keys": [
+   "responsePane.grpc.metadataHeaders"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/Timeline/GrpcTimelineItem/index.js",
+  "strs": [
+   "empty-text",
+   "No metadata headers"
+  ],
+  "keys": [
+   "responsePane.grpc.noMetadataHeaders"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/Timeline/GrpcTimelineItem/index.js",
+  "strs": [],
+  "keys": [
+   "responsePane.grpc.responseMessageNo"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/Timeline/GrpcTimelineItem/index.js",
+  "strs": [
+   "empty-text",
+   "Empty message"
+  ],
+  "keys": [
+   "responsePane.grpc.emptyMessage"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/Timeline/GrpcTimelineItem/index.js",
+  "strs": [
+   "content-status-label mb-1",
+   "Trailers"
+  ],
+  "keys": [
+   "responsePane.grpc.trailers"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/Timeline/GrpcTimelineItem/index.js",
+  "strs": [
+   "content-error-label mb-1",
+   "Unknown error",
+   "Error"
+  ],
+  "keys": [
+   "responsePane.grpc.error",
+   "responsePane.grpc.unknownError"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/Timeline/GrpcTimelineItem/index.js",
+  "strs": [
+   "content-error-label mb-1",
+   "Error Metadata"
+  ],
+  "keys": [
+   "responsePane.grpc.errorMetadata"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/Timeline/GrpcTimelineItem/index.js",
+  "strs": [
+   "Stream Ended"
+  ],
+  "keys": [
+   "responsePane.grpc.streamEnded",
+   "responsePane.grpc.totalMessages"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/Timeline/GrpcTimelineItem/index.js",
+  "strs": [
+   "content-cancel-label mb-1",
+   "The gRPC stream was cancelled",
+   "Stream Cancelled"
+  ],
+  "keys": [
+   "responsePane.grpc.streamCancelled",
+   "responsePane.grpc.streamCancelledDesc"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/GrpcResponsePane/GrpcQueryResult/index.js",
+  "strs": [
+   "empty-state",
+   "No messages received"
+  ],
+  "keys": [
+   "responsePane.grpc.noMessagesReceived"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/GrpcResponsePane/GrpcResponseHeaders/index.js",
+  "strs": [],
+  "keys": [
+   "responsePane.grpc.noMetadataReceived"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/GrpcResponsePane/ResponseTrailers/index.js",
+  "strs": [],
+  "keys": [
+   "responsePane.grpc.noTrailersReceived"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/GrpcResponsePane/GrpcTestResults/index.js",
+  "strs": [
+   "pass",
+   "test-result-icon-pass",
+   "test-result-icon-fail",
+   "pass",
+   "test-success",
+   "test-failure",
+   "pass",
+   "mr-1",
+   "Test passed",
+   "mr-1",
+   "Test failed",
+   "`inline-flex items-center ${status === 'pass' ? 'test-success' : 'test-failure'}`",
+   "(",
+   ") : ("
+  ],
+  "keys": [
+   "responsePane.tests.passed",
+   "responsePane.tests.failed"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/GrpcResponsePane/GrpcTestResults/index.js",
+  "strs": [],
+  "keys": [
+   "responsePane.tests.summary"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/GrpcResponsePane/GrpcTestResults/index.js",
+  "strs": [],
+  "keys": [
+   "responsePane.grpc.tests.messageGroup"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/ResponseLayoutToggle/index.js",
+  "strs": [
+   "horizontal",
+   "Switch to vertical layout",
+   "Switch to horizontal layout"
+  ],
+  "keys": [
+   "responsePane.layout.vertical",
+   "responsePane.layout.horizontal"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/NetworkError/index.js",
+  "strs": [
+   "font-medium text-red-800",
+   "Network Error"
+  ],
+  "keys": [
+   "responsePane.networkError"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/NetworkError/index.js",
+  "strs": [],
+  "keys": [
+   "common.close"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RunnerResults/ResponsePane/index.js",
+  "strs": [],
+  "keys": [
+   "responsePane.tabs.response",
+   "responsePane.tabs.headers"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RunnerResults/ResponsePane/index.js",
+  "strs": [],
+  "keys": [
+   "responsePane.tabs.timeline"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/QueryResult/QueryResultPreview/index.js",
+  "strs": [],
+  "keys": [
+   "responsePane.preview.noPreview",
+   "responsePane.preview.noPreviewDescription"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/QueryResult/QueryResultTypeSelector/index.jsx",
+  "strs": [
+   "text-[0.8125rem] preview-response-tab-label",
+   "Preview"
+  ],
+  "keys": [
+   "responsePane.preview.toggle"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/QueryResult/QueryResultTypeSelector/index.jsx",
+  "strs": [
+   "preview",
+   "Turn off Preview Mode",
+   "Turn on Preview Mode"
+  ],
+  "keys": [
+   "responsePane.preview.turnOff",
+   "responsePane.preview.turnOn"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/QueryResult/index.js",
+  "strs": [
+   "error",
+   "pre-line"
+  ],
+  "keys": [
+   "responsePane.somethingWentWrong"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/QueryResult/index.js",
+  "strs": [],
+  "keys": [
+   "responsePane.queryResult.sslHint",
+   "responsePane.queryResult.sslHintOpen"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/ScriptError/index.js",
+  "strs": [
+   "close-button flex-shrink-0 cursor-pointer",
+   "script-error-close",
+   "Close error"
+  ],
+  "keys": [
+   "responsePane.scriptError.closeError"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/ScriptError/index.js",
+  "strs": [
+   "Hide",
+   "Show",
+   "Hide",
+   "Show",
+   "`${showStack ? 'Hide' : 'Show'} stack trace`"
+  ],
+  "keys": [
+   "responsePane.scriptError.hideStackTrace",
+   "responsePane.scriptError.showStackTrace",
+   "responsePane.scriptError.hideStackTrace",
+   "responsePane.scriptError.showStackTrace"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/SkippedRequest/index.js",
+  "strs": [],
+  "keys": [
+   "responsePane.skipped"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/TestResults/index.js",
+  "strs": [
+   "pass",
+   "test-result-icon-pass",
+   "test-result-icon-fail",
+   "pass",
+   "test-success",
+   "test-failure",
+   "pass",
+   "mr-1",
+   "Test passed",
+   "mr-1",
+   "Test failed",
+   "`inline-flex items-center ${status === 'pass' ? 'test-success' : 'test-failure'}`",
+   "(",
+   ") : ("
+  ],
+  "keys": [
+   "responsePane.tests.passed",
+   "responsePane.tests.failed"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/TestResults/index.js",
+  "strs": [],
+  "keys": [
+   "responsePane.tests.summary"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/Timeline/TimelineItem/Common/Body/index.js",
+  "strs": [],
+  "keys": [
+   "responsePane.timeline.body"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/Timeline/TimelineItem/Common/Body/index.js",
+  "strs": [
+   "tl-empty",
+   "No Body"
+  ],
+  "keys": [
+   "responsePane.timeline.noBody"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/Timeline/TimelineItem/Common/Headers/index.js",
+  "strs": [],
+  "keys": [
+   "responsePane.timeline.headers"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/Timeline/TimelineItem/Common/Headers/index.js",
+  "strs": [
+   "tl-empty",
+   "No Headers"
+  ],
+  "keys": [
+   "responsePane.timeline.noHeaders"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/Timeline/TimelineItem/index.js",
+  "strs": [
+   "request",
+   "Request",
+   "response",
+   "Response",
+   "network",
+   "Network"
+  ],
+  "keys": [
+   "responsePane.timeline.tabs.request",
+   "responsePane.timeline.tabs.response",
+   "responsePane.timeline.tabs.network"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/ResponsePane/WsResponsePane/WSMessagesList/index.js",
+  "strs": [
+   "empty-state",
+   "No messages yet."
+  ],
+  "keys": [
+   "responsePane.ws.noMessages"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RunnerResults/index.jsx",
+  "strs": [
+   "font-medium text-xs",
+   "request",
+   "requests"
+  ],
+  "keys": [
+   "runner.title",
+   "runner.youHave",
+   "runner.request",
+   "runner.requests",
+   "runner.inThisCollection",
+   "runner.loading"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RunnerResults/index.jsx",
+  "strs": [
+   "my-1 danger",
+   "runner-section-title mt-6",
+   "Requests in this collection are still loading.",
+   "Timings",
+   "Delay between requests (ms)"
+  ],
+  "keys": [
+   "runner.requestsStillLoading",
+   "runner.timings",
+   "runner.delayBetweenRequests"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RunnerResults/index.jsx",
+  "strs": [
+   "runner-section-title mt-6",
+   "Filters"
+  ],
+  "keys": [
+   "runner.filters"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RunnerResults/index.jsx",
+  "strs": [],
+  "keys": [
+   "runner.reset"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RunnerResults/index.jsx",
+  "strs": [],
+  "keys": [
+   "runner.cancelExecution"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RunnerResults/index.jsx",
+  "strs": [],
+  "keys": [
+   "runner.runAgain"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RunnerResults/index.jsx",
+  "strs": [],
+  "keys": [
+   "runner.reset"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RunnerResults/index.jsx",
+  "strs": [],
+  "keys": [
+   "runner.tags"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RunnerResults/index.jsx",
+  "strs": [],
+  "keys": [
+   "runner.requestFailed"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RunnerResults/index.jsx",
+  "strs": [],
+  "keys": [
+   "runner.clickStatusToViewResponse"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RunnerResults/RunConfigurationPanel/index.jsx",
+  "strs": [],
+  "keys": [
+   "runner.config.selectedCount"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RunnerResults/RunConfigurationPanel/index.jsx",
+  "strs": [
+   "Reset selection and order"
+  ],
+  "keys": [
+   "runner.config.resetSelectionTitle",
+   "runner.config.reset"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/RunnerResults/RunConfigurationPanel/index.jsx",
+  "strs": [
+   "loading-message",
+   "empty-message",
+   "Loading requests...",
+   "No requests found in this collection"
+  ],
+  "keys": [
+   "runner.config.loadingRequests",
+   "runner.config.noRequests"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/VariablesEditor/index.js",
+  "strs": [
+   "muted text-xs px-2 py-1",
+   "No runtime variables found"
+  ],
+  "keys": [
+   "variables.noRuntime"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/VariablesEditor/index.js",
+  "strs": [
+   "muted text-xs px-2 py-1",
+   "No environment selected"
+  ],
+  "keys": [
+   "variables.noEnvironmentSelected"
+  ]
+ },
+ {
+  "file": "packages/bruno-app/src/components/VariablesEditor/index.js",
+  "strs": [
+   "muted text-xs px-2 py-1",
+   "No environment variables found"
+  ],
+  "keys": [
+   "variables.noEnvironment"
+  ]
+ }
+]

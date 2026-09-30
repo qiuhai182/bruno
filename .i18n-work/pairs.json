@@ -1,0 +1,2481 @@
+[
+ {
+  "file": "GlobalSearchModal/constants/index.js",
+  "h": 2,
+  "keys": [
+   "globalSearch.brunoDocumentation",
+   "globalSearch.brunoDocumentation"
+  ],
+  "strs": [
+   "docs",
+   "Bruno Documentation",
+   "Bruno Documentation"
+  ]
+ },
+ {
+  "file": "GlobalSearchModal/constants/index.js",
+  "h": 3,
+  "keys": [
+   "globalSearch.browseDocumentation"
+  ],
+  "strs": [
+   "Browse the official Bruno documentation"
+  ]
+ },
+ {
+  "file": "GlobalSearchModal/index.js",
+  "h": 3,
+  "keys": [],
+  "strs": [
+   "JSXTEXT: // add an optional check for the item name to prevent a crash if it doesn鈥檛 exist."
+  ]
+ },
+ {
+  "file": "GlobalSearchModal/index.js",
+  "h": 4,
+  "keys": [
+   "globalSearch.title"
+  ],
+  "strs": [
+   "search-modal-title",
+   "sr-only"
+  ]
+ },
+ {
+  "file": "GlobalSearchModal/index.js",
+  "h": 5,
+  "keys": [
+   "globalSearch.srDescription"
+  ],
+  "strs": [
+   "JSXTEXT: Search through collections, requests, folders, and documentation. Use arrow keys to navigate results and Enter to select."
+  ]
+ },
+ {
+  "file": "GlobalSearchModal/index.js",
+  "h": 6,
+  "keys": [
+   "globalSearch.resultsFound"
+  ],
+  "strs": [
+   " : "
+  ]
+ },
+ {
+  "file": "GlobalSearchModal/index.js",
+  "h": 7,
+  "keys": [
+   "globalSearch.noResults"
+  ],
+  "strs": [
+   "No results found"
+  ]
+ },
+ {
+  "file": "GlobalSearchModal/index.js",
+  "h": 8,
+  "keys": [
+   "globalSearch.searchPlaceholder"
+  ],
+  "strs": [
+   "Search collections, requests, or documentation..."
+  ]
+ },
+ {
+  "file": "GlobalSearchModal/index.js",
+  "h": 9,
+  "keys": [
+   "globalSearch.searchAriaLabel"
+  ],
+  "strs": [
+   "Search collections, requests, or documentation"
+  ]
+ },
+ {
+  "file": "GlobalSearchModal/index.js",
+  "h": 10,
+  "keys": [
+   "globalSearch.clearSearch"
+  ],
+  "strs": [
+   "Clear search query"
+  ]
+ },
+ {
+  "file": "GlobalSearchModal/index.js",
+  "h": 11,
+  "keys": [
+   "globalSearch.searchResults"
+  ],
+  "strs": [
+   "Search results"
+  ]
+ },
+ {
+  "file": "GlobalSearchModal/index.js",
+  "h": 12,
+  "keys": [
+   "globalSearch.noResultsFor"
+  ],
+  "strs": [
+   "{query}"
+  ]
+ },
+ {
+  "file": "GlobalSearchModal/index.js",
+  "h": 13,
+  "keys": [
+   "globalSearch.noResultsHintPrefix",
+   "globalSearch.noResultsHintSuffix"
+  ],
+  "strs": []
+ },
+ {
+  "file": "GlobalSearchModal/index.js",
+  "h": 14,
+  "keys": [
+   "globalSearch.noCollections"
+  ],
+  "strs": [
+   "JSXTEXT: No collections are currently mounted or visible."
+  ]
+ },
+ {
+  "file": "GlobalSearchModal/index.js",
+  "h": 15,
+  "keys": [
+   "globalSearch.mountHint"
+  ],
+  "strs": [
+   "JSXTEXT: Mount a collection via the sidebar or this search modal, then try again."
+  ]
+ },
+ {
+  "file": "GlobalSearchModal/index.js",
+  "h": 16,
+  "keys": [
+   "globalSearch.httpMethod"
+  ],
+  "strs": [
+   " "
+  ]
+ },
+ {
+  "file": "GlobalSearchModal/index.js",
+  "h": 17,
+  "keys": [
+   "globalSearch.itemType"
+  ],
+  "strs": [
+   "result-type"
+  ]
+ },
+ {
+  "file": "GlobalSearchModal/index.js",
+  "h": 18,
+  "keys": [
+   "globalSearch.keyboardShortcuts",
+   "globalSearch.arrowsHintAria",
+   "globalSearch.toNavigate"
+  ],
+  "strs": [
+   "keyboard-hints",
+   "region",
+   "Keyboard shortcuts",
+   "Use up and down arrows to navigate",
+   "keycap",
+   "true",
+   "keycap",
+   "true",
+   "hint-label"
+  ]
+ },
+ {
+  "file": "GlobalSearchModal/index.js",
+  "h": 19,
+  "keys": [
+   "globalSearch.enterHintAria",
+   "globalSearch.toSelect"
+  ],
+  "strs": [
+   "Press Enter to select",
+   "keycap",
+   "true",
+   "hint-label"
+  ]
+ },
+ {
+  "file": "GlobalSearchModal/index.js",
+  "h": 20,
+  "keys": [
+   "globalSearch.escHintAria"
+  ],
+  "strs": [
+   "Press Escape to close"
+  ]
+ },
+ {
+  "file": "GlobalSearchModal/index.js",
+  "h": 21,
+  "keys": [
+   "globalSearch.toClose"
+  ],
+  "strs": [
+   "hint-label"
+  ]
+ },
+ {
+  "file": "GlobalSearchModal/utils/searchUtils.js",
+  "h": 2,
+  "keys": [
+   "globalSearch.type.documentation",
+   "globalSearch.type.collection",
+   "globalSearch.type.folder"
+  ],
+  "strs": [
+   "Documentation",
+   "Collection",
+   "Folder"
+  ]
+ },
+ {
+  "file": "ManageWorkspace/DeleteWorkspace/index.js",
+  "h": 3,
+  "keys": [
+   "workspace.toast.removeError"
+  ],
+  "strs": [
+   "An error occurred while removing the workspace"
+  ]
+ },
+ {
+  "file": "ManageWorkspace/DeleteWorkspace/index.js",
+  "h": 4,
+  "keys": [
+   "workspace.remove.title",
+   "workspace.remove.removing",
+   "workspace.remove.confirm"
+  ],
+  "strs": [
+   "Remove Workspace",
+   "Removing...",
+   "Remove"
+  ]
+ },
+ {
+  "file": "ManageWorkspace/DeleteWorkspace/index.js",
+  "h": 5,
+  "keys": [
+   "workspace.remove.confirmPrefix",
+   "workspace.remove.confirmSuffix"
+  ],
+  "strs": [
+   "font-semibold"
+  ]
+ },
+ {
+  "file": "ManageWorkspace/DeleteWorkspace/index.js",
+  "h": 6,
+  "keys": [
+   "workspace.remove.note"
+  ],
+  "strs": [
+   "JSXTEXT: The workspace will still be available in the file system and can be re-opened later."
+  ]
+ },
+ {
+  "file": "ManageWorkspace/RenameWorkspace/index.js",
+  "h": 3,
+  "keys": [
+   "workspace.validation.minOneCharLower",
+   "workspace.validation.maxTwoFiftyFiveLower",
+   "workspace.validation.nameRequiredLower",
+   "workspace.validation.nameAlreadyExists"
+  ],
+  "strs": [
+   "must be at least 1 character",
+   "must be 255 characters or less",
+   "name is required",
+   "unique-name",
+   "A workspace with this name already exists"
+  ]
+ },
+ {
+  "file": "ManageWorkspace/RenameWorkspace/index.js",
+  "h": 4,
+  "keys": [
+   "workspace.toast.renameError"
+  ],
+  "strs": [
+   "An error occurred while renaming the workspace"
+  ]
+ },
+ {
+  "file": "ManageWorkspace/RenameWorkspace/index.js",
+  "h": 5,
+  "keys": [
+   "workspace.rename.title",
+   "workspace.rename.confirm"
+  ],
+  "strs": [
+   "Rename Workspace",
+   "Rename"
+  ]
+ },
+ {
+  "file": "ManageWorkspace/RenameWorkspace/index.js",
+  "h": 6,
+  "keys": [
+   "workspace.label.workspaceName"
+  ],
+  "strs": [
+   "JSXTEXT: Workspace Name"
+  ]
+ },
+ {
+  "file": "ManageWorkspace/index.js",
+  "h": 3,
+  "keys": [
+   "workspace.toast.switchedTo"
+  ],
+  "strs": []
+ },
+ {
+  "file": "ManageWorkspace/index.js",
+  "h": 4,
+  "keys": [
+   "workspace.toast.openFolderError"
+  ],
+  "strs": [
+   "Error opening the folder"
+  ]
+ },
+ {
+  "file": "ManageWorkspace/index.js",
+  "h": 5,
+  "keys": [
+   "workspace.toast.cannotRemoveDefault"
+  ],
+  "strs": [
+   "Cannot remove the default workspace"
+  ]
+ },
+ {
+  "file": "ManageWorkspace/index.js",
+  "h": 6,
+  "keys": [
+   "workspace.toast.createFailed"
+  ],
+  "strs": [
+   "Failed to create workspace"
+  ]
+ },
+ {
+  "file": "ManageWorkspace/index.js",
+  "h": 7,
+  "keys": [
+   "workspace.manage.title"
+  ],
+  "strs": [
+   "header-title",
+   "manage-workspace-title"
+  ]
+ },
+ {
+  "file": "ManageWorkspace/index.js",
+  "h": 8,
+  "keys": [
+   "workspace.create.confirm"
+  ],
+  "strs": [
+   "JSXTEXT: Create Workspace"
+  ]
+ },
+ {
+  "file": "ManageWorkspace/index.js",
+  "h": 9,
+  "keys": [
+   "workspace.manage.noWorkspaces"
+  ],
+  "strs": [
+   "JSXTEXT: <span>No workspaces found</span>"
+  ]
+ },
+ {
+  "file": "ManageWorkspace/index.js",
+  "h": 10,
+  "keys": [
+   "workspace.manage.defaultBadge"
+  ],
+  "strs": [
+   "default-badge",
+   "workspace-default-badge"
+  ]
+ },
+ {
+  "file": "ManageWorkspace/index.js",
+  "h": 11,
+  "keys": [
+   "workspace.manage.open"
+  ],
+  "strs": [
+   "JSXTEXT: <span>Open</span>"
+  ]
+ },
+ {
+  "file": "ManageWorkspace/index.js",
+  "h": 12,
+  "keys": [
+   "workspace.manage.openInTerminal",
+   "workspace.menu.rename",
+   "workspace.menu.remove"
+  ],
+  "strs": [
+   "open-in-terminal",
+   "Open in Terminal",
+   "rename",
+   "Rename",
+   "remove",
+   "Remove"
+  ]
+ },
+ {
+  "file": "WelcomeModal/GetStartedStep/index.js",
+  "h": 2,
+  "keys": [],
+  "strs": [
+   "step-body",
+   "step-label",
+   "re all set! What",
+   "step-title",
+   "step-description",
+   "JSXTEXT: Create a new collection to start building requests, or import one you already have.",
+   "JSXTEXT: </div>"
+  ]
+ },
+ {
+  "file": "WelcomeModal/GetStartedStep/index.js",
+  "h": 3,
+  "keys": [
+   "welcome.getStarted.label",
+   "welcome.getStarted.title",
+   "welcome.getStarted.description"
+  ],
+  "strs": [
+   "primary-actions",
+   "primary-action-card",
+   "card-icon",
+   "JSXTEXT: </div>",
+   "card-title",
+   "card-desc",
+   "JSXTEXT: </button>"
+  ]
+ },
+ {
+  "file": "WelcomeModal/GetStartedStep/index.js",
+  "h": 4,
+  "keys": [
+   "WELCOME.CREATE_COLLECTION",
+   "welcome.getStarted.createDesc"
+  ],
+  "strs": [
+   "primary-action-card",
+   "card-icon",
+   "JSXTEXT: </div>",
+   "card-title",
+   "card-desc",
+   "JSXTEXT: </button>",
+   "JSXTEXT: </div>"
+  ]
+ },
+ {
+  "file": "WelcomeModal/GetStartedStep/index.js",
+  "h": 5,
+  "keys": [
+   "WELCOME.IMPORT_COLLECTION",
+   "welcome.getStarted.importDesc",
+   "welcome.getStarted.openLabel",
+   "welcome.getStarted.openDesc",
+   "welcome.getStarted.requestLabel",
+   "welcome.getStarted.requestDesc"
+  ],
+  "strs": [
+   "secondary-actions",
+   "secondary-action",
+   "secondary-icon",
+   "JSXTEXT: </span>",
+   "JSXTEXT: <div>",
+   "secondary-label",
+   "secondary-desc",
+   "JSXTEXT: </div>",
+   "JSXTEXT: </button>",
+   "secondary-action",
+   "secondary-icon",
+   "JSXTEXT: </span>",
+   "JSXTEXT: <div>",
+   "secondary-label",
+   "secondary-desc",
+   "JSXTEXT: </div>",
+   "JSXTEXT: </button>",
+   "JSXTEXT: </div>",
+   "JSXTEXT: </StyledWrapper>"
+  ]
+ },
+ {
+  "file": "WelcomeModal/StorageStep/index.js",
+  "h": 2,
+  "keys": [],
+  "strs": [
+   "step-body",
+   "step-label",
+   "step-title",
+   "step-description",
+   "JSXTEXT: Bruno saves collections as plain files on your filesystem, perfect for version control with Git.",
+   "JSXTEXT: </div>"
+  ]
+ },
+ {
+  "file": "WelcomeModal/StorageStep/index.js",
+  "h": 3,
+  "keys": [
+   "welcome.storage.label",
+   "welcome.storage.title",
+   "welcome.storage.description"
+  ],
+  "strs": [
+   "location-input-group",
+   "JSXTEXT: <div",
+   "location-path-display",
+   "Enter",
+   " ",
+   "button",
+   "path-text",
+   "path-text path-placeholder",
+   "browse-label"
+  ]
+ },
+ {
+  "file": "WelcomeModal/StorageStep/index.js",
+  "h": 4,
+  "keys": [
+   "welcome.storage.clickToChoose",
+   "preferences.general.browse",
+   "welcome.storage.hint"
+  ],
+  "strs": [
+   "JSXTEXT: </div>",
+   "location-hint",
+   "JSXTEXT: Each collection and workspace gets its own folder inside this directory. You can change this later.",
+   "JSXTEXT: </div>",
+   "JSXTEXT: </StyledWrapper>"
+  ]
+ },
+ {
+  "file": "WelcomeModal/ThemeStep/index.js",
+  "h": 2,
+  "keys": [],
+  "strs": [
+   "light",
+   "Light",
+   "dark",
+   "Dark",
+   "system",
+   "System"
+  ]
+ },
+ {
+  "file": "WelcomeModal/ThemeStep/index.js",
+  "h": 4,
+  "keys": [
+   "preferences.appearance",
+   "welcome.theme.title"
+  ],
+  "strs": [
+   "step-label",
+   "step-title"
+  ]
+ },
+ {
+  "file": "WelcomeModal/ThemeStep/index.js",
+  "h": 5,
+  "keys": [
+   "welcome.theme.description"
+  ],
+  "strs": [
+   "JSXTEXT: Pick a look that feels right. You can always change this later in Preferences."
+  ]
+ },
+ {
+  "file": "WelcomeModal/ThemeStep/index.js",
+  "h": 6,
+  "keys": [
+   "preferences.themes.${mode.key}"
+  ],
+  "strs": []
+ },
+ {
+  "file": "WelcomeModal/ThemeStep/index.js",
+  "h": 8,
+  "keys": [],
+  "strs": [
+   "selected"
+  ]
+ },
+ {
+  "file": "WelcomeModal/ThemeStep/index.js",
+  "h": 9,
+  "keys": [],
+  "strs": [
+   "variant-name"
+  ]
+ },
+ {
+  "file": "WelcomeModal/ThemeStep/index.js",
+  "h": 11,
+  "keys": [],
+  "strs": [
+   "selected"
+  ]
+ },
+ {
+  "file": "WelcomeModal/ThemeStep/index.js",
+  "h": 12,
+  "keys": [],
+  "strs": [
+   "variant-name"
+  ]
+ },
+ {
+  "file": "WelcomeModal/WelcomeStep/index.js",
+  "h": 2,
+  "keys": [],
+  "strs": [
+   "Filesystem only",
+   "Collections are plain files on your disk. No cloud sync, no proprietary lock-in."
+  ]
+ },
+ {
+  "file": "WelcomeModal/WelcomeStep/index.js",
+  "h": 3,
+  "keys": [],
+  "strs": [
+   "Git-friendly",
+   "Every request is a readable file. Commit, branch, review, and collaborate using the tools you already know."
+  ]
+ },
+ {
+  "file": "WelcomeModal/WelcomeStep/index.js",
+  "h": 4,
+  "keys": [],
+  "strs": [
+   "Privacy-focused",
+   "No account, no login. Bruno works entirely offline, your API keys never leave your machine."
+  ]
+ },
+ {
+  "file": "WelcomeModal/WelcomeStep/index.js",
+  "h": 5,
+  "keys": [],
+  "strs": [
+   "Fast and lightweight",
+   "Built to be snappy. No bloated runtimes, just a fast, focused tool for exploring and testing APIs."
+  ]
+ },
+ {
+  "file": "WelcomeModal/WelcomeStep/index.js",
+  "h": 6,
+  "keys": [],
+  "strs": [
+   "step-body",
+   "highlights",
+   "JSXTEXT: const Icon = item.icon;",
+   "highlight-item",
+   "highlight-icon",
+   "JSXTEXT: </div>",
+   "JSXTEXT: <div>",
+   "highlight-title",
+   "highlight-desc"
+  ]
+ },
+ {
+  "file": "WelcomeModal/WelcomeStep/index.js",
+  "h": 7,
+  "keys": [],
+  "strs": [
+   "JSXTEXT: </div>",
+   "JSXTEXT: </div>",
+   "JSXTEXT: </StyledWrapper>"
+  ]
+ },
+ {
+  "file": "WelcomeModal/index.js",
+  "h": 3,
+  "keys": [
+   "welcome.toast.savePreferencesFailed"
+  ],
+  "strs": [
+   "Failed to save preferences"
+  ]
+ },
+ {
+  "file": "WelcomeModal/index.js",
+  "h": 4,
+  "keys": [
+   "welcome.heading",
+   "welcome.readyToGo",
+   "welcome.setUp"
+  ],
+  "strs": [
+   "Welcome to Bruno",
+   "Ready to go!",
+   "Set up Bruno"
+  ]
+ },
+ {
+  "file": "WelcomeModal/index.js",
+  "h": 5,
+  "keys": [
+   "welcome.tagline"
+  ],
+  "strs": [
+   "JSXTEXT: A fast, Git-friendly, and open-source API client."
+  ]
+ },
+ {
+  "file": "WelcomeModal/index.js",
+  "h": 6,
+  "keys": [
+   "welcome.goToStep"
+  ],
+  "strs": []
+ },
+ {
+  "file": "WelcomeModal/index.js",
+  "h": 7,
+  "keys": [
+   "welcome.skip"
+  ],
+  "strs": [
+   "JSXTEXT: Skip"
+  ]
+ },
+ {
+  "file": "WelcomeModal/index.js",
+  "h": 8,
+  "keys": [
+   "welcome.back"
+  ],
+  "strs": [
+   "JSXTEXT: Back"
+  ]
+ },
+ {
+  "file": "WelcomeModal/index.js",
+  "h": 9,
+  "keys": [
+   "welcome.getStarted",
+   "welcome.next"
+  ],
+  "strs": [
+   "Get Started",
+   "Next"
+  ]
+ },
+ {
+  "file": "WelcomeModal/index.js",
+  "h": 10,
+  "keys": [
+   "welcome.exploreOnMyOwn"
+  ],
+  "strs": []
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceDocs/index.js",
+  "h": 3,
+  "keys": [
+   "workspace.docs.toast.workspaceNotFound"
+  ],
+  "strs": [
+   "Workspace not found"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceDocs/index.js",
+  "h": 4,
+  "keys": [
+   "workspace.docs.toast.saved"
+  ],
+  "strs": [
+   "Documentation saved successfully"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceDocs/index.js",
+  "h": 5,
+  "keys": [
+   "workspace.docs.toast.saveFailed"
+  ],
+  "strs": [
+   "Failed to save documentation"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceDocs/index.js",
+  "h": 6,
+  "keys": [
+   "workspace.docs.title"
+  ],
+  "strs": [
+   "JSXTEXT: <span>Documentation</span>"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceDocs/index.js",
+  "h": 7,
+  "keys": [
+   "common.save"
+  ],
+  "strs": [
+   "JSXTEXT: Save"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceDocs/index.js",
+  "h": 8,
+  "keys": [
+   "workspace.docs.emptyText"
+  ],
+  "strs": [
+   "JSXTEXT: Add documentation to help your team work smoothly."
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceDocs/index.js",
+  "h": 9,
+  "keys": [
+   "workspace.docs.youCanInclude"
+  ],
+  "strs": [
+   "empty-subtext"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceDocs/index.js",
+  "h": 10,
+  "keys": [
+   "workspace.docs.suggestions.overview",
+   "workspace.docs.suggestions.setup",
+   "workspace.docs.suggestions.workflows",
+   "workspace.docs.suggestions.resources"
+  ],
+  "strs": [
+   "JSXTEXT: <li>Project overview</li>",
+   "JSXTEXT: <li>Setup instructions</li>",
+   "JSXTEXT: <li>Key workflows</li>",
+   "JSXTEXT: <li>Resources & FAQs</li>"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceDocs/index.js",
+  "h": 11,
+  "keys": [
+   "workspace.docs.addDocumentation"
+  ],
+  "strs": [
+   "JSXTEXT: Add Documentation"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/CopyEnvironment/index.js",
+  "h": 3,
+  "keys": [
+   "environments.copy.defaultSuffix"
+  ],
+  "strs": [
+   " - Copy"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/CopyEnvironment/index.js",
+  "h": 4,
+  "keys": [
+   "environments.validation.minOneCharLower",
+   "environments.validation.maxFiftyLower",
+   "environments.validation.nameRequiredLower"
+  ],
+  "strs": [
+   "must be at least 1 character",
+   "must be 50 characters or less",
+   "name is required"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/CopyEnvironment/index.js",
+  "h": 5,
+  "keys": [
+   "environments.toast.created"
+  ],
+  "strs": [
+   "Environment created!"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/CopyEnvironment/index.js",
+  "h": 6,
+  "keys": [
+   "environments.toast.createError"
+  ],
+  "strs": [
+   "An error occurred while creating the environment"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/CopyEnvironment/index.js",
+  "h": 7,
+  "keys": [
+   "environments.copy.title",
+   "environments.action.copy"
+  ],
+  "strs": [
+   "sm",
+   "Copy Environment",
+   "Copy"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/CopyEnvironment/index.js",
+  "h": 8,
+  "keys": [
+   "environments.label.newName"
+  ],
+  "strs": [
+   "JSXTEXT: New Environment Name"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/CreateEnvironment/index.js",
+  "h": 3,
+  "keys": [
+   "environments.validation.minOneChar",
+   "environments.validation.maxTwoFiftyFive"
+  ],
+  "strs": [
+   "Must be at least 1 character",
+   "Must be 255 characters or less"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/CreateEnvironment/index.js",
+  "h": 4,
+  "keys": [
+   "environments.validation.nameRequired",
+   "environments.validation.globalAlreadyExists"
+  ],
+  "strs": [
+   "Name is required",
+   "duplicate-name",
+   "Global environment already exists"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/CreateEnvironment/index.js",
+  "h": 5,
+  "keys": [
+   "environments.toast.globalCreated"
+  ],
+  "strs": [
+   "Global environment created!"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/CreateEnvironment/index.js",
+  "h": 6,
+  "keys": [
+   "environments.toast.createError"
+  ],
+  "strs": [
+   "An error occurred while creating the environment"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/CreateEnvironment/index.js",
+  "h": 7,
+  "keys": [
+   "environments.createGlobal.title",
+   "environments.action.create"
+  ],
+  "strs": [
+   "Create Global Environment",
+   "Create"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/CreateEnvironment/index.js",
+  "h": 8,
+  "keys": [
+   "environments.label.name"
+  ],
+  "strs": [
+   "JSXTEXT: Environment Name"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/DeleteEnvironment/index.js",
+  "h": 3,
+  "keys": [
+   "environments.toast.deleted"
+  ],
+  "strs": [
+   "Environment deleted successfully"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/DeleteEnvironment/index.js",
+  "h": 4,
+  "keys": [
+   "environments.toast.deleteError"
+  ],
+  "strs": [
+   "An error occurred while deleting the environment"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/DeleteEnvironment/index.js",
+  "h": 5,
+  "keys": [
+   "environments.delete.title",
+   "common.delete"
+  ],
+  "strs": [
+   "Delete Environment",
+   "Delete"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/DeleteEnvironment/index.js",
+  "h": 6,
+  "keys": [
+   "environments.delete.confirmPrefix",
+   "environments.delete.confirmSuffix"
+  ],
+  "strs": [
+   "font-semibold"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js",
+  "h": 3,
+  "keys": [
+   "environments.validation.nameRequired"
+  ],
+  "strs": [
+   "Name is required"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js",
+  "h": 4,
+  "keys": [
+   "environments.validation.minOneChar"
+  ],
+  "strs": [
+   "Must be at least 1 character"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js",
+  "h": 5,
+  "keys": [
+   "environments.validation.maxTwoFiftyFive"
+  ],
+  "strs": [
+   "Must be 255 characters or less"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js",
+  "h": 6,
+  "keys": [
+   "environments.validation.alreadyExists"
+  ],
+  "strs": [
+   "Environment already exists"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js",
+  "h": 7,
+  "keys": [
+   "environments.toast.renameSuccess"
+  ],
+  "strs": [
+   "Environment renamed!"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js",
+  "h": 8,
+  "keys": [
+   "environments.toast.renameError"
+  ],
+  "strs": [
+   "An error occurred while renaming the environment"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js",
+  "h": 9,
+  "keys": [
+   "environments.toast.inheritingFrom",
+   "environments.toast.stoppedInheriting"
+  ],
+  "strs": [
+   "Stopped inheriting variables"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js",
+  "h": 10,
+  "keys": [
+   "environments.toast.saveInheritError"
+  ],
+  "strs": [
+   "An error occurred while saving the inherited environment"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js",
+  "h": 11,
+  "keys": [
+   "common.save"
+  ],
+  "strs": [
+   "Save"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js",
+  "h": 12,
+  "keys": [
+   "common.cancel"
+  ],
+  "strs": [
+   "Cancel"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js",
+  "h": 13,
+  "keys": [
+   "environments.action.saveAll"
+  ],
+  "strs": [
+   "Save All",
+   "save-all-env"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js",
+  "h": 14,
+  "keys": [
+   "environments.action.rename"
+  ],
+  "strs": [
+   "Rename",
+   "env-rename-action"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js",
+  "h": 15,
+  "keys": [
+   "environments.action.copy"
+  ],
+  "strs": [
+   "Copy",
+   "env-copy-action"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js",
+  "h": 16,
+  "keys": [
+   "common.delete"
+  ],
+  "strs": [
+   "Delete",
+   "danger",
+   "env-delete-action"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js",
+  "h": 17,
+  "keys": [
+   "environments.searchSecretsPlaceholder",
+   "environments.searchVariablesPlaceholder"
+  ],
+  "strs": [
+   "secrets",
+   "Search secrets...",
+   "Search variables..."
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js",
+  "h": 18,
+  "keys": [
+   "environments.clearSearch"
+  ],
+  "strs": [
+   "Clear search"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js",
+  "h": 19,
+  "keys": [
+   "environments.action.search"
+  ],
+  "strs": [
+   "Search",
+   "env-search-action"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 3,
+  "keys": [],
+  "strs": [
+   "JSXTEXT: // Scroll persistence for the environments list — key follows the standard"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 4,
+  "keys": [
+   "environments.toast.activated"
+  ],
+  "strs": [
+   "${env.name}"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 5,
+  "keys": [
+   "environments.toast.activateFailed"
+  ],
+  "strs": [
+   "Failed to activate environment"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 7,
+  "keys": [
+   "environments.validation.nameRequired"
+  ],
+  "strs": [
+   "Name is required"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 8,
+  "keys": [
+   "environments.validation.alreadyExists"
+  ],
+  "strs": [
+   "Environment already exists"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 9,
+  "keys": [
+   "environments.toast.created"
+  ],
+  "strs": [
+   "Environment created!"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 10,
+  "keys": [
+   "environments.toast.createError"
+  ],
+  "strs": [
+   "An error occurred while creating the environment"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 11,
+  "keys": [
+   "environments.toast.renameSuccess"
+  ],
+  "strs": [
+   "Environment renamed!"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 12,
+  "keys": [
+   "environments.toast.renameError"
+  ],
+  "strs": [
+   "An error occurred while renaming the environment"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 13,
+  "keys": [
+   "environments.error.noFileSelected"
+  ],
+  "strs": [
+   "No file selected"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 14,
+  "keys": [
+   "environments.error.noFileSelected"
+  ],
+  "strs": [
+   "No file selected"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 15,
+  "keys": [
+   "environments.validation.nameRequired"
+  ],
+  "strs": [
+   "Name is required"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 16,
+  "keys": [
+   "environments.validation.dotEnvPrefix"
+  ],
+  "strs": [
+   "File name must start with .env"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 17,
+  "keys": [
+   "environments.validation.invalidFileName"
+  ],
+  "strs": [
+   "Invalid file name"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 18,
+  "keys": [
+   "environments.validation.fileAlreadyExists"
+  ],
+  "strs": [
+   "File already exists"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 19,
+  "keys": [
+   "environments.toast.dotEnvCreated"
+  ],
+  "strs": []
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 20,
+  "keys": [
+   "environments.toast.dotEnvCreateFailed"
+  ],
+  "strs": [
+   "Failed to create .env file"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 21,
+  "keys": [
+   "environments.toast.dotEnvDeleted"
+  ],
+  "strs": []
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 22,
+  "keys": [
+   "environments.toast.dotEnvDeleteFailed"
+  ],
+  "strs": [
+   "Failed to delete .env file"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 23,
+  "keys": [
+   "environments.empty.noEnvironments"
+  ],
+  "strs": [
+   "title"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 24,
+  "keys": [
+   "environments.empty.createEnvironment"
+  ],
+  "strs": [
+   "JSXTEXT: Create Environment"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 25,
+  "keys": [
+   "environments.empty.importEnvironment"
+  ],
+  "strs": [
+   "JSXTEXT: Import Environment"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 26,
+  "keys": [
+   "environments.section.environments"
+  ],
+  "strs": [
+   "Environments"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 27,
+  "keys": [
+   "environments.action.createEnvironment"
+  ],
+  "strs": [
+   "Create environment"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 28,
+  "keys": [
+   "environments.action.importEnvironment"
+  ],
+  "strs": [
+   "Import environment"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 29,
+  "keys": [
+   "environments.action.exportEnvironment"
+  ],
+  "strs": [
+   "Export environment"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 30,
+  "keys": [
+   "environments.searchPlaceholder"
+  ],
+  "strs": [
+   "Search environments..."
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 31,
+  "keys": [
+   "environments.clearSearch"
+  ],
+  "strs": [
+   "env-list-search-clear",
+   "Clear search"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 32,
+  "keys": [
+   "common.save"
+  ],
+  "strs": [
+   "Save"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 33,
+  "keys": [
+   "common.cancel"
+  ],
+  "strs": [
+   "Cancel"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 34,
+  "keys": [
+   "environments.activeEnvironment"
+  ],
+  "strs": [
+   "activated-checkmark",
+   "Active environment"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 35,
+  "keys": [
+   "environments.activateEnvironment"
+  ],
+  "strs": [
+   "Activate environment"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 36,
+  "keys": [
+   "environments.namePlaceholder"
+  ],
+  "strs": [
+   "Environment name..."
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 37,
+  "keys": [
+   "common.save"
+  ],
+  "strs": [
+   "Save"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 38,
+  "keys": [
+   "common.cancel"
+  ],
+  "strs": [
+   "Cancel"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 39,
+  "keys": [
+   "environments.empty.noEnvironmentsLower"
+  ],
+  "strs": [
+   "JSXTEXT: <span>No environments</span>"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 40,
+  "keys": [
+   "environments.section.dotEnvFiles"
+  ],
+  "strs": [
+   ".env Files"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 41,
+  "keys": [
+   "environments.action.createDotEnvFile"
+  ],
+  "strs": [
+   "Create .env file"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 42,
+  "keys": [
+   "environments.action.create"
+  ],
+  "strs": [
+   "Create"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 43,
+  "keys": [
+   "common.cancel"
+  ],
+  "strs": [
+   "Cancel"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js",
+  "h": 44,
+  "keys": [
+   "environments.empty.noDotEnvFiles"
+  ],
+  "strs": [
+   "JSXTEXT: <span>No .env files</span>"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/RenameEnvironment/index.js",
+  "h": 3,
+  "keys": [
+   "environments.validation.minOneCharLower",
+   "environments.validation.maxTwoFiftyFive"
+  ],
+  "strs": [
+   "must be at least 1 character",
+   "Must be 255 characters or less"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/RenameEnvironment/index.js",
+  "h": 4,
+  "keys": [
+   "environments.validation.nameRequiredLower",
+   "environments.validation.alreadyExists"
+  ],
+  "strs": [
+   "name is required",
+   "duplicate-name",
+   "Environment already exists"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/RenameEnvironment/index.js",
+  "h": 5,
+  "keys": [
+   "environments.toast.renamed"
+  ],
+  "strs": [
+   "Environment renamed successfully"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/RenameEnvironment/index.js",
+  "h": 6,
+  "keys": [
+   "environments.toast.renameError"
+  ],
+  "strs": [
+   "An error occurred while renaming the environment"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/RenameEnvironment/index.js",
+  "h": 7,
+  "keys": [
+   "environments.rename.title",
+   "environments.action.rename"
+  ],
+  "strs": [
+   "Rename Environment",
+   "Rename"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceEnvironments/RenameEnvironment/index.js",
+  "h": 8,
+  "keys": [
+   "environments.label.name"
+  ],
+  "strs": [
+   "JSXTEXT: Environment Name"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/CollectionsList/ConnectGitRemote/index.js",
+  "h": 3,
+  "keys": [
+   "workspace.git.validation.urlRequired",
+   "workspace.git.validation.invalidUrl"
+  ],
+  "strs": [
+   "Git remote URL is required",
+   "is-git-url",
+   "Enter a valid Git URL"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/CollectionsList/ConnectGitRemote/index.js",
+  "h": 4,
+  "keys": [
+   "workspace.git.toast.connected"
+  ],
+  "strs": [
+   "Git remote connected"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/CollectionsList/ConnectGitRemote/index.js",
+  "h": 5,
+  "keys": [
+   "workspace.git.updateTitle",
+   "workspace.git.connectTitle",
+   "workspace.git.updateAction",
+   "workspace.git.connectAction"
+  ],
+  "strs": [
+   "Update Git Remote",
+   "Connect to Git",
+   "Update",
+   "Connect"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/CollectionsList/ConnectGitRemote/index.js",
+  "h": 6,
+  "keys": [
+   "workspace.git.linkingPrefix"
+  ],
+  "strs": [
+   " "
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/CollectionsList/ConnectGitRemote/index.js",
+  "h": 7,
+  "keys": [
+   "workspace.git.linkingSuffix"
+  ],
+  "strs": [
+   "JSXTEXT: to a remote Git repository."
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/CollectionsList/ConnectGitRemote/index.js",
+  "h": 8,
+  "keys": [
+   "workspace.git.urlNotePrefix",
+   "workspace.git.urlNoteSuffix"
+  ],
+  "strs": [
+   "font-mono",
+   "JSXTEXT: modified."
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/CollectionsList/ConnectGitRemote/index.js",
+  "h": 9,
+  "keys": [
+   "workspace.git.remoteUrlLabel"
+  ],
+  "strs": [
+   "JSXTEXT: Git Remote URL"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/CollectionsList/RemoveGitRemote/index.js",
+  "h": 3,
+  "keys": [
+   "workspace.git.toast.removed"
+  ],
+  "strs": [
+   "Git remote removed"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/CollectionsList/RemoveGitRemote/index.js",
+  "h": 4,
+  "keys": [
+   "workspace.git.removeTitle",
+   "workspace.git.removeAction"
+  ],
+  "strs": [
+   "Remove Git Remote",
+   "Remove"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/CollectionsList/RemoveGitRemote/index.js",
+  "h": 5,
+  "keys": [
+   "workspace.git.disconnectPrefix"
+  ],
+  "strs": [
+   " "
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/CollectionsList/RemoveGitRemote/index.js",
+  "h": 6,
+  "keys": [
+   "workspace.git.disconnectSuffix"
+  ],
+  "strs": [
+   "JSXTEXT: from its Git remote?"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/CollectionsList/RemoveGitRemote/index.js",
+  "h": 7,
+  "keys": [
+   "workspace.git.removeNotePrefix",
+   "workspace.git.removeNoteMid",
+   "workspace.git.removeNoteSuffix"
+  ],
+  "strs": [
+   "font-mono",
+   "font-mono"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/CollectionsList/index.js",
+  "h": 3,
+  "keys": [
+   "workspace.toast.couldNotOpen"
+  ],
+  "strs": [
+   "${collection.name}"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/CollectionsList/index.js",
+  "h": 4,
+  "keys": [
+   "workspace.toast.needsClone"
+  ],
+  "strs": [
+   "${collection.name}"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/CollectionsList/index.js",
+  "h": 5,
+  "keys": [
+   "workspace.toast.notOnDisk"
+  ],
+  "strs": [
+   "${collection.name}"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/CollectionsList/index.js",
+  "h": 6,
+  "keys": [
+   "workspace.toast.cannotRenameNotCloned"
+  ],
+  "strs": [
+   "Cannot rename collections that are not cloned yet"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/CollectionsList/index.js",
+  "h": 7,
+  "keys": [
+   "workspace.toast.cloneBeforeShare"
+  ],
+  "strs": [
+   "Please clone this collection first before sharing it"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/CollectionsList/index.js",
+  "h": 8,
+  "keys": [
+   "workspace.toast.removedFromWorkspace",
+   "workspace.toast.removeError"
+  ],
+  "strs": [
+   "Collection removed from workspace",
+   "An error occurred while removing the collection"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/CollectionsList/index.js",
+  "h": 9,
+  "keys": [
+   "workspace.toast.cannotRemoveNotLoaded"
+  ],
+  "strs": [
+   "Cannot remove collections that are not loaded"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/CollectionsList/index.js",
+  "h": 10,
+  "keys": [
+   "workspace.toast.cannotDeleteNotLoaded"
+  ],
+  "strs": [
+   "Cannot delete collections that are not loaded"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/CollectionsList/index.js",
+  "h": 11,
+  "keys": [
+   "workspace.toast.openFolderError"
+  ],
+  "strs": [
+   "Error opening the folder"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/CollectionsList/index.js",
+  "h": 12,
+  "keys": [
+   "workspace.toast.cannotConnectGitNotLocal"
+  ],
+  "strs": [
+   "Cannot connect a Git remote to a collection that is not present locally"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/CollectionsList/index.js",
+  "h": 13,
+  "keys": [
+   "workspace.toast.gitUrlCopied"
+  ],
+  "strs": [
+   "Git URL copied"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/CollectionsList/index.js",
+  "h": 14,
+  "keys": [
+   "workspace.toast.copyUrlFailed"
+  ],
+  "strs": [
+   "Failed to copy URL"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/CollectionsList/index.js",
+  "h": 15,
+  "keys": [
+   "workspace.collections.emptyTitle",
+   "workspace.collections.emptyDescription"
+  ],
+  "strs": [
+   "empty-title",
+   "empty-description"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/CollectionsList/index.js",
+  "h": 16,
+  "keys": [
+   "workspace.badge.failedToOpen"
+  ],
+  "strs": [
+   "danger",
+   "xs"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/CollectionsList/index.js",
+  "h": 17,
+  "keys": [
+   "workspace.badge.notCloned"
+  ],
+  "strs": [
+   "warning",
+   "xs"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/CollectionsList/index.js",
+  "h": 18,
+  "keys": [
+   "workspace.menu.rename"
+  ],
+  "strs": [
+   "JSXTEXT: <span>Rename</span>"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/CollectionsList/index.js",
+  "h": 19,
+  "keys": [
+   "workspace.menu.share"
+  ],
+  "strs": [
+   "JSXTEXT: <span>Share</span>"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/CollectionsList/index.js",
+  "h": 20,
+  "keys": [
+   "workspace.menu.copyGitUrl"
+  ],
+  "strs": [
+   "JSXTEXT: <span>Copy Git URL</span>"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/CollectionsList/index.js",
+  "h": 21,
+  "keys": [
+   "workspace.menu.connectToGit"
+  ],
+  "strs": [
+   "JSXTEXT: <span>Connect to Git</span>"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/CollectionsList/index.js",
+  "h": 22,
+  "keys": [
+   "workspace.menu.removeGitRemote"
+  ],
+  "strs": [
+   "JSXTEXT: <span>Remove Git Remote</span>"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/CollectionsList/index.js",
+  "h": 23,
+  "keys": [
+   "workspace.menu.remove"
+  ],
+  "strs": [
+   "JSXTEXT: <span>Remove</span>"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/CollectionsList/index.js",
+  "h": 24,
+  "keys": [
+   "common.delete"
+  ],
+  "strs": [
+   "JSXTEXT: <span>Delete</span>"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/index.js",
+  "h": 3,
+  "keys": [
+   "workspace.toast.workspacePathNotFound"
+  ],
+  "strs": [
+   "Workspace path not found"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/index.js",
+  "h": 4,
+  "keys": [
+   "workspace.toast.prepareError"
+  ],
+  "strs": [
+   "Error preparing workspace for collection creation"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/index.js",
+  "h": 5,
+  "keys": [
+   "COMMON.COLLECTIONS"
+  ],
+  "strs": [
+   "stat-label"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/index.js",
+  "h": 6,
+  "keys": [
+   "workspace.stats.environments"
+  ],
+  "strs": [
+   "stat-label"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/index.js",
+  "h": 7,
+  "keys": [
+   "workspace.quickActions"
+  ],
+  "strs": [
+   "section-title"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/index.js",
+  "h": 8,
+  "keys": [
+   "WELCOME.CREATE_COLLECTION"
+  ],
+  "strs": [
+   "JSXTEXT: Create Collection"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/index.js",
+  "h": 9,
+  "keys": [
+   "WELCOME.OPEN_COLLECTION"
+  ],
+  "strs": [
+   "JSXTEXT: Open Collection"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/index.js",
+  "h": 10,
+  "keys": [
+   "WELCOME.IMPORT_COLLECTION"
+  ],
+  "strs": [
+   "JSXTEXT: Import Collection"
+  ]
+ },
+ {
+  "file": "WorkspaceHome/WorkspaceOverview/index.js",
+  "h": 11,
+  "keys": [
+   "COMMON.COLLECTIONS"
+  ],
+  "strs": [
+   "section-title"
+  ]
+ },
+ {
+  "file": "WorkspaceSidebar/CreateWorkspace/index.js",
+  "h": 3,
+  "keys": [
+   "workspace.validation.nameEmpty",
+   "workspace.validation.maxTwoFiftyFive",
+   "workspace.validation.nameRequired",
+   "workspace.validation.nameAlreadyExists"
+  ],
+  "strs": [
+   "Workspace name can\\",
+   "Must be 255 characters or less",
+   "Workspace name is required",
+   "unique-name",
+   "A workspace with this name already exists"
+  ]
+ },
+ {
+  "file": "WorkspaceSidebar/CreateWorkspace/index.js",
+  "h": 4,
+  "keys": [
+   "workspace.validation.minOneChar",
+   "workspace.validation.maxTwoFiftyFive"
+  ],
+  "strs": [
+   "Must be at least 1 character",
+   "Must be 255 characters or less"
+  ]
+ },
+ {
+  "file": "WorkspaceSidebar/CreateWorkspace/index.js",
+  "h": 5,
+  "keys": [
+   "workspace.validation.folderNameRequired",
+   "workspace.validation.locationRequired",
+   "workspace.validation.locationRequired"
+  ],
+  "strs": [
+   "Folder name is required",
+   "Location is required",
+   "Location is required"
+  ]
+ },
+ {
+  "file": "WorkspaceSidebar/CreateWorkspace/index.js",
+  "h": 6,
+  "keys": [
+   "workspace.toast.created"
+  ],
+  "strs": [
+   "Workspace created!"
+  ]
+ },
+ {
+  "file": "WorkspaceSidebar/CreateWorkspace/index.js",
+  "h": 7,
+  "keys": [
+   "workspace.toast.createError"
+  ],
+  "strs": [
+   "An error occurred while creating the workspace"
+  ]
+ },
+ {
+  "file": "WorkspaceSidebar/CreateWorkspace/index.js",
+  "h": 8,
+  "keys": [
+   "workspace.create.title",
+   "workspace.create.description",
+   "workspace.create.creating",
+   "workspace.create.confirm"
+  ],
+  "strs": [
+   "Create Workspace",
+   "Give your new workspace a name and choose its type to get started.",
+   "Creating...",
+   "Create Workspace"
+  ]
+ },
+ {
+  "file": "WorkspaceSidebar/CreateWorkspace/index.js",
+  "h": 9,
+  "keys": [
+   "workspace.label.name"
+  ],
+  "strs": [
+   "JSXTEXT: Name"
+  ]
+ },
+ {
+  "file": "WorkspaceSidebar/CreateWorkspace/index.js",
+  "h": 10,
+  "keys": [
+   "workspace.label.folderName"
+  ],
+  "strs": [
+   "JSXTEXT: Folder Name"
+  ]
+ },
+ {
+  "file": "WorkspaceSidebar/CreateWorkspace/index.js",
+  "h": 11,
+  "keys": [
+   "workspace.help.folderName1"
+  ],
+  "strs": [
+   "JSXTEXT: The name of the folder used to store the workspace."
+  ]
+ },
+ {
+  "file": "WorkspaceSidebar/CreateWorkspace/index.js",
+  "h": 12,
+  "keys": [
+   "workspace.help.folderName2"
+  ],
+  "strs": []
+ },
+ {
+  "file": "WorkspaceSidebar/CreateWorkspace/index.js",
+  "h": 13,
+  "keys": [
+   "workspace.label.location"
+  ],
+  "strs": [
+   "JSXTEXT: Location"
+  ]
+ },
+ {
+  "file": "WorkspaceSidebar/CreateWorkspace/index.js",
+  "h": 14,
+  "keys": [
+   "workspace.help.location1"
+  ],
+  "strs": []
+ },
+ {
+  "file": "WorkspaceSidebar/CreateWorkspace/index.js",
+  "h": 15,
+  "keys": [
+   "workspace.help.location2"
+  ],
+  "strs": [
+   "JSXTEXT: Choose the location where you want to store this workspace."
+  ]
+ },
+ {
+  "file": "WorkspaceSidebar/CreateWorkspace/index.js",
+  "h": 16,
+  "keys": [
+   "preferences.general.browse"
+  ],
+  "strs": [
+   "JSXTEXT: Browse"
+  ]
+ },
+ {
+  "file": "WorkspaceSidebar/ImportWorkspace/index.js",
+  "h": 3,
+  "keys": [
+   "workspace.validation.locationRequiredLower",
+   "workspace.validation.locationRequiredLower"
+  ],
+  "strs": [
+   "location is required",
+   "location is required"
+  ]
+ },
+ {
+  "file": "WorkspaceSidebar/ImportWorkspace/index.js",
+  "h": 4,
+  "keys": [
+   "workspace.toast.imported"
+  ],
+  "strs": [
+   "Workspace imported successfully!"
+  ]
+ },
+ {
+  "file": "WorkspaceSidebar/ImportWorkspace/index.js",
+  "h": 5,
+  "keys": [
+   "workspace.toast.importFailed"
+  ],
+  "strs": [
+   "Failed to import workspace"
+  ]
+ },
+ {
+  "file": "WorkspaceSidebar/ImportWorkspace/index.js",
+  "h": 6,
+  "keys": [
+   "workspace.toast.invalidZip"
+  ],
+  "strs": [
+   "Please select a valid zip file"
+  ]
+ },
+ {
+  "file": "WorkspaceSidebar/ImportWorkspace/index.js",
+  "h": 7,
+  "keys": [
+   "workspace.toast.couldNotGetFilePath"
+  ],
+  "strs": [
+   "Could not get file path"
+  ]
+ },
+ {
+  "file": "WorkspaceSidebar/ImportWorkspace/index.js",
+  "h": 8,
+  "keys": [
+   "workspace.import.title",
+   "workspace.import.importing",
+   "workspace.import.confirm"
+  ],
+  "strs": [
+   "Import Workspace",
+   "Importing...",
+   "Import"
+  ]
+ },
+ {
+  "file": "WorkspaceSidebar/ImportWorkspace/index.js",
+  "h": 9,
+  "keys": [
+   "workspace.import.fileLabel"
+  ],
+  "strs": [
+   "font-semibold mb-2"
+  ]
+ },
+ {
+  "file": "WorkspaceSidebar/ImportWorkspace/index.js",
+  "h": 10,
+  "keys": [
+   "workspace.import.remove"
+  ],
+  "strs": [
+   "JSXTEXT: Remove"
+  ]
+ },
+ {
+  "file": "WorkspaceSidebar/ImportWorkspace/index.js",
+  "h": 11,
+  "keys": [
+   "workspace.import.dropPrefix"
+  ],
+  "strs": [
+   " "
+  ]
+ },
+ {
+  "file": "WorkspaceSidebar/ImportWorkspace/index.js",
+  "h": 12,
+  "keys": [
+   "workspace.import.chooseFile"
+  ],
+  "strs": [
+   "JSXTEXT: choose a file"
+  ]
+ },
+ {
+  "file": "WorkspaceSidebar/ImportWorkspace/index.js",
+  "h": 13,
+  "keys": [
+   "workspace.import.supportNote"
+  ],
+  "strs": [
+   "JSXTEXT: Supports exported Bruno workspace zip files"
+  ]
+ },
+ {
+  "file": "WorkspaceSidebar/ImportWorkspace/index.js",
+  "h": 14,
+  "keys": [
+   "workspace.import.extractLocation"
+  ],
+  "strs": [
+   "JSXTEXT: Extract Location"
+  ]
+ },
+ {
+  "file": "WorkspaceSidebar/ImportWorkspace/index.js",
+  "h": 15,
+  "keys": [
+   "workspace.help.extract1"
+  ],
+  "strs": [
+   "JSXTEXT: Choose the location where you want to extract this workspace."
+  ]
+ },
+ {
+  "file": "WorkspaceSidebar/ImportWorkspace/index.js",
+  "h": 16,
+  "keys": [
+   "workspace.help.extract2"
+  ],
+  "strs": [
+   "JSXTEXT: The workspace folder will be created at this location."
+  ]
+ },
+ {
+  "file": "WorkspaceSidebar/ImportWorkspace/index.js",
+  "h": 17,
+  "keys": [
+   "preferences.general.browse"
+  ],
+  "strs": [
+   "JSXTEXT: Browse"
+  ]
+ }
+]

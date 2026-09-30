@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
+import i18n from '../../../../../../i18n';
 import { useTheme } from 'providers/Theme';
 
-const getRelativeTime = (date) => {
-  const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' });
+const getRelativeTime = (date, locale) => {
+  const rtf = new Intl.RelativeTimeFormat(locale, { numeric: 'auto' });
   const diff = (date - new Date()) / 1000;
 
   const timeUnits = [
@@ -23,12 +24,12 @@ const getRelativeTime = (date) => {
 };
 
 export const RelativeTime = ({ timestamp }) => {
-  const [relativeTime, setRelativeTime] = useState(getRelativeTime(new Date(timestamp)));
+  const [relativeTime, setRelativeTime] = useState(() => getRelativeTime(new Date(timestamp), i18n.language));
   const { theme } = useTheme();
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setRelativeTime(getRelativeTime(new Date(timestamp)));
+      setRelativeTime(getRelativeTime(new Date(timestamp), i18n.language));
     }, 1000);
 
     return () => clearInterval(interval);

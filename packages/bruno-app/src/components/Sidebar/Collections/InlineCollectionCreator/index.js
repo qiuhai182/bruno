@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { IconCheck, IconX, IconSettings } from '@tabler/icons';
 import get from 'lodash/get';
 import path from 'utils/common/path';
@@ -12,6 +13,7 @@ import { formatIpcError } from 'utils/common/error';
 import StyledWrapper from './StyledWrapper';
 
 const InlineCollectionCreator = ({ onComplete, onCancel, onOpenAdvanced }) => {
+  const { t } = useTranslation();
   const inputRef = useRef(null);
   const containerRef = useRef(null);
   const dispatch = useDispatch();
@@ -66,7 +68,7 @@ const InlineCollectionCreator = ({ onComplete, onCancel, onOpenAdvanced }) => {
       if (fromOutside) {
         onCancel();
       } else {
-        toast.error('Collection name is required');
+        toast.error(t('sidebar.inlineCollection.nameRequired'));
       }
       return;
     }
@@ -80,7 +82,7 @@ const InlineCollectionCreator = ({ onComplete, onCancel, onOpenAdvanced }) => {
     }
 
     if (!defaultLocation) {
-      toast.error('Please set a default location in Preferences > General');
+      toast.error(t('sidebar.inlineCollection.setDefaultLocation'));
       onCancel();
       return;
     }
@@ -89,13 +91,13 @@ const InlineCollectionCreator = ({ onComplete, onCancel, onOpenAdvanced }) => {
     try {
       const folderName = sanitizeName(name);
       await dispatch(createCollection(name, folderName, defaultLocation, { format: DEFAULT_COLLECTION_FORMAT }));
-      toast.success('Collection created!');
+      toast.success(t('sidebar.toast.collectionCreated'));
       onComplete();
     } catch (e) {
-      toast.error(multiLineMsg('An error occurred while creating the collection', formatIpcError(e)));
+      toast.error(multiLineMsg(t('sidebar.toast.errorCreatingCollection'), formatIpcError(e)));
       setIsCreating(false);
     }
-  }, [isCreating, defaultLocation, dispatch, onCancel, onComplete]);
+  }, [isCreating, defaultLocation, dispatch, onCancel, onComplete, t]);
 
   // Click outside to create
   useEffect(() => {
@@ -142,7 +144,7 @@ const InlineCollectionCreator = ({ onComplete, onCancel, onOpenAdvanced }) => {
               openingAdvancedRef.current = true;
               onOpenAdvanced(inputRef.current?.value?.trim());
             }}
-            title="Advanced options"
+            title={t('sidebar.advancedOptions')}
             disabled={isCreating}
           >
             <IconSettings size={13} strokeWidth={1.5} />
@@ -153,7 +155,7 @@ const InlineCollectionCreator = ({ onComplete, onCancel, onOpenAdvanced }) => {
             className="inline-action-btn save"
             onClick={handleCreate}
             onMouseDown={(e) => e.preventDefault()}
-            title="Create"
+            title={t('sidebar.create')}
             disabled={isCreating}
           >
             <IconCheck size={14} strokeWidth={2} />
@@ -162,7 +164,7 @@ const InlineCollectionCreator = ({ onComplete, onCancel, onOpenAdvanced }) => {
             className="inline-action-btn cancel"
             onClick={handleCancel}
             onMouseDown={(e) => e.preventDefault()}
-            title="Cancel"
+            title={t('common.cancel')}
             disabled={isCreating}
           >
             <IconX size={14} strokeWidth={2} />

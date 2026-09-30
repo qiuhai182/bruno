@@ -2,6 +2,7 @@ import { IconAdjustmentsHorizontal, IconInfoCircle } from '@tabler/icons';
 import get from 'lodash/get';
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import SensitiveFieldWarning from 'components/SensitiveFieldWarning';
 import SingleLineEditor from 'components/SingleLineEditor';
@@ -34,31 +35,31 @@ interface AkamaiEdgeGridAuthProps {
   collection: any;
 }
 
-const FIELDS: Array<{ key: EdgeGridField; label: string; tooltip?: string; isSecret?: boolean }> = [
-  { key: 'accessToken', label: 'Access Token', isSecret: true },
-  { key: 'clientToken', label: 'Client Token', isSecret: true },
-  { key: 'clientSecret', label: 'Client Secret', isSecret: true },
-  { key: 'baseURL', label: 'Base URL', tooltip: 'Defaults to the request URL if not specified.' },
+const FIELDS: Array<{ key: EdgeGridField; labelKey: string; tooltipKey?: string; isSecret?: boolean }> = [
+  { key: 'accessToken', labelKey: 'collection.auth.edgegrid.accessToken', isSecret: true },
+  { key: 'clientToken', labelKey: 'collection.auth.edgegrid.clientToken', isSecret: true },
+  { key: 'clientSecret', labelKey: 'collection.auth.edgegrid.clientSecret', isSecret: true },
+  { key: 'baseURL', labelKey: 'collection.auth.edgegrid.baseURL', tooltipKey: 'collection.auth.edgegrid.baseURLTooltip' },
   {
     key: 'nonce',
-    label: 'Nonce',
-    tooltip: 'A unique nonce is required per request. Defaults to an auto-generated UUID v4 if not provided.'
+    labelKey: 'collection.auth.edgegrid.nonce',
+    tooltipKey: 'collection.auth.edgegrid.nonceTooltip'
   },
   {
     key: 'timestamp',
-    label: 'Timestamp',
-    tooltip:
-      'UTC timestamp of when the request is signed (yyyyMMddTHH:mm:ss+0000). Defaults to current time if not provided.'
+    labelKey: 'collection.auth.edgegrid.timestamp',
+    tooltipKey:
+      'collection.auth.edgegrid.timestampTooltip'
   },
   {
     key: 'headersToSign',
-    label: 'Headers to Sign',
-    tooltip: 'Comma-separated list of headers to include in the signature.'
+    labelKey: 'collection.auth.edgegrid.headersToSign',
+    tooltipKey: 'collection.auth.edgegrid.headersToSignTooltip'
   },
   {
     key: 'maxBodySize',
-    label: 'Max Body Size',
-    tooltip: 'Maximum message body size to include in the signature, in bytes. Defaults to 131072.'
+    labelKey: 'collection.auth.edgegrid.maxBodySize',
+    tooltipKey: 'collection.auth.edgegrid.maxBodySizeTooltip'
   }
 ];
 
@@ -69,6 +70,7 @@ const BASIC_FIELDS = FIELDS.slice(0, 3);
 const ADVANCED_FIELDS = FIELDS.slice(3);
 
 const EdgeGridAuth: React.FC<AkamaiEdgeGridAuthProps> = ({ collection }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const { storedTheme } = useTheme();
 
@@ -107,18 +109,18 @@ const EdgeGridAuth: React.FC<AkamaiEdgeGridAuthProps> = ({ collection }) => {
     );
   };
 
-  const renderField = ({ key, label, tooltip, isSecret }: EdgeGridFieldConfig) => {
+  const renderField = ({ key, labelKey, tooltipKey, isSecret }: EdgeGridFieldConfig) => {
     const rawValue = edgeGridAuth[key];
     const fieldValue = rawValue === null || rawValue === undefined ? '' : String(rawValue);
     const { showWarning, warningMessage } = isSecret ? isSensitive(rawValue) : { showWarning: false, warningMessage: '' };
     return (
       <div key={key}>
         <label>
-          {label}
-          {tooltip && (
+          {t(labelKey)}
+          {tooltipKey && (
             <span className="field-info">
               <IconInfoCircle size={16} />
-              <span className="field-tooltip">{tooltip}</span>
+              <span className="field-tooltip">{t(tooltipKey)}</span>
             </span>
           )}
         </label>
@@ -148,7 +150,7 @@ const EdgeGridAuth: React.FC<AkamaiEdgeGridAuthProps> = ({ collection }) => {
         <span className="advanced-settings-icon">
           <IconAdjustmentsHorizontal size={16} />
         </span>
-        <span>Advanced Settings</span>
+        <span>{t('collection.auth.edgegrid.advancedSettings')}</span>
       </div>
 
       <>

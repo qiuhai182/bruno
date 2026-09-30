@@ -7,6 +7,23 @@ import themes from 'themes/index';
 import userEvent from '@testing-library/user-event';
 import { ThemeContext } from 'providers/Theme';
 
+jest.mock('react-i18next', () => {
+  const translations = {
+    'environments.selector.searchPlaceholder': 'Search environments...',
+    'environments.selector.noEnvironment': 'No Environment',
+    'environments.selector.noResults': 'No results found',
+    'environments.selector.configure': 'Configure',
+    'environments.selector.readyToGetStarted': 'Ready to get started?',
+    'environments.selector.create': 'Create',
+    'environments.selector.import': 'Import'
+  };
+  return {
+    useTranslation: () => ({
+      t: (key, params) => String(translations[key] ?? key).replace(/\{\{(\w+)\}\}/g, (_, k) => params?.[k] ?? '')
+    })
+  };
+});
+
 const renderWithTheme = (component) => {
   return render(
     <ThemeContext.Provider value={{ theme: themes.dark }}>

@@ -1,5 +1,6 @@
 import { useTheme } from '../../../../providers/Theme';
 import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { setIsOpeningCollection } from 'providers/ReduxStore/slices/app';
 
 import styled from 'styled-components';
@@ -11,6 +12,7 @@ const LinkStyle = styled.span`
 
 const CreateOrOpenCollection = ({ onCreateClick }) => {
   const { theme } = useTheme();
+  const { t } = useTranslation();
   const dispatch = useDispatch();
 
   const handleOpenCollection = () => {
@@ -22,21 +24,21 @@ const CreateOrOpenCollection = ({ onCreateClick }) => {
       theme={theme}
       onClick={onCreateClick}
     >
-      Create
+      {t('sidebar.create')}
     </LinkStyle>
   );
   const OpenLink = () => (
     <LinkStyle className="underline text-link cursor-pointer" theme={theme} onClick={() => handleOpenCollection(true)}>
-      Open
+      {t('sidebar.open')}
     </LinkStyle>
   );
 
   return (
     <StyledWrapper className="px-2 mt-4">
       <div className="text-xs text-center">
-        <div>No collections found.</div>
+        <div>{t('sidebar.createOrOpen.noCollectionsFound')}</div>
         <div className="mt-2">
-          <CreateLink /> or <OpenLink /> Collection.
+          <CreateLink /> {t('sidebar.createOrOpen.or')} <OpenLink /> {t('sidebar.createOrOpen.collection')}
         </div>
       </div>
     </StyledWrapper>

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { IconPlus, IconTrash } from '@tabler/icons';
 import ToggleSwitch from 'components/ToggleSwitch';
+import { useTranslation } from 'react-i18next';
 
 const BUILT_IN_HEADER_EXAMPLES = [
   'Authorization',
@@ -17,13 +18,14 @@ const normalize = (raw) => String(raw || '').trim();
 
 /**
  * Compact editor for a case-insensitive name list. Used for both custom
- * header names and custom variable names — the shape is identical.
+ * header names and custom variable names —— the shape is identical.
  */
 
 const CHIP_MAX_LENGTH = 200;
 const CHIP_MAX_COUNT = 200;
 
 const ChipListEditor = ({ list, placeholder, onChange, addTestId, inputTestId, removeTestIdPrefix }) => {
+  const { t } = useTranslation();
   const [draft, setDraft] = useState('');
   const values = Array.isArray(list) ? list : [];
   const atCapacity = values.length >= CHIP_MAX_COUNT;
@@ -76,13 +78,13 @@ const ChipListEditor = ({ list, placeholder, onChange, addTestId, inputTestId, r
           data-testid={addTestId}
         >
           <IconPlus size={13} strokeWidth={1.75} />
-          Add
+          {t('preferences.ai.card.add')}
         </button>
       </div>
 
       {atCapacity && (
         <span className="security-sub text-[10.5px]">
-          Reached the {CHIP_MAX_COUNT}-entry limit. Remove one to add another.
+          {t('preferences.ai.security.chipLimitReached', { count: CHIP_MAX_COUNT })}
         </span>
       )}
 
@@ -95,7 +97,7 @@ const ChipListEditor = ({ list, placeholder, onChange, addTestId, inputTestId, r
                 type="button"
                 className="security-chip-remove"
                 onClick={() => handleRemove(name)}
-                aria-label={`Remove ${name}`}
+                aria-label={t('preferences.ai.security.removeNamed', { name })}
                 data-testid={removeTestIdPrefix ? `${removeTestIdPrefix}-${name}` : undefined}
               >
                 <IconTrash size={11} strokeWidth={1.75} />
@@ -123,11 +125,13 @@ const SecurityPane = ({
   onChangeCustomRedactedHeaders,
   onChangeCustomRedactedVariables
 }) => {
+  const { t } = useTranslation();
+
   if (!aiEnabled) {
     return (
       <div className="security-tab flex flex-col gap-3">
         <div className="ai-empty-notice px-3.5 py-3 text-xs">
-          Turn on AI in the Configuration tab to configure redaction.
+          {t('preferences.ai.security.disabledNotice')}
         </div>
       </div>
     );
@@ -136,15 +140,15 @@ const SecurityPane = ({
   return (
     <div className="security-tab flex flex-col gap-3">
       <div className="ai-empty-notice px-3.5 py-3 text-xs">
-        Sensitive data is automatically redacted before context is sent to AI providers. Turn off protections if needed, or add custom headers and variables to redact.
+        {t('preferences.ai.security.intro')}
       </div>
 
       <div className="security-card">
         <div className="security-row flex items-center justify-between gap-3 px-3.5 py-3">
           <div className="flex flex-col gap-0.5 min-w-0">
-            <span className="text-[12.5px] font-semibold">Redact sensitive header values</span>
+            <span className="text-[12.5px] font-semibold">{t('preferences.ai.security.redactHeadersTitle')}</span>
             <span className="security-sub text-[11px]">
-              Masks Authorization, cookies, API keys and other credential-bearing headers in the request context.
+              {t('preferences.ai.security.redactHeadersDesc')}
             </span>
           </div>
           <ToggleSwitch
@@ -157,9 +161,9 @@ const SecurityPane = ({
 
         <div className="security-row flex items-center justify-between gap-3 px-3.5 py-3">
           <div className="flex flex-col gap-0.5 min-w-0">
-            <span className="text-[12.5px] font-semibold">Redact sensitive body keys</span>
+            <span className="text-[12.5px] font-semibold">{t('preferences.ai.security.redactBodyTitle')}</span>
             <span className="security-sub text-[11px]">
-              Masks values under keys like <code>password</code>, <code>*_token</code>, <code>secret</code> in JSON and GraphQL variables. Structure and non-sensitive fields still pass through.
+              {t('preferences.ai.security.redactBodyDesc')}
             </span>
           </div>
           <ToggleSwitch
@@ -172,9 +176,9 @@ const SecurityPane = ({
 
         <div className="security-row flex items-center justify-between gap-3 px-3.5 py-3">
           <div className="flex flex-col gap-0.5 min-w-0">
-            <span className="text-[12.5px] font-semibold">Redact response values</span>
+            <span className="text-[12.5px] font-semibold">{t('preferences.ai.security.redactResponseTitle')}</span>
             <span className="security-sub text-[11px]">
-              Sends the response as a shape only — real values replaced with type placeholders (<code>&lt;string&gt;</code>, <code>&lt;number&gt;</code>). Turn off to send the actual response body.
+              {t('preferences.ai.security.redactResponseDesc')}
             </span>
           </div>
           <ToggleSwitch
@@ -187,9 +191,9 @@ const SecurityPane = ({
 
         <div className="security-row flex items-center justify-between gap-3 px-3.5 py-3">
           <div className="flex flex-col gap-0.5 min-w-0">
-            <span className="text-[12.5px] font-semibold">Redact secret variable values</span>
+            <span className="text-[12.5px] font-semibold">{t('preferences.ai.security.redactVariablesTitle')}</span>
             <span className="security-sub text-[11px]">
-              Masks values whose names look like secrets. Variables explicitly marked <em>secret</em> are always redacted regardless of this switch.
+              {t('preferences.ai.security.redactVariablesDesc')}
             </span>
           </div>
           <ToggleSwitch
@@ -204,9 +208,9 @@ const SecurityPane = ({
       <div className="security-card">
         <div className="security-row flex flex-col gap-2 px-3.5 py-3">
           <div className="flex flex-col gap-0.5">
-            <span className="text-[12.5px] font-semibold">Custom redacted headers</span>
+            <span className="text-[12.5px] font-semibold">{t('preferences.ai.security.customHeadersTitle')}</span>
             <span className="security-sub text-[11px]">
-              Exact, case-insensitive header names to always mask on top of the built-in list.
+              {t('preferences.ai.security.customHeadersDesc')}
             </span>
           </div>
           <ChipListEditor
@@ -221,9 +225,9 @@ const SecurityPane = ({
 
         <div className="security-row flex flex-col gap-2 px-3.5 py-3">
           <div className="flex flex-col gap-0.5">
-            <span className="text-[12.5px] font-semibold">Custom redacted variables</span>
+            <span className="text-[12.5px] font-semibold">{t('preferences.ai.security.customVariablesTitle')}</span>
             <span className="security-sub text-[11px]">
-              Variable names whose values should always be masked when Bruno lists them for the model — for anything you want redacted besides values already flagged as <em>secret</em>.
+              {t('preferences.ai.security.customVariablesDesc')}
             </span>
           </div>
           <ChipListEditor
@@ -237,13 +241,13 @@ const SecurityPane = ({
         </div>
 
         <div className="security-row flex flex-col gap-1 px-3.5 py-3">
-          <span className="text-[11px] font-medium security-sub">Already covered by default</span>
+          <span className="text-[11px] font-medium security-sub">{t('preferences.ai.security.builtinCovered')}</span>
           <div className="security-builtin flex flex-wrap gap-1.5">
             {BUILT_IN_HEADER_EXAMPLES.map((name) => (
               <span key={name} className="security-builtin-chip">{name}</span>
             ))}
             <span className="security-builtin-more text-[10.5px]">
-              plus any name matching <code>token</code>, <code>secret</code>, <code>password</code> or <code>api_key</code>.
+              {t('preferences.ai.security.builtinMore')}
             </span>
           </div>
         </div>

@@ -3,6 +3,19 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { ThemeProvider } from 'providers/Theme';
 import { DevToolsFilterDropdown } from './index';
 
+jest.mock('react-i18next', () => {
+  const translations = {
+    'devtools.filter.all': 'All',
+    'devtools.filter.hideAll': 'Hide All',
+    'devtools.filter.showAll': 'Show All'
+  };
+  return {
+    useTranslation: () => ({
+      t: (key, params) => String(translations[key] ?? key).replace(/\{\{(\w+)\}\}/g, (_, k) => params?.[k] ?? '')
+    })
+  };
+});
+
 const renderFilterDropdown = (overrides = {}) => {
   const props = {
     filters: { error: true, warn: true, info: false },

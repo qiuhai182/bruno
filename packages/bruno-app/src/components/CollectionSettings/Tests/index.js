@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import get from 'lodash/get';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import CodeEditor from 'components/CodeEditor';
 import { updateCollectionTests } from 'providers/ReduxStore/slices/collections';
 import { saveCollectionSettings } from 'providers/ReduxStore/slices/collections/actions';
@@ -11,6 +12,7 @@ import { usePersistedState } from 'hooks/usePersistedState';
 import { useFocusErrorLine } from 'hooks/useFocusErrorLine';
 
 const Tests = ({ collection }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const testsEditorRef = useRef(null);
   const tests = collection.draft?.root ? get(collection, 'draft.root.request.tests', '') : get(collection, 'root.request.tests', '');
@@ -38,7 +40,7 @@ const Tests = ({ collection }) => {
 
   return (
     <StyledWrapper className="w-full flex flex-col h-full">
-      <div className="text-xs mb-4 text-muted">These tests will run any time a request in this collection is sent.</div>
+      <div className="text-xs mb-4 text-muted">{t('collection.tests.description')}</div>
       <div className="relative h-full">
         <CodeEditor
           ref={testsEditorRef}
@@ -59,7 +61,7 @@ const Tests = ({ collection }) => {
 
       <div className="mt-6">
         <Button type="submit" size="sm" onClick={handleSave}>
-          Save
+          {t('common.save')}
         </Button>
       </div>
     </StyledWrapper>

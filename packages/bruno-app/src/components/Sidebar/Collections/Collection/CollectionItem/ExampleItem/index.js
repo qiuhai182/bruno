@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { useDrag } from 'react-dnd';
 import { getEmptyImage } from 'react-dnd-html5-backend';
 import { addTab, makeTabPermanent } from 'providers/ReduxStore/slices/tabs';
@@ -28,6 +29,7 @@ import { startBlockedDragTracking } from 'utils/dragBlockedCursor';
 const ExampleItem = ({ example, item, collection, searchText, openBulkMenu, isParentDragDisabled, parentMultiDragItems }) => {
   const { dropdownContainerRef } = useSidebarAccordion();
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const activeTabUid = useSelector((state) => state.tabs?.activeTabUid);
   const isExampleActive = activeTabUid === example.uid;
   const [editName, setEditName] = useState(example.name || '');
@@ -147,7 +149,7 @@ const ExampleItem = ({ example, item, collection, searchText, openBulkMenu, isPa
     ) {
       setGenerateCodeItemModalOpen(true);
     } else {
-      toast.error('URL is required');
+      toast.error(t('sidebar.item.urlRequired'));
     }
   };
 
@@ -163,7 +165,7 @@ const ExampleItem = ({ example, item, collection, searchText, openBulkMenu, isPa
     }));
     dispatch(saveRequest(item.uid, collection.uid, true))
       .then(() => {
-        toast.success(`Example renamed to "${newName}"`);
+        toast.success(t('sidebar.item.exampleRenamed', { name: newName }));
         setShowRenameModal(false);
       });
   };
@@ -174,21 +176,21 @@ const ExampleItem = ({ example, item, collection, searchText, openBulkMenu, isPa
       {
         id: 'rename',
         leftSection: IconEdit,
-        label: 'Rename',
+        label: t('sidebar.menu.rename'),
         onClick: handleRename,
         testId: 'response-example-rename-option'
       },
       {
         id: 'clone',
         leftSection: IconCopy,
-        label: 'Clone',
+        label: t('sidebar.menu.clone'),
         onClick: handleClone,
         testId: 'response-example-clone-option'
       },
       {
         id: 'generate-code',
         leftSection: IconCode,
-        label: 'Generate Code',
+        label: t('sidebar.menu.generateCode'),
         onClick: handleGenerateCode,
         testId: 'response-example-generate-code-option'
       },
@@ -196,7 +198,7 @@ const ExampleItem = ({ example, item, collection, searchText, openBulkMenu, isPa
       {
         id: 'delete',
         leftSection: IconTrash,
-        label: 'Delete',
+        label: t('common.delete'),
         className: 'delete-item',
         onClick: handleDelete,
         testId: 'response-example-delete-option'
@@ -271,19 +273,19 @@ const ExampleItem = ({ example, item, collection, searchText, openBulkMenu, isPa
       {showRenameModal && (
         <Modal
           size="sm"
-          title="Rename Example"
+          title={t('sidebar.example.renameTitle')}
           handleCancel={() => {
             setShowRenameModal(false);
             setEditName(example.name); // Reset to original name on cancel
           }}
           handleConfirm={() => handleRenameConfirm(editName)}
-          confirmText="Rename"
-          cancelText="Cancel"
+          confirmText={t('sidebar.menu.rename')}
+          cancelText={t('common.cancel')}
           confirmDisabled={!editName || !editName.trim()}
         >
           <div>
             <label htmlFor="renameExampleName" className="block font-medium">
-              Example Name
+              {t('sidebar.example.nameLabel')}
             </label>
             <input
               data-testid="rename-example-name-input"
@@ -292,7 +294,7 @@ const ExampleItem = ({ example, item, collection, searchText, openBulkMenu, isPa
               className="textbox mt-2"
               value={editName}
               onChange={(e) => setEditName(e.target.value)}
-              placeholder="Enter example name..."
+              placeholder={t('sidebar.example.namePlaceholder')}
               autoFocus
               required
             />

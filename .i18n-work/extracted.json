@@ -1,0 +1,1478 @@
+{
+ "sidebar.menu.remove": [
+  "Remove"
+ ],
+ "sidebar.apiSpecs.close.closed": [
+  "API Spec closed"
+ ],
+ "sidebar.apiSpecs.close.closeError": [
+  "An error occurred while closing the API Spec"
+ ],
+ "sidebar.apiSpecs.close.title": [
+  "Close Api Spec",
+  "Close"
+ ],
+ "sidebar.apiSpecs.close.confirmPrefix": [
+  "Are you sure you want to close API Spec <span className=\"font-semibold\">{apiSpec.name}</span> in Bruno?"
+ ],
+ "sidebar.apiSpecs.close.confirmSuffix": [
+  "Are you sure you want to close API Spec <span className=\"font-semibold\">{apiSpec.name}</span> in Bruno?"
+ ],
+ "sidebar.apiSpecs.close.stillAvailableNote": [
+  "It will still be available in the file system at the above location and can be re-opened later."
+ ],
+ "sidebar.validation.locationRequired": [
+  "location is required",
+  "Location is required"
+ ],
+ "sidebar.validation.min1Char": [
+  "Must be at least 1 character",
+  "must be at least 1 character"
+ ],
+ "sidebar.validation.max255": [
+  "Must be 255 characters or less",
+  "must be 255 characters or less"
+ ],
+ "sidebar.validation.nameRequired": [
+  "Name is required",
+  "collection name is required",
+  "name is required"
+ ],
+ "sidebar.apiSpecs.create.created": [
+  "ApiSpec created"
+ ],
+ "sidebar.apiSpecs.create.failedToLoadCollection": [
+  "Failed to load collection"
+ ],
+ "sidebar.apiSpecs.create.title": [
+  "Create API Spec"
+ ],
+ "sidebar.create": [
+  "Create"
+ ],
+ "sidebar.apiSpecs.create.templateLabel": [
+  "Template"
+ ],
+ "sidebar.apiSpecs.create.blankSpec": [
+  "Blank spec"
+ ],
+ "sidebar.apiSpecs.create.fromCollection": [
+  "From Bruno Collection"
+ ],
+ "sidebar.apiSpecs.create.collectionLocationLabel": [
+  "Collection Location"
+ ],
+ "sidebar.browse": [
+  "Browse"
+ ],
+ "sidebar.apiSpecs.create.environmentLabel": [
+  "Environment"
+ ],
+ "sidebar.apiSpecs.create.specNameLabel": [
+  "Spec Name"
+ ],
+ "sidebar.apiSpecs.create.specLocationLabel": [
+  "Spec Location"
+ ],
+ "sidebar.apiSpecs.create.defaultsNote": [
+  "(defaults to workspace's apispec folder)"
+ ],
+ "sidebar.apiSpecs.openError": [
+  "An error occurred while opening the API spec"
+ ],
+ "sidebar.apiSpecs.open": [
+  "Open"
+ ],
+ "sidebar.apiSpecs.noSpecsFound": [
+  "<div>No API Specs found.</div>"
+ ],
+ "sidebar.apiSpecs.openLinkSuffix": [
+  "<OpenLink /> API Spec."
+ ],
+ "sidebar.validation.max500": [
+  "must be 500 characters or less"
+ ],
+ "sidebar.bulkImport.failedToAddEnvironment": [
+  "Failed to add environment"
+ ],
+ "sidebar.bulkImport.failedToImportCollection": [
+  "Failed to import collection"
+ ],
+ "sidebar.bulkImport.errorDetails": [
+  "Error Details"
+ ],
+ "sidebar.bulkImport.title": [
+  "Bulk Import"
+ ],
+ "sidebar.bulkImport.import": [
+  "Close",
+  "Import"
+ ],
+ "sidebar.location": [
+  "<div className=\"font-semibold\">Location</div>",
+  "<div className=\"font-semibold mb-2\">Location</div>",
+  "Location"
+ ],
+ "sidebar.bulkImport.noLocationSelected": [
+  "No location selected"
+ ],
+ "sidebar.bulkImport.seeError": [
+  "See error"
+ ],
+ "sidebar.bulkImport.itemsSkipped": [
+  "{importIssues[collection.uid].filter((i) => i.severity === 'error').length} item(s) skipped"
+ ],
+ "sidebar.copiedToClipboard": [
+  "Copied to clipboard",
+  "Copied to clipboard!"
+ ],
+ "sidebar.bulkImport.failedToCopy": [
+  "Failed to copy to clipboard"
+ ],
+ "sidebar.bulkImport.copy": [
+  "Copy"
+ ],
+ "sidebar.bulkImport.importingEnvironments": [
+  "Importing Environments ({selectedEnvironments.length})"
+ ],
+ "sidebar.bulkImport.collectionsTitle": [
+  "Collections"
+ ],
+ "sidebar.bulkImport.searchCollections": [
+  "Search Collections"
+ ],
+ "sidebar.bulkImport.noCollectionsFound": [
+  "No collections found"
+ ],
+ "sidebar.bulkImport.environmentsTitle": [
+  "Environments"
+ ],
+ "sidebar.bulkImport.searchEnvironments": [
+  "Search Environments"
+ ],
+ "sidebar.bulkImport.noEnvironmentsFound": [
+  "No environments found"
+ ],
+ "sidebar.bulkImport.environmentAssignment": [
+  "Environment Assignment"
+ ],
+ "sidebar.bulkImport.globalEnvironment": [
+  "Global Environment"
+ ],
+ "sidebar.bulkImport.globalEnvTip": [
+  "Environments will be imported and stored as global, accessible across collections."
+ ],
+ "sidebar.bulkImport.duplicateAcrossCollections": [
+  "Duplicate Across Collections"
+ ],
+ "sidebar.bulkImport.duplicateEnvTip": [
+  "Each imported collection will receive its own copy of the environments."
+ ],
+ "sidebar.bulkImport.locationPlaceholder": [
+  "Select a location to save the collection"
+ ],
+ "sidebar.bulkImport.fileFormat": [
+  "File Format"
+ ],
+ "sidebar.bulkImport.fileFormatHelp": [
+  "<p>Choose the file format for storing requests in this collection.</p>"
+ ],
+ "sidebar.bulkImport.openCollectionDesc": [
+  "<strong>OpenCollection (YAML):</strong> Industry-standard YAML format (.yml files)"
+ ],
+ "sidebar.bulkImport.bruDesc": [
+  "<strong>BRU:</strong> Bruno's native file format (.bru files)"
+ ],
+ "sidebar.bulkImport.bruFormat": [
+  "<option value=\"bru\">BRU Format (.bru)</option>"
+ ],
+ "sidebar.bulkImport.folderArrangement": [
+  "Folder arrangement"
+ ],
+ "sidebar.bulkImport.folderArrangementDesc": [
+  "Select whether to create folders according to the spec's paths or tags."
+ ],
+ "sidebar.cloneGit.cloningRepository": [
+  "Cloning repository"
+ ],
+ "sidebar.cloneGit.clonedSuccessfully": [
+  "Repository cloned successfully"
+ ],
+ "sidebar.cloneGit.cloningSuccessful": [
+  "Cloning successful"
+ ],
+ "sidebar.cloneGit.cloningFailed": [
+  "Cloning failed"
+ ],
+ "sidebar.cloneGit.scanningForBrunoFiles": [
+  "Scanning for Bruno files"
+ ],
+ "sidebar.cloneGit.scannedSuccessfully": [
+  "Repository scanned successfully"
+ ],
+ "sidebar.cloneGit.scanSuccessful": [
+  "Scan successful"
+ ],
+ "sidebar.validation.repositoryUrlRequired": [
+  "Repository URL is required"
+ ],
+ "sidebar.cloneGit.back": [
+  "Back"
+ ],
+ "sidebar.cloneGit.selectedCount": [
+  "<span>{selectedCollectionPaths.length}</span> of {collectionPaths.length} selected"
+ ],
+ "sidebar.cloneGit.title": [
+  "Clone Git Repository"
+ ],
+ "sidebar.cloneGit.repositoryUrlLabel": [
+  "Git Repository URL"
+ ],
+ "sidebar.cloneGit.branchLabel": [
+  "Branch"
+ ],
+ "sidebar.cloneGit.loadingBranches": [
+  "Loading branches..."
+ ],
+ "sidebar.cloneGit.repositoryDefault": [
+  "Repository default"
+ ],
+ "sidebar.cloneGit.noBranchesMatch": [
+  "No branches match your search"
+ ],
+ "sidebar.cloneGit.branchesListFailed": [
+  "Branches could not be listed for this repository. Cloning will use the default branch."
+ ],
+ "sidebar.cloneGit.noBrunoCollectionsFound": [
+  "<div>No Bruno collections were found in this repository.</div>"
+ ],
+ "sidebar.cloneGit.collectionsTitle": [
+  "Collections"
+ ],
+ "sidebar.cloneGit.searchCollections": [
+  "Search Collections"
+ ],
+ "sidebar.closeWorkspace.workspaceNotFound": [
+  "Workspace not found"
+ ],
+ "sidebar.closeWorkspace.cannotCloseDefault": [
+  "Cannot close the default workspace"
+ ],
+ "sidebar.closeWorkspace.closed": [
+  "Workspace closed"
+ ],
+ "sidebar.closeWorkspace.closeError": [
+  "An error occurred while closing the workspace"
+ ],
+ "sidebar.closeWorkspace.title": [
+  "Close Workspace"
+ ],
+ "sidebar.closeWorkspace.confirmPrefix": [
+  "Are you sure you want to close workspace <span className=\"font-semibold\">{workspace?.name}</span>?"
+ ],
+ "sidebar.closeWorkspace.confirmSuffix": [
+  "Are you sure you want to close workspace <span className=\"font-semibold\">{workspace?.name}</span>?"
+ ],
+ "sidebar.closeWorkspace.stillAvailableNote": [
+  "It will still be available in the file system at the above location and can be re-opened later."
+ ],
+ "sidebar.toast.errorTogglingCollections": [
+  "An error occurred while toggling collections"
+ ],
+ "sidebar.bulkActions.expand": [
+  "Expand"
+ ],
+ "sidebar.bulkActions.collapse": [
+  "Collapse"
+ ],
+ "sidebar.bulkActions.selected": [
+  "Selected"
+ ],
+ "sidebar.bulkActions.removeSelected": [
+  "Remove Selected"
+ ],
+ "sidebar.changeVersion.title": [
+  "customHeader={<ModalTitle>Change Collection Version</ModalTitle>}"
+ ],
+ "sidebar.changeVersion.updating": [
+  "Updating..."
+ ],
+ "sidebar.changeVersion.updateVersion": [
+  "Update Version"
+ ],
+ "sidebar.changeVersion.collectionLabel": [
+  "collection-name"
+ ],
+ "sidebar.changeVersion.currentVersion": [
+  "<div className=\"col-label\">Current Version</div>"
+ ],
+ "sidebar.changeVersion.notSet": [
+  "{currentVersion || <span className=\"text-muted italic\">Not Set</span>}",
+  "<span className=\"old\">{currentVersion || <span className=\"text-muted italic not-set\">(Not Set)</span>}</span>"
+ ],
+ "sidebar.changeVersion.newVersion": [
+  "<div className=\"col-label\">New Version</div>"
+ ],
+ "sidebar.changeVersion.versionPlaceholder": [
+  "e.g. v1.0.0"
+ ],
+ "sidebar.changeVersion.updates": [
+  "Updates <strong>{targetKey}</strong> in {targetFile} from{' '}"
+ ],
+ "sidebar.changeVersion.in": [
+  "Updates <strong>{targetKey}</strong> in {targetFile} from{' '}"
+ ],
+ "sidebar.changeVersion.from": [
+  "Updates <strong>{targetKey}</strong> in {targetFile} from{' '}"
+ ],
+ "sidebar.validation.folderNameRequired": [
+  "folder name is required",
+  "foldername is required"
+ ],
+ "sidebar.toast.collectionCreated": [
+  "Collection created!"
+ ],
+ "sidebar.toast.errorCreatingCollectionWithError": [
+  "An error occurred while creating the collection - "
+ ],
+ "sidebar.cloneCollection.title": [
+  "Clone Collection"
+ ],
+ "sidebar.name": [
+  "Name"
+ ],
+ "sidebar.folderName": [
+  "Folder Name",
+  "Folder",
+  "File"
+ ],
+ "sidebar.cloneCollection.folderNameHelp1": [
+  "The name of the folder used to store the collection."
+ ],
+ "sidebar.cloneCollection.folderNameHelp2": [
+  "You can choose a folder name different from your collection's name or one compatible with filesystem rules."
+ ],
+ "sidebar.validation.reservedFileNames": [
+  "The file names \"collection\" and \"folder\" are reserved in bruno"
+ ],
+ "sidebar.item.cloned": [
+  "${itemTypeLabel} cloned!",
+  "${getItemTypeLabel(item)} cloned!"
+ ],
+ "sidebar.item.cloneError": [
+  "An error occurred while cloning the ${itemTypeLabel.toLowerCase()}",
+  "An error occurred while cloning the ${getItemTypeLabel(item).toLowerCase()}"
+ ],
+ "sidebar.options": [
+  "Options"
+ ],
+ "sidebar.item.cloneTitle": [
+  "Clone ${itemTypeLabel}"
+ ],
+ "sidebar.item.nameLabel": [
+  "{itemTypeLabel} Name"
+ ],
+ "sidebar.item.namePlaceholder": [
+  "Enter Item name"
+ ],
+ "sidebar.newRequest.fileName": [
+  "Folder",
+  "File",
+  "File Name",
+  "File Name <small className=\"font-normal text-muted ml-1\">(on filesystem)</small>"
+ ],
+ "sidebar.newRequest.onFilesystem": [
+  "Folder",
+  "File",
+  "<small className=\"font-normal text-muted ml-1\">(on filesystem)</small>",
+  "Folder Name <small className=\"font-normal text-muted ml-1\">(on filesystem)</small>",
+  "File Name <small className=\"font-normal text-muted ml-1\">(on filesystem)</small>"
+ ],
+ "sidebar.item.folderNameHelp": [
+  "You can choose to save the folder as a different name on your file system versus what is displayed in the app."
+ ],
+ "sidebar.item.fileNameHelp1": [
+  "Bruno saves each request as a file in your collection's folder."
+ ],
+ "sidebar.item.fileNameHelp2": [
+  "You can choose a file name different from your request's name or one compatible with filesystem rules."
+ ],
+ "sidebar.hideFilesystemName": [
+  "Hide Filesystem Name"
+ ],
+ "sidebar.showFilesystemName": [
+  "Show Filesystem Name"
+ ],
+ "sidebar.menu.clone": [
+  "Clone"
+ ],
+ "sidebar.dragPreview.items": [
+  "${multiSelectedItems.length} items"
+ ],
+ "sidebar.dragPreview.and": [
+  ", ",
+  " and $1"
+ ],
+ "sidebar.menu.info": [
+  "Info"
+ ],
+ "sidebar.item.infoFolderNameHelp": [
+  "The name of the folder on your filesystem."
+ ],
+ "sidebar.deleteItems.folderOne": [
+  "${folderCount} ${pluralizeWord('folder', folderCount)}"
+ ],
+ "sidebar.deleteItems.folderMany": [
+  "${folderCount} ${pluralizeWord('folder', folderCount)}"
+ ],
+ "sidebar.deleteItems.requestOne": [
+  "${requestCount} ${pluralizeWord('request', requestCount)}"
+ ],
+ "sidebar.deleteItems.requestMany": [
+  "${requestCount} ${pluralizeWord('request', requestCount)}"
+ ],
+ "sidebar.deleteItems.appOne": [
+  "${appCount} ${pluralizeWord('app', appCount)}"
+ ],
+ "sidebar.deleteItems.appMany": [
+  "${appCount} ${pluralizeWord('app', appCount)}"
+ ],
+ "sidebar.deleteItems.exampleOne": [
+  "${exampleCount} ${pluralizeWord('example', exampleCount)}"
+ ],
+ "sidebar.deleteItems.exampleMany": [
+  "${exampleCount} ${pluralizeWord('example', exampleCount)}"
+ ],
+ "sidebar.deleteItems.titleItems": [
+  "Delete Items"
+ ],
+ "sidebar.deleteItems.titleFolderOne": [
+  "Delete ${pluralizeWord('Folder', folderCount)}"
+ ],
+ "sidebar.deleteItems.titleFolderMany": [
+  "Delete ${pluralizeWord('Folder', folderCount)}"
+ ],
+ "sidebar.deleteItems.titleAppOne": [
+  "Delete ${pluralizeWord('App', appCount)}"
+ ],
+ "sidebar.deleteItems.titleAppMany": [
+  "Delete ${pluralizeWord('App', appCount)}"
+ ],
+ "sidebar.deleteItems.titleExampleOne": [
+  "Delete ${pluralizeWord('Example', exampleCount)}",
+  "Delete Example"
+ ],
+ "sidebar.deleteItems.titleExampleMany": [
+  "Delete ${pluralizeWord('Example', exampleCount)}"
+ ],
+ "sidebar.deleteItems.titleRequestOne": [
+  "Delete ${pluralizeWord('Request', requestCount)}"
+ ],
+ "sidebar.deleteItems.titleRequestMany": [
+  "Delete ${pluralizeWord('Request', requestCount)}"
+ ],
+ "sidebar.deleteItems.errorDeleting": [
+  "Error deleting ${entry.item?.name || 'item'}"
+ ],
+ "sidebar.deleteItems.confirmPrefix": [
+  "Are you sure you want to delete {description}?"
+ ],
+ "sidebar.deleteItems.confirmSuffix": [
+  "Are you sure you want to delete {description}?",
+  "Are you sure you want to delete the example <span className=\"font-medium\">{example.name}</span>?"
+ ],
+ "sidebar.deleteItems.confirmExamplePrefix": [
+  "Are you sure you want to delete the example <span className=\"font-medium\">{example.name}</span>?"
+ ],
+ "sidebar.item.urlRequired": [
+  "URL is required"
+ ],
+ "sidebar.item.exampleRenamed": [
+  "Example renamed to \"${newName}\""
+ ],
+ "sidebar.menu.rename": [
+  "Rename"
+ ],
+ "sidebar.menu.generateCode": [
+  "Generate Code"
+ ],
+ "sidebar.example.renameTitle": [
+  "Rename Example"
+ ],
+ "sidebar.example.nameLabel": [
+  "Example Name"
+ ],
+ "sidebar.example.namePlaceholder": [
+  "Enter example name..."
+ ],
+ "sidebar.generateCode.interpolateVariables": [
+  "<span>Interpolate Variables</span>"
+ ],
+ "sidebar.generateCode.titleWithExample": [
+  "Generate Code - ${get(item, 'draft.examples', []).find((e) => e.uid === exampleUid)?.name || 'Example'}"
+ ],
+ "sidebar.generateCode.example": [
+  "Generate Code"
+ ],
+ "sidebar.generateCode.title": [
+  "Generate Code - ${get(item, 'draft.examples', []).find((e) => e.uid === exampleUid)?.name || 'Example'}",
+  "Generate Code"
+ ],
+ "sidebar.generateCode.invalidUrl": [
+  "<h1>Invalid URL: {validationUrl}</h1>"
+ ],
+ "sidebar.generateCode.checkUrl": [
+  "<p>Please check the URL and try again</p>"
+ ],
+ "sidebar.ignore.folderIgnored": [
+  "Folder ignored"
+ ],
+ "sidebar.ignore.errorIgnoring": [
+  "Error ignoring folder"
+ ],
+ "sidebar.ignore.title": [
+  "Ignore Folder"
+ ],
+ "sidebar.menu.ignore": [
+  "Ignore"
+ ],
+ "sidebar.ignore.prefix": [
+  "font-medium"
+ ],
+ "sidebar.ignore.collectionByAdding": [
+  "collection by adding it to the"
+ ],
+ "sidebar.ignore.listIn": [
+  "list in"
+ ],
+ "sidebar.ignore.notDeletedRestore": [
+  ". The folder and its files are not deleted. To restore it later, remove the entry from the"
+ ],
+ "sidebar.ignore.listInAfter": [
+  "list in"
+ ],
+ "sidebar.ignore.finalPeriod": [
+  "."
+ ],
+ "sidebar.item.renameError": [
+  "An error occurred while renaming"
+ ],
+ "sidebar.item.renameTitle": [
+  "Rename ${itemTypeLabel}"
+ ],
+ "sidebar.runCollection.title": [
+  "Collection Runner"
+ ],
+ "sidebar.menu.run": [
+  "<span className=\"font-medium\">Run</span>",
+  "Run"
+ ],
+ "sidebar.runCollection.requestCount": [
+  "<span className=\"ml-1 text-xs\">({totalRequestItemsCountForFolderRun} requests)</span>",
+  "<span className=\"ml-1 text-xs\">({totalRequestItemsCountForRecursiveFolderRun} requests)</span>"
+ ],
+ "sidebar.runCollection.folderOnly": [
+  "<div className=\"mb-3 description\">This will only run the requests in this folder.</div>"
+ ],
+ "sidebar.runCollection.recursiveRun": [
+  "<span className=\"font-medium\">Recursive Run</span>",
+  "Recursive Run"
+ ],
+ "sidebar.runCollection.recursiveDesc": [
+  "<div className={`description ${isFolderLoading ? 'mb-2' : 'mb-6'}`}>This will run all the requests in this folder and all its subfolders.</div>"
+ ],
+ "sidebar.runCollection.stillLoading": [
+  "{isFolderLoading ? <div className=\"mb-8 warning\">Requests in this folder are still loading.</div> : null}"
+ ],
+ "sidebar.runCollection.alreadyRunning": [
+  "{isCollectionRunInProgress ? <div className=\"mb-6 warning\">A Collection Run is already in progress.</div> : null}"
+ ],
+ "sidebar.runCollection.delayLabel": [
+  "<label htmlFor=\"runner-delay\" className=\"block text-sm\">Delay between requests (ms)</label>"
+ ],
+ "sidebar.runCollection.delayPlaceholder": [
+  "e.g. 5"
+ ],
+ "sidebar.runCollection.viewRun": [
+  "View Run"
+ ],
+ "sidebar.newRequest.title": [
+  "New Request"
+ ],
+ "sidebar.newFolder.title": [
+  "New Folder"
+ ],
+ "sidebar.newApp.title": [
+  "New App"
+ ],
+ "sidebar.menu.copy": [
+  "Copy"
+ ],
+ "sidebar.menu.paste": [
+  "Paste"
+ ],
+ "sidebar.menu.createExample": [
+  "Create Example"
+ ],
+ "sidebar.menu.settings": [
+  "Settings"
+ ],
+ "sidebar.openInTerminal": [
+  "Open in Terminal"
+ ],
+ "sidebar.item.errorOpeningFolder": [
+  "Error opening the folder"
+ ],
+ "sidebar.item.exampleCreated": [
+  "Example \"${name}\" created successfully"
+ ],
+ "sidebar.item.copied": [
+  "${getItemTypeLabel(item)} copied"
+ ],
+ "sidebar.item.pasted": [
+  "Item pasted successfully"
+ ],
+ "sidebar.item.pasteError": [
+  "An error occurred while pasting the item"
+ ],
+ "sidebar.item.createExampleTitle": [
+  "Create Response Example"
+ ],
+ "sidebar.addRequest": [
+  "<button className=\"ml-1 add-request-link\">+ Add request</button>"
+ ],
+ "sidebar.exportToPostman.fileExists": [
+  "const fileExists = formik.errors.fileName === FILE_EXISTS_ERROR;",
+  "formik.setFieldError('fileName', FILE_EXISTS_ERROR);"
+ ],
+ "sidebar.exportToPostman.exportedSuccess": [
+  "Collection exported successfully"
+ ],
+ "sidebar.exportToPostman.exportFailed": [
+  "Failed to export collection: "
+ ],
+ "sidebar.exportToPostman.title": [
+  "Export to Postman"
+ ],
+ "sidebar.exportToPostman.replace": [
+  "Replace"
+ ],
+ "sidebar.exportToPostman.export": [
+  "Export"
+ ],
+ "sidebar.hideAdvancedOptions": [
+  "Hide Advanced Options"
+ ],
+ "sidebar.showAdvancedOptions": [
+  "Show Advanced Options"
+ ],
+ "sidebar.preserveScripts": [
+  "<span className=\"preserve-scripts-label\">Preserve scripts</span>",
+  "<span className=\"checkbox-option-label\">Preserve scripts</span>"
+ ],
+ "sidebar.exportToPostman.preserveScriptsDesc": [
+  "Export Bruno scripts without translating them."
+ ],
+ "sidebar.docs.tagNameRule": [
+  "Tags must only contain letters, numbers, spaces, \"-\", \"_\""
+ ],
+ "sidebar.docs.tagExists": [
+  "Tag \"${tag}\" already exists"
+ ],
+ "sidebar.docs.removeTag": [
+  "Remove ${tag}"
+ ],
+ "sidebar.docs.tagDoesNotExist": [
+  "Tag does not exist"
+ ],
+ "sidebar.docs.tagInInclude": [
+  "Tag is already in the include list"
+ ],
+ "sidebar.docs.tagInExclude": [
+  "Tag is already in the exclude list"
+ ],
+ "sidebar.docs.includeTags": [
+  "<span className=\"tags-label\">Include tags</span>",
+  "Include tags"
+ ],
+ "sidebar.docs.includePlaceholder": [
+  "e.g. Production ready"
+ ],
+ "sidebar.docs.excludeTags": [
+  "<span className=\"tags-label\">Exclude tags</span>",
+  "Exclude tags"
+ ],
+ "sidebar.docs.excludePlaceholder": [
+  "e.g, Work in progress"
+ ],
+ "sidebar.docs.advanced": [
+  "<span className=\"advanced-label\">Advanced</span>"
+ ],
+ "sidebar.docs.requestsToInclude": [
+  "<span>Requests to include</span>"
+ ],
+ "sidebar.docs.folderOne": [
+  "request"
+ ],
+ "sidebar.docs.folderMany": [
+  "requests"
+ ],
+ "sidebar.docs.requestOne": [
+  "request"
+ ],
+ "sidebar.docs.requestMany": [
+  "requests"
+ ],
+ "sidebar.docs.versionLabel": [
+  "Version: ${version || 'Not Set'}"
+ ],
+ "sidebar.docs.notSet": [
+  "Version: ${version || 'Not Set'}"
+ ],
+ "sidebar.docs.noEnvironments": [
+  "<span>0 environments</span>"
+ ],
+ "sidebar.docs.selectedCount": [
+  "({selectedCount}/{environments.length} selected)"
+ ],
+ "sidebar.docs.selectAll": [
+  "<span className=\"env-select-all-label\" data-testid=\"env-select-all-label\">Select All</span>"
+ ],
+ "sidebar.docs.title": [
+  "Generate Documentation",
+  "Close"
+ ],
+ "sidebar.docs.collectionNotFound": [
+  "<span>Collection not found. It may have been deleted or is no longer available.</span>"
+ ],
+ "sidebar.docs.generatedSuccess": [
+  "Documentation generated successfully"
+ ],
+ "sidebar.docs.generatedError": [
+  "Failed to generate documentation"
+ ],
+ "sidebar.docs.loading": [
+  "Loading..."
+ ],
+ "sidebar.docs.generate": [
+  "Generate"
+ ],
+ "sidebar.docs.loadingCollection": [
+  "<span>Loading collection...</span>"
+ ],
+ "sidebar.docs.interactiveDocs": [
+  "<span>Interactive API Documentation</span>"
+ ],
+ "sidebar.docs.description": [
+  "Generate a standalone HTML file that can be hosted anywhere or shared with your team."
+ ],
+ "sidebar.docs.environmentsToInclude": [
+  "Environments to include"
+ ],
+ "sidebar.docs.cdnNote": [
+  "The generated file loads Bruno's JavaScript and CSS files from a CDN, which requires an internet connection."
+ ],
+ "sidebar.moveToWorkspace.collectionMoved": [
+  "Collection moved into workspace"
+ ],
+ "sidebar.moveToWorkspace.moveError": [
+  "An error occurred while moving the collection"
+ ],
+ "sidebar.drafts.saveTransientFirst": [
+  "Please save or discard transient requests first"
+ ],
+ "sidebar.drafts.failedToSaveRequests": [
+  "Failed to save requests!"
+ ],
+ "sidebar.moveToWorkspace.title": [
+  "Move into Workspace"
+ ],
+ "sidebar.drafts.unsavedChangesPrefix": [
+  "font-medium"
+ ],
+ "sidebar.drafts.requestItemOne": [
+  "request"
+ ],
+ "sidebar.drafts.requestItemMany": [
+  "request"
+ ],
+ "sidebar.drafts.savedRequestsOne": [
+  "Request"
+ ],
+ "sidebar.drafts.savedRequestsMany": [
+  "Request"
+ ],
+ "sidebar.drafts.additionalOne": [
+  "request"
+ ],
+ "sidebar.drafts.additionalMany": [
+  "request"
+ ],
+ "sidebar.drafts.transientRequestsOne": [
+  "Request"
+ ],
+ "sidebar.drafts.transientRequestsMany": [
+  "Request"
+ ],
+ "sidebar.drafts.transientHintMove": [
+  "These requests need to be saved individually before moving the collection."
+ ],
+ "sidebar.moveToWorkspace.discardAllAndMove": [
+  "Discard All and Move"
+ ],
+ "sidebar.moveToWorkspace.moving": [
+  "Moving..."
+ ],
+ "sidebar.moveToWorkspace.saveAllAndMove": [
+  "Save All and Move"
+ ],
+ "sidebar.moveToWorkspace.saveAndMove": [
+  "Save and Move"
+ ],
+ "sidebar.collectionNotFound": [
+  "Collection not found",
+  "return <div>Collection not found</div>;"
+ ],
+ "sidebar.moveToWorkspace.move": [
+  "Move"
+ ],
+ "sidebar.moveToWorkspace.description": [
+  "This will move the following collection's files into {activeWorkspace?.name} workspace."
+ ],
+ "sidebar.moveToWorkspace.destination": [
+  "<div className=\"collection-label\">Destination</div>"
+ ],
+ "sidebar.moveToWorkspace.reloadNote": [
+  "The collection reloads from its new location, so any open request tabs will close."
+ ],
+ "sidebar.toast.collectionRenamed": [
+  "Collection renamed!"
+ ],
+ "sidebar.toast.errorRenamingCollection": [
+  "An error occurred while renaming the collection"
+ ],
+ "sidebar.renameCollection.title": [
+  "Rename Collection"
+ ],
+ "sidebar.renameCollection.rename": [
+  "Rename"
+ ],
+ "sidebar.menu.share": [
+  "Share"
+ ],
+ "sidebar.menu.generateDocs": [
+  "Generate Docs"
+ ],
+ "sidebar.menu.collapse": [
+  "Collapse"
+ ],
+ "sidebar.menu.createMockServer": [
+  "Create Mock server"
+ ],
+ "sidebar.menu.moveIntoWorkspace": [
+  "Move into Workspace"
+ ],
+ "sidebar.searchPlaceholder": [
+  "Search requests..."
+ ],
+ "sidebar.open": [
+  "Open"
+ ],
+ "sidebar.createOrOpen.noCollectionsFound": [
+  "<div>No collections found.</div>"
+ ],
+ "sidebar.createOrOpen.or": [
+  "<CreateLink /> or <OpenLink /> Collection."
+ ],
+ "sidebar.createOrOpen.collection": [
+  "<CreateLink /> or <OpenLink /> Collection."
+ ],
+ "sidebar.gitRemote.urlCopied": [
+  "Git URL copied"
+ ],
+ "sidebar.gitRemote.copyFailed": [
+  "Failed to copy URL"
+ ],
+ "sidebar.gitRemote.cloneFromGit": [
+  "Clone from Git"
+ ],
+ "sidebar.gitRemote.copyGitUrl": [
+  "Copy Git URL"
+ ],
+ "sidebar.gitRemote.removeGitRemote": [
+  "Remove Git Remote"
+ ],
+ "sidebar.gitRemote.clickToClone": [
+  "${entry.name} — click to clone from ${entry.remote}"
+ ],
+ "sidebar.inlineCollection.nameRequired": [
+  "Collection name is required"
+ ],
+ "sidebar.inlineCollection.setDefaultLocation": [
+  "Please set a default location in Preferences > General"
+ ],
+ "sidebar.toast.errorCreatingCollection": [
+  "An error occurred while creating the collection"
+ ],
+ "sidebar.advancedOptions": [
+  "Advanced options"
+ ],
+ "sidebar.selectCollection.title": [
+  "Select Collection"
+ ],
+ "sidebar.selectCollection.noCollectionsFound": [
+  "<div>No collections found</div>"
+ ],
+ "sidebar.createCollection.nameEmpty": [
+  "Collection name can\\"
+ ],
+ "sidebar.createCollection.nameRequired": [
+  "Collection name is required"
+ ],
+ "sidebar.createCollection.folderNameRequired": [
+  "Folder name is required"
+ ],
+ "sidebar.createCollection.invalidFormat": [
+  "invalid format"
+ ],
+ "sidebar.createCollection.formatRequired": [
+  "Format is required"
+ ],
+ "sidebar.createCollection.title": [
+  "Create Collection"
+ ],
+ "sidebar.locationHelp1": [
+  "Bruno stores your collections on your computer's filesystem.",
+  "<p>Bruno stores your collections on your computer's filesystem.</p>"
+ ],
+ "sidebar.locationHelp2": [
+  "Choose the location where you want to store this collection.",
+  "<p className=\"mt-2\">Choose the location where you want to store this collection.</p>"
+ ],
+ "sidebar.createCollection.folderNameHelp1": [
+  "The name of the folder used to store the collection."
+ ],
+ "sidebar.createCollection.folderNameHelp2": [
+  "You can choose a folder name different from your collection's name or one compatible with filesystem rules."
+ ],
+ "sidebar.fileFormat": [
+  "File Format"
+ ],
+ "sidebar.fileFormatHelp1": [
+  "Choose the file format for storing requests in this collection.",
+  "<p>Choose the file format for storing requests in this collection.</p>"
+ ],
+ "sidebar.fileFormat.ocTitle": [
+  "<strong>OpenCollection (YAML):</strong> Industry-standard YAML format (.yml files)"
+ ],
+ "sidebar.fileFormat.ocDesc": [
+  "<strong>OpenCollection (YAML):</strong> Industry-standard YAML format (.yml files)"
+ ],
+ "sidebar.fileFormat.bruTitle": [
+  "<strong>BRU:</strong> Bruno's native file format (.bru files)"
+ ],
+ "sidebar.fileFormat.bruDesc": [
+  "<strong>BRU:</strong> Bruno's native file format (.bru files)"
+ ],
+ "sidebar.fileFormat.ocOption": [
+  "<option value=\"yml\">OpenCollection (YAML)</option>"
+ ],
+ "sidebar.fileFormat.bruOption": [
+  "<option value=\"bru\">BRU Format (.bru)</option>"
+ ],
+ "sidebar.goldenEdition.featBruFileExplorer": [
+  "Inbuilt Bru File Explorer"
+ ],
+ "sidebar.goldenEdition.featVisualGit": [
+  "Visual Git (Like Gitlens for Vscode)"
+ ],
+ "sidebar.goldenEdition.featLoadData": [
+  "Load Data from File for Collection Run"
+ ],
+ "sidebar.goldenEdition.featDevTools": [
+  "Developer Tools"
+ ],
+ "sidebar.goldenEdition.featOpenApiDesigner": [
+  "OpenAPI Designer"
+ ],
+ "sidebar.goldenEdition.featLoadTesting": [
+  "Performance/Load Testing"
+ ],
+ "sidebar.goldenEdition.featTerminal": [
+  "Inbuilt Terminal"
+ ],
+ "sidebar.goldenEdition.featCustomThemes": [
+  "Custom Themes"
+ ],
+ "sidebar.goldenEdition.featLicenseMgmt": [
+  "Centralized License Management"
+ ],
+ "sidebar.goldenEdition.featSecretManagers": [
+  "Integration with Secret Managers"
+ ],
+ "sidebar.goldenEdition.featPrivateRegistry": [
+  "Private Collection Registry"
+ ],
+ "sidebar.goldenEdition.featRequestForms": [
+  "Request Forms"
+ ],
+ "sidebar.goldenEdition.featPrioritySupport": [
+  "Priority Support"
+ ],
+ "sidebar.goldenEdition.title": [
+  "Golden Edition",
+  "<h3 className=\"text-lg font-medium\">Golden Edition</h3>"
+ ],
+ "sidebar.goldenEdition.buy": [
+  "<IconHeart size={18} strokeWidth={1.5} /> <span className=\"ml-2\">Buy</span>"
+ ],
+ "sidebar.goldenEdition.oneTimePayment": [
+  "<p className=\"bg-yellow-200 text-black rounded-md px-2 py-1 mb-2 inline-flex\">One Time Payment</p>"
+ ],
+ "sidebar.goldenEdition.individualsLicense": [
+  "<p>perpetual license for 2 devices, with 2 years of updates</p>"
+ ],
+ "sidebar.goldenEdition.perUser": [
+  "<span className=\"ml-2\">/&nbsp;user</span>"
+ ],
+ "sidebar.goldenEdition.orgLicense": [
+  "<p>perpetual license with 2 years of updates</p>"
+ ],
+ "sidebar.goldenEdition.individuals": [
+  "<IconUser className=\"text-gray-500 mr-2 icon\" size={16} strokeWidth={1.5} /> Individuals"
+ ],
+ "sidebar.goldenEdition.organizations": [
+  "<IconUsers className=\"text-gray-500 mr-2 icon\" size={16} strokeWidth={1.5} /> Organizations"
+ ],
+ "sidebar.goldenEdition.supportBruno": [
+  "<span>Support Bruno's Development</span>"
+ ],
+ "sidebar.goldenEdition.everythingInIndividual": [
+  "<span>Everything in the Individual Plan</span>"
+ ],
+ "sidebar.import.parseError": [
+  "Failed to parse the file – ensure it is valid JSON or YAML"
+ ],
+ "sidebar.import.invalidZip": [
+  "The ZIP file is not a valid Bruno collection"
+ ],
+ "sidebar.import.zipFailed": [
+  "Import ZIP file failed"
+ ],
+ "sidebar.import.noValidCollections": [
+  "No valid collections found in the selected files"
+ ],
+ "sidebar.import.multiFilesFailed": [
+  "Import multiple files failed"
+ ],
+ "sidebar.import.parseContentFailed": [
+  "Failed to parse file content"
+ ],
+ "sidebar.import.unsupportedFormat": [
+  "Unsupported collection format"
+ ],
+ "sidebar.import.failed": [
+  "Import collection failed"
+ ],
+ "sidebar.import.mixZipError": [
+  "Cannot mix ZIP files with other file types. Please select either a single ZIP file OR collection files (JSON/YAML)"
+ ],
+ "sidebar.import.multiZipError": [
+  "Multiple ZIP files selected. Please select only one ZIP file at a time for import."
+ ],
+ "sidebar.import.dropFiles": [
+  "Drop file(s) to import or{' '}"
+ ],
+ "sidebar.import.chooseFiles": [
+  "choose file(s)"
+ ],
+ "sidebar.import.supportedFormats": [
+  "Supports Bruno, OpenCollection, Postman, Insomnia, OpenAPI 3.x / Swagger 2.0, WSDL, and ZIP formats"
+ ],
+ "sidebar.import.mayTakeMoment": [
+  "This may take a moment depending on the collection size"
+ ],
+ "sidebar.import.invalidGitUrl": [
+  "Please enter a valid git repository URL"
+ ],
+ "sidebar.import.gitUrlPlaceholder": [
+  "Enter Git repository URL"
+ ],
+ "sidebar.import.clone": [
+  "Clone"
+ ],
+ "sidebar.import.invalidUrl": [
+  "Please enter a valid URL"
+ ],
+ "sidebar.import.urlImportFailed": [
+  "URL import failed. Please check the URL and try again."
+ ],
+ "sidebar.import.urlPlaceholder": [
+  "Enter URL (OpenAPI/Swagger, Postman, or Insomnia specification)"
+ ],
+ "sidebar.import.import": [
+  "Import"
+ ],
+ "sidebar.import.title": [
+  "Import Collection"
+ ],
+ "sidebar.import.tabFile": [
+  "File"
+ ],
+ "sidebar.import.tabGit": [
+  "Git Repository"
+ ],
+ "sidebar.import.nameFallback": [
+  "Collection"
+ ],
+ "sidebar.import.openapiFallback": [
+  "OpenAPI Collection"
+ ],
+ "sidebar.import.postmanFallback": [
+  "Postman Collection"
+ ],
+ "sidebar.import.insomniaFallback": [
+  "Insomnia Collection"
+ ],
+ "sidebar.import.brunoFallback": [
+  "Bruno Collection"
+ ],
+ "sidebar.import.wsdlFallback": [
+  "WSDL Collection"
+ ],
+ "sidebar.import.unknownFormat": [
+  "Unknown collection format"
+ ],
+ "sidebar.toast.errorConvertingCollection": [
+  "Failed to convert collection"
+ ],
+ "sidebar.import.preserveScriptsDesc": [
+  "Import Postman scripts without translating them."
+ ],
+ "sidebar.import.folderArrangement": [
+  "Folder arrangement"
+ ],
+ "sidebar.import.folderArrangementDesc": [
+  "Select whether to create folders according to the spec's paths or tags."
+ ],
+ "sidebar.import.checkForSpecUpdates": [
+  "<span className=\"checkbox-option-label\">Check for Spec Updates</span>"
+ ],
+ "sidebar.import.swagger2Unsupported": [
+  "OpenAPI Sync is not supported for Swagger 2.0 specs."
+ ],
+ "sidebar.import.checkForSpecUpdatesDesc": [
+  "Stay notified of spec changes and sync your collection with the spec."
+ ],
+ "sidebar.newApp.nameRequired": [
+  "App name is required"
+ ],
+ "sidebar.toast.appCreated": [
+  "App created"
+ ],
+ "sidebar.toast.errorCreatingApp": [
+  "Failed to create app"
+ ],
+ "sidebar.newApp.createsIn": [
+  "this folder",
+  "collection \"${collection?.name || ''}\""
+ ],
+ "sidebar.newApp.thisFolder": [
+  "this folder",
+  "collection \"${collection?.name || ''}\""
+ ],
+ "sidebar.newApp.collectionName": [
+  "this folder",
+  "collection \"${collection?.name || ''}\""
+ ],
+ "sidebar.validation.reservedFolderName": [
+  "The folder name \"environments\" at the root of the collection is reserved in bruno"
+ ],
+ "sidebar.toast.newFolderCreated": [
+  "New folder created!"
+ ],
+ "sidebar.toast.errorAddingFolder": [
+  "An error occurred while adding the folder"
+ ],
+ "sidebar.newFolder.folderName": [
+  "Folder Name",
+  "Folder Name <small className=\"font-normal text-muted ml-1\">(on filesystem)</small>"
+ ],
+ "sidebar.newFolder.folderNameHelp": [
+  "You can choose to save the folder as a different name on your file system versus what is displayed in the app."
+ ],
+ "sidebar.validation.filenameRequired": [
+  "filename is required"
+ ],
+ "sidebar.validation.curlRequired": [
+  "curlCommand is required"
+ ],
+ "sidebar.validation.invalidCurl": [
+  "Invalid cURL Command"
+ ],
+ "sidebar.toast.newRequestCreated": [
+  "New request created!"
+ ],
+ "sidebar.toast.errorAddingRequest": [
+  "An error occurred while adding the request"
+ ],
+ "sidebar.newRequest.type": [
+  "Type"
+ ],
+ "sidebar.newRequest.fromCurl": [
+  "From cURL"
+ ],
+ "sidebar.newRequest.requestName": [
+  "Request Name"
+ ],
+ "sidebar.newRequest.fileNameHelp1": [
+  "<p>Bruno saves each request as a file in your collection's folder.</p>"
+ ],
+ "sidebar.newRequest.fileNameHelp2": [
+  "You can choose a file name different from your request's name or one compatible with filesystem",
+  "rules."
+ ],
+ "sidebar.newRequest.requestUrl": [
+  "Request URL"
+ ],
+ "sidebar.newRequest.curlCommand": [
+  "cURL Command"
+ ],
+ "sidebar.newRequest.curlPlaceholder": [
+  "Enter cURL request here.."
+ ],
+ "sidebar.openCollection.noneFoundSkipped": [
+  "No Bruno collections found. ${skippedItems.length} skipped, config could not be read"
+ ],
+ "sidebar.openCollection.noneFound": [
+  "No Bruno collections found. Couldn\\"
+ ],
+ "sidebar.toast.errorOpeningCollections": [
+  "An error occurred while opening the collections"
+ ],
+ "sidebar.toast.errorScanningCollections": [
+  "An error occurred while scanning for collections"
+ ],
+ "sidebar.openCollection.title": [
+  "Open Collection"
+ ],
+ "sidebar.openCollection.selectedOfTotal": [
+  "<span>{selectedCollectionPaths.length}</span> of {collectionPaths.length} selected"
+ ],
+ "sidebar.openCollection.description": [
+  "These collections were found inside your selection. Choose which ones to open."
+ ],
+ "sidebar.openCollection.collectionsNoun": [
+  "collections"
+ ],
+ "sidebar.collections": [
+  "Collections"
+ ],
+ "sidebar.openCollection.searchPlaceholder": [
+  "Search Collections"
+ ],
+ "sidebar.postmanReport.and": [
+  " and "
+ ],
+ "sidebar.postmanReport.andMore": [
+  " and ${remainder} more"
+ ],
+ "sidebar.postmanReport.npmNotFound": [
+  "npm was not found on your PATH. Install Node.js/npm, then retry or run the command manually."
+ ],
+ "sidebar.postmanReport.npmTimeout": [
+  "npm install timed out. Try running the command manually in a terminal."
+ ],
+ "sidebar.postmanReport.spawnFailed": [
+  "Could not start npm install. Try running the command manually."
+ ],
+ "sidebar.postmanReport.installFailedExitCode": [
+  "npm install failed (exit code ${result?.exitCode}). Try the manual command above."
+ ],
+ "sidebar.postmanReport.errorNoCollectionPath": [
+  "Cannot install: collection path not available."
+ ],
+ "sidebar.postmanReport.installedOne": [
+  "Installed ${needsInstall.length} package${needsInstall.length === 1 ? '' : 's'}"
+ ],
+ "sidebar.postmanReport.installedMany": [
+  "Installed ${needsInstall.length} package${needsInstall.length === 1 ? '' : 's'}"
+ ],
+ "sidebar.postmanReport.installFailedSeeDetails": [
+  "npm install failed. See details below."
+ ],
+ "sidebar.postmanReport.failedToStartInstall": [
+  "Failed to start npm install"
+ ],
+ "sidebar.postmanReport.couldNotLocateCollection": [
+  "Could not locate the imported collection to switch modes."
+ ],
+ "sidebar.postmanReport.developerModeEnabled": [
+  "Developer Mode enabled"
+ ],
+ "sidebar.postmanReport.failedToSwitchSandboxMode": [
+  "Failed to switch sandbox mode"
+ ],
+ "sidebar.postmanReport.copyFailed": [
+  "Could not copy to clipboard"
+ ],
+ "sidebar.postmanReport.done": [
+  "Done"
+ ],
+ "sidebar.postmanReport.installing": [
+  "Installing…"
+ ],
+ "sidebar.postmanReport.installOne": [
+  "Install ${needsInstall.length} package${needsInstall.length === 1 ? '' : 's'}"
+ ],
+ "sidebar.postmanReport.installMany": [
+  "Install ${needsInstall.length} package${needsInstall.length === 1 ? '' : 's'}"
+ ],
+ "sidebar.postmanReport.title": [
+  "Install packages"
+ ],
+ "sidebar.postmanReport.skip": [
+  "Skip"
+ ],
+ "sidebar.postmanReport.packagesUsedInScripts": [
+  "<span className=\"pkg-section-title\">Packages used in scripts</span>"
+ ],
+ "sidebar.postmanReport.packagesNotInstalledHelp": [
+  "These npm packages are referenced by scripts in your imported collection but aren't",
+  "installed in this collection's folder."
+ ],
+ "sidebar.postmanReport.orInstallManually": [
+  "<span>Or install manually</span>"
+ ],
+ "sidebar.postmanReport.copyCommand": [
+  "Copy command"
+ ],
+ "sidebar.postmanReport.installingOne": [
+  " : "
+ ],
+ "sidebar.postmanReport.installingMany": [
+  " : "
+ ],
+ "sidebar.postmanReport.installedIntoOne": [
+  " : "
+ ],
+ "sidebar.postmanReport.installedIntoMany": [
+  " : "
+ ],
+ "sidebar.postmanReport.devModeTitle": [
+  "<span className=\"pkg-devmode-title\">Scripts use libraries that need Developer Mode</span>"
+ ],
+ "sidebar.postmanReport.devModeDescPrefix": [
+  "Your imported scripts call {renderPackageExamples(devMode)}"
+ ],
+ "sidebar.postmanReport.devModeDescMid": [
+  ", "
+ ],
+ "sidebar.postmanReport.developerMode": [
+  ", ",
+  "packages right away."
+ ],
+ "sidebar.postmanReport.devModeDescSuffix": [
+  ", "
+ ],
+ "sidebar.postmanReport.onlyEnableForTrusted": [
+  "<span>Only enable Developer Mode for collections you trust.</span>"
+ ],
+ "sidebar.postmanReport.switchToDeveloperMode": [
+  "Switch to Developer Mode"
+ ],
+ "sidebar.postmanReport.notSupportedTitle": [
+  "<span className=\"pkg-section-title\">Not supported in Bruno</span>"
+ ],
+ "sidebar.postmanReport.notSupportedHelp": [
+  "Postman-specific packages without a Bruno equivalent. Scripts that call these will",
+  "fail at runtime."
+ ],
+ "sidebar.postmanReport.runsInDevModePrefix": [
+  "This collection runs in <strong>Developer Mode</strong> - your scripts can use these"
+ ],
+ "sidebar.postmanReport.runsInDevModeSuffix": [
+  "packages right away."
+ ],
+ "sidebar.postmanReport.externalModulesTitle": [
+  "<span className=\"pkg-devmode-title\">External modules require Developer Mode</span>"
+ ],
+ "sidebar.postmanReport.customPackagesPrefix": [
+  "Custom npm packages (such as {renderPackageExamples(installResult.installed || needsInstall)})"
+ ],
+ "sidebar.postmanReport.customPackagesMid": [
+  "{' '}are installed, but this collection is currently running in <strong>Safe Mode</strong>."
+ ],
+ "sidebar.postmanReport.safeMode": [
+  "{' '}are installed, but this collection is currently running in <strong>Safe Mode</strong>."
+ ],
+ "sidebar.postmanReport.customPackagesSuffix": [
+  "{' '}are installed, but this collection is currently running in <strong>Safe Mode</strong>."
+ ],
+ "sidebar.toast.errorOpeningApiSpec": [
+  "An error occurred while opening the API spec"
+ ],
+ "sidebar.apiSpecs.createApiSpec": [
+  "Create API Spec"
+ ],
+ "sidebar.apiSpecs.openApiSpec": [
+  "Open API Spec"
+ ],
+ "sidebar.apiSpecs.addNewApiSpec": [
+  "Add new API Spec"
+ ],
+ "sidebar.sections.apiSpecs": [
+  "API Specs"
+ ],
+ "sidebar.toast.failedToSavePreferences": [
+  "Failed to save preferences"
+ ],
+ "sidebar.sortZA": [
+  "Sort Z-A"
+ ],
+ "sidebar.clearSort": [
+  "Clear sort"
+ ],
+ "sidebar.sortAZ": [
+  "Sort A-Z"
+ ],
+ "sidebar.toast.unableToCreateRequest": [
+  "Unable to create request"
+ ],
+ "sidebar.toast.errorCreatingRequest": [
+  "An error occurred while creating the request"
+ ],
+ "sidebar.menu.createCollection": [
+  "Create collection"
+ ],
+ "sidebar.menu.openCollection": [
+  "Open collection"
+ ],
+ "sidebar.menu.importCollection": [
+  "Import collection"
+ ],
+ "sidebar.menu.closeAll": [
+  "Close all"
+ ],
+ "sidebar.actions.searchRequests": [
+  "Search requests"
+ ],
+ "sidebar.actions.addNewCollection": [
+  "Add new collection"
+ ],
+ "sidebar.actions.moreActions": [
+  "More actions"
+ ],
+ "sidebar.sections.collections": [
+  "Collections"
+ ],
+ "sidebar.mockServers.createMockServer": [
+  "Create mock server"
+ ],
+ "sidebar.sections.mockServers": [
+  "Mock Servers"
+ ],
+ "sidebar.sections.tools": [
+  "Tools"
+ ]
+}

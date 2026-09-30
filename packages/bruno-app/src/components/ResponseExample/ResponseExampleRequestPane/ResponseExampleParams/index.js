@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from 'providers/Theme';
 import get from 'lodash/get';
 import { moveResponseExampleParam, setResponseExampleParams } from 'providers/ReduxStore/slices/collections';
@@ -11,6 +12,7 @@ import InfoTip from 'components/InfoTip';
 import StyledWrapper from './StyledWrapper';
 
 const ResponseExampleParams = ({ editMode, item, collection, exampleUid }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const { storedTheme } = useTheme();
   const tabs = useSelector((state) => state.tabs.tabs);
@@ -112,9 +114,9 @@ const ResponseExampleParams = ({ editMode, item, collection, exampleUid }) => {
   const queryColumns = [
     {
       key: 'name',
-      name: 'Name',
+      name: t('collection.table.name'),
       isKeyField: true,
-      placeholder: 'Name',
+      placeholder: t('collection.table.name'),
       width: '40%',
       readOnly: !editMode,
       render: ({ value, onChange }) => (
@@ -127,14 +129,14 @@ const ResponseExampleParams = ({ editMode, item, collection, exampleUid }) => {
           collection={collection}
           variablesAutocomplete={true}
           readOnly={!editMode}
-          placeholder={!value ? 'Name' : ''}
+          placeholder={!value ? t('collection.table.name') : ''}
         />
       )
     },
     {
       key: 'value',
-      name: 'Value',
-      placeholder: 'Value',
+      name: t('collection.table.value'),
+      placeholder: t('collection.table.value'),
       width: '60%',
       readOnly: !editMode,
       render: ({ value, onChange }) => (
@@ -147,7 +149,7 @@ const ResponseExampleParams = ({ editMode, item, collection, exampleUid }) => {
           collection={collection}
           variablesAutocomplete={true}
           readOnly={!editMode}
-          placeholder={!value ? 'Value' : ''}
+          placeholder={!value ? t('collection.table.value') : ''}
         />
       )
     }
@@ -156,14 +158,14 @@ const ResponseExampleParams = ({ editMode, item, collection, exampleUid }) => {
   const pathColumns = [
     {
       key: 'name',
-      name: 'Name',
+      name: t('collection.table.name'),
       readOnly: true,
       width: '40%'
     },
     {
       key: 'value',
-      name: 'Value',
-      placeholder: 'Value',
+      name: t('collection.table.value'),
+      placeholder: t('collection.table.value'),
       width: '60%',
       readOnly: !editMode,
       render: ({ value, onChange }) => (
@@ -176,7 +178,7 @@ const ResponseExampleParams = ({ editMode, item, collection, exampleUid }) => {
           collection={collection}
           variablesAutocomplete={true}
           readOnly={!editMode}
-          placeholder={!value ? 'Value' : ''}
+          placeholder={!value ? t('collection.table.value') : ''}
         />
       )
     }
@@ -195,7 +197,7 @@ const ResponseExampleParams = ({ editMode, item, collection, exampleUid }) => {
 
   return (
     <StyledWrapper className="w-full mt-4">
-      <div className="mb-3 title text-xs font-bold">Query parameters</div>
+      <div className="mb-3 title text-xs font-bold">{t('collection.example.queryParams')}</div>
       <EditableTable
         tableId="example-query-params"
         columns={queryColumns}
@@ -216,19 +218,19 @@ const ResponseExampleParams = ({ editMode, item, collection, exampleUid }) => {
             className="btn-action text-link select-none"
             onClick={toggleBulkEditMode}
           >
-            Bulk Edit
+            {t('common.bulkEdit')}
           </button>
         </div>
       )}
       {pathParams && pathParams.length > 0 && (
         <>
           <div className="mb-3 title text-xs font-bold flex items-stretch mt-4">
-            <span>Path parameters</span>
+            <span>{t('collection.example.pathParams')}</span>
             <InfoTip infotipId="path-param-InfoTip">
               <div>
-                Path variables are automatically added whenever the
+                {t('collection.example.pathParamsTipPrefix')}
                 <code className="font-mono mx-2">:name</code>
-                template is used in the URL. <br /> For example:
+                {t('collection.example.pathParamsTipMiddle')} <br /> {t('collection.example.pathParamsTipSuffix')}
                 <code className="font-mono mx-2">
                   https://example.com/v1/users/<span>:id</span>
                 </code>

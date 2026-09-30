@@ -7,6 +7,16 @@ import {
   RESOLUTION_TYPES
 } from './utils';
 
+jest.mock('../../../../i18n', () => ({
+  __esModule: true,
+  default: {
+    t: (key) => ({
+      'environments.import.unknownFile': 'Unknown',
+      'environments.import.couldNotBeRead': 'Could not be read'
+    })[key] || key
+  }
+}));
+
 describe('coerceEnvName', () => {
   it.each([
     ['a plain name', 'dev', 'dev'],

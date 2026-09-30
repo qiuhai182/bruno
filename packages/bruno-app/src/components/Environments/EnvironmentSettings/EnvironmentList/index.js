@@ -29,6 +29,7 @@ import { setEnvVarSearchQuery, setEnvVarSearchExpanded } from 'providers/ReduxSt
 import { validateName, validateNameError } from 'utils/common/regex';
 import toast from 'react-hot-toast';
 import classnames from 'classnames';
+import { useTranslation } from 'react-i18next';
 
 const EMPTY_ARRAY = [];
 
@@ -43,6 +44,7 @@ const EnvironmentList = ({
   setShowExportModal
 }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const activeTabUid = useSelector((state) => state.tabs.activeTabUid);
   const activeEnvTab = useSelector((state) => state.tabs.tabs.find((t) => t.uid === activeTabUid)?.tabState?.environment?.tab) || 'variables';
   const envSearchQuery = useSelector((state) => state.app.envVarSearch?.collection?.[activeEnvTab]?.query ?? '');
@@ -202,16 +204,16 @@ const EnvironmentList = ({
     e.stopPropagation();
     dispatch(selectEnvironment(env.uid, collection.uid))
       .then(() => {
-        toast.success(`Environment "${env.name}" activated`);
+        toast.success(t('environments.toast.activated', { name: env.name }));
       })
       .catch(() => {
-        toast.error('Failed to activate environment');
+        toast.error(t('environments.toast.activateFailed'));
       });
-  }, [dispatch, collection.uid]);
+  }, [dispatch, collection.uid, t]);
 
   const validateEnvironmentName = (name, excludeUid = null) => {
     if (!name || name.trim() === '') {
-      return 'Name is required';
+      return t('environments.validation.nameRequired');
     }
 
     if (!validateName(name)) {
@@ -223,7 +225,7 @@ const EnvironmentList = ({
       (env) => env?.uid !== excludeUid && env?.name?.toLowerCase().trim() === trimmedName
     );
     if (isDuplicate) {
-      return 'Environment already exists';
+      return t('environments.validation.alreadyExists');
     }
 
     return null;
@@ -259,13 +261,13 @@ const EnvironmentList = ({
 
     dispatch(addEnvironment(newEnvName, collection.uid))
       .then(() => {
-        toast.success('Environment created!');
+        toast.success(t('environments.toast.created'));
         setIsCreatingInline(false);
         setNewEnvName('');
         setEnvNameError('');
       })
       .catch(() => {
-        toast.error('An error occurred while creating the environment');
+        toast.error(t('environments.toast.createError'));
       });
   };
 
@@ -305,13 +307,13 @@ const EnvironmentList = ({
 
     dispatch(renameEnvironment(newEnvName, renamingEnvUid, collection.uid))
       .then(() => {
-        toast.success('Environment renamed!');
+        toast.success(t('environments.toast.renameSuccess'));
         setRenamingEnvUid(null);
         setNewEnvName('');
         setEnvNameError('');
       })
       .catch(() => {
-        toast.error('An error occurred while renaming the environment');
+        toast.error(t('environments.toast.renameError'));
       });
   };
 
@@ -344,12 +346,12 @@ const EnvironmentList = ({
   };
 
   const handleSaveDotEnv = (variables) => {
-    if (!selectedDotEnvFile) return Promise.reject(new Error('No file selected'));
+    if (!selectedDotEnvFile) return Promise.reject(new Error(t('environments.error.noFileSelected')));
     return dispatch(saveDotEnvVariables(collection.uid, variables, selectedDotEnvFile));
   };
 
   const handleSaveDotEnvRaw = (content) => {
-    if (!selectedDotEnvFile) return Promise.reject(new Error('No file selected'));
+    if (!selectedDotEnvFile) return Promise.reject(new Error(t('environments.error.noFileSelected')));
     return dispatch(saveDotEnvRaw(collection.uid, content, selectedDotEnvFile));
   };
 
@@ -380,21 +382,21 @@ const EnvironmentList = ({
 
   const validateDotEnvName = (name) => {
     if (!name || name.trim() === '') {
-      return 'Name is required';
+      return t('environments.validation.nameRequired');
     }
 
     if (!name.startsWith('.env')) {
-      return 'File name must start with .env';
+      return t('environments.validation.dotEnvPrefix');
     }
 
     const validPattern = /^\.env[a-zA-Z0-9._-]*$/;
     if (!validPattern.test(name)) {
-      return 'Invalid file name';
+      return t('environments.validation.invalidFileName');
     }
 
     const exists = dotEnvFiles.some((f) => f.filename === name);
     if (exists) {
-      return 'File already exists';
+      return t('environments.validation.fileAlreadyExists');
     }
 
     return null;
@@ -409,7 +411,7 @@ const EnvironmentList = ({
 
     dispatch(createDotEnvFile(collection.uid, newDotEnvName))
       .then(() => {
-        toast.success(`${newDotEnvName} file created!`);
+        toast.success(t('environments.toast.dotEnvCreated', { name: newDotEnvName }));
         setIsCreatingDotEnvInline(false);
         setNewDotEnvName('.env');
         setDotEnvNameError('');
@@ -418,7 +420,7 @@ const EnvironmentList = ({
         setDotEnvExpanded(true);
       })
       .catch((error) => {
-        toast.error(error.message || 'Failed to create .env file');
+        toast.error(error.message || t('environments.toast.dotEnvCreateFailed'));
       });
   };
 
@@ -452,7 +454,7 @@ const EnvironmentList = ({
   const handleDeleteDotEnvFile = (filename) => {
     dispatch(deleteDotEnvFile(collection.uid, filename))
       .then(() => {
-        toast.success(`${filename} file deleted!`);
+        toast.success(t('environments.toast.dotEnvDeleted', { name: filename }));
         handleDotEnvModifiedChange(false);
         if (selectedDotEnvFile === filename) {
           const remainingFiles = dotEnvFiles.filter((f) => f.filename !== filename);
@@ -468,7 +470,7 @@ const EnvironmentList = ({
         }
       })
       .catch((error) => {
-        toast.error(error.message || 'Failed to delete .env file');
+        toast.error(error.message || t('environments.toast.dotEnvDeleteFailed'));
       });
   };
 
@@ -527,13 +529,13 @@ const EnvironmentList = ({
     return (
       <div className="empty-state">
         <IconFileAlert size={48} strokeWidth={1.5} />
-        <div className="title">No Environments</div>
+        <div className="title">{t('environments.empty.noEnvironments')}</div>
         <div className="actions">
           <Button size="sm" color="secondary" onClick={() => handleCreateEnvClick()}>
-            Create Environment
+            {t('environments.empty.createEnvironment')}
           </Button>
           <Button size="sm" color="secondary" onClick={() => handleImportClick()}>
-            Import Environment
+            {t('environments.empty.importEnvironment')}
           </Button>
         </div>
       </div>
@@ -557,7 +559,7 @@ const EnvironmentList = ({
 
           <div className="sections-container">
             <CollapsibleSection
-              title="Environments"
+              title={t('environments.section.environments')}
               expanded={environmentsExpanded}
               onToggle={() => setEnvironmentsExpanded(!environmentsExpanded)}
               actions={(
@@ -569,7 +571,7 @@ const EnvironmentList = ({
                       if (!environmentsExpanded) setEnvironmentsExpanded(true);
                       handleCreateEnvClick();
                     }}
-                    title="Create environment"
+                    title={t('environments.action.createEnvironment')}
                     data-testid="create-environment"
                   >
                     <IconPlus size={14} strokeWidth={1.5} />
@@ -581,7 +583,7 @@ const EnvironmentList = ({
                       if (!environmentsExpanded) setEnvironmentsExpanded(true);
                       handleImportClick();
                     }}
-                    title="Import environment"
+                    title={t('environments.action.importEnvironment')}
                     data-testid="import-environment-btn"
                   >
                     <IconDownload size={14} strokeWidth={1.5} />
@@ -593,7 +595,7 @@ const EnvironmentList = ({
                       if (!environmentsExpanded) setEnvironmentsExpanded(true);
                       handleExportClick();
                     }}
-                    title="Export environment"
+                    title={t('environments.action.exportEnvironment')}
                   >
                     <IconUpload size={14} strokeWidth={1.5} />
                   </button>
@@ -605,7 +607,7 @@ const EnvironmentList = ({
                 <input
                   ref={envListSearchInputRef}
                   type="text"
-                  placeholder="Search environments..."
+                  placeholder={t('environments.searchPlaceholder')}
                   value={searchText}
                   onChange={(e) => setSearchText(e.target.value)}
                   className="env-list-search-input"
@@ -617,7 +619,7 @@ const EnvironmentList = ({
                 {searchText && (
                   <button
                     className="env-list-search-clear"
-                    title="Clear search"
+                    title={t('environments.clearSearch')}
                     onClick={() => setSearchText('')}
                     onMouseDown={(e) => e.preventDefault()}
                   >
@@ -658,7 +660,7 @@ const EnvironmentList = ({
                             className="inline-action-btn save"
                             onClick={handleSaveRename}
                             onMouseDown={(e) => e.preventDefault()}
-                            title="Save"
+                            title={t('common.save')}
                           >
                             <IconCheck size={14} strokeWidth={2} />
                           </button>
@@ -666,7 +668,7 @@ const EnvironmentList = ({
                             className="inline-action-btn cancel"
                             onClick={handleCancelRename}
                             onMouseDown={(e) => e.preventDefault()}
-                            title="Cancel"
+                            title={t('common.cancel')}
                           >
                             <IconX size={14} strokeWidth={2} />
                           </button>
@@ -678,14 +680,14 @@ const EnvironmentList = ({
                         <span className="environment-name">{env.name}</span>
                         <div className="environment-actions">
                           {activeEnvironmentUid === env.uid ? (
-                            <div className="activated-checkmark" title="Active environment">
+                            <div className="activated-checkmark" title={t('environments.activeEnvironment')}>
                               <IconCheck size={16} strokeWidth={2} />
                             </div>
                           ) : (
                             <button
                               className="activate-btn"
                               onClick={(e) => handleActivateEnvironment(e, env)}
-                              title="Activate environment"
+                              title={t('environments.activateEnvironment')}
                             >
                               <IconCheck size={16} strokeWidth={2} />
                             </button>
@@ -706,7 +708,7 @@ const EnvironmentList = ({
                       value={newEnvName}
                       onChange={handleEnvNameChange}
                       onKeyDown={handleEnvNameKeyDown}
-                      placeholder="Environment name..."
+                      placeholder={t('environments.namePlaceholder')}
                       autoComplete="off"
                       autoCorrect="off"
                       autoCapitalize="off"
@@ -717,7 +719,7 @@ const EnvironmentList = ({
                         className="inline-action-btn save"
                         onClick={handleSaveNewEnv}
                         onMouseDown={(e) => e.preventDefault()}
-                        title="Save"
+                        title={t('common.save')}
                         data-testid="env-create-save"
                       >
                         <IconCheck size={14} strokeWidth={2} />
@@ -726,7 +728,7 @@ const EnvironmentList = ({
                         className="inline-action-btn cancel"
                         onClick={handleCancelCreate}
                         onMouseDown={(e) => e.preventDefault()}
-                        title="Cancel"
+                        title={t('common.cancel')}
                       >
                         <IconX size={14} strokeWidth={2} />
                       </button>
@@ -738,14 +740,14 @@ const EnvironmentList = ({
 
                 {filteredEnvironments.length === 0 && !isCreatingInline && (
                   <div className="no-env-file">
-                    <span>No environments</span>
+                    <span>{t('environments.empty.noEnvironmentsLower')}</span>
                   </div>
                 )}
               </div>
             </CollapsibleSection>
 
             <CollapsibleSection
-              title=".env Files"
+              title={t('environments.section.dotEnvFiles')}
               testId="dotenv-files-section"
               expanded={dotEnvExpanded}
               onToggle={() => setDotEnvExpanded(!dotEnvExpanded)}
@@ -754,7 +756,7 @@ const EnvironmentList = ({
                 <button
                   className="btn-action"
                   onClick={handleCreateDotEnvInlineClick}
-                  title="Create .env file"
+                  title={t('environments.action.createDotEnvFile')}
                   data-testid="create-dotenv-file"
                 >
                   <IconPlus size={14} strokeWidth={1.5} />
@@ -795,7 +797,7 @@ const EnvironmentList = ({
                         className="inline-action-btn save"
                         onClick={handleSaveNewDotEnv}
                         onMouseDown={(e) => e.preventDefault()}
-                        title="Create"
+                        title={t('environments.action.create')}
                       >
                         <IconCheck size={14} strokeWidth={2} />
                       </button>
@@ -803,7 +805,7 @@ const EnvironmentList = ({
                         className="inline-action-btn cancel"
                         onClick={handleCancelDotEnvCreate}
                         onMouseDown={(e) => e.preventDefault()}
-                        title="Cancel"
+                        title={t('common.cancel')}
                       >
                         <IconX size={14} strokeWidth={2} />
                       </button>
@@ -815,7 +817,7 @@ const EnvironmentList = ({
 
                 {dotEnvFiles.length === 0 && !isCreatingDotEnvInline && (
                   <div className="no-env-file">
-                    <span>No .env files</span>
+                    <span>{t('environments.empty.noDotEnvFiles')}</span>
                   </div>
                 )}
               </div>

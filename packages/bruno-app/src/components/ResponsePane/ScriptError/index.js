@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { IconX, IconChevronDown, IconChevronRight, IconExternalLink } from '@tabler/icons';
 import { SCRIPT_TYPES } from '@usebruno/common';
 import ErrorBanner from 'ui/ErrorBanner';
@@ -17,14 +18,14 @@ import StyledWrapper from './StyledWrapper';
  * Bruno executes scripts at three levels in order: collection -> folder -> request.
  * When an error occurs, the filePath tells us which level it came from:
  *
- *   filePath: "echo json.bru"          -> request-level  -> { sourceType: 'request',    label: 'Request' }
- *   filePath: "auth/folder.bru"        -> folder-level   -> { sourceType: 'folder',     label: 'Folder: auth', sourceUid: 'f1' }
- *   filePath: "collection.bru"         -> collection-level -> { sourceType: 'collection', label: 'Collection' }
+ *   filePath: "echo json.bru"          -> request-level  -> { sourceType: 'request',    labelKey: 'responsePane.scriptError.source.request' }
+ *   filePath: "auth/folder.bru"        -> folder-level   -> { sourceType: 'folder',     labelKey: 'responsePane.scriptError.source.folderNamed', sourceName: 'auth', sourceUid: 'f1' }
+ *   filePath: "collection.bru"         -> collection-level -> { sourceType: 'collection', labelKey: 'responsePane.scriptError.source.collection' }
  *
  * For folder-level errors, this function walks the tree path from collection to
  * the current item to match the folder by its relative path, resolving its UID
  * and display name. If the folder can't be matched (e.g. missing tree data),
- * it falls back to a generic "Folder" label without a sourceUid.
+ * it falls back to a generic folder label without a sourceUid.
  *
  * @param {string|undefined} filePath - Relative path from errorContext (e.g. "subfolder/folder.bru")
  * @param {object} item - The current request item
@@ -45,7 +46,7 @@ const getErrorSourceInfo = (filePath, item, collection, getTreePath) => {
 
   // Folder level (check before collection to avoid folder.yml matching as collection)
   if (isFolderFile) {
-    const info = { sourceType: 'folder', label: 'Folder' };
+    const info = { sourceType: 'folder', labelKey: 'responsePane.scriptError.source.folder' };
     const folderFileName = normalizedPath.split('/').pop();
 
     // Try to find the folder UID and name from the tree path
@@ -61,7 +62,8 @@ const getErrorSourceInfo = (filePath, item, collection, getTreePath) => {
               : folderFileName;
             if (folderRelPath === normalizedPath) {
               info.sourceUid = node.uid;
-              info.label = `Folder: ${node.name}`;
+              info.sourceName = node.name;
+              info.labelKey = 'responsePane.scriptError.source.folderNamed';
               break;
             }
           }
@@ -74,15 +76,16 @@ const getErrorSourceInfo = (filePath, item, collection, getTreePath) => {
 
   // Collection level
   if (isCollectionFile) {
-    return { sourceType: 'collection', label: 'Collection' };
+    return { sourceType: 'collection', labelKey: 'responsePane.scriptError.source.collection' };
   }
 
   // Request level
-  return { sourceType: 'request', label: 'Request' };
+  return { sourceType: 'request', labelKey: 'responsePane.scriptError.source.request' };
 };
 
 const ScriptErrorCard = ({ title, message, errorContext, item, collection, scriptPhase, onClose }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const [showStack, setShowStack] = useState(false);
 
   const displayFilePath = errorContext?.filePath ? normalizePath(errorContext.filePath) : null;
@@ -160,14 +163,14 @@ const ScriptErrorCard = ({ title, message, errorContext, item, collection, scrip
         <div className="script-error-header">
           <div className="error-title" data-testid="script-error-title">{title}</div>
           {onClose && (
-            <button className="close-button flex-shrink-0 cursor-pointer" data-testid="script-error-close" onClick={onClose} aria-label="Close error">
+            <button className="close-button flex-shrink-0 cursor-pointer" data-testid="script-error-close" onClick={onClose} aria-label={t('responsePane.scriptError.closeError')}>
               <IconX size={16} strokeWidth={1.5} />
             </button>
           )}
         </div>
         {(sourceInfo || displayFilePath) && (
           <div className="script-error-source-label" data-testid="script-error-source-label">
-            {sourceInfo && <span>{sourceInfo.label}</span>}
+            {sourceInfo && <span>{t(sourceInfo.labelKey, sourceInfo.sourceName ? { name: sourceInfo.sourceName } : {})}</span>}
             {displayFilePath && (
               <span
                 className={`script-error-file-path${canNavigate ? ' navigable' : ''}`}
@@ -176,7 +179,7 @@ const ScriptErrorCard = ({ title, message, errorContext, item, collection, scrip
                 tabIndex={canNavigate ? 0 : undefined}
                 onClick={handleNavigate}
                 onKeyDown={handleNavigateKeyDown}
-                title={canNavigate ? `Open ${displayFilePath}` : undefined}
+                title={canNavigate ? t('responsePane.timeline.openFile', { file: displayFilePath }) : undefined}
               >
                 <span>{displayFilePath}</span>
                 {canNavigate && <IconExternalLink size={12} className="flex-shrink-0" />}
@@ -186,7 +189,7 @@ const ScriptErrorCard = ({ title, message, errorContext, item, collection, scrip
         )}
         <CodeSnippet lines={errorContext.lines} variant="error" />
         <div className="script-error-message" data-testid="script-error-message">
-          {errorContext.errorType || 'Error'}: {message}
+          {errorContext.errorType || t('responsePane.scriptError.error')}: {message}
         </div>
         {errorContext.stack && (
           <div>
@@ -195,10 +198,10 @@ const ScriptErrorCard = ({ title, message, errorContext, item, collection, scrip
               data-testid="script-error-stack-toggle"
               onClick={() => setShowStack(!showStack)}
               aria-expanded={showStack}
-              aria-label={`${showStack ? 'Hide' : 'Show'} stack trace`}
+              aria-label={showStack ? t('responsePane.scriptError.hideStackTrace') : t('responsePane.scriptError.showStackTrace')}
             >
               {showStack ? <IconChevronDown size={14} /> : <IconChevronRight size={14} />}
-              <span>{showStack ? 'Hide' : 'Show'} stack trace</span>
+              <span>{showStack ? t('responsePane.scriptError.hideStackTrace') : t('responsePane.scriptError.showStackTrace')}</span>
             </button>
             {showStack && (
               <pre className="script-error-stack" data-testid="script-error-stack">{errorContext.stack}</pre>
@@ -212,20 +215,21 @@ const ScriptErrorCard = ({ title, message, errorContext, item, collection, scrip
 
 // phase key matches with the CodeEditor scriptType so the error stack navigates back to the right editor.
 const SCRIPT_PHASES = [
-  { phase: SCRIPT_TYPES.PRE_REQUEST, title: 'Pre-Request Script Error', messageKey: 'preRequestScriptErrorMessage', contextKey: 'preRequestScriptErrorContext' },
-  { phase: SCRIPT_TYPES.POST_RESPONSE, title: 'Post-Response Script Error', messageKey: 'postResponseScriptErrorMessage', contextKey: 'postResponseScriptErrorContext' },
-  { phase: SCRIPT_TYPES.TEST, title: 'Test Script Error', messageKey: 'testScriptErrorMessage', contextKey: 'testScriptErrorContext' },
-  { phase: SCRIPT_TYPES.BEFORE_CALL_START, title: 'Before Call Start Script Error', messageKey: 'beforeCallStartScriptErrorMessage', contextKey: 'beforeCallStartScriptErrorContext' },
-  { phase: SCRIPT_TYPES.BEFORE_MESSAGE_SEND, title: 'Before Message Send Script Error', messageKey: 'beforeMessageSendScriptErrorMessage', contextKey: 'beforeMessageSendScriptErrorContext' },
-  { phase: SCRIPT_TYPES.AFTER_MESSAGE_RECEIVE, title: 'After Message Receive Script Error', messageKey: 'afterMessageReceiveScriptErrorMessage', contextKey: 'afterMessageReceiveScriptErrorContext' },
-  { phase: SCRIPT_TYPES.AFTER_CALL_END, title: 'After Call End Script Error', messageKey: 'afterCallEndScriptErrorMessage', contextKey: 'afterCallEndScriptErrorContext' }
+  { phase: SCRIPT_TYPES.PRE_REQUEST, titleKey: 'responsePane.scriptError.preRequest', messageKey: 'preRequestScriptErrorMessage', contextKey: 'preRequestScriptErrorContext' },
+  { phase: SCRIPT_TYPES.POST_RESPONSE, titleKey: 'responsePane.scriptError.postResponse', messageKey: 'postResponseScriptErrorMessage', contextKey: 'postResponseScriptErrorContext' },
+  { phase: SCRIPT_TYPES.TEST, titleKey: 'responsePane.scriptError.test', messageKey: 'testScriptErrorMessage', contextKey: 'testScriptErrorContext' },
+  { phase: SCRIPT_TYPES.BEFORE_CALL_START, titleKey: 'responsePane.scriptError.beforeCallStart', messageKey: 'beforeCallStartScriptErrorMessage', contextKey: 'beforeCallStartScriptErrorContext' },
+  { phase: SCRIPT_TYPES.BEFORE_MESSAGE_SEND, titleKey: 'responsePane.scriptError.beforeMessageSend', messageKey: 'beforeMessageSendScriptErrorMessage', contextKey: 'beforeMessageSendScriptErrorContext' },
+  { phase: SCRIPT_TYPES.AFTER_MESSAGE_RECEIVE, titleKey: 'responsePane.scriptError.afterMessageReceive', messageKey: 'afterMessageReceiveScriptErrorMessage', contextKey: 'afterMessageReceiveScriptErrorContext' },
+  { phase: SCRIPT_TYPES.AFTER_CALL_END, titleKey: 'responsePane.scriptError.afterCallEnd', messageKey: 'afterCallEndScriptErrorMessage', contextKey: 'afterCallEndScriptErrorContext' }
 ];
 
 export const hasScriptError = (item) => SCRIPT_PHASES.some(({ messageKey }) => Boolean(item?.[messageKey]));
 
 const ScriptError = ({ item, collection, onClose }) => {
+  const { t } = useTranslation();
   const errors = SCRIPT_PHASES
-    .map((phase) => ({ ...phase, message: item?.[phase.messageKey], errorContext: item?.[phase.contextKey] }))
+    .map((phase) => ({ ...phase, title: t(phase.titleKey), message: item?.[phase.messageKey], errorContext: item?.[phase.contextKey] }))
     .filter(({ message }) => Boolean(message));
 
   if (!errors.length) return null;

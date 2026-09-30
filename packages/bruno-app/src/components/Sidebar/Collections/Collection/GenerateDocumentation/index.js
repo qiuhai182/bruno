@@ -1,5 +1,6 @@
 import React, { useCallback, useMemo, useState, Fragment } from 'react';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { cloneDeep } from 'lodash';
 import * as FileSaver from 'file-saver';
 import jsyaml from 'js-yaml';
@@ -19,26 +20,25 @@ import { transformCollectionToSaveToExportAsFile, findCollectionByUid, areItemsL
 import { brunoToOpenCollection } from '@usebruno/converters';
 import { generateApiDocsHtml, getApiDocsFileName, filterRequestItemsByTags } from '@usebruno/common';
 
-const FEATURES = [
-  'Standalone HTML file - no server required',
-  'Interactive API playground',
-  'Host on any static file server'
-];
+const CollectionNotFound = ({ onClose }) => {
+  const { t } = useTranslation();
 
-const CollectionNotFound = ({ onClose }) => (
-  <Portal>
-    <Modal size="md" title="Generate Documentation" confirmText="Close" handleConfirm={onClose} hideCancel>
-      <StyledWrapper>
-        <div className="flex items-center gap-2 text-warning">
-          <IconAlertTriangle size={16} className="shrink-0" />
-          <span>Collection not found. It may have been deleted or is no longer available.</span>
-        </div>
-      </StyledWrapper>
-    </Modal>
-  </Portal>
-);
+  return (
+    <Portal>
+      <Modal size="md" title={t('sidebar.docs.title')} confirmText={t('common.close')} handleConfirm={onClose} hideCancel>
+        <StyledWrapper>
+          <div className="flex items-center gap-2 text-warning">
+            <IconAlertTriangle size={16} className="shrink-0" />
+            <span>{t('sidebar.docs.collectionNotFound')}</span>
+          </div>
+        </StyledWrapper>
+      </Modal>
+    </Portal>
+  );
+};
 
 const GenerateDocumentation = ({ onClose, collectionUid }) => {
+  const { t } = useTranslation();
   const { version } = useApp();
   const collection = useSelector((state) =>
     findCollectionByUid(state.collections.collections, collectionUid)
@@ -98,6 +98,12 @@ const GenerateDocumentation = ({ onClose, collectionUid }) => {
   const { gitCollectionUrl, isResolved: gitUrlLoaded } = useCollectionGitRemoteUrl(collection?.pathname);
   const hasGitUrl = gitUrlLoaded && Boolean(gitCollectionUrl);
 
+  const features = [
+    t('sidebar.docs.featureStandaloneHtml'),
+    t('sidebar.docs.featurePlayground'),
+    t('sidebar.docs.featureHostAnywhere')
+  ];
+
   const handleGenerate = useCallback(() => {
     try {
       const collectionCopy = cloneDeep(collection);
@@ -125,13 +131,13 @@ const GenerateDocumentation = ({ onClose, collectionUid }) => {
       const fileName = getApiDocsFileName(collection.name);
       FileSaver.saveAs(new Blob([htmlContent], { type: 'text/html' }), fileName);
 
-      toast.success('Documentation generated successfully');
+      toast.success(t('sidebar.docs.generatedSuccess'));
       onClose();
     } catch (error) {
       console.error('Error generating documentation:', error);
-      toast.error('Failed to generate documentation');
+      toast.error(t('sidebar.docs.generatedError'));
     }
-  }, [collection, version, onClose, currentVersion, selectedEnvUidsSet, activeTags, includeGitLink, gitCollectionUrl]);
+  }, [collection, version, onClose, currentVersion, selectedEnvUidsSet, activeTags, includeGitLink, gitCollectionUrl, t]);
 
   if (!collection) {
     return <CollectionNotFound onClose={onClose} />;
@@ -141,9 +147,9 @@ const GenerateDocumentation = ({ onClose, collectionUid }) => {
     <Portal>
       <Modal
         size="md"
-        title="Generate Documentation"
-        confirmText={isLoading ? 'Loading...' : 'Generate'}
-        cancelText="Cancel"
+        title={t('sidebar.docs.title')}
+        confirmText={isLoading ? t('sidebar.docs.loading') : t('sidebar.docs.generate')}
+        cancelText={t('common.cancel')}
         handleConfirm={isLoading ? undefined : handleGenerate}
         handleCancel={onClose}
         confirmDisabled={isLoading || (includeGitLink && !gitUrlLoaded)}
@@ -152,20 +158,20 @@ const GenerateDocumentation = ({ onClose, collectionUid }) => {
           {isLoading ? (
             <div className="flex items-center justify-center gap-3 py-8">
               <IconLoader2 size={20} className="animate-spin" aria-hidden="true" />
-              <span>Loading collection...</span>
+              <span>{t('sidebar.docs.loadingCollection')}</span>
             </div>
           ) : (
             <div className="content">
               <h3 className="title flex items-center gap-2 mt-2 font-medium">
                 <IconBook size={18} aria-hidden="true" />
-                <span>Interactive API Documentation</span>
+                <span>{t('sidebar.docs.interactiveDocs')}</span>
               </h3>
               <p className="description mb-4">
-                Generate a standalone HTML file that can be hosted anywhere or shared with your team.
+                {t('sidebar.docs.description')}
               </p>
 
               <ul className="features flex flex-col list-none gap-2 p-0 mb-4">
-                {FEATURES.map((feature) => (
+                {features.map((feature) => (
                   <li key={feature} className="flex items-center gap-2.5">
                     <IconCheck size={16} className="check-icon flex-shrink-0" aria-hidden="true" />
                     <span>{feature}</span>
@@ -180,7 +186,7 @@ const GenerateDocumentation = ({ onClose, collectionUid }) => {
                     <div className="card-divider" />
                     <div className="env-section">
                       <EnvironmentSelectionList
-                        title="Environments to include"
+                        title={t('sidebar.docs.environmentsToInclude')}
                         environments={environments}
                         selectedUids={selectedEnvUids}
                         onToggle={toggleEnv}
@@ -204,7 +210,7 @@ const GenerateDocumentation = ({ onClose, collectionUid }) => {
               </div>
 
               <p className="note m-0">
-                The generated file loads Bruno's JavaScript and CSS files from a CDN, which requires an internet connection.
+                {t('sidebar.docs.cdnNote')}
               </p>
             </div>
           )}

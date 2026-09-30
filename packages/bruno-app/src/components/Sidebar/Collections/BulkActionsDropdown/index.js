@@ -1,5 +1,6 @@
 import React, { useMemo, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import MenuDropdown from 'ui/MenuDropdown';
 import { IconX, IconFoldDown, IconFoldUp, IconTrash } from '@tabler/icons';
 import { collapseCollection, collapseItem, expandCollection, expandItem, clearSidebarSelection } from 'providers/ReduxStore/slices/collections';
@@ -12,6 +13,7 @@ const isEntryCollapsible = (entry) =>
   entry.type === 'collection' || entry.type === 'folder' || (entry.type === 'request' && entry.item.examples?.length > 0);
 
 const BulkActionsDropdown = ({ visible, onClose, position, onRequestRemoveCollections, onRequestDeleteItems }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
 
   const selectedSidebarUids = useSelector((state) => state.collections.selectedSidebarUids);
@@ -84,19 +86,19 @@ const BulkActionsDropdown = ({ visible, onClose, position, onRequestRemoveCollec
       });
       clearAndClose();
     } catch (err) {
-      toast.error('An error occurred while toggling collections');
+      toast.error(t('sidebar.toast.errorTogglingCollections'));
     }
-  }, [dispatch, clearAndClose]);
+  }, [dispatch, clearAndClose, t]);
 
   const getCollapseDisplay = (isCollapsed, suffix = '') => {
-    const action = isCollapsed ? 'Expand' : 'Collapse';
+    const action = isCollapsed ? t('sidebar.bulkActions.expand') : t('sidebar.bulkActions.collapse');
     return {
       Icon: isCollapsed ? IconFoldUp : IconFoldDown,
       label: `${action}${suffix ? ` ${suffix}` : ''}`
     };
   };
 
-  const { Icon: CollapseIcon, label: collapseLabel } = getCollapseDisplay(allCollapsed, 'Selected');
+  const { Icon: CollapseIcon, label: collapseLabel } = getCollapseDisplay(allCollapsed, t('sidebar.bulkActions.selected'));
 
   const anchorStyle = {
     position: 'fixed',
@@ -112,7 +114,7 @@ const BulkActionsDropdown = ({ visible, onClose, position, onRequestRemoveCollec
       const items = [
         {
           id: 'remove',
-          label: 'Remove Selected',
+          label: t('sidebar.bulkActions.removeSelected'),
           leftSection: IconX,
           onClick: () => closeCollections(effectiveSelection)
         },
@@ -139,7 +141,7 @@ const BulkActionsDropdown = ({ visible, onClose, position, onRequestRemoveCollec
     if (canDelete) {
       items.push({
         id: 'delete',
-        label: 'Delete',
+        label: t('common.delete'),
         leftSection: IconTrash,
         className: 'delete-item',
         onClick: () => {
@@ -162,7 +164,8 @@ const BulkActionsDropdown = ({ visible, onClose, position, onRequestRemoveCollec
     collapsibleEntries,
     allCollapsed,
     onRequestDeleteItems,
-    onClose
+    onClose,
+    t
   ]);
 
   return (

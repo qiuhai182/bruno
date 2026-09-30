@@ -13,8 +13,10 @@ import { multiLineMsg } from 'utils/common/index';
 import { formatIpcError } from 'utils/common/error';
 import { sanitizeName, validateName, validateNameError } from 'utils/common/regex';
 import get from 'lodash/get';
+import { useTranslation } from 'react-i18next';
 
 const CreateWorkspace = ({ onClose }) => {
+  const { t } = useTranslation();
   const inputRef = useRef();
   const dispatch = useDispatch();
   const workspaces = useSelector((state) => state.workspaces.workspaces);
@@ -34,24 +36,24 @@ const CreateWorkspace = ({ onClose }) => {
     validationSchema: Yup.object({
       workspaceName: Yup.string()
         .trim()
-        .min(1, 'Workspace name can\'t be empty')
-        .max(255, 'Must be 255 characters or less')
-        .required('Workspace name is required')
-        .test('unique-name', 'A workspace with this name already exists', function (value) {
+        .min(1, t('workspace.validation.nameEmpty'))
+        .max(255, t('workspace.validation.maxTwoFiftyFive'))
+        .required(t('workspace.validation.nameRequired'))
+        .test('unique-name', t('workspace.validation.nameAlreadyExists'), function (value) {
           if (!value) return true;
 
           return !workspaces.some((w) =>
             !w.isCreating && w.name && w.name.toLowerCase() === value.toLowerCase());
         }),
       workspaceFolderName: Yup.string()
-        .min(1, 'Must be at least 1 character')
-        .max(255, 'Must be 255 characters or less')
+        .min(1, t('workspace.validation.minOneChar'))
+        .max(255, t('workspace.validation.maxTwoFiftyFive'))
         .test('is-valid-folder-name', function (value) {
           const isValid = validateName(value);
           return isValid ? true : this.createError({ message: validateNameError(value) });
         })
-        .required('Folder name is required'),
-      workspaceLocation: Yup.string().min(1, 'Location is required').required('Location is required')
+        .required(t('workspace.validation.folderNameRequired')),
+      workspaceLocation: Yup.string().min(1, t('workspace.validation.locationRequired')).required(t('workspace.validation.locationRequired'))
     }),
     onSubmit: async (values) => {
       if (isSubmitting) return;
@@ -60,10 +62,10 @@ const CreateWorkspace = ({ onClose }) => {
         setIsSubmitting(true);
 
         await dispatch(createWorkspaceAction(values.workspaceName.trim(), values.workspaceFolderName, values.workspaceLocation));
-        toast.success('Workspace created!');
+        toast.success(t('workspace.toast.created'));
         onClose();
       } catch (error) {
-        toast.error(multiLineMsg('An error occurred while creating the workspace', formatIpcError(error)));
+        toast.error(multiLineMsg(t('workspace.toast.createError'), formatIpcError(error)));
       } finally {
         setIsSubmitting(false);
       }
@@ -92,9 +94,9 @@ const CreateWorkspace = ({ onClose }) => {
   return (
     <Modal
       size="md"
-      title="Create Workspace"
-      description="Give your new workspace a name and choose its type to get started."
-      confirmText={isSubmitting ? 'Creating...' : 'Create Workspace'}
+      title={t('workspace.create.title')}
+      description={t('workspace.create.description')}
+      confirmText={isSubmitting ? t('workspace.create.creating') : t('workspace.create.confirm')}
       handleConfirm={formik.handleSubmit}
       handleCancel={onClose}
       style="new"
@@ -104,7 +106,7 @@ const CreateWorkspace = ({ onClose }) => {
         <form className="bruno-form" onSubmit={formik.handleSubmit}>
           <div className="mb-4">
             <label htmlFor="workspaceName" className="block font-semibold mb-2">
-              Name
+              {t('workspace.label.name')}
             </label>
             <input
               id="workspace-name"
@@ -140,13 +142,13 @@ const CreateWorkspace = ({ onClose }) => {
             <div className="mb-4">
               <div className="flex items-center justify-between mb-2">
                 <label htmlFor="workspaceFolderName" className="flex items-center font-semibold">
-                  Folder Name
+                  {t('workspace.label.folderName')}
                   <Help width="300">
                     <p>
-                      The name of the folder used to store the workspace.
+                      {t('workspace.help.folderName1')}
                     </p>
                     <p className="mt-2">
-                      You can choose a folder name different from your workspace's name or one compatible with filesystem rules.
+                      {t('workspace.help.folderName2')}
                     </p>
                   </Help>
                 </label>
@@ -190,13 +192,13 @@ const CreateWorkspace = ({ onClose }) => {
 
           <div className="mb-4">
             <label htmlFor="workspaceLocation" className="font-semibold mb-2 flex items-center">
-              Location
+              {t('workspace.label.location')}
               <Help>
                 <p>
-                  Bruno stores your workspaces on your computer's filesystem.
+                  {t('workspace.help.location1')}
                 </p>
                 <p className="mt-2">
-                  Choose the location where you want to store this workspace.
+                  {t('workspace.help.location2')}
                 </p>
               </Help>
             </label>
@@ -221,7 +223,7 @@ const CreateWorkspace = ({ onClose }) => {
                 className="text-link cursor-pointer hover:underline"
                 onClick={browse}
               >
-                Browse
+                {t('preferences.general.browse')}
               </span>
             </div>
           </div>

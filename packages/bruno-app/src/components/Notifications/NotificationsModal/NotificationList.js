@@ -1,7 +1,9 @@
 import classnames from 'classnames';
 import { relativeDate } from 'utils/common';
+import { useTranslation } from 'react-i18next';
 
 const NotificationList = ({ items, selectedId, onSelect }) => {
+  const { t } = useTranslation();
   return (
     <ul className="notif-list">
       {items.map((notification) => {
@@ -27,7 +29,7 @@ const NotificationList = ({ items, selectedId, onSelect }) => {
           </li>
         );
       })}
-      {items.length === 0 && <li className="notif-list-empty">No notifications to show.</li>}
+      {items.length === 0 && <li className="notif-list-empty">{t('notifications.empty')}</li>}
     </ul>
   );
 };

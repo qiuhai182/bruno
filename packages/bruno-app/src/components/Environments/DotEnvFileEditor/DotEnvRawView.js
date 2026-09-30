@@ -1,5 +1,6 @@
 import React from 'react';
 import CodeEditor from 'components/CodeEditor';
+import { useTranslation } from 'react-i18next';
 
 const DotEnvRawView = ({
   collection,
@@ -11,6 +12,7 @@ const DotEnvRawView = ({
   onReset,
   isSaving
 }) => {
+  const { t } = useTranslation();
   return (
     <>
       <div className="raw-editor-container" data-testid="dotenv-raw-editor">
@@ -29,10 +31,10 @@ const DotEnvRawView = ({
       <div className="button-container">
         <div className="flex items-center">
           <button type="button" className="submit" onClick={onSave} disabled={isSaving} data-testid="save-dotenv-raw">
-            {isSaving ? 'Saving...' : 'Save'}
+            {isSaving ? t('environments.saving') : t('common.save')}
           </button>
           <button type="button" className="submit reset ml-2" onClick={onReset} disabled={isSaving} data-testid="reset-dotenv-raw">
-            Reset
+            {t('environments.dotEnv.reset')}
           </button>
         </div>
       </div>

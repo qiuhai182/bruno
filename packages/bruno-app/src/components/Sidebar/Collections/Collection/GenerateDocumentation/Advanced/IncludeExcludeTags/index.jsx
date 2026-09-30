@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import DocsTagList from '../DocsTagList';
 import StyledWrapper from './StyledWrapper';
 
@@ -8,6 +9,7 @@ const IncludeExcludeTags = ({
   onChange,
   className = ''
 }) => {
+  const { t } = useTranslation();
   const include = tags.include || [];
   const exclude = tags.exclude || [];
   const tagsHintList = availableTags.filter((tag) => !exclude.includes(tag) && !include.includes(tag));
@@ -15,13 +17,13 @@ const IncludeExcludeTags = ({
   const handleValidation = (tag) => {
     const trimmedTag = tag.trim();
     if (!availableTags.includes(trimmedTag)) {
-      return 'Tag does not exist';
+      return t('sidebar.docs.tagDoesNotExist');
     }
     if (include.includes(trimmedTag)) {
-      return 'Tag is already in the include list';
+      return t('sidebar.docs.tagInInclude');
     }
     if (exclude.includes(trimmedTag)) {
-      return 'Tag is already in the exclude list';
+      return t('sidebar.docs.tagInExclude');
     }
   };
 
@@ -44,27 +46,27 @@ const IncludeExcludeTags = ({
     <StyledWrapper className={className}>
       <div className="tags-columns">
         <div className="tags-column">
-          <span className="tags-label">Include tags</span>
+          <span className="tags-label">{t('sidebar.docs.includeTags')}</span>
           <DocsTagList
             tags={include}
             tagsHintList={tagsHintList}
             handleAddTag={(tag) => handleAddTag(tag, 'include')}
             handleRemoveTag={(tag) => handleRemoveTag(tag, 'include')}
             handleValidation={handleValidation}
-            ariaLabel="Include tags"
-            placeholder="e.g. Production ready"
+            ariaLabel={t('sidebar.docs.includeTags')}
+            placeholder={t('sidebar.docs.includePlaceholder')}
           />
         </div>
         <div className="tags-column">
-          <span className="tags-label">Exclude tags</span>
+          <span className="tags-label">{t('sidebar.docs.excludeTags')}</span>
           <DocsTagList
             tags={exclude}
             tagsHintList={tagsHintList}
             handleAddTag={(tag) => handleAddTag(tag, 'exclude')}
             handleRemoveTag={(tag) => handleRemoveTag(tag, 'exclude')}
             handleValidation={handleValidation}
-            ariaLabel="Exclude tags"
-            placeholder="e.g, Work in progress"
+            ariaLabel={t('sidebar.docs.excludeTags')}
+            placeholder={t('sidebar.docs.excludePlaceholder')}
           />
         </div>
       </div>

@@ -2,8 +2,10 @@ import React from 'react';
 import UploadStep from './UploadStep';
 import ReviewStep from './ReviewStep';
 import { useEnvironmentImport, IMPORT_STEPS } from './hooks/useEnvironmentImport';
+import { useTranslation } from 'react-i18next';
 
 const ImportEnvironmentModal = ({ type = 'collection', collection, onClose, onEnvironmentCreated }) => {
+  const { t } = useTranslation();
   const isGlobal = type === 'global';
 
   const {
@@ -22,7 +24,7 @@ const ImportEnvironmentModal = ({ type = 'collection', collection, onClose, onEn
     console.error('ImportEnvironmentModal: collection prop is required when type is "collection"');
     return null;
   }
-  const modalTitle = isGlobal ? 'Import global environments' : 'Import environments';
+  const modalTitle = isGlobal ? t('environments.import.titleGlobal') : t('environments.import.title');
   const modalTestId = isGlobal ? 'import-global-environment-modal' : 'import-environment-modal';
   const importTestId = isGlobal ? 'import-global-environment' : 'import-environment';
 

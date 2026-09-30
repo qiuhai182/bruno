@@ -1,0 +1,34 @@
+﻿diff --git a/packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/index.js b/packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/index.js
+index 5e2e5724e..8d424ff81 100644
+--- a/packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/index.js
++++ b/packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/index.js
+@@ -4,0 +5 @@ import { useDispatch, useSelector } from 'react-redux';
++import { useTranslation } from 'react-i18next';
+@@ -12,0 +14 @@ const MoveToWorkspace = ({ onClose, collectionUid }) => {
++  const { t } = useTranslation();
+@@ -29 +31 @@ const MoveToWorkspace = ({ onClose, collectionUid }) => {
+-      toast.error('Collection not found');
++      toast.error(t('sidebar.collectionNotFound'));
+@@ -39 +41 @@ const MoveToWorkspace = ({ onClose, collectionUid }) => {
+-        toast.success('Collection moved into workspace');
++        toast.success(t('sidebar.moveToWorkspace.collectionMoved'));
+@@ -43 +45 @@ const MoveToWorkspace = ({ onClose, collectionUid }) => {
+-        toast.error(err?.message || 'An error occurred while moving the collection');
++        toast.error(err?.message || t('sidebar.moveToWorkspace.moveError'));
+@@ -49 +51 @@ const MoveToWorkspace = ({ onClose, collectionUid }) => {
+-    return <div>Collection not found</div>;
++    return <div>{t('sidebar.collectionNotFound')}</div>;
+@@ -67,2 +69,2 @@ const MoveToWorkspace = ({ onClose, collectionUid }) => {
+-        title="Move into Workspace"
+-        confirmText={isMoving ? 'Moving...' : 'Move'}
++        title={t('sidebar.moveToWorkspace.title')}
++        confirmText={isMoving ? t('sidebar.moveToWorkspace.moving') : t('sidebar.moveToWorkspace.move')}
+@@ -74 +76 @@ const MoveToWorkspace = ({ onClose, collectionUid }) => {
+-          This will move the following collection's files into {activeWorkspace?.name} workspace.
++          {t('sidebar.moveToWorkspace.description', { name: activeWorkspace?.name })}
+@@ -81 +83 @@ const MoveToWorkspace = ({ onClose, collectionUid }) => {
+-          <div className="collection-label">Destination</div>
++          <div className="collection-label">{t('sidebar.moveToWorkspace.destination')}</div>
+@@ -85 +87 @@ const MoveToWorkspace = ({ onClose, collectionUid }) => {
+-          The collection reloads from its new location, so any open request tabs will close.
++          {t('sidebar.moveToWorkspace.reloadNote')}

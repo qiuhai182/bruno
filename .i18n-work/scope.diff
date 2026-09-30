@@ -1,0 +1,1673 @@
+﻿diff --git a/packages/bruno-app/src/components/GlobalSearchModal/constants/index.js b/packages/bruno-app/src/components/GlobalSearchModal/constants/index.js
+index f7e174c52..5825e5aaf 100644
+--- a/packages/bruno-app/src/components/GlobalSearchModal/constants/index.js
++++ b/packages/bruno-app/src/components/GlobalSearchModal/constants/index.js
+@@ -1 +1,3 @@
++import i18n from '../../../i18n';
++
+ export const SEARCH_TYPES = {
+@@ -26,6 +28,6 @@ export const DOCUMENTATION_RESULT = {
+   type: SEARCH_TYPES.DOCUMENTATION,
+-  item: { id: 'docs', name: 'Bruno Documentation' },
+-  name: 'Bruno Documentation',
++  item: { id: 'docs', name: i18n.t('globalSearch.brunoDocumentation') },
++  name: i18n.t('globalSearch.brunoDocumentation'),
+   path: '/',
+-  description: 'Browse the official Bruno documentation',
++  description: i18n.t('globalSearch.browseDocumentation'),
+   matchType: MATCH_TYPES.DOCUMENTATION
+diff --git a/packages/bruno-app/src/components/GlobalSearchModal/index.js b/packages/bruno-app/src/components/GlobalSearchModal/index.js
+index ff891cacf..ee679a955 100644
+--- a/packages/bruno-app/src/components/GlobalSearchModal/index.js
++++ b/packages/bruno-app/src/components/GlobalSearchModal/index.js
+@@ -18,2 +18,3 @@ import { normalizeQuery, isValidQuery, highlightText, sortResults, getTypeLabel,
+ import { SEARCH_TYPES, MATCH_TYPES, SEARCH_CONFIG, DOCUMENTATION_RESULT } from './constants';
++import { useTranslation } from 'react-i18next';
+ import StyledWrapper from './StyledWrapper';
+@@ -21,2 +22,3 @@ import StyledWrapper from './StyledWrapper';
+ const GlobalSearchModal = ({ isOpen, onClose }) => {
++  const { t } = useTranslation();
+   const [query, setQuery] = useState('');
+@@ -87,3 +89,3 @@ const GlobalSearchModal = ({ isOpen, onClose }) => {
+         if (isItemARequest(item)) {
+-          // add an optional check for the item name to prevent a crash if it doesn’t exist.
++          // add an optional check for the item name to prevent a crash if it doesn��t exist.
+           const nameMatch = searchTerms.every((term) => (item.name || '').toLowerCase().includes(term));
+@@ -374,5 +376,5 @@ const GlobalSearchModal = ({ isOpen, onClose }) => {
+         <div className="command-k-modal" onClick={(e) => e.stopPropagation()}>
+-          <h1 id="search-modal-title" className="sr-only">Global Search</h1>
++          <h1 id="search-modal-title" className="sr-only">{t('globalSearch.title')}</h1>
+           <p id="search-modal-description" className="sr-only">
+-            Search through collections, requests, folders, and documentation. Use arrow keys to navigate results and Enter to select.
++            {t('globalSearch.srDescription')}
+           </p>
+@@ -380,5 +382,5 @@ const GlobalSearchModal = ({ isOpen, onClose }) => {
+             {results.length > 0 && query
+-              ? `${results.length} result${results.length === 1 ? '' : 's'} found`
++              ? t('globalSearch.resultsFound', { count: results.length })
+               : query && results.length === 0
+-                ? 'No results found'
++                ? t('globalSearch.noResults')
+                 : ''}
+@@ -391,3 +393,3 @@ const GlobalSearchModal = ({ isOpen, onClose }) => {
+                 type="text"
+-                placeholder="Search collections, requests, or documentation..."
++                placeholder={t('globalSearch.searchPlaceholder')}
+                 value={query}
+@@ -400,3 +402,3 @@ const GlobalSearchModal = ({ isOpen, onClose }) => {
+                 spellCheck="false"
+-                aria-label="Search collections, requests, or documentation"
++                aria-label={t('globalSearch.searchAriaLabel')}
+                 aria-expanded={results.length > 0}
+@@ -412,3 +414,3 @@ const GlobalSearchModal = ({ isOpen, onClose }) => {
+                   className="clear-button"
+-                  aria-label="Clear search query"
++                  aria-label={t('globalSearch.clearSearch')}
+                   type="button"
+@@ -426,3 +428,3 @@ const GlobalSearchModal = ({ isOpen, onClose }) => {
+             role="listbox"
+-            aria-label="Search results"
++            aria-label={t('globalSearch.searchResults')}
+           >
+@@ -431,6 +433,6 @@ const GlobalSearchModal = ({ isOpen, onClose }) => {
+                 <p>
+-                  No results found for "{query}".
++                  {t('globalSearch.noResultsFor', { query })}
+                   <br />
+                   <span className="block mt-2">
+-                    The item might not exist yet, or its collection isn’t mounted. Press <strong>Enter</strong> here (or open it from the sidebar) to mount the collection automatically.
++                    {t('globalSearch.noResultsHintPrefix')} <strong>Enter</strong> {t('globalSearch.noResultsHintSuffix')}
+                   </span>
+@@ -441,6 +443,6 @@ const GlobalSearchModal = ({ isOpen, onClose }) => {
+                 <p>
+-                  No collections are currently mounted or visible.
++                  {t('globalSearch.noCollections')}
+                   <br />
+                   <span className="block mt-2">
+-                    Mount a collection via the sidebar or this search modal, then try again.
++                    {t('globalSearch.mountHint')}
+                   </span>
+@@ -486,3 +488,3 @@ const GlobalSearchModal = ({ isOpen, onClose }) => {
+                             className={`method-badge ${result.method.toLowerCase()}`}
+-                            aria-label={`HTTP method ${result.method.toUpperCase().replace(/-/g, ' ')}`}
++                            aria-label={t('globalSearch.httpMethod', { method: result.method.toUpperCase().replace(/-/g, ' ') })}
+                           >
+@@ -492,3 +494,3 @@ const GlobalSearchModal = ({ isOpen, onClose }) => {
+                         {typeLabel && (
+-                          <div className="result-type" aria-label={`Item type ${typeLabel}`}>
++                          <div className="result-type" aria-label={t('globalSearch.itemType', { type: typeLabel })}>
+                             {typeLabel}
+@@ -505,15 +507,15 @@ const GlobalSearchModal = ({ isOpen, onClose }) => {
+           <div className="command-k-footer">
+-            <div className="keyboard-hints" role="region" aria-label="Keyboard shortcuts">
+-              <span aria-label="Use up and down arrows to navigate">
+-                <span className="keycap" aria-hidden="true">↑</span>
+-                <span className="keycap" aria-hidden="true">↓</span>
+-                <span className="hint-label">to navigate</span>
++            <div className="keyboard-hints" role="region" aria-label={t('globalSearch.keyboardShortcuts')}>
++              <span aria-label={t('globalSearch.arrowsHintAria')}>
++                <span className="keycap" aria-hidden="true">��</span>
++                <span className="keycap" aria-hidden="true">��</span>
++                <span className="hint-label">{t('globalSearch.toNavigate')}</span>
+               </span>
+-              <span aria-label="Press Enter to select">
+-                <span className="keycap" aria-hidden="true">↵</span>
+-                <span className="hint-label">to select</span>
++              <span aria-label={t('globalSearch.enterHintAria')}>
++                <span className="keycap" aria-hidden="true">?</span>
++                <span className="hint-label">{t('globalSearch.toSelect')}</span>
+               </span>
+-              <span aria-label="Press Escape to close">
++              <span aria-label={t('globalSearch.escHintAria')}>
+                 <span className="keycap" aria-hidden="true">esc</span>
+-                <span className="hint-label">to close</span>
++                <span className="hint-label">{t('globalSearch.toClose')}</span>
+               </span>
+diff --git a/packages/bruno-app/src/components/GlobalSearchModal/utils/searchUtils.js b/packages/bruno-app/src/components/GlobalSearchModal/utils/searchUtils.js
+index 9d30e9979..c2e32c71b 100644
+--- a/packages/bruno-app/src/components/GlobalSearchModal/utils/searchUtils.js
++++ b/packages/bruno-app/src/components/GlobalSearchModal/utils/searchUtils.js
+@@ -1,2 +1,3 @@
+ import React from 'react';
++import i18n from '../../../i18n';
+ import { SEARCH_TYPES, MATCH_TYPES, SEARCH_CONFIG } from '../constants';
+@@ -66,5 +67,5 @@ export const getTypeLabel = (type) => {
+   const baseLabels = {
+-    [SEARCH_TYPES.DOCUMENTATION]: 'Documentation',
+-    [SEARCH_TYPES.COLLECTION]: 'Collection',
+-    [SEARCH_TYPES.FOLDER]: 'Folder'
++    [SEARCH_TYPES.DOCUMENTATION]: i18n.t('globalSearch.type.documentation'),
++    [SEARCH_TYPES.COLLECTION]: i18n.t('globalSearch.type.collection'),
++    [SEARCH_TYPES.FOLDER]: i18n.t('globalSearch.type.folder')
+   };
+diff --git a/packages/bruno-app/src/components/ManageWorkspace/DeleteWorkspace/index.js b/packages/bruno-app/src/components/ManageWorkspace/DeleteWorkspace/index.js
+index 34f588ecc..077162730 100644
+--- a/packages/bruno-app/src/components/ManageWorkspace/DeleteWorkspace/index.js
++++ b/packages/bruno-app/src/components/ManageWorkspace/DeleteWorkspace/index.js
+@@ -7,2 +7,3 @@ import { IconFolder } from '@tabler/icons';
+ import { closeWorkspaceAction } from 'providers/ReduxStore/slices/workspaces/actions';
++import { useTranslation } from 'react-i18next';
+ 
+@@ -10,2 +11,3 @@ const DeleteWorkspace = ({ onClose, workspace }) => {
+   const dispatch = useDispatch();
++  const { t } = useTranslation();
+   const [isDeleting, setIsDeleting] = useState(false);
+@@ -20,3 +22,3 @@ const DeleteWorkspace = ({ onClose, workspace }) => {
+     } catch (error) {
+-      toast.error(error?.message || 'An error occurred while removing the workspace');
++      toast.error(error?.message || t('workspace.toast.removeError'));
+       setIsDeleting(false);
+@@ -29,4 +31,4 @@ const DeleteWorkspace = ({ onClose, workspace }) => {
+         size="sm"
+-        title="Remove Workspace"
+-        confirmText={isDeleting ? 'Removing...' : 'Remove'}
++        title={t('workspace.remove.title')}
++        confirmText={isDeleting ? t('workspace.remove.removing') : t('workspace.remove.confirm')}
+         handleConfirm={onConfirm}
+@@ -45,6 +47,7 @@ const DeleteWorkspace = ({ onClose, workspace }) => {
+         <div className="mt-4">
+-          Are you sure you want to remove workspace <span className="font-semibold">{workspace?.name}</span>?
++          {t('workspace.remove.confirmPrefix')} <span className="font-semibold">{workspace?.name}</span>
++          {t('workspace.remove.confirmSuffix')}
+         </div>
+         <div className="mt-4">
+-          The workspace will still be available in the file system and can be re-opened later.
++          {t('workspace.remove.note')}
+         </div>
+diff --git a/packages/bruno-app/src/components/ManageWorkspace/RenameWorkspace/index.js b/packages/bruno-app/src/components/ManageWorkspace/RenameWorkspace/index.js
+index 0616f8634..b02e79017 100644
+--- a/packages/bruno-app/src/components/ManageWorkspace/RenameWorkspace/index.js
++++ b/packages/bruno-app/src/components/ManageWorkspace/RenameWorkspace/index.js
+@@ -8,2 +8,3 @@ import { useDispatch, useSelector } from 'react-redux';
+ import { renameWorkspaceAction } from 'providers/ReduxStore/slices/workspaces/actions';
++import { useTranslation } from 'react-i18next';
+ 
+@@ -11,2 +12,3 @@ const RenameWorkspace = ({ onClose, workspace }) => {
+   const dispatch = useDispatch();
++  const { t } = useTranslation();
+   const { workspaces } = useSelector((state) => state.workspaces);
+@@ -21,6 +23,6 @@ const RenameWorkspace = ({ onClose, workspace }) => {
+       name: Yup.string()
+-        .min(1, 'must be at least 1 character')
+-        .max(255, 'must be 255 characters or less')
+-        .required('name is required')
+-        .test('unique-name', 'A workspace with this name already exists', function (value) {
++        .min(1, t('workspace.validation.minOneCharLower'))
++        .max(255, t('workspace.validation.maxTwoFiftyFiveLower'))
++        .required(t('workspace.validation.nameRequiredLower'))
++        .test('unique-name', t('workspace.validation.nameAlreadyExists'), function (value) {
+           if (!value) return true;
+@@ -41,3 +43,3 @@ const RenameWorkspace = ({ onClose, workspace }) => {
+         .catch((error) => {
+-          toast.error(error?.message || 'An error occurred while renaming the workspace');
++          toast.error(error?.message || t('workspace.toast.renameError'));
+         });
+@@ -61,4 +63,4 @@ const RenameWorkspace = ({ onClose, workspace }) => {
+         size="md"
+-        title="Rename Workspace"
+-        confirmText="Rename"
++        title={t('workspace.rename.title')}
++        confirmText={t('workspace.rename.confirm')}
+         handleConfirm={onSubmit}
+@@ -70,3 +72,3 @@ const RenameWorkspace = ({ onClose, workspace }) => {
+             <label htmlFor="workspace-name" className="block font-semibold">
+-              Workspace Name
++              {t('workspace.label.workspaceName')}
+             </label>
+diff --git a/packages/bruno-app/src/components/ManageWorkspace/index.js b/packages/bruno-app/src/components/ManageWorkspace/index.js
+index ae6285486..2b0a9d5dd 100644
+--- a/packages/bruno-app/src/components/ManageWorkspace/index.js
++++ b/packages/bruno-app/src/components/ManageWorkspace/index.js
+@@ -19,2 +19,3 @@ import { getRevealInFolderLabel } from 'utils/common/platform';
+ import { openDevtoolsAndSwitchToTerminal } from 'utils/terminal';
++import { useTranslation } from 'react-i18next';
+ 
+@@ -22,2 +23,3 @@ const ManageWorkspace = () => {
+   const dispatch = useDispatch();
++  const { t } = useTranslation();
+   const { workspaces, activeWorkspaceUid } = useSelector((state) => state.workspaces);
+@@ -41,3 +43,3 @@ const ManageWorkspace = () => {
+     dispatch(showHomePage());
+-    toast.success(`Switched to ${workspace.name}`);
++    toast.success(t('workspace.toast.switchedTo', { name: workspace.name }));
+   };
+@@ -47,3 +49,3 @@ const ManageWorkspace = () => {
+       dispatch(showInFolder(workspace.pathname)).catch(() => {
+-        toast.error('Error opening the folder');
++        toast.error(t('workspace.toast.openFolderError'));
+       });
+@@ -58,3 +60,3 @@ const ManageWorkspace = () => {
+     if (workspace.type === 'default') {
+-      toast.error('Cannot remove the default workspace');
++      toast.error(t('workspace.toast.cannotRemoveDefault'));
+       return;
+@@ -74,3 +76,3 @@ const ManageWorkspace = () => {
+     } catch (error) {
+-      toast.error(error?.message || 'Failed to create workspace');
++      toast.error(error?.message || t('workspace.toast.createFailed'));
+     }
+@@ -103,3 +105,3 @@ const ManageWorkspace = () => {
+           </div>
+-          <span className="header-title" data-testid="manage-workspace-title">Manage Workspace</span>
++          <span className="header-title" data-testid="manage-workspace-title">{t('workspace.manage.title')}</span>
+         </div>
+@@ -111,3 +113,3 @@ const ManageWorkspace = () => {
+         >
+-          Create Workspace
++          {t('workspace.create.confirm')}
+         </Button>
+@@ -118,3 +120,3 @@ const ManageWorkspace = () => {
+           <div className="empty-state">
+-            <span>No workspaces found</span>
++            <span>{t('workspace.manage.noWorkspaces')}</span>
+           </div>
+@@ -137,3 +139,3 @@ const ManageWorkspace = () => {
+                     <span className="workspace-name" data-testid="workspace-row-name">{workspace.name}</span>
+-                    {isDefault && <span className="default-badge" data-testid="workspace-default-badge">Default</span>}
++                    {isDefault && <span className="default-badge" data-testid="workspace-default-badge">{t('workspace.manage.defaultBadge')}</span>}
+                   </div>
+@@ -150,3 +152,3 @@ const ManageWorkspace = () => {
+                     <IconLogin size={14} strokeWidth={1.5} />
+-                    <span>Open</span>
++                    <span>{t('workspace.manage.open')}</span>
+                   </button>
+@@ -165,5 +167,5 @@ const ManageWorkspace = () => {
+                       items={[
+-                        { id: 'open-in-terminal', label: 'Open in Terminal', onClick: () => openDevtoolsAndSwitchToTerminal(dispatch, workspace.pathname) },
+-                        { id: 'rename', label: 'Rename', onClick: () => handleRenameClick(workspace) },
+-                        { id: 'remove', label: 'Remove', onClick: () => handleCloseClick(workspace) }
++                        { id: 'open-in-terminal', label: t('workspace.manage.openInTerminal'), onClick: () => openDevtoolsAndSwitchToTerminal(dispatch, workspace.pathname) },
++                        { id: 'rename', label: t('workspace.menu.rename'), onClick: () => handleRenameClick(workspace) },
++                        { id: 'remove', label: t('workspace.menu.remove'), onClick: () => handleCloseClick(workspace) }
+                       ]}
+diff --git a/packages/bruno-app/src/components/WelcomeModal/GetStartedStep/index.js b/packages/bruno-app/src/components/WelcomeModal/GetStartedStep/index.js
+index b5756f0f8..3b155de67 100644
+--- a/packages/bruno-app/src/components/WelcomeModal/GetStartedStep/index.js
++++ b/packages/bruno-app/src/components/WelcomeModal/GetStartedStep/index.js
+@@ -2,52 +2,57 @@ import React from 'react';
+ import { IconPlus, IconDownload, IconFileImport, IconSend } from '@tabler/icons';
++import { useTranslation } from 'react-i18next';
+ import StyledWrapper from './StyledWrapper';
+ 
+-const GetStartedStep = ({ onCreateCollection, onImportCollection, onOpenCollection, onStartRequest }) => (
+-  <StyledWrapper className="step-body">
+-    <div className="step-label">Your first collection</div>
+-    <div className="step-title">You're all set! What's next?</div>
+-    <div className="step-description">
+-      Create a new collection to start building requests, or import one you already have.
+-    </div>
++const GetStartedStep = ({ onCreateCollection, onImportCollection, onOpenCollection, onStartRequest }) => {
++  const { t } = useTranslation();
+ 
+-    <div className="primary-actions">
+-      <button className="primary-action-card" onClick={onCreateCollection}>
+-        <div className="card-icon">
+-          <IconPlus size={20} stroke={1.5} />
+-        </div>
+-        <div className="card-title">Create Collection</div>
+-        <div className="card-desc">Start fresh with a new API collection</div>
+-      </button>
++  return (
++    <StyledWrapper className="step-body">
++      <div className="step-label">{t('welcome.getStarted.label')}</div>
++      <div className="step-title">{t('welcome.getStarted.title')}</div>
++      <div className="step-description">
++        {t('welcome.getStarted.description')}
++      </div>
+ 
+-      <button className="primary-action-card" onClick={onImportCollection}>
+-        <div className="card-icon">
+-          <IconDownload size={20} stroke={1.5} />
+-        </div>
+-        <div className="card-title">Import Collection</div>
+-        <div className="card-desc">Bring in Postman, OpenAPI/Swagger, or Insomnia</div>
+-      </button>
+-    </div>
++      <div className="primary-actions">
++        <button className="primary-action-card" onClick={onCreateCollection}>
++          <div className="card-icon">
++            <IconPlus size={20} stroke={1.5} />
++          </div>
++          <div className="card-title">{t('WELCOME.CREATE_COLLECTION')}</div>
++          <div className="card-desc">{t('welcome.getStarted.createDesc')}</div>
++        </button>
+ 
+-    <div className="secondary-actions">
+-      <button className="secondary-action" onClick={onOpenCollection}>
+-        <span className="secondary-icon">
+-          <IconFileImport size={16} stroke={1.5} />
+-        </span>
+-        <div>
+-          <div className="secondary-label">Open existing collection</div>
+-          <div className="secondary-desc">Open a Bruno collection from your filesystem</div>
+-        </div>
+-      </button>
+-      <button className="secondary-action" onClick={onStartRequest}>
+-        <span className="secondary-icon">
+-          <IconSend size={16} stroke={1.5} />
+-        </span>
+-        <div>
+-          <div className="secondary-label">Get started with a request</div>
+-          <div className="secondary-desc">Jump right in with a new HTTP request</div>
+-        </div>
+-      </button>
+-    </div>
+-  </StyledWrapper>
+-);
++        <button className="primary-action-card" onClick={onImportCollection}>
++          <div className="card-icon">
++            <IconDownload size={20} stroke={1.5} />
++          </div>
++          <div className="card-title">{t('WELCOME.IMPORT_COLLECTION')}</div>
++          <div className="card-desc">{t('welcome.getStarted.importDesc')}</div>
++        </button>
++      </div>
++
++      <div className="secondary-actions">
++        <button className="secondary-action" onClick={onOpenCollection}>
++          <span className="secondary-icon">
++            <IconFileImport size={16} stroke={1.5} />
++          </span>
++          <div>
++            <div className="secondary-label">{t('welcome.getStarted.openLabel')}</div>
++            <div className="secondary-desc">{t('welcome.getStarted.openDesc')}</div>
++          </div>
++        </button>
++        <button className="secondary-action" onClick={onStartRequest}>
++          <span className="secondary-icon">
++            <IconSend size={16} stroke={1.5} />
++          </span>
++          <div>
++            <div className="secondary-label">{t('welcome.getStarted.requestLabel')}</div>
++            <div className="secondary-desc">{t('welcome.getStarted.requestDesc')}</div>
++          </div>
++        </button>
++      </div>
++    </StyledWrapper>
++  );
++};
+ 
+diff --git a/packages/bruno-app/src/components/WelcomeModal/StorageStep/index.js b/packages/bruno-app/src/components/WelcomeModal/StorageStep/index.js
+index 877d7024e..ab98280bc 100644
+--- a/packages/bruno-app/src/components/WelcomeModal/StorageStep/index.js
++++ b/packages/bruno-app/src/components/WelcomeModal/StorageStep/index.js
+@@ -1,38 +1,43 @@
+ import React from 'react';
++import { useTranslation } from 'react-i18next';
+ import StyledWrapper from './StyledWrapper';
+ 
+-const StorageStep = ({ collectionLocation, onBrowse }) => (
+-  <StyledWrapper className="step-body">
+-    <div className="step-label">Storage</div>
+-    <div className="step-title">Where should we store your collections?</div>
+-    <div className="step-description">
+-      Bruno saves collections as plain files on your filesystem, perfect for version control with Git.
+-    </div>
++const StorageStep = ({ collectionLocation, onBrowse }) => {
++  const { t } = useTranslation();
+ 
+-    <div className="location-input-group">
+-      <div
+-        className="location-path-display"
+-        onClick={onBrowse}
+-        onKeyDown={(e) => {
+-          if (e.key === 'Enter' || e.key === ' ') {
+-            e.preventDefault();
+-            onBrowse();
+-          }
+-        }}
+-        role="button"
+-        tabIndex={0}
+-      >
+-        {collectionLocation ? (
+-          <span className="path-text">{collectionLocation}</span>
+-        ) : (
+-          <span className="path-text path-placeholder">Click to choose a folder...</span>
+-        )}
+-        <span className="browse-label">Browse</span>
++  return (
++    <StyledWrapper className="step-body">
++      <div className="step-label">{t('welcome.storage.label')}</div>
++      <div className="step-title">{t('welcome.storage.title')}</div>
++      <div className="step-description">
++        {t('welcome.storage.description')}
+       </div>
+-    </div>
+-    <div className="location-hint">
+-      Each collection and workspace gets its own folder inside this directory. You can change this later.
+-    </div>
+-  </StyledWrapper>
+-);
++
++      <div className="location-input-group">
++        <div
++          className="location-path-display"
++          onClick={onBrowse}
++          onKeyDown={(e) => {
++            if (e.key === 'Enter' || e.key === ' ') {
++              e.preventDefault();
++              onBrowse();
++            }
++          }}
++          role="button"
++          tabIndex={0}
++        >
++          {collectionLocation ? (
++            <span className="path-text">{collectionLocation}</span>
++          ) : (
++            <span className="path-text path-placeholder">{t('welcome.storage.clickToChoose')}</span>
++          )}
++          <span className="browse-label">{t('preferences.general.browse')}</span>
++        </div>
++      </div>
++      <div className="location-hint">
++        {t('welcome.storage.hint')}
++      </div>
++    </StyledWrapper>
++  );
++};
+ 
+diff --git a/packages/bruno-app/src/components/WelcomeModal/ThemeStep/index.js b/packages/bruno-app/src/components/WelcomeModal/ThemeStep/index.js
+index 6c9282654..bf4218cdb 100644
+--- a/packages/bruno-app/src/components/WelcomeModal/ThemeStep/index.js
++++ b/packages/bruno-app/src/components/WelcomeModal/ThemeStep/index.js
+@@ -4,2 +4,3 @@ import { IconBrightnessUp, IconMoon, IconDeviceDesktop } from '@tabler/icons';
+ import themes, { getLightThemes, getDarkThemes } from 'themes/index';
++import { useTranslation } from 'react-i18next';
+ import StyledWrapper from './StyledWrapper';
+@@ -7,5 +8,5 @@ import StyledWrapper from './StyledWrapper';
+ const themeModes = [
+-  { key: 'light', label: 'Light', icon: IconBrightnessUp },
+-  { key: 'dark', label: 'Dark', icon: IconMoon },
+-  { key: 'system', label: 'System', icon: IconDeviceDesktop }
++  { key: 'light', icon: IconBrightnessUp },
++  { key: 'dark', icon: IconMoon },
++  { key: 'system', icon: IconDeviceDesktop }
+ ];
+@@ -31,2 +32,3 @@ const ThemePreviewBox = ({ themeId, isDark }) => {
+ const ThemeStep = ({ storedTheme, setStoredTheme, themeVariantLight, setThemeVariantLight, themeVariantDark, setThemeVariantDark }) => {
++  const { t } = useTranslation();
+   const lightThemeList = getLightThemes();
+@@ -39,6 +41,6 @@ const ThemeStep = ({ storedTheme, setStoredTheme, themeVariantLight, setThemeVar
+     <StyledWrapper className="step-body">
+-      <div className="step-label">Appearance</div>
+-      <div className="step-title">Choose your theme</div>
++      <div className="step-label">{t('preferences.appearance')}</div>
++      <div className="step-title">{t('welcome.theme.title')}</div>
+       <div className="step-description">
+-        Pick a look that feels right. You can always change this later in Preferences.
++        {t('welcome.theme.description')}
+       </div>
+@@ -55,3 +57,3 @@ const ThemeStep = ({ storedTheme, setStoredTheme, themeVariantLight, setThemeVar
+               <Icon size={16} stroke={1.5} />
+-              {mode.label}
++              {t(`preferences.themes.${mode.key}`)}
+             </button>
+@@ -63,12 +65,12 @@ const ThemeStep = ({ storedTheme, setStoredTheme, themeVariantLight, setThemeVar
+         <div className="theme-variants-grid" style={{ marginBottom: showDark ? '1rem' : 0 }}>
+-          {lightThemeList.map((t) => (
++          {lightThemeList.map((theme) => (
+             <button
+               type="button"
+-              key={t.id}
+-              className={`theme-variant-option ${themeVariantLight === t.id ? 'selected' : ''}`}
+-              onClick={() => setThemeVariantLight(t.id)}
+-              aria-pressed={themeVariantLight === t.id}
++              key={theme.id}
++              className={`theme-variant-option ${themeVariantLight === theme.id ? 'selected' : ''}`}
++              onClick={() => setThemeVariantLight(theme.id)}
++              aria-pressed={themeVariantLight === theme.id}
+             >
+-              <ThemePreviewBox themeId={t.id} isDark={false} />
+-              <span className="variant-name">{t.name}</span>
++              <ThemePreviewBox themeId={theme.id} isDark={false} />
++              <span className="variant-name">{theme.name}</span>
+             </button>
+@@ -80,12 +82,12 @@ const ThemeStep = ({ storedTheme, setStoredTheme, themeVariantLight, setThemeVar
+         <div className="theme-variants-grid">
+-          {darkThemeList.map((t) => (
++          {darkThemeList.map((theme) => (
+             <button
+               type="button"
+-              key={t.id}
+-              className={`theme-variant-option ${themeVariantDark === t.id ? 'selected' : ''}`}
+-              onClick={() => setThemeVariantDark(t.id)}
+-              aria-pressed={themeVariantDark === t.id}
++              key={theme.id}
++              className={`theme-variant-option ${themeVariantDark === theme.id ? 'selected' : ''}`}
++              onClick={() => setThemeVariantDark(theme.id)}
++              aria-pressed={themeVariantDark === theme.id}
+             >
+-              <ThemePreviewBox themeId={t.id} isDark={true} />
+-              <span className="variant-name">{t.name}</span>
++              <ThemePreviewBox themeId={theme.id} isDark={true} />
++              <span className="variant-name">{theme.name}</span>
+             </button>
+diff --git a/packages/bruno-app/src/components/WelcomeModal/WelcomeStep/index.js b/packages/bruno-app/src/components/WelcomeModal/WelcomeStep/index.js
+index 5edcc11a1..da935f4fb 100644
+--- a/packages/bruno-app/src/components/WelcomeModal/WelcomeStep/index.js
++++ b/packages/bruno-app/src/components/WelcomeModal/WelcomeStep/index.js
+@@ -7,2 +7,3 @@ import {
+ } from '@tabler/icons';
++import { useTranslation } from 'react-i18next';
+ import StyledWrapper from './StyledWrapper';
+@@ -12,4 +13,4 @@ const highlights = [
+     icon: IconFolderTabler,
+-    title: 'Filesystem only',
+-    desc: 'Collections are plain files on your disk. No cloud sync, no proprietary lock-in.'
++    titleKey: 'welcome.highlights.filesystem.title',
++    descKey: 'welcome.highlights.filesystem.desc'
+   },
+@@ -17,4 +18,4 @@ const highlights = [
+     icon: IconGitFork,
+-    title: 'Git-friendly',
+-    desc: 'Every request is a readable file. Commit, branch, review, and collaborate using the tools you already know.'
++    titleKey: 'welcome.highlights.git.title',
++    descKey: 'welcome.highlights.git.desc'
+   },
+@@ -22,4 +23,4 @@ const highlights = [
+     icon: IconLock,
+-    title: 'Privacy-focused',
+-    desc: 'No account, no login. Bruno works entirely offline, your API keys never leave your machine.'
++    titleKey: 'welcome.highlights.privacy.title',
++    descKey: 'welcome.highlights.privacy.desc'
+   },
+@@ -27,4 +28,4 @@ const highlights = [
+     icon: IconRocket,
+-    title: 'Fast and lightweight',
+-    desc: 'Built to be snappy. No bloated runtimes, just a fast, focused tool for exploring and testing APIs.'
++    titleKey: 'welcome.highlights.fast.title',
++    descKey: 'welcome.highlights.fast.desc'
+   }
+@@ -32,22 +33,26 @@ const highlights = [
+ 
+-const WelcomeStep = () => (
+-  <StyledWrapper className="step-body">
+-    <div className="highlights">
+-      {highlights.map((item) => {
+-        const Icon = item.icon;
+-        return (
+-          <div key={item.title} className="highlight-item">
+-            <div className="highlight-icon">
+-              <Icon size={18} stroke={1.5} />
+-            </div>
+-            <div>
+-              <div className="highlight-title">{item.title}</div>
+-              <div className="highlight-desc">{item.desc}</div>
++const WelcomeStep = () => {
++  const { t } = useTranslation();
++
++  return (
++    <StyledWrapper className="step-body">
++      <div className="highlights">
++        {highlights.map((item) => {
++          const Icon = item.icon;
++          return (
++            <div key={item.titleKey} className="highlight-item">
++              <div className="highlight-icon">
++                <Icon size={18} stroke={1.5} />
++              </div>
++              <div>
++                <div className="highlight-title">{t(item.titleKey)}</div>
++                <div className="highlight-desc">{t(item.descKey)}</div>
++              </div>
+             </div>
+-          </div>
+-        );
+-      })}
+-    </div>
+-  </StyledWrapper>
+-);
++          );
++        })}
++      </div>
++    </StyledWrapper>
++  );
++};
+ 
+diff --git a/packages/bruno-app/src/components/WelcomeModal/index.js b/packages/bruno-app/src/components/WelcomeModal/index.js
+index 7feedc509..0549ddc14 100644
+--- a/packages/bruno-app/src/components/WelcomeModal/index.js
++++ b/packages/bruno-app/src/components/WelcomeModal/index.js
+@@ -14,2 +14,3 @@ import GetStartedStep from './GetStartedStep';
+ import StyledWrapper from './StyledWrapper';
++import { useTranslation } from 'react-i18next';
+ 
+@@ -19,2 +20,3 @@ const WelcomeModal = ({ onDismiss, onImportCollection, onCreateCollection, onOpe
+   const dispatch = useDispatch();
++  const { t } = useTranslation();
+   const preferences = useSelector((state) => state.app.preferences);
+@@ -53,3 +55,3 @@ const WelcomeModal = ({ onDismiss, onImportCollection, onCreateCollection, onOpe
+       return dispatch(savePreferences(updatedPreferences)).catch(() => {
+-        toast.error('Failed to save preferences');
++        toast.error(t('welcome.toast.savePreferencesFailed'));
+       });
+@@ -109,3 +111,3 @@ const WelcomeModal = ({ onDismiss, onImportCollection, onCreateCollection, onOpe
+           <h1 className="welcome-heading">
+-            {step === 1 ? 'Welcome to Bruno' : step === 4 ? 'Ready to go!' : 'Set up Bruno'}
++            {step === 1 ? t('welcome.heading') : step === 4 ? t('welcome.readyToGo') : t('welcome.setUp')}
+           </h1>
+@@ -113,3 +115,3 @@ const WelcomeModal = ({ onDismiss, onImportCollection, onCreateCollection, onOpe
+             <p className="welcome-tagline">
+-              A fast, Git-friendly, and open-source API client.
++              {t('welcome.tagline')}
+             </p>
+@@ -128,3 +130,3 @@ const WelcomeModal = ({ onDismiss, onImportCollection, onCreateCollection, onOpe
+                 onClick={() => goTo(i + 1)}
+-                aria-label={`Go to step ${i + 1}`}
++                aria-label={t('welcome.goToStep', { step: i + 1 })}
+                 aria-current={i + 1 === step ? 'step' : undefined}
+@@ -136,3 +138,3 @@ const WelcomeModal = ({ onDismiss, onImportCollection, onCreateCollection, onOpe
+             <Button type="button" color="secondary" variant="ghost" onClick={handleSaveAndDismiss}>
+-              Skip
++              {t('welcome.skip')}
+             </Button>
+@@ -140,3 +142,3 @@ const WelcomeModal = ({ onDismiss, onImportCollection, onCreateCollection, onOpe
+               <Button type="button" color="secondary" variant="ghost" onClick={() => goTo(step - 1)}>
+-                Back
++                {t('welcome.back')}
+               </Button>
+@@ -145,3 +147,3 @@ const WelcomeModal = ({ onDismiss, onImportCollection, onCreateCollection, onOpe
+               <Button type="button" onClick={() => goTo(step + 1)}>
+-                {step === 1 ? 'Get Started' : 'Next'}
++                {step === 1 ? t('welcome.getStarted') : t('welcome.next')}
+               </Button>
+@@ -150,3 +152,3 @@ const WelcomeModal = ({ onDismiss, onImportCollection, onCreateCollection, onOpe
+               <Button type="button" color="secondary" onClick={handleSaveAndDismiss}>
+-                I'll explore on my own
++                {t('welcome.exploreOnMyOwn')}
+               </Button>
+diff --git a/packages/bruno-app/src/components/WorkspaceHome/WorkspaceDocs/index.js b/packages/bruno-app/src/components/WorkspaceHome/WorkspaceDocs/index.js
+index b9242c870..8bd943892 100644
+--- a/packages/bruno-app/src/components/WorkspaceHome/WorkspaceDocs/index.js
++++ b/packages/bruno-app/src/components/WorkspaceHome/WorkspaceDocs/index.js
+@@ -11,2 +11,3 @@ import { useTrackScroll } from 'hooks/useTrackScroll';
+ import DocsEditor from 'components/Documentation/DocsEditor';
++import { useTranslation } from 'react-i18next';
+ 
+@@ -14,2 +15,3 @@ const WorkspaceDocs = ({ workspace }) => {
+   const dispatch = useDispatch();
++  const { t } = useTranslation();
+   const [isEditing, setIsEditing] = useState(false);
+@@ -54,3 +56,3 @@ const WorkspaceDocs = ({ workspace }) => {
+     if (!workspace) {
+-      toast.error('Workspace not found');
++      toast.error(t('workspace.docs.toast.workspaceNotFound'));
+       return;
+@@ -60,3 +62,3 @@ const WorkspaceDocs = ({ workspace }) => {
+       await dispatch(saveWorkspaceDocs(workspace.uid, localDocs));
+-      toast.success('Documentation saved successfully');
++      toast.success(t('workspace.docs.toast.saved'));
+       toggleViewMode();
+@@ -64,3 +66,3 @@ const WorkspaceDocs = ({ workspace }) => {
+       console.error('Error saving workspace docs:', error);
+-      toast.error('Failed to save documentation');
++      toast.error(t('workspace.docs.toast.saveFailed'));
+     }
+@@ -79,3 +81,3 @@ const WorkspaceDocs = ({ workspace }) => {
+           <IconFileText size={16} strokeWidth={1.5} />
+-          <span>Documentation</span>
++          <span>{t('workspace.docs.title')}</span>
+         </div>
+@@ -109,3 +111,3 @@ const WorkspaceDocs = ({ workspace }) => {
+                 <Button onClick={onSave}>
+-                  Save
++                  {t('common.save')}
+                 </Button>
+@@ -120,13 +122,13 @@ const WorkspaceDocs = ({ workspace }) => {
+             <p className="empty-text">
+-              Add documentation to help your team work smoothly.
++              {t('workspace.docs.emptyText')}
+             </p>
+-            <p className="empty-subtext">You can include:</p>
++            <p className="empty-subtext">{t('workspace.docs.youCanInclude')}</p>
+             <ul className="suggestions-list">
+-              <li>Project overview</li>
+-              <li>Setup instructions</li>
+-              <li>Key workflows</li>
+-              <li>Resources & FAQs</li>
++              <li>{t('workspace.docs.suggestions.overview')}</li>
++              <li>{t('workspace.docs.suggestions.setup')}</li>
++              <li>{t('workspace.docs.suggestions.workflows')}</li>
++              <li>{t('workspace.docs.suggestions.resources')}</li>
+             </ul>
+             <Button color="light" size="sm" icon={<IconPlus size={14} strokeWidth={1.5} />} onClick={handleAddDocumentation}>
+-              Add Documentation
++              {t('workspace.docs.addDocumentation')}
+             </Button>
+diff --git a/packages/bruno-app/src/components/WorkspaceHome/WorkspaceEnvironments/CopyEnvironment/index.js b/packages/bruno-app/src/components/WorkspaceHome/WorkspaceEnvironments/CopyEnvironment/index.js
+index cb967a34e..5fc573c95 100644
+--- a/packages/bruno-app/src/components/WorkspaceHome/WorkspaceEnvironments/CopyEnvironment/index.js
++++ b/packages/bruno-app/src/components/WorkspaceHome/WorkspaceEnvironments/CopyEnvironment/index.js
+@@ -8,2 +8,3 @@ import { useDispatch } from 'react-redux';
+ import * as Yup from 'yup';
++import { useTranslation } from 'react-i18next';
+ 
+@@ -11,2 +12,3 @@ const CopyEnvironment = ({ environment, onClose }) => {
+   const dispatch = useDispatch();
++  const { t } = useTranslation();
+   const inputRef = useRef();
+@@ -15,3 +17,3 @@ const CopyEnvironment = ({ environment, onClose }) => {
+     initialValues: {
+-      name: environment.name + ' - Copy'
++      name: `${environment.name} - ${t('environments.copy.defaultSuffix')}`
+     },
+@@ -19,5 +21,5 @@ const CopyEnvironment = ({ environment, onClose }) => {
+       name: Yup.string()
+-        .min(1, 'must be at least 1 character')
+-        .max(50, 'must be 50 characters or less')
+-        .required('name is required')
++        .min(1, t('environments.validation.minOneCharLower'))
++        .max(50, t('environments.validation.maxFiftyLower'))
++        .required(t('environments.validation.nameRequiredLower'))
+     }),
+@@ -26,3 +28,3 @@ const CopyEnvironment = ({ environment, onClose }) => {
+         .then(() => {
+-          toast.success('Environment created!');
++          toast.success(t('environments.toast.created'));
+           onClose();
+@@ -30,3 +32,3 @@ const CopyEnvironment = ({ environment, onClose }) => {
+         .catch((error) => {
+-          toast.error('An error occurred while creating the environment');
++          toast.error(t('environments.toast.createError'));
+           console.error(error);
+@@ -48,3 +50,3 @@ const CopyEnvironment = ({ environment, onClose }) => {
+     <Portal>
+-      <Modal size="sm" title="Copy Environment" confirmText="Copy" handleConfirm={onSubmit} handleCancel={onClose}>
++      <Modal size="sm" title={t('environments.copy.title')} confirmText={t('environments.action.copy')} handleConfirm={onSubmit} handleCancel={onClose}>
+         <form className="bruno-form" onSubmit={(e) => e.preventDefault()}>
+@@ -52,3 +54,3 @@ const CopyEnvironment = ({ environment, onClose }) => {
+             <label htmlFor="environment-name" className="block font-semibold">
+-              New Environment Name
++              {t('environments.label.newName')}
+             </label>
+diff --git a/packages/bruno-app/src/components/WorkspaceHome/WorkspaceEnvironments/CreateEnvironment/index.js b/packages/bruno-app/src/components/WorkspaceHome/WorkspaceEnvironments/CreateEnvironment/index.js
+index ba99d23d3..6cbf284ff 100644
+--- a/packages/bruno-app/src/components/WorkspaceHome/WorkspaceEnvironments/CreateEnvironment/index.js
++++ b/packages/bruno-app/src/components/WorkspaceHome/WorkspaceEnvironments/CreateEnvironment/index.js
+@@ -9,4 +9,6 @@ import { addGlobalEnvironment } from 'providers/ReduxStore/slices/global-environ
+ import { validateName, validateNameError } from 'utils/common/regex';
++import { useTranslation } from 'react-i18next';
+ 
+ const CreateEnvironment = ({ onClose, onEnvironmentCreated }) => {
++  const { t } = useTranslation();
+   const globalEnvs = useSelector((state) => state?.globalEnvironments?.globalEnvironments);
+@@ -27,4 +29,4 @@ const CreateEnvironment = ({ onClose, onEnvironmentCreated }) => {
+       name: Yup.string()
+-        .min(1, 'Must be at least 1 character')
+-        .max(255, 'Must be 255 characters or less')
++        .min(1, t('environments.validation.minOneChar'))
++        .max(255, t('environments.validation.maxTwoFiftyFive'))
+         .test('is-valid-filename', function (value) {
+@@ -33,4 +35,4 @@ const CreateEnvironment = ({ onClose, onEnvironmentCreated }) => {
+         })
+-        .required('Name is required')
+-        .test('duplicate-name', 'Global environment already exists', validateEnvironmentName)
++        .required(t('environments.validation.nameRequired'))
++        .test('duplicate-name', t('environments.validation.globalAlreadyExists'), validateEnvironmentName)
+     }),
+@@ -39,3 +41,3 @@ const CreateEnvironment = ({ onClose, onEnvironmentCreated }) => {
+         .then(() => {
+-          toast.success('Global environment created!');
++          toast.success(t('environments.toast.globalCreated'));
+           onClose();
+@@ -46,3 +48,3 @@ const CreateEnvironment = ({ onClose, onEnvironmentCreated }) => {
+         })
+-        .catch(() => toast.error('An error occurred while creating the environment'));
++        .catch(() => toast.error(t('environments.toast.createError')));
+     }
+@@ -64,4 +66,4 @@ const CreateEnvironment = ({ onClose, onEnvironmentCreated }) => {
+         size="md"
+-        title="Create Global Environment"
+-        confirmText="Create"
++        title={t('environments.createGlobal.title')}
++        confirmText={t('environments.action.create')}
+         handleConfirm={onSubmit}
+@@ -73,3 +75,3 @@ const CreateEnvironment = ({ onClose, onEnvironmentCreated }) => {
+             <label htmlFor="environment-name" className="block font-semibold">
+-              Environment Name
++              {t('environments.label.name')}
+             </label>
+diff --git a/packages/bruno-app/src/components/WorkspaceHome/WorkspaceEnvironments/DeleteEnvironment/index.js b/packages/bruno-app/src/components/WorkspaceHome/WorkspaceEnvironments/DeleteEnvironment/index.js
+index d5c8966b0..4c3fc148b 100644
+--- a/packages/bruno-app/src/components/WorkspaceHome/WorkspaceEnvironments/DeleteEnvironment/index.js
++++ b/packages/bruno-app/src/components/WorkspaceHome/WorkspaceEnvironments/DeleteEnvironment/index.js
+@@ -7,2 +7,3 @@ import StyledWrapper from './StyledWrapper';
+ import { deleteGlobalEnvironment } from 'providers/ReduxStore/slices/global-environments';
++import { useTranslation } from 'react-i18next';
+ 
+@@ -10,2 +11,3 @@ const DeleteEnvironment = ({ onClose, environment }) => {
+   const dispatch = useDispatch();
++  const { t } = useTranslation();
+   const onConfirm = () => {
+@@ -13,6 +15,6 @@ const DeleteEnvironment = ({ onClose, environment }) => {
+       .then(() => {
+-        toast.success('Environment deleted successfully');
++        toast.success(t('environments.toast.deleted'));
+         onClose();
+       })
+-      .catch(() => toast.error('An error occurred while deleting the environment'));
++      .catch(() => toast.error(t('environments.toast.deleteError')));
+   };
+@@ -24,4 +26,4 @@ const DeleteEnvironment = ({ onClose, environment }) => {
+           size="md"
+-          title="Delete Environment"
+-          confirmText="Delete"
++          title={t('environments.delete.title')}
++          confirmText={t('common.delete')}
+           handleConfirm={onConfirm}
+@@ -29,3 +31,4 @@ const DeleteEnvironment = ({ onClose, environment }) => {
+         >
+-          Are you sure you want to delete <span className="font-semibold">{environment.name}</span>?
++          {t('environments.delete.confirmPrefix')} <span className="font-semibold">{environment.name}</span>
++          {t('environments.delete.confirmSuffix')}
+         </Modal>
+diff --git a/packages/bruno-app/src/components/WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js b/packages/bruno-app/src/components/WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js
+index e9cc2293e..30200d9af 100644
+--- a/packages/bruno-app/src/components/WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js
++++ b/packages/bruno-app/src/components/WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js
+@@ -22,2 +22,3 @@ import useEnvironmentTabs from 'hooks/useEnvironmentTabs';
+ import StyledWrapper from './StyledWrapper';
++import { useTranslation } from 'react-i18next';
+ 
+@@ -25,2 +26,3 @@ const EnvironmentDetails = ({ environment, setIsModified, collection, searchQuer
+   const dispatch = useDispatch();
++  const { t } = useTranslation();
+   const globalEnvs = useSelector((state) => state?.globalEnvironments?.globalEnvironments);
+@@ -68,3 +70,3 @@ const EnvironmentDetails = ({ environment, setIsModified, collection, searchQuer
+     if (!name || name.trim() === '') {
+-      return 'Name is required';
++      return t('environments.validation.nameRequired');
+     }
+@@ -72,3 +74,3 @@ const EnvironmentDetails = ({ environment, setIsModified, collection, searchQuer
+     if (name.length < 1) {
+-      return 'Must be at least 1 character';
++      return t('environments.validation.minOneChar');
+     }
+@@ -76,3 +78,3 @@ const EnvironmentDetails = ({ environment, setIsModified, collection, searchQuer
+     if (name.length > 255) {
+-      return 'Must be 255 characters or less';
++      return t('environments.validation.maxTwoFiftyFive');
+     }
+@@ -87,3 +89,3 @@ const EnvironmentDetails = ({ environment, setIsModified, collection, searchQuer
+     if (isDuplicate) {
+-      return 'Environment already exists';
++      return t('environments.validation.alreadyExists');
+     }
+@@ -112,3 +114,3 @@ const EnvironmentDetails = ({ environment, setIsModified, collection, searchQuer
+       .then(() => {
+-        toast.success('Environment renamed!');
++        toast.success(t('environments.toast.renameSuccess'));
+         setIsRenaming(false);
+@@ -118,3 +120,3 @@ const EnvironmentDetails = ({ environment, setIsModified, collection, searchQuer
+       .catch(() => {
+-        toast.error('An error occurred while renaming the environment');
++        toast.error(t('environments.toast.renameError'));
+       });
+@@ -184,4 +186,4 @@ const EnvironmentDetails = ({ environment, setIsModified, collection, searchQuer
+           inheritedEnvironmentName
+-            ? `Inheriting variables from ${inheritedEnvironmentName}`
+-            : 'Stopped inheriting variables'
++            ? t('environments.toast.inheritingFrom', { name: inheritedEnvironmentName })
++            : t('environments.toast.stoppedInheriting')
+         );
+@@ -190,3 +192,3 @@ const EnvironmentDetails = ({ environment, setIsModified, collection, searchQuer
+         console.error(err);
+-        toast.error('An error occurred while saving the inherited environment');
++        toast.error(t('environments.toast.saveInheritError'));
+       });
+@@ -233,3 +235,3 @@ const EnvironmentDetails = ({ environment, setIsModified, collection, searchQuer
+                   onMouseDown={(e) => e.preventDefault()}
+-                  title="Save"
++                  title={t('common.save')}
+                 >
+@@ -241,3 +243,3 @@ const EnvironmentDetails = ({ environment, setIsModified, collection, searchQuer
+                   onMouseDown={(e) => e.preventDefault()}
+-                  title="Cancel"
++                  title={t('common.cancel')}
+                 >
+@@ -262,12 +264,12 @@ const EnvironmentDetails = ({ environment, setIsModified, collection, searchQuer
+           />
+-          <ActionIcon label="Save All" onClick={handleSaveAll} data-testid="save-all-env">
++          <ActionIcon label={t('environments.action.saveAll')} onClick={handleSaveAll} data-testid="save-all-env">
+             <IconDeviceFloppy size={15} strokeWidth={1.5} />
+           </ActionIcon>
+-          <ActionIcon label="Rename" onClick={handleRenameClick} data-testid="env-rename-action">
++          <ActionIcon label={t('environments.action.rename')} onClick={handleRenameClick} data-testid="env-rename-action">
+             <IconEdit size={15} strokeWidth={1.5} />
+           </ActionIcon>
+-          <ActionIcon label="Copy" onClick={() => setOpenCopyModal(true)} data-testid="env-copy-action">
++          <ActionIcon label={t('environments.action.copy')} onClick={() => setOpenCopyModal(true)} data-testid="env-copy-action">
+             <IconCopy size={15} strokeWidth={1.5} />
+           </ActionIcon>
+-          <ActionIcon label="Delete" onClick={() => setOpenDeleteModal(true)} colorOnHover="danger" data-testid="env-delete-action">
++          <ActionIcon label={t('common.delete')} onClick={() => setOpenDeleteModal(true)} colorOnHover="danger" data-testid="env-delete-action">
+             <IconTrash size={15} strokeWidth={1.5} />
+@@ -292,3 +294,3 @@ const EnvironmentDetails = ({ environment, setIsModified, collection, searchQuer
+                     type="text"
+-                    placeholder={activeTab === 'secrets' ? 'Search secrets...' : 'Search variables...'}
++                    placeholder={activeTab === 'secrets' ? t('environments.searchSecretsPlaceholder') : t('environments.searchVariablesPlaceholder')}
+                     value={searchQuery}
+@@ -308,3 +310,3 @@ const EnvironmentDetails = ({ environment, setIsModified, collection, searchQuer
+                       onMouseDown={(e) => e.preventDefault()}
+-                      title="Clear search"
++                      title={t('environments.clearSearch')}
+                       data-testid="env-clear-search"
+@@ -316,3 +318,3 @@ const EnvironmentDetails = ({ environment, setIsModified, collection, searchQuer
+               ) : (
+-                <ActionIcon label="Search" onClick={handleSearchIconClick} data-testid="env-search-action">
++                <ActionIcon label={t('environments.action.search')} onClick={handleSearchIconClick} data-testid="env-search-action">
+                   <IconSearch size={15} strokeWidth={1.5} />
+diff --git a/packages/bruno-app/src/components/WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js b/packages/bruno-app/src/components/WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js
+index 67499daa4..549881bd2 100644
+--- a/packages/bruno-app/src/components/WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js
++++ b/packages/bruno-app/src/components/WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js
+@@ -30,2 +30,3 @@ import toast from 'react-hot-toast';
+ import classnames from 'classnames';
++import { useTranslation } from 'react-i18next';
+ 
+@@ -45,2 +46,3 @@ const EnvironmentList = ({
+   const dispatch = useDispatch();
++  const { t } = useTranslation();
+   const globalEnvs = useSelector((state) => state?.globalEnvironments?.globalEnvironments);
+@@ -57,3 +59,3 @@ const EnvironmentList = ({
+ 
+-  // Scroll persistence for the environments list — key follows the standard
++  // Scroll persistence for the environments list �� key follows the standard
+   // `persisted::<activeTabUid>::<key>` format so clearPersistedScope works.
+@@ -212,8 +214,8 @@ const EnvironmentList = ({
+       .then(() => {
+-        toast.success(`Environment "${env.name}" activated`);
++        toast.success(t('environments.toast.activated', { name: env.name }));
+       })
+       .catch(() => {
+-        toast.error('Failed to activate environment');
++        toast.error(t('environments.toast.activateFailed'));
+       });
+-  }, [dispatch]);
++  }, [dispatch, t]);
+ 
+@@ -221,3 +223,3 @@ const EnvironmentList = ({
+     if (!name || name.trim() === '') {
+-      return 'Name is required';
++      return t('environments.validation.nameRequired');
+     }
+@@ -233,3 +235,3 @@ const EnvironmentList = ({
+     if (isDuplicate) {
+-      return 'Environment already exists';
++      return t('environments.validation.alreadyExists');
+     }
+@@ -269,3 +271,3 @@ const EnvironmentList = ({
+       .then(() => {
+-        toast.success('Environment created!');
++        toast.success(t('environments.toast.created'));
+         setIsCreatingInline(false);
+@@ -275,3 +277,3 @@ const EnvironmentList = ({
+       .catch(() => {
+-        toast.error('An error occurred while creating the environment');
++        toast.error(t('environments.toast.createError'));
+       });
+@@ -315,3 +317,3 @@ const EnvironmentList = ({
+       .then(() => {
+-        toast.success('Environment renamed!');
++        toast.success(t('environments.toast.renameSuccess'));
+         setRenamingEnvUid(null);
+@@ -321,3 +323,3 @@ const EnvironmentList = ({
+       .catch(() => {
+-        toast.error('An error occurred while renaming the environment');
++        toast.error(t('environments.toast.renameError'));
+       });
+@@ -354,3 +356,3 @@ const EnvironmentList = ({
+   const handleSaveDotEnv = (variables) => {
+-    if (!selectedDotEnvFile) return Promise.reject(new Error('No file selected'));
++    if (!selectedDotEnvFile) return Promise.reject(new Error(t('environments.error.noFileSelected')));
+     return dispatch(saveWorkspaceDotEnvVariables(workspace.uid, variables, selectedDotEnvFile));
+@@ -359,3 +361,3 @@ const EnvironmentList = ({
+   const handleSaveDotEnvRaw = (content) => {
+-    if (!selectedDotEnvFile) return Promise.reject(new Error('No file selected'));
++    if (!selectedDotEnvFile) return Promise.reject(new Error(t('environments.error.noFileSelected')));
+     return dispatch(saveWorkspaceDotEnvRaw(workspace.uid, content, selectedDotEnvFile));
+@@ -390,3 +392,3 @@ const EnvironmentList = ({
+     if (!name || name.trim() === '') {
+-      return 'Name is required';
++      return t('environments.validation.nameRequired');
+     }
+@@ -394,3 +396,3 @@ const EnvironmentList = ({
+     if (!name.startsWith('.env')) {
+-      return 'File name must start with .env';
++      return t('environments.validation.dotEnvPrefix');
+     }
+@@ -399,3 +401,3 @@ const EnvironmentList = ({
+     if (!validPattern.test(name)) {
+-      return 'Invalid file name';
++      return t('environments.validation.invalidFileName');
+     }
+@@ -404,3 +406,3 @@ const EnvironmentList = ({
+     if (exists) {
+-      return 'File already exists';
++      return t('environments.validation.fileAlreadyExists');
+     }
+@@ -419,3 +421,3 @@ const EnvironmentList = ({
+       .then(() => {
+-        toast.success(`${newDotEnvName} file created!`);
++        toast.success(t('environments.toast.dotEnvCreated', { name: newDotEnvName }));
+         setIsCreatingDotEnvInline(false);
+@@ -428,3 +430,3 @@ const EnvironmentList = ({
+       .catch((error) => {
+-        toast.error(error.message || 'Failed to create .env file');
++        toast.error(error.message || t('environments.toast.dotEnvCreateFailed'));
+       });
+@@ -462,3 +464,3 @@ const EnvironmentList = ({
+       .then(() => {
+-        toast.success(`${filename} file deleted!`);
++        toast.success(t('environments.toast.dotEnvDeleted', { name: filename }));
+         handleDotEnvModifiedChange(false);
+@@ -478,3 +480,3 @@ const EnvironmentList = ({
+       .catch((error) => {
+-        toast.error(error.message || 'Failed to delete .env file');
++        toast.error(error.message || t('environments.toast.dotEnvDeleteFailed'));
+       });
+@@ -536,9 +538,9 @@ const EnvironmentList = ({
+         <IconFileAlert size={48} strokeWidth={1.5} />
+-        <div className="title">No Environments</div>
++        <div className="title">{t('environments.empty.noEnvironments')}</div>
+         <div className="actions">
+           <Button size="sm" color="secondary" onClick={() => handleCreateEnvClick()}>
+-            Create Environment
++            {t('environments.empty.createEnvironment')}
+           </Button>
+           <Button size="sm" color="secondary" onClick={() => handleImportClick()}>
+-            Import Environment
++            {t('environments.empty.importEnvironment')}
+           </Button>
+@@ -564,3 +566,3 @@ const EnvironmentList = ({
+             <CollapsibleSection
+-              title="Environments"
++              title={t('environments.section.environments')}
+               expanded={environmentsExpanded}
+@@ -578,3 +580,3 @@ const EnvironmentList = ({
+                     }}
+-                    title="Create environment"
++                    title={t('environments.action.createEnvironment')}
+                     data-testid="create-environment"
+@@ -592,3 +594,3 @@ const EnvironmentList = ({
+                     }}
+-                    title="Import environment"
++                    title={t('environments.action.importEnvironment')}
+                     data-testid="import-environment-btn"
+@@ -606,3 +608,3 @@ const EnvironmentList = ({
+                     }}
+-                    title="Export environment"
++                    title={t('environments.action.exportEnvironment')}
+                   >
+@@ -618,3 +620,3 @@ const EnvironmentList = ({
+                   type="text"
+-                  placeholder="Search environments..."
++                  placeholder={t('environments.searchPlaceholder')}
+                   value={searchText}
+@@ -628,3 +630,3 @@ const EnvironmentList = ({
+                 {searchText && (
+-                  <button className="env-list-search-clear" title="Clear search" onClick={() => setSearchText('')} onMouseDown={(e) => e.preventDefault()}>
++                  <button className="env-list-search-clear" title={t('environments.clearSearch')} onClick={() => setSearchText('')} onMouseDown={(e) => e.preventDefault()}>
+                     <IconX size={12} strokeWidth={1.5} />
+@@ -666,3 +668,3 @@ const EnvironmentList = ({
+                             onMouseDown={(e) => e.preventDefault()}
+-                            title="Save"
++                            title={t('common.save')}
+                           >
+@@ -674,3 +676,3 @@ const EnvironmentList = ({
+                             onMouseDown={(e) => e.preventDefault()}
+-                            title="Cancel"
++                            title={t('common.cancel')}
+                           >
+@@ -686,3 +688,3 @@ const EnvironmentList = ({
+                           {activeEnvironmentUid === env.uid ? (
+-                            <div className="activated-checkmark" title="Active environment">
++                            <div className="activated-checkmark" title={t('environments.activeEnvironment')}>
+                               <IconCheck size={16} strokeWidth={2} />
+@@ -693,3 +695,3 @@ const EnvironmentList = ({
+                               onClick={(e) => handleActivateEnvironment(e, env)}
+-                              title="Activate environment"
++                              title={t('environments.activateEnvironment')}
+                             >
+@@ -714,3 +716,3 @@ const EnvironmentList = ({
+                       onKeyDown={handleEnvNameKeyDown}
+-                      placeholder="Environment name..."
++                      placeholder={t('environments.namePlaceholder')}
+                       autoComplete="off"
+@@ -725,3 +727,3 @@ const EnvironmentList = ({
+                         onMouseDown={(e) => e.preventDefault()}
+-                        title="Save"
++                        title={t('common.save')}
+                         data-testid="env-create-save"
+@@ -734,3 +736,3 @@ const EnvironmentList = ({
+                         onMouseDown={(e) => e.preventDefault()}
+-                        title="Cancel"
++                        title={t('common.cancel')}
+                       >
+@@ -746,3 +748,3 @@ const EnvironmentList = ({
+                   <div className="no-env-file">
+-                    <span>No environments</span>
++                    <span>{t('environments.empty.noEnvironmentsLower')}</span>
+                   </div>
+@@ -753,3 +755,3 @@ const EnvironmentList = ({
+             <CollapsibleSection
+-              title=".env Files"
++              title={t('environments.section.dotEnvFiles')}
+               testId="dotenv-files-section"
+@@ -762,3 +764,3 @@ const EnvironmentList = ({
+                   onClick={handleCreateDotEnvInlineClick}
+-                  title="Create .env file"
++                  title={t('environments.action.createDotEnvFile')}
+                   data-testid="create-dotenv-file"
+@@ -803,3 +805,3 @@ const EnvironmentList = ({
+                         onMouseDown={(e) => e.preventDefault()}
+-                        title="Create"
++                        title={t('environments.action.create')}
+                       >
+@@ -811,3 +813,3 @@ const EnvironmentList = ({
+                         onMouseDown={(e) => e.preventDefault()}
+-                        title="Cancel"
++                        title={t('common.cancel')}
+                       >
+@@ -823,3 +825,3 @@ const EnvironmentList = ({
+                   <div className="no-env-file">
+-                    <span>No .env files</span>
++                    <span>{t('environments.empty.noDotEnvFiles')}</span>
+                   </div>
+diff --git a/packages/bruno-app/src/components/WorkspaceHome/WorkspaceEnvironments/RenameEnvironment/index.js b/packages/bruno-app/src/components/WorkspaceHome/WorkspaceEnvironments/RenameEnvironment/index.js
+index 5ac0038dd..b10890597 100644
+--- a/packages/bruno-app/src/components/WorkspaceHome/WorkspaceEnvironments/RenameEnvironment/index.js
++++ b/packages/bruno-app/src/components/WorkspaceHome/WorkspaceEnvironments/RenameEnvironment/index.js
+@@ -10,2 +10,3 @@ import { validateName, validateNameError } from 'utils/common/regex';
+ import { useSelector } from 'react-redux';
++import { useTranslation } from 'react-i18next';
+ 
+@@ -13,2 +14,3 @@ const RenameEnvironment = ({ onClose, environment }) => {
+   const dispatch = useDispatch();
++  const { t } = useTranslation();
+   const globalEnvs = useSelector((state) => state?.globalEnvironments?.globalEnvironments);
+@@ -29,4 +31,4 @@ const RenameEnvironment = ({ onClose, environment }) => {
+       name: Yup.string()
+-        .min(1, 'must be at least 1 character')
+-        .max(255, 'Must be 255 characters or less')
++        .min(1, t('environments.validation.minOneCharLower'))
++        .max(255, t('environments.validation.maxTwoFiftyFive'))
+         .test('is-valid-filename', function (value) {
+@@ -35,4 +37,4 @@ const RenameEnvironment = ({ onClose, environment }) => {
+         })
+-        .required('name is required')
+-        .test('duplicate-name', 'Environment already exists', validateEnvironmentName)
++        .required(t('environments.validation.nameRequiredLower'))
++        .test('duplicate-name', t('environments.validation.alreadyExists'), validateEnvironmentName)
+     }),
+@@ -44,3 +46,3 @@ const RenameEnvironment = ({ onClose, environment }) => {
+         .then(() => {
+-          toast.success('Environment renamed successfully');
++          toast.success(t('environments.toast.renamed'));
+           onClose();
+@@ -48,3 +50,3 @@ const RenameEnvironment = ({ onClose, environment }) => {
+         .catch((error) => {
+-          toast.error('An error occurred while renaming the environment');
++          toast.error(t('environments.toast.renameError'));
+           console.error(error);
+@@ -68,4 +70,4 @@ const RenameEnvironment = ({ onClose, environment }) => {
+         size="sm"
+-        title="Rename Environment"
+-        confirmText="Rename"
++        title={t('environments.rename.title')}
++        confirmText={t('environments.action.rename')}
+         handleConfirm={onSubmit}
+@@ -76,3 +78,3 @@ const RenameEnvironment = ({ onClose, environment }) => {
+             <label htmlFor="environment-name" className="block font-semibold">
+-              Environment Name
++              {t('environments.label.name')}
+             </label>
+diff --git a/packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/CollectionsList/ConnectGitRemote/index.js b/packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/CollectionsList/ConnectGitRemote/index.js
+index 1820e470d..cc89b3c2b 100644
+--- a/packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/CollectionsList/ConnectGitRemote/index.js
++++ b/packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/CollectionsList/ConnectGitRemote/index.js
+@@ -4,2 +4,3 @@ import * as Yup from 'yup';
+ import { useDispatch, useSelector } from 'react-redux';
++import { useTranslation } from 'react-i18next';
+ import toast from 'react-hot-toast';
+@@ -11,2 +12,3 @@ const ConnectGitRemote = ({ collectionPath, collectionName, initialUrl = '', onC
+   const dispatch = useDispatch();
++  const { t } = useTranslation();
+   const inputRef = useRef();
+@@ -22,4 +24,4 @@ const ConnectGitRemote = ({ collectionPath, collectionName, initialUrl = '', onC
+         .trim()
+-        .required('Git remote URL is required')
+-        .test('is-git-url', 'Enter a valid Git URL', (value) => isGitRepositoryUrl(value))
++        .required(t('workspace.git.validation.urlRequired'))
++        .test('is-git-url', t('workspace.git.validation.invalidUrl'), (value) => isGitRepositoryUrl(value))
+     }),
+@@ -34,3 +36,3 @@ const ConnectGitRemote = ({ collectionPath, collectionName, initialUrl = '', onC
+         .then(() => {
+-          toast.success('Git remote connected');
++          toast.success(t('workspace.git.toast.connected'));
+           onClose();
+@@ -47,4 +49,4 @@ const ConnectGitRemote = ({ collectionPath, collectionName, initialUrl = '', onC
+ 
+-  const title = initialUrl ? 'Update Git Remote' : 'Connect to Git';
+-  const confirmText = initialUrl ? 'Update' : 'Connect';
++  const title = initialUrl ? t('workspace.git.updateTitle') : t('workspace.git.connectTitle');
++  const confirmText = initialUrl ? t('workspace.git.updateAction') : t('workspace.git.connectAction');
+ 
+@@ -56,3 +58,3 @@ const ConnectGitRemote = ({ collectionPath, collectionName, initialUrl = '', onC
+             <p className="m-0">
+-              Linking{' '}
++              {t('workspace.git.linkingPrefix')}{' '}
+               <span className="font-medium text-inherit break-words" title={collectionName}>
+@@ -60,7 +62,7 @@ const ConnectGitRemote = ({ collectionPath, collectionName, initialUrl = '', onC
+               </span>{' '}
+-              to a remote Git repository.
++              {t('workspace.git.linkingSuffix')}
+             </p>
+             <p className="m-0">
+-              The URL is saved in <span className="font-mono">workspace.yml</span> only. Your collection files on disk are not
+-              modified.
++              {t('workspace.git.urlNotePrefix')} <span className="font-mono">workspace.yml</span>{' '}
++              {t('workspace.git.urlNoteSuffix')}
+             </p>
+@@ -70,3 +72,3 @@ const ConnectGitRemote = ({ collectionPath, collectionName, initialUrl = '', onC
+           <label htmlFor="remoteUrl" className="block font-medium">
+-            Git Remote URL
++            {t('workspace.git.remoteUrlLabel')}
+           </label>
+diff --git a/packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/CollectionsList/RemoveGitRemote/index.js b/packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/CollectionsList/RemoveGitRemote/index.js
+index 81c9c5aab..485d58c65 100644
+--- a/packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/CollectionsList/RemoveGitRemote/index.js
++++ b/packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/CollectionsList/RemoveGitRemote/index.js
+@@ -5,2 +5,3 @@ import Modal from 'components/Modal';
+ import { disconnectCollectionFromGit } from 'providers/ReduxStore/slices/workspaces/actions';
++import { useTranslation } from 'react-i18next';
+ 
+@@ -8,2 +9,3 @@ const RemoveGitRemote = ({ collectionPath, collectionName, remoteUrl, onClose })
+   const dispatch = useDispatch();
++  const { t } = useTranslation();
+   const activeWorkspaceUid = useSelector((state) => state.workspaces.activeWorkspaceUid);
+@@ -18,3 +20,3 @@ const RemoveGitRemote = ({ collectionPath, collectionName, remoteUrl, onClose })
+       .then(() => {
+-        toast.success('Git remote removed');
++        toast.success(t('workspace.git.toast.removed'));
+         onClose();
+@@ -29,4 +31,4 @@ const RemoveGitRemote = ({ collectionPath, collectionName, remoteUrl, onClose })
+       size="md"
+-      title="Remove Git Remote"
+-      confirmText="Remove"
++      title={t('workspace.git.removeTitle')}
++      confirmText={t('workspace.git.removeAction')}
+       confirmButtonColor="primary"
+@@ -37,3 +39,3 @@ const RemoveGitRemote = ({ collectionPath, collectionName, remoteUrl, onClose })
+         <p className="m-0">
+-          Disconnect{' '}
++          {t('workspace.git.disconnectPrefix')}{' '}
+           <span className="font-medium break-words" title={collectionName}>
+@@ -41,3 +43,3 @@ const RemoveGitRemote = ({ collectionPath, collectionName, remoteUrl, onClose })
+           </span>{' '}
+-          from its Git remote?
++          {t('workspace.git.disconnectSuffix')}
+         </p>
+@@ -47,4 +49,5 @@ const RemoveGitRemote = ({ collectionPath, collectionName, remoteUrl, onClose })
+         <p className="mt-3 mb-0 text-xs text-muted">
+-          This only removes the remote URL from <span className="font-mono">workspace.yml</span>. Local collection files
+-          and any <span className="font-mono">.git</span> folder are left untouched.
++          {t('workspace.git.removeNotePrefix')} <span className="font-mono">workspace.yml</span>
++          {t('workspace.git.removeNoteMid')} <span className="font-mono">.git</span>{' '}
++          {t('workspace.git.removeNoteSuffix')}
+         </p>
+diff --git a/packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/CollectionsList/index.js b/packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/CollectionsList/index.js
+index 64200e52e..3c775e370 100644
+--- a/packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/CollectionsList/index.js
++++ b/packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/CollectionsList/index.js
+@@ -2,2 +2,3 @@ import React, { useState, useMemo, useRef } from 'react';
+ import { useSelector, useDispatch } from 'react-redux';
++import { useTranslation } from 'react-i18next';
+ import {
+@@ -32,2 +33,3 @@ const CollectionsList = ({ workspace }) => {
+   const dispatch = useDispatch();
++  const { t } = useTranslation();
+   const { collections } = useSelector((state) => state.collections);
+@@ -137,3 +139,3 @@ const CollectionsList = ({ workspace }) => {
+     if (collection.failedToOpen) {
+-      toast.error(`Collection "${collection.name}" could not be opened`);
++      toast.error(t('workspace.toast.couldNotOpen', { name: collection.name }));
+       return;
+@@ -143,5 +145,5 @@ const CollectionsList = ({ workspace }) => {
+       if (collection.isGitBacked) {
+-        toast.error(`Collection "${collection.name}" needs to be cloned first`);
++        toast.error(t('workspace.toast.needsClone', { name: collection.name }));
+       } else {
+-        toast.error(`Collection "${collection.name}" does not exist on disk`);
++        toast.error(t('workspace.toast.notOnDisk', { name: collection.name }));
+       }
+@@ -170,3 +172,3 @@ const CollectionsList = ({ workspace }) => {
+     if (collection.isLoaded === false) {
+-      toast.error('Cannot rename collections that are not cloned yet');
++      toast.error(t('workspace.toast.cannotRenameNotCloned'));
+       return;
+@@ -180,3 +182,3 @@ const CollectionsList = ({ workspace }) => {
+     if (collection.isLoaded === false) {
+-      toast.error('Please clone this collection first before sharing it');
++      toast.error(t('workspace.toast.cloneBeforeShare'));
+       return;
+@@ -200,4 +202,4 @@ const CollectionsList = ({ workspace }) => {
+       dispatch(removeCollectionFromWorkspaceAction(workspace.uid, collection.pathname))
+-        .then(() => toast.success('Collection removed from workspace'))
+-        .catch(() => toast.error('An error occurred while removing the collection'));
++        .then(() => toast.success(t('workspace.toast.removedFromWorkspace')))
++        .catch(() => toast.error(t('workspace.toast.removeError')));
+       return;
+@@ -205,3 +207,3 @@ const CollectionsList = ({ workspace }) => {
+     if (collection.isLoaded === false) {
+-      toast.error('Cannot remove collections that are not loaded');
++      toast.error(t('workspace.toast.cannotRemoveNotLoaded'));
+       return;
+@@ -215,3 +217,3 @@ const CollectionsList = ({ workspace }) => {
+     if (collection.isLoaded === false) {
+-      toast.error('Cannot delete collections that are not loaded');
++      toast.error(t('workspace.toast.cannotDeleteNotLoaded'));
+       return;
+@@ -226,3 +228,3 @@ const CollectionsList = ({ workspace }) => {
+       console.error('Error opening the folder', error);
+-      toast.error('Error opening the folder');
++      toast.error(t('workspace.toast.openFolderError'));
+     });
+@@ -233,3 +235,3 @@ const CollectionsList = ({ workspace }) => {
+     if (collection.isLoaded === false) {
+-      toast.error('Cannot connect a Git remote to a collection that is not present locally');
++      toast.error(t('workspace.toast.cannotConnectGitNotLocal'));
+       return;
+@@ -259,5 +261,5 @@ const CollectionsList = ({ workspace }) => {
+       await navigator.clipboard.writeText(collection.gitRemoteUrl);
+-      toast.success('Git URL copied');
++      toast.success(t('workspace.toast.gitUrlCopied'));
+     } catch (e) {
+-      toast.error('Failed to copy URL');
++      toast.error(t('workspace.toast.copyUrlFailed'));
+     }
+@@ -336,4 +338,4 @@ const CollectionsList = ({ workspace }) => {
+             <IconBox size={32} strokeWidth={1.5} className="empty-icon" />
+-            <h3 className="empty-title">No collections yet</h3>
+-            <p className="empty-description">Create your first collection or open an existing one to get started.</p>
++            <h3 className="empty-title">{t('workspace.collections.emptyTitle')}</h3>
++            <p className="empty-description">{t('workspace.collections.emptyDescription')}</p>
+           </div>
+@@ -362,6 +364,6 @@ const CollectionsList = ({ workspace }) => {
+                   {collection.failedToOpen && (
+-                    <StatusBadge status="danger" size="xs">Failed to open</StatusBadge>
++                    <StatusBadge status="danger" size="xs">{t('workspace.badge.failedToOpen')}</StatusBadge>
+                   )}
+                   {isNotCloned(collection) && (
+-                    <StatusBadge status="warning" size="xs">Not cloned</StatusBadge>
++                    <StatusBadge status="warning" size="xs">{t('workspace.badge.notCloned')}</StatusBadge>
+                   )}
+@@ -394,3 +396,3 @@ const CollectionsList = ({ workspace }) => {
+                           <IconEdit size={16} strokeWidth={1.5} />
+-                          <span>Rename</span>
++                          <span>{t('workspace.menu.rename')}</span>
+                         </div>
+@@ -404,3 +406,3 @@ const CollectionsList = ({ workspace }) => {
+                           <IconShare size={16} strokeWidth={1.5} />
+-                          <span>Share</span>
++                          <span>{t('workspace.menu.share')}</span>
+                         </div>
+@@ -431,3 +433,3 @@ const CollectionsList = ({ workspace }) => {
+                                 <IconCopy size={16} strokeWidth={1.5} />
+-                                <span>Copy Git URL</span>
++                                <span>{t('workspace.menu.copyGitUrl')}</span>
+                               </div>
+@@ -443,3 +445,3 @@ const CollectionsList = ({ workspace }) => {
+                                 <IconBrandGit size={16} strokeWidth={1.5} />
+-                                <span>Connect to Git</span>
++                                <span>{t('workspace.menu.connectToGit')}</span>
+                               </div>
+@@ -455,3 +457,3 @@ const CollectionsList = ({ workspace }) => {
+                                 <IconUnlink size={16} strokeWidth={1.5} />
+-                                <span>Remove Git Remote</span>
++                                <span>{t('workspace.menu.removeGitRemote')}</span>
+                               </div>
+@@ -470,3 +472,3 @@ const CollectionsList = ({ workspace }) => {
+                       <IconX size={16} strokeWidth={1.5} />
+-                      <span>Remove</span>
++                      <span>{t('workspace.menu.remove')}</span>
+                     </div>
+@@ -481,3 +483,3 @@ const CollectionsList = ({ workspace }) => {
+                         <IconTrash size={16} strokeWidth={1.5} />
+-                        <span>Delete</span>
++                        <span>{t('common.delete')}</span>
+                       </div>
+diff --git a/packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/index.js b/packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/index.js
+index 540204ec5..cc6314fd4 100644
+--- a/packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/index.js
++++ b/packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/index.js
+@@ -2,2 +2,3 @@ import React, { useState } from 'react';
+ import { useSelector, useDispatch } from 'react-redux';
++import { useTranslation } from 'react-i18next';
+ import { IconPlus, IconFolder, IconDownload } from '@tabler/icons';
+@@ -20,2 +21,3 @@ const WorkspaceOverview = ({ workspace }) => {
+   const dispatch = useDispatch();
++  const { t } = useTranslation();
+   const { globalEnvironments } = useSelector((state) => state.globalEnvironments);
+@@ -40,3 +42,3 @@ const WorkspaceOverview = ({ workspace }) => {
+     if (!workspace?.pathname) {
+-      toast.error('Workspace path not found');
++      toast.error(t('workspace.toast.workspacePathNotFound'));
+       return;
+@@ -54,3 +56,3 @@ const WorkspaceOverview = ({ workspace }) => {
+       console.error('Error ensuring collections folder exists:', error);
+-      toast.error('Error preparing workspace for collection creation');
++      toast.error(t('workspace.toast.prepareError'));
+     }
+@@ -145,3 +147,3 @@ const WorkspaceOverview = ({ workspace }) => {
+               <span className="stat-value">{workspaceCollectionsCount}</span>
+-              <span className="stat-label">Collections</span>
++              <span className="stat-label">{t('COMMON.COLLECTIONS')}</span>
+             </div>
+@@ -149,3 +151,3 @@ const WorkspaceOverview = ({ workspace }) => {
+               <span className="stat-value">{workspaceEnvironmentsCount}</span>
+-              <span className="stat-label">Environments</span>
++              <span className="stat-label">{t('workspace.stats.environments')}</span>
+             </div>
+@@ -154,3 +156,3 @@ const WorkspaceOverview = ({ workspace }) => {
+           <div className="quick-actions-section">
+-            <div className="section-title">Quick Actions</div>
++            <div className="section-title">{t('workspace.quickActions')}</div>
+             <div className="quick-actions-buttons">
+@@ -163,3 +165,3 @@ const WorkspaceOverview = ({ workspace }) => {
+               >
+-                Create Collection
++                {t('WELCOME.CREATE_COLLECTION')}
+               </Button>
+@@ -171,3 +173,3 @@ const WorkspaceOverview = ({ workspace }) => {
+               >
+-                Open Collection
++                {t('WELCOME.OPEN_COLLECTION')}
+               </Button>
+@@ -179,3 +181,3 @@ const WorkspaceOverview = ({ workspace }) => {
+               >
+-                Import Collection
++                {t('WELCOME.IMPORT_COLLECTION')}
+               </Button>
+@@ -185,3 +187,3 @@ const WorkspaceOverview = ({ workspace }) => {
+           <div className="collections-section">
+-            <div className="section-title">Collections</div>
++            <div className="section-title">{t('COMMON.COLLECTIONS')}</div>
+             <CollectionsList workspace={workspace} />
+diff --git a/packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js b/packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js
+index eafb6d810..0c2e190aa 100644
+--- a/packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js
++++ b/packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js
+@@ -15,4 +15,6 @@ import { sanitizeName, validateName, validateNameError } from 'utils/common/rege
+ import get from 'lodash/get';
++import { useTranslation } from 'react-i18next';
+ 
+ const CreateWorkspace = ({ onClose }) => {
++  const { t } = useTranslation();
+   const inputRef = useRef();
+@@ -36,6 +38,6 @@ const CreateWorkspace = ({ onClose }) => {
+         .trim()
+-        .min(1, 'Workspace name can\'t be empty')
+-        .max(255, 'Must be 255 characters or less')
+-        .required('Workspace name is required')
+-        .test('unique-name', 'A workspace with this name already exists', function (value) {
++        .min(1, t('workspace.validation.nameEmpty'))
++        .max(255, t('workspace.validation.maxTwoFiftyFive'))
++        .required(t('workspace.validation.nameRequired'))
++        .test('unique-name', t('workspace.validation.nameAlreadyExists'), function (value) {
+           if (!value) return true;
+@@ -46,4 +48,4 @@ const CreateWorkspace = ({ onClose }) => {
+       workspaceFolderName: Yup.string()
+-        .min(1, 'Must be at least 1 character')
+-        .max(255, 'Must be 255 characters or less')
++        .min(1, t('workspace.validation.minOneChar'))
++        .max(255, t('workspace.validation.maxTwoFiftyFive'))
+         .test('is-valid-folder-name', function (value) {
+@@ -52,4 +54,4 @@ const CreateWorkspace = ({ onClose }) => {
+         })
+-        .required('Folder name is required'),
+-      workspaceLocation: Yup.string().min(1, 'Location is required').required('Location is required')
++        .required(t('workspace.validation.folderNameRequired')),
++      workspaceLocation: Yup.string().min(1, t('workspace.validation.locationRequired')).required(t('workspace.validation.locationRequired'))
+     }),
+@@ -62,6 +64,6 @@ const CreateWorkspace = ({ onClose }) => {
+         await dispatch(createWorkspaceAction(values.workspaceName.trim(), values.workspaceFolderName, values.workspaceLocation));
+-        toast.success('Workspace created!');
++        toast.success(t('workspace.toast.created'));
+         onClose();
+       } catch (error) {
+-        toast.error(multiLineMsg('An error occurred while creating the workspace', formatIpcError(error)));
++        toast.error(multiLineMsg(t('workspace.toast.createError'), formatIpcError(error)));
+       } finally {
+@@ -94,5 +96,5 @@ const CreateWorkspace = ({ onClose }) => {
+       size="md"
+-      title="Create Workspace"
+-      description="Give your new workspace a name and choose its type to get started."
+-      confirmText={isSubmitting ? 'Creating...' : 'Create Workspace'}
++      title={t('workspace.create.title')}
++      description={t('workspace.create.description')}
++      confirmText={isSubmitting ? t('workspace.create.creating') : t('workspace.create.confirm')}
+       handleConfirm={formik.handleSubmit}
+@@ -106,3 +108,3 @@ const CreateWorkspace = ({ onClose }) => {
+             <label htmlFor="workspaceName" className="block font-semibold mb-2">
+-              Name
++              {t('workspace.label.name')}
+             </label>
+@@ -142,9 +144,9 @@ const CreateWorkspace = ({ onClose }) => {
+                 <label htmlFor="workspaceFolderName" className="flex items-center font-semibold">
+-                  Folder Name
++                  {t('workspace.label.folderName')}
+                   <Help width="300">
+                     <p>
+-                      The name of the folder used to store the workspace.
++                      {t('workspace.help.folderName1')}
+                     </p>
+                     <p className="mt-2">
+-                      You can choose a folder name different from your workspace's name or one compatible with filesystem rules.
++                      {t('workspace.help.folderName2')}
+                     </p>
+@@ -192,9 +194,9 @@ const CreateWorkspace = ({ onClose }) => {
+             <label htmlFor="workspaceLocation" className="font-semibold mb-2 flex items-center">
+-              Location
++              {t('workspace.label.location')}
+               <Help>
+                 <p>
+-                  Bruno stores your workspaces on your computer's filesystem.
++                  {t('workspace.help.location1')}
+                 </p>
+                 <p className="mt-2">
+-                  Choose the location where you want to store this workspace.
++                  {t('workspace.help.location2')}
+                 </p>
+@@ -223,3 +225,3 @@ const CreateWorkspace = ({ onClose }) => {
+               >
+-                Browse
++                {t('preferences.general.browse')}
+               </span>
+diff --git a/packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js b/packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js
+index 576e1b472..3079a3451 100644
+--- a/packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js
++++ b/packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js
+@@ -13,2 +13,3 @@ import { multiLineMsg } from 'utils/common/index';
+ import Help from 'components/Help';
++import { useTranslation } from 'react-i18next';
+ 
+@@ -16,2 +17,3 @@ const ImportWorkspace = ({ onClose }) => {
+   const dispatch = useDispatch();
++  const { t } = useTranslation();
+   const preferences = useSelector((state) => state.app.preferences);
+@@ -31,3 +33,3 @@ const ImportWorkspace = ({ onClose }) => {
+     validationSchema: Yup.object({
+-      workspaceLocation: Yup.string().min(1, 'location is required').required('location is required')
++      workspaceLocation: Yup.string().min(1, t('workspace.validation.locationRequiredLower')).required(t('workspace.validation.locationRequiredLower'))
+     }),
+@@ -39,6 +41,6 @@ const ImportWorkspace = ({ onClose }) => {
+         await dispatch(importWorkspaceAction(selectedFile.path, values.workspaceLocation));
+-        toast.success('Workspace imported successfully!');
++        toast.success(t('workspace.toast.imported'));
+         onClose();
+       } catch (error) {
+-        toast.error(multiLineMsg('Failed to import workspace', formatIpcError(error)));
++        toast.error(multiLineMsg(t('workspace.toast.importFailed'), formatIpcError(error)));
+       } finally {
+@@ -69,3 +71,3 @@ const ImportWorkspace = ({ onClose }) => {
+     if (!isZip) {
+-      toast.error('Please select a valid zip file');
++      toast.error(t('workspace.toast.invalidZip'));
+       return null;
+@@ -75,3 +77,3 @@ const ImportWorkspace = ({ onClose }) => {
+     if (!filePath) {
+-      toast.error('Could not get file path');
++      toast.error(t('workspace.toast.couldNotGetFilePath'));
+       return null;
+@@ -139,4 +141,4 @@ const ImportWorkspace = ({ onClose }) => {
+       size="md"
+-      title="Import Workspace"
+-      confirmText={isSubmitting ? 'Importing...' : 'Import'}
++      title={t('workspace.import.title')}
++      confirmText={isSubmitting ? t('workspace.import.importing') : t('workspace.import.confirm')}
+       handleConfirm={formik.handleSubmit}
+@@ -147,3 +149,3 @@ const ImportWorkspace = ({ onClose }) => {
+         <div className="mb-4">
+-          <h3 className="font-semibold mb-2">Workspace File</h3>
++          <h3 className="font-semibold mb-2">{t('workspace.import.fileLabel')}</h3>
+           {selectedFile ? (
+@@ -159,3 +161,3 @@ const ImportWorkspace = ({ onClose }) => {
+               >
+-                Remove
++                {t('workspace.import.remove')}
+               </button>
+@@ -187,3 +189,3 @@ const ImportWorkspace = ({ onClose }) => {
+                 <p className="text-gray-600 dark:text-gray-300 mb-2">
+-                  Drop workspace zip file here or{' '}
++                  {t('workspace.import.dropPrefix')}{' '}
+                   <button
+@@ -193,3 +195,3 @@ const ImportWorkspace = ({ onClose }) => {
+                   >
+-                    choose a file
++                    {t('workspace.import.chooseFile')}
+                   </button>
+@@ -197,3 +199,3 @@ const ImportWorkspace = ({ onClose }) => {
+                 <p className="text-xs text-gray-500 dark:text-gray-400">
+-                  Supports exported Bruno workspace zip files
++                  {t('workspace.import.supportNote')}
+                 </p>
+@@ -206,9 +208,9 @@ const ImportWorkspace = ({ onClose }) => {
+           <label htmlFor="workspace-location" className="font-semibold mb-2 flex items-center">
+-            Extract Location
++            {t('workspace.import.extractLocation')}
+             <Help>
+               <p>
+-                Choose the location where you want to extract this workspace.
++                {t('workspace.help.extract1')}
+               </p>
+               <p className="mt-2">
+-                The workspace folder will be created at this location.
++                {t('workspace.help.extract2')}
+               </p>
+@@ -238,3 +240,3 @@ const ImportWorkspace = ({ onClose }) => {
+             >
+-              Browse
++              {t('preferences.general.browse')}
+             </span>

@@ -1,5 +1,6 @@
 import React, { useMemo, useCallback } from 'react';
 import get from 'lodash/get';
+import { useTranslation } from 'react-i18next';
 import { IconCaretDown } from '@tabler/icons';
 import MenuDropdown from 'ui/MenuDropdown';
 import StatusBadge from 'ui/StatusBadge/index';
@@ -9,6 +10,7 @@ import { humanizeRequestAuthMode } from 'utils/collections';
 import StyledWrapper from './StyledWrapper';
 
 const AuthMode = ({ collection }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const authMode = collection.draft?.root ? get(collection, 'draft.root.request.auth.mode') : get(collection, 'root.request.auth.mode');
 
@@ -24,66 +26,66 @@ const AuthMode = ({ collection }) => {
   const menuItems = useMemo(() => [
     {
       id: 'awsv4',
-      label: 'AWS Sig v4',
+      label: t('collection.auth.mode.awsv4'),
       onClick: () => onModeChange('awsv4')
     },
     {
       id: 'basic',
-      label: 'Basic Auth',
+      label: t('collection.auth.mode.basic'),
       onClick: () => onModeChange('basic')
     },
     {
       id: 'wsse',
-      label: 'WSSE Auth',
+      label: t('collection.auth.mode.wsse'),
       onClick: () => onModeChange('wsse')
     },
     {
       id: 'bearer',
-      label: 'Bearer Token',
+      label: t('collection.auth.mode.bearer'),
       onClick: () => onModeChange('bearer')
     },
     {
       id: 'digest',
-      label: 'Digest Auth',
+      label: t('collection.auth.mode.digest'),
       onClick: () => onModeChange('digest')
     },
     {
       id: 'ntlm',
-      label: 'NTLM Auth',
+      label: t('collection.auth.mode.ntlm'),
       onClick: () => onModeChange('ntlm')
     },
     {
       id: 'oauth1',
-      label: 'OAuth 1.0',
+      label: t('collection.auth.mode.oauth1'),
       onClick: () => onModeChange('oauth1')
     },
     {
       id: 'oauth2',
-      label: 'OAuth 2.0',
+      label: t('collection.auth.mode.oauth2'),
       onClick: () => onModeChange('oauth2')
     },
     {
       id: 'apikey',
-      label: 'API Key',
+      label: t('collection.auth.mode.apikey'),
       onClick: () => onModeChange('apikey')
     },
     {
       id: 'akamai-edgegrid',
       label: (
         <span className="flex items-center gap-2">
-          Akamai EdgeGrid
+          {t('collection.auth.mode.akamaiEdgegrid')}
           <StatusBadge status="info" size="xs">Beta</StatusBadge>
         </span>
       ),
-      ariaLabel: 'Akamai EdgeGrid (Beta)',
+      ariaLabel: t('collection.auth.mode.akamaiEdgegridAria'),
       onClick: () => onModeChange('akamai-edgegrid')
     },
     {
       id: 'none',
-      label: 'No Auth',
+      label: t('collection.auth.mode.none'),
       onClick: () => onModeChange('none')
     }
-  ], [onModeChange]);
+  ], [onModeChange, t]);
 
   return (
     <StyledWrapper>

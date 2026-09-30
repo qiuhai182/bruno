@@ -1,0 +1,30 @@
+[
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js",
+    "line": "confirmText={t(CONFIRM_ACTION_LABELS[getConfirmText()])}"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CollectionItemDragPreview/index.js",
+    "line": "parts.push(value === 1 ? t(`sidebar.dragPreview.${key}One`, { count: value }) : t(`sidebar.dragPreview.${key}Many`, { count: value }));"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CollectionItemDragPreview/index.js",
+    "line": "parts.push(value === 1 ? t(`sidebar.dragPreview.${key}One`, { count: value }) : t(`sidebar.dragPreview.${key}Many`, { count: value }));"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/OpenCollection/index.js",
+    "line": "toast.success(t(openedCount === 1 ? 'sidebar.openCollection.collectionAdded' : 'sidebar.openCollection.collectionsAdded'));"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/OpenCollection/index.js",
+    "line": "toast.error(t(failedCount === 1 ? 'sidebar.openCollection.failedToOpenOne' : 'sidebar.openCollection.failedToOpenMany', { count: failedCount }));"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/OpenCollection/index.js",
+    "line": "toast.error(t(failedScans.length === 1 ? 'sidebar.openCollection.failedToScanOne' : 'sidebar.openCollection.failedToScanMany', { count: failedScans.length }));"
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/OpenCollection/index.js",
+    "line": "toast.error(t(failedScans.length === 1 ? 'sidebar.openCollection.failedToScanOne' : 'sidebar.openCollection.failedToScanMany', { count: failedScans.length }));"
+  }
+]

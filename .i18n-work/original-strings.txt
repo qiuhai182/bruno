@@ -1,0 +1,363 @@
+#### packages/bruno-app/src/components/Environments/EnvironmentSettings/EnvironmentList/EnvironmentDetails/index.js
+30: const activeTab = useSelector((state) => state.tabs.tabs.find((t) => t.uid === activeTabUid)?.tabState?.environment?.tab) || 'variables';
+48: () => inheritedEnvironmentVariables.filter((variable) => !!variable.secret === (activeTab === 'secrets')),
+66: return 'Name is required';
+70: return 'Must be at least 1 character';
+74: return 'Must be 255 characters or less';
+86: return 'Environment already exists';
+111: toast.success('Environment renamed!');
+117: toast.error('An error occurred while renaming the environment');
+146: if (e.key === 'Enter') {
+149: } else if (e.key === 'Escape') {
+181: ? `Inheriting variables from ${inheritedEnvironmentName}`
+182: : 'Stopped inheriting variables'
+187: toast.error('An error occurred while saving the inherited environment');
+192: window.dispatchEvent(new Event('environment-save-all'));
+204: <div className="header">
+205: <div className={`title-container ${isRenaming ? 'renaming' : ''}`}>
+210: type="text"
+211: className="title-input"
+212: data-testid="env-rename-input"
+217: autoComplete="off"
+218: autoCorrect="off"
+219: autoCapitalize="off"
+220: spellCheck="false"
+222: <div className="inline-actions">
+224: className="inline-action-btn save"
+227: title="Save"
+232: className="inline-action-btn cancel"
+235: title="Cancel"
+242: <div className="flex items-center gap-2">
+243: <h2 className="title" data-testid="env-details-title">{environment.name}</h2>
+248: {nameError && isRenaming && <div className="title-error">{nameError}</div>}
+249: <div className="actions">
+256: <ActionIcon label="Save All" onClick={handleSaveAll} data-testid="save-all-env">
+259: <ActionIcon label="Rename" onClick={handleRenameClick} data-testid="env-rename-action">
+262: <ActionIcon label="Copy" onClick={() => setOpenCopyModal(true)} data-testid="env-copy-action">
+265: <ActionIcon label="Delete" onClick={() => setOpenDeleteModal(true)} colorOnHover="danger" data-testid="env-delete-action">
+273: <div className="tabs-container">
+279: <div ref={rightContentRef} className="env-search-container">
+281: <div className="search-input-wrapper">
+282: <IconSearch size={14} strokeWidth={1.5} className="search-icon" />
+285: type="text"
+286: placeholder={activeTab === 'secrets' ? 'Search secrets...' : 'Search variables...'}
+290: className="search-input"
+291: data-testid="env-search-input"
+292: autoComplete="off"
+293: autoCorrect="off"
+294: autoCapitalize="off"
+295: spellCheck="false"
+299: className="clear-search"
+302: title="Clear search"
+303: data-testid="env-clear-search"
+310: <ActionIcon label="Search" onClick={handleSearchIconClick} data-testid="env-search-action">
+320: <div className="content">
+
+#### packages/bruno-app/src/components/WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js
+9: } from 'providers/ReduxStore/slices/global-environments';
+35: const activeTab = useSelector((state) => state.tabs.tabs.find((t) => t.uid === activeTabUid)?.tabState?.environment?.tab) || 'variables';
+51: () => inheritedEnvironmentVariables.filter((variable) => !!variable.secret === (activeTab === 'secrets')),
+69: return 'Name is required';
+73: return 'Must be at least 1 character';
+77: return 'Must be 255 characters or less';
+88: return 'Environment already exists';
+113: toast.success('Environment renamed!');
+119: toast.error('An error occurred while renaming the environment');
+148: if (e.key === 'Enter') {
+151: } else if (e.key === 'Escape') {
+185: ? `Inheriting variables from ${inheritedEnvironmentName}`
+186: : 'Stopped inheriting variables'
+191: toast.error('An error occurred while saving the inherited environment');
+196: window.dispatchEvent(new Event('environment-save-all'));
+211: <div className="header">
+212: <div className={`title-container ${isRenaming ? 'renaming' : ''}`}>
+217: type="text"
+218: className="title-input"
+219: data-testid="env-rename-input"
+224: autoComplete="off"
+225: autoCorrect="off"
+226: autoCapitalize="off"
+227: spellCheck="false"
+229: <div className="inline-actions">
+231: className="inline-action-btn save"
+234: title="Save"
+239: className="inline-action-btn cancel"
+242: title="Cancel"
+249: <div className="flex items-center gap-2">
+250: <h2 className="title" data-testid="env-details-title">{environment.name}</h2>
+255: {nameError && isRenaming && <div className="title-error">{nameError}</div>}
+256: <div className="actions">
+263: <ActionIcon label="Save All" onClick={handleSaveAll} data-testid="save-all-env">
+266: <ActionIcon label="Rename" onClick={handleRenameClick} data-testid="env-rename-action">
+269: <ActionIcon label="Copy" onClick={() => setOpenCopyModal(true)} data-testid="env-copy-action">
+272: <ActionIcon label="Delete" onClick={() => setOpenDeleteModal(true)} colorOnHover="danger" data-testid="env-delete-action">
+280: <div className="tabs-container">
+286: <div ref={rightContentRef} className="env-search-container">
+288: <div className="search-input-wrapper">
+289: <IconSearch size={14} strokeWidth={1.5} className="search-icon" />
+292: type="text"
+293: placeholder={activeTab === 'secrets' ? 'Search secrets...' : 'Search variables...'}
+297: className="search-input"
+298: data-testid="env-search-input"
+299: autoComplete="off"
+300: autoCorrect="off"
+301: autoCapitalize="off"
+302: spellCheck="false"
+306: className="clear-search"
+309: title="Clear search"
+310: data-testid="env-clear-search"
+317: <ActionIcon label="Search" onClick={handleSearchIconClick} data-testid="env-search-action">
+327: <div className="content">
+
+#### packages/bruno-app/src/components/Environments/EnvironmentSettings/DeleteEnvironment/index.js
+14: toast.success('Environment deleted successfully');
+17: .catch(() => toast.error('An error occurred while deleting the environment'));
+24: size="md"
+25: title="Delete Environment"
+26: confirmText="Delete"
+29: confirmButtonColor="danger"
+31: Are you sure you want to delete <span className="font-medium">{environment.name}</span>?
+
+#### packages/bruno-app/src/components/Environments/EnvironmentSettings/DeleteDotEnvFile/index.js
+16: size="sm"
+17: title={`Delete ${filename} File`}
+18: confirmText="Delete"
+21: confirmButtonColor="danger"
+23: Are you sure you want to delete <span className="font-medium">{filename}</span> file?
+
+#### packages/bruno-app/src/components/Environments/DotEnvFileDetails/index.js
+28: <div className="header">
+29: <h3 className="title">{title}</h3>
+30: <div className="actions">
+33: <div className="view-toggle" role="group" aria-label="View mode">
+35: type="button"
+36: className={`toggle-btn ${viewMode === 'table' ? 'active' : ''}`}
+37: onClick={() => onViewModeChange?.('table')}
+38: aria-pressed={viewMode === 'table'}
+43: type="button"
+44: className={`toggle-btn ${viewMode === 'raw' ? 'active' : ''}`}
+45: onClick={() => onViewModeChange?.('raw')}
+46: aria-pressed={viewMode === 'raw'}
+47: data-testid="dotenv-view-raw"
+52: <button type="button" onClick={handleDeleteClick} title="Delete .env file" className="action-btn delete-btn">
+68: <div className="content">
+
+#### packages/bruno-app/src/components/Environments/DotEnvFileEditor/index.js
+23: viewMode = 'table',
+69: errors[index].name = 'Name cannot be empty';
+73: = 'Name contains invalid characters. Must only contain alphanumeric characters, "-", "_", "." and cannot start with a digit.';
+91: if (viewMode === 'raw' && prevViewMode === 'table') {
+95: } else if (viewMode === 'table' && prevViewMode === 'raw') {
+118: if (viewMode === 'raw') {
+186: if (e.key === 'Enter') {
+208: toast.error('Please fix validation errors before saving');
+215: toast.success('Changes saved successfully');
+222: window.dispatchEvent(new Event('dotenv-save-complete'));
+226: toast.error('An error occurred while saving the changes');
+227: window.dispatchEvent(new Event('dotenv-save-failed'));
+238: toast.error('Raw save is not supported');
+245: toast.success('Changes saved successfully');
+247: window.dispatchEvent(new Event('dotenv-save-complete'));
+251: toast.error('An error occurred while saving the changes');
+252: window.dispatchEvent(new Event('dotenv-save-failed'));
+260: if (viewMode === 'raw') {
+290: if (viewMode === 'raw') {
+297: window.addEventListener('dotenv-save', handleSaveEvent);
+300: window.removeEventListener('dotenv-save', handleSaveEvent);
+305: if (viewMode === 'raw') {
+
+#### packages/bruno-app/src/components/Environments/DotEnvFileEditor/DotEnvEmptyState.js
+6: <div className="empty-state">
+8: <div className="title">No .env File</div>
+9: <div className="description">
+
+#### packages/bruno-app/src/components/Environments/DotEnvFileEditor/DotEnvRawView.js
+16: <div className="raw-editor-container" data-testid="dotenv-raw-editor">
+24: mode="text/plain"
+29: <div className="button-container">
+30: <div className="flex items-center">
+31: <button type="button" className="submit" onClick={onSave} disabled={isSaving} data-testid="save-dotenv-raw">
+32: {isSaving ? 'Saving...' : 'Save'}
+34: <button type="button" className="submit reset ml-2" onClick={onReset} disabled={isSaving} data-testid="reset-dotenv-raw">
+
+#### packages/bruno-app/src/components/Environments/DotEnvFileEditor/DotEnvTableView.js
+9: <tr key={item.uid} data-testid={`dotenv-var-row-${item.name}`}>{children}</tr>
+49: <div className="flex items-center">
+51: type="text"
+52: autoComplete="off"
+53: autoCorrect="off"
+54: autoCapitalize="off"
+55: spellCheck="false"
+56: className="mousetrap"
+59: data-testid="dotenv-var-name-input"
+61: placeholder={isLastEmptyRow ? 'Name' : ''}
+70: <td className="flex flex-row flex-nowrap items-center">
+71: <div className="overflow-hidden grow w-full relative">
+76: placeholder={isLastEmptyRow ? 'Value' : ''}
+83: <td className="delete-col">
+86: type="button"
+87: aria-label="Delete variable"
+101: className="table-container"
+110: <td className="delete-col"></td>
+117: <div className="button-container">
+118: <div className="flex items-center">
+119: <button type="button" className="submit" onClick={onSave} disabled={isSaving} data-testid="save-dotenv">
+120: {isSaving ? 'Saving...' : 'Save'}
+122: <button type="button" className="submit reset ml-2" onClick={onReset} disabled={isSaving} data-testid="reset-dotenv">
+
+#### packages/bruno-app/src/components/Environments/Common/EnvironmentInheritanceWarning/index.js
+6: const EnvironmentName = ({ name }) => <span className="environment-name">{name}</span>;
+11: testId: 'env-missing-inherited-environment',
+22: testId: 'env-cyclic-inherited-environment',
+52: <IconAlertTriangle size={16} strokeWidth={1.5} className="warning-icon" />
+
+#### packages/bruno-app/src/components/Environments/Common/ImportEnvironmentModal/index.js
+6: const ImportEnvironmentModal = ({ type = 'collection', collection, onClose, onEnvironmentCreated }) => {
+7: const isGlobal = type === 'global';
+22: console.error('ImportEnvironmentModal: collection prop is required when type is "collection"');
+25: const modalTitle = isGlobal ? 'Import global environments' : 'Import environments';
+26: const modalTestId = isGlobal ? 'import-global-environment-modal' : 'import-environment-modal';
+27: const importTestId = isGlobal ? 'import-global-environment' : 'import-environment';
+
+#### packages/bruno-app/src/components/Environments/Common/ImportEnvironmentModal/utils.js
+3: export const IMPORT_STEPS = { UPLOAD: 'UPLOAD', REVIEW: 'REVIEW' };
+4: export const ENV_STATUS = { NEW: 'new', DUPLICATE: 'duplicate', INVALID: 'invalid' };
+7: if (data.info && data.info.type === 'bruno-environment') {
+8: return 'bruno';
+10: return data.some((env) => env.info && env.info.type === 'bruno-environment') ? 'bruno' : 'postman';
+12: return 'postman';
+14: return 'bruno';
+18: CREATE_NEW: 'create_new',
+19: REPLACE: 'replace'
+23: { value: RESOLUTION_TYPES.CREATE_NEW, label: 'New', title: 'Import as a new environment', testId: 'env-import-create-new-btn' },
+24: { value: RESOLUTION_TYPES.REPLACE, label: 'Replace', title: 'Replace existing', testId: 'env-import-replace-btn' }
+28: fileName: source?.fileName || 'Unknown',
+43: failures.push(failedRow(env, 'Could not be read'));
+47: return [...importable, ...failures].map((item, index) => ({ ...item, id: `env-${index}` }));
+
+#### packages/bruno-app/src/components/Environments/Common/InheritsFrom/index.js
+8: const NO_INHERITANCE_ID = 'no-environment';
+11: <span style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: color || 'transparent' }} />
+23: name: 'Inherit variables from',
+27: label: 'No Environment',
+43: if (!inheritableEnvironments.length && typeof inheritedEnvironmentName !== 'string') {
+52: data-testid="env-inherits-from"
+54: {typeof inheritedEnvironmentName === 'string' ? (
+55: <button type="button" className="inherits-from-pill" data-testid="env-inherits-from-action">
+56: <IconBinaryTree2 className="inherits-from-icon" size={14} strokeWidth={1.5} />
+58: <span className="inherits-from-name">{inheritedEnvironmentName}</span>
+62: <ActionIcon label="Inherit variables from" data-testid="env-inherits-from-action">
+
+#### packages/bruno-app/src/components/Environments/EnvironmentSettings/CopyEnvironment/index.js
+20: .min(1, 'must be at least 1 character')
+21: .max(50, 'must be 50 characters or less')
+22: .required('name is required')
+27: toast.success('Environment created in collection');
+30: .catch(() => toast.error('An error occurred while created the environment'));
+46: <Modal size="sm" title="Copy Environment" confirmText="Copy" handleConfirm={onSubmit} handleCancel={onClose}>
+47: <form className="bruno-form" onSubmit={(e) => e.preventDefault()}>
+49: <label htmlFor="name" className="block font-medium">
+53: id="environment-name"
+54: type="text"
+55: name="name"
+57: className="block textbox mt-2 w-full"
+58: autoComplete="off"
+59: autoCorrect="off"
+60: autoCapitalize="off"
+61: spellCheck="false"
+66: <div className="text-red-500">{formik.errors.name}</div>
+
+#### packages/bruno-app/src/components/Environments/EnvironmentSettings/CreateEnvironment/index.js
+26: .min(1, 'Must be at least 1 character')
+27: .max(255, 'Must be 255 characters or less')
+28: .test('is-valid-filename', function (value) {
+32: .required('Name is required')
+33: .test('duplicate-name', 'Environment already exists', validateEnvironmentName)
+38: toast.success('Environment created in collection');
+45: .catch(() => toast.error('An error occurred while creating the environment'));
+62: size="md"
+63: title="Create Environment"
+64: confirmText="Create"
+67: dataTestId="create-environment-modal"
+69: <form className="bruno-form" onSubmit={(e) => e.preventDefault()}>
+71: <label htmlFor="name" className="block font-medium">
+74: <div className="flex items-center mt-2">
+76: id="environment-name"
+77: type="text"
+78: name="name"
+80: data-testid="environment-name-input"
+81: className="block textbox w-full"
+82: autoComplete="off"
+83: autoCorrect="off"
+84: autoCapitalize="off"
+85: spellCheck="false"
+91: <div className="text-red-500">{formik.errors.name}</div>
+
+#### packages/bruno-app/src/components/WorkspaceHome/WorkspaceEnvironments/CopyEnvironment/index.js
+20: .min(1, 'must be at least 1 character')
+21: .max(50, 'must be 50 characters or less')
+22: .required('name is required')
+27: toast.success('Environment created!');
+31: toast.error('An error occurred while creating the environment');
+49: <Modal size="sm" title="Copy Environment" confirmText="Copy" handleConfirm={onSubmit} handleCancel={onClose}>
+50: <form className="bruno-form" onSubmit={(e) => e.preventDefault()}>
+52: <label htmlFor="environment-name" className="block font-semibold">
+56: id="environment-name"
+57: type="text"
+58: name="name"
+60: className="block textbox mt-2 w-full"
+61: autoComplete="off"
+62: autoCorrect="off"
+63: autoCapitalize="off"
+64: spellCheck="false"
+69: <div className="text-red-500">{formik.errors.name}</div>
+
+#### packages/bruno-app/src/components/WorkspaceHome/WorkspaceEnvironments/CreateEnvironment/index.js
+28: .min(1, 'Must be at least 1 character')
+29: .max(255, 'Must be 255 characters or less')
+30: .test('is-valid-filename', function (value) {
+34: .required('Name is required')
+35: .test('duplicate-name', 'Global environment already exists', validateEnvironmentName)
+40: toast.success('Global environment created!');
+47: .catch(() => toast.error('An error occurred while creating the environment'));
+64: size="md"
+65: title="Create Global Environment"
+66: confirmText="Create"
+69: dataTestId="create-global-environment-modal"
+71: <form className="bruno-form" onSubmit={(e) => e.preventDefault()}>
+73: <label htmlFor="environment-name" className="block font-semibold">
+76: <div className="flex items-center mt-2">
+78: id="environment-name"
+79: type="text"
+80: name="name"
+82: data-testid="environment-name-input"
+83: className="block textbox w-full"
+84: autoComplete="off"
+85: autoCorrect="off"
+86: autoCapitalize="off"
+87: spellCheck="false"
+93: <div className="text-red-500">{formik.errors.name}</div>
+
+#### packages/bruno-app/src/components/WorkspaceHome/WorkspaceEnvironments/RenameEnvironment/index.js
+30: .min(1, 'must be at least 1 character')
+31: .max(255, 'Must be 255 characters or less')
+32: .test('is-valid-filename', function (value) {
+36: .required('name is required')
+37: .test('duplicate-name', 'Environment already exists', validateEnvironmentName)
+45: toast.success('Environment renamed successfully');
+49: toast.error('An error occurred while renaming the environment');
+68: size="sm"
+69: title="Rename Environment"
+70: confirmText="Rename"
+74: <form className="bruno-form" onSubmit={(e) => e.preventDefault()}>
+76: <label htmlFor="environment-name" className="block font-semibold">
+80: id="environment-name"
+81: type="text"
+82: name="name"
+84: className="block textbox mt-2 w-full"
+85: autoComplete="off"
+86: autoCorrect="off"
+87: autoCapitalize="off"
+88: spellCheck="false"
+93: <div className="text-red-500">{formik.errors.name}</div>
+

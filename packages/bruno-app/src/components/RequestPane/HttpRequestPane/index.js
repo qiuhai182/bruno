@@ -22,19 +22,20 @@ import HeightBoundContainer from 'ui/HeightBoundContainer';
 import AuthMode from '../Auth/AuthMode/index';
 import TabBarAiAssist from '../TabBarAiAssist';
 import { hasEffectiveAuth } from 'utils/auth';
+import { useTranslation } from 'react-i18next';
 
 const TAB_CONFIG = [
-  { key: 'params', label: 'Params' },
-  { key: 'body', label: 'Body' },
-  { key: 'headers', label: 'Headers' },
-  { key: 'auth', label: 'Auth' },
-  { key: 'vars', label: 'Vars' },
-  { key: 'script', label: 'Script' },
-  { key: 'assert', label: 'Assert' },
-  { key: 'tests', label: 'Tests' },
-  { key: 'docs', label: 'Docs' },
-  { key: 'app', label: 'App' },
-  { key: 'settings', label: 'Settings' }
+  { key: 'params' },
+  { key: 'body' },
+  { key: 'headers' },
+  { key: 'auth' },
+  { key: 'vars' },
+  { key: 'script' },
+  { key: 'assert' },
+  { key: 'tests' },
+  { key: 'docs' },
+  { key: 'app' },
+  { key: 'settings' }
 ];
 
 const TAB_PANELS = {
@@ -53,6 +54,7 @@ const TAB_PANELS = {
 
 const HttpRequestPane = ({ item, collection }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const tabs = useSelector((state) => state.tabs.tabs);
   const activeTabUid = useSelector((state) => state.tabs.activeTabUid);
 
@@ -123,17 +125,17 @@ const HttpRequestPane = ({ item, collection }) => {
   const allTabs = useMemo(
     () => TAB_CONFIG
       .filter(({ key }) => key !== 'app' || appTabEnabled)
-      .map(({ key, label }) => ({ key, label, indicator: indicators[key] })),
-    [indicators, appTabEnabled]
+      .map(({ key }) => ({ key, label: t(`requestPane.tabs.${key}`), indicator: indicators[key] })),
+    [t, indicators, appTabEnabled]
   );
 
   const tabPanel = useMemo(() => {
     const Component = TAB_PANELS[effectiveTab];
-    return Component ? <Component key={item.uid} item={item} collection={collection} /> : <div className="mt-4">404 | Not found</div>;
-  }, [effectiveTab, item, collection]);
+    return Component ? <Component key={item.uid} item={item} collection={collection} /> : <div className="mt-4">{t('requestPane.tabNotFound')}</div>;
+  }, [t, effectiveTab, item, collection]);
 
   if (!activeTabUid || !focusedTab?.uid || !requestPaneTab) {
-    return <div className="pb-4 px-4">An error occurred!</div>;
+    return <div className="pb-4 px-4">{t('requestPane.errorOccurred')}</div>;
   }
 
   let rightContent = null;

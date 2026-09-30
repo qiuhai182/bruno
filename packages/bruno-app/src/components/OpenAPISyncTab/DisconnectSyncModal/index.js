@@ -1,25 +1,27 @@
+import { useTranslation } from 'react-i18next';
 import Button from 'ui/Button';
 import Modal from 'components/Modal';
 
 const DisconnectSyncModal = ({ onConfirm, onClose }) => {
+  const { t } = useTranslation();
   return (
     <Modal
       size="sm"
-      title="Disconnect Sync"
+      title={t('openApiSync.disconnect.title')}
       hideFooter={true}
       handleCancel={onClose}
     >
       <div className="disconnect-modal">
         <p className="disconnect-message">
-          <>Are you sure you want to disconnect OpenAPI sync? </> <br /> <br />
-          <>This will only disconnect the sync configuration. Your collection will remain intact.</>
+          <>{t('openApiSync.disconnect.message')} </> <br /> <br />
+          <>{t('openApiSync.disconnect.note')}</>
         </p>
         <div className="disconnect-actions">
           <Button variant="ghost" color="secondary" onClick={onClose}>
-            Cancel
+            {t('common.cancel')}
           </Button>
           <Button color="danger" onClick={onConfirm}>
-            Disconnect
+            {t('openApiSync.disconnect.confirm')}
           </Button>
         </div>
       </div>

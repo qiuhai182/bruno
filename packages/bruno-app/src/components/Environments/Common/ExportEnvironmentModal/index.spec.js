@@ -7,6 +7,24 @@ import { ThemeProvider } from 'styled-components';
 import themes from 'themes/index';
 import ExportEnvironmentModal from './index';
 
+jest.mock('react-i18next', () => {
+  const translations = {
+    'environments.export.title': 'Export Environments',
+    'environments.export.globalEnvironments': 'Global Environments',
+    'environments.export.collectionEnvironments': 'Collection Environments',
+    'environments.export.selectAll': 'Select All',
+    'environments.export.deselectAll': 'Deselect All',
+    'environments.export.inherits': 'inherits',
+    'environments.export.noGlobalEnvironments': 'No global environments',
+    'environments.export.noCollectionEnvironments': 'No collection environments'
+  };
+  return {
+    useTranslation: () => ({
+      t: (key, params) => String(translations[key] ?? key).replace(/\{\{(\w+)\}\}/g, (_, k) => params?.[k] ?? '')
+    })
+  };
+});
+
 jest.mock('components/Portal/index', () => ({
   __esModule: true,
   default: ({ children }) => <div>{children}</div>

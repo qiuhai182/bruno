@@ -29,6 +29,7 @@ import OpenAPISyncIcon from 'components/Icons/OpenAPISync';
 import { toggleCollection, collapseFullCollection, clearSidebarSelection } from 'providers/ReduxStore/slices/collections';
 import { mountCollection, moveCollectionAndPersist, handleMultipleCollectionItemsDrop, pasteItem, showInFolder, saveCollectionSecurityConfig } from 'providers/ReduxStore/slices/collections/actions';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { addTab, makeTabPermanent } from 'providers/ReduxStore/slices/tabs';
 import { setFocusedSidebarPath } from 'providers/ReduxStore/slices/app';
 import toast from 'react-hot-toast';
@@ -84,6 +85,7 @@ const Collection = ({ collection, searchText, openBulkMenu, isCollectionMultiDra
   const [isKeyboardFocused, setIsKeyboardFocused] = useState(false);
   const [showEmptyState, setShowEmptyState] = useState(false);
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const isLoading = collection.isLoading;
   const collectionRef = useRef(null);
   // Only count persisted requests and folders; transients and file items
@@ -237,21 +239,21 @@ const Collection = ({ collection, searchText, openBulkMenu, isCollectionMultiDra
   const handleShowInFolder = () => {
     dispatch(showInFolder(collection.pathname)).catch((error) => {
       console.error('Error opening the folder', error);
-      toast.error('Error opening the folder');
+      toast.error(t('sidebar.item.errorOpeningFolder'));
     });
   };
 
   const handlePasteItem = () => {
     dispatch(pasteItem(collection.uid, null))
       .then(() => {
-        toast.success('Item pasted successfully');
+        toast.success(t('sidebar.item.pasted'));
       })
       .catch((err) => {
-        toast.error(err ? err.message : 'An error occurred while pasting the item');
+        toast.error(err ? err.message : t('sidebar.item.pasteError'));
       });
   };
 
-  // Sidebar shortcuts — only active when this collection has keyboard focus
+  // Sidebar shortcuts —— only active when this collection has keyboard focus
   useKeybinding('cloneItem', () => {
     setShowCloneCollectionModalOpen(true);
     return false;
@@ -318,7 +320,7 @@ const Collection = ({ collection, searchText, openBulkMenu, isCollectionMultiDra
       const itemType = monitor.getItemType();
       if (isCollectionItem(itemType)) {
         // Lazy-unmounted workspace collections are droppable in the sidebar but
-        // have no watcher yet — mount first so the move writes through and the UI updates.
+        // have no watcher yet —— mount first so the move writes through and the UI updates.
         if (collection.mountStatus !== 'mounted' && collection.mountStatus !== 'mounting') {
           await dispatch(mountCollection({
             collectionUid: collection.uid,
@@ -438,7 +440,7 @@ const Collection = ({ collection, searchText, openBulkMenu, isCollectionMultiDra
     {
       id: 'new-request',
       leftSection: IconFilePlus,
-      label: 'New Request',
+      label: t('sidebar.newRequest.title'),
       onClick: () => {
         ensureCollectionIsMounted();
         setShowNewRequestModal(true);
@@ -447,7 +449,7 @@ const Collection = ({ collection, searchText, openBulkMenu, isCollectionMultiDra
     {
       id: 'new-folder',
       leftSection: IconFolderPlus,
-      label: 'New Folder',
+      label: t('sidebar.newFolder.title'),
       onClick: () => {
         ensureCollectionIsMounted();
         setShowNewFolderModal(true);
@@ -456,7 +458,7 @@ const Collection = ({ collection, searchText, openBulkMenu, isCollectionMultiDra
     {
       id: 'new-app',
       leftSection: IconAppWindow,
-      label: 'New App',
+      label: t('sidebar.newApp.title'),
       onClick: () => {
         ensureCollectionIsMounted();
         setShowNewAppModal(true);
@@ -465,7 +467,7 @@ const Collection = ({ collection, searchText, openBulkMenu, isCollectionMultiDra
     {
       id: 'run',
       leftSection: IconPlayerPlay,
-      label: 'Run',
+      label: t('sidebar.menu.run'),
       onClick: () => {
         ensureCollectionIsMounted();
         handleRun();
@@ -474,7 +476,7 @@ const Collection = ({ collection, searchText, openBulkMenu, isCollectionMultiDra
     {
       id: 'clone',
       leftSection: IconCopy,
-      label: 'Clone',
+      label: t('sidebar.menu.clone'),
       testId: 'clone-collection',
       onClick: () => {
         setShowCloneCollectionModalOpen(true);
@@ -491,7 +493,7 @@ const Collection = ({ collection, searchText, openBulkMenu, isCollectionMultiDra
           {
             id: 'paste',
             leftSection: IconClipboard,
-            label: 'Paste',
+            label: t('sidebar.menu.paste'),
             onClick: handlePasteItem
           }
         ]
@@ -499,7 +501,7 @@ const Collection = ({ collection, searchText, openBulkMenu, isCollectionMultiDra
     {
       id: 'rename',
       leftSection: IconEdit,
-      label: 'Rename',
+      label: t('sidebar.menu.rename'),
       onClick: () => {
         setShowRenameCollectionModal(true);
       }
@@ -507,7 +509,7 @@ const Collection = ({ collection, searchText, openBulkMenu, isCollectionMultiDra
     {
       id: 'share',
       leftSection: IconShare,
-      label: 'Share',
+      label: t('sidebar.menu.share'),
       onClick: () => {
         ensureCollectionIsMounted();
         setShowShareCollectionModal(true);
@@ -516,7 +518,7 @@ const Collection = ({ collection, searchText, openBulkMenu, isCollectionMultiDra
     {
       id: 'generate-docs',
       leftSection: IconBook,
-      label: 'Generate Docs',
+      label: t('sidebar.menu.generateDocs'),
       onClick: () => {
         ensureCollectionIsMounted();
         setShowGenerateDocumentationModal(true);
@@ -525,7 +527,7 @@ const Collection = ({ collection, searchText, openBulkMenu, isCollectionMultiDra
     {
       id: 'collapse',
       leftSection: IconFoldDown,
-      label: 'Collapse',
+      label: t('sidebar.menu.collapse'),
       onClick: handleCollapseFullCollection
     },
     {
@@ -537,7 +539,7 @@ const Collection = ({ collection, searchText, openBulkMenu, isCollectionMultiDra
     ...(isMockServerEnabled ? [{
       id: 'create-mock-server',
       leftSection: IconServer,
-      label: 'Create Mock server',
+      label: t('sidebar.menu.createMockServer'),
       rightSection: <StatusBadge status="info" size="xs">Beta</StatusBadge>,
       onClick: openMockServerDashboard
     }] : []),
@@ -548,13 +550,13 @@ const Collection = ({ collection, searchText, openBulkMenu, isCollectionMultiDra
     {
       id: 'settings',
       leftSection: IconSettings,
-      label: 'Settings',
+      label: t('sidebar.menu.settings'),
       onClick: viewCollectionSettings
     },
     {
       id: 'terminal',
       leftSection: IconTerminal2,
-      label: 'Open in Terminal',
+      label: t('sidebar.openInTerminal'),
       onClick: async () => {
         const collectionCwd = collection.pathname;
         await openDevtoolsAndSwitchToTerminal(dispatch, collectionCwd);
@@ -565,7 +567,7 @@ const Collection = ({ collection, searchText, openBulkMenu, isCollectionMultiDra
           {
             id: 'move-to-workspace',
             leftSection: IconFileArrowRight,
-            label: 'Move into Workspace',
+            label: t('sidebar.menu.moveIntoWorkspace'),
             testId: 'move-collection-to-workspace',
             onClick: () => {
               setShowMoveToWorkspaceModal(true);
@@ -576,7 +578,7 @@ const Collection = ({ collection, searchText, openBulkMenu, isCollectionMultiDra
     {
       id: 'remove',
       leftSection: IconX,
-      label: 'Remove',
+      label: t('sidebar.menu.remove'),
       onClick: () => {
         setShowRemoveCollectionModal(true);
       }
@@ -688,7 +690,7 @@ const Collection = ({ collection, searchText, openBulkMenu, isCollectionMultiDra
                     appendTo={dropdownContainerRef?.current || document.body}
                     popperOptions={{ strategy: 'fixed' }}
                   >
-                    <button className="ml-1 add-request-link">+ Add request</button>
+                    <button className="ml-1 add-request-link">{t('sidebar.addRequest')}</button>
                   </MenuDropdown>
                 </div>
               </div>

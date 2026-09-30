@@ -1,4 +1,5 @@
 import { IconDeviceFloppy, IconPlugConnected, IconPlugConnectedX } from '@tabler/icons';
+import { useTranslation } from 'react-i18next';
 import SendButton from 'components/RequestPane/SendButton';
 import classnames from 'classnames';
 import SingleLineEditor from 'components/SingleLineEditor/index';
@@ -41,6 +42,7 @@ const useWsConnectionStatus = (requestId) => {
 };
 
 const WsQueryUrl = ({ item, collection, handleRun }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const { theme, displayedTheme } = useTheme();
   // TODO: reaper, better state for connecting
@@ -75,13 +77,13 @@ const WsQueryUrl = ({ item, collection, handleRun }) => {
     try {
       const result = await closeWsConnection(item.uid);
       if (!result?.success) {
-        throw new Error(result?.error || 'Failed to close WebSocket connection');
+        throw new Error(result?.error || t('requestPane.ws.closeConnectionFailed'));
       }
-      notify && toast.success('WebSocket connection closed');
+      notify && toast.success(t('requestPane.ws.connectionClosed'));
       setConnectionStatus(CONNECTION_STATUS.DISCONNECTED);
     } catch (err) {
       console.error('Failed to close WebSocket connection:', err);
-      notify && toast.error('Failed to close WebSocket connection');
+      notify && toast.error(t('requestPane.ws.closeConnectionFailed'));
       const statusResult = await getWsConnectionStatus(item.uid);
       setConnectionStatus(statusResult?.status ?? CONNECTION_STATUS.DISCONNECTED);
     }
@@ -91,7 +93,7 @@ const WsQueryUrl = ({ item, collection, handleRun }) => {
     e?.stopPropagation();
     if (UNINTERACTIVE_STATES.includes(connectionStatus)) return;
     if (!url) {
-      toast.error('Please enter a valid WebSocket URL');
+      toast.error(t('requestPane.ws.enterValidUrl'));
       return;
     }
     handleRun(e);
@@ -139,7 +141,7 @@ const WsQueryUrl = ({ item, collection, handleRun }) => {
             item={item}
           />
           <div className="flex items-center h-full cursor-pointer gap-3 mx-3">
-            <ToolHint text={`Save (${saveShortcut})`} toolhintId="ws-save-request" place="top" positionStrategy="fixed">
+            <ToolHint text={t('requestPane.ws.saveShortcut', { shortcut: saveShortcut })} toolhintId="ws-save-request" place="top" positionStrategy="fixed">
               <div
                 className="flex items-center"
                 data-testid="save-request-button"
@@ -160,7 +162,7 @@ const WsQueryUrl = ({ item, collection, handleRun }) => {
 
             {(connectionStatus === CONNECTION_STATUS.CONNECTED || connectionStatus === CONNECTION_STATUS.DISCONNECTING) && (
               <div className="connection-controls relative flex items-center h-full">
-                <ToolHint text={connectionStatus === CONNECTION_STATUS.DISCONNECTING ? 'Disconnecting...' : 'Close Connection'} toolhintId="ws-close-connection" place="top" positionStrategy="fixed">
+                <ToolHint text={connectionStatus === CONNECTION_STATUS.DISCONNECTING ? t('requestPane.ws.disconnecting') : t('requestPane.ws.closeConnection')} toolhintId="ws-close-connection" place="top" positionStrategy="fixed">
                   <div className="flex items-center" onClick={(e) => connectionStatus === CONNECTION_STATUS.CONNECTED ? handleDisconnect(e, true) : null} data-testid="ws-disconnect-button">
                     <IconPlugConnectedX
                       color={theme.colors.text.danger}
@@ -177,7 +179,7 @@ const WsQueryUrl = ({ item, collection, handleRun }) => {
 
             {(connectionStatus === CONNECTION_STATUS.CONNECTING || connectionStatus === CONNECTION_STATUS.DISCONNECTED) && (
               <div className="connection-controls relative flex items-center h-full">
-                <ToolHint text="Connect" toolhintId="ws-connect" place="top" positionStrategy="fixed">
+                <ToolHint text={t('requestPane.ws.connect')} toolhintId="ws-connect" place="top" positionStrategy="fixed">
                   <div className="flex items-center" onClick={handleConnect} data-testid="ws-connect-button">
                     <IconPlugConnected
                       className={classnames('cursor-pointer', {

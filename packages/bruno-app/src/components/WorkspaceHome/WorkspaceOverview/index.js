@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { IconPlus, IconFolder, IconDownload } from '@tabler/icons';
 import { importCollection, importCollectionFromZip } from 'providers/ReduxStore/slices/collections/actions';
 import { setIsCreatingCollection, setIsOpeningCollection, toggleSidebarCollapse } from 'providers/ReduxStore/slices/app';
@@ -18,6 +19,7 @@ import StyledWrapper from './StyledWrapper';
 
 const WorkspaceOverview = ({ workspace }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const { globalEnvironments } = useSelector((state) => state.globalEnvironments);
   const { sidebarCollapsed, isCreatingCollection } = useSelector((state) => state.app);
 
@@ -38,7 +40,7 @@ const WorkspaceOverview = ({ workspace }) => {
     }
 
     if (!workspace?.pathname) {
-      toast.error('Workspace path not found');
+      toast.error(t('workspace.toast.workspacePathNotFound'));
       return;
     }
 
@@ -52,7 +54,7 @@ const WorkspaceOverview = ({ workspace }) => {
       dispatch(setIsCreatingCollection(true));
     } catch (error) {
       console.error('Error ensuring collections folder exists:', error);
-      toast.error('Error preparing workspace for collection creation');
+      toast.error(t('workspace.toast.prepareError'));
     }
   };
 
@@ -143,16 +145,16 @@ const WorkspaceOverview = ({ workspace }) => {
           <div className="stats-row">
             <div className="stat-item">
               <span className="stat-value">{workspaceCollectionsCount}</span>
-              <span className="stat-label">Collections</span>
+              <span className="stat-label">{t('COMMON.COLLECTIONS')}</span>
             </div>
             <div className="stat-item">
               <span className="stat-value">{workspaceEnvironmentsCount}</span>
-              <span className="stat-label">Environments</span>
+              <span className="stat-label">{t('workspace.stats.environments')}</span>
             </div>
           </div>
 
           <div className="quick-actions-section">
-            <div className="section-title">Quick Actions</div>
+            <div className="section-title">{t('workspace.quickActions')}</div>
             <div className="quick-actions-buttons">
               <Button
                 color="light"
@@ -161,7 +163,7 @@ const WorkspaceOverview = ({ workspace }) => {
                 onClick={handleCreateCollection}
                 disabled={isCreatingCollection}
               >
-                Create Collection
+                {t('WELCOME.CREATE_COLLECTION')}
               </Button>
               <Button
                 color="light"
@@ -169,7 +171,7 @@ const WorkspaceOverview = ({ workspace }) => {
                 icon={<IconFolder size={14} strokeWidth={1.5} />}
                 onClick={handleOpenCollection}
               >
-                Open Collection
+                {t('WELCOME.OPEN_COLLECTION')}
               </Button>
               <Button
                 color="light"
@@ -177,13 +179,13 @@ const WorkspaceOverview = ({ workspace }) => {
                 icon={<IconDownload size={14} strokeWidth={1.5} />}
                 onClick={handleImportCollection}
               >
-                Import Collection
+                {t('WELCOME.IMPORT_COLLECTION')}
               </Button>
             </div>
           </div>
 
           <div className="collections-section">
-            <div className="section-title">Collections</div>
+            <div className="section-title">{t('COMMON.COLLECTIONS')}</div>
             <CollectionsList workspace={workspace} />
           </div>
         </div>

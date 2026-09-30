@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import isEqual from 'lodash/isEqual';
 import get from 'lodash/get';
 import VisualDiffUrlBar from 'components/Git/VisualDiffViewer/VisualDiffUrlBar';
@@ -10,6 +11,7 @@ import VisualDiffContent from 'components/Git/VisualDiffViewer/VisualDiffContent
 
 // OpenAPI sync diff section configs (HTTP request sections only)
 // Data format matches Git diff format: data.request.url, data.request.params, etc.
+// Titles are i18n keys, resolved with t() inside the component.
 const openAPIDiffSectionDataPaths = {
   url: ['request.url', 'request.method'],
   params: 'request.params',
@@ -96,11 +98,11 @@ const openAPIDiffHasContent = {
 };
 
 const openAPIDiffSections = [
-  { key: 'url', title: 'URL', Component: VisualDiffUrlBar, hasContent: openAPIDiffHasContent.url },
-  { key: 'params', title: 'Parameters', Component: VisualDiffParams, hasContent: openAPIDiffHasContent.params },
-  { key: 'headers', title: 'Headers', Component: VisualDiffHeaders, hasContent: openAPIDiffHasContent.headers },
-  { key: 'auth', title: 'Authentication', Component: VisualDiffAuth, hasContent: openAPIDiffHasContent.auth },
-  { key: 'body', title: 'Body', Component: VisualDiffBody, hasContent: openAPIDiffHasContent.body }
+  { key: 'url', titleKey: 'openApiSync.diff.sectionUrl', Component: VisualDiffUrlBar, hasContent: openAPIDiffHasContent.url },
+  { key: 'params', titleKey: 'openApiSync.diff.sectionParams', Component: VisualDiffParams, hasContent: openAPIDiffHasContent.params },
+  { key: 'headers', titleKey: 'openApiSync.diff.sectionHeaders', Component: VisualDiffHeaders, hasContent: openAPIDiffHasContent.headers },
+  { key: 'auth', titleKey: 'openApiSync.diff.sectionAuth', Component: VisualDiffAuth, hasContent: openAPIDiffHasContent.auth },
+  { key: 'body', titleKey: 'openApiSync.diff.sectionBody', Component: VisualDiffBody, hasContent: openAPIDiffHasContent.body }
 ];
 
 /**
@@ -115,11 +117,19 @@ const openAPIDiffSections = [
 const EndpointVisualDiff = ({
   oldData,
   newData,
-  leftLabel = 'Current (in collection)',
-  rightLabel = 'Expected (from spec)',
+  leftLabel,
+  rightLabel,
   swapSides = false
 }) => {
-  const sections = openAPIDiffSections;
+  const { t } = useTranslation();
+  const sections = openAPIDiffSections.map(({ key, titleKey, Component, hasContent }) => ({
+    key,
+    title: t(titleKey),
+    Component,
+    hasContent
+  }));
+  const resolvedLeftLabel = leftLabel || t('openApiSync.diff.currentInCollection');
+  const resolvedRightLabel = rightLabel || t('openApiSync.diff.expectedFromSpec');
 
   // Determine which data goes on which side based on swapSides
   const displayOldData = swapSides ? newData : oldData;
@@ -131,8 +141,8 @@ const EndpointVisualDiff = ({
       newData={displayNewData}
       sections={sections}
       sectionHasChanges={openAPISectionHasChanges}
-      oldLabel={leftLabel}
-      newLabel={rightLabel}
+      oldLabel={resolvedLeftLabel}
+      newLabel={resolvedRightLabel}
       hideUnchanged={true}
     />
   );

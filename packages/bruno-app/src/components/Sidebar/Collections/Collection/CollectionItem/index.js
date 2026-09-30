@@ -23,6 +23,7 @@ import {
   IconEyeOff
 } from '@tabler/icons';
 import { useSelector, useDispatch, useStore } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { addTab, focusTab, makeTabPermanent } from 'providers/ReduxStore/slices/tabs';
 import { handleMultipleCollectionItemsDrop, sendRequest, showInFolder, pasteItem, saveRequest, cloneItem } from 'providers/ReduxStore/slices/collections/actions';
 import { sanitizeName } from 'utils/common/regex';
@@ -77,6 +78,7 @@ import { startBlockedDragTracking } from 'utils/dragBlockedCursor';
 import { clearSidebarSelection } from 'providers/ReduxStore/slices/collections/index';
 
 const CollectionItem = ({ item, collectionUid, collectionPathname, searchText, openBulkMenu, isItemMultiDragDisabled, multiDragCollections, multiDragItems: multiDragItemsForSelection }) => {
+  const { t } = useTranslation();
   const { dropdownContainerRef } = useSidebarAccordion();
   const selectorInput = {
     itemUid: item.uid,
@@ -135,7 +137,7 @@ const CollectionItem = ({ item, collectionUid, collectionPathname, searchText, o
   // Check if request has examples (only for HTTP requests)
   const hasExamples = isItemARequest(item) && item.type === 'http-request' && item.examples && item.examples.length > 0;
 
-  // Sidebar shortcuts — only active when this sidebar item has keyboard focus
+  // Sidebar shortcuts —— only active when this sidebar item has keyboard focus
   useKeybinding('cloneItem', () => {
     handleCloneItem();
     return false;
@@ -425,25 +427,25 @@ const CollectionItem = ({ item, collectionUid, collectionPathname, searchText, o
         {
           id: 'new-request',
           leftSection: IconFilePlus,
-          label: 'New Request',
+          label: t('sidebar.newRequest.title'),
           onClick: () => setNewRequestModalOpen(true)
         },
         {
           id: 'new-folder',
           leftSection: IconFolderPlus,
-          label: 'New Folder',
+          label: t('sidebar.newFolder.title'),
           onClick: () => setNewFolderModalOpen(true)
         },
         {
           id: 'new-app',
           leftSection: IconAppWindow,
-          label: 'New App',
+          label: t('sidebar.newApp.title'),
           onClick: () => setNewAppModalOpen(true)
         },
         {
           id: 'run',
           leftSection: IconPlayerPlay,
-          label: 'Run',
+          label: t('sidebar.menu.run'),
           onClick: () => setRunCollectionModalOpen(true)
         }
       );
@@ -453,7 +455,7 @@ const CollectionItem = ({ item, collectionUid, collectionPathname, searchText, o
       items.push({
         id: 'clone',
         leftSection: IconCopy,
-        label: 'Clone',
+        label: t('sidebar.menu.clone'),
         onClick: handleCloneItem
       });
     }
@@ -461,7 +463,7 @@ const CollectionItem = ({ item, collectionUid, collectionPathname, searchText, o
     items.push({
       id: 'copy',
       leftSection: IconCopy,
-      label: 'Copy',
+      label: t('sidebar.menu.copy'),
       onClick: handleCopyItem
     });
 
@@ -469,7 +471,7 @@ const CollectionItem = ({ item, collectionUid, collectionPathname, searchText, o
       items.push({
         id: 'paste',
         leftSection: IconClipboard,
-        label: 'Paste',
+        label: t('sidebar.menu.paste'),
         onClick: handlePasteItem
       });
     }
@@ -478,7 +480,7 @@ const CollectionItem = ({ item, collectionUid, collectionPathname, searchText, o
       {
         id: 'rename',
         leftSection: IconEdit,
-        label: 'Rename',
+        label: t('sidebar.menu.rename'),
         onClick: () => setRenameItemModalOpen(true)
       }
     );
@@ -486,7 +488,7 @@ const CollectionItem = ({ item, collectionUid, collectionPathname, searchText, o
       items.push({
         id: 'run',
         leftSection: IconPlayerPlay,
-        label: 'Run',
+        label: t('sidebar.menu.run'),
         onClick: () => {
           handleRun();
         }
@@ -497,7 +499,7 @@ const CollectionItem = ({ item, collectionUid, collectionPathname, searchText, o
       items.push({
         id: 'generate-code',
         leftSection: IconCode,
-        label: 'Generate Code',
+        label: t('sidebar.menu.generateCode'),
         onClick: handleGenerateCode
       });
     }
@@ -506,7 +508,7 @@ const CollectionItem = ({ item, collectionUid, collectionPathname, searchText, o
       items.push({
         id: 'create-example',
         leftSection: ExampleIcon,
-        label: 'Create Example',
+        label: t('sidebar.menu.createExample'),
         onClick: () => setCreateExampleModalOpen(true)
       });
     }
@@ -524,7 +526,7 @@ const CollectionItem = ({ item, collectionUid, collectionPathname, searchText, o
       items.push({
         id: 'ignore',
         leftSection: IconEyeOff,
-        label: 'Ignore',
+        label: t('sidebar.menu.ignore'),
         onClick: () => setIgnoreItemModalOpen(true)
       });
     }
@@ -534,7 +536,7 @@ const CollectionItem = ({ item, collectionUid, collectionPathname, searchText, o
     items.push({
       id: 'info',
       leftSection: IconInfoCircle,
-      label: 'Info',
+      label: t('sidebar.menu.info'),
       onClick: () => setItemInfoModalOpen(true)
     });
 
@@ -543,13 +545,13 @@ const CollectionItem = ({ item, collectionUid, collectionPathname, searchText, o
         {
           id: 'settings',
           leftSection: IconSettings,
-          label: 'Settings',
+          label: t('sidebar.menu.settings'),
           onClick: viewFolderSettings
         },
         {
           id: 'open-terminal',
           leftSection: IconTerminal2,
-          label: 'Open in Terminal',
+          label: t('sidebar.openInTerminal'),
           onClick: async () => {
             const folderCwd = item.pathname || collectionPathname;
             await openDevtoolsAndSwitchToTerminal(dispatch, folderCwd);
@@ -561,7 +563,7 @@ const CollectionItem = ({ item, collectionUid, collectionPathname, searchText, o
     items.push({
       id: 'delete',
       leftSection: IconTrash,
-      label: 'Delete',
+      label: t('common.delete'),
       className: 'delete-item',
       onClick: () => setDeleteItemModalOpen(true)
     });
@@ -597,7 +599,7 @@ const CollectionItem = ({ item, collectionUid, collectionPathname, searchText, o
   const handleShowInFolder = () => {
     dispatch(showInFolder(item.pathname)).catch((error) => {
       console.error('Error opening the folder', error);
-      toast.error('Error opening the folder');
+      toast.error(t('sidebar.item.errorOpeningFolder'));
     });
   };
 
@@ -642,7 +644,7 @@ const CollectionItem = ({ item, collectionUid, collectionPathname, searchText, o
       openInEditMode: true
     }));
 
-    toast.success(`Example "${name}" created successfully`);
+    toast.success(t('sidebar.item.exampleCreated', { name }));
     setCreateExampleModalOpen(false);
   };
 
@@ -661,7 +663,7 @@ const CollectionItem = ({ item, collectionUid, collectionPathname, searchText, o
     ) {
       setGenerateCodeItemModalOpen(true);
     } else {
-      toast.error('URL is required');
+      toast.error(t('sidebar.item.urlRequired'));
     }
   };
 
@@ -684,7 +686,7 @@ const CollectionItem = ({ item, collectionUid, collectionPathname, searchText, o
 
   const handleCopyItem = () => {
     dispatch(copyRequest(item));
-    toast.success(`${getItemTypeLabel(item)} copied`);
+    toast.success(t('sidebar.item.copied', { type: getItemTypeLabel(item) }));
   };
 
   // One-click clone: display name becomes "<source> copy"; the filesystem name
@@ -692,8 +694,8 @@ const CollectionItem = ({ item, collectionUid, collectionPathname, searchText, o
   const handleCloneItem = () => {
     if (!isCloneable) return;
     dispatch(cloneItem(`${item.name} copy`, sanitizeName(`${item.name} copy`), item.uid, collectionUid))
-      .then(() => toast.success(`${getItemTypeLabel(item)} cloned!`))
-      .catch((err) => toast.error(formatIpcError(err) || `An error occurred while cloning the ${getItemTypeLabel(item).toLowerCase()}`));
+      .then(() => toast.success(t('sidebar.item.cloned', { type: getItemTypeLabel(item) })))
+      .catch((err) => toast.error(formatIpcError(err) || t('sidebar.item.cloneError', { type: getItemTypeLabel(item).toLowerCase() })));
   };
 
   const handlePasteItem = () => {
@@ -706,10 +708,10 @@ const CollectionItem = ({ item, collectionUid, collectionPathname, searchText, o
 
     dispatch(pasteItem(collectionUid, targetFolderUid))
       .then(() => {
-        toast.success('Item pasted successfully');
+        toast.success(t('sidebar.item.pasted'));
       })
       .catch((err) => {
-        toast.error(formatIpcError(err) || 'An error occurred while pasting the item');
+        toast.error(formatIpcError(err) || t('sidebar.item.pasteError'));
       });
   };
 
@@ -760,7 +762,7 @@ const CollectionItem = ({ item, collectionUid, collectionPathname, searchText, o
         isOpen={createExampleModalOpen}
         onClose={() => setCreateExampleModalOpen(false)}
         onSave={handleCreateExample}
-        title="Create Response Example"
+        title={t('sidebar.item.createExampleTitle')}
         initialName={getInitialExampleName(item)}
       />
       <div
@@ -878,7 +880,7 @@ const CollectionItem = ({ item, collectionUid, collectionPathname, searchText, o
                   appendTo={dropdownContainerRef?.current || document.body}
                   popperOptions={{ strategy: 'fixed' }}
                 >
-                  <button className="ml-1 add-request-link">+ Add request</button>
+                  <button className="ml-1 add-request-link">{t('sidebar.addRequest')}</button>
                 </MenuDropdown>
               </div>
             </div>

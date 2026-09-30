@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useRef } from 'react';
 import get from 'lodash/get';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from 'providers/Theme';
 import { setCollectionHeaders } from 'providers/ReduxStore/slices/collections';
 import { saveCollectionSettings } from 'providers/ReduxStore/slices/collections/actions';
@@ -21,6 +22,7 @@ import { useFocusTableRow } from 'hooks/useFocusTableRow';
 const headerAutoCompleteList = StandardHTTPHeaders.map((e) => e.header);
 
 const Headers = ({ collection }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const { storedTheme } = useTheme();
   const tabs = useSelector((state) => state.tabs.tabs);
@@ -62,17 +64,17 @@ const Headers = ({ collection }) => {
     if (key === 'name') {
       if (!row.name || row.name.trim() === '') return null;
       if (!headerNameRegex.test(row.name)) {
-        return 'Header name cannot contain spaces or newlines';
+        return t('collection.headers.errorName');
       }
     }
     if (key === 'value') {
       if (!row.value) return null;
       if (!headerValueRegex.test(row.value)) {
-        return 'Header value cannot contain newlines';
+        return t('collection.headers.errorValue');
       }
     }
     return null;
-  }, []);
+  }, [t]);
 
   const descriptionColumn = createDescriptionColumn({
     theme: storedTheme,
@@ -84,9 +86,9 @@ const Headers = ({ collection }) => {
   const columns = [
     {
       key: 'name',
-      name: 'Name',
+      name: t('collection.table.name'),
       isKeyField: true,
-      placeholder: 'Name',
+      placeholder: t('collection.table.name'),
       width: '20%',
       render: ({ value, onChange }) => (
         <SingleLineEditor
@@ -96,14 +98,14 @@ const Headers = ({ collection }) => {
           onChange={(newValue) => onChange(newValue.replace(/[\r\n]/g, ''))}
           autocomplete={headerAutoCompleteList}
           collection={collection}
-          placeholder={!value ? 'Name' : ''}
+          placeholder={!value ? t('collection.table.name') : ''}
         />
       )
     },
     {
       key: 'value',
-      name: 'Value',
-      placeholder: 'Value',
+      name: t('collection.table.value'),
+      placeholder: t('collection.table.value'),
       render: ({ value, onChange }) => (
         <SingleLineEditor
           value={value || ''}
@@ -112,7 +114,7 @@ const Headers = ({ collection }) => {
           onChange={onChange}
           collection={collection}
           autocomplete={MimeTypes}
-          placeholder={!value ? 'Value' : ''}
+          placeholder={!value ? t('collection.table.value') : ''}
         />
       )
     },
@@ -129,7 +131,7 @@ const Headers = ({ collection }) => {
     return (
       <StyledWrapper className="h-full w-full">
         <div className="text-xs mb-4 text-muted">
-          Add request headers that will be sent with every request in this collection.
+          {t('collection.headers.description')}
         </div>
         <BulkEditor
           params={headers}
@@ -144,7 +146,7 @@ const Headers = ({ collection }) => {
   return (
     <StyledWrapper className="h-full w-full" ref={wrapperRef}>
       <div className="text-xs mb-4 text-muted">
-        Add request headers that will be sent with every request in this collection.
+        {t('collection.headers.description')}
       </div>
       <EditableTable
         tableId="collection-headers"
@@ -162,12 +164,12 @@ const Headers = ({ collection }) => {
       />
       <div className="flex justify-end mt-2">
         <button className="text-link select-none" data-testid="bulk-edit-toggle" onClick={toggleBulkEditMode}>
-          Bulk Edit
+          {t('common.bulkEdit')}
         </button>
       </div>
       <div className="mt-6">
         <Button type="submit" size="sm" onClick={handleSave}>
-          Save
+          {t('common.save')}
         </Button>
       </div>
     </StyledWrapper>

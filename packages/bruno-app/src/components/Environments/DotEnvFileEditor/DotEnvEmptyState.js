@@ -1,13 +1,15 @@
 import React from 'react';
 import { IconFileOff } from '@tabler/icons';
+import { useTranslation } from 'react-i18next';
 
 const DotEnvEmptyState = () => {
+  const { t } = useTranslation();
   return (
     <div className="empty-state">
       <IconFileOff size={48} strokeWidth={1.5} />
-      <div className="title">No .env File</div>
+      <div className="title">{t('environments.dotEnv.noFile')}</div>
       <div className="description">
-        Add a variable below to create a .env file in this location.
+        {t('environments.dotEnv.emptyDescription')}
       </div>
     </div>
   );

@@ -1,0 +1,145 @@
+﻿{
+ "blocks": 693,
+ "markedBlocks": 533,
+ "keysRecovered": 500,
+ "keysScanned": 500,
+ "flagged": 135,
+ "missingFromDiff": [],
+ "extraInDiff": []
+}
+--- flagged keys ---
+sidebar.addRequest | "{{>}}{{button}}" | param-fallback:>,param-fallback:button,normalize-missing-param,placeholder-but-no-params | 1v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js
+sidebar.bulkImport.groupingPaths | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js
+sidebar.bulkImport.groupingPathsDesc | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js
+sidebar.bulkImport.groupingTags | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js
+sidebar.bulkImport.groupingTagsDesc | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js
+sidebar.bulkImport.importingEnvironments | "Importing Environments" | params-but-no-placeholder | 1v | packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js
+sidebar.bulkImport.itemsSkipped | "importIssues[collection.uid].filter((i) => i.severity === 'error').length} item(s)" | params-but-no-placeholder | 1v | packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js
+sidebar.changeVersion.notSet | "currentVersion || <span className=\"text-muted italic\">Not Set</span>" | conflict:2 | 2v | packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.js
+sidebar.changeVersion.title | "Change Collection Version" | conflict:2 | 2v | packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.js
+sidebar.changeVersion.updateVersion | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.js
+sidebar.changeVersion.updating | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.js
+sidebar.cloneGit.cloningRepository | "...step, title: 'Cloning repository', completed: false, info: progressData.progressData" | conflict:2 | 2v | packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js
+sidebar.cloneGit.loadingBranches | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js
+sidebar.cloneGit.repositoryDefault | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js
+sidebar.cloneGit.selectedCount | "selectedCollectionPaths.length}</span> of {collectionPaths.length" | params-but-no-placeholder | 1v | packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js
+sidebar.collectionNotFound | "'Collection not found');" | conflict:2 | 2v | packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/index.js
+sidebar.copiedToClipboard | "'Copied to clipboard'," | conflict:2 | 2v | packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js
+sidebar.createCollection.formatRequired | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/CreateCollection/index.js
+sidebar.createCollection.invalidFormat | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/CreateCollection/index.js
+sidebar.deleteItems.and | null | no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.deleteItems.appMany | null | no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.deleteItems.appOne | null | no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.deleteItems.confirmSuffix | "?" | conflict:2 | 2v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.deleteItems.errorDeleting | "`Error deleting ${{name}}`);" | unresolved-marker | 1v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.deleteItems.exampleMany | null | no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.deleteItems.exampleOne | null | no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.deleteItems.folderMany | null | no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.deleteItems.folderOne | null | no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.deleteItems.requestMany | null | no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.deleteItems.requestOne | null | no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.deleteItems.titleAppMany | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.deleteItems.titleAppOne | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.deleteItems.titleExampleMany | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.deleteItems.titleExampleOne | "Delete Example" | multi-marker-gap | 1v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.deleteItems.titleFolderMany | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.deleteItems.titleFolderOne | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.deleteItems.titleRequestMany | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.deleteItems.titleRequestOne | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+sidebar.docs.allRequests | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/index.jsx
+sidebar.docs.environments | null | no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/EnvironmentSelectionList/index.js
+sidebar.docs.excludeTags | ">Exclude tags</span>" | conflict:2 | 2v | packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/IncludeExcludeTags/index.jsx
+sidebar.docs.featureHostAnywhere | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js
+sidebar.docs.featurePlayground | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js
+sidebar.docs.featureStandaloneHtml | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js
+sidebar.docs.filterByTags | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/index.jsx
+sidebar.docs.generate | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js
+sidebar.docs.includeTags | ">Include tags</span>" | conflict:2 | 2v | packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/IncludeExcludeTags/index.jsx
+sidebar.docs.loading | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js
+sidebar.docs.notSet | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/CollectionVersionInfo/index.js
+sidebar.docs.tagExists | "`Tag \"${{tag}}\" already exists`);" | unresolved-marker | 1v | packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/DocsTagList/index.jsx
+sidebar.docs.tagPlaceholder | null | no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/DocsTagList/index.jsx
+sidebar.docs.tagsHint | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/index.jsx
+sidebar.docs.versionLabel | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/CollectionVersionInfo/index.js
+sidebar.drafts.additionalMany | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js
+sidebar.drafts.additionalOne | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js
+sidebar.drafts.requestItemMany | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js
+sidebar.drafts.requestItemOne | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js
+sidebar.drafts.savedRequestsMany | null | no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js
+sidebar.drafts.savedRequestsOne | "({currentDrafts.length" | params-but-no-placeholder | 1v | packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js
+sidebar.drafts.saveTransientFirst | "'Please save or discard transient requests first');" | conflict:2 | 2v | packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js
+sidebar.drafts.transientRequestsMany | null | no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js
+sidebar.drafts.transientRequestsOne | "({currentTransientDrafts.length" | params-but-no-placeholder | 1v | packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js
+sidebar.dragPreview.and | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CollectionItemDragPreview/index.js
+sidebar.dragPreview.items | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CollectionItemDragPreview/index.js
+sidebar.exportToPostman.export | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js
+sidebar.exportToPostman.exportFailed | "'Failed to export collection: ' +" | params-but-no-placeholder | 1v | packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js
+sidebar.exportToPostman.fileExists | "FILE_EXISTS_ERROR;" | conflict:2 | 2v | packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js
+sidebar.exportToPostman.replace | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js
+sidebar.fileFormatHelp1 | "Choose the file format for storing requests in this collection." | conflict:2 | 2v | packages/bruno-app/src/components/Sidebar/CreateCollection/index.js
+sidebar.folderName | "Folder Name" | multi-marker-gap | 1v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CloneCollection/index.js
+sidebar.generateCode.example | null | no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/GenerateCodeItem/index.js
+sidebar.generateCode.invalidUrl | "<h1>Invalid URL:" | params-but-no-placeholder | 1v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/GenerateCodeItem/index.js
+sidebar.generateCode.titleWithExample | "Generate Code - {{Example}}" | param-fallback:Example,placeholder-not-in-params:Example | 1v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/GenerateCodeItem/index.js
+sidebar.goldenEdition.oneTimePayment | ">One Time Payment</p> <p>perpetual license for 2 devices, with 2 years of" | conflict:2 | 2v | packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js
+sidebar.goldenEdition.title | "Golden Edition" | conflict:2 | 2v | packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js
+sidebar.hideAdvancedOptions | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js
+sidebar.hideFilesystemName | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js
+sidebar.import.groupingPaths | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js
+sidebar.import.groupingPathsDesc | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js
+sidebar.import.groupingTags | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js
+sidebar.import.groupingTagsDesc | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js
+sidebar.import.loading1 | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/ImportCollection/FullscreenLoader/index.js
+sidebar.import.loading2 | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/ImportCollection/FullscreenLoader/index.js
+sidebar.import.loading3 | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/ImportCollection/FullscreenLoader/index.js
+sidebar.import.loading4 | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/ImportCollection/FullscreenLoader/index.js
+sidebar.import.loading5 | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/ImportCollection/FullscreenLoader/index.js
+sidebar.item.cloned | "`${{type}} cloned!`);" | conflict:2,unresolved-marker | 2v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js
+sidebar.item.cloneError | "`An error occurred while cloning the ${{toLowerCase}}`);" | param-fallback:toLowerCase,normalize-missing-param,conflict:2,unresolved-marker,placeholder-not-in-params:toLowerCase | 2v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js
+sidebar.item.copied | "`${{type}} copied`);" | unresolved-marker | 1v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js
+sidebar.item.exampleCreated | "`Example \"${{name}}\" created successfully`);" | unresolved-marker | 1v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js
+sidebar.item.exampleRenamed | "`Example renamed to \"${{name}}\"`);" | unresolved-marker | 1v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/ExampleItem/index.js
+sidebar.item.nameLabel | "itemTypeLabel" | params-but-no-placeholder | 1v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js
+sidebar.location | ">Location</div>" | conflict:2 | 2v | packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js
+sidebar.locationHelp1 | "Bruno stores your collections on your computer's filesystem." | conflict:2 | 2v | packages/bruno-app/src/components/Sidebar/CreateCollection/index.js
+sidebar.locationHelp2 | "Choose the location where you want to store this collection." | conflict:2 | 2v | packages/bruno-app/src/components/Sidebar/CreateCollection/index.js
+sidebar.menu.clone | "Clone" | conflict:2 | 2v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js
+sidebar.menu.ignore | "Ignore" | conflict:2 | 2v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js
+sidebar.menu.info | "Info" | conflict:2 | 2v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CollectionItemInfo/index.js
+sidebar.menu.remove | "Remove" | conflict:2 | 2v | packages/bruno-app/src/components/Sidebar/ApiSpecs/ApiSpecItem/index.js
+sidebar.menu.rename | "'Rename'," | conflict:2 | 2v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/ExampleItem/index.js
+sidebar.menu.run | ">Run</span>" | conflict:3 | 3v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RunCollectionItem/index.js
+sidebar.moveToWorkspace.description | "This will move the following collection's files into {activeWorkspace?.name" | params-but-no-placeholder | 1v | packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/index.js
+sidebar.moveToWorkspace.move | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/index.js
+sidebar.moveToWorkspace.moving | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js
+sidebar.moveToWorkspace.saveAllAndMove | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js
+sidebar.moveToWorkspace.saveAndMove | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js
+sidebar.newApp.title | "'New App'," | conflict:2 | 2v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js
+sidebar.newFolder.title | "'New Folder'," | conflict:2 | 2v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js
+sidebar.newRequest.fileName | "File Name" | multi-marker-gap | 1v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js
+sidebar.newRequest.title | "'New Request'," | conflict:2 | 2v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js
+sidebar.openCollection.noneFoundSkipped | "`No Bruno collections found. ${{count}} skipped, config could not be read`);" | unresolved-marker | 1v | packages/bruno-app/src/components/Sidebar/OpenCollection/index.js
+sidebar.openCollection.selectedOfTotal | "of {collectionPaths.length" | params-but-no-placeholder | 1v | packages/bruno-app/src/components/Sidebar/OpenCollection/index.js
+sidebar.postmanReport.customPackagesPrefix | "Custom npm packages (such as {{needsInstall}}) {{' '}}are installed, but this collection is currently" | param-fallback:needsInstall,param-fallback:' ',normalize-missing-param,placeholder-but-no-params | 1v | packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js
+sidebar.postmanReport.developerMode | "to" | conflict:2 | 2v | packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js
+sidebar.postmanReport.devModeDescPrefix | "Your imported scripts call {{devMode}} {{', '}}which need" | param-fallback:devMode,param-fallback:', ',normalize-missing-param,placeholder-but-no-params | 1v | packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js
+sidebar.postmanReport.done | "Done" | multi-marker-gap | 1v | packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js
+sidebar.postmanReport.installedIntoMany | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js
+sidebar.postmanReport.installedIntoOne | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js
+sidebar.postmanReport.installedMany | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js
+sidebar.postmanReport.installedOne | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js
+sidebar.postmanReport.installFailedExitCode | "`npm install failed (exit code ${{exitCode}}). Try the manual command above.`;" | unresolved-marker | 1v | packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js
+sidebar.postmanReport.installingMany | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js
+sidebar.postmanReport.installingOne | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js
+sidebar.postmanReport.installMany | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js
+sidebar.postmanReport.installOne | null | no-original | 0v | packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js
+sidebar.runCollection.recursiveRun | ">Recursive Run</span>" | conflict:2 | 2v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RunCollectionItem/index.js
+sidebar.runCollection.requestCount | ">({totalRequestItemsCountForFolderRun" | conflict:2,params-but-no-placeholder | 2v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RunCollectionItem/index.js
+sidebar.showAdvancedOptions | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js
+sidebar.showFilesystemName | null | multi-marker-gap,no-original | 0v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js
+sidebar.toast.errorCreatingCollectionWithError | "'An error occurred while creating the collection - ' +" | params-but-no-placeholder | 1v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CloneCollection/index.js
+sidebar.validation.folderNameRequired | "'folder name is required')," | conflict:2 | 2v | packages/bruno-app/src/components/Sidebar/Collections/Collection/CloneCollection/index.js
+sidebar.validation.locationRequired | "'location is required')," | multi-marker-gap,conflict:2 | 2v | packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js
+sidebar.validation.max255 | "'Must be 255 characters or less')" | conflict:2 | 2v | packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js
+sidebar.validation.min1Char | "'Must be at least 1 character')" | conflict:2 | 2v | packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js
+sidebar.validation.nameRequired | "'Name is required')," | conflict:4 | 4v | packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js

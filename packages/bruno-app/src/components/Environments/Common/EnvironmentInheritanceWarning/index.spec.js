@@ -5,6 +5,18 @@ import { ThemeProvider } from 'styled-components';
 import themes from 'themes/index';
 import EnvironmentInheritanceWarning from './index';
 
+jest.mock('react-i18next', () => {
+  const translations = {
+    'environments.inheritance.missingParent': 'Referenced parent environment not found: {{name}}',
+    'environments.inheritance.circular': 'Circular inheritance: {{path}}'
+  };
+  return {
+    useTranslation: () => ({
+      t: (key, params) => String(translations[key] ?? key).replace(/\{\{(\w+)\}\}/g, (_, k) => params?.[k] ?? '')
+    })
+  };
+});
+
 const buildEnvironment = ({ name, extendsFrom }) => ({
   uid: `uid-${name}`,
   name,
@@ -50,7 +62,7 @@ describe('EnvironmentInheritanceWarning', () => {
     renderWarning([base, dev], 'dev');
 
     expect(screen.getByTestId('env-cyclic-inherited-environment')).toHaveTextContent(
-      'Circular inheritance: dev → base → dev'
+      'Circular inheritance: dev \u2192 base \u2192 dev'
     );
     expect(screen.queryByTestId('env-missing-inherited-environment')).not.toBeInTheDocument();
   });
@@ -63,7 +75,7 @@ describe('EnvironmentInheritanceWarning', () => {
     renderWarning([base, staging, dev], 'dev');
 
     expect(screen.getByTestId('env-cyclic-inherited-environment')).toHaveTextContent(
-      'Circular inheritance: staging → base → staging'
+      'Circular inheritance: staging \u2192 base \u2192 staging'
     );
   });
 });

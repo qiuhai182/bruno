@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from 'providers/Theme';
 import get from 'lodash/get';
 import { moveResponseExampleHeader, setResponseExampleHeaders, updateResponseExampleResponse } from 'providers/ReduxStore/slices/collections';
@@ -15,6 +16,7 @@ import StyledWrapper from './StyledWrapper';
 const headerAutoCompleteList = StandardHTTPHeaders.map((e) => e.header);
 
 const ResponseExampleResponseHeaders = ({ editMode, item, collection, exampleUid }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const { storedTheme } = useTheme();
   const tabs = useSelector((state) => state.tabs.tabs);
@@ -126,9 +128,9 @@ const ResponseExampleResponseHeaders = ({ editMode, item, collection, exampleUid
   const columns = [
     {
       key: 'name',
-      name: 'Key',
+      name: t('collection.table.key'),
       isKeyField: true,
-      placeholder: 'Key',
+      placeholder: t('collection.table.key'),
       width: '40%',
       readOnly: !editMode,
       render: ({ value, onChange }) => (
@@ -141,14 +143,14 @@ const ResponseExampleResponseHeaders = ({ editMode, item, collection, exampleUid
           onRun={() => {}}
           collection={collection}
           readOnly={!editMode}
-          placeholder={!value ? 'Key' : ''}
+          placeholder={!value ? t('collection.table.key') : ''}
         />
       )
     },
     {
       key: 'value',
-      name: 'Value',
-      placeholder: 'Value',
+      name: t('collection.table.value'),
+      placeholder: t('collection.table.value'),
       width: '60%',
       readOnly: !editMode,
       render: ({ value, onChange }) => (
@@ -163,7 +165,7 @@ const ResponseExampleResponseHeaders = ({ editMode, item, collection, exampleUid
           collection={collection}
           item={item}
           readOnly={!editMode}
-          placeholder={!value ? 'Value' : ''}
+          placeholder={!value ? t('collection.table.value') : ''}
         />
       )
     }
@@ -197,7 +199,7 @@ const ResponseExampleResponseHeaders = ({ editMode, item, collection, exampleUid
             className="btn-action text-link select-none"
             onClick={toggleBulkEditMode}
           >
-            Bulk Edit
+            {t('common.bulkEdit')}
           </button>
         </div>
       )}

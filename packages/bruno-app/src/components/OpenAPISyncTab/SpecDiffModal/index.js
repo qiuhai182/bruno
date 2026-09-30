@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import { Virtuoso } from 'react-virtuoso';
+import { useTranslation } from 'react-i18next';
 import { IconLoader2, IconChevronUp, IconChevronDown } from '@tabler/icons';
 import Modal from 'components/Modal';
 import StatusBadge from 'ui/StatusBadge';
@@ -8,6 +9,7 @@ import { createHighlightCache } from './highlightCache';
 import DiffRow from './DiffRow';
 
 const SpecDiffModal = ({ specDrift, onClose }) => {
+  const { t } = useTranslation();
   const virtuosoRef = useRef(null);
 
   const [cache] = useState(createHighlightCache);
@@ -82,25 +84,25 @@ const SpecDiffModal = ({ specDrift, onClose }) => {
   const showNav = !!specDrift?.unifiedDiff && !parseError;
   const changeCount = changeBlocks.length;
   const counterLabel
-    = changeCount === 0 ? 'No changes' : `${currentIndex + 1} of ${changeCount} changes`;
+    = changeCount === 0 ? t('openApiSync.specDiff.noChanges') : t('openApiSync.specDiff.changeCounter', { current: currentIndex + 1, total: changeCount });
 
   return (
-    <Modal size="xl" title="Spec Diff" hideFooter handleCancel={onClose}>
+    <Modal size="xl" title={t('openApiSync.specDiff.title')} hideFooter handleCancel={onClose}>
       <div className="spec-diff-modal">
         <div className="spec-diff-header">
           <div className="spec-diff-header-left">
             <div className="spec-diff-badges">
-              <div>Endpoint Changes:</div>
-              {modifiedCount > 0 && <StatusBadge status="warning">Updated: {modifiedCount}</StatusBadge>}
-              {addedCount > 0 && <StatusBadge status="success">Added: {addedCount}</StatusBadge>}
-              {removedCount > 0 && <StatusBadge status="danger">Removed: {removedCount}</StatusBadge>}
+              <div>{t('openApiSync.specDiff.endpointChanges')}</div>
+              {modifiedCount > 0 && <StatusBadge status="warning">{t('openApiSync.specDiff.updatedCount', { count: modifiedCount })}</StatusBadge>}
+              {addedCount > 0 && <StatusBadge status="success">{t('openApiSync.specDiff.addedCount', { count: addedCount })}</StatusBadge>}
+              {removedCount > 0 && <StatusBadge status="danger">{t('openApiSync.specDiff.removedCount', { count: removedCount })}</StatusBadge>}
               {versionLabel && <StatusBadge>{versionLabel}</StatusBadge>}
             </div>
 
             <p className="spec-diff-subtitle">
               {specDrift?.storedSpecMissing
-                ? 'The current spec file is missing. The full remote spec is shown below.'
-                : 'Side-by-side diff of your current spec vs the updated spec from the spec URL.'}
+                ? t('openApiSync.specDiff.missingSpecSubtitle')
+                : t('openApiSync.specDiff.subtitle')}
             </p>
           </div>
           {showNav && (
@@ -112,18 +114,18 @@ const SpecDiffModal = ({ specDrift, onClose }) => {
                   className="spec-diff-nav-btn"
                   onClick={() => goToChange(currentIndex - 1)}
                   disabled={changeCount === 0}
-                  title="Previous change"
+                  title={t('openApiSync.specDiff.previousChange')}
                 >
-                  <IconChevronUp size={14} strokeWidth={1.75} /> Previous
+                  <IconChevronUp size={14} strokeWidth={1.75} /> {t('openApiSync.specDiff.previous')}
                 </button>
                 <button
                   type="button"
                   className="spec-diff-nav-btn"
                   onClick={() => goToChange(currentIndex + 1)}
                   disabled={changeCount === 0}
-                  title="Next change"
+                  title={t('openApiSync.specDiff.nextChange')}
                 >
-                  <IconChevronDown size={14} strokeWidth={1.75} /> Next
+                  <IconChevronDown size={14} strokeWidth={1.75} /> {t('openApiSync.specDiff.next')}
                 </button>
               </div>
             </div>
@@ -136,19 +138,19 @@ const SpecDiffModal = ({ specDrift, onClose }) => {
               <>
                 <div className="diff-column-headers">
                   <span className="diff-column-label">
-                    {specDrift?.storedSpecMissing ? 'Current Spec (missing)' : 'Current Spec'}
+                    {specDrift?.storedSpecMissing ? t('openApiSync.specDiff.currentSpecMissing') : t('openApiSync.specDiff.currentSpec')}
                   </span>
-                  <span className="diff-column-label">Updated Spec</span>
+                  <span className="diff-column-label">{t('openApiSync.specDiff.updatedSpec')}</span>
                 </div>
                 {isRendering && (
                   <div className="text-diff-loading">
                     <IconLoader2 className="animate-spin" size={20} strokeWidth={1.5} />
-                    <span>Loading diff...</span>
+                    <span>{t('openApiSync.specDiff.loadingDiff')}</span>
                   </div>
                 )}
                 {!isRendering && parseError && (
                   <div className="text-diff-empty">
-                    Diff couldn&apos;t be rendered. Please file an issue with the spec.
+                    {t('openApiSync.specDiff.renderError')}
                   </div>
                 )}
                 {!isRendering && !parseError && rows.length > 0 && (
@@ -163,11 +165,11 @@ const SpecDiffModal = ({ specDrift, onClose }) => {
                   />
                 )}
                 {!isRendering && !parseError && rows.length === 0 && (
-                  <div className="text-diff-empty">No changes to display.</div>
+                  <div className="text-diff-empty">{t('openApiSync.specDiff.noChangesToDisplay')}</div>
                 )}
               </>
             ) : (
-              <div className="text-diff-empty">No text diff available.</div>
+              <div className="text-diff-empty">{t('openApiSync.specDiff.noTextDiff')}</div>
             )}
           </div>
         </div>

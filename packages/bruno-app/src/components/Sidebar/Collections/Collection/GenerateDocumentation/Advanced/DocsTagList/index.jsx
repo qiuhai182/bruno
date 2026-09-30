@@ -1,5 +1,6 @@
 import React, { useId, useState, useRef, useCallback, useLayoutEffect, useEffect } from 'react';
 import { createPortal } from 'react-dom';
+import { useTranslation } from 'react-i18next';
 import { IconX, IconTag } from '@tabler/icons';
 import { StyledWrapper, Menu } from './StyledWrapper';
 
@@ -12,8 +13,10 @@ const DocsTagList = ({
   handleRemoveTag,
   handleValidation,
   ariaLabel,
-  placeholder = 'e.g., smoke, regression'
+  placeholder
 }) => {
+  const { t } = useTranslation();
+  const resolvedPlaceholder = placeholder ?? t('sidebar.docs.tagPlaceholder');
   const baseId = useId();
   const menuId = `${baseId}-listbox`;
   const optionId = (index) => `${baseId}-option-${index}`;
@@ -52,11 +55,11 @@ const DocsTagList = ({
     const tag = rawTag.trim();
     if (!tag) return;
     if (!TAG_NAME_REGEX.test(tag)) {
-      setError('Tags must only contain letters, numbers, spaces, "-", "_"');
+      setError(t('sidebar.docs.tagNameRule'));
       return;
     }
     if (tags.includes(tag)) {
-      setError(`Tag "${tag}" already exists`);
+      setError(t('sidebar.docs.tagExists', { tag }));
       return;
     }
     if (handleValidation) {
@@ -121,7 +124,7 @@ const DocsTagList = ({
           type="text"
           className="docs-tag-input"
           value={text}
-          placeholder={placeholder}
+          placeholder={resolvedPlaceholder}
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
           onFocus={() => setIsOpen(true)}
@@ -185,7 +188,7 @@ const DocsTagList = ({
               <button
                 type="button"
                 className="docs-tag-remove"
-                aria-label={`Remove ${tag}`}
+                aria-label={t('sidebar.docs.removeTag', { tag })}
                 onClick={() => handleRemoveTag(tag)}
               >
                 <IconX size={12} strokeWidth={1.5} aria-hidden="true" />

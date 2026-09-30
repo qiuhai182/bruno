@@ -6,8 +6,10 @@ import {
   clearDebugErrors
 } from 'providers/ReduxStore/slices/logs';
 import StyledWrapper from './StyledWrapper';
+import { useTranslation } from 'react-i18next';
 
 const ErrorRow = ({ error, isSelected, onClick }) => {
+  const { t } = useTranslation();
   const formatTime = (timestamp) => {
     const date = new Date(timestamp);
     return date.toLocaleTimeString('en-US', {
@@ -20,7 +22,7 @@ const ErrorRow = ({ error, isSelected, onClick }) => {
   };
 
   const getShortMessage = (message, maxLength = 80) => {
-    if (!message) return 'Unknown error';
+    if (!message) return t('devtools.debug.unknownError');
     return message.length > maxLength ? message.substring(0, maxLength) + '...' : message;
   };
 
@@ -59,6 +61,7 @@ const ErrorRow = ({ error, isSelected, onClick }) => {
 
 const DebugTab = () => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const { debugErrors, selectedError } = useSelector((state) => state.logs);
 
   const handleErrorClick = (error) => {
@@ -75,15 +78,15 @@ const DebugTab = () => {
         {debugErrors.length === 0 ? (
           <div className="debug-empty">
             <IconBug size={48} strokeWidth={1} />
-            <p>No errors</p>
-            <span>console.error() calls will appear here</span>
+            <p>{t('devtools.debug.emptyTitle')}</p>
+            <span>{t('devtools.debug.emptySubtitle')}</span>
           </div>
         ) : (
           <div className="errors-container">
             <div className="errors-header">
-              <div>Message</div>
-              <div>Location</div>
-              <div className="text-right">Time</div>
+              <div>{t('devtools.debug.colMessage')}</div>
+              <div>{t('devtools.debug.colLocation')}</div>
+              <div className="text-right">{t('devtools.debug.colTime')}</div>
             </div>
 
             <div className="errors-list">

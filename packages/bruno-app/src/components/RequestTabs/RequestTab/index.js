@@ -1,4 +1,5 @@
 import React, { useCallback, useState, useRef, Fragment, useMemo, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import get from 'lodash/get';
 import { makeTabPermanent, syncTabUid } from 'providers/ReduxStore/slices/tabs';
 import { saveRequest, saveCollectionRoot, saveFolderRoot, saveEnvironment, saveCollectionSettings, closeTabs, saveFile } from 'providers/ReduxStore/slices/collections/actions';
@@ -32,6 +33,7 @@ import MockResponseTab from 'components/MockServer/RequestTabs/MockResponseTab';
 import toast from 'react-hot-toast';
 
 const RequestTab = ({ tab, collection, tabIndex, collectionRequestTabs, folderUid, hasOverflow, setHasOverflow, dropdownContainerRef }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const { theme } = useTheme();
   const tabNameRef = useRef(null);
@@ -268,8 +270,8 @@ const RequestTab = ({ tab, collection, tabIndex, collectionRequestTabs, folderUi
           window.dispatchEvent(new Event('dotenv-save'));
         } else {
           dispatch(saveEnvironment(variables, environmentUid, collection.uid))
-            .then(() => toast.success('Changes saved successfully'))
-            .catch(saveErrorHandler('Failed to save environment'));
+            .then(() => toast.success(t('requestTabs.save.changesSaved')))
+            .catch(saveErrorHandler(t('requestTabs.save.failedEnvironment')));
         }
       }
     } else if (tab.type === 'global-environment-settings' || tab.type === 'workspaceEnvironments') {
@@ -279,8 +281,8 @@ const RequestTab = ({ tab, collection, tabIndex, collectionRequestTabs, folderUi
           window.dispatchEvent(new Event('dotenv-save'));
         } else {
           dispatch(saveGlobalEnvironment({ variables, environmentUid }))
-            .then(() => toast.success('Changes saved successfully'))
-            .catch(saveErrorHandler('Failed to save global environment'));
+            .then(() => toast.success(t('requestTabs.save.changesSaved')))
+            .catch(saveErrorHandler(t('requestTabs.save.failedGlobalEnvironment')));
         }
       }
     } else if (tab.type === 'folder-settings') {
@@ -441,9 +443,9 @@ const RequestTab = ({ tab, collection, tabIndex, collectionRequestTabs, folderUi
                     dispatch(clearEnvironmentsDraft({ collectionUid: collection.uid }));
                     dispatch(closeTabs({ tabUids: [tab.uid] }));
                     setShowConfirmEnvironmentClose(false);
-                    toast.success('Environment saved');
+                    toast.success(t('requestTabs.save.environmentSaved'));
                   })
-                  .catch(saveErrorHandler('Failed to save environment'));
+                  .catch(saveErrorHandler(t('requestTabs.save.failedEnvironment')));
               }
             }}
           />
@@ -489,9 +491,9 @@ const RequestTab = ({ tab, collection, tabIndex, collectionRequestTabs, folderUi
                     dispatch(clearGlobalEnvironmentDraft());
                     dispatch(closeTabs({ tabUids: [tab.uid] }));
                     setShowConfirmGlobalEnvironmentClose(false);
-                    toast.success('Global environment saved');
+                    toast.success(t('requestTabs.save.globalEnvironmentSaved'));
                   })
-                  .catch(saveErrorHandler('Failed to save global environment'));
+                  .catch(saveErrorHandler(t('requestTabs.save.failedGlobalEnvironment')));
               }
             }}
           />
@@ -629,7 +631,7 @@ const RequestTab = ({ tab, collection, tabIndex, collectionRequestTabs, folderUi
         }}
       >
         {item.type === 'app' ? (
-          <span className="tab-method flex items-center" aria-label="App">
+          <span className="tab-method flex items-center" aria-label={t('requestTabs.tab.app')}>
             <IconAppWindow size={14} strokeWidth={1.5} />
           </span>
         ) : (
@@ -668,6 +670,7 @@ const RequestTab = ({ tab, collection, tabIndex, collectionRequestTabs, folderUi
 };
 
 function RequestTabMenu({ menuDropdownRef, tabLabelRef, collectionRequestTabs, tabIndex, collection, dispatch, dropdownContainerRef }) {
+  const { t } = useTranslation();
   const [showCloneRequestModal, setShowCloneRequestModal] = useState(false);
   const [showAddNewRequestModal, setShowAddNewRequestModal] = useState(false);
 
@@ -773,54 +776,54 @@ function RequestTabMenu({ menuDropdownRef, tabLabelRef, collectionRequestTabs, t
   const menuItems = useMemo(() => [
     {
       id: 'new-request',
-      label: 'New Request',
+      label: t('requestTabs.menu.newRequest'),
       onClick: () => setShowAddNewRequestModal(true)
     },
     {
       id: 'clone-request',
-      label: 'Clone Request',
+      label: t('requestTabs.menu.cloneRequest'),
       onClick: () => setShowCloneRequestModal(true)
     },
     {
       id: 'revert-changes',
-      label: 'Revert Changes',
+      label: t('requestTabs.menu.revertChanges'),
       onClick: handleRevertChanges,
       disabled: !currentTabItem?.draft
     },
     {
       id: 'close',
-      label: 'Close',
+      label: t('common.close'),
       onClick: () => handleCloseTab(currentTabUid)
     },
     {
       id: 'close-others',
-      label: 'Close Others',
+      label: t('requestTabs.menu.closeOthers'),
       onClick: handleCloseOtherTabs,
       disabled: !hasOtherTabs
     },
     {
       id: 'close-left',
-      label: 'Close to the Left',
+      label: t('requestTabs.menu.closeToLeft'),
       onClick: handleCloseTabsToTheLeft,
       disabled: !hasLeftTabs
     },
     {
       id: 'close-right',
-      label: 'Close to the Right',
+      label: t('requestTabs.menu.closeToTheRight'),
       onClick: handleCloseTabsToTheRight,
       disabled: !hasRightTabs
     },
     {
       id: 'close-saved',
-      label: 'Close Saved',
+      label: t('requestTabs.menu.closeSaved'),
       onClick: handleCloseSavedTabs
     },
     {
       id: 'close-all',
-      label: 'Close All',
+      label: t('requestTabs.menu.closeAll'),
       onClick: handleCloseAllTabs
     }
-  ], [currentTabUid, currentTabItem, hasOtherTabs, hasLeftTabs, hasRightTabs, collection, collectionRequestTabs, tabIndex, dispatch]);
+  ], [t, currentTabUid, currentTabItem, hasOtherTabs, hasLeftTabs, hasRightTabs, collection, collectionRequestTabs, tabIndex, dispatch]);
 
   const menuDropdown = (
     <MenuDropdown

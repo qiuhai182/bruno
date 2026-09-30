@@ -2,6 +2,7 @@ import React from 'react';
 import get from 'lodash/get';
 import MenuDropdown from 'ui/MenuDropdown';
 import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import StyledWrapper from './StyledWrapper';
 import { IconCaretDown, IconKey } from '@tabler/icons';
 import { humanizeGrantType } from 'utils/collections';
@@ -10,6 +11,7 @@ import { useState } from 'react';
 
 const GrantTypeSelector = ({ item = {}, request, updateAuth, collection }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const oAuth = get(request, 'auth.oauth2', {});
   const [valuesCache, setValuesCache] = useState({
     ...oAuth
@@ -69,16 +71,16 @@ const GrantTypeSelector = ({ item = {}, request, updateAuth, collection }) => {
           <IconKey size={14} className="oauth2-icon" />
         </div>
         <span className="oauth2-section-label">
-          Grant Type
+          {t('requestPane.oauth2.grantType')}
         </span>
       </div>
       <div className="inline-flex items-center cursor-pointer grant-type-mode-selector w-fit">
         <MenuDropdown
           items={[
-            { id: 'password', label: 'Password Credentials', onClick: () => onGrantTypeChange('password') },
-            { id: 'authorization_code', label: 'Authorization Code', onClick: () => onGrantTypeChange('authorization_code') },
-            { id: 'implicit', label: 'Implicit', onClick: () => onGrantTypeChange('implicit') },
-            { id: 'client_credentials', label: 'Client Credentials', onClick: () => onGrantTypeChange('client_credentials') }
+            { id: 'password', label: t('requestPane.oauth2.grantTypePassword'), onClick: () => onGrantTypeChange('password') },
+            { id: 'authorization_code', label: t('requestPane.oauth2.grantTypeAuthorizationCode'), onClick: () => onGrantTypeChange('authorization_code') },
+            { id: 'implicit', label: t('requestPane.oauth2.grantTypeImplicit'), onClick: () => onGrantTypeChange('implicit') },
+            { id: 'client_credentials', label: t('requestPane.oauth2.grantTypeClientCredentials'), onClick: () => onGrantTypeChange('client_credentials') }
           ]}
           data-testid="grant-type-dropdown"
           selectedItemId={oAuth?.grantType}

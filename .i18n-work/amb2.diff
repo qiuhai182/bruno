@@ -1,0 +1,721 @@
+﻿diff --git a/packages/bruno-app/src/components/GlobalSearchModal/constants/index.js b/packages/bruno-app/src/components/GlobalSearchModal/constants/index.js
+index f7e174c52..5825e5aaf 100644
+--- a/packages/bruno-app/src/components/GlobalSearchModal/constants/index.js
++++ b/packages/bruno-app/src/components/GlobalSearchModal/constants/index.js
+@@ -1,2 +1,4 @@
++import i18n from '../../../i18n';
++
+ export const SEARCH_TYPES = {
+   DOCUMENTATION: 'documentation',
+@@ -25,8 +27,8 @@ export const SEARCH_CONFIG = {
+ export const DOCUMENTATION_RESULT = {
+   type: SEARCH_TYPES.DOCUMENTATION,
+-  item: { id: 'docs', name: 'Bruno Documentation' },
+-  name: 'Bruno Documentation',
++  item: { id: 'docs', name: i18n.t('globalSearch.brunoDocumentation') },
++  name: i18n.t('globalSearch.brunoDocumentation'),
+   path: '/',
+-  description: 'Browse the official Bruno documentation',
++  description: i18n.t('globalSearch.browseDocumentation'),
+   matchType: MATCH_TYPES.DOCUMENTATION
+ };
+diff --git a/packages/bruno-app/src/components/WorkspaceHome/WorkspaceDocs/index.js b/packages/bruno-app/src/components/WorkspaceHome/WorkspaceDocs/index.js
+index b9242c870..8bd943892 100644
+--- a/packages/bruno-app/src/components/WorkspaceHome/WorkspaceDocs/index.js
++++ b/packages/bruno-app/src/components/WorkspaceHome/WorkspaceDocs/index.js
+@@ -10,7 +10,9 @@ import { usePersistedState } from 'hooks/usePersistedState';
+ import { useTrackScroll } from 'hooks/useTrackScroll';
+ import DocsEditor from 'components/Documentation/DocsEditor';
++import { useTranslation } from 'react-i18next';
+ 
+ const WorkspaceDocs = ({ workspace }) => {
+   const dispatch = useDispatch();
++  const { t } = useTranslation();
+   const [isEditing, setIsEditing] = useState(false);
+   const [localDocs, setLocalDocs] = useState(workspace?.docs || '');
+@@ -53,5 +55,5 @@ const WorkspaceDocs = ({ workspace }) => {
+   const onSave = async () => {
+     if (!workspace) {
+-      toast.error('Workspace not found');
++      toast.error(t('workspace.docs.toast.workspaceNotFound'));
+       return;
+     }
+@@ -59,9 +61,9 @@ const WorkspaceDocs = ({ workspace }) => {
+     try {
+       await dispatch(saveWorkspaceDocs(workspace.uid, localDocs));
+-      toast.success('Documentation saved successfully');
++      toast.success(t('workspace.docs.toast.saved'));
+       toggleViewMode();
+     } catch (error) {
+       console.error('Error saving workspace docs:', error);
+-      toast.error('Failed to save documentation');
++      toast.error(t('workspace.docs.toast.saveFailed'));
+     }
+   };
+@@ -78,5 +80,5 @@ const WorkspaceDocs = ({ workspace }) => {
+         <div className="docs-title">
+           <IconFileText size={16} strokeWidth={1.5} />
+-          <span>Documentation</span>
++          <span>{t('workspace.docs.title')}</span>
+         </div>
+         {hasDocs && !isEditing && (
+@@ -108,5 +110,5 @@ const WorkspaceDocs = ({ workspace }) => {
+               <div className="editor-actions">
+                 <Button onClick={onSave}>
+-                  Save
++                  {t('common.save')}
+                 </Button>
+               </div>
+@@ -119,15 +121,15 @@ const WorkspaceDocs = ({ workspace }) => {
+             </div>
+             <p className="empty-text">
+-              Add documentation to help your team work smoothly.
++              {t('workspace.docs.emptyText')}
+             </p>
+-            <p className="empty-subtext">You can include:</p>
++            <p className="empty-subtext">{t('workspace.docs.youCanInclude')}</p>
+             <ul className="suggestions-list">
+-              <li>Project overview</li>
+-              <li>Setup instructions</li>
+-              <li>Key workflows</li>
+-              <li>Resources & FAQs</li>
++              <li>{t('workspace.docs.suggestions.overview')}</li>
++              <li>{t('workspace.docs.suggestions.setup')}</li>
++              <li>{t('workspace.docs.suggestions.workflows')}</li>
++              <li>{t('workspace.docs.suggestions.resources')}</li>
+             </ul>
+             <Button color="light" size="sm" icon={<IconPlus size={14} strokeWidth={1.5} />} onClick={handleAddDocumentation}>
+-              Add Documentation
++              {t('workspace.docs.addDocumentation')}
+             </Button>
+           </div>
+diff --git a/packages/bruno-app/src/components/WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js b/packages/bruno-app/src/components/WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js
+index e9cc2293e..30200d9af 100644
+--- a/packages/bruno-app/src/components/WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js
++++ b/packages/bruno-app/src/components/WorkspaceHome/WorkspaceEnvironments/EnvironmentList/EnvironmentDetails/index.js
+@@ -21,7 +21,9 @@ import ResponsiveTabs from 'ui/ResponsiveTabs';
+ import useEnvironmentTabs from 'hooks/useEnvironmentTabs';
+ import StyledWrapper from './StyledWrapper';
++import { useTranslation } from 'react-i18next';
+ 
+ const EnvironmentDetails = ({ environment, setIsModified, collection, searchQuery, setSearchQuery, isSearchExpanded, setIsSearchExpanded, debouncedSearchQuery, searchInputRef }) => {
+   const dispatch = useDispatch();
++  const { t } = useTranslation();
+   const globalEnvs = useSelector((state) => state?.globalEnvironments?.globalEnvironments);
+   const globalEnvironmentDraft = useSelector((state) => state.globalEnvironments.globalEnvironmentDraft);
+@@ -67,13 +69,13 @@ const EnvironmentDetails = ({ environment, setIsModified, collection, searchQuer
+   const validateEnvironmentName = (name) => {
+     if (!name || name.trim() === '') {
+-      return 'Name is required';
++      return t('environments.validation.nameRequired');
+     }
+ 
+     if (name.length < 1) {
+-      return 'Must be at least 1 character';
++      return t('environments.validation.minOneChar');
+     }
+ 
+     if (name.length > 255) {
+-      return 'Must be 255 characters or less';
++      return t('environments.validation.maxTwoFiftyFive');
+     }
+ 
+@@ -86,5 +88,5 @@ const EnvironmentDetails = ({ environment, setIsModified, collection, searchQuer
+       env?.uid !== environment.uid && env?.name?.toLowerCase().trim() === trimmedName);
+     if (isDuplicate) {
+-      return 'Environment already exists';
++      return t('environments.validation.alreadyExists');
+     }
+ 
+@@ -111,5 +113,5 @@ const EnvironmentDetails = ({ environment, setIsModified, collection, searchQuer
+     dispatch(renameGlobalEnvironment({ name: newName, environmentUid: environment.uid }))
+       .then(() => {
+-        toast.success('Environment renamed!');
++        toast.success(t('environments.toast.renameSuccess'));
+         setIsRenaming(false);
+         setNewName('');
+@@ -117,5 +119,5 @@ const EnvironmentDetails = ({ environment, setIsModified, collection, searchQuer
+       })
+       .catch(() => {
+-        toast.error('An error occurred while renaming the environment');
++        toast.error(t('environments.toast.renameError'));
+       });
+   };
+@@ -183,11 +185,11 @@ const EnvironmentDetails = ({ environment, setIsModified, collection, searchQuer
+         toast.success(
+           inheritedEnvironmentName
+-            ? `Inheriting variables from ${inheritedEnvironmentName}`
+-            : 'Stopped inheriting variables'
++            ? t('environments.toast.inheritingFrom', { name: inheritedEnvironmentName })
++            : t('environments.toast.stoppedInheriting')
+         );
+       })
+       .catch((err) => {
+         console.error(err);
+-        toast.error('An error occurred while saving the inherited environment');
++        toast.error(t('environments.toast.saveInheritError'));
+       });
+   };
+@@ -232,5 +234,5 @@ const EnvironmentDetails = ({ environment, setIsModified, collection, searchQuer
+                   onClick={handleSaveRename}
+                   onMouseDown={(e) => e.preventDefault()}
+-                  title="Save"
++                  title={t('common.save')}
+                 >
+                   <IconCheck size={14} strokeWidth={2} />
+@@ -240,5 +242,5 @@ const EnvironmentDetails = ({ environment, setIsModified, collection, searchQuer
+                   onClick={handleCancelRename}
+                   onMouseDown={(e) => e.preventDefault()}
+-                  title="Cancel"
++                  title={t('common.cancel')}
+                 >
+                   <IconX size={14} strokeWidth={2} />
+@@ -261,14 +263,14 @@ const EnvironmentDetails = ({ environment, setIsModified, collection, searchQuer
+             onChange={handleExtendsChange}
+           />
+-          <ActionIcon label="Save All" onClick={handleSaveAll} data-testid="save-all-env">
++          <ActionIcon label={t('environments.action.saveAll')} onClick={handleSaveAll} data-testid="save-all-env">
+             <IconDeviceFloppy size={15} strokeWidth={1.5} />
+           </ActionIcon>
+-          <ActionIcon label="Rename" onClick={handleRenameClick} data-testid="env-rename-action">
++          <ActionIcon label={t('environments.action.rename')} onClick={handleRenameClick} data-testid="env-rename-action">
+             <IconEdit size={15} strokeWidth={1.5} />
+           </ActionIcon>
+-          <ActionIcon label="Copy" onClick={() => setOpenCopyModal(true)} data-testid="env-copy-action">
++          <ActionIcon label={t('environments.action.copy')} onClick={() => setOpenCopyModal(true)} data-testid="env-copy-action">
+             <IconCopy size={15} strokeWidth={1.5} />
+           </ActionIcon>
+-          <ActionIcon label="Delete" onClick={() => setOpenDeleteModal(true)} colorOnHover="danger" data-testid="env-delete-action">
++          <ActionIcon label={t('common.delete')} onClick={() => setOpenDeleteModal(true)} colorOnHover="danger" data-testid="env-delete-action">
+             <IconTrash size={15} strokeWidth={1.5} />
+           </ActionIcon>
+@@ -291,5 +293,5 @@ const EnvironmentDetails = ({ environment, setIsModified, collection, searchQuer
+                     ref={searchInputRef}
+                     type="text"
+-                    placeholder={activeTab === 'secrets' ? 'Search secrets...' : 'Search variables...'}
++                    placeholder={activeTab === 'secrets' ? t('environments.searchSecretsPlaceholder') : t('environments.searchVariablesPlaceholder')}
+                     value={searchQuery}
+                     onChange={(e) => setSearchQuery(e.target.value)}
+@@ -307,5 +309,5 @@ const EnvironmentDetails = ({ environment, setIsModified, collection, searchQuer
+                       onClick={handleClearSearch}
+                       onMouseDown={(e) => e.preventDefault()}
+-                      title="Clear search"
++                      title={t('environments.clearSearch')}
+                       data-testid="env-clear-search"
+                     >
+@@ -315,5 +317,5 @@ const EnvironmentDetails = ({ environment, setIsModified, collection, searchQuer
+                 </div>
+               ) : (
+-                <ActionIcon label="Search" onClick={handleSearchIconClick} data-testid="env-search-action">
++                <ActionIcon label={t('environments.action.search')} onClick={handleSearchIconClick} data-testid="env-search-action">
+                   <IconSearch size={15} strokeWidth={1.5} />
+                 </ActionIcon>
+diff --git a/packages/bruno-app/src/components/WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js b/packages/bruno-app/src/components/WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js
+index 67499daa4..549881bd2 100644
+--- a/packages/bruno-app/src/components/WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js
++++ b/packages/bruno-app/src/components/WorkspaceHome/WorkspaceEnvironments/EnvironmentList/index.js
+@@ -29,4 +29,5 @@ import { validateName, validateNameError } from 'utils/common/regex';
+ import toast from 'react-hot-toast';
+ import classnames from 'classnames';
++import { useTranslation } from 'react-i18next';
+ 
+ const EMPTY_ARRAY = [];
+@@ -44,4 +45,5 @@ const EnvironmentList = ({
+ }) => {
+   const dispatch = useDispatch();
++  const { t } = useTranslation();
+   const globalEnvs = useSelector((state) => state?.globalEnvironments?.globalEnvironments);
+   const activeTabUid = useSelector((state) => state.tabs.activeTabUid);
+@@ -56,5 +58,5 @@ const EnvironmentList = ({
+   const envListSearchInputRef = useRef(null);
+ 
+-  // Scroll persistence for the environments list — key follows the standard
++  // Scroll persistence for the environments list �� key follows the standard
+   // `persisted::<activeTabUid>::<key>` format so clearPersistedScope works.
+   const envListRef = useRef(null);
+@@ -211,14 +213,14 @@ const EnvironmentList = ({
+     dispatch(selectGlobalEnvironment({ environmentUid: env.uid }))
+       .then(() => {
+-        toast.success(`Environment "${env.name}" activated`);
++        toast.success(t('environments.toast.activated', { name: env.name }));
+       })
+       .catch(() => {
+-        toast.error('Failed to activate environment');
++        toast.error(t('environments.toast.activateFailed'));
+       });
+-  }, [dispatch]);
++  }, [dispatch, t]);
+ 
+   const validateEnvironmentName = (name, excludeUid = null) => {
+     if (!name || name.trim() === '') {
+-      return 'Name is required';
++      return t('environments.validation.nameRequired');
+     }
+ 
+@@ -232,5 +234,5 @@ const EnvironmentList = ({
+     );
+     if (isDuplicate) {
+-      return 'Environment already exists';
++      return t('environments.validation.alreadyExists');
+     }
+ 
+@@ -268,5 +270,5 @@ const EnvironmentList = ({
+     dispatch(addGlobalEnvironment({ name: newEnvName }))
+       .then(() => {
+-        toast.success('Environment created!');
++        toast.success(t('environments.toast.created'));
+         setIsCreatingInline(false);
+         setNewEnvName('');
+@@ -274,5 +276,5 @@ const EnvironmentList = ({
+       })
+       .catch(() => {
+-        toast.error('An error occurred while creating the environment');
++        toast.error(t('environments.toast.createError'));
+       });
+   };
+@@ -314,5 +316,5 @@ const EnvironmentList = ({
+     dispatch(renameGlobalEnvironment({ name: newEnvName, environmentUid: renamingEnvUid }))
+       .then(() => {
+-        toast.success('Environment renamed!');
++        toast.success(t('environments.toast.renameSuccess'));
+         setRenamingEnvUid(null);
+         setNewEnvName('');
+@@ -320,5 +322,5 @@ const EnvironmentList = ({
+       })
+       .catch(() => {
+-        toast.error('An error occurred while renaming the environment');
++        toast.error(t('environments.toast.renameError'));
+       });
+   };
+@@ -353,10 +355,10 @@ const EnvironmentList = ({
+ 
+   const handleSaveDotEnv = (variables) => {
+-    if (!selectedDotEnvFile) return Promise.reject(new Error('No file selected'));
++    if (!selectedDotEnvFile) return Promise.reject(new Error(t('environments.error.noFileSelected')));
+     return dispatch(saveWorkspaceDotEnvVariables(workspace.uid, variables, selectedDotEnvFile));
+   };
+ 
+   const handleSaveDotEnvRaw = (content) => {
+-    if (!selectedDotEnvFile) return Promise.reject(new Error('No file selected'));
++    if (!selectedDotEnvFile) return Promise.reject(new Error(t('environments.error.noFileSelected')));
+     return dispatch(saveWorkspaceDotEnvRaw(workspace.uid, content, selectedDotEnvFile));
+   };
+@@ -389,19 +391,19 @@ const EnvironmentList = ({
+   const validateDotEnvName = (name) => {
+     if (!name || name.trim() === '') {
+-      return 'Name is required';
++      return t('environments.validation.nameRequired');
+     }
+ 
+     if (!name.startsWith('.env')) {
+-      return 'File name must start with .env';
++      return t('environments.validation.dotEnvPrefix');
+     }
+ 
+     const validPattern = /^\.env[a-zA-Z0-9._-]*$/;
+     if (!validPattern.test(name)) {
+-      return 'Invalid file name';
++      return t('environments.validation.invalidFileName');
+     }
+ 
+     const exists = dotEnvFiles.some((f) => f.filename === name);
+     if (exists) {
+-      return 'File already exists';
++      return t('environments.validation.fileAlreadyExists');
+     }
+ 
+@@ -418,5 +420,5 @@ const EnvironmentList = ({
+     dispatch(createWorkspaceDotEnvFile(workspace.uid, newDotEnvName))
+       .then(() => {
+-        toast.success(`${newDotEnvName} file created!`);
++        toast.success(t('environments.toast.dotEnvCreated', { name: newDotEnvName }));
+         setIsCreatingDotEnvInline(false);
+         setNewDotEnvName('.env');
+@@ -427,5 +429,5 @@ const EnvironmentList = ({
+       })
+       .catch((error) => {
+-        toast.error(error.message || 'Failed to create .env file');
++        toast.error(error.message || t('environments.toast.dotEnvCreateFailed'));
+       });
+   };
+@@ -461,5 +463,5 @@ const EnvironmentList = ({
+     dispatch(deleteWorkspaceDotEnvFile(workspace.uid, filename))
+       .then(() => {
+-        toast.success(`${filename} file deleted!`);
++        toast.success(t('environments.toast.dotEnvDeleted', { name: filename }));
+         handleDotEnvModifiedChange(false);
+         if (selectedDotEnvFile === filename) {
+@@ -477,5 +479,5 @@ const EnvironmentList = ({
+       })
+       .catch((error) => {
+-        toast.error(error.message || 'Failed to delete .env file');
++        toast.error(error.message || t('environments.toast.dotEnvDeleteFailed'));
+       });
+   };
+@@ -535,11 +537,11 @@ const EnvironmentList = ({
+       <div className="empty-state">
+         <IconFileAlert size={48} strokeWidth={1.5} />
+-        <div className="title">No Environments</div>
++        <div className="title">{t('environments.empty.noEnvironments')}</div>
+         <div className="actions">
+           <Button size="sm" color="secondary" onClick={() => handleCreateEnvClick()}>
+-            Create Environment
++            {t('environments.empty.createEnvironment')}
+           </Button>
+           <Button size="sm" color="secondary" onClick={() => handleImportClick()}>
+-            Import Environment
++            {t('environments.empty.importEnvironment')}
+           </Button>
+         </div>
+@@ -563,5 +565,5 @@ const EnvironmentList = ({
+           <div className="sections-container">
+             <CollapsibleSection
+-              title="Environments"
++              title={t('environments.section.environments')}
+               expanded={environmentsExpanded}
+               onToggle={() => setEnvironmentsExpanded(!environmentsExpanded)}
+@@ -577,5 +579,5 @@ const EnvironmentList = ({
+                       handleCreateEnvClick();
+                     }}
+-                    title="Create environment"
++                    title={t('environments.action.createEnvironment')}
+                     data-testid="create-environment"
+                   >
+@@ -591,5 +593,5 @@ const EnvironmentList = ({
+                       handleImportClick();
+                     }}
+-                    title="Import environment"
++                    title={t('environments.action.importEnvironment')}
+                     data-testid="import-environment-btn"
+                   >
+@@ -605,5 +607,5 @@ const EnvironmentList = ({
+                       handleExportClick();
+                     }}
+-                    title="Export environment"
++                    title={t('environments.action.exportEnvironment')}
+                   >
+                     <IconUpload size={14} strokeWidth={1.5} />
+@@ -617,5 +619,5 @@ const EnvironmentList = ({
+                   ref={envListSearchInputRef}
+                   type="text"
+-                  placeholder="Search environments..."
++                  placeholder={t('environments.searchPlaceholder')}
+                   value={searchText}
+                   onChange={(e) => setSearchText(e.target.value)}
+@@ -627,5 +629,5 @@ const EnvironmentList = ({
+                 />
+                 {searchText && (
+-                  <button className="env-list-search-clear" title="Clear search" onClick={() => setSearchText('')} onMouseDown={(e) => e.preventDefault()}>
++                  <button className="env-list-search-clear" title={t('environments.clearSearch')} onClick={() => setSearchText('')} onMouseDown={(e) => e.preventDefault()}>
+                     <IconX size={12} strokeWidth={1.5} />
+                   </button>
+@@ -665,5 +667,5 @@ const EnvironmentList = ({
+                             onClick={handleSaveRename}
+                             onMouseDown={(e) => e.preventDefault()}
+-                            title="Save"
++                            title={t('common.save')}
+                           >
+                             <IconCheck size={14} strokeWidth={2} />
+@@ -673,5 +675,5 @@ const EnvironmentList = ({
+                             onClick={handleCancelRename}
+                             onMouseDown={(e) => e.preventDefault()}
+-                            title="Cancel"
++                            title={t('common.cancel')}
+                           >
+                             <IconX size={14} strokeWidth={2} />
+@@ -685,5 +687,5 @@ const EnvironmentList = ({
+                         <div className="environment-actions">
+                           {activeEnvironmentUid === env.uid ? (
+-                            <div className="activated-checkmark" title="Active environment">
++                            <div className="activated-checkmark" title={t('environments.activeEnvironment')}>
+                               <IconCheck size={16} strokeWidth={2} />
+                             </div>
+@@ -692,5 +694,5 @@ const EnvironmentList = ({
+                               className="activate-btn"
+                               onClick={(e) => handleActivateEnvironment(e, env)}
+-                              title="Activate environment"
++                              title={t('environments.activateEnvironment')}
+                             >
+                               <IconCheck size={16} strokeWidth={2} />
+@@ -713,5 +715,5 @@ const EnvironmentList = ({
+                       onChange={handleEnvNameChange}
+                       onKeyDown={handleEnvNameKeyDown}
+-                      placeholder="Environment name..."
++                      placeholder={t('environments.namePlaceholder')}
+                       autoComplete="off"
+                       autoCorrect="off"
+@@ -724,5 +726,5 @@ const EnvironmentList = ({
+                         onClick={handleSaveNewEnv}
+                         onMouseDown={(e) => e.preventDefault()}
+-                        title="Save"
++                        title={t('common.save')}
+                         data-testid="env-create-save"
+                       >
+@@ -733,5 +735,5 @@ const EnvironmentList = ({
+                         onClick={handleCancelCreate}
+                         onMouseDown={(e) => e.preventDefault()}
+-                        title="Cancel"
++                        title={t('common.cancel')}
+                       >
+                         <IconX size={14} strokeWidth={2} />
+@@ -745,5 +747,5 @@ const EnvironmentList = ({
+                 {filteredEnvironments.length === 0 && !isCreatingInline && (
+                   <div className="no-env-file">
+-                    <span>No environments</span>
++                    <span>{t('environments.empty.noEnvironmentsLower')}</span>
+                   </div>
+                 )}
+@@ -752,5 +754,5 @@ const EnvironmentList = ({
+ 
+             <CollapsibleSection
+-              title=".env Files"
++              title={t('environments.section.dotEnvFiles')}
+               testId="dotenv-files-section"
+               expanded={dotEnvExpanded}
+@@ -761,5 +763,5 @@ const EnvironmentList = ({
+                   className="btn-action"
+                   onClick={handleCreateDotEnvInlineClick}
+-                  title="Create .env file"
++                  title={t('environments.action.createDotEnvFile')}
+                   data-testid="create-dotenv-file"
+                 >
+@@ -802,5 +804,5 @@ const EnvironmentList = ({
+                         onClick={handleSaveNewDotEnv}
+                         onMouseDown={(e) => e.preventDefault()}
+-                        title="Create"
++                        title={t('environments.action.create')}
+                       >
+                         <IconCheck size={14} strokeWidth={2} />
+@@ -810,5 +812,5 @@ const EnvironmentList = ({
+                         onClick={handleCancelDotEnvCreate}
+                         onMouseDown={(e) => e.preventDefault()}
+-                        title="Cancel"
++                        title={t('common.cancel')}
+                       >
+                         <IconX size={14} strokeWidth={2} />
+@@ -822,5 +824,5 @@ const EnvironmentList = ({
+                 {dotEnvFiles.length === 0 && !isCreatingDotEnvInline && (
+                   <div className="no-env-file">
+-                    <span>No .env files</span>
++                    <span>{t('environments.empty.noDotEnvFiles')}</span>
+                   </div>
+                 )}
+diff --git a/packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js b/packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js
+index eafb6d810..0c2e190aa 100644
+--- a/packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js
++++ b/packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js
+@@ -14,6 +14,8 @@ import { formatIpcError } from 'utils/common/error';
+ import { sanitizeName, validateName, validateNameError } from 'utils/common/regex';
+ import get from 'lodash/get';
++import { useTranslation } from 'react-i18next';
+ 
+ const CreateWorkspace = ({ onClose }) => {
++  const { t } = useTranslation();
+   const inputRef = useRef();
+   const dispatch = useDispatch();
+@@ -35,8 +37,8 @@ const CreateWorkspace = ({ onClose }) => {
+       workspaceName: Yup.string()
+         .trim()
+-        .min(1, 'Workspace name can\'t be empty')
+-        .max(255, 'Must be 255 characters or less')
+-        .required('Workspace name is required')
+-        .test('unique-name', 'A workspace with this name already exists', function (value) {
++        .min(1, t('workspace.validation.nameEmpty'))
++        .max(255, t('workspace.validation.maxTwoFiftyFive'))
++        .required(t('workspace.validation.nameRequired'))
++        .test('unique-name', t('workspace.validation.nameAlreadyExists'), function (value) {
+           if (!value) return true;
+ 
+@@ -45,12 +47,12 @@ const CreateWorkspace = ({ onClose }) => {
+         }),
+       workspaceFolderName: Yup.string()
+-        .min(1, 'Must be at least 1 character')
+-        .max(255, 'Must be 255 characters or less')
++        .min(1, t('workspace.validation.minOneChar'))
++        .max(255, t('workspace.validation.maxTwoFiftyFive'))
+         .test('is-valid-folder-name', function (value) {
+           const isValid = validateName(value);
+           return isValid ? true : this.createError({ message: validateNameError(value) });
+         })
+-        .required('Folder name is required'),
+-      workspaceLocation: Yup.string().min(1, 'Location is required').required('Location is required')
++        .required(t('workspace.validation.folderNameRequired')),
++      workspaceLocation: Yup.string().min(1, t('workspace.validation.locationRequired')).required(t('workspace.validation.locationRequired'))
+     }),
+     onSubmit: async (values) => {
+@@ -61,8 +63,8 @@ const CreateWorkspace = ({ onClose }) => {
+ 
+         await dispatch(createWorkspaceAction(values.workspaceName.trim(), values.workspaceFolderName, values.workspaceLocation));
+-        toast.success('Workspace created!');
++        toast.success(t('workspace.toast.created'));
+         onClose();
+       } catch (error) {
+-        toast.error(multiLineMsg('An error occurred while creating the workspace', formatIpcError(error)));
++        toast.error(multiLineMsg(t('workspace.toast.createError'), formatIpcError(error)));
+       } finally {
+         setIsSubmitting(false);
+@@ -93,7 +95,7 @@ const CreateWorkspace = ({ onClose }) => {
+     <Modal
+       size="md"
+-      title="Create Workspace"
+-      description="Give your new workspace a name and choose its type to get started."
+-      confirmText={isSubmitting ? 'Creating...' : 'Create Workspace'}
++      title={t('workspace.create.title')}
++      description={t('workspace.create.description')}
++      confirmText={isSubmitting ? t('workspace.create.creating') : t('workspace.create.confirm')}
+       handleConfirm={formik.handleSubmit}
+       handleCancel={onClose}
+@@ -105,5 +107,5 @@ const CreateWorkspace = ({ onClose }) => {
+           <div className="mb-4">
+             <label htmlFor="workspaceName" className="block font-semibold mb-2">
+-              Name
++              {t('workspace.label.name')}
+             </label>
+             <input
+@@ -141,11 +143,11 @@ const CreateWorkspace = ({ onClose }) => {
+               <div className="flex items-center justify-between mb-2">
+                 <label htmlFor="workspaceFolderName" className="flex items-center font-semibold">
+-                  Folder Name
++                  {t('workspace.label.folderName')}
+                   <Help width="300">
+                     <p>
+-                      The name of the folder used to store the workspace.
++                      {t('workspace.help.folderName1')}
+                     </p>
+                     <p className="mt-2">
+-                      You can choose a folder name different from your workspace's name or one compatible with filesystem rules.
++                      {t('workspace.help.folderName2')}
+                     </p>
+                   </Help>
+@@ -191,11 +193,11 @@ const CreateWorkspace = ({ onClose }) => {
+           <div className="mb-4">
+             <label htmlFor="workspaceLocation" className="font-semibold mb-2 flex items-center">
+-              Location
++              {t('workspace.label.location')}
+               <Help>
+                 <p>
+-                  Bruno stores your workspaces on your computer's filesystem.
++                  {t('workspace.help.location1')}
+                 </p>
+                 <p className="mt-2">
+-                  Choose the location where you want to store this workspace.
++                  {t('workspace.help.location2')}
+                 </p>
+               </Help>
+@@ -222,5 +224,5 @@ const CreateWorkspace = ({ onClose }) => {
+                 onClick={browse}
+               >
+-                Browse
++                {t('preferences.general.browse')}
+               </span>
+             </div>
+diff --git a/packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js b/packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js
+index 576e1b472..3079a3451 100644
+--- a/packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js
++++ b/packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js
+@@ -12,7 +12,9 @@ import { formatIpcError } from 'utils/common/error';
+ import { multiLineMsg } from 'utils/common/index';
+ import Help from 'components/Help';
++import { useTranslation } from 'react-i18next';
+ 
+ const ImportWorkspace = ({ onClose }) => {
+   const dispatch = useDispatch();
++  const { t } = useTranslation();
+   const preferences = useSelector((state) => state.app.preferences);
+   const [dragActive, setDragActive] = useState(false);
+@@ -30,5 +32,5 @@ const ImportWorkspace = ({ onClose }) => {
+     },
+     validationSchema: Yup.object({
+-      workspaceLocation: Yup.string().min(1, 'location is required').required('location is required')
++      workspaceLocation: Yup.string().min(1, t('workspace.validation.locationRequiredLower')).required(t('workspace.validation.locationRequiredLower'))
+     }),
+     onSubmit: async (values) => {
+@@ -38,8 +40,8 @@ const ImportWorkspace = ({ onClose }) => {
+         setIsSubmitting(true);
+         await dispatch(importWorkspaceAction(selectedFile.path, values.workspaceLocation));
+-        toast.success('Workspace imported successfully!');
++        toast.success(t('workspace.toast.imported'));
+         onClose();
+       } catch (error) {
+-        toast.error(multiLineMsg('Failed to import workspace', formatIpcError(error)));
++        toast.error(multiLineMsg(t('workspace.toast.importFailed'), formatIpcError(error)));
+       } finally {
+         setIsSubmitting(false);
+@@ -68,5 +70,5 @@ const ImportWorkspace = ({ onClose }) => {
+     const isZip = file.name.endsWith('.zip') || file.type === 'application/zip' || file.type === 'application/x-zip-compressed';
+     if (!isZip) {
+-      toast.error('Please select a valid zip file');
++      toast.error(t('workspace.toast.invalidZip'));
+       return null;
+     }
+@@ -74,5 +76,5 @@ const ImportWorkspace = ({ onClose }) => {
+     const filePath = window?.ipcRenderer?.getFilePath(file);
+     if (!filePath) {
+-      toast.error('Could not get file path');
++      toast.error(t('workspace.toast.couldNotGetFilePath'));
+       return null;
+     }
+@@ -138,6 +140,6 @@ const ImportWorkspace = ({ onClose }) => {
+     <Modal
+       size="md"
+-      title="Import Workspace"
+-      confirmText={isSubmitting ? 'Importing...' : 'Import'}
++      title={t('workspace.import.title')}
++      confirmText={isSubmitting ? t('workspace.import.importing') : t('workspace.import.confirm')}
+       handleConfirm={formik.handleSubmit}
+       handleCancel={onClose}
+@@ -146,5 +148,5 @@ const ImportWorkspace = ({ onClose }) => {
+       <div className="flex flex-col">
+         <div className="mb-4">
+-          <h3 className="font-semibold mb-2">Workspace File</h3>
++          <h3 className="font-semibold mb-2">{t('workspace.import.fileLabel')}</h3>
+           {selectedFile ? (
+             <div className="flex items-center justify-between p-3 border border-gray-200 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-800">
+@@ -158,5 +160,5 @@ const ImportWorkspace = ({ onClose }) => {
+                 onClick={handleClearFile}
+               >
+-                Remove
++                {t('workspace.import.remove')}
+               </button>
+             </div>
+@@ -186,5 +188,5 @@ const ImportWorkspace = ({ onClose }) => {
+                 />
+                 <p className="text-gray-600 dark:text-gray-300 mb-2">
+-                  Drop workspace zip file here or{' '}
++                  {t('workspace.import.dropPrefix')}{' '}
+                   <button
+                     type="button"
+@@ -192,9 +194,9 @@ const ImportWorkspace = ({ onClose }) => {
+                     onClick={handleBrowseFiles}
+                   >
+-                    choose a file
++                    {t('workspace.import.chooseFile')}
+                   </button>
+                 </p>
+                 <p className="text-xs text-gray-500 dark:text-gray-400">
+-                  Supports exported Bruno workspace zip files
++                  {t('workspace.import.supportNote')}
+                 </p>
+               </div>
+@@ -205,11 +207,11 @@ const ImportWorkspace = ({ onClose }) => {
+         <div className="mb-4">
+           <label htmlFor="workspace-location" className="font-semibold mb-2 flex items-center">
+-            Extract Location
++            {t('workspace.import.extractLocation')}
+             <Help>
+               <p>
+-                Choose the location where you want to extract this workspace.
++                {t('workspace.help.extract1')}
+               </p>
+               <p className="mt-2">
+-                The workspace folder will be created at this location.
++                {t('workspace.help.extract2')}
+               </p>
+             </Help>
+@@ -237,5 +239,5 @@ const ImportWorkspace = ({ onClose }) => {
+               onClick={browse}
+             >
+-              Browse
++              {t('preferences.general.browse')}
+             </span>
+           </div>

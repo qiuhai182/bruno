@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import {
   IconCopy,
   IconDotsVertical,
@@ -21,6 +22,7 @@ const OpenAPISyncHeader = ({
   onOpenSettings, onOpenDisconnect,
   onCheck, isLoading
 }) => {
+  const { t } = useTranslation();
   const sourceIsLocal = !isHttpUrl(sourceUrl);
   const canCheck = !!sourceUrl?.trim();
 
@@ -37,7 +39,7 @@ const OpenAPISyncHeader = ({
   }, [sourceUrl, sourceIsLocal, collection.pathname]);
 
   const specMeta = useSelector((state) => state.openapiSync?.storedSpecMeta?.[collection.uid] || null);
-  const title = specMeta?.title || spec?.info?.title || 'Unknown API';
+  const title = specMeta?.title || spec?.info?.title || t('openApiSync.header.unknownApi');
 
   const copyUrl = async () => {
     if (!sourceUrl) return;
@@ -48,10 +50,10 @@ const OpenAPISyncHeader = ({
       } else {
         await navigator.clipboard.writeText(sourceUrl);
       }
-      toast.success(sourceIsLocal ? 'Path copied to clipboard' : 'URL copied to clipboard');
+      toast.success(sourceIsLocal ? t('openApiSync.header.pathCopied') : t('openApiSync.header.urlCopied'));
     } catch (err) {
       console.error('Error copying to clipboard:', err);
-      toast.error('Failed to copy to clipboard');
+      toast.error(t('openApiSync.header.copyFailed'));
     }
   };
 
@@ -62,20 +64,20 @@ const OpenAPISyncHeader = ({
       await window.ipcRenderer.invoke('renderer:show-in-folder', absolutePath);
     } catch (err) {
       console.error('Error revealing in folder:', err);
-      toast.error('Failed to open in file manager');
+      toast.error(t('openApiSync.header.openInFileManagerFailed'));
     }
   };
 
   const menuItems = [
     {
       id: 'settings',
-      label: 'Edit connection settings',
+      label: t('openApiSync.header.editConnectionSettings'),
       leftSection: IconSettings,
       onClick: onOpenSettings
     },
     {
       id: 'disconnect',
-      label: 'Disconnect Sync',
+      label: t('openApiSync.disconnect.title'),
       leftSection: IconUnlink,
       className: 'delete-item',
       onClick: onOpenDisconnect
@@ -99,28 +101,28 @@ const OpenAPISyncHeader = ({
             loading={isLoading}
             icon={<IconRefresh size={14} />}
           >
-            Check for updates
+            {t('openApiSync.header.checkForUpdates')}
           </Button>
           <Button
             color="secondary"
             size="sm"
             onClick={onViewSpec}
           >
-            View spec
+            {t('openApiSync.header.viewSpec')}
           </Button>
           <MenuDropdown items={menuItems} placement="bottom-end">
-            <ActionIcon label="More options">
+            <ActionIcon label={t('openApiSync.header.moreOptions')}>
               <IconDotsVertical size={16} strokeWidth={2} />
             </ActionIcon>
           </MenuDropdown>
         </div>
       </div>
       <div className="spec-url-row">
-        <span className="spec-url-label">{sourceIsLocal ? 'Source File:' : 'Source URL:'}</span>
+        <span className="spec-url-label">{sourceIsLocal ? t('openApiSync.header.sourceFile') : t('openApiSync.header.sourceUrl')}</span>
         {sourceIsLocal ? (
           <button
             className="spec-url-value spec-file-reveal"
-            title="Reveal in file manager"
+            title={t('openApiSync.header.revealInFileManager')}
             type="button"
             onClick={revealInFolder}
           >
@@ -137,12 +139,12 @@ const OpenAPISyncHeader = ({
             {sourceUrl}
           </a>
         )}
-        <button className="copy-btn" onClick={copyUrl} title={sourceIsLocal ? 'Copy path' : 'Copy URL'} type="button">
+        <button className="copy-btn" onClick={copyUrl} title={sourceIsLocal ? t('openApiSync.header.copyPath') : t('openApiSync.header.copyUrl')} type="button">
           <IconCopy size={12} />
         </button>
       </div>
       <div className="linked-collection-row mt-1">
-        <span className="spec-url-label">Linked Collection:</span>
+        <span className="spec-url-label">{t('openApiSync.header.linkedCollection')}</span>
         <span className="linked-collection-name">{collection.name}</span>
         {syncStatus === 'in-sync' && (
           <Help
@@ -150,7 +152,7 @@ const OpenAPISyncHeader = ({
             width={240}
             iconComponent={() => <IconCircleCheck size={14} className="sync-status-icon in-sync" />}
           >
-            Collection is up to date with the spec
+            {t('openApiSync.header.inSyncTooltip')}
           </Help>
         )}
         {syncStatus === 'not-in-sync' && (
@@ -159,7 +161,7 @@ const OpenAPISyncHeader = ({
             width={260}
             iconComponent={() => <IconAlertTriangle size={14} className="sync-status-icon not-in-sync" />}
           >
-            Collection is not up to date with the spec
+            {t('openApiSync.header.notInSyncTooltip')}
           </Help>
         )}
       </div>

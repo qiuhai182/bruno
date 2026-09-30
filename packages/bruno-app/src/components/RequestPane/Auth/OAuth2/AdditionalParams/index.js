@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import get from 'lodash/get';
 import { useTheme } from 'providers/Theme';
 import { IconPlus, IconTrash, IconAdjustmentsHorizontal } from '@tabler/icons';
@@ -11,6 +12,7 @@ import Table from 'components/Table/index';
 
 const AdditionalParams = ({ item = {}, request, updateAuth, collection, handleSave }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const { storedTheme } = useTheme();
 
   const oAuth = get(request, 'auth.oauth2', {});
@@ -171,20 +173,20 @@ const AdditionalParams = ({ item = {}, request, updateAuth, collection, handleSa
           <IconAdjustmentsHorizontal size={14} className="oauth2-icon" />
         </div>
         <span className="oauth2-section-label">
-          Additional Parameters
+          {t('requestPane.oauth2.additionalParameters')}
         </span>
       </div>
 
       <div className="tabs flex w-full gap-2 my-2">
-        {availableTabs.includes('authorization') && renderTab('authorization', 'Authorization')}
-        {availableTabs.includes('token') && renderTab('token', 'Token')}
-        {availableTabs.includes('refresh') && renderTab('refresh', 'Refresh')}
+        {availableTabs.includes('authorization') && renderTab('authorization', t('requestPane.oauth2.tabAuthorization'))}
+        {availableTabs.includes('token') && renderTab('token', t('requestPane.oauth2.tabToken'))}
+        {availableTabs.includes('refresh') && renderTab('refresh', t('requestPane.oauth2.tabRefresh'))}
       </div>
       <Table
         headers={[
-          { name: 'Key', accessor: 'name', width: '30%' },
-          { name: 'Value', accessor: 'value', width: '30%' },
-          { name: 'Send In', accessor: 'sendIn', width: '150px' },
+          { name: t('requestPane.common.key'), accessor: 'name', width: '30%' },
+          { name: t('requestPane.common.value'), accessor: 'value', width: '30%' },
+          { name: t('requestPane.oauth2.sendIn'), accessor: 'sendIn', width: '150px' },
           { name: '', accessor: '', width: '15%' }
         ]}
       >
@@ -281,7 +283,7 @@ const AdditionalParams = ({ item = {}, request, updateAuth, collection, handleSa
         onClick={addButtonDisabled ? null : handleAddNewAdditionalParam}
       >
         <IconPlus size={16} strokeWidth={1.5} style={{ marginLeft: '2px' }} />
-        <span className="ml-1 text-gray-500">Add Parameter</span>
+        <span className="ml-1 text-gray-500">{t('requestPane.oauth2.addParameter')}</span>
       </div>
     </StyledWrapper>
   );

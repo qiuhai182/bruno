@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from 'providers/Theme';
 import get from 'lodash/get';
 import { moveResponseExampleRequestHeader, setResponseExampleRequestHeaders } from 'providers/ReduxStore/slices/collections';
@@ -14,6 +15,7 @@ import StyledWrapper from './StyledWrapper';
 const headerAutoCompleteList = StandardHTTPHeaders.map((e) => e.header);
 
 const ResponseExampleHeaders = ({ editMode, item, collection, exampleUid }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const { storedTheme } = useTheme();
   const tabs = useSelector((state) => state.tabs.tabs);
@@ -74,9 +76,9 @@ const ResponseExampleHeaders = ({ editMode, item, collection, exampleUid }) => {
   const columns = [
     {
       key: 'name',
-      name: 'Key',
+      name: t('collection.table.key'),
       isKeyField: true,
-      placeholder: 'Key',
+      placeholder: t('collection.table.key'),
       width: '40%',
       readOnly: !editMode,
       render: ({ value, onChange }) => (
@@ -89,14 +91,14 @@ const ResponseExampleHeaders = ({ editMode, item, collection, exampleUid }) => {
           autocomplete={headerAutoCompleteList}
           onRun={() => {}}
           collection={collection}
-          placeholder={!value ? 'Key' : ''}
+          placeholder={!value ? t('collection.table.key') : ''}
         />
       )
     },
     {
       key: 'value',
-      name: 'Value',
-      placeholder: 'Value',
+      name: t('collection.table.value'),
+      placeholder: t('collection.table.value'),
       width: '60%',
       readOnly: !editMode,
       render: ({ value, onChange }) => (
@@ -111,7 +113,7 @@ const ResponseExampleHeaders = ({ editMode, item, collection, exampleUid }) => {
           allowNewlines={true}
           collection={collection}
           item={item}
-          placeholder={!value ? 'Value' : ''}
+          placeholder={!value ? t('collection.table.value') : ''}
         />
       )
     }
@@ -141,7 +143,7 @@ const ResponseExampleHeaders = ({ editMode, item, collection, exampleUid }) => {
 
   return (
     <StyledWrapper className="w-full mt-4">
-      <div className="mb-3 title text-xs font-bold">Headers</div>
+      <div className="mb-3 title text-xs font-bold">{t('collection.example.headersSection')}</div>
       <EditableTable
         tableId="example-headers"
         columnWidths={exampleHeadersWidths}
@@ -162,7 +164,7 @@ const ResponseExampleHeaders = ({ editMode, item, collection, exampleUid }) => {
             className="btn-action text-link select-none"
             onClick={toggleBulkEditMode}
           >
-            Bulk Edit
+            {t('common.bulkEdit')}
           </button>
         </div>
       )}

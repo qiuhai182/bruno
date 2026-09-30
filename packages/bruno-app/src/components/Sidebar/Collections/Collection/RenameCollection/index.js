@@ -3,11 +3,13 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import Modal from 'components/Modal';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import toast from 'react-hot-toast';
 import { renameCollection } from 'providers/ReduxStore/slices/collections/actions';
 import { findCollectionByUid } from 'utils/collections/index';
 
 const RenameCollection = ({ collectionUid, onClose }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const inputRef = useRef();
   const collection = useSelector((state) => findCollectionByUid(state.collections.collections, collectionUid));
@@ -18,17 +20,17 @@ const RenameCollection = ({ collectionUid, onClose }) => {
     },
     validationSchema: Yup.object({
       name: Yup.string()
-        .min(1, 'must be at least 1 character')
-        .required('name is required')
+        .min(1, t('sidebar.validation.min1Char'))
+        .required(t('sidebar.validation.nameRequired'))
     }),
     onSubmit: (values) => {
       dispatch(renameCollection(values.name, collection.uid))
         .then(() => {
-          toast.success('Collection renamed!');
+          toast.success(t('sidebar.toast.collectionRenamed'));
           onClose();
         })
         .catch((err) => {
-          toast.error(err ? err.message : 'An error occurred while renaming the collection');
+          toast.error(err ? err.message : t('sidebar.toast.errorRenamingCollection'));
         });
     }
   });
@@ -42,11 +44,11 @@ const RenameCollection = ({ collectionUid, onClose }) => {
   const onSubmit = () => formik.handleSubmit();
 
   return (
-    <Modal size="md" title="Rename Collection" confirmText="Rename" handleConfirm={onSubmit} handleCancel={onClose}>
+    <Modal size="md" title={t('sidebar.renameCollection.title')} confirmText={t('sidebar.renameCollection.rename')} handleConfirm={onSubmit} handleCancel={onClose}>
       <form className="bruno-form" onSubmit={(e) => e.preventDefault()}>
         <div>
           <label htmlFor="name" className="block font-medium">
-            Name
+            {t('sidebar.name')}
           </label>
           <input
             id="collection-name"

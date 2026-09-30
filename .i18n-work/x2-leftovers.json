@@ -1,0 +1,891 @@
+[
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js",
+    "line": 46,
+    "text": "console.error('Error getting apispec folder:', error);",
+    "found": [
+      "Error getting apispec folder:"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js",
+    "line": 166,
+    "text": "console.error('Error loading collection:', err);",
+    "found": [
+      "Error loading collection:"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js",
+    "line": 45,
+    "text": "return rawData.info?.title || 'OpenAPI Collection';",
+    "found": [
+      "OpenAPI Collection"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js",
+    "line": 47,
+    "text": "return rawData.info?.name || rawData.collection?.info?.name || 'Postman Collection';",
+    "found": [
+      "Postman Collection"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js",
+    "line": 57,
+    "text": "return rawData.name || 'Insomnia Collection';",
+    "found": [
+      "Insomnia Collection"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js",
+    "line": 59,
+    "text": "return rawData.name || 'Bruno Collection';",
+    "found": [
+      "Bruno Collection"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js",
+    "line": 61,
+    "text": "return 'WSDL Collection';",
+    "found": [
+      "WSDL Collection"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js",
+    "line": 93,
+    "text": "throw new Error('Unknown collection format');",
+    "found": [
+      "Unknown collection format"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js",
+    "line": 482,
+    "text": "console.error('Failed to import collections', err);",
+    "found": [
+      "Failed to import collections"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.spec.js",
+    "line": 3,
+    "text": "describe('BulkImportCollectionLocation helpers', () => {",
+    "found": [
+      "BulkImportCollectionLocation helpers"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.spec.js",
+    "line": 21,
+    "text": "expect(generateUniqueName('Beta', checkExists)).toBe('Beta copy');",
+    "found": [
+      "Beta copy"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.spec.js",
+    "line": 27,
+    "text": "expect(generateUniqueName('Beta', checkExists)).toBe('Beta copy 2');",
+    "found": [
+      "Beta copy 2"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/CloseWorkspace/index.js",
+    "line": 32,
+    "text": "console.error('Error closing workspace:', error);",
+    "found": [
+      "Error closing workspace:"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.spec.js",
+    "line": 121,
+    "text": "expect(screen.getByTestId('change-version-current')).toHaveTextContent('Not Set');",
+    "found": [
+      "Not Set"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.spec.js",
+    "line": 128,
+    "text": "expect(screen.getByTestId('modal-title')).toHaveTextContent('Change Collection Version');",
+    "found": [
+      "Change Collection Version"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.spec.js",
+    "line": 58,
+    "text": "const entry = { uid: 'r1', collectionUid: 'coll-1', item: buildRequestItem({ uid: 'r1', name: 'Get Users' }) };",
+    "found": [
+      "Get Users"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.spec.js",
+    "line": 61,
+    "text": "expect(screen.getByTestId('modal-title')).toHaveTextContent('Delete Request');",
+    "found": [
+      "Delete Request"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.spec.js",
+    "line": 62,
+    "text": "expect(screen.getByText('Get Users')).toBeInTheDocument();",
+    "found": [
+      "Get Users"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.spec.js",
+    "line": 72,
+    "text": "expect(screen.getByTestId('modal-title')).toHaveTextContent('Delete Items');",
+    "found": [
+      "Delete Items"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.spec.js",
+    "line": 73,
+    "text": "expect(screen.getByTestId('modal-description')).toHaveTextContent('Are you sure you want to delete 1 folder and 1 request?');",
+    "found": [
+      "Are you sure you want to delete 1 folder and 1 request?"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/GenerateCodeItem/utils/interpolation.spec.js",
+    "line": 77,
+    "text": "expect(result.text).toBe('Hello World');",
+    "found": [
+      "Hello World"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/GenerateCodeItem/utils/snippet-generator.js",
+    "line": 146,
+    "text": "console.error('Error generating code snippet:', error);",
+    "found": [
+      "Error generating code snippet:"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/GenerateCodeItem/utils/snippet-generator.js",
+    "line": 147,
+    "text": "return 'Error generating code snippet';",
+    "found": [
+      "Error generating code snippet"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/GenerateCodeItem/utils/snippet-generator.spec.js",
+    "line": 52,
+    "text": "describe('Snippet Generator - Simple Tests', () => {",
+    "found": [
+      "Snippet Generator - Simple Tests"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/GenerateCodeItem/utils/snippet-generator.spec.js",
+    "line": 90,
+    "text": "greeting: 'Hello World',",
+    "found": [
+      "Hello World"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/GenerateCodeItem/utils/snippet-generator.spec.js",
+    "line": 264,
+    "text": "throw new Error('Mock error!');",
+    "found": [
+      "Mock error!"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/GenerateCodeItem/utils/snippet-generator.spec.js",
+    "line": 277,
+    "text": "expect(result).toBe('Error generating code snippet');",
+    "found": [
+      "Error generating code snippet"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/GenerateCodeItem/utils/snippet-generator.spec.js",
+    "line": 350,
+    "text": "userName: 'John Smith',",
+    "found": [
+      "John Smith"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/GenerateCodeItem/utils/snippet-generator.spec.js",
+    "line": 405,
+    "text": "userName: 'John Smith',",
+    "found": [
+      "John Smith"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/GenerateCodeItem/utils/snippet-generator.spec.js",
+    "line": 467,
+    "text": "value: 'Basic YWRtaW46c2VjcmV0MTIz'",
+    "found": [
+      "Basic YWRtaW46c2VjcmV0MTIz"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/GenerateCodeItem/utils/snippet-generator.spec.js",
+    "line": 835,
+    "text": "value: 'Bearer test-access-token-123'",
+    "found": [
+      "Bearer test-access-token-123"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/GenerateCodeItem/utils/snippet-generator.spec.js",
+    "line": 868,
+    "text": "value: 'OAuth custom-token-456'",
+    "found": [
+      "OAuth custom-token-456"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/GenerateCodeItem/utils/snippet-generator.spec.js",
+    "line": 1489,
+    "text": "expect(result).not.toBe('Error generating code snippet');",
+    "found": [
+      "Error generating code snippet"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/GenerateCodeItem/utils/snippet-generator.spec.js",
+    "line": 1495,
+    "text": "expect(result).not.toBe('Error generating code snippet');",
+    "found": [
+      "Error generating code snippet"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/GenerateCodeItem/utils/snippet-generator.spec.js",
+    "line": 1501,
+    "text": "expect(result).not.toBe('Error generating code snippet');",
+    "found": [
+      "Error generating code snippet"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/GenerateCodeItem/utils/snippet-generator.spec.js",
+    "line": 1507,
+    "text": "expect(result).not.toBe('Error generating code snippet');",
+    "found": [
+      "Error generating code snippet"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/GenerateCodeItem/utils/snippet-generator.spec.js",
+    "line": 1645,
+    "text": "expect(result).not.toBe('Error generating code snippet');",
+    "found": [
+      "Error generating code snippet"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/GenerateCodeItem/utils/snippet-generator.spec.js",
+    "line": 1801,
+    "text": "expect(result).not.toBe('Error generating code snippet');",
+    "found": [
+      "Error generating code snippet"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/GenerateCodeItem/utils/snippet-generator.spec.js",
+    "line": 1814,
+    "text": "expect(result).not.toBe('Error generating code snippet');",
+    "found": [
+      "Error generating code snippet"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js",
+    "line": 24,
+    "text": "console.error('Error ignoring folder', error);",
+    "found": [
+      "Error ignoring folder"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js",
+    "line": 44,
+    "text": "{isYamlCollection ? 'opencollection (YAML)' : 'Bruno (JSON)'}",
+    "found": [
+      "Bruno (JSON)"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js",
+    "line": 601,
+    "text": "console.error('Error opening the folder', error);",
+    "found": [
+      "Error opening the folder"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/DeleteCollection/index.js",
+    "line": 32,
+    "text": "console.error('Error deleting collection:', error);",
+    "found": [
+      "Error deleting collection:"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/DocsTagList/index.spec.js",
+    "line": 45,
+    "text": "fireEvent.click(getByLabelText('Remove prod'));",
+    "found": [
+      "Remove prod"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/DocsTagList/index.spec.js",
+    "line": 62,
+    "text": "expect(input).toHaveAttribute('aria-label', 'Include tags');",
+    "found": [
+      "Include tags"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/IncludeExcludeTags/index.spec.js",
+    "line": 15,
+    "text": "expect(getByText('Include tags')).toBeInTheDocument();",
+    "found": [
+      "Include tags"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/IncludeExcludeTags/index.spec.js",
+    "line": 16,
+    "text": "expect(getByText('Exclude tags')).toBeInTheDocument();",
+    "found": [
+      "Exclude tags"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/IncludeExcludeTags/index.spec.js",
+    "line": 17,
+    "text": "expect(getByLabelText('Include tags')).toBeInTheDocument();",
+    "found": [
+      "Include tags"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/IncludeExcludeTags/index.spec.js",
+    "line": 18,
+    "text": "expect(getByLabelText('Exclude tags')).toBeInTheDocument();",
+    "found": [
+      "Exclude tags"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/IncludeExcludeTags/index.spec.js",
+    "line": 26,
+    "text": "const input = getByLabelText('Include tags');",
+    "found": [
+      "Include tags"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/IncludeExcludeTags/index.spec.js",
+    "line": 38,
+    "text": "const input = getByLabelText('Include tags');",
+    "found": [
+      "Include tags"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/IncludeExcludeTags/index.spec.js",
+    "line": 42,
+    "text": "expect(getByText('Tag does not exist')).toBeInTheDocument();",
+    "found": [
+      "Tag does not exist"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/IncludeExcludeTags/index.spec.js",
+    "line": 51,
+    "text": "const input = getByLabelText('Include tags');",
+    "found": [
+      "Include tags"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/IncludeExcludeTags/index.spec.js",
+    "line": 55,
+    "text": "expect(getByText('Tag is already in the exclude list')).toBeInTheDocument();",
+    "found": [
+      "Tag is already in the exclude list"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/IncludeExcludeTags/index.spec.js",
+    "line": 64,
+    "text": "fireEvent.click(getByLabelText('Remove prod'));",
+    "found": [
+      "Remove prod"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/index.spec.js",
+    "line": 38,
+    "text": "describe('Advanced (Generate Documentation)', () => {",
+    "found": [
+      "Advanced (Generate Documentation)"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/index.spec.js",
+    "line": 43,
+    "text": "const choices = within(getByRole('radiogroup', { name: 'Requests to include' }));",
+    "found": [
+      "Requests to include"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/index.spec.js",
+    "line": 44,
+    "text": "expect(choices.getByRole('radio', { name: 'All requests' })).toBeChecked();",
+    "found": [
+      "All requests"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/index.spec.js",
+    "line": 45,
+    "text": "expect(choices.getByRole('radio', { name: 'Filter by Tags' })).not.toBeChecked();",
+    "found": [
+      "Filter by Tags"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/index.spec.js",
+    "line": 52,
+    "text": "expect(getByRole('radio', { name: 'Filter by Tags' })).toBeChecked();",
+    "found": [
+      "Filter by Tags"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/index.spec.js",
+    "line": 53,
+    "text": "expect(getByRole('radio', { name: 'All requests' })).not.toBeChecked();",
+    "found": [
+      "All requests"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/index.spec.js",
+    "line": 76,
+    "text": "expect(queryByLabelText('Include tags')).not.toBeInTheDocument();",
+    "found": [
+      "Include tags"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/index.spec.js",
+    "line": 77,
+    "text": "expect(queryByLabelText('Exclude tags')).not.toBeInTheDocument();",
+    "found": [
+      "Exclude tags"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/index.spec.js",
+    "line": 81,
+    "text": "expect(queryByLabelText('Include tags')).toBeInTheDocument();",
+    "found": [
+      "Include tags"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/index.spec.js",
+    "line": 82,
+    "text": "expect(queryByLabelText('Exclude tags')).toBeInTheDocument();",
+    "found": [
+      "Exclude tags"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/index.spec.js",
+    "line": 91,
+    "text": "expect(hint.getAttribute('data-tooltip-content')).toContain('Tags are labels');",
+    "found": [
+      "Tags are labels"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/CollectionVersionInfo/index.spec.js",
+    "line": 19,
+    "text": "expect(screen.getByTestId('version-value')).toHaveTextContent('Not Set');",
+    "found": [
+      "Not Set"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js",
+    "line": 137,
+    "text": "console.error('Error generating documentation:', error);",
+    "found": [
+      "Error generating documentation:"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.spec.js",
+    "line": 63,
+    "text": "name: 'My Collection',",
+    "found": [
+      "My Collection"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.spec.js",
+    "line": 65,
+    "text": "brunoConfig: { opencollection: '1.0.0', name: 'My Collection', version: '2.0' },",
+    "found": [
+      "My Collection"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.spec.js",
+    "line": 79,
+    "text": "{ uid: 'req-list-users', name: 'List users', type: 'http-request', tags: ['smoke'], request: {} },",
+    "found": [
+      "List users"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.spec.js",
+    "line": 80,
+    "text": "{ uid: 'req-delete-user', name: 'Delete user', type: 'http-request', tags: ['wip'], request: {} }",
+    "found": [
+      "Delete user"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.spec.js",
+    "line": 87,
+    "text": "items: [{ uid: 'req-audit-log', name: 'Audit log', type: 'http-request', tags: ['wip'], request: {} }]",
+    "found": [
+      "Audit log"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.spec.js",
+    "line": 152,
+    "text": "const { onClose } = renderModal(buildCollection({ name: 'My Collection' }));",
+    "found": [
+      "My Collection"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.spec.js",
+    "line": 161,
+    "text": "expect(FileSaver.saveAs).toHaveBeenCalledWith(expect.any(Blob), 'My Collection-documentation.html');",
+    "found": [
+      "My Collection-documentation.html"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.spec.js",
+    "line": 206,
+    "text": "addTag('Include tags', 'smoke');",
+    "found": [
+      "Include tags"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.spec.js",
+    "line": 213,
+    "text": "addTag('Exclude tags', 'wip');",
+    "found": [
+      "Exclude tags"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.spec.js",
+    "line": 220,
+    "text": "addTag('Include tags', 'smoke');",
+    "found": [
+      "Include tags"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.spec.js",
+    "line": 230,
+    "text": "addTag('Include tags', 'smoke');",
+    "found": [
+      "Include tags"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.spec.js",
+    "line": 231,
+    "text": "addTag('Exclude tags', 'wip');",
+    "found": [
+      "Exclude tags"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js",
+    "line": 241,
+    "text": "console.error('Error opening the folder', error);",
+    "found": [
+      "Error opening the folder"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/RemoveCollections/ConfirmCollectionCloseDrafts/index.js",
+    "line": 66,
+    "text": "toast.error('Please save or discard transient requests first');",
+    "found": [
+      "Please save or discard transient requests first"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/RemoveCollections/ConfirmCollectionCloseDrafts/index.js",
+    "line": 82,
+    "text": "toast.error('Failed to save drafts!');",
+    "found": [
+      "Failed to save drafts!"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/RemoveCollections/ConfirmCollectionCloseDrafts/index.js",
+    "line": 216,
+    "text": "title={currentTransientDrafts.length > 0 ? 'Please save or discard transient requests first' : ''}",
+    "found": [
+      "Please save or discard transient requests first"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/RemoveCollections/ConfirmCollectionCloseDrafts/index.js",
+    "line": 218,
+    "text": "{allDraftsCount > 1 ? 'Save All and Remove' : 'Save and Remove'}",
+    "found": [
+      "Save All and Remove",
+      "Save and Remove"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/RemoveCollections/index.js",
+    "line": 35,
+    "text": "toast.error('Collection not found');",
+    "found": [
+      "Collection not found"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/RemoveCollections/index.js",
+    "line": 80,
+    "text": "confirmText={isMultiple ? 'Remove All' : 'Remove'}",
+    "found": [
+      "Remove All"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/RemoveCollections/index.js",
+    "line": 88,
+    "text": ": 'Are you sure you want to close the following collection in Bruno?'}",
+    "found": [
+      "Are you sure you want to close the following collection in Bruno?"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/RemoveCollections/index.spec.js",
+    "line": 83,
+    "text": "const confirmButton = screen.getByText('Remove All');",
+    "found": [
+      "Remove All"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/RemoveCollections/index.spec.js",
+    "line": 94,
+    "text": "rejectSecond(new Error('Failed to delete c2'));",
+    "found": [
+      "Failed to delete c2"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/RemoveCollections/index.spec.js",
+    "line": 97,
+    "text": "expect(toast.error).toHaveBeenCalledWith('Failed to remove: Collection 2');",
+    "found": [
+      "Failed to remove: Collection 2"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/InlineCollectionCreator/index.js",
+    "line": 47,
+    "text": "window.ipcRenderer?.invoke('renderer:find-unique-folder-name', 'Untitled Collection', defaultLocation)",
+    "found": [
+      "Untitled Collection"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js",
+    "line": 98,
+    "text": "console.error('Conversion error:', err);",
+    "found": [
+      "Conversion error:"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js",
+    "line": 158,
+    "text": "name: convertedCollection.name || 'Untitled Collection',",
+    "found": [
+      "Untitled Collection"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/NewApp/index.spec.js",
+    "line": 82,
+    "text": "expect(screen.getByTestId('modal-title')).toHaveTextContent('New App');",
+    "found": [
+      "New App"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/NewApp/index.spec.js",
+    "line": 99,
+    "text": "typeName('My App');",
+    "found": [
+      "My App"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/NewApp/index.spec.js",
+    "line": 104,
+    "text": "appName: 'My App',",
+    "found": [
+      "My App"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/NewApp/index.spec.js",
+    "line": 105,
+    "text": "filename: 'My App',",
+    "found": [
+      "My App"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/NewApp/index.spec.js",
+    "line": 109,
+    "text": "await waitFor(() => expect(toast.success).toHaveBeenCalledWith('App created'));",
+    "found": [
+      "App created"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/NewApp/index.spec.js",
+    "line": 129,
+    "text": "mockNewApp.mockRejectedValue(new Error('An item with this name already exists in this folder'));",
+    "found": [
+      "An item with this name already exists in this folder"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/NewApp/index.spec.js",
+    "line": 136,
+    "text": "expect(toast.error).toHaveBeenCalledWith('An item with this name already exists in this folder')",
+    "found": [
+      "An item with this name already exists in this folder"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/NewApp/index.spec.js",
+    "line": 149,
+    "text": "await waitFor(() => expect(toast.error).toHaveBeenCalledWith('Failed to create app'));",
+    "found": [
+      "Failed to create app"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/NewApp/index.spec.js",
+    "line": 182,
+    "text": "typeName('My App');",
+    "found": [
+      "My App"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/NewApp/index.spec.js",
+    "line": 195,
+    "text": "typeName('My App');",
+    "found": [
+      "My App"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/NewApp/index.spec.js",
+    "line": 210,
+    "text": "typeName('My App');",
+    "found": [
+      "My App"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/NewApp/index.spec.js",
+    "line": 231,
+    "text": "typeName('My App');",
+    "found": [
+      "My App"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js",
+    "line": 136,
+    "text": "console.error('Install failed:', err);",
+    "found": [
+      "Install failed:"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.spec.jsx",
+    "line": 87,
+    "text": "expect(screen.getByText('Packages used in scripts')).toBeInTheDocument();",
+    "found": [
+      "Packages used in scripts"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.spec.jsx",
+    "line": 115,
+    "text": "expect(screen.getByText('Scripts use libraries that need Developer Mode')).toBeInTheDocument();",
+    "found": [
+      "Scripts use libraries that need Developer Mode"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.spec.jsx",
+    "line": 147,
+    "text": "expect(screen.getByText('Not supported in Bruno')).toBeInTheDocument();",
+    "found": [
+      "Not supported in Bruno"
+    ]
+  },
+  {
+    "file": "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.spec.jsx",
+    "line": 163,
+    "text": "expect(screen.getByText('External modules require Developer Mode')).toBeInTheDocument();",
+    "found": [
+      "External modules require Developer Mode"
+    ]
+  }
+]

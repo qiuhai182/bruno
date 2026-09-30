@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import get from 'lodash/get';
 import find from 'lodash/find';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,27 +12,28 @@ import StatusDot from 'components/StatusDot';
 import ScriptEditorPane from './ScriptEditorPane';
 
 // Keyed by the in-memory hook name; the set and the order come from GRPC_SCRIPT_KEYS.
+// `labelKey` is resolved through i18n at render time (labels must not live at module scope).
 const HOOKS = {
   beforeCallStart: {
-    label: 'Before Call Start',
+    labelKey: 'requestPane.grpc.scriptBeforeCallStart',
     scriptType: SCRIPT_TYPES.BEFORE_CALL_START,
     showHintsFor: ['bru', 'grpc:before-call-start'],
     errorMessageKey: 'beforeCallStartScriptErrorMessage'
   },
   beforeMessageSend: {
-    label: 'Before Message Send',
+    labelKey: 'requestPane.grpc.scriptBeforeMessageSend',
     scriptType: SCRIPT_TYPES.BEFORE_MESSAGE_SEND,
     showHintsFor: ['bru', 'grpc:before-message-send'],
     errorMessageKey: 'beforeMessageSendScriptErrorMessage'
   },
   afterMessageReceive: {
-    label: 'After Message Receive',
+    labelKey: 'requestPane.grpc.scriptAfterMessageReceive',
     scriptType: SCRIPT_TYPES.AFTER_MESSAGE_RECEIVE,
     showHintsFor: ['bru', 'grpc:after-message-receive'],
     errorMessageKey: 'afterMessageReceiveScriptErrorMessage'
   },
   afterCallEnd: {
-    label: 'After Call End',
+    labelKey: 'requestPane.grpc.scriptAfterCallEnd',
     scriptType: SCRIPT_TYPES.AFTER_CALL_END,
     showHintsFor: ['bru', 'grpc:after-call-end'],
     errorMessageKey: 'afterCallEndScriptErrorMessage'
@@ -39,6 +41,7 @@ const HOOKS = {
 };
 
 const GrpcScript = ({ item, collection, handleRun }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const tabs = useSelector((state) => state.tabs.tabs);
   const activeTabUid = useSelector((state) => state.tabs.activeTabUid);
@@ -62,9 +65,9 @@ const GrpcScript = ({ item, collection, handleRun }) => {
     <div className="w-full h-full flex flex-col">
       <Tabs value={activeTab} onValueChange={(tab) => dispatch(updateScriptPaneTab({ uid: item.uid, scriptPaneTab: tab }))}>
         <TabsList>
-          {panes.map(({ hook, label, scriptType, code, errorMessageKey }) => (
+          {panes.map(({ hook, labelKey, scriptType, code, errorMessageKey }) => (
             <TabsTrigger key={hook} value={scriptType}>
-              {label}
+              {t(labelKey)}
               {code?.trim().length > 0 && <StatusDot type={item[errorMessageKey] ? 'error' : 'default'} />}
             </TabsTrigger>
           ))}

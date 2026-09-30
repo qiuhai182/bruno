@@ -9,6 +9,8 @@ import { isWSDLCollection } from 'utils/importers/wsdl-collection';
 import { isBrunoCollection } from 'utils/importers/bruno-collection';
 import { isOpenCollection } from 'utils/importers/opencollection';
 import { useTheme } from 'providers/Theme';
+import { useTranslation } from 'react-i18next';
+import i18n from '../../i18n';
 
 const convertFileToObject = async (file) => {
   const text = await file.text();
@@ -29,7 +31,7 @@ const convertFileToObject = async (file) => {
     }
     return parsed;
   } catch {
-    throw new Error('Failed to parse the file – ensure it is valid JSON or YAML');
+    throw new Error(i18n.t('sidebar.import.parseError'));
   }
 };
 
@@ -38,6 +40,7 @@ const FileTab = ({
   handleSubmit,
   setErrorMessage
 }) => {
+  const { t } = useTranslation();
   const [dragActive, setDragActive] = useState(false);
   const fileInputRef = useRef(null);
   const { theme } = useTheme();
@@ -84,9 +87,9 @@ const FileTab = ({
         return;
       }
 
-      toastError(new Error('The ZIP file is not a valid Bruno collection'));
+      toastError(new Error(t('sidebar.import.invalidZip')));
     } catch (err) {
-      toastError(err, 'Import ZIP file failed');
+      toastError(err, t('sidebar.import.zipFailed'));
     } finally {
       setIsLoading(false);
     }
@@ -130,10 +133,10 @@ const FileTab = ({
         // Pass raw filesData to be processed in BulkImportCollectionLocation
         handleSubmit({ filesData, type: 'multiple' });
       } else {
-        throw new Error('No valid collections found in the selected files');
+        throw new Error(t('sidebar.import.noValidCollections'));
       }
     } catch (err) {
-      toastError(err, 'Import multiple files failed');
+      toastError(err, t('sidebar.import.multiFilesFailed'));
     } finally {
       setIsLoading(false);
     }
@@ -145,7 +148,7 @@ const FileTab = ({
       const data = await convertFileToObject(file);
 
       if (!data) {
-        throw new Error('Failed to parse file content');
+        throw new Error(t('sidebar.import.parseContentFailed'));
       }
 
       let type = null;
@@ -163,7 +166,7 @@ const FileTab = ({
       } else if (isBrunoCollection(data)) {
         type = 'bruno';
       } else {
-        throw new Error('Unsupported collection format');
+        throw new Error(t('sidebar.import.unsupportedFormat'));
       }
 
       if (type === 'openapi') {
@@ -174,7 +177,7 @@ const FileTab = ({
         await handleSubmit({ rawData: data, type });
       }
     } catch (err) {
-      toastError(err, 'Import collection failed');
+      toastError(err, t('sidebar.import.failed'));
     } finally {
       setIsLoading(false);
     }
@@ -188,12 +191,12 @@ const FileTab = ({
 
     // If both ZIP and non-ZIP files are selected, show error
     if (zipFiles.length && (fileArray.length - zipFiles.length > 0)) {
-      setErrorMessage('Cannot mix ZIP files with other file types. Please select either a single ZIP file OR collection files (JSON/YAML)');
+      setErrorMessage(t('sidebar.import.mixZipError'));
       return;
     }
 
     if (zipFiles.length > 1) {
-      setErrorMessage('Multiple ZIP files selected. Please select only one ZIP file at a time for import.');
+      setErrorMessage(t('sidebar.import.multiZipError'));
       return;
     }
 
@@ -261,17 +264,17 @@ const FileTab = ({
             accept={acceptedFileTypes.join(',')}
           />
           <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">
-            Drop file(s) to import or{' '}
+            {t('sidebar.import.dropFiles')}{' '}
             <button
               className="underline cursor-pointer"
               onClick={handleBrowseFiles}
               style={{ color: theme.textLink }}
             >
-              choose file(s)
+              {t('sidebar.import.chooseFiles')}
             </button>
           </p>
           <p className="text-xs text-gray-500 dark:text-gray-400 text-center">
-            Supports Bruno, OpenCollection, Postman, Insomnia, OpenAPI 3.x / Swagger 2.0, WSDL, and ZIP formats
+            {t('sidebar.import.supportedFormats')}
           </p>
         </div>
       </div>

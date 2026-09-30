@@ -12,8 +12,10 @@ import StatusDot from 'components/StatusDot';
 import { usePersistedState } from 'hooks/usePersistedState';
 import { useFocusErrorLine } from 'hooks/useFocusErrorLine';
 import { getActiveScriptTab } from 'utils/tabs';
+import { useTranslation } from 'react-i18next';
 
 const Script = ({ item, collection }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const preRequestEditorRef = useRef(null);
   const postResponseEditorRef = useRef(null);
@@ -37,7 +39,7 @@ const Script = ({ item, collection }) => {
   // CodeMirror's scrollTo() is silently ignored when the editor is inside a display:none container
   // (TabsContent hides inactive tabs via display:none). So the scroll set during componentDidMount
   // is lost for the hidden editor. After refresh() recalculates layout, we re-apply scrollTo().
-  // The same workaround lives in RequestPane/GrpcScript/ScriptEditorPane — the two are independent
+  // The same workaround lives in RequestPane/GrpcScript/ScriptEditorPane 潩 the two are independent
   // copies, so a fix here does not reach it.
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -102,13 +104,13 @@ const Script = ({ item, collection }) => {
       <Tabs value={activeTab} onValueChange={onScriptTabChange}>
         <TabsList>
           <TabsTrigger value="pre-request">
-            Pre Request
+            {t('requestPane.common.preRequest')}
             {hasPreRequestScript && (
               <StatusDot type={item.preRequestScriptErrorMessage ? 'error' : 'default'} />
             )}
           </TabsTrigger>
           <TabsTrigger value="post-response">
-            Post Response
+            {t('requestPane.common.postResponse')}
             {hasPostResponseScript && (
               <StatusDot type={item.postResponseScriptErrorMessage ? 'error' : 'default'} />
             )}

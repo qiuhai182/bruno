@@ -5,9 +5,11 @@ import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import { IconFolder } from '@tabler/icons';
 import { closeWorkspaceAction } from 'providers/ReduxStore/slices/workspaces/actions';
+import { useTranslation } from 'react-i18next';
 
 const DeleteWorkspace = ({ onClose, workspace }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const [isDeleting, setIsDeleting] = useState(false);
 
   const onConfirm = async () => {
@@ -18,7 +20,7 @@ const DeleteWorkspace = ({ onClose, workspace }) => {
       await dispatch(closeWorkspaceAction(workspace.uid));
       onClose();
     } catch (error) {
-      toast.error(error?.message || 'An error occurred while removing the workspace');
+      toast.error(error?.message || t('workspace.toast.removeError'));
       setIsDeleting(false);
     }
   };
@@ -27,8 +29,8 @@ const DeleteWorkspace = ({ onClose, workspace }) => {
     <Portal>
       <Modal
         size="sm"
-        title="Remove Workspace"
-        confirmText={isDeleting ? 'Removing...' : 'Remove'}
+        title={t('workspace.remove.title')}
+        confirmText={isDeleting ? t('workspace.remove.removing') : t('workspace.remove.confirm')}
         handleConfirm={onConfirm}
         handleCancel={onClose}
         confirmDisabled={isDeleting}
@@ -43,10 +45,11 @@ const DeleteWorkspace = ({ onClose, workspace }) => {
           <div className="break-words text-xs mt-1">{workspace.pathname}</div>
         )}
         <div className="mt-4">
-          Are you sure you want to remove workspace <span className="font-semibold">{workspace?.name}</span>?
+          {t('workspace.remove.confirmPrefix')} <span className="font-semibold">{workspace?.name}</span>
+          {t('workspace.remove.confirmSuffix')}
         </div>
         <div className="mt-4">
-          The workspace will still be available in the file system and can be re-opened later.
+          {t('workspace.remove.note')}
         </div>
       </Modal>
     </Portal>

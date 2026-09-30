@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import {
   IconCheck,
   IconRefresh,
@@ -20,6 +21,7 @@ const SpecStatusSection = ({
   onCheck, onOpenSettings
 }) => {
   const openApiSyncConfig = collection?.brunoConfig?.openapi?.[0];
+  const { t } = useTranslation();
   const lastCheckedAt = useSelector((state) => state.openapiSync?.collectionUpdates?.[collection.uid]?.lastChecked);
 
   const {
@@ -40,10 +42,10 @@ const SpecStatusSection = ({
 
   const bannerState = useMemo(() => {
     if (fileNotFound) {
-      return { variant: 'danger', message: `Source file not found at ${sourceUrl}`, actions: ['open-settings'] };
+      return { variant: 'danger', message: t('openApiSync.banner.sourceFileNotFound', { url: sourceUrl }), actions: ['open-settings'] };
     }
     if (error || specDrift?.isValid === false) {
-      return { variant: 'danger', message: error || specDrift?.error || 'Invalid OpenAPI specification', actions: ['open-settings'] };
+      return { variant: 'danger', message: error || specDrift?.error || t('openApiSync.banner.invalidSpec'), actions: ['open-settings'] };
     }
     if (!specDrift) {
       return null;
@@ -59,12 +61,12 @@ const SpecStatusSection = ({
         ? ` (v${specDrift.storedVersion} → v${specDrift.newVersion})`
         : '';
       return {
-        variant: 'warning', message: `OpenAPI spec has been updated${versionInfo}`, actions: [],
+        variant: 'warning', message: t('openApiSync.banner.specUpdated', { versionInfo }), actions: [],
         changes: { added: specDrift.added?.length || 0, modified: specDrift.modified?.length || 0, removed: specDrift.removed?.length || 0 }
       };
     }
     return null;
-  }, [fileNotFound, error, sourceUrl, specDrift, lastSyncedAt, storedSpec, lastCheckedAt, hasRemoteUpdates]);
+  }, [fileNotFound, error, sourceUrl, specDrift, lastSyncedAt, storedSpec, lastCheckedAt, hasRemoteUpdates, t]);
   return (
     <>
       {bannerState && (
@@ -81,21 +83,21 @@ const SpecStatusSection = ({
                   <> &middot; <code style={{ fontStyle: 'normal' }} className="checked-text">v{bannerState.version}</code></>
                 )}
                 {bannerState.lastChecked && (
-                  <span className="checked-text"> &middot; Checked {bannerState.lastChecked}</span>
+                  <span className="checked-text"> &middot; {t('openApiSync.banner.checkedAt', { time: bannerState.lastChecked })}</span>
                 )}
               </span>
               {bannerState.changes && (
                 <span className="banner-details">
-                  {bannerState.changes.modified > 0 && <StatusBadge key="modified" status="warning" radius="full">{bannerState.changes.modified} {bannerState.changes.modified > 1 ? 'endpoints' : 'endpoint'} updated</StatusBadge>}
-                  {bannerState.changes.added > 0 && <StatusBadge key="added" status="success" radius="full">{bannerState.changes.added} {bannerState.changes.added > 1 ? 'endpoints' : 'endpoint'} added</StatusBadge>}
-                  {bannerState.changes.removed > 0 && <StatusBadge key="removed" status="danger" radius="full">{bannerState.changes.removed} {bannerState.changes.removed > 1 ? 'endpoints' : 'endpoint'} removed</StatusBadge>}
+                  {bannerState.changes.modified > 0 && <StatusBadge key="modified" status="warning" radius="full">{t('openApiSync.banner.endpointsUpdated', { count: bannerState.changes.modified, s: bannerState.changes.modified > 1 ? 's' : '' })}</StatusBadge>}
+                  {bannerState.changes.added > 0 && <StatusBadge key="added" status="success" radius="full">{t('openApiSync.banner.endpointsAdded', { count: bannerState.changes.added, s: bannerState.changes.added > 1 ? 's' : '' })}</StatusBadge>}
+                  {bannerState.changes.removed > 0 && <StatusBadge key="removed" status="danger" radius="full">{t('openApiSync.banner.endpointsRemoved', { count: bannerState.changes.removed, s: bannerState.changes.removed > 1 ? 's' : '' })}</StatusBadge>}
                 </span>
               )}
             </div>
             <div className="banner-actions">
               {bannerState.actions.includes('open-settings') && (
                 <Button variant="ghost" size="sm" onClick={onOpenSettings}>
-                  Update connection settings
+                  {t('openApiSync.banner.updateConnectionSettings')}
                 </Button>
               )}
             </div>
@@ -106,16 +108,16 @@ const SpecStatusSection = ({
       {(error || fileNotFound || specDrift?.isValid === false) ? (
         <div className="sync-review-empty-state mt-5">
           <IconAlertTriangle size={40} className="empty-state-icon" />
-          <h4>Unable to check for updates</h4>
-          <p>Fix the connection issue above and check again.</p>
+          <h4>{t('openApiSync.unableToCheck')}</h4>
+          <p>{t('openApiSync.fixConnection')}</p>
         </div>
       ) : specDrift?.storedSpecMissing && openApiSyncConfig?.lastSyncDate && !hasRemoteUpdates ? (
         <div className="sync-review-empty-state mt-5">
           <IconCheck size={40} className="empty-state-icon" />
-          <h4>No updates from the spec</h4>
-          <p>The spec endpoints have not been updated since the last sync. You can restore the spec file to track local collection changes.</p>
+          <h4>{t('openApiSync.noUpdates')}</h4>
+          <p>{t('openApiSync.noUpdatesRestoreDesc')}</p>
           <Button className="mt-4" color="warning" onClick={handleRestoreSpec} loading={isSyncing}>
-            Restore Spec File
+            {t('openApiSync.review.restoreSpecFile')}
           </Button>
         </div>
       ) : (

@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import { useTranslation } from 'react-i18next';
 import InfoTip from 'components/InfoTip/index';
 import SingleLineEditor from 'components/SingleLineEditor';
 import ToolHint from 'components/ToolHint/index';
@@ -19,16 +20,18 @@ import StyledWrapper from './StyledWrapper';
 const getPropertyFromDraftOrRequest = (propertyKey, item) =>
   item.draft ? get(item, `draft.${propertyKey}`, {}) : get(item, propertyKey, {});
 
+// i18n translation keys for the settings validation errors, resolved at render time.
 const ERRORS = {
   timeout: {
-    invalid: `Timeout needs to be a valid number`
+    invalid: 'requestPane.ws.timeoutInvalid'
   },
   keepAliveInterval: {
-    invalid: `Timeout needs to be a valid number`
+    invalid: 'requestPane.ws.keepAliveInvalid'
   }
 };
 
 const WSSettingsPane = ({ item, collection }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const { storedTheme } = useTheme();
   const requestPreferences = useSelector((state) => state.app.preferences.request);
@@ -48,22 +51,22 @@ const WSSettingsPane = ({ item, collection }) => {
   };
 
   const formErrors = {
-    timeout: isNaN(Number(connectionTimeout)) && ERRORS.timeout.invalid,
-    keepAliveInterval: isNaN(Number(keepAliveInterval)) && ERRORS.keepAliveInterval.invalid
+    timeout: isNaN(Number(connectionTimeout)) && t(ERRORS.timeout.invalid),
+    keepAliveInterval: isNaN(Number(keepAliveInterval)) && t(ERRORS.keepAliveInterval.invalid)
   };
 
   return (
     <StyledWrapper className="flex flex-col gap-4 w-full">
       <section className="grid gap-4 items-center grid-cols-2">
         <div>
-          <label className="font-medium mb-2">Timeout</label>
+          <label className="font-medium mb-2">{t('requestPane.ws.timeout')}</label>
           <InfoTip
             infotipId="setting-connection-timeout"
             className="tooltip-mod max-w-lg"
             content={(
               <div>
                 <p>
-                  <span>Timeout in milliseconds</span>
+                  <span>{t('requestPane.ws.timeoutHint')}</span>
                 </p>
               </div>
             )}
@@ -91,7 +94,7 @@ const WSSettingsPane = ({ item, collection }) => {
         </div>
 
         <div>
-          <label className="font-medium mb-2">Keep Alive Interval</label>
+          <label className="font-medium mb-2">{t('requestPane.ws.keepAliveInterval')}</label>
           <InfoTip
             infotipId="setting-keep-alive"
             className="tooltip-mod max-w-lg"
@@ -99,10 +102,10 @@ const WSSettingsPane = ({ item, collection }) => {
               <div>
                 <p>
                   <span>
-                    Keep the websocket alive by sending ping requests to the server at every interval (in millseconds)
+                    {t('requestPane.ws.keepAliveHint')}
                   </span>
                 </p>
-                <p className="mt-2">0 (zero) = off</p>
+                <p className="mt-2">{t('requestPane.ws.keepAliveZero')}</p>
               </div>
             )}
           />

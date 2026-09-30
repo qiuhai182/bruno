@@ -1,0 +1,158 @@
+{
+  "workspace": {
+    "badge": {
+      "failedToOpen": "打开失败",
+      "notCloned": "未克隆"
+    },
+    "collections": {
+      "emptyDescription": "创建你的第一个集合，或打开现有集合开始使用。",
+      "emptyTitle": "暂无集合"
+    },
+    "create": {
+      "confirm": "创建工作区",
+      "creating": "创建中...",
+      "description": "为新工作区命名并选择类型，即可开始使用。",
+      "title": "创建工作区"
+    },
+    "docs": {
+      "addDocumentation": "添加文档",
+      "emptyText": "添加文档，帮助团队顺畅协作。",
+      "suggestions": {
+        "overview": "项目概述",
+        "resources": "资源与常见问题",
+        "setup": "环境配置说明",
+        "workflows": "核心工作流"
+      },
+      "title": "文档",
+      "toast": {
+        "saveFailed": "保存文档失败",
+        "saved": "文档保存成功",
+        "workspaceNotFound": "未找到工作区"
+      },
+      "youCanInclude": "你可以包含："
+    },
+    "git": {
+      "connectAction": "连接",
+      "connectTitle": "连接到 Git",
+      "disconnectPrefix": "断开连接",
+      "disconnectSuffix": "与其 Git 远程仓库的连接？",
+      "linkingPrefix": "正在将",
+      "linkingSuffix": "连接到远程 Git 仓库。",
+      "remoteUrlLabel": "Git 远程 URL",
+      "removeAction": "移除",
+      "removeNoteMid": "。本地集合文件及任何",
+      "removeNotePrefix": "这只会从以下位置移除远程 URL：",
+      "removeNoteSuffix": "文件夹将保持不变。",
+      "removeTitle": "移除 Git 远程",
+      "toast": {
+        "connected": "Git 远程已连接",
+        "removed": "Git 远程已移除"
+      },
+      "updateAction": "更新",
+      "updateTitle": "更新 Git 远程",
+      "urlNotePrefix": "该 URL 仅保存在",
+      "urlNoteSuffix": "中。磁盘上的集合文件不会被修改。",
+      "validation": {
+        "invalidUrl": "请输入有效的 Git URL",
+        "urlRequired": "Git 远程 URL 为必填项"
+      }
+    },
+    "help": {
+      "extract1": "选择要提取此工作区的位置。",
+      "extract2": "工作区文件夹将创建在此位置。",
+      "folderName1": "用于存储工作区的文件夹名称。",
+      "folderName2": "你可以使用与工作区名称不同的文件夹名，或符合文件系统规则的名称。",
+      "location1": "Bruno 将工作区存储在电脑的文件系统中。",
+      "location2": "选择要存储此工作区的位置。"
+    },
+    "import": {
+      "chooseFile": "选择文件",
+      "confirm": "导入",
+      "dropPrefix": "将工作区 zip 文件拖放到此处，或",
+      "extractLocation": "提取位置",
+      "fileLabel": "工作区文件",
+      "importing": "导入中...",
+      "remove": "移除",
+      "supportNote": "支持导出的 Bruno 工作区 zip 文件",
+      "title": "导入工作区"
+    },
+    "label": {
+      "folderName": "文件夹名称",
+      "location": "位置",
+      "name": "名称",
+      "workspaceName": "工作区名称"
+    },
+    "manage": {
+      "defaultBadge": "默认",
+      "noWorkspaces": "未找到工作区",
+      "open": "打开",
+      "openInTerminal": "在终端中打开",
+      "title": "管理工作区"
+    },
+    "menu": {
+      "connectToGit": "连接到 Git",
+      "copyGitUrl": "复制 Git URL",
+      "remove": "移除",
+      "removeGitRemote": "移除 Git 远程",
+      "rename": "重命名",
+      "share": "分享"
+    },
+    "quickActions": "快捷操作",
+    "remove": {
+      "confirm": "移除",
+      "confirmPrefix": "确定要移除工作区",
+      "confirmSuffix": "？",
+      "note": "工作区仍会保留在文件系统中，之后可以重新打开。",
+      "removing": "移除中...",
+      "title": "移除工作区"
+    },
+    "rename": {
+      "confirm": "重命名",
+      "title": "重命名工作区"
+    },
+    "stats": {
+      "environments": "环境"
+    },
+    "toast": {
+      "cannotConnectGitNotLocal": "无法为本地不存在的集合连接 Git 远程",
+      "cannotDeleteNotLoaded": "无法删除未加载的集合",
+      "cannotRemoveDefault": "无法移除默认工作区",
+      "cannotRemoveNotLoaded": "无法移除未加载的集合",
+      "cannotRenameNotCloned": "无法重命名尚未克隆的集合",
+      "cloneBeforeShare": "请先克隆此集合，然后再分享",
+      "collectionRemoveError": "移除集合时发生错误",
+      "copyUrlFailed": "复制 URL 失败",
+      "couldNotGetFilePath": "无法获取文件路径",
+      "couldNotOpen": "集合“{{name}}”无法打开",
+      "createError": "创建工作区时发生错误",
+      "createFailed": "创建工作区失败",
+      "created": "工作区创建成功！",
+      "gitUrlCopied": "Git URL 已复制",
+      "importFailed": "导入工作区失败",
+      "imported": "工作区导入成功！",
+      "invalidZip": "请选择有效的 zip 文件",
+      "needsClone": "集合“{{name}}”需要先克隆",
+      "notOnDisk": "集合“{{name}}”在磁盘上不存在",
+      "openFolderError": "打开文件夹时出错",
+      "prepareError": "为创建集合准备工作区时出错",
+      "removeError": "移除工作区时发生错误",
+      "removedFromWorkspace": "集合已从工作区移除",
+      "renameError": "重命名工作区时发生错误",
+      "switchedTo": "已切换到 {{name}}",
+      "workspacePathNotFound": "未找到工作区路径"
+    },
+    "validation": {
+      "folderNameRequired": "文件夹名称为必填项",
+      "locationRequired": "位置为必填项",
+      "locationRequiredLower": "位置为必填项",
+      "maxTwoFiftyFive": "长度不能超过 255 个字符",
+      "maxTwoFiftyFiveLower": "长度不能超过 255 个字符",
+      "minOneChar": "长度至少为 1 个字符",
+      "minOneCharLower": "长度至少为 1 个字符",
+      "nameAlreadyExists": "已存在同名工作区",
+      "nameEmpty": "工作区名称不能为空",
+      "nameRequired": "工作区名称为必填项",
+      "nameRequiredLower": "名称必填"
+    }
+  }
+}

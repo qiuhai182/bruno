@@ -73,7 +73,7 @@ const Support = () => {
 
   return (
     <StyledWrapper className="w-full">
-      <div className="section-header">Support</div>
+      <div className="section-header">{t('preferences.tabs.support')}</div>
 
       {SUPPORT_GROUPS.map((group) => (
         <section className="support-group" key={group.key} aria-labelledby={`support-${group.key}-label`}>

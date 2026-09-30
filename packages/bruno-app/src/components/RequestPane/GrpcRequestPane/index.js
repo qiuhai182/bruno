@@ -1,4 +1,5 @@
 import React, { useMemo, useCallback, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateRequestPaneTab } from 'providers/ReduxStore/slices/tabs';
 import { GRPC_SCRIPT_KEYS } from '@usebruno/common';
@@ -29,6 +30,7 @@ const hasGrpcScriptError = (item) =>
   );
 
 const GrpcRequestPane = ({ item, collection, handleRun }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const tabs = useSelector((state) => state.tabs.tabs);
   const activeTabUid = useSelector((state) => state.tabs.activeTabUid);
@@ -51,7 +53,7 @@ const GrpcRequestPane = ({ item, collection, handleRun }) => {
         return <GrpcBody item={item} collection={collection} hideModeSelector={true} hidePrettifyButton={true} handleRun={handleRun} />;
       }
       case 'headers': {
-        return <RequestHeaders item={item} collection={collection} addHeaderText="Add Metadata" />;
+        return <RequestHeaders item={item} collection={collection} addHeaderText={t('requestPane.grpc.addMetadata')} />;
       }
       case 'auth': {
         return <GrpcAuth item={item} collection={collection} />;
@@ -63,10 +65,10 @@ const GrpcRequestPane = ({ item, collection, handleRun }) => {
         return <Documentation item={item} collection={collection} />;
       }
       default: {
-        return <div className="mt-4">404 | Not found</div>;
+        return <div className="mt-4">{t('requestPane.grpc.tabNotFound')}</div>;
       }
     }
-  }, [requestPaneTab, item, collection, handleRun]);
+  }, [requestPaneTab, item, collection, handleRun, t]);
 
   const body = getPropertyFromDraftOrRequest(item, 'request.body');
   const headers = getPropertyFromDraftOrRequest(item, 'request.headers');
@@ -101,24 +103,24 @@ const GrpcRequestPane = ({ item, collection, handleRun }) => {
     return [
       {
         key: 'body',
-        label: 'Message',
+        label: t('requestPane.grpc.tabMessage'),
         indicator: getMessageIndicator()
       },
       {
         key: 'headers',
-        label: 'Metadata',
+        label: t('requestPane.grpc.tabMetadata'),
         indicator: activeHeadersLength > 0 ? <sup className="ml-[.125rem] font-medium">{activeHeadersLength}</sup> : null
       },
       {
         key: 'auth',
-        label: 'Auth',
+        label: t('requestPane.grpc.tabAuth'),
         indicator: hasAuth ? <StatusDot type="default" dataTestId="auth" /> : null
       },
       {
         key: 'script',
         label: (
           <span className="flex items-center gap-2">
-            Script
+            {t('requestPane.grpc.tabScript')}
             <StatusBadge status="info" size="xs">Beta</StatusBadge>
           </span>
         ),
@@ -126,11 +128,11 @@ const GrpcRequestPane = ({ item, collection, handleRun }) => {
       },
       {
         key: 'docs',
-        label: 'Docs',
+        label: t('requestPane.grpc.tabDocs'),
         indicator: docs && docs.length > 0 ? <StatusDot type="default" /> : null
       }
     ];
-  }, [grpcMessagesCount, isClientStreaming, activeHeadersLength, hasAuth, hasScript, hasScriptError, docs]);
+  }, [grpcMessagesCount, isClientStreaming, activeHeadersLength, hasAuth, hasScript, hasScriptError, docs, t]);
 
   // Initialize tab to 'body' if no tab is currently set
   useEffect(() => {
@@ -141,7 +143,7 @@ const GrpcRequestPane = ({ item, collection, handleRun }) => {
 
   // Return error for truly missing active/focused tabs
   if (!activeTabUid || !focusedTab?.uid) {
-    return <div className="pb-4 px-4">An error occurred!</div>;
+    return <div className="pb-4 px-4">{t('requestPane.grpc.errorOccurred')}</div>;
   }
 
   // Return null during initialization while requestPaneTab is being set by useEffect

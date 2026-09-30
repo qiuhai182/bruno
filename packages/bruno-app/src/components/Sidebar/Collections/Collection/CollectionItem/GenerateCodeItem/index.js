@@ -8,6 +8,7 @@ import { get } from 'lodash';
 import { interpolateUrl, interpolateUrlPathParams } from 'utils/url/index';
 import { getLanguages } from 'utils/codegenerator/targets';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { getAllVariables, getGlobalEnvironmentVariables } from 'utils/collections/index';
 import { resolveInheritedAuth } from 'utils/auth';
 
@@ -20,6 +21,7 @@ const validateURLWithVars = (url) => {
 };
 
 const GenerateCodeItem = ({ collectionUid, item, onClose, isExample = false, exampleUid = null }) => {
+  const { t } = useTranslation();
   const languages = getLanguages();
   const collection = useSelector((state) => state.collections.collections?.find((c) => c.uid === collectionUid));
   const { globalEnvironments, activeGlobalEnvironmentUid } = useSelector((state) => state.globalEnvironments);
@@ -109,7 +111,9 @@ const GenerateCodeItem = ({ collectionUid, item, onClose, isExample = false, exa
   };
 
   // Update modal title based on mode
-  const modalTitle = isExample ? `Generate Code - ${get(item, 'draft.examples', []).find((e) => e.uid === exampleUid)?.name || 'Example'}` : 'Generate Code';
+  const modalTitle = isExample
+    ? t('sidebar.generateCode.titleWithExample', { name: get(item, 'draft.examples', []).find((e) => e.uid === exampleUid)?.name || t('sidebar.generateCode.example') })
+    : t('sidebar.generateCode.title');
 
   return (
     <Modal size="lg" title={modalTitle} handleCancel={onClose} hideFooter={true}>
@@ -125,8 +129,8 @@ const GenerateCodeItem = ({ collectionUid, item, onClose, isExample = false, exa
               />
             ) : (
               <div className="error-message">
-                <h1>Invalid URL: {validationUrl}</h1>
-                <p>Please check the URL and try again</p>
+                <h1>{t('sidebar.generateCode.invalidUrl', { url: validationUrl })}</h1>
+                <p>{t('sidebar.generateCode.checkUrl')}</p>
               </div>
             )}
           </div>

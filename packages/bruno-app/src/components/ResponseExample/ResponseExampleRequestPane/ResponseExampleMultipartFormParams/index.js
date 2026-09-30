@@ -2,6 +2,7 @@ import React, { useMemo, useCallback } from 'react';
 import get from 'lodash/get';
 import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from 'providers/Theme';
 import { IconUpload } from '@tabler/icons';
 import { updateResponseExampleMultipartFormParams } from 'providers/ReduxStore/slices/collections';
@@ -19,6 +20,7 @@ const fileBasename = (filePath) =>
   filePath ? path.basename(normalizePath(String(filePath))) : '';
 
 const ResponseExampleMultipartFormParams = ({ item, collection, exampleUid, editMode = false }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const { storedTheme } = useTheme();
   const tabs = useSelector((state) => state.tabs.tabs);
@@ -78,9 +80,9 @@ const ResponseExampleMultipartFormParams = ({ item, collection, exampleUid, edit
         }
 
         if (skipped.length === 1) {
-          toast(`"${fileBasename(skipped[0])}" is already added`);
+          toast(t('collection.example.fileAlreadyAdded', { name: fileBasename(skipped[0]) }));
         } else if (skipped.length > 1) {
-          toast(`${skipped.length} files are already added — skipped`);
+          toast(t('collection.example.filesAlreadyAdded', { count: skipped.length }));
         }
 
         const autoContentType = getMultipartAutoContentType(merged);
@@ -112,7 +114,7 @@ const ResponseExampleMultipartFormParams = ({ item, collection, exampleUid, edit
       .catch((error) => {
         console.error(error);
       });
-  }, [editMode, dispatch, collection.pathname, params, handleParamsChange]);
+  }, [editMode, dispatch, collection.pathname, params, handleParamsChange, t]);
 
   const handleRemoveFile = useCallback((row, filePathToRemove) => {
     if (!editMode) return;
@@ -178,16 +180,16 @@ const ResponseExampleMultipartFormParams = ({ item, collection, exampleUid, edit
   const columns = [
     {
       key: 'name',
-      name: 'Key',
+      name: t('collection.table.key'),
       isKeyField: true,
-      placeholder: 'Key',
+      placeholder: t('collection.table.key'),
       width: '30%',
       readOnly: !editMode
     },
     {
       key: 'value',
-      name: 'Value',
-      placeholder: 'Value',
+      name: t('collection.table.value'),
+      placeholder: t('collection.table.value'),
       width: '40%',
       readOnly: !editMode,
       render: ({ row, value, onChange }) => {
@@ -216,13 +218,13 @@ const ResponseExampleMultipartFormParams = ({ item, collection, exampleUid, edit
                 collection={collection}
                 item={item}
                 readOnly={!editMode}
-                placeholder={!value ? 'Value' : ''}
+                placeholder={!value ? t('collection.table.value') : ''}
               />
             </div>
             <button
               className="upload-btn ml-1"
               onClick={() => handleBrowseFiles(row, onChange)}
-              title="Select File"
+              title={t('collection.example.selectFile')}
             >
               <IconUpload size={16} />
             </button>
@@ -233,14 +235,14 @@ const ResponseExampleMultipartFormParams = ({ item, collection, exampleUid, edit
     {
       key: 'contentType',
       name: 'Content-Type',
-      placeholder: 'Auto',
+      placeholder: t('collection.example.auto'),
       width: '30%',
       readOnly: !editMode,
       render: ({ value, onChange }) => (
         <SingleLineEditor
           onSave={() => {}}
           theme={storedTheme}
-          placeholder={!value ? 'Auto' : ''}
+          placeholder={!value ? t('collection.example.auto') : ''}
           value={value || ''}
           onChange={onChange}
           onRun={() => {}}

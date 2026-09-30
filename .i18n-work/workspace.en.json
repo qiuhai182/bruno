@@ -1,0 +1,158 @@
+{
+  "workspace": {
+    "badge": {
+      "failedToOpen": "Failed to open",
+      "notCloned": "Not cloned"
+    },
+    "collections": {
+      "emptyDescription": "Create your first collection or open an existing one to get started.",
+      "emptyTitle": "No collections yet"
+    },
+    "create": {
+      "confirm": "Create Workspace",
+      "creating": "Creating...",
+      "description": "Give your new workspace a name and choose its type to get started.",
+      "title": "Create Workspace"
+    },
+    "docs": {
+      "addDocumentation": "Add Documentation",
+      "emptyText": "Add documentation to help your team work smoothly.",
+      "suggestions": {
+        "overview": "Project overview",
+        "resources": "Resources & FAQs",
+        "setup": "Setup instructions",
+        "workflows": "Key workflows"
+      },
+      "title": "Documentation",
+      "toast": {
+        "saveFailed": "Failed to save documentation",
+        "saved": "Documentation saved successfully",
+        "workspaceNotFound": "Workspace not found"
+      },
+      "youCanInclude": "You can include:"
+    },
+    "git": {
+      "connectAction": "Connect",
+      "connectTitle": "Connect to Git",
+      "disconnectPrefix": "Disconnect",
+      "disconnectSuffix": "from its Git remote?",
+      "linkingPrefix": "Linking",
+      "linkingSuffix": "to a remote Git repository.",
+      "remoteUrlLabel": "Git Remote URL",
+      "removeAction": "Remove",
+      "removeNoteMid": ". Local collection files and any",
+      "removeNotePrefix": "This only removes the remote URL from",
+      "removeNoteSuffix": "folder are left untouched.",
+      "removeTitle": "Remove Git Remote",
+      "toast": {
+        "connected": "Git remote connected",
+        "removed": "Git remote removed"
+      },
+      "updateAction": "Update",
+      "updateTitle": "Update Git Remote",
+      "urlNotePrefix": "The URL is saved in",
+      "urlNoteSuffix": "only. Your collection files on disk are not modified.",
+      "validation": {
+        "invalidUrl": "Enter a valid Git URL",
+        "urlRequired": "Git remote URL is required"
+      }
+    },
+    "help": {
+      "extract1": "Choose the location where you want to extract this workspace.",
+      "extract2": "The workspace folder will be created at this location.",
+      "folderName1": "The name of the folder used to store the workspace.",
+      "folderName2": "You can choose a folder name different from your workspace's name or one compatible with filesystem rules.",
+      "location1": "Bruno stores your workspaces on your computer's filesystem.",
+      "location2": "Choose the location where you want to store this workspace."
+    },
+    "import": {
+      "chooseFile": "choose a file",
+      "confirm": "Import",
+      "dropPrefix": "Drop workspace zip file here or",
+      "extractLocation": "Extract Location",
+      "fileLabel": "Workspace File",
+      "importing": "Importing...",
+      "remove": "Remove",
+      "supportNote": "Supports exported Bruno workspace zip files",
+      "title": "Import Workspace"
+    },
+    "label": {
+      "folderName": "Folder Name",
+      "location": "Location",
+      "name": "Name",
+      "workspaceName": "Workspace Name"
+    },
+    "manage": {
+      "defaultBadge": "Default",
+      "noWorkspaces": "No workspaces found",
+      "open": "Open",
+      "openInTerminal": "Open in Terminal",
+      "title": "Manage Workspace"
+    },
+    "menu": {
+      "connectToGit": "Connect to Git",
+      "copyGitUrl": "Copy Git URL",
+      "remove": "Remove",
+      "removeGitRemote": "Remove Git Remote",
+      "rename": "Rename",
+      "share": "Share"
+    },
+    "quickActions": "Quick Actions",
+    "remove": {
+      "confirm": "Remove",
+      "confirmPrefix": "Are you sure you want to remove workspace",
+      "confirmSuffix": "?",
+      "note": "The workspace will still be available in the file system and can be re-opened later.",
+      "removing": "Removing...",
+      "title": "Remove Workspace"
+    },
+    "rename": {
+      "confirm": "Rename",
+      "title": "Rename Workspace"
+    },
+    "stats": {
+      "environments": "Environments"
+    },
+    "toast": {
+      "cannotConnectGitNotLocal": "Cannot connect a Git remote to a collection that is not present locally",
+      "cannotDeleteNotLoaded": "Cannot delete collections that are not loaded",
+      "cannotRemoveDefault": "Cannot remove the default workspace",
+      "cannotRemoveNotLoaded": "Cannot remove collections that are not loaded",
+      "cannotRenameNotCloned": "Cannot rename collections that are not cloned yet",
+      "cloneBeforeShare": "Please clone this collection first before sharing it",
+      "collectionRemoveError": "An error occurred while removing the collection",
+      "copyUrlFailed": "Failed to copy URL",
+      "couldNotGetFilePath": "Could not get file path",
+      "couldNotOpen": "Collection \"{{name}}\" could not be opened",
+      "createError": "An error occurred while creating the workspace",
+      "createFailed": "Failed to create workspace",
+      "created": "Workspace created!",
+      "gitUrlCopied": "Git URL copied",
+      "importFailed": "Failed to import workspace",
+      "imported": "Workspace imported successfully!",
+      "invalidZip": "Please select a valid zip file",
+      "needsClone": "Collection \"{{name}}\" needs to be cloned first",
+      "notOnDisk": "Collection \"{{name}}\" does not exist on disk",
+      "openFolderError": "Error opening the folder",
+      "prepareError": "Error preparing workspace for collection creation",
+      "removeError": "An error occurred while removing the workspace",
+      "removedFromWorkspace": "Collection removed from workspace",
+      "renameError": "An error occurred while renaming the workspace",
+      "switchedTo": "Switched to {{name}}",
+      "workspacePathNotFound": "Workspace path not found"
+    },
+    "validation": {
+      "folderNameRequired": "Folder name is required",
+      "locationRequired": "Location is required",
+      "locationRequiredLower": "location is required",
+      "maxTwoFiftyFive": "Must be 255 characters or less",
+      "maxTwoFiftyFiveLower": "must be 255 characters or less",
+      "minOneChar": "Must be at least 1 character",
+      "minOneCharLower": "must be at least 1 character",
+      "nameAlreadyExists": "A workspace with this name already exists",
+      "nameEmpty": "Workspace name can't be empty",
+      "nameRequired": "Workspace name is required",
+      "nameRequiredLower": "name is required"
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import {
   IconCategory,
   IconBox,
@@ -63,6 +64,7 @@ const readDismissedCollections = () => {
 };
 
 const CollectionHeader = ({ collection, isScratchCollection }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const workspaces = useSelector((state) => state.workspaces.workspaces);
   const activeWorkspaceUid = useSelector((state) => state.workspaces.activeWorkspaceUid);
@@ -230,8 +232,8 @@ const CollectionHeader = ({ collection, isScratchCollection }) => {
 
   // Display name and icon based on context
   const displayName = isScratchCollection
-    ? (currentWorkspace?.name || 'Untitled Workspace')
-    : (collection.name || 'Untitled Collection');
+    ? (currentWorkspace?.name || t('requestTabs.header.untitledWorkspace'))
+    : (collection.name || t('requestTabs.header.untitledCollection'));
 
   const DisplayIcon = isScratchCollection ? IconCategory : IconBox;
 
@@ -323,19 +325,19 @@ const CollectionHeader = ({ collection, isScratchCollection }) => {
 
   // Build overflow menu items for the "..." dropdown
   const overflowMenuItems = [
-    { id: 'variables', label: 'Variables', leftSection: IconEye, onClick: viewVariables },
+    { id: 'variables', label: t('requestTabs.specialTab.variables'), leftSection: IconEye, onClick: viewVariables },
     // File mode is exposed via the Request/App/File view-mode toggle when the active
     // request has apps enabled; keep it in the overflow as a fallback everywhere else.
     ...(!appAvailable
-      ? [{ id: 'file-mode', label: collection.fileMode ? 'Switch to Code Mode' : 'Switch to File Mode', leftSection: collection.fileMode ? IconFileOff : IconFileCode, onClick: handleFileModeClick }]
+      ? [{ id: 'file-mode', label: collection.fileMode ? t('requestTabs.header.switchToCodeMode') : t('requestTabs.header.switchToFileMode'), leftSection: collection.fileMode ? IconFileOff : IconFileCode, onClick: handleFileModeClick }]
       : []),
     ...(!hasOpenApiSyncConfigured
       ? [{ id: 'openapi-sync', label: 'OpenAPI', leftSection: OpenAPISyncIcon, onClick: viewOpenApiSync }]
       : []),
     ...(isMockServerEnabled
-      ? [{ id: 'mock-server', label: 'Mock Server', leftSection: IconServer2, onClick: viewMockServer }]
+      ? [{ id: 'mock-server', label: t('requestTabs.specialTab.mockServer'), leftSection: IconServer2, onClick: viewMockServer }]
       : []),
-    { id: 'collection-settings', label: 'Collection Settings', leftSection: IconSettings, onClick: viewCollectionSettings }
+    { id: 'collection-settings', label: t('requestTabs.header.menu.collectionSettings'), leftSection: IconSettings, onClick: viewCollectionSettings }
   ];
 
   // Workspace action handlers (only used when isScratchCollection is true)
@@ -349,7 +351,7 @@ const CollectionHeader = ({ collection, isScratchCollection }) => {
   const handleCloseWorkspaceClick = () => {
     workspaceActionsRef.current?.hide();
     if (currentWorkspace?.type === 'default') {
-      toast.error('Cannot close the default workspace');
+      toast.error(t('requestTabs.header.toast.cannotCloseDefaultWorkspace'));
       return;
     }
     setCloseWorkspaceModalOpen(true);
@@ -360,7 +362,7 @@ const CollectionHeader = ({ collection, isScratchCollection }) => {
     const pathname = currentWorkspace?.pathname;
     if (pathname) {
       dispatch(showInFolder(pathname)).catch(() => {
-        toast.error('Error opening the folder');
+        toast.error(t('requestTabs.header.toast.errorOpeningFolder'));
       });
     }
   };
@@ -373,21 +375,21 @@ const CollectionHeader = ({ collection, isScratchCollection }) => {
     dispatch(exportWorkspaceAction(uid))
       .then((result) => {
         if (!result?.canceled) {
-          toast.success('Workspace exported successfully');
+          toast.success(t('requestTabs.header.toast.workspaceExported'));
         }
       })
       .catch((error) => {
-        toast.error(error?.message || 'Error exporting workspace');
+        toast.error(error?.message || t('requestTabs.header.toast.errorExportingWorkspace'));
       });
   };
 
   const validateWorkspaceName = (name) => {
     const trimmed = name?.trim();
     if (!trimmed) {
-      return 'Name is required';
+      return t('requestTabs.header.validation.nameRequired');
     }
     if (trimmed.length > 255) {
-      return 'Must be 255 characters or less';
+      return t('requestTabs.header.validation.nameTooLong');
     }
     return null;
   };
@@ -405,7 +407,7 @@ const CollectionHeader = ({ collection, isScratchCollection }) => {
         dispatch(cancelWorkspaceCreation(currentWorkspace.uid));
         return;
       }
-      setWorkspaceNameError('Name is required');
+      setWorkspaceNameError(t('requestTabs.header.validation.nameRequired'));
       return;
     }
 
@@ -429,10 +431,10 @@ const CollectionHeader = ({ collection, isScratchCollection }) => {
           setIsRenamingWorkspace(false);
           setWorkspaceNameInput('');
           setWorkspaceNameError('');
-          toast.success('Workspace created!');
+          toast.success(t('requestTabs.header.toast.workspaceCreated'));
         })
         .catch((err) => {
-          toast.error(err?.message || 'An error occurred while creating the workspace');
+          toast.error(err?.message || t('requestTabs.header.toast.errorCreatingWorkspace'));
         })
         .finally(() => {
           isSavingRef.current = false;
@@ -440,14 +442,14 @@ const CollectionHeader = ({ collection, isScratchCollection }) => {
     } else {
       dispatch(renameWorkspaceAction(uid, workspaceNameInput))
         .then(() => {
-          toast.success('Workspace renamed!');
+          toast.success(t('requestTabs.header.toast.workspaceRenamed'));
           setIsRenamingWorkspace(false);
           setWorkspaceNameInput('');
           setWorkspaceNameError('');
         })
         .catch((err) => {
-          toast.error(err?.message || 'An error occurred while renaming the workspace');
-          setWorkspaceNameError(err?.message || 'Failed to rename workspace');
+          toast.error(err?.message || t('requestTabs.header.toast.errorRenamingWorkspace'));
+          setWorkspaceNameError(err?.message || t('requestTabs.header.toast.failedToRenameWorkspace'));
         })
         .finally(() => {
           isSavingRef.current = false;
@@ -556,7 +558,7 @@ const CollectionHeader = ({ collection, isScratchCollection }) => {
                     className="cog-btn"
                     onMouseDown={(e) => e.preventDefault()}
                     onClick={handleOpenAdvancedCreate}
-                    title="Advanced options"
+                    title={t('requestTabs.header.advancedOptions')}
                   >
                     <IconSettings size={13} strokeWidth={1.5} />
                   </button>
@@ -567,7 +569,7 @@ const CollectionHeader = ({ collection, isScratchCollection }) => {
                   className="inline-action-btn save"
                   onClick={handleSaveWorkspaceRename}
                   onMouseDown={(e) => e.preventDefault()}
-                  title={currentWorkspace?.isCreating ? 'Create' : 'Save'}
+                  title={currentWorkspace?.isCreating ? t('requestTabs.header.create') : t('common.save')}
                 >
                   <IconCheck size={14} strokeWidth={2} />
                 </button>
@@ -575,7 +577,7 @@ const CollectionHeader = ({ collection, isScratchCollection }) => {
                   className="inline-action-btn cancel"
                   onClick={handleCancelWorkspaceRename}
                   onMouseDown={(e) => e.preventDefault()}
-                  title="Cancel"
+                  title={t('common.cancel')}
                 >
                   <IconX size={14} strokeWidth={2} />
                 </button>
@@ -601,7 +603,7 @@ const CollectionHeader = ({ collection, isScratchCollection }) => {
                 <div className="max-w-124 overflow-hidden">
                   {currentWorkspace && (
                     <>
-                      <div className="label-item">Workspace</div>
+                      <div className="label-item">{t('requestTabs.header.workspaceLabel')}</div>
                       <div
                         className={classNames('dropdown-item', {
                           'dropdown-item-active': isScratchCollection
@@ -612,7 +614,7 @@ const CollectionHeader = ({ collection, isScratchCollection }) => {
                           <IconCategory size={16} strokeWidth={1.5} />
                         </div>
                         <span className="dropdown-label collection-header-dropdown-label">
-                          {currentWorkspace.name || 'Untitled Workspace'}
+                          {currentWorkspace.name || t('requestTabs.header.untitledWorkspace')}
                         </span>
                         {workspaceTabCount > 0 && (
                           <span className="dropdown-tab-count">{workspaceTabCount}</span>
@@ -624,7 +626,7 @@ const CollectionHeader = ({ collection, isScratchCollection }) => {
                   {mountedCollections.length > 0 && (
                     <>
                       <div className="dropdown-separator" />
-                      <div className="label-item">Collections</div>
+                      <div className="label-item">{t('COMMON.COLLECTIONS')}</div>
                       {mountedCollections.map((col) => {
                         const colTabCount = getTabCount(col.uid);
                         return (
@@ -638,7 +640,7 @@ const CollectionHeader = ({ collection, isScratchCollection }) => {
                             <div className="dropdown-icon">
                               <IconBox size={16} strokeWidth={1.5} />
                             </div>
-                            <span className="dropdown-label collection-header-dropdown-label">{col.name || 'Untitled Collection'}</span>
+                            <span className="dropdown-label collection-header-dropdown-label">{col.name || t('requestTabs.header.untitledCollection')}</span>
                             {colTabCount > 0 && (
                               <span className="dropdown-tab-count">{colTabCount}</span>
                             )}
@@ -664,7 +666,7 @@ const CollectionHeader = ({ collection, isScratchCollection }) => {
                 <div className="dropdown-icon">
                   <IconEdit size={16} strokeWidth={1.5} />
                 </div>
-                <span>Rename</span>
+                <span>{t('requestTabs.header.actions.rename')}</span>
               </div>
               <div className="dropdown-item" onClick={handleShowInFolder}>
                 <div className="dropdown-icon">
@@ -676,13 +678,13 @@ const CollectionHeader = ({ collection, isScratchCollection }) => {
                 <div className="dropdown-icon">
                   <IconUpload size={16} strokeWidth={1.5} />
                 </div>
-                <span>Export</span>
+                <span>{t('requestTabs.header.actions.export')}</span>
               </div>
               <div className="dropdown-item" onClick={handleCloseWorkspaceClick}>
                 <div className="dropdown-icon">
                   <IconX size={16} strokeWidth={1.5} />
                 </div>
-                <span>Close</span>
+                <span>{t('common.close')}</span>
               </div>
             </Dropdown>
           )}
@@ -693,11 +695,11 @@ const CollectionHeader = ({ collection, isScratchCollection }) => {
             <>
               {appAvailable && (
                 <div className="mode-toggle" data-testid="view-mode-toggle">
-                  <ToolHint text="Request" toolhintId="ViewModeRequestToolhintId" place="bottom">
+                  <ToolHint text={t('requestTabs.header.viewMode.request')} toolhintId="ViewModeRequestToolhintId" place="bottom">
                     <button
                       type="button"
                       data-testid="view-mode-request"
-                      aria-label="Request view"
+                      aria-label={t('requestTabs.header.viewMode.requestView')}
                       className={`mode-btn ${!appEnabled && !collection.fileMode ? 'active' : ''}`}
                       onClick={() => {
                         if (collection.fileMode) handleFileModeClick();
@@ -707,11 +709,11 @@ const CollectionHeader = ({ collection, isScratchCollection }) => {
                       <IconCode size={16} strokeWidth={1.5} />
                     </button>
                   </ToolHint>
-                  <ToolHint text="App" toolhintId="ViewModeAppToolhintId" place="bottom">
+                  <ToolHint text={t('requestTabs.header.viewMode.app')} toolhintId="ViewModeAppToolhintId" place="bottom">
                     <button
                       type="button"
                       data-testid="view-mode-app"
-                      aria-label="App view"
+                      aria-label={t('requestTabs.header.viewMode.appView')}
                       className={`mode-btn ${appEnabled && !collection.fileMode ? 'active' : ''}`}
                       onClick={() => {
                         if (collection.fileMode) handleFileModeClick();
@@ -721,11 +723,11 @@ const CollectionHeader = ({ collection, isScratchCollection }) => {
                       <IconAppWindow size={16} strokeWidth={1.5} />
                     </button>
                   </ToolHint>
-                  <ToolHint text="File" toolhintId="ViewModeFileToolhintId" place="bottom">
+                  <ToolHint text={t('requestTabs.header.viewMode.file')} toolhintId="ViewModeFileToolhintId" place="bottom">
                     <button
                       type="button"
                       data-testid="view-mode-file"
-                      aria-label="File view"
+                      aria-label={t('requestTabs.header.viewMode.fileView')}
                       className={`mode-btn ${collection.fileMode ? 'active' : ''}`}
                       onClick={() => {
                         if (appEnabled) handleToggleAppMode(false);
@@ -738,10 +740,10 @@ const CollectionHeader = ({ collection, isScratchCollection }) => {
                 </div>
               )}
               {isAiEnabled && (
-                <ToolHint text="AI Assistant" toolhintId="AiAssistantToolhintId" place="bottom">
+                <ToolHint text={t('requestTabs.header.aiAssistant')} toolhintId="AiAssistantToolhintId" place="bottom">
                   <ActionIcon
                     onClick={() => dispatch(toggleAiSidebar())}
-                    aria-label="AI Assistant"
+                    aria-label={t('requestTabs.header.aiAssistant')}
                     size="sm"
                     data-testid="ai-assistant"
                     className={isAiSidebarOpen ? 'active' : ''}
@@ -754,7 +756,7 @@ const CollectionHeader = ({ collection, isScratchCollection }) => {
                 <div
                   className="migrate-yml-pill"
                   data-testid="migrate-yml-pill"
-                  title="Migrate this collection to YML"
+                  title={t('requestTabs.header.migrateToYmlTitle')}
                 >
                   <button
                     type="button"
@@ -762,13 +764,13 @@ const CollectionHeader = ({ collection, isScratchCollection }) => {
                     onClick={openMigrateToYmlModal}
                   >
                     <IconTransform size={13} strokeWidth={1.5} />
-                    <span className="pill-label">Migrate to YML</span>
+                    <span className="pill-label">{t('requestTabs.header.migrateToYml')}</span>
                   </button>
                   <button
                     type="button"
                     className="pill-dismiss"
                     onClick={dismissMigratePill}
-                    aria-label="Dismiss"
+                    aria-label={t('requestTabs.header.dismiss')}
                     data-testid="migrate-yml-pill-dismiss"
                   >
                     <IconX size={12} strokeWidth={2} />
@@ -778,7 +780,7 @@ const CollectionHeader = ({ collection, isScratchCollection }) => {
               {/* OpenAPI Sync - standalone only when configured and beta enabled */}
               {hasOpenApiSyncConfigured && (
                 <ToolHint
-                  text={hasOpenApiError ? 'OpenAPI Error' : hasOpenApiUpdates ? 'OpenAPI Updates Available' : 'OpenAPI'}
+                  text={hasOpenApiError ? t('requestTabs.header.openapiError') : hasOpenApiUpdates ? t('requestTabs.header.openapiUpdates') : 'OpenAPI'}
                   toolhintId="OpenApiSyncToolhintId"
                   place="bottom"
                 >
@@ -791,8 +793,8 @@ const CollectionHeader = ({ collection, isScratchCollection }) => {
                 </ToolHint>
               )}
               {/* Runner - always visible */}
-              <ToolHint text="Runner" toolhintId="RunnerToolhintId" place="bottom">
-                <ActionIcon onClick={handleRun} aria-label="Runner" size="sm" data-testid="runner">
+              <ToolHint text={t('requestTabs.specialTab.runner')} toolhintId="RunnerToolhintId" place="bottom">
+                <ActionIcon onClick={handleRun} aria-label={t('requestTabs.specialTab.runner')} size="sm" data-testid="runner">
                   <IconRun size={16} strokeWidth={1.5} />
                 </ActionIcon>
               </ToolHint>
@@ -800,7 +802,7 @@ const CollectionHeader = ({ collection, isScratchCollection }) => {
               <JsSandboxMode collection={collection} />
               {/* Overflow menu */}
               <MenuDropdown items={overflowMenuItems} placement="bottom-end" data-testid="more-actions">
-                <ActionIcon label="More actions" size="sm" style={{ border: `1px solid ${theme.border.border1}`, borderRadius: theme.border.radius.base, width: 24, marginRight: 4, marginLeft: 4 }}>
+                <ActionIcon label={t('requestTabs.header.moreActions')} size="sm" style={{ border: `1px solid ${theme.border.border1}`, borderRadius: theme.border.radius.base, width: 24, marginRight: 4, marginLeft: 4 }}>
                   <IconDots size={16} strokeWidth={1.5} />
                 </ActionIcon>
               </MenuDropdown>

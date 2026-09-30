@@ -20,6 +20,7 @@ import { setupLinkAware } from 'utils/codemirror/linkAware';
 import { setupCodeMirrorResizeRefresh } from 'utils/codemirror/resize';
 import CodeMirrorSearch from 'components/CodeMirrorSearch';
 import { buildSearchKeyBindings } from 'components/CodeMirrorSearch/searchKeyBindings';
+import i18n from '../../../i18n';
 
 const CodeMirror = require('codemirror');
 
@@ -65,9 +66,9 @@ export default class QueryEditor extends React.Component {
     /**
      * No-op. We claim Cmd-Enter / Ctrl-Enter here only to suppress CodeMirror's
      * sublime keymap default (insertLineAfter), which would otherwise insert a
-     * newline. sendRequest dispatch is owned by Mousetrap — the editor input has
+     * newline. sendRequest dispatch is owned by Mousetrap 潩 the editor input has
      * the `mousetrap` class (added below) so the global
-     * useKeybinding('sendRequest', …) in RequestTabPanel handles it, and only
+     * useKeybinding('sendRequest', 潩) in RequestTabPanel handles it, and only
      * in request tabs.
      */
     const runShortcut = () => { };
@@ -239,9 +240,9 @@ export default class QueryEditor extends React.Component {
       prettyQuery = prettyQuery.replace(/\{\s*__empty:\s*true\s*\}/g, '{}');
 
       this.editor.setValue(prettyQuery);
-      toast.success('Query prettified');
+      toast.success(i18n.t('requestPane.queryEditor.queryPrettified'));
     } catch (e) {
-      toast.error('Error occurred while prettifying GraphQL query');
+      toast.error(i18n.t('requestPane.queryEditor.prettifyError'));
     }
   };
 
@@ -264,7 +265,7 @@ export default class QueryEditor extends React.Component {
         className={classnames('h-full w-full flex flex-col relative graphiql-container', {
           'search-bar-visible': this.state.searchBarVisible
         })}
-        aria-label="Query Editor"
+        aria-label={i18n.t('requestPane.queryEditor.title')}
         font={this.props.font}
         fontSize={this.props.fontSize}
       >

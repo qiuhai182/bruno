@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import {
   IconBox,
   IconTrash,
@@ -30,6 +31,7 @@ import StyledWrapper from './StyledWrapper';
 
 const CollectionsList = ({ workspace }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const { collections } = useSelector((state) => state.collections);
   const dropdownRefs = useRef({});
 
@@ -135,15 +137,15 @@ const CollectionsList = ({ workspace }) => {
     }
 
     if (collection.failedToOpen) {
-      toast.error(`Collection "${collection.name}" could not be opened`);
+      toast.error(t('workspace.toast.couldNotOpen', { name: collection.name }));
       return;
     }
 
     if (collection.isLoaded === false) {
       if (collection.isGitBacked) {
-        toast.error(`Collection "${collection.name}" needs to be cloned first`);
+        toast.error(t('workspace.toast.needsClone', { name: collection.name }));
       } else {
-        toast.error(`Collection "${collection.name}" does not exist on disk`);
+        toast.error(t('workspace.toast.notOnDisk', { name: collection.name }));
       }
       return;
     }
@@ -168,7 +170,7 @@ const CollectionsList = ({ workspace }) => {
   const handleRenameCollection = (collection) => {
     dropdownRefs.current[collection.uid]?.hide();
     if (collection.isLoaded === false) {
-      toast.error('Cannot rename collections that are not cloned yet');
+      toast.error(t('workspace.toast.cannotRenameNotCloned'));
       return;
     }
     setSelectedCollectionUid(collection.uid);
@@ -178,7 +180,7 @@ const CollectionsList = ({ workspace }) => {
   const handleShareCollection = (collection) => {
     dropdownRefs.current[collection.uid]?.hide();
     if (collection.isLoaded === false) {
-      toast.error('Please clone this collection first before sharing it');
+      toast.error(t('workspace.toast.cloneBeforeShare'));
       return;
     }
 
@@ -198,12 +200,12 @@ const CollectionsList = ({ workspace }) => {
     dropdownRefs.current[collection.uid]?.hide();
     if (collection.failedToOpen || collection.notFoundLocally) {
       dispatch(removeCollectionFromWorkspaceAction(workspace.uid, collection.pathname))
-        .then(() => toast.success('Collection removed from workspace'))
-        .catch(() => toast.error('An error occurred while removing the collection'));
+        .then(() => toast.success(t('workspace.toast.removedFromWorkspace')))
+        .catch(() => toast.error(t('workspace.toast.collectionRemoveError')));
       return;
     }
     if (collection.isLoaded === false) {
-      toast.error('Cannot remove collections that are not loaded');
+      toast.error(t('workspace.toast.cannotRemoveNotLoaded'));
       return;
     }
     setSelectedCollectionUid(collection.uid);
@@ -213,7 +215,7 @@ const CollectionsList = ({ workspace }) => {
   const handleDeleteCollection = (collection) => {
     dropdownRefs.current[collection.uid]?.hide();
     if (collection.isLoaded === false) {
-      toast.error('Cannot delete collections that are not loaded');
+      toast.error(t('workspace.toast.cannotDeleteNotLoaded'));
       return;
     }
     setSelectedCollectionUid(collection.uid);
@@ -224,14 +226,14 @@ const CollectionsList = ({ workspace }) => {
     dropdownRefs.current[collection.uid]?.hide();
     dispatch(showInFolder(collection.pathname)).catch((error) => {
       console.error('Error opening the folder', error);
-      toast.error('Error opening the folder');
+      toast.error(t('workspace.toast.openFolderError'));
     });
   };
 
   const handleConnectGit = (collection) => {
     dropdownRefs.current[collection.uid]?.hide();
     if (collection.isLoaded === false) {
-      toast.error('Cannot connect a Git remote to a collection that is not present locally');
+      toast.error(t('workspace.toast.cannotConnectGitNotLocal'));
       return;
     }
     setGitTarget({
@@ -257,9 +259,9 @@ const CollectionsList = ({ workspace }) => {
     if (!collection.gitRemoteUrl) return;
     try {
       await navigator.clipboard.writeText(collection.gitRemoteUrl);
-      toast.success('Git URL copied');
+      toast.success(t('workspace.toast.gitUrlCopied'));
     } catch (e) {
-      toast.error('Failed to copy URL');
+      toast.error(t('workspace.toast.copyUrlFailed'));
     }
   };
 
@@ -334,8 +336,8 @@ const CollectionsList = ({ workspace }) => {
         {workspaceCollections.length === 0 ? (
           <div className="empty-state">
             <IconBox size={32} strokeWidth={1.5} className="empty-icon" />
-            <h3 className="empty-title">No collections yet</h3>
-            <p className="empty-description">Create your first collection or open an existing one to get started.</p>
+            <h3 className="empty-title">{t('workspace.collections.emptyTitle')}</h3>
+            <p className="empty-description">{t('workspace.collections.emptyDescription')}</p>
           </div>
         ) : (
           workspaceCollections.map((collection, index) => (
@@ -360,10 +362,10 @@ const CollectionsList = ({ workspace }) => {
                     </StatusBadge>
                   )}
                   {collection.failedToOpen && (
-                    <StatusBadge status="danger" size="xs">Failed to open</StatusBadge>
+                    <StatusBadge status="danger" size="xs">{t('workspace.badge.failedToOpen')}</StatusBadge>
                   )}
                   {isNotCloned(collection) && (
-                    <StatusBadge status="warning" size="xs">Not cloned</StatusBadge>
+                    <StatusBadge status="warning" size="xs">{t('workspace.badge.notCloned')}</StatusBadge>
                   )}
                 </div>
                 <div className="collection-path">{collection.pathname}</div>
@@ -392,7 +394,7 @@ const CollectionsList = ({ workspace }) => {
                           }}
                         >
                           <IconEdit size={16} strokeWidth={1.5} />
-                          <span>Rename</span>
+                          <span>{t('workspace.menu.rename')}</span>
                         </div>
                         <div
                           className="dropdown-item"
@@ -402,7 +404,7 @@ const CollectionsList = ({ workspace }) => {
                           }}
                         >
                           <IconShare size={16} strokeWidth={1.5} />
-                          <span>Share</span>
+                          <span>{t('workspace.menu.share')}</span>
                         </div>
                         <div
                           className="dropdown-item"
@@ -429,7 +431,7 @@ const CollectionsList = ({ workspace }) => {
                                 }}
                               >
                                 <IconCopy size={16} strokeWidth={1.5} />
-                                <span>Copy Git URL</span>
+                                <span>{t('workspace.menu.copyGitUrl')}</span>
                               </div>
                             )}
                             {!collection.isGitBacked && collection.isLoaded !== false && (
@@ -441,7 +443,7 @@ const CollectionsList = ({ workspace }) => {
                                 }}
                               >
                                 <IconBrandGit size={16} strokeWidth={1.5} />
-                                <span>Connect to Git</span>
+                                <span>{t('workspace.menu.connectToGit')}</span>
                               </div>
                             )}
                             {collection.isGitBacked && (
@@ -453,7 +455,7 @@ const CollectionsList = ({ workspace }) => {
                                 }}
                               >
                                 <IconUnlink size={16} strokeWidth={1.5} />
-                                <span>Remove Git Remote</span>
+                                <span>{t('workspace.menu.removeGitRemote')}</span>
                               </div>
                             )}
                           </>
@@ -468,7 +470,7 @@ const CollectionsList = ({ workspace }) => {
                       }}
                     >
                       <IconX size={16} strokeWidth={1.5} />
-                      <span>Remove</span>
+                      <span>{t('workspace.menu.remove')}</span>
                     </div>
                     {!collection.failedToOpen && !isNotCloned(collection) && (
                       <div
@@ -479,7 +481,7 @@ const CollectionsList = ({ workspace }) => {
                         }}
                       >
                         <IconTrash size={16} strokeWidth={1.5} />
-                        <span>Delete</span>
+                        <span>{t('common.delete')}</span>
                       </div>
                     )}
                   </div>

@@ -1,0 +1,57 @@
+MULTI sidebar.apiSpecs.close.title -> ["Close Api Spec","Close"] @ packages/bruno-app/src/components/Sidebar/ApiSpecs/CloseApiSpec/index.js
+MISMATCH sidebar.apiSpecs.close.confirmPrefix,sidebar.apiSpecs.close.confirmSuffix -> ["Are you sure you want to close API Spec <span className=\"font-semibold\">{apiSpec.name}</span> in Bruno?"] @ packages/bruno-app/src/components/Sidebar/ApiSpecs/CloseApiSpec/index.js
+NO-CAND sidebar.bulkImport.groupingTags,sidebar.bulkImport.groupingTagsDesc @ packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js
+NO-CAND sidebar.bulkImport.groupingPaths,sidebar.bulkImport.groupingPathsDesc @ packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js
+MULTI sidebar.bulkImport.import -> ["Close","Import"] @ packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js
+MISMATCH sidebar.closeWorkspace.confirmPrefix,sidebar.closeWorkspace.confirmSuffix -> ["Are you sure you want to close workspace <span className=\"font-semibold\">{workspace?.name}</span>?"] @ packages/bruno-app/src/components/Sidebar/CloseWorkspace/index.js
+NO-CAND sidebar.changeVersion.title @ packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.js
+NO-CAND sidebar.changeVersion.notFound @ packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.js
+MISMATCH sidebar.changeVersion.updates,sidebar.changeVersion.in,sidebar.changeVersion.from -> ["Updates <strong>{targetKey}</strong> in {targetFile} from{' '}"] @ packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.js
+MISMATCH sidebar.folderName,sidebar.newRequest.fileName,sidebar.newRequest.onFilesystem -> ["Folder","File"] @ packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js
+MULTI sidebar.dragPreview.and -> [", "," and $1"] @ packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CollectionItemDragPreview/index.js
+MISMATCH sidebar.deleteItems.folderOne,sidebar.deleteItems.folderMany -> ["${folderCount} ${pluralizeWord('folder', folderCount)}"] @ packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+MISMATCH sidebar.deleteItems.requestOne,sidebar.deleteItems.requestMany -> ["${requestCount} ${pluralizeWord('request', requestCount)}"] @ packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+MISMATCH sidebar.deleteItems.appOne,sidebar.deleteItems.appMany -> ["${appCount} ${pluralizeWord('app', appCount)}"] @ packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+MISMATCH sidebar.deleteItems.exampleOne,sidebar.deleteItems.exampleMany -> ["${exampleCount} ${pluralizeWord('example', exampleCount)}"] @ packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+NO-CAND sidebar.deleteItems.and @ packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+MISMATCH sidebar.deleteItems.titleFolderOne,sidebar.deleteItems.titleFolderMany -> ["Delete ${pluralizeWord('Folder', folderCount)}"] @ packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+MISMATCH sidebar.deleteItems.titleAppOne,sidebar.deleteItems.titleAppMany -> ["Delete ${pluralizeWord('App', appCount)}"] @ packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+MISMATCH sidebar.deleteItems.titleExampleOne,sidebar.deleteItems.titleExampleMany -> ["Delete ${pluralizeWord('Example', exampleCount)}"] @ packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+MISMATCH sidebar.deleteItems.titleRequestOne,sidebar.deleteItems.titleRequestMany -> ["Delete ${pluralizeWord('Request', requestCount)}"] @ packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+MISMATCH sidebar.deleteItems.confirmPrefix,sidebar.deleteItems.confirmSuffix -> ["Are you sure you want to delete {description}?"] @ packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js
+MISMATCH sidebar.deleteItems.confirmExamplePrefix,sidebar.deleteItems.confirmSuffix -> ["Are you sure you want to delete the example <span className=\"font-medium\">{example.name}</span>?"] @ packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/ExampleItem/DeleteResponseExampleModal/index.js
+MULTI sidebar.generateCode.title -> ["Generate Code - ${get(item, 'draft.examples', []).find((e) => e.uid === exampleUid)?.name || 'Example'}","Generate Code"] @ packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/GenerateCodeItem/index.js
+NO-CAND sidebar.ignore.hideFrom @ packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js
+MISMATCH sidebar.folderName,sidebar.newRequest.fileName,sidebar.newRequest.onFilesystem -> ["Folder","File"] @ packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js
+NO-CAND sidebar.docs.tagPlaceholder @ packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/DocsTagList/index.jsx
+NO-CAND sidebar.docs.tagsHint @ packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/index.jsx
+NO-CAND sidebar.docs.allRequests @ packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/index.jsx
+NO-CAND sidebar.docs.filterByTags @ packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/index.jsx
+MISMATCH sidebar.docs.versionLabel,sidebar.docs.notSet -> ["Version: ${version || 'Not Set'}"] @ packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/CollectionVersionInfo/index.js
+NO-CAND sidebar.docs.environments @ packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/EnvironmentSelectionList/index.js
+MULTI sidebar.docs.title -> ["Generate Documentation","Close"] @ packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js
+NO-CAND sidebar.docs.featureStandaloneHtml @ packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js
+NO-CAND sidebar.docs.featurePlayground @ packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js
+NO-CAND sidebar.docs.featureHostAnywhere @ packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js
+MISMATCH sidebar.drafts.requestItemOne,sidebar.drafts.requestItemMany -> ["request"] @ packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js
+MISMATCH sidebar.drafts.savedRequestsOne,sidebar.drafts.savedRequestsMany -> ["Request"] @ packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js
+MISMATCH sidebar.drafts.transientRequestsOne,sidebar.drafts.transientRequestsMany -> ["Request"] @ packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js
+MISMATCH sidebar.createOrOpen.or,sidebar.createOrOpen.collection -> ["<CreateLink /> or <OpenLink /> Collection."] @ packages/bruno-app/src/components/Sidebar/Collections/CreateOrOpenCollection/index.js
+MISMATCH sidebar.fileFormat.ocTitle,sidebar.fileFormat.ocDesc -> ["<strong>OpenCollection (YAML):</strong> Industry-standard YAML format (.yml files)"] @ packages/bruno-app/src/components/Sidebar/CreateCollection/index.js
+MISMATCH sidebar.fileFormat.bruTitle,sidebar.fileFormat.bruDesc -> ["<strong>BRU:</strong> Bruno's native file format (.bru files)"] @ packages/bruno-app/src/components/Sidebar/CreateCollection/index.js
+NO-CAND sidebar.import.loading1 @ packages/bruno-app/src/components/Sidebar/ImportCollection/FullscreenLoader/index.js
+NO-CAND sidebar.import.loading2 @ packages/bruno-app/src/components/Sidebar/ImportCollection/FullscreenLoader/index.js
+NO-CAND sidebar.import.loading3 @ packages/bruno-app/src/components/Sidebar/ImportCollection/FullscreenLoader/index.js
+NO-CAND sidebar.import.loading4 @ packages/bruno-app/src/components/Sidebar/ImportCollection/FullscreenLoader/index.js
+NO-CAND sidebar.import.loading5 @ packages/bruno-app/src/components/Sidebar/ImportCollection/FullscreenLoader/index.js
+NO-CAND sidebar.import.groupingTags,sidebar.import.groupingTagsDesc @ packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js
+NO-CAND sidebar.import.groupingPaths,sidebar.import.groupingPathsDesc @ packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js
+MISMATCH sidebar.fileFormat.ocTitle,sidebar.fileFormat.ocDesc -> ["<strong>OpenCollection (YAML):</strong> Industry-standard YAML format (.yml files)"] @ packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js
+MISMATCH sidebar.fileFormat.bruTitle,sidebar.fileFormat.bruDesc -> ["<strong>BRU:</strong> Bruno's native file format (.bru files)"] @ packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js
+MULTI sidebar.newApp.createsIn -> ["this folder","collection \"${collection?.name || ''}\""] @ packages/bruno-app/src/components/Sidebar/NewApp/index.js
+MULTI sidebar.newApp.thisFolder -> ["this folder","collection \"${collection?.name || ''}\""] @ packages/bruno-app/src/components/Sidebar/NewApp/index.js
+MULTI sidebar.newApp.collectionName -> ["this folder","collection \"${collection?.name || ''}\""] @ packages/bruno-app/src/components/Sidebar/NewApp/index.js
+MISMATCH sidebar.newFolder.folderName,sidebar.newRequest.onFilesystem -> ["Folder Name <small className=\"font-normal text-muted ml-1\">(on filesystem)</small>"] @ packages/bruno-app/src/components/Sidebar/NewFolder/index.js
+MISMATCH sidebar.newRequest.fileName,sidebar.newRequest.onFilesystem -> ["File Name <small className=\"font-normal text-muted ml-1\">(on filesystem)</small>"] @ packages/bruno-app/src/components/Sidebar/NewRequest/index.js
+MISMATCH sidebar.postmanReport.installOne,sidebar.postmanReport.installMany -> ["Install ${needsInstall.length} package${needsInstall.length === 1 ? '' : 's'}"] @ packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js
+MISMATCH sidebar.postmanReport.installingOne,sidebar.postmanReport.installingMany -> [" : "] @ packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js

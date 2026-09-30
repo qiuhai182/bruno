@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { flattenItems, isItemARequest, hasRequestChanges, findCollectionByUid } from 'utils/collections';
-import { pluralizeWord } from 'utils/common';
 import { saveRequest, saveMultipleRequests, moveCollectionToWorkspace } from 'providers/ReduxStore/slices/collections/actions';
 import { deleteRequestDraft } from 'providers/ReduxStore/slices/collections';
 import { IconAlertTriangle, IconDeviceFloppy } from '@tabler/icons';
@@ -13,6 +13,7 @@ import StyledWrapper from './StyledWrapper';
 const MAX_UNSAVED_REQUESTS_TO_SHOW = 5;
 
 const ConfirmMoveDrafts = ({ onClose, collection, collectionUid }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const [isMoving, setIsMoving] = useState(false);
 
@@ -53,11 +54,11 @@ const ConfirmMoveDrafts = ({ onClose, collection, collectionUid }) => {
   const moveAndClose = () => {
     dispatch(moveCollectionToWorkspace(collectionUid))
       .then(() => {
-        toast.success('Collection moved into workspace');
+        toast.success(t('sidebar.moveToWorkspace.collectionMoved'));
         onClose();
       })
       .catch((err) => {
-        toast.error(err?.message || 'An error occurred while moving the collection');
+        toast.error(err?.message || t('sidebar.moveToWorkspace.moveError'));
         setIsMoving(false);
       });
   };
@@ -68,7 +69,7 @@ const ConfirmMoveDrafts = ({ onClose, collection, collectionUid }) => {
     }
     // If there are transient drafts, we can't proceed with batch save
     if (currentTransientDrafts.length > 0) {
-      toast.error('Please save or discard transient requests first');
+      toast.error(t('sidebar.drafts.saveTransientFirst'));
       return;
     }
     setIsMoving(true);
@@ -77,7 +78,7 @@ const ConfirmMoveDrafts = ({ onClose, collection, collectionUid }) => {
       dispatch(saveMultipleRequests(currentDrafts))
         .then(() => moveAndClose())
         .catch(() => {
-          toast.error('Failed to save requests!');
+          toast.error(t('sidebar.drafts.failedToSaveRequests'));
           setIsMoving(false);
         });
     } else {
@@ -113,7 +114,7 @@ const ConfirmMoveDrafts = ({ onClose, collection, collectionUid }) => {
     <StyledWrapper>
       <Modal
         size="md"
-        title="Move into Workspace"
+        title={t('sidebar.moveToWorkspace.title')}
         handleCancel={onClose}
         disableEscapeKey={true}
         disableCloseOnOutsideClick={true}
@@ -122,32 +123,34 @@ const ConfirmMoveDrafts = ({ onClose, collection, collectionUid }) => {
       >
         <div className="flex items-center">
           <IconAlertTriangle size={32} strokeWidth={1.5} className="warning-text" />
-          <h1 className="ml-2 text-lg font-medium">Hold on..</h1>
+          <h1 className="ml-2 text-lg font-medium">{t('dialogs.holdOn')}</h1>
         </div>
         <p className="mt-4">
-          You have unsaved changes in <span className="font-medium">{allDrafts.length}</span>{' '}
-          {pluralizeWord('request', allDrafts.length)}.
+          {t('sidebar.drafts.unsavedChangesPrefix')}
+          <span className="font-medium">{allDrafts.length}</span>{' '}
+          {allDrafts.length === 1 ? t('sidebar.drafts.requestItemOne') : t('sidebar.drafts.requestItemMany')}
         </p>
 
         {/* Regular (saved) requests with changes */}
         {currentDrafts.length > 0 && (
           <div className="mt-4">
             <p className="text-sm font-medium mb-2">
-              Saved {pluralizeWord('Request', currentDrafts.length)} ({currentDrafts.length})
+              {currentDrafts.length === 1 ? t('sidebar.drafts.savedRequestsOne', { count: currentDrafts.length }) : t('sidebar.drafts.savedRequestsMany', { count: currentDrafts.length })}
             </p>
             <ul className="ml-2">
               {currentDrafts.slice(0, MAX_UNSAVED_REQUESTS_TO_SHOW).map((item) => {
                 return (
                   <li key={item.uid} className="mt-1 text-xs draft-list-item">
-                    • {item.filename || item.name}
+                    ? {item.filename || item.name}
                   </li>
                 );
               })}
             </ul>
             {currentDrafts.length > MAX_UNSAVED_REQUESTS_TO_SHOW && (
               <p className="ml-2 mt-1 text-xs draft-list-item">
-                ...{currentDrafts.length - MAX_UNSAVED_REQUESTS_TO_SHOW} additional{' '}
-                {pluralizeWord('request', currentDrafts.length - MAX_UNSAVED_REQUESTS_TO_SHOW)} not shown
+                {currentDrafts.length - MAX_UNSAVED_REQUESTS_TO_SHOW === 1
+                  ? t('sidebar.drafts.additionalOne', { count: currentDrafts.length - MAX_UNSAVED_REQUESTS_TO_SHOW })
+                  : t('sidebar.drafts.additionalMany', { count: currentDrafts.length - MAX_UNSAVED_REQUESTS_TO_SHOW })}
               </p>
             )}
           </div>
@@ -157,10 +160,10 @@ const ConfirmMoveDrafts = ({ onClose, collection, collectionUid }) => {
         {currentTransientDrafts.length > 0 && (
           <div className="mt-4">
             <p className="text-sm font-medium mb-2">
-              Transient {pluralizeWord('Request', currentTransientDrafts.length)} ({currentTransientDrafts.length})
+              {currentTransientDrafts.length === 1 ? t('sidebar.drafts.transientRequestsOne', { count: currentTransientDrafts.length }) : t('sidebar.drafts.transientRequestsMany', { count: currentTransientDrafts.length })}
             </p>
             <p className="text-xs transient-hint mb-3">
-              These requests need to be saved individually before moving the collection.
+              {t('sidebar.drafts.transientHintMove')}
             </p>
             <div className="space-y-2 max-h-64 overflow-y-auto pr-1">
               {currentTransientDrafts.map((item) => {
@@ -179,7 +182,7 @@ const ConfirmMoveDrafts = ({ onClose, collection, collectionUid }) => {
                       disabled={isMoving}
                       icon={<IconDeviceFloppy size={14} strokeWidth={1.5} />}
                     >
-                      Save
+                      {t('common.save')}
                     </Button>
                   </div>
                 );
@@ -191,20 +194,20 @@ const ConfirmMoveDrafts = ({ onClose, collection, collectionUid }) => {
         <div className="flex justify-between mt-6">
           <div>
             <Button data-testid="move-workspace-discard-all" color="danger" onClick={handleDiscardAll} disabled={isMoving}>
-              Discard All and Move
+              {t('sidebar.moveToWorkspace.discardAllAndMove')}
             </Button>
           </div>
           <div>
             <Button data-testid="move-workspace-cancel" className="mr-2" color="secondary" variant="ghost" onClick={onClose} disabled={isMoving}>
-              Cancel
+              {t('common.cancel')}
             </Button>
             <Button
               data-testid="move-workspace-save-and-move"
               onClick={handleSaveAll}
               disabled={currentTransientDrafts.length > 0 || isMoving}
-              title={currentTransientDrafts.length > 0 ? 'Please save or discard transient requests first' : ''}
+              title={currentTransientDrafts.length > 0 ? t('sidebar.drafts.saveTransientFirst') : ''}
             >
-              {isMoving ? 'Moving...' : currentDrafts.length > 1 ? 'Save All and Move' : 'Save and Move'}
+              {isMoving ? t('sidebar.moveToWorkspace.moving') : currentDrafts.length > 1 ? t('sidebar.moveToWorkspace.saveAllAndMove') : t('sidebar.moveToWorkspace.saveAndMove')}
             </Button>
           </div>
         </div>

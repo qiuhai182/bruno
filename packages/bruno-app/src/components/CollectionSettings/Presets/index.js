@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import StyledWrapper from './StyledWrapper';
 import { updateCollectionPresets } from 'providers/ReduxStore/slices/collections';
 import { saveCollectionSettings } from 'providers/ReduxStore/slices/collections/actions';
@@ -12,6 +13,7 @@ import { DEFAULT_PRESET_REQUEST_TYPE } from 'utils/common/constants';
 import { requestTypeItems } from './constants';
 
 const PresetsSettings = ({ collection }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const initialPresets = { requestType: DEFAULT_PRESET_REQUEST_TYPE, requestUrl: '' };
 
@@ -38,14 +40,14 @@ const PresetsSettings = ({ collection }) => {
     if (name) {
       updatePresets({ defaultEnvironment: name });
     } else {
-      // "None" — remove the default from the draft presets.
+      // "None" 潩 remove the default from the draft presets.
       const { defaultEnvironment, ...rest } = currentPresets;
       dispatch(updateCollectionPresets({ collectionUid: collection.uid, presets: rest }));
     }
   };
 
   const defaultEnvironmentItems = [
-    { id: '', label: 'None', onClick: () => handleDefaultEnvironmentChange('') },
+    { id: '', label: t('collection.presets.none'), onClick: () => handleDefaultEnvironmentChange('') },
     ...environments.map((env) => ({
       id: env.name,
       label: env.name,
@@ -69,10 +71,10 @@ const PresetsSettings = ({ collection }) => {
     <StyledWrapper className="h-full w-full">
       <div className="bruno-form">
         <div className="preset-field">
-          <label className="preset-field-label">Default Request Type</label>
-          <p className="preset-field-subtitle">Selected by default for new requests.</p>
+          <label className="preset-field-label">{t('collection.presets.defaultRequestType')}</label>
+          <p className="preset-field-subtitle">{t('collection.presets.defaultRequestTypeSubtitle')}</p>
           <SegmentedControl
-            ariaLabel="Default Request Type"
+            ariaLabel={t('collection.presets.defaultRequestType')}
             name="requestType"
             value={requestType}
             onChange={handleRequestTypeChange}
@@ -82,14 +84,14 @@ const PresetsSettings = ({ collection }) => {
         </div>
 
         <div className="preset-field">
-          <label className="preset-field-label" htmlFor="request-url">Default Base URL</label>
-          <p className="preset-field-subtitle">Pre-fills the URL field for new requests.</p>
+          <label className="preset-field-label" htmlFor="request-url">{t('collection.presets.defaultBaseUrl')}</label>
+          <p className="preset-field-subtitle">{t('collection.presets.defaultBaseUrlSubtitle')}</p>
           <input
             id="request-url"
             data-testid="presets-request-url"
             type="text"
             name="requestUrl"
-            placeholder="Request URL"
+            placeholder={t('collection.presets.requestUrlPlaceholder')}
             className="block textbox preset-input mousetrap"
             autoComplete="off"
             autoCorrect="off"
@@ -101,8 +103,8 @@ const PresetsSettings = ({ collection }) => {
         </div>
 
         <div className="preset-field">
-          <label className="preset-field-label" htmlFor="default-environment">Default Environment</label>
-          <p className="preset-field-subtitle">Selected when this collection is shared and first opened.</p>
+          <label className="preset-field-label" htmlFor="default-environment">{t('collection.presets.defaultEnvironment')}</label>
+          <p className="preset-field-subtitle">{t('collection.presets.defaultEnvironmentSubtitle')}</p>
           <div className="default-env-dropdown">
             <MenuDropdown
               items={defaultEnvironmentItems}
@@ -116,7 +118,7 @@ const PresetsSettings = ({ collection }) => {
                 id="default-environment"
                 className="default-env-trigger flex items-center justify-between cursor-pointer"
               >
-                <span className="truncate">{defaultEnvironmentName || 'None'}</span>
+                <span className="truncate">{defaultEnvironmentName || t('collection.presets.none')}</span>
                 <IconCaretDown className="caret" size={14} strokeWidth={2} />
               </button>
             </MenuDropdown>
@@ -125,7 +127,7 @@ const PresetsSettings = ({ collection }) => {
 
         <div className="mt-6">
           <Button type="button" size="sm" data-testid="presets-save-btn" onClick={handleSave}>
-            Save
+            {t('common.save')}
           </Button>
         </div>
       </div>

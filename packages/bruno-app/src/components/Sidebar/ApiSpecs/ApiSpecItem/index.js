@@ -4,11 +4,13 @@ import Dropdown from 'components/Dropdown';
 import { IconDots, IconX } from '@tabler/icons';
 import { useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import CloseApiSpec from '../CloseApiSpec/index';
 import { forwardRef } from 'react';
 
 const ApiSpecItem = ({ apiSpec }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const activeApiSpecUid = useSelector((state) => state.apiSpec.activeApiSpecUid);
   const showApiSpecPage = useSelector((state) => state.app.showApiSpecPage);
@@ -56,7 +58,7 @@ const ApiSpecItem = ({ apiSpec }) => {
             <span className="dropdown-icon">
               <IconX size={16} strokeWidth={2} />
             </span>
-            Remove
+            {t('sidebar.menu.remove')}
           </div>
         </Dropdown>
       </div>

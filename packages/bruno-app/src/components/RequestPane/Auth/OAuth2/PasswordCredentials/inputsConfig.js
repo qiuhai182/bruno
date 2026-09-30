@@ -1,29 +1,29 @@
 const inputsConfig = [
   {
     key: 'accessTokenUrl',
-    label: 'Access Token URL'
+    labelKey: 'requestPane.oauth2.accessTokenUrl'
   },
   {
     key: 'username',
-    label: 'Username'
+    labelKey: 'requestPane.oauth2.username'
   },
   {
     key: 'password',
-    label: 'Password',
+    labelKey: 'requestPane.oauth2.password',
     isSecret: true
   },
   {
     key: 'clientId',
-    label: 'Client ID'
+    labelKey: 'requestPane.oauth2.clientId'
   },
   {
     key: 'clientSecret',
-    label: 'Client Secret',
+    labelKey: 'requestPane.oauth2.clientSecret',
     isSecret: true
   },
   {
     key: 'scope',
-    label: 'Scope'
+    labelKey: 'requestPane.oauth2.scope'
   }
 ];
 

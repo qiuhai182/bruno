@@ -12,6 +12,7 @@ import Network from 'components/ResponsePane/Timeline/TimelineItem/Network';
 import { sentHeadersFromTimeline } from 'utils/timeline';
 import StyledWrapper from './StyledWrapper';
 import { uuid } from 'utils/common/index';
+import { useTranslation } from 'react-i18next';
 
 const formatHeaders = (headers) => {
   if (!headers) return [];
@@ -19,13 +20,14 @@ const formatHeaders = (headers) => {
   return Object.entries(headers).map(([key, value]) => ({ name: key, value }));
 };
 
-const formatBody = (body) => {
-  if (!body) return 'No body';
+const formatBody = (body, emptyText) => {
+  if (!body) return emptyText;
   if (typeof body === 'string') return body;
   return JSON.stringify(body, null, 2);
 };
 
 const RequestTab = ({ request, response }) => {
+  const { t } = useTranslation();
   const sentHeaders = sentHeadersFromTimeline(response?.timeline);
   /** In case of `bru.sendRequest` it builds its own entry in timeline,
    * so to show the headers sent in new request we need headers not sentHeaders */
@@ -34,28 +36,28 @@ const RequestTab = ({ request, response }) => {
   return (
     <div className="tab-content">
       <div className="section">
-        <h4>General</h4>
+        <h4>{t('devtools.requestDetails.general')}</h4>
         <div className="info-grid">
           <div className="info-item">
-            <span className="label">Request URL:</span>
-            <span className="value">{request?.url || 'N/A'}</span>
+            <span className="label">{t('devtools.requestDetails.requestUrl')}</span>
+            <span className="value">{request?.url || t('devtools.requestDetails.na')}</span>
           </div>
           <div className="info-item">
-            <span className="label">Request Method:</span>
+            <span className="label">{t('devtools.requestDetails.requestMethod')}</span>
             <span className="value">{request?.method || 'GET'}</span>
           </div>
         </div>
       </div>
 
       <div className="section">
-        <h4>Request Headers</h4>
+        <h4>{t('devtools.requestDetails.requestHeaders')}</h4>
         {headers.length > 0 ? (
           <div className="headers-table" data-testid="request-details-request-headers">
             <table>
               <thead>
                 <tr>
-                  <td>Name</td>
-                  <td>Value</td>
+                  <td>{t('devtools.requestDetails.name')}</td>
+                  <td>{t('devtools.requestDetails.value')}</td>
                 </tr>
               </thead>
               <tbody>
@@ -69,14 +71,14 @@ const RequestTab = ({ request, response }) => {
             </table>
           </div>
         ) : (
-          <div className="empty-state">No headers</div>
+          <div className="empty-state">{t('devtools.requestDetails.noHeaders')}</div>
         )}
       </div>
 
       {request?.data && (
         <div className="section">
-          <h4>Request Body</h4>
-          <pre className="code-block">{formatBody(request.data)}</pre>
+          <h4>{t('devtools.requestDetails.requestBody')}</h4>
+          <pre className="code-block">{formatBody(request.data, t('devtools.requestDetails.noBody'))}</pre>
         </div>
       )}
     </div>
@@ -84,17 +86,18 @@ const RequestTab = ({ request, response }) => {
 };
 
 const ResponseTab = ({ response, request, collection }) => {
+  const { t } = useTranslation();
   return (
     <div className="tab-content">
       <div className="section">
-        <h4>Response Headers</h4>
+        <h4>{t('devtools.requestDetails.responseHeaders')}</h4>
         {formatHeaders(response?.headers).length > 0 ? (
           <div className="headers-table">
             <table>
               <thead>
                 <tr>
-                  <td>Name</td>
-                  <td>Value</td>
+                  <td>{t('devtools.requestDetails.name')}</td>
+                  <td>{t('devtools.requestDetails.value')}</td>
                 </tr>
               </thead>
               <tbody>
@@ -108,12 +111,12 @@ const ResponseTab = ({ response, request, collection }) => {
             </table>
           </div>
         ) : (
-          <div className="empty-state">No headers</div>
+          <div className="empty-state">{t('devtools.requestDetails.noHeaders')}</div>
         )}
       </div>
 
       <div className="section">
-        <h4>Response Body</h4>
+        <h4>{t('devtools.requestDetails.responseBody')}</h4>
         <div className="response-body-container">
           {response?.data || response?.dataBuffer ? (
             <QueryResponse
@@ -126,7 +129,7 @@ const ResponseTab = ({ response, request, collection }) => {
               disableRunEventListener={true}
             />
           ) : (
-            <div className="empty-state">No response data</div>
+            <div className="empty-state">{t('devtools.requestDetails.noResponseData')}</div>
           )}
         </div>
       </div>
@@ -135,17 +138,18 @@ const ResponseTab = ({ response, request, collection }) => {
 };
 
 const NetworkTab = ({ response }) => {
+  const { t } = useTranslation();
   const timeline = response?.timeline || [];
 
   return (
     <div className="tab-content">
       <div className="section">
-        <h4>Network Logs</h4>
+        <h4>{t('devtools.requestDetails.networkLogs')}</h4>
         <div className="network-logs-wrapper">
           {timeline.length > 0 ? (
             <Network logs={timeline} />
           ) : (
-            <div className="empty-state">No network logs available</div>
+            <div className="empty-state">{t('devtools.requestDetails.noNetworkLogs')}</div>
           )}
         </div>
       </div>
@@ -155,6 +159,7 @@ const NetworkTab = ({ response }) => {
 
 const RequestDetailsPanel = () => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const { selectedRequest } = useSelector((state) => state.logs);
   const collections = useSelector((state) => state.collections.collections);
   const [activeTab, setActiveTab] = useState('request');
@@ -193,14 +198,14 @@ const RequestDetailsPanel = () => {
       <div className="panel-header">
         <div className="panel-title">
           <IconFileText size={16} strokeWidth={1.5} />
-          <span>Request Details</span>
+          <span>{t('devtools.requestDetails.title')}</span>
           <span className="request-time">({formatTime(selectedRequest.timestamp)})</span>
         </div>
 
         <button
           className="close-button"
           onClick={handleClose}
-          title="Close details panel"
+          title={t('devtools.requestDetails.closeDetailsPanel')}
         >
           <IconX size={16} strokeWidth={1.5} />
         </button>
@@ -213,7 +218,7 @@ const RequestDetailsPanel = () => {
           onClick={() => setActiveTab('request')}
         >
           <IconArrowRight size={14} strokeWidth={1.5} />
-          Request
+          {t('devtools.requestDetails.tabRequest')}
         </button>
 
         <button
@@ -221,7 +226,7 @@ const RequestDetailsPanel = () => {
           onClick={() => setActiveTab('response')}
         >
           <IconFileText size={14} strokeWidth={1.5} />
-          Response
+          {t('devtools.requestDetails.tabResponse')}
         </button>
 
         <button
@@ -230,7 +235,7 @@ const RequestDetailsPanel = () => {
           onClick={() => setActiveTab('network')}
         >
           <IconNetwork size={14} strokeWidth={1.5} />
-          Network
+          {t('devtools.requestDetails.tabNetwork')}
         </button>
       </div>
 

@@ -3,9 +3,12 @@ import Portal from 'components/Portal';
 import Modal from 'components/Modal';
 import StyledWrapper from './StyledWrapper';
 import { IconAlertTriangle } from '@tabler/icons';
+import { useTranslation } from 'react-i18next';
 
-export default function PromptVariablesModal({ title = 'Input Required', prompts, onSubmit, onCancel }) {
+export default function PromptVariablesModal({ title, prompts, onSubmit, onCancel }) {
+  const { t } = useTranslation();
   const [values, setValues] = useState({});
+  const modalTitle = title !== undefined ? title : t('requestPane.promptVariables.inputRequired');
 
   const handleChange = (prompt, value) => {
     setValues((prev) => ({ ...prev, [prompt]: value }));
@@ -19,9 +22,9 @@ export default function PromptVariablesModal({ title = 'Input Required', prompts
     <Portal>
       <Modal
         size="lg"
-        title={title}
-        confirmText="Continue"
-        cancelText="Cancel"
+        title={modalTitle}
+        confirmText={t('requestPane.promptVariables.continue')}
+        cancelText={t('common.cancel')}
         handleConfirm={() => onSubmit(values)}
         handleCancel={onCancel}
       >
@@ -37,7 +40,7 @@ export default function PromptVariablesModal({ title = 'Input Required', prompts
                   type="text"
                   data-testid={`prompt-variable-input-${index}`}
                   className="textbox mt-2 w-full"
-                  placeholder="Enter value"
+                  placeholder={t('requestPane.common.enterValue')}
                   value={values[prompt] || ''}
                   onChange={(e) => handleChange(prompt, e.target.value)}
                   autoFocus={index === 0}

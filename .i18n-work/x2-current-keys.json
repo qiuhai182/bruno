@@ -1,0 +1,3488 @@
+{
+  "files": 130,
+  "count": 553,
+  "keys": [
+    {
+      "k": "app.sidebar.settings",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/index.js"
+      ]
+    },
+    {
+      "k": "common.cancel",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/ExampleItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RunCollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/DeleteCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/InlineCollectionCreator/index.js",
+        "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/NewFolder/index.js",
+        "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+      ]
+    },
+    {
+      "k": "common.close",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ApiSpecs/CloseApiSpec/index.js",
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js",
+        "packages/bruno-app/src/components/Sidebar/CloseWorkspace/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js"
+      ]
+    },
+    {
+      "k": "common.delete",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/BulkActionsDropdown/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/ExampleItem/DeleteResponseExampleModal/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/ExampleItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/DeleteCollection/index.js"
+      ]
+    },
+    {
+      "k": "common.save",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js"
+      ]
+    },
+    {
+      "k": "dialogs.deleteCollection.bodyPrefix",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/DeleteCollection/index.js"
+      ]
+    },
+    {
+      "k": "dialogs.deleteCollection.deleteError",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/DeleteCollection/index.js"
+      ]
+    },
+    {
+      "k": "dialogs.deleteCollection.deleted",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/DeleteCollection/index.js"
+      ]
+    },
+    {
+      "k": "dialogs.deleteCollection.notFound",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/DeleteCollection/index.js"
+      ]
+    },
+    {
+      "k": "dialogs.deleteCollection.title",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/DeleteCollection/index.js"
+      ]
+    },
+    {
+      "k": "dialogs.deleteCollection.toConfirm",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/DeleteCollection/index.js"
+      ]
+    },
+    {
+      "k": "dialogs.deleteCollection.typePrefix",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/DeleteCollection/index.js"
+      ]
+    },
+    {
+      "k": "dialogs.deleteCollection.warning",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/DeleteCollection/index.js"
+      ]
+    },
+    {
+      "k": "dialogs.holdOn",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js"
+      ]
+    },
+    {
+      "k": "preferences.general.browse",
+      "f": [
+        "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js",
+        "packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.actions.addNewCollection",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Sections/CollectionsSection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.actions.moreActions",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Sections/CollectionsSection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.actions.searchRequests",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Sections/CollectionsSection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.addRequest",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.advancedOptions",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/InlineCollectionCreator/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.apiSpecs.addNewApiSpec",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Sections/ApiSpecsSection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.apiSpecs.close.closeError",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ApiSpecs/CloseApiSpec/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.apiSpecs.close.closed",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ApiSpecs/CloseApiSpec/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.apiSpecs.close.confirmPrefix",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ApiSpecs/CloseApiSpec/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.apiSpecs.close.confirmSuffix",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ApiSpecs/CloseApiSpec/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.apiSpecs.close.stillAvailableNote",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ApiSpecs/CloseApiSpec/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.apiSpecs.close.title",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ApiSpecs/CloseApiSpec/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.apiSpecs.create.blankSpec",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.apiSpecs.create.collectionLocationLabel",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.apiSpecs.create.created",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.apiSpecs.create.defaultsNote",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.apiSpecs.create.environmentLabel",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.apiSpecs.create.failedToLoadCollection",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.apiSpecs.create.fromCollection",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.apiSpecs.create.specLocationLabel",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.apiSpecs.create.specNameLabel",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.apiSpecs.create.templateLabel",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.apiSpecs.create.title",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.apiSpecs.createApiSpec",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Sections/ApiSpecsSection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.apiSpecs.noSpecsFound",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ApiSpecs/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.apiSpecs.open",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ApiSpecs/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.apiSpecs.openApiSpec",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Sections/ApiSpecsSection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.apiSpecs.openError",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ApiSpecs/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.apiSpecs.openLinkSuffix",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ApiSpecs/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.browse",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js",
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js",
+        "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CloneCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js",
+        "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkActions.collapse",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/BulkActionsDropdown/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkActions.expand",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/BulkActionsDropdown/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkActions.removeSelected",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/BulkActionsDropdown/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkActions.selected",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/BulkActionsDropdown/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkImport.bruDesc",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkImport.bruFormat",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkImport.collectionsTitle",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkImport.copy",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkImport.duplicateAcrossCollections",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkImport.duplicateEnvTip",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkImport.environmentAssignment",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkImport.environmentsTitle",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkImport.errorDetails",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkImport.failedToAddEnvironment",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkImport.failedToCopy",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkImport.failedToImportCollection",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkImport.fileFormat",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkImport.fileFormatHelp",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkImport.folderArrangement",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkImport.folderArrangementDesc",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkImport.globalEnvTip",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkImport.globalEnvironment",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkImport.groupingPaths",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkImport.groupingPathsDesc",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkImport.groupingTags",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkImport.groupingTagsDesc",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkImport.import",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkImport.importingEnvironments",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkImport.itemsSkipped",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkImport.locationPlaceholder",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkImport.noCollectionsFound",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkImport.noEnvironmentsFound",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkImport.noLocationSelected",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkImport.openCollectionDesc",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkImport.searchCollections",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkImport.searchEnvironments",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkImport.seeError",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.bulkImport.title",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.changeVersion.collectionLabel",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.changeVersion.currentVersion",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.changeVersion.from",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.changeVersion.in",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.changeVersion.newVersion",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.changeVersion.notFound",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.changeVersion.notSet",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.changeVersion.title",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.changeVersion.updateVersion",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.changeVersion.updates",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.changeVersion.updating",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.changeVersion.versionPlaceholder",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.clearSort",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Sections/CollectionsSection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.cloneCollection.folderNameHelp1",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CloneCollection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.cloneCollection.folderNameHelp2",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CloneCollection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.cloneCollection.title",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CloneCollection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.cloneGit.back",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.cloneGit.branchLabel",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.cloneGit.branchesListFailed",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.cloneGit.clonedSuccessfully",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.cloneGit.cloningFailed",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.cloneGit.cloningRepository",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.cloneGit.cloningSuccessful",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.cloneGit.collectionsTitle",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.cloneGit.loadingBranches",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.cloneGit.noBranchesMatch",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.cloneGit.noBrunoCollectionsFound",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.cloneGit.repositoryDefault",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.cloneGit.repositoryUrlLabel",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.cloneGit.scanSuccessful",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.cloneGit.scannedSuccessfully",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.cloneGit.scanningForBrunoFiles",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.cloneGit.searchCollections",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.cloneGit.selectedCount",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.cloneGit.title",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.closeWorkspace.cannotCloseDefault",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CloseWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.closeWorkspace.closeError",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CloseWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.closeWorkspace.closed",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CloseWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.closeWorkspace.confirmPrefix",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CloseWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.closeWorkspace.confirmSuffix",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CloseWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.closeWorkspace.stillAvailableNote",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CloseWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.closeWorkspace.title",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CloseWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.closeWorkspace.workspaceNotFound",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CloseWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.collectionNotFound",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.collections",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/OpenCollection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.copiedToClipboard",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/GenerateCodeItem/CodeView/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.create",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CloneCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/CreateOrOpenCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/InlineCollectionCreator/index.js",
+        "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/NewApp/index.js",
+        "packages/bruno-app/src/components/Sidebar/NewFolder/index.js",
+        "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.createCollection.folderNameHelp1",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.createCollection.folderNameHelp2",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.createCollection.folderNameRequired",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.createCollection.formatRequired",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.createCollection.invalidFormat",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.createCollection.nameEmpty",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.createCollection.nameRequired",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.createCollection.title",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.createOrOpen.collection",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/CreateOrOpenCollection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.createOrOpen.noCollectionsFound",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/CreateOrOpenCollection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.createOrOpen.or",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/CreateOrOpenCollection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.deleteItems.and",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.deleteItems.appMany",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.deleteItems.appOne",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.deleteItems.confirmExamplePrefix",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/ExampleItem/DeleteResponseExampleModal/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.deleteItems.confirmPrefix",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.deleteItems.confirmSuffix",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/ExampleItem/DeleteResponseExampleModal/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.deleteItems.errorDeleting",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.deleteItems.exampleMany",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.deleteItems.exampleOne",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.deleteItems.folderMany",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.deleteItems.folderOne",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.deleteItems.requestMany",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.deleteItems.requestOne",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.deleteItems.titleAppMany",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.deleteItems.titleAppOne",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.deleteItems.titleExampleMany",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.deleteItems.titleExampleOne",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/ExampleItem/DeleteResponseExampleModal/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.deleteItems.titleFolderMany",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.deleteItems.titleFolderOne",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.deleteItems.titleItems",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.deleteItems.titleRequestMany",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.deleteItems.titleRequestOne",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.docs.advanced",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/index.jsx"
+      ]
+    },
+    {
+      "k": "sidebar.docs.allRequests",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/index.jsx"
+      ]
+    },
+    {
+      "k": "sidebar.docs.cdnNote",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.docs.collectionNotFound",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.docs.description",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.docs.environments",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/EnvironmentSelectionList/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.docs.environmentsToInclude",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.docs.excludePlaceholder",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/IncludeExcludeTags/index.jsx"
+      ]
+    },
+    {
+      "k": "sidebar.docs.excludeTags",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/IncludeExcludeTags/index.jsx"
+      ]
+    },
+    {
+      "k": "sidebar.docs.featureHostAnywhere",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.docs.featurePlayground",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.docs.featureStandaloneHtml",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.docs.filterByTags",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/index.jsx"
+      ]
+    },
+    {
+      "k": "sidebar.docs.folderMany",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/CollectionVersionInfo/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.docs.folderOne",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/CollectionVersionInfo/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.docs.generate",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.docs.generatedError",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.docs.generatedSuccess",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.docs.includePlaceholder",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/IncludeExcludeTags/index.jsx"
+      ]
+    },
+    {
+      "k": "sidebar.docs.includeTags",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/IncludeExcludeTags/index.jsx"
+      ]
+    },
+    {
+      "k": "sidebar.docs.interactiveDocs",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.docs.loading",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.docs.loadingCollection",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.docs.noEnvironments",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/CollectionVersionInfo/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.docs.notSet",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/CollectionVersionInfo/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.docs.removeTag",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/DocsTagList/index.jsx"
+      ]
+    },
+    {
+      "k": "sidebar.docs.requestMany",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/CollectionVersionInfo/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.docs.requestOne",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/CollectionVersionInfo/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.docs.requestsToInclude",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/index.jsx"
+      ]
+    },
+    {
+      "k": "sidebar.docs.selectAll",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/EnvironmentSelectionList/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.docs.selectedCount",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/EnvironmentSelectionList/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.docs.tagDoesNotExist",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/IncludeExcludeTags/index.jsx"
+      ]
+    },
+    {
+      "k": "sidebar.docs.tagExists",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/DocsTagList/index.jsx"
+      ]
+    },
+    {
+      "k": "sidebar.docs.tagInExclude",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/IncludeExcludeTags/index.jsx"
+      ]
+    },
+    {
+      "k": "sidebar.docs.tagInInclude",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/IncludeExcludeTags/index.jsx"
+      ]
+    },
+    {
+      "k": "sidebar.docs.tagNameRule",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/DocsTagList/index.jsx"
+      ]
+    },
+    {
+      "k": "sidebar.docs.tagPlaceholder",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/DocsTagList/index.jsx"
+      ]
+    },
+    {
+      "k": "sidebar.docs.tagsHint",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/index.jsx"
+      ]
+    },
+    {
+      "k": "sidebar.docs.title",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.docs.versionLabel",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/CollectionVersionInfo/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.drafts.additionalMany",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js"
+      ]
+    },
+    {
+      "k": "sidebar.drafts.additionalOne",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js"
+      ]
+    },
+    {
+      "k": "sidebar.drafts.failedToSaveRequests",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js"
+      ]
+    },
+    {
+      "k": "sidebar.drafts.requestItemMany",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js"
+      ]
+    },
+    {
+      "k": "sidebar.drafts.requestItemOne",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js"
+      ]
+    },
+    {
+      "k": "sidebar.drafts.saveTransientFirst",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js"
+      ]
+    },
+    {
+      "k": "sidebar.drafts.savedRequestsMany",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js"
+      ]
+    },
+    {
+      "k": "sidebar.drafts.savedRequestsOne",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js"
+      ]
+    },
+    {
+      "k": "sidebar.drafts.transientHintMove",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js"
+      ]
+    },
+    {
+      "k": "sidebar.drafts.transientRequestsMany",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js"
+      ]
+    },
+    {
+      "k": "sidebar.drafts.transientRequestsOne",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js"
+      ]
+    },
+    {
+      "k": "sidebar.drafts.unsavedChangesPrefix",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js"
+      ]
+    },
+    {
+      "k": "sidebar.dragPreview.${key}Many",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CollectionItemDragPreview/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.dragPreview.${key}One",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CollectionItemDragPreview/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.dragPreview.and",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CollectionItemDragPreview/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.dragPreview.items",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CollectionItemDragPreview/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.example.nameLabel",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/ExampleItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.example.namePlaceholder",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/ExampleItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.example.renameTitle",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/ExampleItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.exportToPostman.export",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.exportToPostman.exportFailed",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.exportToPostman.exportedSuccess",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.exportToPostman.fileExists",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.exportToPostman.preserveScriptsDesc",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.exportToPostman.replace",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.exportToPostman.title",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.fileFormat",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.fileFormat.bruDesc",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.fileFormat.bruOption",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.fileFormat.bruTitle",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.fileFormat.ocDesc",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.fileFormat.ocOption",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.fileFormat.ocTitle",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.fileFormatHelp1",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.folderName",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CloneCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CollectionItemInfo/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.generateCode.checkUrl",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/GenerateCodeItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.generateCode.example",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/GenerateCodeItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.generateCode.interpolateVariables",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/GenerateCodeItem/CodeViewToolbar/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.generateCode.invalidUrl",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/GenerateCodeItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.generateCode.title",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/GenerateCodeItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.generateCode.titleWithExample",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/GenerateCodeItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.gitRemote.clickToClone",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/GitRemoteCollectionRow/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.gitRemote.cloneFromGit",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/GitRemoteCollectionRow/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.gitRemote.copyFailed",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/GitRemoteCollectionRow/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.gitRemote.copyGitUrl",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/GitRemoteCollectionRow/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.gitRemote.removeGitRemote",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/GitRemoteCollectionRow/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.gitRemote.urlCopied",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/GitRemoteCollectionRow/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.goldenEdition.buy",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.goldenEdition.everythingInIndividual",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.goldenEdition.featBruFileExplorer",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.goldenEdition.featCustomThemes",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.goldenEdition.featDevTools",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.goldenEdition.featLicenseMgmt",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.goldenEdition.featLoadData",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.goldenEdition.featLoadTesting",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.goldenEdition.featOpenApiDesigner",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.goldenEdition.featPrioritySupport",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.goldenEdition.featPrivateRegistry",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.goldenEdition.featRequestForms",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.goldenEdition.featSecretManagers",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.goldenEdition.featTerminal",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.goldenEdition.featVisualGit",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.goldenEdition.individuals",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.goldenEdition.individualsLicense",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.goldenEdition.oneTimePayment",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.goldenEdition.orgLicense",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.goldenEdition.organizations",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.goldenEdition.perUser",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.goldenEdition.supportBruno",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.goldenEdition.title",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.hideAdvancedOptions",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js",
+        "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.hideFilesystemName",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/NewFolder/index.js",
+        "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.ignore.collectionByAdding",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.ignore.errorIgnoring",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.ignore.finalPeriod",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.ignore.folderIgnored",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.ignore.hideFrom",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.ignore.listIn",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.ignore.listInAfter",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.ignore.notDeletedRestore",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.ignore.prefix",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.ignore.title",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.brunoFallback",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.checkForSpecUpdates",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.checkForSpecUpdatesDesc",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.chooseFiles",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollection/FileTab.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.clone",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollection/GitHubTab.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.dropFiles",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollection/FileTab.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.failed",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollection/FileTab.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.folderArrangement",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.folderArrangementDesc",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.gitUrlPlaceholder",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollection/GitHubTab.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.groupingPaths",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.groupingPathsDesc",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.groupingTags",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.groupingTagsDesc",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.import",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollection/UrlTab.js",
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.insomniaFallback",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.invalidGitUrl",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollection/GitHubTab.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.invalidUrl",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollection/UrlTab.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.invalidZip",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollection/FileTab.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.loading1",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollection/FullscreenLoader/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.loading2",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollection/FullscreenLoader/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.loading3",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollection/FullscreenLoader/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.loading4",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollection/FullscreenLoader/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.loading5",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollection/FullscreenLoader/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.mayTakeMoment",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollection/FullscreenLoader/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.mixZipError",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollection/FileTab.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.multiFilesFailed",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollection/FileTab.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.multiZipError",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollection/FileTab.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.nameFallback",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.noValidCollections",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollection/FileTab.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.openapiFallback",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.parseContentFailed",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollection/FileTab.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.parseError",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollection/FileTab.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.postmanFallback",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.preserveScriptsDesc",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.supportedFormats",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollection/FileTab.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.swagger2Unsupported",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.tabFile",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.tabGit",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.title",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.unknownFormat",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.unsupportedFormat",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollection/FileTab.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.urlImportFailed",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollection/UrlTab.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.urlPlaceholder",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollection/UrlTab.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.wsdlFallback",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.import.zipFailed",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollection/FileTab.js"
+      ]
+    },
+    {
+      "k": "sidebar.inlineCollection.nameRequired",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/InlineCollectionCreator/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.inlineCollection.setDefaultLocation",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/InlineCollectionCreator/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.item.cloneError",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.item.cloneTitle",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.item.cloned",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.item.copied",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.item.createExampleTitle",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.item.errorOpeningFolder",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.item.exampleCreated",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.item.exampleRenamed",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/ExampleItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.item.fileNameHelp1",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CollectionItemInfo/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.item.fileNameHelp2",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.item.folderNameHelp",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.item.infoFolderNameHelp",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CollectionItemInfo/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.item.nameLabel",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CollectionItemInfo/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.item.namePlaceholder",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.item.pasteError",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.item.pasted",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.item.renameError",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.item.renameTitle",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.item.urlRequired",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/ExampleItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.location",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js",
+        "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CloneCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js",
+        "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.locationHelp1",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.locationHelp2",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.menu.clone",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/ExampleItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.menu.closeAll",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Sections/CollectionsSection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.menu.collapse",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.menu.copy",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.menu.createCollection",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Sections/CollectionsSection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.menu.createExample",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.menu.createMockServer",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.menu.generateCode",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/ExampleItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.menu.generateDocs",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.menu.ignore",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.menu.importCollection",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Sections/CollectionsSection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.menu.info",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CollectionItemInfo/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.menu.moveIntoWorkspace",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.menu.openCollection",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Sections/CollectionsSection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.menu.paste",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.menu.remove",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ApiSpecs/ApiSpecItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.menu.rename",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/ExampleItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.menu.run",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RunCollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.menu.settings",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.menu.share",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.mockServers.createMockServer",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Sections/MockServersSection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.moveToWorkspace.collectionMoved",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.moveToWorkspace.description",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.moveToWorkspace.destination",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.moveToWorkspace.discardAllAndMove",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js"
+      ]
+    },
+    {
+      "k": "sidebar.moveToWorkspace.move",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.moveToWorkspace.moveError",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.moveToWorkspace.moving",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.moveToWorkspace.reloadNote",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.moveToWorkspace.saveAllAndMove",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js"
+      ]
+    },
+    {
+      "k": "sidebar.moveToWorkspace.saveAndMove",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js"
+      ]
+    },
+    {
+      "k": "sidebar.moveToWorkspace.title",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.name",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CloneCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/RenameCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js",
+        "packages/bruno-app/src/components/Sidebar/NewApp/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.newApp.collectionName",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/NewApp/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.newApp.createsIn",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/NewApp/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.newApp.nameRequired",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/NewApp/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.newApp.thisFolder",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/NewApp/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.newApp.title",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js",
+        "packages/bruno-app/src/components/Sidebar/NewApp/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.newFolder.folderName",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/NewFolder/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.newFolder.folderNameHelp",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/NewFolder/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.newFolder.title",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js",
+        "packages/bruno-app/src/components/Sidebar/NewFolder/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.newRequest.curlCommand",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.newRequest.curlPlaceholder",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.newRequest.fileName",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CollectionItemInfo/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.newRequest.fileNameHelp1",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.newRequest.fileNameHelp2",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.newRequest.fromCurl",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.newRequest.onFilesystem",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CollectionItemInfo/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/NewFolder/index.js",
+        "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.newRequest.requestName",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.newRequest.requestUrl",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.newRequest.title",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js",
+        "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.newRequest.type",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.open",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/CreateOrOpenCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/OpenCollection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.openCollection.collectionsNoun",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/OpenCollection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.openCollection.description",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/OpenCollection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.openCollection.noneFound",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/OpenCollection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.openCollection.noneFoundSkipped",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/OpenCollection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.openCollection.searchPlaceholder",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/OpenCollection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.openCollection.selectedOfTotal",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/OpenCollection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.openCollection.title",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/OpenCollection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.openInTerminal",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/index.js",
+        "packages/bruno-app/src/components/Sidebar/Sections/CollectionsSection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.options",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js",
+        "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js",
+        "packages/bruno-app/src/components/Sidebar/NewFolder/index.js",
+        "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.and",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.andMore",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.copyCommand",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.copyFailed",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.couldNotLocateCollection",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.customPackagesMid",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.customPackagesPrefix",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.customPackagesSuffix",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.devModeDescMid",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.devModeDescPrefix",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.devModeDescSuffix",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.devModeTitle",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.developerMode",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.developerModeEnabled",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.done",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.errorNoCollectionPath",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.externalModulesTitle",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.failedToStartInstall",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.failedToSwitchSandboxMode",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.installFailedExitCode",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.installFailedSeeDetails",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.installMany",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.installOne",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.installedIntoMany",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.installedIntoOne",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.installedMany",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.installedOne",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.installing",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.installingMany",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.installingOne",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.notSupportedHelp",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.notSupportedTitle",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.npmNotFound",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.npmTimeout",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.onlyEnableForTrusted",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.orInstallManually",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.packagesNotInstalledHelp",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.packagesUsedInScripts",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.runsInDevModePrefix",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.runsInDevModeSuffix",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.safeMode",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.skip",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.spawnFailed",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.switchToDeveloperMode",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.postmanReport.title",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.preserveScripts",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js",
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.renameCollection.rename",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/RenameCollection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.renameCollection.title",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/RenameCollection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.runCollection.alreadyRunning",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RunCollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.runCollection.delayLabel",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RunCollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.runCollection.delayPlaceholder",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RunCollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.runCollection.folderOnly",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RunCollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.runCollection.recursiveDesc",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RunCollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.runCollection.recursiveRun",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RunCollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.runCollection.requestCount",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RunCollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.runCollection.stillLoading",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RunCollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.runCollection.title",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RunCollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.runCollection.viewRun",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RunCollectionItem/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.searchPlaceholder",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/CollectionSearch/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.sections.apiSpecs",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Sections/ApiSpecsSection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.sections.collections",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Sections/CollectionsSection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.sections.mockServers",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Sections/MockServersSection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.sections.tools",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Sections/ToolsSection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.selectCollection.noCollectionsFound",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/SelectCollection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.selectCollection.title",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/SelectCollection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.showAdvancedOptions",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js",
+        "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.showFilesystemName",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/NewFolder/index.js",
+        "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.sortAZ",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Sections/CollectionsSection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.sortZA",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Sections/CollectionsSection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.toast.appCreated",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/NewApp/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.toast.collectionCreated",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CloneCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/InlineCollectionCreator/index.js",
+        "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.toast.collectionRenamed",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/RenameCollection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.toast.errorAddingFolder",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/NewFolder/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.toast.errorAddingRequest",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.toast.errorConvertingCollection",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.toast.errorCreatingApp",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/NewApp/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.toast.errorCreatingCollection",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/InlineCollectionCreator/index.js",
+        "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.toast.errorCreatingCollectionWithError",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CloneCollection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.toast.errorCreatingRequest",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Sections/CollectionsSection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.toast.errorOpeningApiSpec",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Sections/ApiSpecsSection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.toast.errorOpeningCollections",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/OpenCollection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.toast.errorRenamingCollection",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/RenameCollection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.toast.errorScanningCollections",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/OpenCollection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.toast.errorTogglingCollections",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/BulkActionsDropdown/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.toast.failedToSavePreferences",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Sections/CollectionsSection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.toast.newFolderCreated",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/NewFolder/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.toast.newRequestCreated",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.toast.unableToCreateRequest",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Sections/CollectionsSection/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.validation.curlRequired",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.validation.filenameRequired",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.validation.folderNameRequired",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CloneCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/NewFolder/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.validation.invalidCurl",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.validation.locationRequired",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js",
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js",
+        "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CloneCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js",
+        "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.validation.max255",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CloneCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js",
+        "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/NewApp/index.js",
+        "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.validation.max500",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js",
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.validation.min1Char",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js",
+        "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CloneCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/RenameCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js",
+        "packages/bruno-app/src/components/Sidebar/NewFolder/index.js",
+        "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.validation.nameRequired",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CloneCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/RenameCollection/index.js",
+        "packages/bruno-app/src/components/Sidebar/NewFolder/index.js",
+        "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.validation.repositoryUrlRequired",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/CloneGitRespository/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.validation.reservedFileNames",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js",
+        "packages/bruno-app/src/components/Sidebar/NewRequest/index.js"
+      ]
+    },
+    {
+      "k": "sidebar.validation.reservedFolderName",
+      "f": [
+        "packages/bruno-app/src/components/Sidebar/NewFolder/index.js"
+      ]
+    },
+    {
+      "k": "workspace.create.confirm",
+      "f": [
+        "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "workspace.create.creating",
+      "f": [
+        "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "workspace.create.description",
+      "f": [
+        "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "workspace.create.title",
+      "f": [
+        "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "workspace.help.extract1",
+      "f": [
+        "packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "workspace.help.extract2",
+      "f": [
+        "packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "workspace.help.folderName1",
+      "f": [
+        "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "workspace.help.folderName2",
+      "f": [
+        "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "workspace.help.location1",
+      "f": [
+        "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "workspace.help.location2",
+      "f": [
+        "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "workspace.import.chooseFile",
+      "f": [
+        "packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "workspace.import.confirm",
+      "f": [
+        "packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "workspace.import.dropPrefix",
+      "f": [
+        "packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "workspace.import.extractLocation",
+      "f": [
+        "packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "workspace.import.fileLabel",
+      "f": [
+        "packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "workspace.import.importing",
+      "f": [
+        "packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "workspace.import.remove",
+      "f": [
+        "packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "workspace.import.supportNote",
+      "f": [
+        "packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "workspace.import.title",
+      "f": [
+        "packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "workspace.label.folderName",
+      "f": [
+        "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "workspace.label.location",
+      "f": [
+        "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "workspace.label.name",
+      "f": [
+        "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "workspace.toast.couldNotGetFilePath",
+      "f": [
+        "packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "workspace.toast.createError",
+      "f": [
+        "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "workspace.toast.created",
+      "f": [
+        "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "workspace.toast.importFailed",
+      "f": [
+        "packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "workspace.toast.imported",
+      "f": [
+        "packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "workspace.toast.invalidZip",
+      "f": [
+        "packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "workspace.validation.folderNameRequired",
+      "f": [
+        "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "workspace.validation.locationRequired",
+      "f": [
+        "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "workspace.validation.locationRequiredLower",
+      "f": [
+        "packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "workspace.validation.maxTwoFiftyFive",
+      "f": [
+        "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "workspace.validation.minOneChar",
+      "f": [
+        "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "workspace.validation.nameAlreadyExists",
+      "f": [
+        "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "workspace.validation.nameEmpty",
+      "f": [
+        "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+      ]
+    },
+    {
+      "k": "workspace.validation.nameRequired",
+      "f": [
+        "packages/bruno-app/src/components/WorkspaceSidebar/CreateWorkspace/index.js"
+      ]
+    }
+  ]
+}

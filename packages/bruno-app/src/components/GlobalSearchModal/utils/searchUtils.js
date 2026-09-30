@@ -1,4 +1,5 @@
 import React from 'react';
+import i18n from '../../../i18n';
 import { SEARCH_TYPES, MATCH_TYPES, SEARCH_CONFIG } from '../constants';
 
 export const normalizeQuery = (searchQuery) => {
@@ -64,9 +65,9 @@ export const sortResults = (results) => {
 
 export const getTypeLabel = (type) => {
   const baseLabels = {
-    [SEARCH_TYPES.DOCUMENTATION]: 'Documentation',
-    [SEARCH_TYPES.COLLECTION]: 'Collection',
-    [SEARCH_TYPES.FOLDER]: 'Folder'
+    [SEARCH_TYPES.DOCUMENTATION]: i18n.t('globalSearch.type.documentation'),
+    [SEARCH_TYPES.COLLECTION]: i18n.t('globalSearch.type.collection'),
+    [SEARCH_TYPES.FOLDER]: i18n.t('globalSearch.type.folder')
   };
 
   return baseLabels[type] || '';

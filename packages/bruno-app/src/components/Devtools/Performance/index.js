@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import StyledWrapper from './StyledWrapper';
+import { useTranslation } from 'react-i18next';
 import {
   IconCpu,
   IconDatabase,
@@ -10,9 +11,9 @@ import {
   IconChartLine
 } from '@tabler/icons';
 
-const getProcessOptions = (processes) => {
+const getProcessOptions = (processes, t) => {
   return [
-    { value: 'cumulative', label: 'Cumulative (All Processes)' },
+    { value: 'cumulative', label: t('devtools.performance.allProcesses') },
     ...(processes ?? []).map((process) => ({
       value: String(process.pid),
       label: `PID ${process.pid}${process.title ? ` - ${process.title}` : ''}${process.type ? ` (${process.type})` : ''}`
@@ -21,6 +22,7 @@ const getProcessOptions = (processes) => {
 };
 
 const Performance = () => {
+  const { t } = useTranslation();
   const { systemResources } = useSelector((state) => state.performance);
   const [selectedPid, setSelectedPid] = useState('cumulative');
 
@@ -95,7 +97,7 @@ const Performance = () => {
   );
 
   // Get process options for dropdown
-  const processOptions = useMemo(() => getProcessOptions(systemResources.processes), [systemResources.processes]);
+  const processOptions = useMemo(() => getProcessOptions(systemResources.processes, t), [systemResources.processes, t]);
 
   // Get selected process data
   const selectedProcess = useMemo(() => {
@@ -115,37 +117,37 @@ const Performance = () => {
 
   const renderCumulativeView = () => (
     <div className="system-resources">
-      <h2>System Resources</h2>
+      <h2>{t('devtools.performance.systemResources')}</h2>
       <div className="resource-cards">
         <SystemResourceCard
           icon={IconCpu}
-          title="CPU Usage"
+          title={t('devtools.performance.cpuUsage')}
           value={`${systemResources.cpu.toFixed(1)}%`}
-          subtitle="Total CPU usage"
+          subtitle={t('devtools.performance.totalCpu')}
           color={systemResources.cpu > 80 ? 'danger' : systemResources.cpu > 60 ? 'warning' : 'success'}
         />
 
         <SystemResourceCard
           icon={IconDatabase}
-          title="Memory Usage"
+          title={t('devtools.performance.memoryUsage')}
           value={formatBytes(systemResources.memory)}
-          subtitle="Total memory usage"
+          subtitle={t('devtools.performance.totalMemory')}
           color={systemResources.memory > (500 * 1024 * 1024) ? 'danger' : 'default'}
         />
 
         <SystemResourceCard
           icon={IconClock}
-          title="Uptime"
+          title={t('devtools.performance.uptime')}
           value={formatUptime(systemResources.uptime)}
-          subtitle="Process runtime"
+          subtitle={t('devtools.performance.processRuntime')}
           color="info"
         />
 
         <SystemResourceCard
           icon={IconServer}
-          title="Process ID"
-          value={systemResources.pid || 'N/A'}
-          subtitle="Main process PID"
+          title={t('devtools.performance.processId')}
+          value={systemResources.pid || t('devtools.performance.na')}
+          subtitle={t('devtools.performance.mainProcessPid')}
           color="default"
         />
       </div>
@@ -162,39 +164,39 @@ const Performance = () => {
 
     return (
       <div className="system-resources">
-        <h2>System Resources</h2>
-        <div className="resource-cards">
-          <SystemResourceCard
-            icon={IconCpu}
-            title="CPU Usage"
-            value={`${process.cpu.toFixed(1)}%`}
-            subtitle="Current CPU usage"
-            color={process.cpu > 80 ? 'danger' : process.cpu > 60 ? 'warning' : 'success'}
-          />
+        <h2>{t('devtools.performance.systemResources')}</h2>
+      <div className="resource-cards">
+        <SystemResourceCard
+          icon={IconCpu}
+          title={t('devtools.performance.cpuUsage')}
+          value={`${process.cpu.toFixed(1)}%`}
+          subtitle={t('devtools.performance.currentCpu')}
+          color={process.cpu > 80 ? 'danger' : process.cpu > 60 ? 'warning' : 'success'}
+        />
 
-          <SystemResourceCard
-            icon={IconDatabase}
-            title="Memory Usage"
-            value={formatBytes(process.memory)}
-            subtitle="Current memory usage"
-            color={process.memory > (500 * 1024 * 1024) ? 'danger' : 'default'}
-          />
+        <SystemResourceCard
+          icon={IconDatabase}
+          title={t('devtools.performance.memoryUsage')}
+          value={formatBytes(process.memory)}
+          subtitle={t('devtools.performance.currentMemory')}
+          color={process.memory > (500 * 1024 * 1024) ? 'danger' : 'default'}
+        />
 
-          <SystemResourceCard
-            icon={IconClock}
-            title="Uptime"
-            value={formatUptime(processUptime)}
-            subtitle="Process runtime"
-            color="info"
-          />
+        <SystemResourceCard
+          icon={IconClock}
+          title={t('devtools.performance.uptime')}
+          value={formatUptime(processUptime)}
+          subtitle={t('devtools.performance.processRuntime')}
+          color="info"
+        />
 
-          <SystemResourceCard
-            icon={IconServer}
-            title="Process ID"
-            value={process.pid}
-            subtitle="Process PID"
-            color="default"
-          />
+        <SystemResourceCard
+          icon={IconServer}
+          title={t('devtools.performance.processId')}
+          value={process.pid}
+          subtitle={t('devtools.performance.processPid')}
+          color="default"
+        />
         </div>
       </div>
     );
@@ -206,7 +208,7 @@ const Performance = () => {
         <div className="performance-header">
           <div className="performance-selector-wrapper">
             <label htmlFor="process-selector" className="performance-selector-label">
-              View:
+              {t('devtools.performance.view')}
             </label>
             <div className="performance-selector">
               <select

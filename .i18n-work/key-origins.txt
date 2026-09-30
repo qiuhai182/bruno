@@ -1,0 +1,943 @@
+FILE: packages/bruno-app/src/components/CollectionApp/index.js
+  KEYS: collection.app.title
+  OLD| <span>App - {item.name}</span>
+FILE: packages/bruno-app/src/components/CollectionApp/index.js
+  KEYS: collection.app.code
+  OLD| Code
+FILE: packages/bruno-app/src/components/CollectionApp/index.js
+  KEYS: collection.app.preview
+  OLD| Preview
+FILE: packages/bruno-app/src/components/CollectionApp/index.js
+  KEYS: collection.app.emptyHint
+  OLD| hint="Add HTML/JS in the Code view to render a custom UI for this app."
+FILE: packages/bruno-app/src/components/CollectionSettings/Auth/ApiKeyAuth/index.js
+  KEYS: collection.auth.apiKey.key
+  OLD| <label className="block mb-1">Key</label>
+FILE: packages/bruno-app/src/components/CollectionSettings/Auth/ApiKeyAuth/index.js
+  KEYS: collection.auth.apiKey.value
+  OLD| <label className="block mb-1">Value</label>
+FILE: packages/bruno-app/src/components/CollectionSettings/Auth/ApiKeyAuth/index.js
+  KEYS: collection.auth.apiKey.addTo
+  OLD| <label className="block mb-1">Add To</label>
+FILE: packages/bruno-app/src/components/CollectionSettings/Auth/ApiKeyAuth/index.js
+  KEYS: collection.auth.apiKey.header
+  OLD| Header
+FILE: packages/bruno-app/src/components/CollectionSettings/Auth/ApiKeyAuth/index.js
+  KEYS: collection.auth.apiKey.queryParams
+  OLD| Query Params
+FILE: packages/bruno-app/src/components/CollectionSettings/Auth/AuthMode/index.js
+  KEYS: collection.auth.mode.awsv4
+  OLD| label: 'AWS Sig v4',
+FILE: packages/bruno-app/src/components/CollectionSettings/Auth/AuthMode/index.js
+  KEYS: collection.auth.mode.basic
+  OLD| label: 'Basic Auth',
+FILE: packages/bruno-app/src/components/CollectionSettings/Auth/AuthMode/index.js
+  KEYS: collection.auth.mode.wsse
+  OLD| label: 'WSSE Auth',
+FILE: packages/bruno-app/src/components/CollectionSettings/Auth/AuthMode/index.js
+  KEYS: collection.auth.mode.bearer
+  OLD| label: 'Bearer Token',
+FILE: packages/bruno-app/src/components/CollectionSettings/Auth/AuthMode/index.js
+  KEYS: collection.auth.mode.digest
+  OLD| label: 'Digest Auth',
+FILE: packages/bruno-app/src/components/CollectionSettings/Auth/AuthMode/index.js
+  KEYS: collection.auth.mode.ntlm
+  OLD| label: 'NTLM Auth',
+FILE: packages/bruno-app/src/components/CollectionSettings/Auth/AuthMode/index.js
+  KEYS: collection.auth.mode.oauth1
+  OLD| label: 'OAuth 1.0',
+FILE: packages/bruno-app/src/components/CollectionSettings/Auth/AuthMode/index.js
+  KEYS: collection.auth.mode.oauth2
+  OLD| label: 'OAuth 2.0',
+FILE: packages/bruno-app/src/components/CollectionSettings/Auth/AuthMode/index.js
+  KEYS: collection.auth.mode.apikey
+  OLD| label: 'API Key',
+FILE: packages/bruno-app/src/components/CollectionSettings/Auth/AuthMode/index.js
+  KEYS: collection.auth.mode.akamaiEdgegrid
+  OLD| Akamai EdgeGrid
+FILE: packages/bruno-app/src/components/CollectionSettings/Auth/AuthMode/index.js
+  KEYS: collection.auth.mode.akamaiEdgegridAria
+  OLD| ariaLabel: 'Akamai EdgeGrid (Beta)',
+FILE: packages/bruno-app/src/components/CollectionSettings/Auth/AuthMode/index.js
+  KEYS: collection.auth.mode.none
+  OLD| label: 'No Auth',
+  OLD| ], [onModeChange]);
+FILE: packages/bruno-app/src/components/CollectionSettings/Auth/AwsV4Auth/index.js
+  KEYS: collection.auth.awsv4.accessKeyId
+  OLD| <label className="block mb-1">Access Key ID</label>
+FILE: packages/bruno-app/src/components/CollectionSettings/Auth/AwsV4Auth/index.js
+  KEYS: collection.auth.awsv4.secretAccessKey
+  OLD| <label className="block mb-1">Secret Access Key</label>
+FILE: packages/bruno-app/src/components/CollectionSettings/Auth/AwsV4Auth/index.js
+  KEYS: collection.auth.awsv4.sessionToken
+  OLD| <label className="block mb-1">Session Token</label>
+FILE: packages/bruno-app/src/components/CollectionSettings/Auth/AwsV4Auth/index.js
+  KEYS: collection.auth.awsv4.service
+  OLD| <label className="block mb-1">Service</label>
+FILE: packages/bruno-app/src/components/CollectionSettings/Auth/AwsV4Auth/index.js
+  KEYS: collection.auth.awsv4.region
+  OLD| <label className="block mb-1">Region</label>
+FILE: packages/bruno-app/src/components/CollectionSettings/Auth/AwsV4Auth/index.js
+  KEYS: collection.auth.awsv4.profileName
+  OLD| <label className="block mb-1">Profile Name</label>
+FILE: packages/bruno-app/src/components/CollectionSettings/Auth/BasicAuth/index.js
+  KEYS: collection.auth.username
+  OLD| <label className="block mb-1">Username</label>
+FILE: packages/bruno-app/src/components/CollectionSettings/Auth/BasicAuth/index.js
+  KEYS: collection.auth.password
+  OLD| <label className="block mb-1">Password</label>
+FILE: packages/bruno-app/src/components/CollectionSettings/Auth/BearerAuth/index.js
+  KEYS: collection.auth.token
+  OLD| <label className="block mb-1">Token</label>
+FILE: packages/bruno-app/src/components/CollectionSettings/Auth/DigestAuth/index.js
+  KEYS: collection.auth.username
+  OLD| <label className="block mb-1">Username</label>
+FILE: packages/bruno-app/src/components/CollectionSettings/Auth/DigestAuth/index.js
+  KEYS: collection.auth.password
+  OLD| <label className="block mb-1">Password</label>
+FILE: packages/bruno-app/src/components/CollectionSettings/Auth/EdgeGridAuth/index.tsx
+  KEYS: collection.auth.edgegrid.advancedSettings
+  OLD| <span>Advanced Settings</span>
+FILE: packages/bruno-app/src/components/CollectionSettings/Auth/NTLMAuth/index.js
+  KEYS: collection.auth.username
+  OLD| <label className="block mb-1">Username</label>
+FILE: packages/bruno-app/src/components/CollectionSettings/Auth/NTLMAuth/index.js
+  KEYS: collection.auth.password
+  OLD| <label className="block mb-1">Password</label>
+FILE: packages/bruno-app/src/components/CollectionSettings/Auth/NTLMAuth/index.js
+  KEYS: collection.auth.domain
+  OLD| <label className="block mb-1">Domain</label>
+FILE: packages/bruno-app/src/components/CollectionSettings/Auth/OAuth2/index.js
+  KEYS: collection.auth.oauth2.tbd
+  OLD| return <div>TBD</div>;
+FILE: packages/bruno-app/src/components/CollectionSettings/Auth/WsseAuth/index.js
+  KEYS: collection.auth.username
+  OLD| <label className="block mb-1">Username</label>
+FILE: packages/bruno-app/src/components/CollectionSettings/Auth/WsseAuth/index.js
+  KEYS: collection.auth.password
+  OLD| <label className="block mb-1">Password</label>
+FILE: packages/bruno-app/src/components/CollectionSettings/Auth/index.js
+  KEYS: collection.auth.descriptionPrefix, collection.auth.inherit, collection.auth.descriptionMiddle, collection.auth.authTab, collection.auth.descriptionSuffix
+  OLD| Configures authentication for the entire collection. This applies to all requests using the{' '}
+  OLD| <span className="font-medium">Inherit</span> option in the <span className="font-medium">Auth</span> tab.
+FILE: packages/bruno-app/src/components/CollectionSettings/Auth/index.js
+  KEYS: common.save
+  OLD| Save
+FILE: packages/bruno-app/src/components/CollectionSettings/ClientCertSettings/index.js
+  KEYS: collection.common.removeFile, collection.common.chooseFile
+  OLD| const CertFileInput = ({ label, name, value, inputRef, onSelect, onClear, error, touched, dangerColor }) => (
+  OLD| <div className="mb-3 flex items-start">
+  OLD| <label className="settings-label mt-1" htmlFor={name}>
+  OLD| {label}
+  OLD| </label>
+  OLD| <div className="flex flex-col gap-1">
+  OLD| <input
+  OLD| key={name}
+  OLD| id={name}
+  OLD| type="file"
+  OLD| name={name}
+  OLD| className="hidden"
+  OLD| onChange={(e) => onSelect(e.target)}
+  OLD| ref={inputRef}
+  OLD| />
+  OLD| {value ? (
+  OLD| <div className="file-chip" data-testid={`file-chip-${name}`}>
+  OLD| <IconFile size={14} strokeWidth={1.5} className="flex-shrink-0" />
+  OLD| <span className="truncate max-w-[260px]" title={value}>
+  OLD| {path.basename(value)}
+  OLD| </span>
+  OLD| <ActionIcon type="button" label="Remove file" size="sm" colorOnHover={dangerColor} onClick={onClear}>
+  OLD| <IconX size={14} strokeWidth={1.5} />
+  OLD| </ActionIcon>
+  OLD| </div>
+  OLD| ) : (
+  OLD| <Button
+  OLD| size="xs"
+  OLD| variant="outline"
+  OLD| icon={<IconUpload size={13} strokeWidth={1.5} />}
+  OLD| onClick={() => inputRef.current?.click()}
+  OLD| data-testid={`choose-file-${name}`}
+  OLD| >
+  OLD| Choose file
+  OLD| </Button>
+  OLD| )}
+  OLD| {touched && error ? <div className="text-red-500 text-xs">{error}</div> : null}
+  OLD| </div>
+  OLD| );
+FILE: packages/bruno-app/src/components/CollectionSettings/ClientCertSettings/index.js
+  KEYS: collection.clientCert.domainRequired
+  OLD| .test('not-empty-after-trim', 'Domain is required', (value) => value && value.trim().length > 0),
+FILE: packages/bruno-app/src/components/CollectionSettings/ClientCertSettings/index.js
+  KEYS: collection.clientCert.certFileRequired
+  OLD| then: Yup.string().min(1, 'certFilePath is a required field').required()
+FILE: packages/bruno-app/src/components/CollectionSettings/ClientCertSettings/index.js
+  KEYS: collection.clientCert.keyFileRequired
+  OLD| then: Yup.string().min(1, 'keyFilePath is a required field').required()
+FILE: packages/bruno-app/src/components/CollectionSettings/ClientCertSettings/index.js
+  KEYS: collection.clientCert.pfxFileRequired
+  OLD| then: Yup.string().min(1, 'pfxFilePath is a required field').required()
+FILE: packages/bruno-app/src/components/CollectionSettings/ClientCertSettings/index.js
+  KEYS: collection.clientCert.title, collection.clientCert.subtitle
+  OLD| <h1 className="font-medium text-[0.9375rem]">Client Certificates</h1>
+  OLD| <div className="text-xs mt-1 text-muted">Add client certificates to be used for specific domains.</div>
+FILE: packages/bruno-app/src/components/CollectionSettings/ClientCertSettings/index.js
+  KEYS: collection.clientCert.emptyTitle, collection.clientCert.emptyText, collection.clientCert.addCertificate
+  OLD| title: 'No client certificates',
+  OLD| text: 'Certificates added here are sent automatically with requests to their matching domains.'
+  OLD| label: 'Add Certificate',
+FILE: packages/bruno-app/src/components/CollectionSettings/ClientCertSettings/index.js
+  KEYS: common.save
+  OLD| Save
+FILE: packages/bruno-app/src/components/CollectionSettings/ClientCertSettings/index.js
+  KEYS: collection.clientCert.enableCertificate, collection.clientCert.disableCertificate, collection.clientCert.removeCertificate
+  OLD| title={clientCert.disabled ? 'Enable certificate' : 'Disable certificate'}
+  OLD| label="Remove certificate"
+FILE: packages/bruno-app/src/components/CollectionSettings/ClientCertSettings/index.js
+  KEYS: collection.clientCert.host, collection.clientCert.pfxFileLabel, collection.clientCert.certFileLabel, collection.clientCert.keyFileLabel
+  OLD| <CertField label="Host" value={clientCert.domain} title={clientCert.domain} />
+  OLD| <CertField label="PFX File" value={path.basename(clientCert.pfxFilePath || '')} title={clientCert.pfxFilePath} />
+  OLD| <CertField label="Cert File" value={path.basename(clientCert.certFilePath || '')} title={clientCert.certFilePath} />
+  OLD| <CertField label="Key File" value={path.basename(clientCert.keyFilePath || '')} title={clientCert.keyFilePath} />
+FILE: packages/bruno-app/src/components/CollectionSettings/ClientCertSettings/index.js
+  KEYS: collection.clientCert.passphrase
+  OLD| label="Passphrase"
+  OLD| value={visiblePassphrases.includes(index) ? clientCert.passphrase : '••••••••'}
+FILE: packages/bruno-app/src/components/CollectionSettings/ClientCertSettings/index.js
+  KEYS: collection.clientCert.hidePassphrase, collection.clientCert.showPassphrase
+  OLD| label={visiblePassphrases.includes(index) ? 'Hide passphrase' : 'Show passphrase'}
+FILE: packages/bruno-app/src/components/CollectionSettings/ClientCertSettings/index.js
+  KEYS: collection.clientCert.addModalTitle, collection.common.add
+  OLD| title="Add Client Certificate"
+  OLD| confirmText="Add"
+FILE: packages/bruno-app/src/components/CollectionSettings/ClientCertSettings/index.js
+  KEYS: collection.clientCert.relativePathsNote
+  OLD| The certificate and key files are stored as paths relative to the collection.
+FILE: packages/bruno-app/src/components/CollectionSettings/ClientCertSettings/index.js
+  KEYS: collection.clientCert.domain
+  OLD| Domain
+FILE: packages/bruno-app/src/components/CollectionSettings/ClientCertSettings/index.js
+  KEYS: collection.clientCert.type
+  OLD| Type
+FILE: packages/bruno-app/src/components/CollectionSettings/ClientCertSettings/index.js
+  KEYS: collection.clientCert.certAndKey
+  OLD| Cert &amp; Key
+FILE: packages/bruno-app/src/components/CollectionSettings/ClientCertSettings/index.js
+  KEYS: collection.clientCert.certFileLabel
+  OLD| label="Cert file"
+FILE: packages/bruno-app/src/components/CollectionSettings/ClientCertSettings/index.js
+  KEYS: collection.clientCert.keyFileLabel
+  OLD| label="Key file"
+FILE: packages/bruno-app/src/components/CollectionSettings/ClientCertSettings/index.js
+  KEYS: collection.clientCert.pfxFileLabel
+  OLD| label="PFX file"
+FILE: packages/bruno-app/src/components/CollectionSettings/ClientCertSettings/index.js
+  KEYS: collection.clientCert.passphrase
+  OLD| Passphrase
+FILE: packages/bruno-app/src/components/CollectionSettings/Docs/index.js
+  KEYS: collection.docs.title
+  OLD| Documentation
+FILE: packages/bruno-app/src/components/CollectionSettings/Docs/index.js
+  KEYS: common.cancel, common.save
+  OLD| Cancel
+  OLD| Save
+FILE: packages/bruno-app/src/components/CollectionSettings/Docs/index.js
+  KEYS: collection.docs.placeholder
+  OLD| emptyPreviewContent={documentationPlaceholder}
+FILE: packages/bruno-app/src/components/CollectionSettings/Headers/index.js
+  KEYS: collection.headers.errorName
+  OLD| return 'Header name cannot contain spaces or newlines';
+FILE: packages/bruno-app/src/components/CollectionSettings/Headers/index.js
+  KEYS: collection.headers.errorValue
+  OLD| return 'Header value cannot contain newlines';
+FILE: packages/bruno-app/src/components/CollectionSettings/Headers/index.js
+  KEYS: collection.table.name
+  OLD| name: 'Name',
+  OLD| placeholder: 'Name',
+FILE: packages/bruno-app/src/components/CollectionSettings/Headers/index.js
+  KEYS: collection.table.name
+  OLD| placeholder={!value ? 'Name' : ''}
+FILE: packages/bruno-app/src/components/CollectionSettings/Headers/index.js
+  KEYS: collection.table.value
+  OLD| name: 'Value',
+  OLD| placeholder: 'Value',
+FILE: packages/bruno-app/src/components/CollectionSettings/Headers/index.js
+  KEYS: collection.table.value
+  OLD| placeholder={!value ? 'Value' : ''}
+FILE: packages/bruno-app/src/components/CollectionSettings/Headers/index.js
+  KEYS: collection.headers.description
+  OLD| Add request headers that will be sent with every request in this collection.
+FILE: packages/bruno-app/src/components/CollectionSettings/Headers/index.js
+  KEYS: collection.headers.description
+  OLD| Add request headers that will be sent with every request in this collection.
+FILE: packages/bruno-app/src/components/CollectionSettings/Headers/index.js
+  KEYS: common.bulkEdit
+  OLD| Bulk Edit
+FILE: packages/bruno-app/src/components/CollectionSettings/Headers/index.js
+  KEYS: common.save
+  OLD| Save
+FILE: packages/bruno-app/src/components/CollectionSettings/Overview/Info/index.js
+  KEYS: collection.overview.location
+  OLD| <div className="font-medium">Location</div>
+FILE: packages/bruno-app/src/components/CollectionSettings/Overview/Info/index.js
+  KEYS: collection.overview.version
+  OLD| <div className="font-medium h-fit my-auto">Version</div>
+FILE: packages/bruno-app/src/components/CollectionSettings/Overview/Info/index.js
+  KEYS: collection.overview.notSet, collection.overview.change
+  OLD| <span className="text-muted italic" data-testid="info-version-value">Not Set</span>
+  OLD| <span className="group-hover:underline text-link" data-testid="info-version-change">change</span>
+FILE: packages/bruno-app/src/components/CollectionSettings/Overview/Info/index.js
+  KEYS: collection.overview.environments
+  OLD| <div className="font-medium">Environments</div>
+FILE: packages/bruno-app/src/components/CollectionSettings/Overview/Info/index.js
+  KEYS: collection.overview.collectionEnvironments
+  OLD| {collectionEnvironmentCount} collection environment{collectionEnvironmentCount !== 1 ? 's' : ''}
+FILE: packages/bruno-app/src/components/CollectionSettings/Overview/Info/index.js
+  KEYS: collection.overview.globalEnvironments
+  OLD| {globalEnvironmentCount} global environment{globalEnvironmentCount !== 1 ? 's' : ''}
+FILE: packages/bruno-app/src/components/CollectionSettings/Overview/Info/index.js
+  KEYS: collection.overview.requests, collection.overview.requestsLoadedProgress, collection.overview.requestsInCollection
+  OLD| <div className="font-medium">Requests</div>
+  OLD| isCollectionLoading ? `${totalItems - itemsLoadingCount} out of ${totalItems} requests in the collection loaded` : `${totalRequestsInCollection} request${totalRequestsInCollection !== 1 ? 's' : ''} in collection`
+FILE: packages/bruno-app/src/components/CollectionSettings/Overview/Info/index.js
+  KEYS: collection.overview.share, collection.overview.shareCollection
+  OLD| <div className="font-medium h-fit my-auto">Share</div>
+  OLD| Share Collection
+FILE: packages/bruno-app/src/components/CollectionSettings/Overview/Info/index.js
+  KEYS: collection.overview.documentation, collection.overview.generateDocs
+  OLD| <div className="font-medium h-fit my-auto">Documentation</div>
+  OLD| Generate Docs
+FILE: packages/bruno-app/src/components/CollectionSettings/Overview/Migration/index.js
+  KEYS: collection.migration.title
+  OLD| Migration
+FILE: packages/bruno-app/src/components/CollectionSettings/Overview/Migration/index.js
+  KEYS: collection.migration.migrateToYml, collection.migration.description
+  OLD| <div className="font-medium">Migrate to YML file format</div>
+  OLD| This collection is stored in BRU format.{' '}
+  OLD| Switch to YML.{' '}
+FILE: packages/bruno-app/src/components/CollectionSettings/Overview/Migration/index.js
+  KEYS: collection.migration.learnMore
+  OLD| Learn More &#x2197;
+FILE: packages/bruno-app/src/components/CollectionSettings/Overview/Migration/index.js
+  KEYS: collection.migration.convertToYml
+  OLD| Convert to YML
+FILE: packages/bruno-app/src/components/CollectionSettings/Overview/RequestsNotLoaded/index.js
+  KEYS: collection.overview.requestsNotLoaded.title
+  OLD| <span className="font-medium">Following requests were not loaded</span>
+FILE: packages/bruno-app/src/components/CollectionSettings/Overview/RequestsNotLoaded/index.js
+  KEYS: collection.overview.requestsNotLoaded.pathname, collection.overview.requestsNotLoaded.size
+  OLD| Pathname
+  OLD| Size
+FILE: packages/bruno-app/src/components/CollectionSettings/Presets/index.js
+  KEYS: collection.presets.none
+  OLD| { id: '', label: 'None', onClick: () => handleDefaultEnvironmentChange('') },
+FILE: packages/bruno-app/src/components/CollectionSettings/Presets/index.js
+  KEYS: collection.presets.defaultRequestType, collection.presets.defaultRequestTypeSubtitle
+  OLD| <label className="preset-field-label">Default Request Type</label>
+  OLD| <p className="preset-field-subtitle">Selected by default for new requests.</p>
+  OLD| ariaLabel="Default Request Type"
+FILE: packages/bruno-app/src/components/CollectionSettings/Presets/index.js
+  KEYS: collection.presets.defaultBaseUrl, collection.presets.defaultBaseUrlSubtitle
+  OLD| <label className="preset-field-label" htmlFor="request-url">Default Base URL</label>
+  OLD| <p className="preset-field-subtitle">Pre-fills the URL field for new requests.</p>
+FILE: packages/bruno-app/src/components/CollectionSettings/Presets/index.js
+  KEYS: collection.presets.requestUrlPlaceholder
+  OLD| placeholder="Request URL"
+FILE: packages/bruno-app/src/components/CollectionSettings/Presets/index.js
+  KEYS: collection.presets.defaultEnvironment, collection.presets.defaultEnvironmentSubtitle
+  OLD| <label className="preset-field-label" htmlFor="default-environment">Default Environment</label>
+  OLD| <p className="preset-field-subtitle">Selected when this collection is shared and first opened.</p>
+FILE: packages/bruno-app/src/components/CollectionSettings/Presets/index.js
+  KEYS: collection.presets.none
+  OLD| <span className="truncate">{defaultEnvironmentName || 'None'}</span>
+FILE: packages/bruno-app/src/components/CollectionSettings/Presets/index.js
+  KEYS: common.save
+  OLD| Save
+FILE: packages/bruno-app/src/components/CollectionSettings/Protobuf/index.js
+  KEYS: collection.protobuf.protoFiles
+  OLD| Proto Files (
+  OLD| {protoFiles.length}
+  OLD| )
+FILE: packages/bruno-app/src/components/CollectionSettings/Protobuf/index.js
+  KEYS: collection.protobuf.protoFilesTip
+  OLD| html="Keep your proto files within the collection folder or the corresponding git repository to ensure paths remain valid when sharing the collection."
+FILE: packages/bruno-app/src/components/CollectionSettings/Protobuf/index.js
+  KEYS: collection.protobuf.missingProtoFiles
+  OLD| Some proto files cannot be found. Use the replace option to update their locations.
+FILE: packages/bruno-app/src/components/CollectionSettings/Protobuf/index.js
+  KEYS: collection.table.file, collection.table.path, collection.table.actions
+  OLD| File
+  OLD| Path
+  OLD| Actions
+FILE: packages/bruno-app/src/components/CollectionSettings/Protobuf/index.js
+  KEYS: collection.protobuf.noProtoFiles
+  OLD| <span className="empty-text">No proto files added</span>
+FILE: packages/bruno-app/src/components/CollectionSettings/Protobuf/index.js
+  KEYS: collection.common.replaceFile
+  OLD| title="Replace file"
+FILE: packages/bruno-app/src/components/CollectionSettings/Protobuf/index.js
+  KEYS: collection.common.removeFile
+  OLD| title="Remove file"
+FILE: packages/bruno-app/src/components/CollectionSettings/Protobuf/index.js
+  KEYS: collection.protobuf.addProtoFile
+  OLD| + Add Proto File
+FILE: packages/bruno-app/src/components/CollectionSettings/Protobuf/index.js
+  KEYS: collection.protobuf.importPaths
+  OLD| Import Paths (
+  OLD| {importPaths.length}
+  OLD| )
+FILE: packages/bruno-app/src/components/CollectionSettings/Protobuf/index.js
+  KEYS: collection.protobuf.importPathsTip
+  OLD| html="Add directories that contain proto files to be imported. These paths help resolve import statements in your proto files."
+FILE: packages/bruno-app/src/components/CollectionSettings/Protobuf/index.js
+  KEYS: collection.protobuf.missingImportPaths
+  OLD| Some import paths cannot be found at their specified locations.
+FILE: packages/bruno-app/src/components/CollectionSettings/Protobuf/index.js
+  KEYS: collection.table.directory, collection.table.path, collection.table.actions
+  OLD| Directory
+  OLD| Path
+  OLD| Actions
+FILE: packages/bruno-app/src/components/CollectionSettings/Protobuf/index.js
+  KEYS: collection.protobuf.noImportPaths
+  OLD| <span className="empty-text">No import paths added</span>
+FILE: packages/bruno-app/src/components/CollectionSettings/Protobuf/index.js
+  KEYS: collection.protobuf.disableImportPath, collection.protobuf.enableImportPath
+  OLD| title={importPath.enabled ? 'Disable this import path' : 'Enable this import path'}
+FILE: packages/bruno-app/src/components/CollectionSettings/Protobuf/index.js
+  KEYS: collection.common.replaceDirectory
+  OLD| title="Replace directory"
+FILE: packages/bruno-app/src/components/CollectionSettings/Protobuf/index.js
+  KEYS: collection.common.removeImportPath
+  OLD| title="Remove import path"
+FILE: packages/bruno-app/src/components/CollectionSettings/Protobuf/index.js
+  KEYS: collection.protobuf.addImportPath
+  OLD| + Add Import Path
+FILE: packages/bruno-app/src/components/CollectionSettings/Protobuf/index.js
+  KEYS: common.save
+  OLD| Save
+FILE: packages/bruno-app/src/components/CollectionSettings/ProxySettings/index.js
+  KEYS: collection.proxy.hostnameTooLong
+  OLD| toast.error('Hostname must be less than 1024 characters');
+FILE: packages/bruno-app/src/components/CollectionSettings/ProxySettings/index.js
+  KEYS: collection.proxy.portInvalid
+  OLD| toast.error('Port must be a valid number');
+FILE: packages/bruno-app/src/components/CollectionSettings/ProxySettings/index.js
+  KEYS: collection.proxy.portOutOfRange
+  OLD| toast.error('Port must be between 1 and 65535');
+FILE: packages/bruno-app/src/components/CollectionSettings/ProxySettings/index.js
+  KEYS: collection.proxy.usernameTooLong
+  OLD| toast.error('Username must be less than 1024 characters');
+FILE: packages/bruno-app/src/components/CollectionSettings/ProxySettings/index.js
+  KEYS: collection.proxy.passwordTooLong
+  OLD| toast.error('Password must be less than 1024 characters');
+FILE: packages/bruno-app/src/components/CollectionSettings/ProxySettings/index.js
+  KEYS: collection.proxy.bypassTooLong
+  OLD| toast.error('Bypass proxy must be less than 1024 characters');
+FILE: packages/bruno-app/src/components/CollectionSettings/ProxySettings/index.js
+  KEYS: collection.proxy.description
+  OLD| <div className="text-xs mb-4 text-muted">Configure proxy settings for this collection.</div>
+FILE: packages/bruno-app/src/components/CollectionSettings/ProxySettings/index.js
+  KEYS: collection.proxy.config
+  OLD| Config
+FILE: packages/bruno-app/src/components/CollectionSettings/ProxySettings/index.js
+  KEYS: collection.proxy.inherit, collection.proxy.inheritTip, collection.proxy.enabled, collection.proxy.enabledTip, collection.proxy.disabled, collection.proxy.disabledTip
+  OLD| <li><span style={{ width: '50px', display: 'inline-block' }}>inherit</span> - inherit from global preferences</li>
+  OLD| <li><span style={{ width: '50px', display: 'inline-block' }}>enabled</span> - use collection-specific proxy config</li>
+  OLD| <li><span style={{ width: '50px', display: 'inline-block' }}>disabled</span> - disable proxy for this collection</li>
+FILE: packages/bruno-app/src/components/CollectionSettings/ProxySettings/index.js
+  KEYS: collection.proxy.inherit
+  OLD| inherit
+FILE: packages/bruno-app/src/components/CollectionSettings/ProxySettings/index.js
+  KEYS: collection.proxy.enabled
+  OLD| enabled
+FILE: packages/bruno-app/src/components/CollectionSettings/ProxySettings/index.js
+  KEYS: collection.proxy.disabled
+  OLD| disabled
+FILE: packages/bruno-app/src/components/CollectionSettings/ProxySettings/index.js
+  KEYS: collection.proxy.protocol
+  OLD| Protocol
+FILE: packages/bruno-app/src/components/CollectionSettings/ProxySettings/index.js
+  KEYS: collection.proxy.hostname
+  OLD| Hostname
+FILE: packages/bruno-app/src/components/CollectionSettings/ProxySettings/index.js
+  KEYS: collection.proxy.port
+  OLD| Port
+FILE: packages/bruno-app/src/components/CollectionSettings/ProxySettings/index.js
+  KEYS: collection.proxy.auth
+  OLD| Auth
+FILE: packages/bruno-app/src/components/CollectionSettings/ProxySettings/index.js
+  KEYS: collection.auth.username
+  OLD| Username
+FILE: packages/bruno-app/src/components/CollectionSettings/ProxySettings/index.js
+  KEYS: collection.auth.password
+  OLD| Password
+FILE: packages/bruno-app/src/components/CollectionSettings/ProxySettings/index.js
+  KEYS: collection.proxy.bypass
+  OLD| Proxy Bypass
+FILE: packages/bruno-app/src/components/CollectionSettings/ProxySettings/index.js
+  KEYS: common.save
+  OLD| Save
+FILE: packages/bruno-app/src/components/CollectionSettings/Script/index.js
+  KEYS: collection.script.description
+  OLD| Write pre and post-request scripts that will run before and after any request in this collection is sent.
+FILE: packages/bruno-app/src/components/CollectionSettings/Script/index.js
+  KEYS: common.preRequest
+  OLD| Pre Request
+FILE: packages/bruno-app/src/components/CollectionSettings/Script/index.js
+  KEYS: common.postResponse
+  OLD| Post Response
+FILE: packages/bruno-app/src/components/CollectionSettings/Script/index.js
+  KEYS: common.save
+  OLD| Save
+FILE: packages/bruno-app/src/components/CollectionSettings/Tests/index.js
+  KEYS: collection.tests.description
+  OLD| <div className="text-xs mb-4 text-muted">These tests will run any time a request in this collection is sent.</div>
+FILE: packages/bruno-app/src/components/CollectionSettings/Tests/index.js
+  KEYS: common.save
+  OLD| Save
+FILE: packages/bruno-app/src/components/CollectionSettings/Vars/VarsTable/index.js
+  KEYS: collection.vars.errorName
+  OLD| return 'Variable contains invalid characters. Must only contain alphanumeric characters, "-", "_", "."';
+  OLD| }, []);
+FILE: packages/bruno-app/src/components/CollectionSettings/Vars/VarsTable/index.js
+  KEYS: collection.table.name
+  OLD| name: 'Name',
+  OLD| placeholder: 'Name',
+FILE: packages/bruno-app/src/components/CollectionSettings/Vars/VarsTable/index.js
+  KEYS: collection.table.value, collection.table.expr, collection.vars.exprTip
+  OLD| name: varType === 'request' ? 'Value' : (
+  OLD| <span>Expr</span>
+  OLD| <InfoTip content="You can write any valid JS Template Literal here" infotipId={`collection-${varType}-var`} />
+  OLD| placeholder: varType === 'request' ? 'Value' : 'Expr',
+FILE: packages/bruno-app/src/components/CollectionSettings/Vars/VarsTable/index.js
+  KEYS: collection.table.value, collection.table.expr
+  OLD| placeholder={value == null || (typeof value === 'string' && value.trim() === '') ? (varType === 'request' ? 'Value' : 'Expr') : ''}
+FILE: packages/bruno-app/src/components/CollectionSettings/Vars/index.js
+  KEYS: common.preRequest
+  OLD| <div className="mb-3 title text-xs">Pre Request</div>
+FILE: packages/bruno-app/src/components/CollectionSettings/Vars/index.js
+  KEYS: common.postResponse
+  OLD| <div className="mt-3 mb-3 title text-xs">Post Response</div>
+FILE: packages/bruno-app/src/components/CollectionSettings/Vars/index.js
+  KEYS: common.save
+  OLD| Save
+FILE: packages/bruno-app/src/components/CollectionSettings/index.js
+  KEYS: collection.settings.tabs.overview, collection.settings.tabs.headers
+  OLD| Overview
+  OLD| Headers
+FILE: packages/bruno-app/src/components/CollectionSettings/index.js
+  KEYS: collection.settings.tabs.vars
+  OLD| Vars
+FILE: packages/bruno-app/src/components/CollectionSettings/index.js
+  KEYS: collection.settings.tabs.auth
+  OLD| Auth
+FILE: packages/bruno-app/src/components/CollectionSettings/index.js
+  KEYS: collection.settings.tabs.script
+  OLD| Script
+FILE: packages/bruno-app/src/components/CollectionSettings/index.js
+  KEYS: collection.settings.tabs.tests
+  OLD| Tests
+FILE: packages/bruno-app/src/components/CollectionSettings/index.js
+  KEYS: collection.settings.tabs.presets
+  OLD| Presets
+FILE: packages/bruno-app/src/components/CollectionSettings/index.js
+  KEYS: collection.settings.tabs.proxy
+  OLD| Proxy
+FILE: packages/bruno-app/src/components/CollectionSettings/index.js
+  KEYS: collection.settings.tabs.clientCert
+  OLD| Client Certificates
+FILE: packages/bruno-app/src/components/CollectionSettings/index.js
+  KEYS: collection.settings.tabs.protobuf
+  OLD| Protobuf
+FILE: packages/bruno-app/src/components/FolderSettings/Auth/index.js
+  KEYS: collection.auth.oauth2.tbd
+  OLD| return <div>TBD</div>;
+FILE: packages/bruno-app/src/components/FolderSettings/Auth/index.js
+  KEYS: collection.folder.auth.inheritedFrom
+  OLD| <div>Auth inherited from {inheritedSource.name}: </div>
+FILE: packages/bruno-app/src/components/FolderSettings/Auth/index.js
+  KEYS: collection.folder.auth.descriptionPrefix, collection.auth.inherit, collection.auth.descriptionMiddle, collection.auth.authTab, collection.auth.descriptionSuffix
+  OLD| Configures authentication for the entire folder. This applies to all requests using the{' '}
+  OLD| <span className="font-medium">Inherit</span> option in the <span className="font-medium">Auth</span> tab.
+FILE: packages/bruno-app/src/components/FolderSettings/Auth/index.js
+  KEYS: common.save
+  OLD| Save
+FILE: packages/bruno-app/src/components/FolderSettings/AuthMode/index.js
+  KEYS: collection.auth.mode.awsv4
+  OLD| label: 'AWS Sig v4',
+FILE: packages/bruno-app/src/components/FolderSettings/AuthMode/index.js
+  KEYS: collection.auth.mode.basic
+  OLD| label: 'Basic Auth',
+FILE: packages/bruno-app/src/components/FolderSettings/AuthMode/index.js
+  KEYS: collection.auth.mode.bearer
+  OLD| label: 'Bearer Token',
+FILE: packages/bruno-app/src/components/FolderSettings/AuthMode/index.js
+  KEYS: collection.auth.mode.digest
+  OLD| label: 'Digest Auth',
+FILE: packages/bruno-app/src/components/FolderSettings/AuthMode/index.js
+  KEYS: collection.auth.mode.ntlm
+  OLD| label: 'NTLM Auth',
+FILE: packages/bruno-app/src/components/FolderSettings/AuthMode/index.js
+  KEYS: collection.auth.mode.oauth1
+  OLD| label: 'OAuth 1.0',
+FILE: packages/bruno-app/src/components/FolderSettings/AuthMode/index.js
+  KEYS: collection.auth.mode.oauth2
+  OLD| label: 'OAuth 2.0',
+FILE: packages/bruno-app/src/components/FolderSettings/AuthMode/index.js
+  KEYS: collection.auth.mode.wsse
+  OLD| label: 'WSSE Auth',
+FILE: packages/bruno-app/src/components/FolderSettings/AuthMode/index.js
+  KEYS: collection.auth.mode.apikey
+  OLD| label: 'API Key',
+FILE: packages/bruno-app/src/components/FolderSettings/AuthMode/index.js
+  KEYS: collection.auth.mode.akamaiEdgegrid
+  OLD| Akamai EdgeGrid
+FILE: packages/bruno-app/src/components/FolderSettings/AuthMode/index.js
+  KEYS: collection.auth.mode.akamaiEdgegridAria
+  OLD| ariaLabel: 'Akamai EdgeGrid (Beta)',
+FILE: packages/bruno-app/src/components/FolderSettings/AuthMode/index.js
+  KEYS: collection.auth.mode.inherit
+  OLD| label: 'Inherit',
+FILE: packages/bruno-app/src/components/FolderSettings/AuthMode/index.js
+  KEYS: collection.auth.mode.none
+  OLD| label: 'No Auth',
+  OLD| ], [onModeChange]);
+FILE: packages/bruno-app/src/components/FolderSettings/Documentation/index.js
+  KEYS: common.save
+  OLD| Save
+FILE: packages/bruno-app/src/components/FolderSettings/Headers/index.js
+  KEYS: collection.headers.errorName
+  OLD| return 'Header name cannot contain spaces or newlines';
+FILE: packages/bruno-app/src/components/FolderSettings/Headers/index.js
+  KEYS: collection.headers.errorValue
+  OLD| return 'Header value cannot contain newlines';
+FILE: packages/bruno-app/src/components/FolderSettings/Headers/index.js
+  KEYS: collection.table.name
+  OLD| name: 'Name',
+  OLD| placeholder: 'Name',
+FILE: packages/bruno-app/src/components/FolderSettings/Headers/index.js
+  KEYS: collection.table.name
+  OLD| placeholder={!value ? 'Name' : ''}
+FILE: packages/bruno-app/src/components/FolderSettings/Headers/index.js
+  KEYS: collection.table.value
+  OLD| name: 'Value',
+  OLD| placeholder: 'Value',
+FILE: packages/bruno-app/src/components/FolderSettings/Headers/index.js
+  KEYS: collection.table.value
+  OLD| placeholder={!value ? 'Value' : ''}
+FILE: packages/bruno-app/src/components/FolderSettings/Headers/index.js
+  KEYS: collection.folder.headers.description
+  OLD| Request headers that will be sent with every request inside this folder.
+FILE: packages/bruno-app/src/components/FolderSettings/Headers/index.js
+  KEYS: collection.folder.headers.description
+  OLD| Request headers that will be sent with every request inside this folder.
+FILE: packages/bruno-app/src/components/FolderSettings/Headers/index.js
+  KEYS: common.bulkEdit
+  OLD| Bulk Edit
+FILE: packages/bruno-app/src/components/FolderSettings/Headers/index.js
+  KEYS: common.save
+  OLD| Save
+FILE: packages/bruno-app/src/components/FolderSettings/Script/index.js
+  KEYS: collection.folder.script.description
+  OLD| Pre and post-request scripts that will run before and after any request inside this folder is sent.
+FILE: packages/bruno-app/src/components/FolderSettings/Script/index.js
+  KEYS: common.preRequest
+  OLD| Pre Request
+FILE: packages/bruno-app/src/components/FolderSettings/Script/index.js
+  KEYS: common.postResponse
+  OLD| Post Response
+FILE: packages/bruno-app/src/components/FolderSettings/Script/index.js
+  KEYS: common.save
+  OLD| Save
+FILE: packages/bruno-app/src/components/FolderSettings/Tests/index.js
+  KEYS: collection.tests.description
+  OLD| <div className="text-xs mb-4 text-muted">These tests will run any time a request in this collection is sent.</div>
+FILE: packages/bruno-app/src/components/FolderSettings/Tests/index.js
+  KEYS: common.save
+  OLD| Save
+FILE: packages/bruno-app/src/components/FolderSettings/Vars/VarsTable/index.js
+  KEYS: collection.vars.errorName
+  OLD| return 'Variable contains invalid characters. Must only contain alphanumeric characters, "-", "_", "."';
+  OLD| }, []);
+FILE: packages/bruno-app/src/components/FolderSettings/Vars/VarsTable/index.js
+  KEYS: collection.table.name
+  OLD| name: 'Name',
+  OLD| placeholder: 'Name',
+FILE: packages/bruno-app/src/components/FolderSettings/Vars/VarsTable/index.js
+  KEYS: collection.table.value, collection.table.expr, collection.vars.exprTip
+  OLD| name: varType === 'request' ? 'Value' : (
+  OLD| <span>Expr</span>
+  OLD| <InfoTip content="You can write any valid JS expression here" infotipId={`folder-${varType}-var`} />
+  OLD| placeholder: varType === 'request' ? 'Value' : 'Expr',
+FILE: packages/bruno-app/src/components/FolderSettings/Vars/VarsTable/index.js
+  KEYS: collection.table.value, collection.table.expr
+  OLD| placeholder={value == null || (typeof value === 'string' && value.trim() === '') ? (varType === 'request' ? 'Value' : 'Expr') : ''}
+FILE: packages/bruno-app/src/components/FolderSettings/Vars/index.js
+  KEYS: common.preRequest
+  OLD| <div className="mb-3 title text-xs">Pre Request</div>
+FILE: packages/bruno-app/src/components/FolderSettings/Vars/index.js
+  KEYS: common.postResponse
+  OLD| <div className="mt-3 mb-3 title text-xs">Post Response</div>
+FILE: packages/bruno-app/src/components/FolderSettings/Vars/index.js
+  KEYS: common.save
+  OLD| Save
+FILE: packages/bruno-app/src/components/FolderSettings/index.js
+  KEYS: collection.folder.tabs.headers
+  OLD| Headers
+FILE: packages/bruno-app/src/components/FolderSettings/index.js
+  KEYS: collection.folder.tabs.script
+  OLD| Script
+FILE: packages/bruno-app/src/components/FolderSettings/index.js
+  KEYS: collection.folder.tabs.test
+  OLD| Test
+FILE: packages/bruno-app/src/components/FolderSettings/index.js
+  KEYS: collection.folder.tabs.vars
+  OLD| Vars
+FILE: packages/bruno-app/src/components/FolderSettings/index.js
+  KEYS: collection.folder.tabs.auth
+  OLD| Auth
+FILE: packages/bruno-app/src/components/FolderSettings/index.js
+  KEYS: collection.folder.tabs.docs
+  OLD| Docs
+FILE: packages/bruno-app/src/components/ResponseExample/CreateExampleModal/index.js
+  KEYS: collection.example.nameRequired
+  OLD| setNameError('Example name is required');
+FILE: packages/bruno-app/src/components/ResponseExample/CreateExampleModal/index.js
+  KEYS: collection.example.createModalTitle, collection.example.confirmCreate, common.cancel
+  OLD| title={title}
+  OLD| confirmText={confirmText}
+  OLD| cancelText="Cancel"
+FILE: packages/bruno-app/src/components/ResponseExample/CreateExampleModal/index.js
+  KEYS: collection.example.nameLabel
+  OLD| Example Name<span className="text-red-600">*</span>
+FILE: packages/bruno-app/src/components/ResponseExample/CreateExampleModal/index.js
+  KEYS: collection.example.descriptionLabel
+  OLD| Description
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleBody/index.js
+  KEYS: collection.example.body
+  OLD| <div className="title text-xs mr-2">Body</div>
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleBodyMode/index.js
+  KEYS: collection.example.invalidJson
+  OLD| toastError(new Error('Unable to prettify. Invalid JSON format.'));
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleBodyMode/index.js
+  KEYS: collection.example.invalidXml
+  OLD| toastError(new Error('Unable to prettify. Invalid XML format.'));
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleBodyMode/index.js
+  KEYS: collection.example.prettify
+  OLD| Prettify
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleBodyRenderer/index.js
+  KEYS: collection.example.noBody
+  OLD| No Body
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleBodyRenderer/index.js
+  KEYS: collection.example.noBody
+  OLD| No Body
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleDescription/index.js
+  KEYS: collection.example.descriptionPlaceholderLong
+  OLD| placeholder="Enter example description..."
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleFileBody/index.js
+  KEYS: collection.table.file
+  OLD| name: 'File',
+  OLD| placeholder: 'File',
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleFileBody/index.js
+  KEYS: collection.example.auto
+  OLD| placeholder: 'Auto',
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleFileBody/index.js
+  KEYS: collection.example.auto
+  OLD| placeholder={!value ? 'Auto' : ''}
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleFileBody/index.js
+  KEYS: collection.table.selected
+  OLD| name: 'Selected',
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleFormUrlEncodedParams/index.js
+  KEYS: collection.table.key
+  OLD| name: 'Key',
+  OLD| placeholder: 'Key',
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleFormUrlEncodedParams/index.js
+  KEYS: collection.table.value
+  OLD| name: 'Value',
+  OLD| placeholder: 'Value',
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleFormUrlEncodedParams/index.js
+  KEYS: collection.table.value
+  OLD| placeholder={!value ? 'Value' : ''}
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleHeaders/index.js
+  KEYS: collection.table.key
+  OLD| name: 'Key',
+  OLD| placeholder: 'Key',
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleHeaders/index.js
+  KEYS: collection.table.key
+  OLD| placeholder={!value ? 'Key' : ''}
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleHeaders/index.js
+  KEYS: collection.table.value
+  OLD| name: 'Value',
+  OLD| placeholder: 'Value',
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleHeaders/index.js
+  KEYS: collection.table.value
+  OLD| placeholder={!value ? 'Value' : ''}
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleHeaders/index.js
+  KEYS: collection.example.headersSection
+  OLD| <div className="mb-3 title text-xs font-bold">Headers</div>
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleHeaders/index.js
+  KEYS: common.bulkEdit
+  OLD| Bulk Edit
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleMultipartFormParams/index.js
+  KEYS: collection.example.fileAlreadyAdded, collection.example.filesAlreadyAdded
+  OLD| toast(`"${fileBasename(skipped[0])}" is already added`);
+  OLD| toast(`${skipped.length} files are already added — skipped`);
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleMultipartFormParams/index.js
+  KEYS: collection.table.key
+  OLD| name: 'Key',
+  OLD| placeholder: 'Key',
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleMultipartFormParams/index.js
+  KEYS: collection.table.value
+  OLD| name: 'Value',
+  OLD| placeholder: 'Value',
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleMultipartFormParams/index.js
+  KEYS: collection.table.value
+  OLD| placeholder={!value ? 'Value' : ''}
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleMultipartFormParams/index.js
+  KEYS: collection.example.selectFile
+  OLD| title="Select File"
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleMultipartFormParams/index.js
+  KEYS: collection.example.auto
+  OLD| placeholder: 'Auto',
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleMultipartFormParams/index.js
+  KEYS: collection.example.auto
+  OLD| placeholder={!value ? 'Auto' : ''}
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleParams/index.js
+  KEYS: collection.table.name
+  OLD| name: 'Name',
+  OLD| placeholder: 'Name',
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleParams/index.js
+  KEYS: collection.table.name
+  OLD| placeholder={!value ? 'Name' : ''}
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleParams/index.js
+  KEYS: collection.table.value
+  OLD| name: 'Value',
+  OLD| placeholder: 'Value',
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleParams/index.js
+  KEYS: collection.table.value
+  OLD| placeholder={!value ? 'Value' : ''}
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleParams/index.js
+  KEYS: collection.table.name
+  OLD| name: 'Name',
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleParams/index.js
+  KEYS: collection.table.value
+  OLD| name: 'Value',
+  OLD| placeholder: 'Value',
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleParams/index.js
+  KEYS: collection.table.value
+  OLD| placeholder={!value ? 'Value' : ''}
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleParams/index.js
+  KEYS: collection.example.queryParams
+  OLD| <div className="mb-3 title text-xs font-bold">Query parameters</div>
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleParams/index.js
+  KEYS: common.bulkEdit
+  OLD| Bulk Edit
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleParams/index.js
+  KEYS: collection.example.pathParams, collection.example.pathParamsTipPrefix, collection.example.pathParamsTipMiddle, collection.example.pathParamsTipSuffix
+  OLD| <span>Path parameters</span>
+  OLD| Path variables are automatically added whenever the
+  OLD| template is used in the URL. <br /> For example:
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleResponsePane/ResponseExampleResponseHeaders/index.js
+  KEYS: collection.table.key
+  OLD| name: 'Key',
+  OLD| placeholder: 'Key',
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleResponsePane/ResponseExampleResponseHeaders/index.js
+  KEYS: collection.table.key
+  OLD| placeholder={!value ? 'Key' : ''}
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleResponsePane/ResponseExampleResponseHeaders/index.js
+  KEYS: collection.table.value
+  OLD| name: 'Value',
+  OLD| placeholder: 'Value',
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleResponsePane/ResponseExampleResponseHeaders/index.js
+  KEYS: collection.table.value
+  OLD| placeholder={!value ? 'Value' : ''}
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleResponsePane/ResponseExampleResponseHeaders/index.js
+  KEYS: common.bulkEdit
+  OLD| Bulk Edit
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleResponsePane/ResponseExampleStatusInput/index.js
+  KEYS: collection.example.selectStatus
+  OLD| <option value="">Select status</option>
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleResponsePane/index.js
+  KEYS: collection.example.responseTab
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleResponsePane/index.js
+  KEYS: collection.example.notFound
+  OLD| return <div>404 | Not found</div>;
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleResponsePane/index.js
+  KEYS: collection.example.headersTab
+  OLD| label: 'Headers',
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleResponsePane/index.js
+  KEYS: collection.example.tryResultTab
+  OLD| label: 'Try Result'
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleTopBar/index.js
+  KEYS: collection.example.namePlaceholder
+  OLD| placeholder="Enter example name"
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleTopBar/index.js
+  KEYS: collection.example.descriptionPlaceholder
+  OLD| placeholder="Enter example description"
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleTopBar/index.js
+  KEYS: common.cancel
+  OLD| Cancel
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleTopBar/index.js
+  KEYS: common.save
+  OLD| Save
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleTopBar/index.js
+  KEYS: collection.example.viewMore, collection.example.viewLess
+  OLD| viewMoreText="View More"
+  OLD| viewLessText="View Less"
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleTopBar/index.js
+  KEYS: collection.example.generateCode
+  OLD| title="Generate Code"
+FILE: packages/bruno-app/src/components/ResponseExample/ResponseExampleTopBar/index.js
+  KEYS: collection.example.editExample
+  OLD| Edit Example
+FILE: packages/bruno-app/src/components/ShareCollection/index.js
+  KEYS: collection.share.exportSuccess, collection.share.exportFailed
+  OLD| toast.success('Collection exported successfully');
+  OLD| toast.error('Failed to export collection: ' + error.message);
+FILE: packages/bruno-app/src/components/ShareCollection/index.js
+  KEYS: collection.share.title, collection.share.descriptionPrefix
+  OLD| <Modal size="lg" title="Share Collection" handleCancel={onClose} hideFooter>
+  OLD| Bruno uses{' '}
+FILE: packages/bruno-app/src/components/ShareCollection/index.js
+  KEYS: collection.share.descriptionSuffix
+  OLD| {' '}- An open format for API collections
+FILE: packages/bruno-app/src/components/ShareCollection/index.js
+  KEYS: collection.share.brunoFormat
+  OLD| <div className="section-title">Bruno Format</div>
+FILE: packages/bruno-app/src/components/ShareCollection/index.js
+  KEYS: collection.share.zipTitle, collection.share.recommended, collection.share.zipDescription
+  OLD| <span className="card-title">Bruno Collection (ZIP)</span>
+  OLD| <span className="recommended-badge">Recommended</span>
+  OLD| <p className="card-description">OpenCollection format organized as folders and files</p>
+FILE: packages/bruno-app/src/components/ShareCollection/index.js
+  KEYS: collection.share.zipFeature1
+  OLD| <span>Folder structure with individual .yml files</span>
+FILE: packages/bruno-app/src/components/ShareCollection/index.js
+  KEYS: collection.share.zipFeature2
+  OLD| <span>Collaborate with your team via pull requests</span>
+FILE: packages/bruno-app/src/components/ShareCollection/index.js
+  KEYS: collection.share.zipFeature3, collection.share.zipBestFor
+  OLD| <span>Extract and open directly in Bruno</span>
+  OLD| <p className="best-for">Best for: Team collaboration, version control, publishing</p>
+FILE: packages/bruno-app/src/components/ShareCollection/index.js
+  KEYS: collection.share.yamlTitle, collection.share.yamlDescription
+  OLD| <span className="card-title">Single File (YAML)</span>
+  OLD| <p className="card-description">OpenCollection format bundled into one .yml file</p>
+FILE: packages/bruno-app/src/components/ShareCollection/index.js
+  KEYS: collection.share.yamlFeature1
+  OLD| <span>Everything in a single YAML file</span>
+FILE: packages/bruno-app/src/components/ShareCollection/index.js
+  KEYS: collection.share.yamlFeature2, collection.share.yamlBestFor
+  OLD| <span>Paste in a gist or attach to an issue</span>
+  OLD| <p className="best-for">Best for: Quick sharing as a single file</p>
+FILE: packages/bruno-app/src/components/ShareCollection/index.js
+  KEYS: collection.share.otherFormat
+  OLD| <div className="section-title">Other Format</div>
+FILE: packages/bruno-app/src/components/ShareCollection/index.js
+  KEYS: collection.share.exportForPostman
+  OLD| <div className="format-description">Export for Postman</div>
+FILE: packages/bruno-app/src/components/ShareCollection/index.js
+  KEYS: collection.share.nonExportableNote
+  OLD| Note: {hasNonExportableRequestTypes.types.join(', ')} requests in this collection will not be exported
+FILE: packages/bruno-app/src/components/ShareCollection/index.js
+  KEYS: collection.share.exporting, collection.share.proceed
+  OLD| {isExporting ? 'Exporting...' : 'Proceed'}

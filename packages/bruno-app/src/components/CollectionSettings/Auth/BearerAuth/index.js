@@ -2,6 +2,7 @@ import React from 'react';
 import SensitiveFieldWarning from 'components/SensitiveFieldWarning';
 import { useDetectSensitiveField } from 'hooks/useDetectSensitiveField';
 import get from 'lodash/get';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from 'providers/Theme';
 import { useDispatch } from 'react-redux';
 import SingleLineEditor from 'components/SingleLineEditor';
@@ -10,6 +11,7 @@ import { saveCollectionSettings } from 'providers/ReduxStore/slices/collections/
 import StyledWrapper from './StyledWrapper';
 
 const BearerAuth = ({ collection }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const { storedTheme } = useTheme();
 
@@ -33,7 +35,7 @@ const BearerAuth = ({ collection }) => {
 
   return (
     <StyledWrapper className="mt-2 w-full">
-      <label className="block mb-1">Token</label>
+      <label className="block mb-1">{t('collection.auth.token')}</label>
       <div className="single-line-editor-wrapper flex items-center">
         <SingleLineEditor
           value={bearerToken}

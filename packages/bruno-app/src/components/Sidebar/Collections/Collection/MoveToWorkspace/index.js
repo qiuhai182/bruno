@@ -2,6 +2,7 @@ import React, { useMemo, useState } from 'react';
 import toast from 'react-hot-toast';
 import Modal from 'components/Modal';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { moveCollectionToWorkspace } from 'providers/ReduxStore/slices/collections/actions';
 import { findCollectionByUid, flattenItems, isItemARequest, hasRequestChanges } from 'utils/collections/index';
 import filter from 'lodash/filter';
@@ -10,6 +11,7 @@ import ConfirmMoveDrafts from './ConfirmMoveDrafts';
 import StyledWrapper from './StyledWrapper';
 
 const MoveToWorkspace = ({ onClose, collectionUid }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const collection = useSelector((state) => findCollectionByUid(state.collections.collections, collectionUid));
   const activeWorkspace = useSelector((state) =>
@@ -26,7 +28,7 @@ const MoveToWorkspace = ({ onClose, collectionUid }) => {
 
   const onConfirm = () => {
     if (!collection) {
-      toast.error('Collection not found');
+      toast.error(t('sidebar.collectionNotFound'));
       onClose();
       return;
     }
@@ -36,17 +38,17 @@ const MoveToWorkspace = ({ onClose, collectionUid }) => {
     setIsMoving(true);
     dispatch(moveCollectionToWorkspace(collection.uid))
       .then(() => {
-        toast.success('Collection moved into workspace');
+        toast.success(t('sidebar.moveToWorkspace.collectionMoved'));
         onClose();
       })
       .catch((err) => {
-        toast.error(err?.message || 'An error occurred while moving the collection');
+        toast.error(err?.message || t('sidebar.moveToWorkspace.moveError'));
         setIsMoving(false);
       });
   };
 
   if (!collection) {
-    return <div>Collection not found</div>;
+    return <div>{t('sidebar.collectionNotFound')}</div>;
   }
 
   if (!activeWorkspace?.pathname) {
@@ -64,25 +66,25 @@ const MoveToWorkspace = ({ onClose, collectionUid }) => {
     <StyledWrapper>
       <Modal
         size="sm"
-        title="Move into Workspace"
-        confirmText={isMoving ? 'Moving...' : 'Move'}
+        title={t('sidebar.moveToWorkspace.title')}
+        confirmText={isMoving ? t('sidebar.moveToWorkspace.moving') : t('sidebar.moveToWorkspace.move')}
         confirmDisabled={isMoving}
         handleConfirm={onConfirm}
         handleCancel={onClose}
       >
         <p className="mb-4">
-          This will move the following collection's files into {activeWorkspace?.name} workspace.
+          {t('sidebar.moveToWorkspace.description', { name: activeWorkspace?.name })}
         </p>
         <div className="collection-info-card">
           <div className="collection-name">{collection.name}</div>
           <div className="collection-path">{collection.pathname}</div>
         </div>
         <div className="mt-3 collection-info-card">
-          <div className="collection-label">Destination</div>
+          <div className="collection-label">{t('sidebar.moveToWorkspace.destination')}</div>
           <div className="collection-path">{targetLocation}</div>
         </div>
         <p className="mt-4 text-muted text-sm">
-          The collection reloads from its new location, so any open request tabs will close.
+          {t('sidebar.moveToWorkspace.reloadNote')}
         </p>
       </Modal>
     </StyledWrapper>

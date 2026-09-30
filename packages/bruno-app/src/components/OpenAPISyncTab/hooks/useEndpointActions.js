@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import toast from 'react-hot-toast';
 
 const useEndpointActions = (collection, collectionDrift, reloadDrift) => {
+  const { t } = useTranslation();
   const [pendingAction, setPendingAction] = useState(null);
 
   // Action execution helper — runs IPC call(s), shows toast, reloads drift
@@ -26,8 +28,8 @@ const useEndpointActions = (collection, collectionDrift, reloadDrift) => {
   const handleResetEndpoint = (endpoint) => {
     setPendingAction({
       type: 'reset-endpoint',
-      title: 'Reset Endpoint',
-      message: `Are you sure you want to reset "${endpoint.method} ${endpoint.path}" to match the spec? Your local changes will be lost.`,
+      title: t('openApiSync.actions.resetEndpoint'),
+      message: t('openApiSync.actions.resetEndpointMessage', { method: endpoint.method, path: endpoint.path }),
       endpoint
     });
   };
@@ -36,16 +38,16 @@ const useEndpointActions = (collection, collectionDrift, reloadDrift) => {
     if (!collectionDrift?.modified?.length) return;
     setPendingAction({
       type: 'reset-all-modified',
-      title: 'Reset All Modified',
-      message: `Are you sure you want to reset ${collectionDrift.modified.length} modified endpoint(s) to match the spec? Your local changes will be lost.`
+      title: t('openApiSync.actions.resetAllModified'),
+      message: t('openApiSync.actions.resetAllMessage', { count: collectionDrift.modified.length })
     });
   };
 
   const handleDeleteEndpoint = (endpoint) => {
     setPendingAction({
       type: 'delete-endpoint',
-      title: 'Delete Endpoint',
-      message: `Are you sure you want to delete "${endpoint.method} ${endpoint.path}"? This action cannot be undone.`,
+      title: t('openApiSync.actions.deleteEndpoint'),
+      message: t('openApiSync.actions.deleteEndpointMessage', { method: endpoint.method, path: endpoint.path }),
       endpoint
     });
   };
@@ -54,8 +56,8 @@ const useEndpointActions = (collection, collectionDrift, reloadDrift) => {
     if (!collectionDrift?.localOnly?.length) return;
     setPendingAction({
       type: 'delete-all-local',
-      title: 'Delete All Local Endpoints',
-      message: `Are you sure you want to delete ${collectionDrift.localOnly.length} local-only endpoint(s)? This action cannot be undone.`
+      title: t('openApiSync.actions.deleteAllLocal'),
+      message: t('openApiSync.actions.deleteAllMessage', { count: collectionDrift.localOnly.length })
     });
   };
 
@@ -66,16 +68,16 @@ const useEndpointActions = (collection, collectionDrift, reloadDrift) => {
 
     setPendingAction({
       type: 'revert-all',
-      title: 'Revert All Changes',
-      message: `Are you sure you want to revert all changes? This will reset ${modifiedCount} modified, restore ${missingCount} missing, and delete ${localOnlyCount} local-only endpoint(s).`
+      title: t('openApiSync.actions.revertAll'),
+      message: t('openApiSync.actions.revertAllMessage', { modifiedCount, missingCount, localOnlyCount })
     });
   };
 
   const handleAddMissingEndpoint = (endpoint) => {
     setPendingAction({
       type: 'restore-endpoint',
-      title: 'Restore Endpoint',
-      message: `Are you sure you want to restore "${endpoint.method} ${endpoint.path}" to your collection?`,
+      title: t('openApiSync.actions.restoreEndpoint'),
+      message: t('openApiSync.actions.restoreEndpointMessage', { method: endpoint.method, path: endpoint.path }),
       endpoint
     });
   };
@@ -84,8 +86,8 @@ const useEndpointActions = (collection, collectionDrift, reloadDrift) => {
     if (!collectionDrift?.missing?.length) return;
     setPendingAction({
       type: 'restore-all-missing',
-      title: 'Restore All Missing',
-      message: `Are you sure you want to restore ${collectionDrift.missing.length} missing endpoint(s) to your collection?`
+      title: t('openApiSync.actions.restoreAllMissing'),
+      message: t('openApiSync.actions.restoreAllMessage', { count: collectionDrift.missing.length })
     });
   };
 
@@ -100,26 +102,26 @@ const useEndpointActions = (collection, collectionDrift, reloadDrift) => {
       case 'reset-endpoint':
         return executeEndpointAction(
           ['renderer:reset-endpoints-to-spec', { collectionPath: collection.pathname, endpoints: [endpoint] }],
-          `Reset ${endpoint.method} ${endpoint.path} to spec`,
-          'Failed to reset endpoint'
+          t('openApiSync.actions.resetEndpointToast', { method: endpoint.method, path: endpoint.path }),
+          t('openApiSync.actions.failedToResetEndpoint')
         );
       case 'reset-all-modified':
         return executeEndpointAction(
           ['renderer:reset-endpoints-to-spec', { collectionPath: collection.pathname, endpoints: collectionDrift.modified }],
-          `Reset ${collectionDrift.modified.length} endpoints to spec`,
-          'Failed to reset endpoints'
+          t('openApiSync.actions.resetAllToast', { count: collectionDrift.modified.length }),
+          t('openApiSync.actions.failedToResetEndpoints')
         );
       case 'delete-endpoint':
         return executeEndpointAction(
           ['renderer:delete-endpoints', { collectionPath: collection.pathname, collectionUid: collection.uid, endpoints: [endpoint] }],
-          `Deleted ${endpoint.method} ${endpoint.path}`,
-          'Failed to delete endpoint'
+          t('openApiSync.actions.deletedEndpointToast', { method: endpoint.method, path: endpoint.path }),
+          t('openApiSync.actions.failedToDeleteEndpoint')
         );
       case 'delete-all-local':
         return executeEndpointAction(
           ['renderer:delete-endpoints', { collectionPath: collection.pathname, collectionUid: collection.uid, endpoints: collectionDrift.localOnly }],
-          `Deleted ${collectionDrift.localOnly.length} local-only endpoints`,
-          'Failed to delete endpoints'
+          t('openApiSync.actions.deletedAllToast', { count: collectionDrift.localOnly.length }),
+          t('openApiSync.actions.failedToDeleteEndpoints')
         );
       case 'revert-all': {
         const calls = [];
@@ -132,19 +134,19 @@ const useEndpointActions = (collection, collectionDrift, reloadDrift) => {
         if (collectionDrift?.localOnly?.length > 0) {
           calls.push(['renderer:delete-endpoints', { collectionPath: collection.pathname, collectionUid: collection.uid, endpoints: collectionDrift.localOnly }]);
         }
-        return executeEndpointAction(calls, 'All changes discarded successfully', 'Failed to discard changes');
+        return executeEndpointAction(calls, t('openApiSync.actions.allChangesDiscarded'), t('openApiSync.actions.failedToDiscard'));
       }
       case 'restore-endpoint':
         return executeEndpointAction(
           ['renderer:add-missing-endpoints', { collectionPath: collection.pathname, endpoints: [endpoint] }],
-          `Added ${endpoint.method} ${endpoint.path} to collection`,
-          'Failed to add endpoint'
+          t('openApiSync.actions.addedEndpointToast', { method: endpoint.method, path: endpoint.path }),
+          t('openApiSync.actions.failedToAddEndpoint')
         );
       case 'restore-all-missing':
         return executeEndpointAction(
           ['renderer:add-missing-endpoints', { collectionPath: collection.pathname, endpoints: collectionDrift.missing }],
-          `Added ${collectionDrift.missing.length} endpoints to collection`,
-          'Failed to add endpoints'
+          t('openApiSync.actions.addedAllToast', { count: collectionDrift.missing.length }),
+          t('openApiSync.actions.failedToAddEndpoints')
         );
     }
   };

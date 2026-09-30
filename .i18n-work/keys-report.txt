@@ -1,0 +1,1214 @@
+=== USED KEYS: 447 total, 14 existing, 433 new ===
+
+--- EXISTING (reuse, do not add) ---
+COMMON.COLLECTIONS
+app.titleBar.preferences
+common.cancel
+common.close
+common.confirm
+common.save
+dialogs.closeWithoutSaving
+dialogs.collectionSettingsSuffix
+dialogs.dontSave
+dialogs.folderSettingsSuffix
+dialogs.holdOn
+dialogs.saveAndClose
+dialogs.unsavedChangesIn
+dialogs.unsavedChangesTitle
+
+--- NEW KEYS ---
+collection.example.headersTab
+collection.example.notFound
+collection.example.responseTab
+collection.example.selectStatus
+collection.example.tryResultTab
+collection.table.key
+collection.table.value
+common.bulkEdit
+docs.edit
+docs.preview
+openApiSpec.failedToReadSpecFile
+openApiSpec.loadingSpec
+openApiSpec.noSpecFile
+openApiSpec.showingRemoteSpec
+openApiSync.actions.addedAllToast
+openApiSync.actions.addedEndpointToast
+openApiSync.actions.allChangesDiscarded
+openApiSync.actions.deleteAllLocal
+openApiSync.actions.deleteAllMessage
+openApiSync.actions.deleteEndpoint
+openApiSync.actions.deleteEndpointMessage
+openApiSync.actions.deletedAllToast
+openApiSync.actions.deletedEndpointToast
+openApiSync.actions.failedToAddEndpoint
+openApiSync.actions.failedToAddEndpoints
+openApiSync.actions.failedToDeleteEndpoint
+openApiSync.actions.failedToDeleteEndpoints
+openApiSync.actions.failedToDiscard
+openApiSync.actions.failedToResetEndpoint
+openApiSync.actions.failedToResetEndpoints
+openApiSync.actions.resetAllMessage
+openApiSync.actions.resetAllModified
+openApiSync.actions.resetAllToast
+openApiSync.actions.resetEndpoint
+openApiSync.actions.resetEndpointMessage
+openApiSync.actions.resetEndpointToast
+openApiSync.actions.restoreAllMessage
+openApiSync.actions.restoreAllMissing
+openApiSync.actions.restoreEndpoint
+openApiSync.actions.restoreEndpointMessage
+openApiSync.actions.revertAll
+openApiSync.actions.revertAllMessage
+openApiSync.banner.checkedAt
+openApiSync.banner.endpointsAdded
+openApiSync.banner.endpointsRemoved
+openApiSync.banner.endpointsUpdated
+openApiSync.banner.invalidSpec
+openApiSync.banner.sourceFileNotFound
+openApiSync.banner.specUpdated
+openApiSync.banner.updateConnectionSettings
+openApiSync.checkingForUpdates
+openApiSync.collection.addedCount
+openApiSync.collection.addedToCollection
+openApiSync.collection.bannerTitle
+openApiSync.collection.cannotTrack
+openApiSync.collection.comparingCollection
+openApiSync.collection.delete
+openApiSync.collection.deleteAll
+openApiSync.collection.deleteAllTitle
+openApiSync.collection.deleteEndpointTitle
+openApiSync.collection.deletedCount
+openApiSync.collection.deletedFromCollection
+openApiSync.collection.modifiedCount
+openApiSync.collection.modifiedInCollection
+openApiSync.collection.noChanges
+openApiSync.collection.noChangesDesc
+openApiSync.collection.onceYouSync
+openApiSync.collection.open
+openApiSync.collection.openInTab
+openApiSync.collection.reset
+openApiSync.collection.resetAll
+openApiSync.collection.resetAllTitle
+openApiSync.collection.resetToSpec
+openApiSync.collection.restore
+openApiSync.collection.restoreAll
+openApiSync.collection.restoreAllTitle
+openApiSync.collection.restoreToCollection
+openApiSync.collection.revertAllToSpec
+openApiSync.collection.specMissingDesc
+openApiSync.collection.waitingForInitialSync
+openApiSync.collection.whatsTrackedBody
+openApiSync.collection.whatsTrackedTitle
+openApiSync.confirmSync.confirmAndSync
+openApiSync.confirmSync.description
+openApiSync.confirmSync.inSyncDescription
+openApiSync.confirmSync.restoreSpecFile
+openApiSync.confirmSync.title
+openApiSync.connect.button
+openApiSync.connect.description
+openApiSync.connect.fileHint
+openApiSync.connect.specLabel
+openApiSync.connect.swaggerNotSupported
+openApiSync.connect.title
+openApiSync.connect.urlHint
+openApiSync.decision.add
+openApiSync.decision.delete
+openApiSync.decision.keep
+openApiSync.decision.keepCurrent
+openApiSync.decision.skip
+openApiSync.decision.update
+openApiSync.diff.currentInCollection
+openApiSync.diff.expectedFromSpec
+openApiSync.diff.lastSyncedSpec
+openApiSync.disconnect.confirm
+openApiSync.disconnect.message
+openApiSync.disconnect.note
+openApiSync.disconnect.title
+openApiSync.endpoint.acceptSpec
+openApiSync.endpoint.acceptSpecTitle
+openApiSync.endpoint.conflict
+openApiSync.endpoint.conflictHelp
+openApiSync.endpoint.deprecated
+openApiSync.endpoint.errorWithMessage
+openApiSync.endpoint.failedToLoadDiff
+openApiSync.endpoint.keepLocalTitle
+openApiSync.endpoint.keepMine
+openApiSync.errors.failedToCheckUpdates
+openApiSync.errors.failedToConnect
+openApiSync.errors.failedToDisconnect
+openApiSync.errors.failedToSaveSettings
+openApiSync.errors.failedToSync
+openApiSync.errors.invalidOpenApiUrl
+openApiSync.errors.pleaseEnterUrl
+openApiSync.fixConnection
+openApiSync.groups.endpointsToDelete
+openApiSync.groups.endpointsToUpdate
+openApiSync.groups.keepingCurrentVersion
+openApiSync.groups.keepingLocalVersion
+openApiSync.groups.newEndpointsToAdd
+openApiSync.groups.retainingRemovedEndpoints
+openApiSync.groups.skippedNewEndpoints
+openApiSync.header.checkForUpdates
+openApiSync.header.copyFailed
+openApiSync.header.copyPath
+openApiSync.header.copyUrl
+openApiSync.header.editConnectionSettings
+openApiSync.header.inSyncTooltip
+openApiSync.header.linkedCollection
+openApiSync.header.moreOptions
+openApiSync.header.notInSyncTooltip
+openApiSync.header.openInFileManagerFailed
+openApiSync.header.pathCopied
+openApiSync.header.revealInFileManager
+openApiSync.header.sourceFile
+openApiSync.header.sourceUrl
+openApiSync.header.unknownApi
+openApiSync.header.urlCopied
+openApiSync.header.viewSpec
+openApiSync.noUpdates
+openApiSync.noUpdatesDesc
+openApiSync.noUpdatesRestoreDesc
+openApiSync.overview.autoCheck
+openApiSync.overview.disabled
+openApiSync.overview.endpointsInSpec
+openApiSync.overview.everyMinutes
+openApiSync.overview.folderGrouping
+openApiSync.overview.goToSpecUpdates
+openApiSync.overview.lastSyncedAt
+openApiSync.overview.specVersion
+openApiSync.review.acceptAll
+openApiSync.review.comparingSpec
+openApiSync.review.conflictCount
+openApiSync.review.conflictsHelp
+openApiSync.review.newInSpec
+openApiSync.review.newInSpecSubtitle
+openApiSync.review.noEndpointChanges
+openApiSync.review.preserveValues
+openApiSync.review.preserveValuesHelp
+openApiSync.review.removedFromSpec
+openApiSync.review.removedFromSpecSubtitle
+openApiSync.review.resolveConflictsAndSync
+openApiSync.review.restoreSpecFile
+openApiSync.review.skipAll
+openApiSync.review.subtitle
+openApiSync.review.syncCollection
+openApiSync.review.syncWillUpdateSpecFile
+openApiSync.review.title
+openApiSync.review.updatedInSpec
+openApiSync.review.updatedInSpecSubtitle
+openApiSync.review.viewSpecDiff
+openApiSync.review.whatsUpdatedBody
+openApiSync.review.whatsUpdatedTitle
+openApiSync.settings.autoCheck
+openApiSync.settings.autoCheckDescription
+openApiSync.settings.checkInterval
+openApiSync.settings.disconnectSync
+openApiSync.settings.failedToReadFile
+openApiSync.settings.file
+openApiSync.settings.intervalMinutes
+openApiSync.settings.invalidSpecFile
+openApiSync.settings.selectFile
+openApiSync.settings.specSource
+openApiSync.settings.title
+openApiSync.specDiff.addedCount
+openApiSync.specDiff.changeCounter
+openApiSync.specDiff.currentSpec
+openApiSync.specDiff.currentSpecMissing
+openApiSync.specDiff.endpointChanges
+openApiSync.specDiff.loadingDiff
+openApiSync.specDiff.missingSpecSubtitle
+openApiSync.specDiff.next
+openApiSync.specDiff.nextChange
+openApiSync.specDiff.noChanges
+openApiSync.specDiff.noChangesToDisplay
+openApiSync.specDiff.noTextDiff
+openApiSync.specDiff.previous
+openApiSync.specDiff.previousChange
+openApiSync.specDiff.removedCount
+openApiSync.specDiff.renderError
+openApiSync.specDiff.subtitle
+openApiSync.specDiff.title
+openApiSync.specDiff.updatedCount
+openApiSync.specDiff.updatedSpec
+openApiSync.tabs.collectionChanges
+openApiSync.tabs.overview
+openApiSync.tabs.specUpdates
+openApiSync.toast.connected
+openApiSync.toast.disconnected
+openApiSync.toast.resetToSpec
+openApiSync.toast.settingsSaved
+openApiSync.toast.specUpdated
+openApiSync.toast.synced
+openApiSync.unableToCheck
+requestTabs.header.actions.export
+requestTabs.header.actions.rename
+requestTabs.header.advancedOptions
+requestTabs.header.aiAssistant
+requestTabs.header.create
+requestTabs.header.dismiss
+requestTabs.header.menu.collectionSettings
+requestTabs.header.migrateToYml
+requestTabs.header.migrateToYmlTitle
+requestTabs.header.moreActions
+requestTabs.header.openapiError
+requestTabs.header.openapiUpdates
+requestTabs.header.switchToCodeMode
+requestTabs.header.switchToFileMode
+requestTabs.header.toast.cannotCloseDefaultWorkspace
+requestTabs.header.toast.errorCreatingWorkspace
+requestTabs.header.toast.errorExportingWorkspace
+requestTabs.header.toast.errorOpeningFolder
+requestTabs.header.toast.errorRenamingWorkspace
+requestTabs.header.toast.failedToRenameWorkspace
+requestTabs.header.toast.workspaceCreated
+requestTabs.header.toast.workspaceExported
+requestTabs.header.toast.workspaceRenamed
+requestTabs.header.untitledCollection
+requestTabs.header.untitledWorkspace
+requestTabs.header.validation.nameRequired
+requestTabs.header.validation.nameTooLong
+requestTabs.header.viewMode.app
+requestTabs.header.viewMode.appView
+requestTabs.header.viewMode.file
+requestTabs.header.viewMode.fileView
+requestTabs.header.viewMode.request
+requestTabs.header.viewMode.requestView
+requestTabs.header.workspaceLabel
+requestTabs.menu.cloneRequest
+requestTabs.menu.closeAll
+requestTabs.menu.closeOthers
+requestTabs.menu.closeSaved
+requestTabs.menu.closeToLeft
+requestTabs.menu.closeToTheRight
+requestTabs.menu.newRequest
+requestTabs.menu.revertChanges
+requestTabs.notFound
+requestTabs.save.changesSaved
+requestTabs.save.environmentSaved
+requestTabs.save.failedEnvironment
+requestTabs.save.failedGlobalEnvironment
+requestTabs.save.globalEnvironmentSaved
+requestTabs.scroll.left
+requestTabs.scroll.right
+requestTabs.specialTab.apiSpec
+requestTabs.specialTab.beta
+requestTabs.specialTab.collection
+requestTabs.specialTab.environments
+requestTabs.specialTab.folder
+requestTabs.specialTab.globalEnvironments
+requestTabs.specialTab.mockServer
+requestTabs.specialTab.overview
+requestTabs.specialTab.runner
+requestTabs.specialTab.variables
+requestTabs.specialTab.whatsNew
+requestTabs.tab.app
+responsePane.actions.changeLayout
+responsePane.actions.copyResponse
+responsePane.actions.downloadResponse
+responsePane.actions.moreActions
+responsePane.actions.saveResponse
+responsePane.bookmark.createdSuccessfully
+responsePane.bookmark.modalTitle
+responsePane.bookmark.noValidResponse
+responsePane.bookmark.saveTitle
+responsePane.bookmark.streamingNotSupported
+responsePane.bookmark.tooLarge
+responsePane.cancelRequest
+responsePane.clear
+responsePane.clearTimeline
+responsePane.copy
+responsePane.copyFailed
+responsePane.copySuccess
+responsePane.download
+responsePane.downloadSuccess
+responsePane.errorOccurred
+responsePane.filter.jsonPath
+responsePane.filter.xpath
+responsePane.genericError
+responsePane.grpc.emptyMessage
+responsePane.grpc.error
+responsePane.grpc.errorMetadata
+responsePane.grpc.event.event
+responsePane.grpc.latest
+responsePane.grpc.message
+responsePane.grpc.metadata
+responsePane.grpc.metadataHeaders
+responsePane.grpc.noMessagesReceived
+responsePane.grpc.noMetadataHeaders
+responsePane.grpc.noMetadataReceived
+responsePane.grpc.noSystemProxy
+responsePane.grpc.noTrailersReceived
+responsePane.grpc.proxy
+responsePane.grpc.proxyNotApplicable
+responsePane.grpc.responseMessageNo
+responsePane.grpc.responseNo
+responsePane.grpc.streamCancelled
+responsePane.grpc.streamCancelledDesc
+responsePane.grpc.streamEnded
+responsePane.grpc.tests.messageGroup
+responsePane.grpc.totalMessages
+responsePane.grpc.trailers
+responsePane.grpc.unknownError
+responsePane.grpc.usingProxy
+responsePane.grpc.usingSystemProxy
+responsePane.largeResponse.copy
+responsePane.largeResponse.copyToClipboard
+responsePane.largeResponse.currentSizePrefix
+responsePane.largeResponse.descriptionPrefix
+responsePane.largeResponse.descriptionSuffix
+responsePane.largeResponse.download
+responsePane.largeResponse.downloadToFile
+responsePane.largeResponse.showContent
+responsePane.largeResponse.title
+responsePane.largeResponse.view
+responsePane.layout.horizontal
+responsePane.layout.vertical
+responsePane.name
+responsePane.networkError
+responsePane.notFound
+responsePane.preview.noPreview
+responsePane.preview.noPreviewDescription
+responsePane.preview.toggle
+responsePane.preview.turnOff
+responsePane.preview.turnOn
+responsePane.queryResult.sslHint
+responsePane.queryResult.sslHintOpen
+responsePane.scriptError.closeError
+responsePane.scriptError.error
+responsePane.scriptError.hideStackTrace
+responsePane.scriptError.iconTooltip
+responsePane.scriptError.showStackTrace
+responsePane.skipped
+responsePane.somethingWentWrong
+responsePane.streaming
+responsePane.tabs.headers
+responsePane.tabs.messages
+responsePane.tabs.response
+responsePane.tabs.timeline
+responsePane.tests.assertions
+responsePane.tests.failed
+responsePane.tests.label
+responsePane.tests.noTests
+responsePane.tests.passed
+responsePane.tests.postResponse
+responsePane.tests.preRequest
+responsePane.tests.summary
+responsePane.tests.title
+responsePane.timeline.body
+responsePane.timeline.headers
+responsePane.timeline.noBody
+responsePane.timeline.noHeaders
+responsePane.timeline.openFile
+responsePane.timeline.tabs.network
+responsePane.timeline.tabs.request
+responsePane.timeline.tabs.response
+responsePane.value
+responsePane.ws.latestFirst
+responsePane.ws.latestLast
+responsePane.ws.noMessages
+runner.cancelExecution
+runner.clickStatusToViewResponse
+runner.closeResponseView
+runner.config.deselectAll
+runner.config.loadingRequests
+runner.config.noRequests
+runner.config.reset
+runner.config.resetSelectionTitle
+runner.config.selectAll
+runner.config.selectedCount
+runner.delayBetweenRequests
+runner.delayPlaceholder
+runner.filterBy
+runner.filters
+runner.inThisCollection
+runner.loading
+runner.request
+runner.requestFailed
+runner.requests
+runner.requestsStillLoading
+runner.reset
+runner.runAgain
+runner.runRequestsCount
+runner.tags
+runner.tags.alreadyExcluded
+runner.tags.alreadyIncluded
+runner.tags.doesNotExist
+runner.tags.exclude
+runner.tags.include
+runner.timings
+runner.title
+runner.youHave
+variables.copyValue
+variables.hideValue
+variables.name
+variables.noEnvironment
+variables.noEnvironmentSelected
+variables.noRuntime
+variables.openInDrawer
+variables.openObjectInDrawer
+variables.sections.environment
+variables.sections.runtime
+variables.showValue
+variables.value
+
+=== DIFF-DERIVED PAIRS (removed strings <-> added keys, per hunk) ===
+
+[RequestTabs/CollectionHeader/index.js]
+  removed: ["Untitled Workspace","Untitled Collection"]
+  added:   ["requestTabs.header.untitledWorkspace","requestTabs.header.untitledCollection"]
+
+[RequestTabs/CollectionHeader/index.js]
+  removed: ["Variables","Switch to Code Mode","Switch to File Mode","Mock Server","Collection Settings"]
+  added:   ["requestTabs.specialTab.variables","requestTabs.header.switchToCodeMode","requestTabs.header.switchToFileMode","requestTabs.specialTab.mockServer","requestTabs.header.menu.collectionSettings"]
+
+[RequestTabs/CollectionHeader/index.js]
+  removed: ["Cannot close the default workspace"]
+  added:   ["requestTabs.header.toast.cannotCloseDefaultWorkspace"]
+
+[RequestTabs/CollectionHeader/index.js]
+  removed: ["Error opening the folder"]
+  added:   ["requestTabs.header.toast.errorOpeningFolder"]
+
+[RequestTabs/CollectionHeader/index.js]
+  removed: ["Workspace exported successfully","Error exporting workspace","Name is required","Must be 255 characters or less"]
+  added:   ["requestTabs.header.toast.workspaceExported","requestTabs.header.toast.errorExportingWorkspace","requestTabs.header.validation.nameRequired","requestTabs.header.validation.nameTooLong"]
+
+[RequestTabs/CollectionHeader/index.js]
+  removed: ["Name is required"]
+  added:   ["requestTabs.header.validation.nameRequired"]
+
+[RequestTabs/CollectionHeader/index.js]
+  removed: ["Workspace created!","An error occurred while creating the workspace"]
+  added:   ["requestTabs.header.toast.workspaceCreated","requestTabs.header.toast.errorCreatingWorkspace"]
+
+[RequestTabs/CollectionHeader/index.js]
+  removed: ["Workspace renamed!","An error occurred while renaming the workspace","Failed to rename workspace"]
+  added:   ["requestTabs.header.toast.workspaceRenamed","requestTabs.header.toast.errorRenamingWorkspace","requestTabs.header.toast.failedToRenameWorkspace"]
+
+[RequestTabs/CollectionHeader/index.js]
+  removed: ["Advanced options"]
+  added:   ["requestTabs.header.advancedOptions"]
+
+[RequestTabs/CollectionHeader/index.js]
+  removed: ["Create","Save"]
+  added:   ["requestTabs.header.create","common.save"]
+
+[RequestTabs/CollectionHeader/index.js]
+  removed: ["Cancel"]
+  added:   ["common.cancel"]
+
+[RequestTabs/CollectionHeader/index.js]
+  removed: ["Untitled Workspace"]
+  added:   ["requestTabs.header.untitledWorkspace"]
+
+[RequestTabs/CollectionHeader/index.js]
+  removed: ["dropdown-label collection-header-dropdown-label","Untitled Collection"]
+  added:   ["requestTabs.header.untitledCollection"]
+
+[RequestTabs/CollectionHeader/index.js]
+  removed: ["Request","ViewModeRequestToolhintId","Request view"]
+  added:   ["requestTabs.header.viewMode.request","requestTabs.header.viewMode.requestView"]
+
+[RequestTabs/CollectionHeader/index.js]
+  removed: ["App","ViewModeAppToolhintId","App view"]
+  added:   ["requestTabs.header.viewMode.app","requestTabs.header.viewMode.appView"]
+
+[RequestTabs/CollectionHeader/index.js]
+  removed: ["File","ViewModeFileToolhintId","File view"]
+  added:   ["requestTabs.header.viewMode.file","requestTabs.header.viewMode.fileView"]
+
+[RequestTabs/CollectionHeader/index.js]
+  removed: ["AI Assistant","AiAssistantToolhintId","AI Assistant"]
+  added:   ["requestTabs.header.aiAssistant","requestTabs.header.aiAssistant"]
+
+[RequestTabs/CollectionHeader/index.js]
+  removed: ["Migrate this collection to YML"]
+  added:   ["requestTabs.header.migrateToYmlTitle"]
+
+[RequestTabs/CollectionHeader/index.js]
+  removed: ["Dismiss"]
+  added:   ["requestTabs.header.migrateToYml","requestTabs.header.dismiss"]
+
+[RequestTabs/CollectionHeader/index.js]
+  removed: ["OpenAPI Error","OpenAPI Updates Available","OpenAPI"]
+  added:   ["requestTabs.header.openapiError","requestTabs.header.openapiUpdates"]
+
+[RequestTabs/CollectionHeader/index.js]
+  removed: ["Runner","RunnerToolhintId","Runner"]
+  added:   ["requestTabs.specialTab.runner","requestTabs.specialTab.runner"]
+
+[RequestTabs/CollectionHeader/index.js]
+  removed: ["More actions","1px solid ${theme.border.border1}"]
+  added:   ["requestTabs.header.moreActions"]
+
+[RequestTabs/index.js]
+  removed: ["Left Chevron","3px"]
+  added:   ["requestTabs.scroll.left"]
+
+[RequestTabs/index.js]
+  removed: ["Right Chevron","3px"]
+  added:   ["requestTabs.scroll.right"]
+
+[RequestTabs/RequestTab/index.js]
+  removed: ["Changes saved successfully","Failed to save environment"]
+  added:   ["requestTabs.save.changesSaved","requestTabs.save.failedEnvironment"]
+
+[RequestTabs/RequestTab/index.js]
+  removed: ["Changes saved successfully","Failed to save global environment"]
+  added:   ["requestTabs.save.changesSaved","requestTabs.save.failedGlobalEnvironment"]
+
+[RequestTabs/RequestTab/index.js]
+  removed: ["Environment saved","Failed to save environment"]
+  added:   ["requestTabs.save.environmentSaved","requestTabs.save.failedEnvironment"]
+
+[RequestTabs/RequestTab/index.js]
+  removed: ["Global environment saved","Failed to save global environment"]
+  added:   ["requestTabs.save.globalEnvironmentSaved","requestTabs.save.failedGlobalEnvironment"]
+
+[RequestTabs/RequestTab/index.js]
+  removed: ["tab-method flex items-center","App"]
+  added:   ["requestTabs.tab.app"]
+
+[RequestTabs/RequestTab/index.js]
+  removed: ["New Request","Clone Request","Revert Changes","Close","Close Others","Close to the Left","Close to the Right","Close Saved","Close All"]
+  added:   ["requestTabs.menu.newRequest","requestTabs.menu.cloneRequest","requestTabs.menu.revertChanges","common.close","requestTabs.menu.closeOthers","requestTabs.menu.closeToLeft","requestTabs.menu.closeToTheRight","requestTabs.menu.closeSaved","requestTabs.menu.closeAll"]
+
+[RequestTabs/RequestTab/RequestTabNotFound.js]
+  removed: ["ml-1"]
+  added:   ["requestTabs.notFound"]
+
+[RequestTabs/RequestTab/SpecialTab.js]
+  removed: ["ml-1 tab-name"]
+  added:   ["requestTabs.specialTab.collection"]
+
+[RequestTabs/RequestTab/SpecialTab.js]
+  removed: ["ml-1 tab-name"]
+  added:   ["requestTabs.specialTab.overview"]
+
+[RequestTabs/RequestTab/SpecialTab.js]
+  removed: ["ml-1 tab-name","Folder"]
+  added:   ["requestTabs.specialTab.folder"]
+
+[RequestTabs/RequestTab/SpecialTab.js]
+  removed: ["ml-1 tab-name"]
+  added:   ["requestTabs.specialTab.variables"]
+
+[RequestTabs/RequestTab/SpecialTab.js]
+  removed: ["ml-1 tab-name"]
+  added:   ["requestTabs.specialTab.runner"]
+
+[RequestTabs/RequestTab/SpecialTab.js]
+  removed: ["ml-1 tab-name"]
+  added:   ["requestTabs.specialTab.environments"]
+
+[RequestTabs/RequestTab/SpecialTab.js]
+  removed: ["ml-1 tab-name"]
+  added:   ["requestTabs.specialTab.globalEnvironments"]
+
+[RequestTabs/RequestTab/SpecialTab.js]
+  removed: ["ml-1 tab-name"]
+  added:   ["app.titleBar.preferences"]
+
+[RequestTabs/RequestTab/SpecialTab.js]
+  removed: ["ml-1 tab-name"]
+  added:   ["requestTabs.specialTab.overview"]
+
+[RequestTabs/RequestTab/SpecialTab.js]
+  removed: ["ml-1 tab-name"]
+  added:   ["requestTabs.specialTab.environments"]
+
+[RequestTabs/RequestTab/SpecialTab.js]
+  removed: ["ml-1 tab-name"]
+  added:   ["requestTabs.specialTab.apiSpec"]
+
+[RequestTabs/RequestTab/SpecialTab.js]
+  removed: ["ml-1 tab-name mr-1","Mock Server"]
+  added:   ["requestTabs.specialTab.mockServer","requestTabs.specialTab.beta"]
+
+[RequestTabs/RequestTab/SpecialTab.js]
+  removed: ["ml-1 tab-name"]
+  added:   ["requestTabs.specialTab.whatsNew"]
+
+[ResponsePane/ClearTimeline/index.js]
+  removed: ["text-link hover:underline whitespace-nowrap","Clear Timeline"]
+  added:   ["responsePane.clearTimeline","responsePane.clearTimeline"]
+
+[ResponsePane/GrpcResponsePane/GrpcTestResults/index.js]
+  removed: ["inline-flex items-center ${status === 'pass' ? 'test-success' : 'test-failure'}","mr-1","Test passed","mr-1","Test failed"]
+  added:   ["responsePane.tests.passed","responsePane.tests.failed"]
+
+[ResponsePane/GrpcResponsePane/GrpcTestResultsLabel/index.js]
+  removed: ["Tests"]
+  added:   ["responsePane.tests.label","responsePane.tests.label"]
+
+[ResponsePane/GrpcResponsePane/index.js]
+  removed: ["Response"]
+  added:   ["responsePane.tabs.response"]
+
+[ResponsePane/GrpcResponsePane/index.js]
+  removed: ["Metadata","Trailers","Timeline"]
+  added:   ["responsePane.grpc.metadata","responsePane.grpc.trailers","responsePane.tabs.timeline"]
+
+[ResponsePane/GrpcResponsePane/index.js]
+  removed: ["pb-4 px-4"]
+  added:   ["responsePane.somethingWentWrong","responsePane.errorOccurred"]
+
+[ResponsePane/index.js]
+  removed: ["Response","Headers","Timeline"]
+  added:   ["responsePane.tabs.response","responsePane.tabs.headers","responsePane.tabs.timeline"]
+
+[ResponsePane/index.js]
+  removed: ["pb-4 px-4"]
+  added:   ["responsePane.somethingWentWrong","responsePane.errorOccurred"]
+
+[ResponsePane/LargeResponseWarning/index.js]
+  removed: ["Response downloaded to file","Something went wrong!"]
+  added:   ["responsePane.downloadSuccess","responsePane.genericError"]
+
+[ResponsePane/LargeResponseWarning/index.js]
+  removed: ["Response copied to clipboard","Failed to copy response","Failed to copy response"]
+  added:   ["responsePane.copySuccess","responsePane.copyFailed","responsePane.copyFailed"]
+
+[ResponsePane/LargeResponseWarning/index.js]
+  removed: ["size-highlight supported-size","size-highlight current-size"]
+  added:   ["responsePane.largeResponse.title","responsePane.largeResponse.descriptionPrefix","responsePane.largeResponse.descriptionSuffix","responsePane.largeResponse.currentSizePrefix"]
+
+[ResponsePane/LargeResponseWarning/index.js]
+  removed: ["Show response content","Download response to file","Copy response to clipboard"]
+  added:   ["responsePane.largeResponse.showContent","responsePane.largeResponse.view","responsePane.largeResponse.downloadToFile","responsePane.largeResponse.download","responsePane.largeResponse.copyToClipboard","responsePane.largeResponse.copy"]
+
+[ResponsePane/NetworkError/index.js]
+  removed: ["font-medium text-red-800"]
+  added:   ["responsePane.networkError"]
+
+[ResponsePane/QueryResult/QueryResultFilter/index.js]
+  removed: ["Filter with JSONPath","Filter with XPath"]
+  added:   ["responsePane.filter.jsonPath","responsePane.filter.xpath"]
+
+[ResponsePane/QueryResult/QueryResultTypeSelector/index.jsx]
+  removed: ["text-[0.8125rem] preview-response-tab-label"]
+  added:   ["responsePane.preview.toggle"]
+
+[ResponsePane/QueryResult/QueryResultTypeSelector/index.jsx]
+  removed: ["Turn off Preview Mode","Turn on Preview Mode"]
+  added:   ["responsePane.preview.turnOff","responsePane.preview.turnOn"]
+
+[ResponsePane/ResponseBookmark/index.js]
+  removed: ["No valid response to save as example","Response size exceeds 5MB limit. Cannot save as example."]
+  added:   ["responsePane.bookmark.noValidResponse","responsePane.bookmark.tooLarge"]
+
+[ResponsePane/ResponseBookmark/index.js]
+  removed: ["Example \"${name}\" created successfully"]
+  added:   ["responsePane.bookmark.createdSuccessfully"]
+
+[ResponsePane/ResponseBookmark/index.js]
+  removed: ["Save Response as Example"]
+  added:   ["responsePane.bookmark.modalTitle"]
+
+[ResponsePane/ResponseClear/index.js]
+  removed: ["Clear response"]
+  added:   ["responsePane.clear"]
+
+[ResponsePane/ResponseCopy/index.js]
+  removed: ["Response copied to clipboard","Failed to copy response"]
+  added:   ["responsePane.copySuccess","responsePane.copyFailed"]
+
+[ResponsePane/ResponseCopy/index.js]
+  removed: ["Copy response to clipboard"]
+  added:   ["responsePane.copy"]
+
+[ResponsePane/ResponseDownload/index.js]
+  removed: ["Response downloaded to file","Something went wrong!"]
+  added:   ["responsePane.downloadSuccess","responsePane.genericError"]
+
+[ResponsePane/ResponseDownload/index.js]
+  removed: ["Save response to file"]
+  added:   ["responsePane.download"]
+
+[ResponsePane/ResponseLayoutToggle/index.js]
+  removed: ["Switch to vertical layout","Switch to horizontal layout"]
+  added:   ["responsePane.layout.vertical","responsePane.layout.horizontal"]
+
+[ResponsePane/ResponsePaneActions/index.js]
+  removed: ["Copy response"]
+  added:   ["responsePane.actions.copyResponse"]
+
+[ResponsePane/ResponsePaneActions/index.js]
+  removed: ["Download response"]
+  added:   ["responsePane.actions.downloadResponse"]
+
+[ResponsePane/ResponsePaneActions/index.js]
+  removed: ["Clear response"]
+  added:   ["responsePane.clear"]
+
+[ResponsePane/ResponsePaneActions/index.js]
+  removed: ["Change layout"]
+  added:   ["responsePane.actions.changeLayout"]
+
+[ResponsePane/ResponsePaneActions/index.js]
+  removed: ["Copy response"]
+  added:   ["responsePane.actions.copyResponse"]
+
+[ResponsePane/ResponsePaneActions/index.js]
+  removed: ["Save response"]
+  added:   ["responsePane.actions.saveResponse"]
+
+[ResponsePane/ResponsePaneActions/index.js]
+  removed: ["Download response"]
+  added:   ["responsePane.actions.downloadResponse"]
+
+[ResponsePane/ResponsePaneActions/index.js]
+  removed: ["Clear response"]
+  added:   ["responsePane.clear"]
+
+[ResponsePane/ResponsePaneActions/index.js]
+  removed: ["Change layout"]
+  added:   ["responsePane.actions.changeLayout"]
+
+[ResponsePane/ScriptError/index.js]
+  removed: ["close-button flex-shrink-0 cursor-pointer","Close error"]
+  added:   ["responsePane.scriptError.closeError"]
+
+[ResponsePane/ScriptError/index.js]
+  removed: ["Open ${displayFilePath}"]
+  added:   ["responsePane.timeline.openFile"]
+
+[ResponsePane/ScriptError/index.js]
+  removed: ["Error"]
+  added:   ["responsePane.scriptError.error"]
+
+[ResponsePane/ScriptError/index.js]
+  removed: ["${showStack ? 'Hide' : 'Show'} stack trace","Hide","Show"]
+  added:   ["responsePane.scriptError.hideStackTrace","responsePane.scriptError.showStackTrace","responsePane.scriptError.hideStackTrace","responsePane.scriptError.showStackTrace"]
+
+[ResponsePane/ScriptErrorIcon/index.js]
+  removed: ["Script execution error occurred"]
+  added:   ["responsePane.scriptError.iconTooltip"]
+
+[ResponsePane/StatusCode/index.js]
+  removed: [" - STREAMING"]
+  added:   ["responsePane.streaming"]
+
+[ResponsePane/TestResults/index.js]
+  removed: ["inline-flex items-center ${status === 'pass' ? 'test-success' : 'test-failure'}","mr-1","Test passed","mr-1","Test failed"]
+  added:   ["responsePane.tests.passed","responsePane.tests.failed"]
+
+[ResponsePane/TestResults/index.js]
+  removed: ["Pre-Request Tests"]
+  added:   ["responsePane.tests.noTests","responsePane.tests.preRequest"]
+
+[ResponsePane/TestResults/index.js]
+  removed: ["Post-Response Tests"]
+  added:   ["responsePane.tests.postResponse"]
+
+[ResponsePane/TestResults/index.js]
+  removed: ["Tests"]
+  added:   ["responsePane.tests.title"]
+
+[ResponsePane/TestResults/index.js]
+  removed: ["Assertions"]
+  added:   ["responsePane.tests.assertions"]
+
+[ResponsePane/TestResultsLabel/index.js]
+  removed: ["Tests"]
+  added:   ["responsePane.tests.label"]
+
+[ResponsePane/Timeline/GrpcTimelineItem/index.js]
+  removed: ["Event"]
+  added:   ["responsePane.grpc.event.event"]
+
+[ResponsePane/Timeline/GrpcTimelineItem/index.js]
+  removed: ["system ","No system proxy configured for this request","Proxy enabled but not applicable for this request"]
+  added:   ["responsePane.grpc.proxy","responsePane.grpc.usingSystemProxy","responsePane.grpc.usingProxy","responsePane.grpc.noSystemProxy","responsePane.grpc.proxyNotApplicable"]
+
+[ResponsePane/Timeline/GrpcTimelineItem/index.js]
+  removed: ["content-request-label mb-1"]
+  added:   ["responsePane.grpc.metadata"]
+
+[ResponsePane/Timeline/GrpcTimelineItem/index.js]
+  removed: ["content-request-label mb-1"]
+  added:   ["responsePane.grpc.message"]
+
+[ResponsePane/Timeline/GrpcTimelineItem/index.js]
+  removed: ["content-message-label mb-1"]
+  added:   ["responsePane.grpc.message"]
+
+[ResponsePane/Timeline/GrpcTimelineItem/index.js]
+  removed: ["content-metadata-label mb-1"]
+  added:   ["responsePane.grpc.metadataHeaders"]
+
+[ResponsePane/Timeline/GrpcTimelineItem/index.js]
+  removed: ["content-status-label mb-1"]
+  added:   ["responsePane.grpc.trailers"]
+
+[ResponsePane/Timeline/GrpcTimelineItem/index.js]
+  removed: ["content-error-label mb-1","Unknown error"]
+  added:   ["responsePane.grpc.error","responsePane.grpc.unknownError"]
+
+[ResponsePane/Timeline/GrpcTimelineItem/index.js]
+  removed: ["content-error-label mb-1"]
+  added:   ["responsePane.grpc.errorMetadata"]
+
+[ResponsePane/Timeline/GrpcTimelineItem/index.js]
+  removed: ["content-cancel-label mb-1","The gRPC stream was cancelled"]
+  added:   ["responsePane.grpc.streamCancelled","responsePane.grpc.streamCancelledDesc"]
+
+[ResponsePane/Timeline/TimelineItem/index.js]
+  removed: ["Request","Response","Network"]
+  added:   ["responsePane.timeline.tabs.request","responsePane.timeline.tabs.response","responsePane.timeline.tabs.network"]
+
+[ResponsePane/Timeline/TimelineItem/index.js]
+  removed: ["Open ${sourceFile}"]
+  added:   ["responsePane.timeline.openFile"]
+
+[ResponsePane/WsResponsePane/index.js]
+  removed: ["Messages","Headers","Timeline"]
+  added:   ["responsePane.tabs.messages","responsePane.tabs.headers","responsePane.tabs.timeline"]
+
+[ResponsePane/WsResponsePane/index.js]
+  removed: ["pb-4 px-4"]
+  added:   ["responsePane.somethingWentWrong","responsePane.errorOccurred"]
+
+[ResponsePane/WsResponsePane/WSResponseSortOrder/index.js]
+  removed: ["Latest Last","Latest First"]
+  added:   ["responsePane.ws.latestLast","responsePane.ws.latestFirst"]
+
+[RunnerResults/index.jsx]
+  removed: ["font-medium text-xs","my-1 danger","runner-section-title mt-6"]
+  added:   ["runner.title","runner.youHave","runner.request","runner.requests","runner.inThisCollection","runner.loading","runner.requestsStillLoading","runner.timings","runner.delayBetweenRequests","runner.delayPlaceholder"]
+
+[RunnerResults/index.jsx]
+  removed: ["runner-section-title mt-6"]
+  added:   ["runner.filters"]
+
+[RunnerResults/index.jsx]
+  removed: ["Close","Close response view"]
+  added:   ["common.close","runner.closeResponseView"]
+
+[RunnerResults/RunConfigurationPanel/index.jsx]
+  removed: ["Deselect All","Select All","Reset selection and order"]
+  added:   ["runner.config.deselectAll","runner.config.selectAll","runner.config.resetSelectionTitle","runner.config.reset","runner.config.loadingRequests","runner.config.noRequests"]
+
+[RunnerResults/RunnerTags/index.jsx]
+  removed: ["tag does not exist!","tag already present in the include list!","tag is present in the exclude list!"]
+  added:   ["runner.tags.doesNotExist","runner.tags.alreadyIncluded","runner.tags.alreadyExcluded"]
+
+[VariablesEditor/index.js]
+  removed: ["Runtime Variables"]
+  added:   ["variables.sections.runtime"]
+
+[VariablesEditor/index.js]
+  removed: ["muted text-xs px-2 py-1","Environment Variables"]
+  added:   ["variables.noRuntime","variables.sections.environment"]
+
+[VariablesEditor/index.js]
+  removed: ["muted text-xs px-2 py-1"]
+  added:   ["variables.noEnvironmentSelected"]
+
+[VariablesEditor/index.js]
+  removed: ["muted text-xs px-2 py-1"]
+  added:   ["variables.noEnvironment"]
+
+[VariablesEditor/VariableDetailsDrawer/index.js]
+  removed: ["Close"]
+  added:   ["common.close"]
+
+[VariablesEditor/VariablesTable/index.js]
+  removed: ["Name"]
+  added:   ["variables.name"]
+
+[VariablesEditor/VariablesTable/index.js]
+  removed: ["Value"]
+  added:   ["variables.value"]
+
+[VariablesEditor/VariableValue/index.js]
+  removed: ["Open in drawer","Open object in drawer"]
+  added:   ["variables.openInDrawer","variables.openObjectInDrawer"]
+
+[VariablesEditor/VariableValue/index.js]
+  removed: ["Hide value","Show value","Hide value","Show value"]
+  added:   ["variables.hideValue","variables.showValue","variables.hideValue","variables.showValue"]
+
+[VariablesEditor/VariableValue/index.js]
+  removed: ["Copy value"]
+  added:   ["variables.copyValue"]
+
+[Documentation/DocsAction/index.js]
+  removed: ["Preview","Edit"]
+  added:   ["docs.preview","docs.edit"]
+
+[OpenAPISpecTab/index.js]
+  removed: ["Failed to read spec file"]
+  added:   ["openApiSpec.failedToReadSpecFile"]
+
+[OpenAPISpecTab/index.js]
+  removed: ["No spec file found. Sync your collection first."]
+  added:   ["openApiSpec.noSpecFile"]
+
+[OpenAPISyncTab/CollectionStatusSection/index.js]
+  removed: ["Last Synced Spec","Current (in collection)"]
+  added:   ["openApiSync.diff.lastSyncedSpec","openApiSync.diff.currentInCollection"]
+
+[OpenAPISyncTab/CollectionStatusSection/index.js]
+  removed: ["Collection has changes since last sync"]
+  added:   ["openApiSync.collection.bannerTitle"]
+
+[OpenAPISyncTab/CollectionStatusSection/index.js]
+  removed: ["Modified in Collection"]
+  added:   ["openApiSync.collection.modifiedInCollection"]
+
+[OpenAPISyncTab/CollectionStatusSection/index.js]
+  removed: ["Open in tab","Reset to spec"]
+  added:   ["openApiSync.collection.openInTab","openApiSync.collection.open","openApiSync.collection.resetToSpec","openApiSync.collection.reset"]
+
+[OpenAPISyncTab/CollectionStatusSection/index.js]
+  removed: ["Reset all modified endpoints to match the spec","Deleted from Collection"]
+  added:   ["openApiSync.collection.resetAllTitle","openApiSync.collection.resetAll","openApiSync.collection.deletedFromCollection"]
+
+[OpenAPISyncTab/CollectionStatusSection/index.js]
+  removed: ["Restore to collection"]
+  added:   ["openApiSync.collection.restoreToCollection","openApiSync.collection.restore"]
+
+[OpenAPISyncTab/CollectionStatusSection/index.js]
+  removed: ["Add all deleted endpoints back to collection","Added to Collection"]
+  added:   ["openApiSync.collection.restoreAllTitle","openApiSync.collection.restoreAll","openApiSync.collection.addedToCollection"]
+
+[OpenAPISyncTab/CollectionStatusSection/index.js]
+  removed: ["Open in tab","Delete endpoint"]
+  added:   ["openApiSync.collection.openInTab","openApiSync.collection.open","openApiSync.collection.deleteEndpointTitle","openApiSync.collection.delete"]
+
+[OpenAPISyncTab/CollectionStatusSection/index.js]
+  removed: ["Delete all locally added endpoints"]
+  added:   ["openApiSync.collection.deleteAllTitle","openApiSync.collection.deleteAll"]
+
+[OpenAPISyncTab/CollectionStatusSection/index.js]
+  removed: ["Cannot track collection changes","Waiting for initial sync","The last synced spec is missing. Go to the \\'Spec Updates\\' tab to restore it, or sync the collection if updates are available to track future changes.","Once you sync your collection with the spec, local changes will appear here.","mt-4"]
+  added:   ["openApiSync.checkingForUpdates","openApiSync.collection.comparingCollection","openApiSync.collection.cannotTrack","openApiSync.collection.waitingForInitialSync","openApiSync.collection.specMissingDesc","openApiSync.collection.onceYouSync","openApiSync.overview.goToSpecUpdates","openApiSync.collection.noChanges","openApiSync.collection.noChangesDesc"]
+
+[OpenAPISyncTab/ConfirmSyncModal/index.js]
+  removed: ["Confirm Sync"]
+  added:   ["openApiSync.confirmSync.title","openApiSync.confirmSync.inSyncDescription","openApiSync.confirmSync.description"]
+
+[OpenAPISyncTab/ConfirmSyncModal/index.js]
+  removed: ["Restore Spec File","Confirm & Sync Collection"]
+  added:   ["common.cancel","openApiSync.confirmSync.restoreSpecFile","openApiSync.confirmSync.confirmAndSync"]
+
+[OpenAPISyncTab/ConnectionSettingsModal/index.js]
+  removed: ["Connection Settings"]
+  added:   ["openApiSync.settings.title","openApiSync.settings.specSource"]
+
+[OpenAPISyncTab/ConnectionSettingsModal/index.js]
+  removed: ["The selected file is not a valid OpenAPI 3.x specification","Failed to read the selected file"]
+  added:   ["openApiSync.settings.invalidSpecFile","openApiSync.settings.failedToReadFile"]
+
+[OpenAPISyncTab/ConnectionSettingsModal/index.js]
+  removed: ["Select File"]
+  added:   ["openApiSync.settings.selectFile","openApiSync.settings.autoCheck","openApiSync.settings.autoCheckDescription"]
+
+[OpenAPISyncTab/ConnectSpecForm/index.js]
+  removed: ["Detect new, modified, and removed endpoints","Track local changes against the spec","Sync collection with a single click","Your tests, assertions, and scripts are preserved during sync"]
+  added:   ["openApiSync.connect.title","openApiSync.connect.description"]
+
+[OpenAPISyncTab/ConnectSpecForm/index.js]
+  removed: ["The selected file is not a valid OpenAPI 3.x specification","Swagger 2.0 is not supported. Please convert your spec to OpenAPI 3.x.","Failed to read the selected file"]
+  added:   ["openApiSync.settings.invalidSpecFile","openApiSync.connect.swaggerNotSupported","openApiSync.settings.failedToReadFile"]
+
+[OpenAPISyncTab/ConnectSpecForm/index.js]
+  removed: ["Select File"]
+  added:   ["openApiSync.settings.selectFile"]
+
+[OpenAPISyncTab/ConnectSpecForm/index.js]
+  removed: ["Supports OpenAPI 3.x specifications in JSON or YAML format","Select a local OpenAPI/Swagger JSON or YAML file"]
+  added:   ["openApiSync.connect.button","openApiSync.connect.urlHint","openApiSync.connect.fileHint"]
+
+[OpenAPISyncTab/DisconnectSyncModal/index.js]
+  removed: ["Disconnect Sync"]
+  added:   ["openApiSync.disconnect.title","openApiSync.disconnect.message","openApiSync.disconnect.note","common.cancel","openApiSync.disconnect.confirm"]
+
+[OpenAPISyncTab/EndpointChangeSection/EndpointVisualDiff.js]
+  removed: ["Current (in collection)","Expected (from spec)"]
+  added:   ["openApiSync.diff.currentInCollection","openApiSync.diff.expectedFromSpec"]
+
+[OpenAPISyncTab/EndpointChangeSection/ExpandableEndpointRow.js]
+  removed: ["Failed to load diff data"]
+  added:   ["openApiSync.endpoint.failedToLoadDiff"]
+
+[OpenAPISyncTab/EndpointChangeSection/ExpandableEndpointRow.js]
+  removed: ["Keep your local version","Keep Mine","Accept the spec version","Accept Spec"]
+  added:   ["openApiSync.endpoint.keepLocalTitle","openApiSync.endpoint.keepMine","openApiSync.endpoint.acceptSpecTitle","openApiSync.endpoint.acceptSpec"]
+
+[OpenAPISyncTab/EndpointChangeSection/ExpandableEndpointRow.js]
+  removed: ["Current (in collection)","Expected (from spec)"]
+  added:   ["openApiSync.specDiff.loadingDiff","openApiSync.endpoint.errorWithMessage","openApiSync.diff.currentInCollection","openApiSync.diff.expectedFromSpec"]
+
+[OpenAPISyncTab/hooks/useEndpointActions.js]
+  removed: ["Reset Endpoint","Are you sure you want to reset \"${endpoint.method} ${endpoint.path}\" to match the spec? Your local changes will be lost."]
+  added:   ["openApiSync.actions.resetEndpoint","openApiSync.actions.resetEndpointMessage"]
+
+[OpenAPISyncTab/hooks/useEndpointActions.js]
+  removed: ["Reset All Modified","Are you sure you want to reset ${collectionDrift.modified.length} modified endpoint(s) to match the spec? Your local changes will be lost.","Delete Endpoint","Are you sure you want to delete \"${endpoint.method} ${endpoint.path}\"? This action cannot be undone."]
+  added:   ["openApiSync.actions.resetAllModified","openApiSync.actions.resetAllMessage","openApiSync.actions.deleteEndpoint","openApiSync.actions.deleteEndpointMessage"]
+
+[OpenAPISyncTab/hooks/useEndpointActions.js]
+  removed: ["Delete All Local Endpoints","Are you sure you want to delete ${collectionDrift.localOnly.length} local-only endpoint(s)? This action cannot be undone."]
+  added:   ["openApiSync.actions.deleteAllLocal","openApiSync.actions.deleteAllMessage"]
+
+[OpenAPISyncTab/hooks/useEndpointActions.js]
+  removed: ["Revert All Changes","Are you sure you want to revert all changes? This will reset ${modifiedCount} modified, restore ${missingCount} missing, and delete ${localOnlyCount} local-only endpoint(s).","Restore Endpoint","Are you sure you want to restore \"${endpoint.method} ${endpoint.path}\" to your collection?"]
+  added:   ["openApiSync.actions.revertAll","openApiSync.actions.revertAllMessage","openApiSync.actions.restoreEndpoint","openApiSync.actions.restoreEndpointMessage"]
+
+[OpenAPISyncTab/hooks/useEndpointActions.js]
+  removed: ["Restore All Missing","Are you sure you want to restore ${collectionDrift.missing.length} missing endpoint(s) to your collection?"]
+  added:   ["openApiSync.actions.restoreAllMissing","openApiSync.actions.restoreAllMessage"]
+
+[OpenAPISyncTab/hooks/useEndpointActions.js]
+  removed: ["Reset ${endpoint.method} ${endpoint.path} to spec","Failed to reset endpoint","Reset ${collectionDrift.modified.length} endpoints to spec","Failed to reset endpoints","Deleted ${endpoint.method} ${endpoint.path}","Failed to delete endpoint","Deleted ${collectionDrift.localOnly.length} local-only endpoints","Failed to delete endpoints"]
+  added:   ["openApiSync.actions.resetEndpointToast","openApiSync.actions.failedToResetEndpoint","openApiSync.actions.resetAllToast","openApiSync.actions.failedToResetEndpoints","openApiSync.actions.deletedEndpointToast","openApiSync.actions.failedToDeleteEndpoint","openApiSync.actions.deletedAllToast","openApiSync.actions.failedToDeleteEndpoints"]
+
+[OpenAPISyncTab/hooks/useEndpointActions.js]
+  removed: ["All changes discarded successfully","Failed to discard changes","Added ${endpoint.method} ${endpoint.path} to collection","Failed to add endpoint","Added ${collectionDrift.missing.length} endpoints to collection","Failed to add endpoints"]
+  added:   ["openApiSync.actions.allChangesDiscarded","openApiSync.actions.failedToDiscard","openApiSync.actions.addedEndpointToast","openApiSync.actions.failedToAddEndpoint","openApiSync.actions.addedAllToast","openApiSync.actions.failedToAddEndpoints"]
+
+[OpenAPISyncTab/hooks/useOpenAPISync.js]
+  removed: ["Please enter a URL or select a file"]
+  added:   ["openApiSync.errors.pleaseEnterUrl"]
+
+[OpenAPISyncTab/hooks/useOpenAPISync.js]
+  removed: ["Failed to check for updates","Failed to check for updates"]
+  added:   ["openApiSync.errors.failedToCheckUpdates","openApiSync.errors.failedToCheckUpdates"]
+
+[OpenAPISyncTab/hooks/useOpenAPISync.js]
+  removed: ["Please enter a URL or select a file"]
+  added:   ["openApiSync.errors.pleaseEnterUrl"]
+
+[OpenAPISyncTab/hooks/useOpenAPISync.js]
+  removed: ["The URL does not point to a valid OpenAPI 3.x specification","The URL does not point to a valid OpenAPI 3.x specification"]
+  added:   ["openApiSync.errors.invalidOpenApiUrl","openApiSync.errors.invalidOpenApiUrl"]
+
+[OpenAPISyncTab/hooks/useOpenAPISync.js]
+  removed: ["OpenAPI sync connected","Failed to connect"]
+  added:   ["openApiSync.toast.connected","openApiSync.errors.failedToConnect"]
+
+[OpenAPISyncTab/hooks/useOpenAPISync.js]
+  removed: ["OpenAPI sync disconnected","Failed to disconnect sync"]
+  added:   ["openApiSync.toast.disconnected","openApiSync.errors.failedToDisconnect"]
+
+[OpenAPISyncTab/hooks/useOpenAPISync.js]
+  removed: ["The URL does not point to a valid OpenAPI 3.x specification","The URL does not point to a valid OpenAPI 3.x specification"]
+  added:   ["openApiSync.errors.invalidOpenApiUrl","openApiSync.errors.invalidOpenApiUrl"]
+
+[OpenAPISyncTab/hooks/useOpenAPISync.js]
+  removed: ["Settings saved","Failed to save settings"]
+  added:   ["openApiSync.toast.settingsSaved","openApiSync.errors.failedToSaveSettings"]
+
+[OpenAPISyncTab/hooks/useSyncFlow.js]
+  removed: ["Spec updated successfully","Collection reset to spec successfully","Collection synced successfully","Failed to sync collection"]
+  added:   ["openApiSync.toast.specUpdated","openApiSync.toast.resetToSpec","openApiSync.toast.synced","openApiSync.errors.failedToSync"]
+
+[OpenAPISyncTab/hooks/useSyncFlow.js]
+  removed: ["New endpoints to add","Endpoints to update","Endpoints to delete"]
+  added:   ["openApiSync.groups.newEndpointsToAdd","openApiSync.groups.endpointsToUpdate","openApiSync.groups.endpointsToDelete"]
+
+[OpenAPISyncTab/index.js]
+  removed: ["Overview","Collection Changes","Spec Updates"]
+  added:   ["openApiSync.tabs.overview","openApiSync.tabs.collectionChanges","openApiSync.tabs.specUpdates"]
+
+[OpenAPISyncTab/OpenAPISyncHeader/index.js]
+  removed: ["Unknown API"]
+  added:   ["openApiSync.header.unknownApi"]
+
+[OpenAPISyncTab/OpenAPISyncHeader/index.js]
+  removed: ["Path copied to clipboard","URL copied to clipboard","Failed to copy to clipboard"]
+  added:   ["openApiSync.header.pathCopied","openApiSync.header.urlCopied","openApiSync.header.copyFailed"]
+
+[OpenAPISyncTab/OpenAPISyncHeader/index.js]
+  removed: ["Failed to open in file manager","Edit connection settings","Disconnect Sync"]
+  added:   ["openApiSync.header.openInFileManagerFailed","openApiSync.header.editConnectionSettings","openApiSync.disconnect.title"]
+
+[OpenAPISyncTab/OpenAPISyncHeader/index.js]
+  removed: ["More options","Source File:","Source URL:","Reveal in file manager"]
+  added:   ["openApiSync.header.checkForUpdates","openApiSync.header.viewSpec","openApiSync.header.moreOptions","openApiSync.header.sourceFile","openApiSync.header.sourceUrl","openApiSync.header.revealInFileManager"]
+
+[OpenAPISyncTab/OpenAPISyncHeader/index.js]
+  removed: ["Copy path","Copy URL"]
+  added:   ["openApiSync.header.copyPath","openApiSync.header.copyUrl","openApiSync.header.linkedCollection"]
+
+[OpenAPISyncTab/OverviewSection/index.js]
+  removed: ["Spec Version","v${version}","Endpoints in Spec","Last Synced At","MMMM D, YYYY [at] h:mm A","Folder Grouping","Auto Check for Updates","Every ${autoCheckInterval} min","Disabled"]
+  added:   ["openApiSync.overview.specVersion","openApiSync.overview.endpointsInSpec","openApiSync.overview.lastSyncedAt","openApiSync.overview.folderGrouping","openApiSync.overview.autoCheck","openApiSync.overview.everyMinutes","openApiSync.overview.disabled"]
+
+[OpenAPISyncTab/SpecDiffModal/index.js]
+  removed: ["No changes","${currentIndex + 1} of ${changeCount} changes","Spec Diff","The current spec file is missing. The full remote spec is shown below.","Side-by-side diff of your current spec vs the updated spec from the spec URL."]
+  added:   ["openApiSync.specDiff.noChanges","openApiSync.specDiff.changeCounter","openApiSync.specDiff.title","openApiSync.specDiff.endpointChanges","openApiSync.specDiff.updatedCount","openApiSync.specDiff.addedCount","openApiSync.specDiff.removedCount","openApiSync.specDiff.missingSpecSubtitle","openApiSync.specDiff.subtitle"]
+
+[OpenAPISyncTab/SpecDiffModal/index.js]
+  removed: ["Previous change","Next change"]
+  added:   ["openApiSync.specDiff.previousChange","openApiSync.specDiff.previous","openApiSync.specDiff.nextChange","openApiSync.specDiff.next"]
+
+[OpenAPISyncTab/SpecDiffModal/index.js]
+  removed: ["Current Spec (missing)","Current Spec"]
+  added:   ["openApiSync.specDiff.currentSpecMissing","openApiSync.specDiff.currentSpec","openApiSync.specDiff.updatedSpec","openApiSync.specDiff.loadingDiff","openApiSync.specDiff.renderError"]
+
+[OpenAPISyncTab/SpecStatusSection/index.js]
+  removed: ["Source file not found at ${sourceUrl}","Invalid OpenAPI specification"]
+  added:   ["openApiSync.banner.sourceFileNotFound","openApiSync.banner.invalidSpec"]
+
+[OpenAPISyncTab/SpecStatusSection/index.js]
+  removed: ["OpenAPI spec has been updated${versionInfo}"]
+  added:   ["openApiSync.banner.specUpdated"]
+
+[OpenAPISyncTab/SyncReviewPage/index.js]
+  removed: ["New endpoints to add","Endpoints to update","Endpoints to delete","Keeping local version","Retaining removed endpoints","Skipped new endpoints","Keeping current version (skipped updates)"]
+  added:   ["openApiSync.groups.newEndpointsToAdd","openApiSync.groups.endpointsToUpdate","openApiSync.groups.endpointsToDelete","openApiSync.groups.keepingLocalVersion","openApiSync.groups.retainingRemovedEndpoints","openApiSync.groups.skippedNewEndpoints","openApiSync.groups.keepingCurrentVersion"]
+
+[OpenAPISyncTab/SyncReviewPage/index.js]
+  removed: ["Resolve ${unresolvedConflicts} conflict${unresolvedConflicts !== 1 ? 's and sync' : ' and sync'}","Restore Spec File","Sync Collection"]
+  added:   ["openApiSync.review.resolveConflictsAndSync","openApiSync.review.restoreSpecFile","openApiSync.review.syncCollection"]
+
+[OpenAPISyncTab/SyncReviewPage/index.js]
+  removed: ["Updated in Spec","The spec has updates for these endpoints","This section has ${conflictCount} endpoint${conflictCount === 1 ? '' : 's'} modified in both the spec and your collection. Expand to review and resolve.","Conflict","Conflicts"]
+  added:   ["openApiSync.review.updatedInSpec","openApiSync.review.updatedInSpecSubtitle","openApiSync.review.conflictsHelp","openApiSync.review.conflictCount"]
+
+[OpenAPISyncTab/SyncReviewPage/index.js]
+  removed: ["Keep Current","Update"]
+  added:   ["openApiSync.decision.keepCurrent","openApiSync.decision.update"]
+
+[OpenAPISyncTab/SyncReviewPage/index.js]
+  removed: ["New in Spec","New endpoints from the spec"]
+  added:   ["openApiSync.review.newInSpec","openApiSync.review.newInSpecSubtitle"]
+
+[OpenAPISyncTab/SyncReviewPage/index.js]
+  removed: ["Skip","Add"]
+  added:   ["openApiSync.decision.skip","openApiSync.decision.add"]
+
+[OpenAPISyncTab/SyncReviewPage/index.js]
+  removed: ["Removed from Spec","These endpoints are in your collection but not in the spec"]
+  added:   ["openApiSync.review.removedFromSpec","openApiSync.review.removedFromSpecSubtitle"]
+
+[OpenAPISyncTab/SyncReviewPage/index.js]
+  removed: ["Keep","Delete"]
+  added:   ["openApiSync.decision.keep","openApiSync.decision.delete"]
+
+[OpenAPISyncTab/SyncReviewPage/index.js]
+  removed: ["Sync will update the spec file","No endpoint changes to apply"]
+  added:   ["openApiSync.review.syncWillUpdateSpecFile","openApiSync.review.noEndpointChanges"]
+
+[ResponseExample/ResponseExampleResponsePane/index.js]
+  removed: ["Response"]
+  added:   ["collection.example.responseTab"]
+
+[ResponseExample/ResponseExampleResponsePane/index.js]
+  removed: ["Headers","Try Result"]
+  added:   ["collection.example.headersTab","collection.example.tryResultTab"]
+
+[ResponseExample/ResponseExampleResponsePane/ResponseExampleResponseHeaders/index.js]
+  removed: ["Key","Key"]
+  added:   ["collection.table.key","collection.table.key"]
+
+[ResponseExample/ResponseExampleResponsePane/ResponseExampleResponseHeaders/index.js]
+  removed: ["Key","Value","Value"]
+  added:   ["collection.table.key","collection.table.value","collection.table.value"]
+
+[ResponseExample/ResponseExampleResponsePane/ResponseExampleResponseHeaders/index.js]
+  removed: ["Value"]
+  added:   ["collection.table.value"]

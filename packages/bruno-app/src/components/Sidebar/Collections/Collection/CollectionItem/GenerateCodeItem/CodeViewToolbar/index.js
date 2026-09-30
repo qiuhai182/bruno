@@ -3,9 +3,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useMemo } from 'react';
 import { getLanguages } from 'utils/codegenerator/targets';
 import { updateGenerateCode } from 'providers/ReduxStore/slices/app';
+import { useTranslation } from 'react-i18next';
 import StyledWrapper from './StyledWrapper';
 
 const CodeViewToolbar = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const languages = getLanguages();
   const generateCodePrefs = useSelector((state) => state.app.generateCode);
@@ -96,7 +98,7 @@ const CodeViewToolbar = () => {
               checked={generateCodePrefs.shouldInterpolate}
               onChange={handleInterpolateChange}
             />
-            <span>Interpolate Variables</span>
+            <span>{t('sidebar.generateCode.interpolateVariables')}</span>
           </label>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
 import { useDispatch, useSelector, useStore } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import toast from 'react-hot-toast';
 import { addTab, focusTab } from 'providers/ReduxStore/slices/tabs';
 import { closeTabs } from 'providers/ReduxStore/slices/collections/actions';
@@ -19,6 +20,7 @@ import { countEndpoints } from '../utils';
 
 const useOpenAPISync = (collection) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const openApiSyncConfig = collection?.brunoConfig?.openapi?.[0];
 
   // Core state
@@ -126,7 +128,7 @@ const useOpenAPISync = (collection) => {
   const checkForUpdates = async ({ sourceUrlOverride } = {}) => {
     const effectiveUrl = (sourceUrlOverride ?? sourceUrl).trim();
     if (!effectiveUrl) {
-      setError('Please enter a URL or select a file');
+      setError(t('openApiSync.errors.pleaseEnterUrl'));
       return;
     }
 
@@ -185,11 +187,11 @@ const useOpenAPISync = (collection) => {
       }
     } catch (err) {
       console.error('Error checking for updates:', err);
-      setError(formatIpcError(err) || 'Failed to check for updates');
+      setError(formatIpcError(err) || t('openApiSync.errors.failedToCheckUpdates'));
       dispatch(setCollectionUpdate({
         collectionUid: collection.uid,
         hasUpdates: false,
-        error: formatIpcError(err) || 'Failed to check for updates'
+        error: formatIpcError(err) || t('openApiSync.errors.failedToCheckUpdates')
       }));
     } finally {
       updateDrift({ fetching: false });
@@ -215,7 +217,7 @@ const useOpenAPISync = (collection) => {
   const handleConnect = async () => {
     const trimmedUrl = sourceUrl.trim();
     if (!trimmedUrl) {
-      setError('Please enter a URL or select a file');
+      setError(t('openApiSync.errors.pleaseEnterUrl'));
       return;
     }
 
@@ -229,11 +231,11 @@ const useOpenAPISync = (collection) => {
         try {
           const { specType } = await fetchAndValidateApiSpecFromUrl({ url: trimmedUrl });
           if (specType !== 'openapi') {
-            setError('The URL does not point to a valid OpenAPI 3.x specification');
+            setError(t('openApiSync.errors.invalidOpenApiUrl'));
             return;
           }
         } catch {
-          setError('The URL does not point to a valid OpenAPI 3.x specification');
+          setError(t('openApiSync.errors.invalidOpenApiUrl'));
           return;
         }
       }
@@ -291,10 +293,10 @@ const useOpenAPISync = (collection) => {
         }
       }
 
-      toast.success('OpenAPI sync connected');
+      toast.success(t('openApiSync.toast.connected'));
     } catch (err) {
       console.error('Error connecting OpenAPI sync:', err);
-      setError(formatIpcError(err) || 'Failed to connect');
+      setError(formatIpcError(err) || t('openApiSync.errors.failedToConnect'));
     } finally {
       setIsLoading(false);
     }
@@ -319,10 +321,10 @@ const useOpenAPISync = (collection) => {
         dispatch(closeTabs({ tabUids: [specTab.uid] }));
       }
 
-      toast.success('OpenAPI sync disconnected');
+      toast.success(t('openApiSync.toast.disconnected'));
     } catch (err) {
       console.error('Error disconnecting sync:', err);
-      toast.error('Failed to disconnect sync');
+      toast.error(t('openApiSync.errors.failedToDisconnect'));
     }
   };
 
@@ -362,11 +364,11 @@ const useOpenAPISync = (collection) => {
       try {
         ({ specType } = await fetchAndValidateApiSpecFromUrl({ url: newUrl }));
       } catch {
-        toast.error('The URL does not point to a valid OpenAPI 3.x specification');
+        toast.error(t('openApiSync.errors.invalidOpenApiUrl'));
         throw new Error('Invalid OpenAPI specification');
       }
       if (specType !== 'openapi') {
-        toast.error('The URL does not point to a valid OpenAPI 3.x specification');
+        toast.error(t('openApiSync.errors.invalidOpenApiUrl'));
         throw new Error('Invalid OpenAPI specification');
       }
     }
@@ -384,12 +386,12 @@ const useOpenAPISync = (collection) => {
       });
       setSourceUrl(newUrl);
       setFileNotFound(false);
-      toast.success('Settings saved');
+      toast.success(t('openApiSync.toast.settingsSaved'));
       // Re-check with new settings — pass newUrl directly to avoid stale closure
       await checkForUpdates({ sourceUrlOverride: newUrl });
     } catch (err) {
       console.error('Error saving settings:', err);
-      toast.error('Failed to save settings');
+      toast.error(t('openApiSync.errors.failedToSaveSettings'));
     }
   };
 

@@ -1,0 +1,812 @@
+﻿diff --git a/packages/bruno-app/src/components/GlobalSearchModal/index.js b/packages/bruno-app/src/components/GlobalSearchModal/index.js
+index ff891cacf..ee679a955 100644
+--- a/packages/bruno-app/src/components/GlobalSearchModal/index.js
++++ b/packages/bruno-app/src/components/GlobalSearchModal/index.js
+@@ -17,7 +17,9 @@ import { normalizePath } from 'utils/common/path';
+ import { normalizeQuery, isValidQuery, highlightText, sortResults, getTypeLabel, getItemPath } from './utils/searchUtils';
+ import { SEARCH_TYPES, MATCH_TYPES, SEARCH_CONFIG, DOCUMENTATION_RESULT } from './constants';
++import { useTranslation } from 'react-i18next';
+ import StyledWrapper from './StyledWrapper';
+ 
+ const GlobalSearchModal = ({ isOpen, onClose }) => {
++  const { t } = useTranslation();
+   const [query, setQuery] = useState('');
+   const [selectedIndex, setSelectedIndex] = useState(0);
+@@ -86,5 +88,5 @@ const GlobalSearchModal = ({ isOpen, onClose }) => {
+ 
+         if (isItemARequest(item)) {
+-          // add an optional check for the item name to prevent a crash if it doesn’t exist.
++          // add an optional check for the item name to prevent a crash if it doesn��t exist.
+           const nameMatch = searchTerms.every((term) => (item.name || '').toLowerCase().includes(term));
+           const urlMatch = searchTerms.every((term) => (item.request?.url || '').toLowerCase().includes(term));
+@@ -373,13 +375,13 @@ const GlobalSearchModal = ({ isOpen, onClose }) => {
+       >
+         <div className="command-k-modal" onClick={(e) => e.stopPropagation()}>
+-          <h1 id="search-modal-title" className="sr-only">Global Search</h1>
++          <h1 id="search-modal-title" className="sr-only">{t('globalSearch.title')}</h1>
+           <p id="search-modal-description" className="sr-only">
+-            Search through collections, requests, folders, and documentation. Use arrow keys to navigate results and Enter to select.
++            {t('globalSearch.srDescription')}
+           </p>
+           <div aria-live="polite" aria-atomic="true" className="sr-only">
+             {results.length > 0 && query
+-              ? `${results.length} result${results.length === 1 ? '' : 's'} found`
++              ? t('globalSearch.resultsFound', { count: results.length })
+               : query && results.length === 0
+-                ? 'No results found'
++                ? t('globalSearch.noResults')
+                 : ''}
+           </div>
+@@ -390,5 +392,5 @@ const GlobalSearchModal = ({ isOpen, onClose }) => {
+                 ref={inputRef}
+                 type="text"
+-                placeholder="Search collections, requests, or documentation..."
++                placeholder={t('globalSearch.searchPlaceholder')}
+                 value={query}
+                 onChange={handleQueryChange}
+@@ -399,5 +401,5 @@ const GlobalSearchModal = ({ isOpen, onClose }) => {
+                 autoCapitalize="off"
+                 spellCheck="false"
+-                aria-label="Search collections, requests, or documentation"
++                aria-label={t('globalSearch.searchAriaLabel')}
+                 aria-expanded={results.length > 0}
+                 aria-controls="search-results"
+@@ -411,5 +413,5 @@ const GlobalSearchModal = ({ isOpen, onClose }) => {
+                   onClick={clearSearch}
+                   className="clear-button"
+-                  aria-label="Clear search query"
++                  aria-label={t('globalSearch.clearSearch')}
+                   type="button"
+                 >
+@@ -425,13 +427,13 @@ const GlobalSearchModal = ({ isOpen, onClose }) => {
+             id="search-results"
+             role="listbox"
+-            aria-label="Search results"
++            aria-label={t('globalSearch.searchResults')}
+           >
+             {results.length === 0 && query ? (
+               <div className="no-results">
+                 <p>
+-                  No results found for "{query}".
++                  {t('globalSearch.noResultsFor', { query })}
+                   <br />
+                   <span className="block mt-2">
+-                    The item might not exist yet, or its collection isn’t mounted. Press <strong>Enter</strong> here (or open it from the sidebar) to mount the collection automatically.
++                    {t('globalSearch.noResultsHintPrefix')} <strong>Enter</strong> {t('globalSearch.noResultsHintSuffix')}
+                   </span>
+                 </p>
+@@ -440,8 +442,8 @@ const GlobalSearchModal = ({ isOpen, onClose }) => {
+               <div className="empty-state">
+                 <p>
+-                  No collections are currently mounted or visible.
++                  {t('globalSearch.noCollections')}
+                   <br />
+                   <span className="block mt-2">
+-                    Mount a collection via the sidebar or this search modal, then try again.
++                    {t('globalSearch.mountHint')}
+                   </span>
+                 </p>
+@@ -485,5 +487,5 @@ const GlobalSearchModal = ({ isOpen, onClose }) => {
+                           <span
+                             className={`method-badge ${result.method.toLowerCase()}`}
+-                            aria-label={`HTTP method ${result.method.toUpperCase().replace(/-/g, ' ')}`}
++                            aria-label={t('globalSearch.httpMethod', { method: result.method.toUpperCase().replace(/-/g, ' ') })}
+                           >
+                             {result.method.toUpperCase().replace(/-/g, ' ')}
+@@ -491,5 +493,5 @@ const GlobalSearchModal = ({ isOpen, onClose }) => {
+                         )}
+                         {typeLabel && (
+-                          <div className="result-type" aria-label={`Item type ${typeLabel}`}>
++                          <div className="result-type" aria-label={t('globalSearch.itemType', { type: typeLabel })}>
+                             {typeLabel}
+                           </div>
+@@ -504,17 +506,17 @@ const GlobalSearchModal = ({ isOpen, onClose }) => {
+ 
+           <div className="command-k-footer">
+-            <div className="keyboard-hints" role="region" aria-label="Keyboard shortcuts">
+-              <span aria-label="Use up and down arrows to navigate">
+-                <span className="keycap" aria-hidden="true">↑</span>
+-                <span className="keycap" aria-hidden="true">↓</span>
+-                <span className="hint-label">to navigate</span>
++            <div className="keyboard-hints" role="region" aria-label={t('globalSearch.keyboardShortcuts')}>
++              <span aria-label={t('globalSearch.arrowsHintAria')}>
++                <span className="keycap" aria-hidden="true">��</span>
++                <span className="keycap" aria-hidden="true">��</span>
++                <span className="hint-label">{t('globalSearch.toNavigate')}</span>
+               </span>
+-              <span aria-label="Press Enter to select">
+-                <span className="keycap" aria-hidden="true">↵</span>
+-                <span className="hint-label">to select</span>
++              <span aria-label={t('globalSearch.enterHintAria')}>
++                <span className="keycap" aria-hidden="true">?</span>
++                <span className="hint-label">{t('globalSearch.toSelect')}</span>
+               </span>
+-              <span aria-label="Press Escape to close">
++              <span aria-label={t('globalSearch.escHintAria')}>
+                 <span className="keycap" aria-hidden="true">esc</span>
+-                <span className="hint-label">to close</span>
++                <span className="hint-label">{t('globalSearch.toClose')}</span>
+               </span>
+             </div>
+diff --git a/packages/bruno-app/src/components/ManageWorkspace/DeleteWorkspace/index.js b/packages/bruno-app/src/components/ManageWorkspace/DeleteWorkspace/index.js
+index 34f588ecc..077162730 100644
+--- a/packages/bruno-app/src/components/ManageWorkspace/DeleteWorkspace/index.js
++++ b/packages/bruno-app/src/components/ManageWorkspace/DeleteWorkspace/index.js
+@@ -6,7 +6,9 @@ import { useDispatch } from 'react-redux';
+ import { IconFolder } from '@tabler/icons';
+ import { closeWorkspaceAction } from 'providers/ReduxStore/slices/workspaces/actions';
++import { useTranslation } from 'react-i18next';
+ 
+ const DeleteWorkspace = ({ onClose, workspace }) => {
+   const dispatch = useDispatch();
++  const { t } = useTranslation();
+   const [isDeleting, setIsDeleting] = useState(false);
+ 
+@@ -19,5 +21,5 @@ const DeleteWorkspace = ({ onClose, workspace }) => {
+       onClose();
+     } catch (error) {
+-      toast.error(error?.message || 'An error occurred while removing the workspace');
++      toast.error(error?.message || t('workspace.toast.removeError'));
+       setIsDeleting(false);
+     }
+@@ -28,6 +30,6 @@ const DeleteWorkspace = ({ onClose, workspace }) => {
+       <Modal
+         size="sm"
+-        title="Remove Workspace"
+-        confirmText={isDeleting ? 'Removing...' : 'Remove'}
++        title={t('workspace.remove.title')}
++        confirmText={isDeleting ? t('workspace.remove.removing') : t('workspace.remove.confirm')}
+         handleConfirm={onConfirm}
+         handleCancel={onClose}
+@@ -44,8 +46,9 @@ const DeleteWorkspace = ({ onClose, workspace }) => {
+         )}
+         <div className="mt-4">
+-          Are you sure you want to remove workspace <span className="font-semibold">{workspace?.name}</span>?
++          {t('workspace.remove.confirmPrefix')} <span className="font-semibold">{workspace?.name}</span>
++          {t('workspace.remove.confirmSuffix')}
+         </div>
+         <div className="mt-4">
+-          The workspace will still be available in the file system and can be re-opened later.
++          {t('workspace.remove.note')}
+         </div>
+       </Modal>
+diff --git a/packages/bruno-app/src/components/ManageWorkspace/RenameWorkspace/index.js b/packages/bruno-app/src/components/ManageWorkspace/RenameWorkspace/index.js
+index 0616f8634..b02e79017 100644
+--- a/packages/bruno-app/src/components/ManageWorkspace/RenameWorkspace/index.js
++++ b/packages/bruno-app/src/components/ManageWorkspace/RenameWorkspace/index.js
+@@ -7,7 +7,9 @@ import * as Yup from 'yup';
+ import { useDispatch, useSelector } from 'react-redux';
+ import { renameWorkspaceAction } from 'providers/ReduxStore/slices/workspaces/actions';
++import { useTranslation } from 'react-i18next';
+ 
+ const RenameWorkspace = ({ onClose, workspace }) => {
+   const dispatch = useDispatch();
++  const { t } = useTranslation();
+   const { workspaces } = useSelector((state) => state.workspaces);
+   const inputRef = useRef();
+@@ -20,8 +22,8 @@ const RenameWorkspace = ({ onClose, workspace }) => {
+     validationSchema: Yup.object({
+       name: Yup.string()
+-        .min(1, 'must be at least 1 character')
+-        .max(255, 'must be 255 characters or less')
+-        .required('name is required')
+-        .test('unique-name', 'A workspace with this name already exists', function (value) {
++        .min(1, t('workspace.validation.minOneCharLower'))
++        .max(255, t('workspace.validation.maxTwoFiftyFiveLower'))
++        .required(t('workspace.validation.nameRequiredLower'))
++        .test('unique-name', t('workspace.validation.nameAlreadyExists'), function (value) {
+           if (!value) return true;
+           return !workspaces.some((w) =>
+@@ -40,5 +42,5 @@ const RenameWorkspace = ({ onClose, workspace }) => {
+         })
+         .catch((error) => {
+-          toast.error(error?.message || 'An error occurred while renaming the workspace');
++          toast.error(error?.message || t('workspace.toast.renameError'));
+         });
+     }
+@@ -60,6 +62,6 @@ const RenameWorkspace = ({ onClose, workspace }) => {
+       <Modal
+         size="md"
+-        title="Rename Workspace"
+-        confirmText="Rename"
++        title={t('workspace.rename.title')}
++        confirmText={t('workspace.rename.confirm')}
+         handleConfirm={onSubmit}
+         handleCancel={onClose}
+@@ -69,5 +71,5 @@ const RenameWorkspace = ({ onClose, workspace }) => {
+           <div>
+             <label htmlFor="workspace-name" className="block font-semibold">
+-              Workspace Name
++              {t('workspace.label.workspaceName')}
+             </label>
+             <input
+diff --git a/packages/bruno-app/src/components/ManageWorkspace/index.js b/packages/bruno-app/src/components/ManageWorkspace/index.js
+index ae6285486..2b0a9d5dd 100644
+--- a/packages/bruno-app/src/components/ManageWorkspace/index.js
++++ b/packages/bruno-app/src/components/ManageWorkspace/index.js
+@@ -18,7 +18,9 @@ import Button from 'ui/Button';
+ import { getRevealInFolderLabel } from 'utils/common/platform';
+ import { openDevtoolsAndSwitchToTerminal } from 'utils/terminal';
++import { useTranslation } from 'react-i18next';
+ 
+ const ManageWorkspace = () => {
+   const dispatch = useDispatch();
++  const { t } = useTranslation();
+   const { workspaces, activeWorkspaceUid } = useSelector((state) => state.workspaces);
+   const preferences = useSelector((state) => state.app.preferences);
+@@ -40,5 +42,5 @@ const ManageWorkspace = () => {
+     dispatch(switchWorkspace(workspace.uid));
+     dispatch(showHomePage());
+-    toast.success(`Switched to ${workspace.name}`);
++    toast.success(t('workspace.toast.switchedTo', { name: workspace.name }));
+   };
+ 
+@@ -46,5 +48,5 @@ const ManageWorkspace = () => {
+     if (workspace.pathname) {
+       dispatch(showInFolder(workspace.pathname)).catch(() => {
+-        toast.error('Error opening the folder');
++        toast.error(t('workspace.toast.openFolderError'));
+       });
+     }
+@@ -57,5 +59,5 @@ const ManageWorkspace = () => {
+   const handleCloseClick = (workspace) => {
+     if (workspace.type === 'default') {
+-      toast.error('Cannot remove the default workspace');
++      toast.error(t('workspace.toast.cannotRemoveDefault'));
+       return;
+     }
+@@ -73,5 +75,5 @@ const ManageWorkspace = () => {
+       await dispatch(createWorkspaceWithUniqueName(defaultLocation));
+     } catch (error) {
+-      toast.error(error?.message || 'Failed to create workspace');
++      toast.error(error?.message || t('workspace.toast.createFailed'));
+     }
+   };
+@@ -102,5 +104,5 @@ const ManageWorkspace = () => {
+             <IconArrowLeft size={18} strokeWidth={1.5} />
+           </div>
+-          <span className="header-title" data-testid="manage-workspace-title">Manage Workspace</span>
++          <span className="header-title" data-testid="manage-workspace-title">{t('workspace.manage.title')}</span>
+         </div>
+         <Button
+@@ -110,5 +112,5 @@ const ManageWorkspace = () => {
+           data-testid="manage-workspace-create"
+         >
+-          Create Workspace
++          {t('workspace.create.confirm')}
+         </Button>
+       </div>
+@@ -117,5 +119,5 @@ const ManageWorkspace = () => {
+         {sortedWorkspaces.length === 0 ? (
+           <div className="empty-state">
+-            <span>No workspaces found</span>
++            <span>{t('workspace.manage.noWorkspaces')}</span>
+           </div>
+         ) : (
+@@ -136,5 +138,5 @@ const ManageWorkspace = () => {
+                     </span>
+                     <span className="workspace-name" data-testid="workspace-row-name">{workspace.name}</span>
+-                    {isDefault && <span className="default-badge" data-testid="workspace-default-badge">Default</span>}
++                    {isDefault && <span className="default-badge" data-testid="workspace-default-badge">{t('workspace.manage.defaultBadge')}</span>}
+                   </div>
+                   {workspace.pathname && (
+@@ -149,5 +151,5 @@ const ManageWorkspace = () => {
+                   >
+                     <IconLogin size={14} strokeWidth={1.5} />
+-                    <span>Open</span>
++                    <span>{t('workspace.manage.open')}</span>
+                   </button>
+                   {workspace.pathname && workspace.type !== 'default' && (
+@@ -164,7 +166,7 @@ const ManageWorkspace = () => {
+                       placement="bottom-end"
+                       items={[
+-                        { id: 'open-in-terminal', label: 'Open in Terminal', onClick: () => openDevtoolsAndSwitchToTerminal(dispatch, workspace.pathname) },
+-                        { id: 'rename', label: 'Rename', onClick: () => handleRenameClick(workspace) },
+-                        { id: 'remove', label: 'Remove', onClick: () => handleCloseClick(workspace) }
++                        { id: 'open-in-terminal', label: t('workspace.manage.openInTerminal'), onClick: () => openDevtoolsAndSwitchToTerminal(dispatch, workspace.pathname) },
++                        { id: 'rename', label: t('workspace.menu.rename'), onClick: () => handleRenameClick(workspace) },
++                        { id: 'remove', label: t('workspace.menu.remove'), onClick: () => handleCloseClick(workspace) }
+                       ]}
+                     >
+diff --git a/packages/bruno-app/src/components/WelcomeModal/StorageStep/index.js b/packages/bruno-app/src/components/WelcomeModal/StorageStep/index.js
+index 877d7024e..ab98280bc 100644
+--- a/packages/bruno-app/src/components/WelcomeModal/StorageStep/index.js
++++ b/packages/bruno-app/src/components/WelcomeModal/StorageStep/index.js
+@@ -1,39 +1,44 @@
+ import React from 'react';
++import { useTranslation } from 'react-i18next';
+ import StyledWrapper from './StyledWrapper';
+ 
+-const StorageStep = ({ collectionLocation, onBrowse }) => (
+-  <StyledWrapper className="step-body">
+-    <div className="step-label">Storage</div>
+-    <div className="step-title">Where should we store your collections?</div>
+-    <div className="step-description">
+-      Bruno saves collections as plain files on your filesystem, perfect for version control with Git.
+-    </div>
++const StorageStep = ({ collectionLocation, onBrowse }) => {
++  const { t } = useTranslation();
+ 
+-    <div className="location-input-group">
+-      <div
+-        className="location-path-display"
+-        onClick={onBrowse}
+-        onKeyDown={(e) => {
+-          if (e.key === 'Enter' || e.key === ' ') {
+-            e.preventDefault();
+-            onBrowse();
+-          }
+-        }}
+-        role="button"
+-        tabIndex={0}
+-      >
+-        {collectionLocation ? (
+-          <span className="path-text">{collectionLocation}</span>
+-        ) : (
+-          <span className="path-text path-placeholder">Click to choose a folder...</span>
+-        )}
+-        <span className="browse-label">Browse</span>
++  return (
++    <StyledWrapper className="step-body">
++      <div className="step-label">{t('welcome.storage.label')}</div>
++      <div className="step-title">{t('welcome.storage.title')}</div>
++      <div className="step-description">
++        {t('welcome.storage.description')}
+       </div>
+-    </div>
+-    <div className="location-hint">
+-      Each collection and workspace gets its own folder inside this directory. You can change this later.
+-    </div>
+-  </StyledWrapper>
+-);
++
++      <div className="location-input-group">
++        <div
++          className="location-path-display"
++          onClick={onBrowse}
++          onKeyDown={(e) => {
++            if (e.key === 'Enter' || e.key === ' ') {
++              e.preventDefault();
++              onBrowse();
++            }
++          }}
++          role="button"
++          tabIndex={0}
++        >
++          {collectionLocation ? (
++            <span className="path-text">{collectionLocation}</span>
++          ) : (
++            <span className="path-text path-placeholder">{t('welcome.storage.clickToChoose')}</span>
++          )}
++          <span className="browse-label">{t('preferences.general.browse')}</span>
++        </div>
++      </div>
++      <div className="location-hint">
++        {t('welcome.storage.hint')}
++      </div>
++    </StyledWrapper>
++  );
++};
+ 
+ export default StorageStep;
+diff --git a/packages/bruno-app/src/components/WelcomeModal/index.js b/packages/bruno-app/src/components/WelcomeModal/index.js
+index 7feedc509..0549ddc14 100644
+--- a/packages/bruno-app/src/components/WelcomeModal/index.js
++++ b/packages/bruno-app/src/components/WelcomeModal/index.js
+@@ -13,4 +13,5 @@ import StorageStep from './StorageStep';
+ import GetStartedStep from './GetStartedStep';
+ import StyledWrapper from './StyledWrapper';
++import { useTranslation } from 'react-i18next';
+ 
+ const TOTAL_STEPS = 4;
+@@ -18,4 +19,5 @@ const TOTAL_STEPS = 4;
+ const WelcomeModal = ({ onDismiss, onImportCollection, onCreateCollection, onOpenCollection, onStartRequest }) => {
+   const dispatch = useDispatch();
++  const { t } = useTranslation();
+   const preferences = useSelector((state) => state.app.preferences);
+   const defaultLocation = get(preferences, 'general.defaultLocation', '');
+@@ -52,5 +54,5 @@ const WelcomeModal = ({ onDismiss, onImportCollection, onCreateCollection, onOpe
+       };
+       return dispatch(savePreferences(updatedPreferences)).catch(() => {
+-        toast.error('Failed to save preferences');
++        toast.error(t('welcome.toast.savePreferencesFailed'));
+       });
+     }
+@@ -108,9 +110,9 @@ const WelcomeModal = ({ onDismiss, onImportCollection, onCreateCollection, onOpe
+           </div>
+           <h1 className="welcome-heading">
+-            {step === 1 ? 'Welcome to Bruno' : step === 4 ? 'Ready to go!' : 'Set up Bruno'}
++            {step === 1 ? t('welcome.heading') : step === 4 ? t('welcome.readyToGo') : t('welcome.setUp')}
+           </h1>
+           {step === 1 && (
+             <p className="welcome-tagline">
+-              A fast, Git-friendly, and open-source API client.
++              {t('welcome.tagline')}
+             </p>
+           )}
+@@ -127,5 +129,5 @@ const WelcomeModal = ({ onDismiss, onImportCollection, onCreateCollection, onOpe
+                 className={`dot ${i + 1 === step ? 'active' : ''} ${i + 1 < step ? 'completed' : ''}`}
+                 onClick={() => goTo(i + 1)}
+-                aria-label={`Go to step ${i + 1}`}
++                aria-label={t('welcome.goToStep', { step: i + 1 })}
+                 aria-current={i + 1 === step ? 'step' : undefined}
+               />
+@@ -135,19 +137,19 @@ const WelcomeModal = ({ onDismiss, onImportCollection, onCreateCollection, onOpe
+           <div className="footer-buttons">
+             <Button type="button" color="secondary" variant="ghost" onClick={handleSaveAndDismiss}>
+-              Skip
++              {t('welcome.skip')}
+             </Button>
+             {step > 1 && (
+               <Button type="button" color="secondary" variant="ghost" onClick={() => goTo(step - 1)}>
+-                Back
++                {t('welcome.back')}
+               </Button>
+             )}
+             {!isLastStep && (
+               <Button type="button" onClick={() => goTo(step + 1)}>
+-                {step === 1 ? 'Get Started' : 'Next'}
++                {step === 1 ? t('welcome.getStarted') : t('welcome.next')}
+               </Button>
+             )}
+             {isLastStep && (
+               <Button type="button" color="secondary" onClick={handleSaveAndDismiss}>
+-                I'll explore on my own
++                {t('welcome.exploreOnMyOwn')}
+               </Button>
+             )}
+diff --git a/packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/CollectionsList/ConnectGitRemote/index.js b/packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/CollectionsList/ConnectGitRemote/index.js
+index 1820e470d..cc89b3c2b 100644
+--- a/packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/CollectionsList/ConnectGitRemote/index.js
++++ b/packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/CollectionsList/ConnectGitRemote/index.js
+@@ -3,4 +3,5 @@ import { useFormik } from 'formik';
+ import * as Yup from 'yup';
+ import { useDispatch, useSelector } from 'react-redux';
++import { useTranslation } from 'react-i18next';
+ import toast from 'react-hot-toast';
+ import Modal from 'components/Modal';
+@@ -10,4 +11,5 @@ import { connectCollectionToGit } from 'providers/ReduxStore/slices/workspaces/a
+ const ConnectGitRemote = ({ collectionPath, collectionName, initialUrl = '', onClose }) => {
+   const dispatch = useDispatch();
++  const { t } = useTranslation();
+   const inputRef = useRef();
+   const activeWorkspaceUid = useSelector((state) => state.workspaces.activeWorkspaceUid);
+@@ -21,6 +23,6 @@ const ConnectGitRemote = ({ collectionPath, collectionName, initialUrl = '', onC
+       remoteUrl: Yup.string()
+         .trim()
+-        .required('Git remote URL is required')
+-        .test('is-git-url', 'Enter a valid Git URL', (value) => isGitRepositoryUrl(value))
++        .required(t('workspace.git.validation.urlRequired'))
++        .test('is-git-url', t('workspace.git.validation.invalidUrl'), (value) => isGitRepositoryUrl(value))
+     }),
+     onSubmit: (values) => {
+@@ -33,5 +35,5 @@ const ConnectGitRemote = ({ collectionPath, collectionName, initialUrl = '', onC
+       )
+         .then(() => {
+-          toast.success('Git remote connected');
++          toast.success(t('workspace.git.toast.connected'));
+           onClose();
+         })
+@@ -46,6 +48,6 @@ const ConnectGitRemote = ({ collectionPath, collectionName, initialUrl = '', onC
+   }, []);
+ 
+-  const title = initialUrl ? 'Update Git Remote' : 'Connect to Git';
+-  const confirmText = initialUrl ? 'Update' : 'Connect';
++  const title = initialUrl ? t('workspace.git.updateTitle') : t('workspace.git.connectTitle');
++  const confirmText = initialUrl ? t('workspace.git.updateAction') : t('workspace.git.connectAction');
+ 
+   return (
+@@ -55,13 +57,13 @@ const ConnectGitRemote = ({ collectionPath, collectionName, initialUrl = '', onC
+           <div className="text-sm text-muted mb-3 leading-relaxed break-words space-y-2">
+             <p className="m-0">
+-              Linking{' '}
++              {t('workspace.git.linkingPrefix')}{' '}
+               <span className="font-medium text-inherit break-words" title={collectionName}>
+                 {collectionName}
+               </span>{' '}
+-              to a remote Git repository.
++              {t('workspace.git.linkingSuffix')}
+             </p>
+             <p className="m-0">
+-              The URL is saved in <span className="font-mono">workspace.yml</span> only. Your collection files on disk are not
+-              modified.
++              {t('workspace.git.urlNotePrefix')} <span className="font-mono">workspace.yml</span>{' '}
++              {t('workspace.git.urlNoteSuffix')}
+             </p>
+           </div>
+@@ -69,5 +71,5 @@ const ConnectGitRemote = ({ collectionPath, collectionName, initialUrl = '', onC
+         <div>
+           <label htmlFor="remoteUrl" className="block font-medium">
+-            Git Remote URL
++            {t('workspace.git.remoteUrlLabel')}
+           </label>
+           <input
+diff --git a/packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/CollectionsList/RemoveGitRemote/index.js b/packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/CollectionsList/RemoveGitRemote/index.js
+index 81c9c5aab..485d58c65 100644
+--- a/packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/CollectionsList/RemoveGitRemote/index.js
++++ b/packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/CollectionsList/RemoveGitRemote/index.js
+@@ -4,7 +4,9 @@ import toast from 'react-hot-toast';
+ import Modal from 'components/Modal';
+ import { disconnectCollectionFromGit } from 'providers/ReduxStore/slices/workspaces/actions';
++import { useTranslation } from 'react-i18next';
+ 
+ const RemoveGitRemote = ({ collectionPath, collectionName, remoteUrl, onClose }) => {
+   const dispatch = useDispatch();
++  const { t } = useTranslation();
+   const activeWorkspaceUid = useSelector((state) => state.workspaces.activeWorkspaceUid);
+ 
+@@ -17,5 +19,5 @@ const RemoveGitRemote = ({ collectionPath, collectionName, remoteUrl, onClose })
+     )
+       .then(() => {
+-        toast.success('Git remote removed');
++        toast.success(t('workspace.git.toast.removed'));
+         onClose();
+       })
+@@ -28,6 +30,6 @@ const RemoveGitRemote = ({ collectionPath, collectionName, remoteUrl, onClose })
+     <Modal
+       size="md"
+-      title="Remove Git Remote"
+-      confirmText="Remove"
++      title={t('workspace.git.removeTitle')}
++      confirmText={t('workspace.git.removeAction')}
+       confirmButtonColor="primary"
+       handleConfirm={handleConfirm}
+@@ -36,9 +38,9 @@ const RemoveGitRemote = ({ collectionPath, collectionName, remoteUrl, onClose })
+       <div className="text-sm leading-relaxed break-words">
+         <p className="m-0">
+-          Disconnect{' '}
++          {t('workspace.git.disconnectPrefix')}{' '}
+           <span className="font-medium break-words" title={collectionName}>
+             {collectionName}
+           </span>{' '}
+-          from its Git remote?
++          {t('workspace.git.disconnectSuffix')}
+         </p>
+         {remoteUrl ? (
+@@ -46,6 +48,7 @@ const RemoveGitRemote = ({ collectionPath, collectionName, remoteUrl, onClose })
+         ) : null}
+         <p className="mt-3 mb-0 text-xs text-muted">
+-          This only removes the remote URL from <span className="font-mono">workspace.yml</span>. Local collection files
+-          and any <span className="font-mono">.git</span> folder are left untouched.
++          {t('workspace.git.removeNotePrefix')} <span className="font-mono">workspace.yml</span>
++          {t('workspace.git.removeNoteMid')} <span className="font-mono">.git</span>{' '}
++          {t('workspace.git.removeNoteSuffix')}
+         </p>
+       </div>
+diff --git a/packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/CollectionsList/index.js b/packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/CollectionsList/index.js
+index 64200e52e..3c775e370 100644
+--- a/packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/CollectionsList/index.js
++++ b/packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/CollectionsList/index.js
+@@ -1,4 +1,5 @@
+ import React, { useState, useMemo, useRef } from 'react';
+ import { useSelector, useDispatch } from 'react-redux';
++import { useTranslation } from 'react-i18next';
+ import {
+   IconBox,
+@@ -31,4 +32,5 @@ import StyledWrapper from './StyledWrapper';
+ const CollectionsList = ({ workspace }) => {
+   const dispatch = useDispatch();
++  const { t } = useTranslation();
+   const { collections } = useSelector((state) => state.collections);
+   const dropdownRefs = useRef({});
+@@ -136,5 +138,5 @@ const CollectionsList = ({ workspace }) => {
+ 
+     if (collection.failedToOpen) {
+-      toast.error(`Collection "${collection.name}" could not be opened`);
++      toast.error(t('workspace.toast.couldNotOpen', { name: collection.name }));
+       return;
+     }
+@@ -142,7 +144,7 @@ const CollectionsList = ({ workspace }) => {
+     if (collection.isLoaded === false) {
+       if (collection.isGitBacked) {
+-        toast.error(`Collection "${collection.name}" needs to be cloned first`);
++        toast.error(t('workspace.toast.needsClone', { name: collection.name }));
+       } else {
+-        toast.error(`Collection "${collection.name}" does not exist on disk`);
++        toast.error(t('workspace.toast.notOnDisk', { name: collection.name }));
+       }
+       return;
+@@ -169,5 +171,5 @@ const CollectionsList = ({ workspace }) => {
+     dropdownRefs.current[collection.uid]?.hide();
+     if (collection.isLoaded === false) {
+-      toast.error('Cannot rename collections that are not cloned yet');
++      toast.error(t('workspace.toast.cannotRenameNotCloned'));
+       return;
+     }
+@@ -179,5 +181,5 @@ const CollectionsList = ({ workspace }) => {
+     dropdownRefs.current[collection.uid]?.hide();
+     if (collection.isLoaded === false) {
+-      toast.error('Please clone this collection first before sharing it');
++      toast.error(t('workspace.toast.cloneBeforeShare'));
+       return;
+     }
+@@ -199,10 +201,10 @@ const CollectionsList = ({ workspace }) => {
+     if (collection.failedToOpen || collection.notFoundLocally) {
+       dispatch(removeCollectionFromWorkspaceAction(workspace.uid, collection.pathname))
+-        .then(() => toast.success('Collection removed from workspace'))
+-        .catch(() => toast.error('An error occurred while removing the collection'));
++        .then(() => toast.success(t('workspace.toast.removedFromWorkspace')))
++        .catch(() => toast.error(t('workspace.toast.removeError')));
+       return;
+     }
+     if (collection.isLoaded === false) {
+-      toast.error('Cannot remove collections that are not loaded');
++      toast.error(t('workspace.toast.cannotRemoveNotLoaded'));
+       return;
+     }
+@@ -214,5 +216,5 @@ const CollectionsList = ({ workspace }) => {
+     dropdownRefs.current[collection.uid]?.hide();
+     if (collection.isLoaded === false) {
+-      toast.error('Cannot delete collections that are not loaded');
++      toast.error(t('workspace.toast.cannotDeleteNotLoaded'));
+       return;
+     }
+@@ -225,5 +227,5 @@ const CollectionsList = ({ workspace }) => {
+     dispatch(showInFolder(collection.pathname)).catch((error) => {
+       console.error('Error opening the folder', error);
+-      toast.error('Error opening the folder');
++      toast.error(t('workspace.toast.openFolderError'));
+     });
+   };
+@@ -232,5 +234,5 @@ const CollectionsList = ({ workspace }) => {
+     dropdownRefs.current[collection.uid]?.hide();
+     if (collection.isLoaded === false) {
+-      toast.error('Cannot connect a Git remote to a collection that is not present locally');
++      toast.error(t('workspace.toast.cannotConnectGitNotLocal'));
+       return;
+     }
+@@ -258,7 +260,7 @@ const CollectionsList = ({ workspace }) => {
+     try {
+       await navigator.clipboard.writeText(collection.gitRemoteUrl);
+-      toast.success('Git URL copied');
++      toast.success(t('workspace.toast.gitUrlCopied'));
+     } catch (e) {
+-      toast.error('Failed to copy URL');
++      toast.error(t('workspace.toast.copyUrlFailed'));
+     }
+   };
+@@ -335,6 +337,6 @@ const CollectionsList = ({ workspace }) => {
+           <div className="empty-state">
+             <IconBox size={32} strokeWidth={1.5} className="empty-icon" />
+-            <h3 className="empty-title">No collections yet</h3>
+-            <p className="empty-description">Create your first collection or open an existing one to get started.</p>
++            <h3 className="empty-title">{t('workspace.collections.emptyTitle')}</h3>
++            <p className="empty-description">{t('workspace.collections.emptyDescription')}</p>
+           </div>
+         ) : (
+@@ -361,8 +363,8 @@ const CollectionsList = ({ workspace }) => {
+                   )}
+                   {collection.failedToOpen && (
+-                    <StatusBadge status="danger" size="xs">Failed to open</StatusBadge>
++                    <StatusBadge status="danger" size="xs">{t('workspace.badge.failedToOpen')}</StatusBadge>
+                   )}
+                   {isNotCloned(collection) && (
+-                    <StatusBadge status="warning" size="xs">Not cloned</StatusBadge>
++                    <StatusBadge status="warning" size="xs">{t('workspace.badge.notCloned')}</StatusBadge>
+                   )}
+                 </div>
+@@ -393,5 +395,5 @@ const CollectionsList = ({ workspace }) => {
+                         >
+                           <IconEdit size={16} strokeWidth={1.5} />
+-                          <span>Rename</span>
++                          <span>{t('workspace.menu.rename')}</span>
+                         </div>
+                         <div
+@@ -403,5 +405,5 @@ const CollectionsList = ({ workspace }) => {
+                         >
+                           <IconShare size={16} strokeWidth={1.5} />
+-                          <span>Share</span>
++                          <span>{t('workspace.menu.share')}</span>
+                         </div>
+                         <div
+@@ -430,5 +432,5 @@ const CollectionsList = ({ workspace }) => {
+                               >
+                                 <IconCopy size={16} strokeWidth={1.5} />
+-                                <span>Copy Git URL</span>
++                                <span>{t('workspace.menu.copyGitUrl')}</span>
+                               </div>
+                             )}
+@@ -442,5 +444,5 @@ const CollectionsList = ({ workspace }) => {
+                               >
+                                 <IconBrandGit size={16} strokeWidth={1.5} />
+-                                <span>Connect to Git</span>
++                                <span>{t('workspace.menu.connectToGit')}</span>
+                               </div>
+                             )}
+@@ -454,5 +456,5 @@ const CollectionsList = ({ workspace }) => {
+                               >
+                                 <IconUnlink size={16} strokeWidth={1.5} />
+-                                <span>Remove Git Remote</span>
++                                <span>{t('workspace.menu.removeGitRemote')}</span>
+                               </div>
+                             )}
+@@ -469,5 +471,5 @@ const CollectionsList = ({ workspace }) => {
+                     >
+                       <IconX size={16} strokeWidth={1.5} />
+-                      <span>Remove</span>
++                      <span>{t('workspace.menu.remove')}</span>
+                     </div>
+                     {!collection.failedToOpen && !isNotCloned(collection) && (
+@@ -480,5 +482,5 @@ const CollectionsList = ({ workspace }) => {
+                       >
+                         <IconTrash size={16} strokeWidth={1.5} />
+-                        <span>Delete</span>
++                        <span>{t('common.delete')}</span>
+                       </div>
+                     )}
+diff --git a/packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/index.js b/packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/index.js
+index 540204ec5..cc6314fd4 100644
+--- a/packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/index.js
++++ b/packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/index.js
+@@ -1,4 +1,5 @@
+ import React, { useState } from 'react';
+ import { useSelector, useDispatch } from 'react-redux';
++import { useTranslation } from 'react-i18next';
+ import { IconPlus, IconFolder, IconDownload } from '@tabler/icons';
+ import { importCollection, importCollectionFromZip } from 'providers/ReduxStore/slices/collections/actions';
+@@ -19,4 +20,5 @@ import StyledWrapper from './StyledWrapper';
+ const WorkspaceOverview = ({ workspace }) => {
+   const dispatch = useDispatch();
++  const { t } = useTranslation();
+   const { globalEnvironments } = useSelector((state) => state.globalEnvironments);
+   const { sidebarCollapsed, isCreatingCollection } = useSelector((state) => state.app);
+@@ -39,5 +41,5 @@ const WorkspaceOverview = ({ workspace }) => {
+ 
+     if (!workspace?.pathname) {
+-      toast.error('Workspace path not found');
++      toast.error(t('workspace.toast.workspacePathNotFound'));
+       return;
+     }
+@@ -53,5 +55,5 @@ const WorkspaceOverview = ({ workspace }) => {
+     } catch (error) {
+       console.error('Error ensuring collections folder exists:', error);
+-      toast.error('Error preparing workspace for collection creation');
++      toast.error(t('workspace.toast.prepareError'));
+     }
+   };
+@@ -144,14 +146,14 @@ const WorkspaceOverview = ({ workspace }) => {
+             <div className="stat-item">
+               <span className="stat-value">{workspaceCollectionsCount}</span>
+-              <span className="stat-label">Collections</span>
++              <span className="stat-label">{t('COMMON.COLLECTIONS')}</span>
+             </div>
+             <div className="stat-item">
+               <span className="stat-value">{workspaceEnvironmentsCount}</span>
+-              <span className="stat-label">Environments</span>
++              <span className="stat-label">{t('workspace.stats.environments')}</span>
+             </div>
+           </div>
+ 
+           <div className="quick-actions-section">
+-            <div className="section-title">Quick Actions</div>
++            <div className="section-title">{t('workspace.quickActions')}</div>
+             <div className="quick-actions-buttons">
+               <Button
+@@ -162,5 +164,5 @@ const WorkspaceOverview = ({ workspace }) => {
+                 disabled={isCreatingCollection}
+               >
+-                Create Collection
++                {t('WELCOME.CREATE_COLLECTION')}
+               </Button>
+               <Button
+@@ -170,5 +172,5 @@ const WorkspaceOverview = ({ workspace }) => {
+                 onClick={handleOpenCollection}
+               >
+-                Open Collection
++                {t('WELCOME.OPEN_COLLECTION')}
+               </Button>
+               <Button
+@@ -178,5 +180,5 @@ const WorkspaceOverview = ({ workspace }) => {
+                 onClick={handleImportCollection}
+               >
+-                Import Collection
++                {t('WELCOME.IMPORT_COLLECTION')}
+               </Button>
+             </div>
+@@ -184,5 +186,5 @@ const WorkspaceOverview = ({ workspace }) => {
+ 
+           <div className="collections-section">
+-            <div className="section-title">Collections</div>
++            <div className="section-title">{t('COMMON.COLLECTIONS')}</div>
+             <CollectionsList workspace={workspace} />
+           </div>

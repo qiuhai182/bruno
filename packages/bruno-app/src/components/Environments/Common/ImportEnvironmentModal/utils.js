@@ -1,4 +1,5 @@
 import { normalizeEnvName } from 'utils/environments';
+import i18n from '../../../../i18n';
 
 export const IMPORT_STEPS = { UPLOAD: 'UPLOAD', REVIEW: 'REVIEW' };
 export const ENV_STATUS = { NEW: 'new', DUPLICATE: 'duplicate', INVALID: 'invalid' };
@@ -20,12 +21,12 @@ export const RESOLUTION_TYPES = {
 };
 
 export const RESOLUTION_OPTIONS = [
-  { value: RESOLUTION_TYPES.CREATE_NEW, label: 'New', title: 'Import as a new environment', testId: 'env-import-create-new-btn' },
-  { value: RESOLUTION_TYPES.REPLACE, label: 'Replace', title: 'Replace existing', testId: 'env-import-replace-btn' }
+  { value: RESOLUTION_TYPES.CREATE_NEW, label: i18n.t('environments.import.optionNew'), title: i18n.t('environments.import.optionNewTitle'), testId: 'env-import-create-new-btn' },
+  { value: RESOLUTION_TYPES.REPLACE, label: i18n.t('environments.import.optionReplace'), title: i18n.t('environments.import.optionReplaceTitle'), testId: 'env-import-replace-btn' }
 ];
 
 const failedRow = (source, error) => ({
-  fileName: source?.fileName || 'Unknown',
+  fileName: source?.fileName || i18n.t('environments.import.unknownFile'),
   error,
   status: ENV_STATUS.INVALID
 });
@@ -40,7 +41,7 @@ export const buildReviewItems = ({ valid = [], invalid = [], existingNames = [] 
       const status = takenNames.has(normalizeEnvName(env.name)) ? ENV_STATUS.DUPLICATE : ENV_STATUS.NEW;
       importable.push({ ...env, status });
     } catch (err) {
-      failures.push(failedRow(env, 'Could not be read'));
+      failures.push(failedRow(env, i18n.t('environments.import.couldNotBeRead')));
     }
   }
 

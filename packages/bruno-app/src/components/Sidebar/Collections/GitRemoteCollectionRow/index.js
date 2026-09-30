@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { IconBrandGit, IconCopy, IconDots, IconUnlink } from '@tabler/icons';
 import toast from 'react-hot-toast';
 import ActionIcon from 'ui/ActionIcon';
@@ -9,6 +10,7 @@ import RemoveGitRemote from 'components/WorkspaceHome/WorkspaceOverview/Collecti
 import StyledWrapper from './StyledWrapper';
 
 const GitRemoteCollectionRow = ({ entry }) => {
+  const { t } = useTranslation();
   const { dropdownContainerRef } = useSidebarAccordion();
   const menuDropdownRef = useRef(null);
   const [showCloneModal, setShowCloneModal] = useState(false);
@@ -20,9 +22,9 @@ const GitRemoteCollectionRow = ({ entry }) => {
   const handleCopyUrl = async () => {
     try {
       await navigator.clipboard.writeText(entry.remote);
-      toast.success('Git URL copied');
+      toast.success(t('sidebar.gitRemote.urlCopied'));
     } catch (e) {
-      toast.error('Failed to copy URL');
+      toast.error(t('sidebar.gitRemote.copyFailed'));
     }
   };
 
@@ -35,19 +37,19 @@ const GitRemoteCollectionRow = ({ entry }) => {
     {
       id: 'clone-git',
       leftSection: IconBrandGit,
-      label: 'Clone from Git',
+      label: t('sidebar.gitRemote.cloneFromGit'),
       onClick: openCloneModal
     },
     {
       id: 'copy-url',
       leftSection: IconCopy,
-      label: 'Copy Git URL',
+      label: t('sidebar.gitRemote.copyGitUrl'),
       onClick: handleCopyUrl
     },
     {
       id: 'remove-git-remote',
       leftSection: IconUnlink,
-      label: 'Remove Git Remote',
+      label: t('sidebar.gitRemote.removeGitRemote'),
       onClick: () => setShowRemoveGitModal(true)
     }
   ];
@@ -73,7 +75,7 @@ const GitRemoteCollectionRow = ({ entry }) => {
         className="git-collection-row"
         onClick={openCloneModal}
         onContextMenu={handleRightClick}
-        title={`${entry.name} — click to clone from ${entry.remote}`}
+        title={t('sidebar.gitRemote.clickToClone', { name: entry.name, remote: entry.remote })}
         data-testid="sidebar-git-collection-row"
       >
         <div className="flex flex-grow items-center overflow-hidden">

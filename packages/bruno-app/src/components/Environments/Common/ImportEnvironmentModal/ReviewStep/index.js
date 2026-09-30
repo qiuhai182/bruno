@@ -3,6 +3,7 @@ import Portal from 'components/Portal';
 import Modal from 'components/Modal';
 import SearchInput from 'components/SearchInput';
 import { IconAlertTriangle, IconFileAlert } from '@tabler/icons';
+import { useTranslation } from 'react-i18next';
 import { StyledWrapper, ImportModalHeader, ImportFooterSummary } from './StyledWrapper';
 import EnvironmentGroup from '../EnvironmentGroup';
 import { ENV_STATUS } from '../hooks/useEnvironmentImport';
@@ -20,6 +21,7 @@ const ReviewStep = ({
   resolutions,
   setResolutions
 }) => {
+  const { t } = useTranslation();
   const [searchText, setSearchText] = useState('');
   const [expandedGroups, setExpandedGroups] = useState({ [ENV_STATUS.INVALID]: true, [ENV_STATUS.DUPLICATE]: true, [ENV_STATUS.NEW]: true });
 
@@ -78,12 +80,12 @@ const ReviewStep = ({
           <ImportModalHeader>
             <span className="title" id="modal-title">{modalTitle}</span>
             <span className="count">
-              <span data-testid="env-import-total-count">{totalParsedCount}</span> found
+              <span data-testid="env-import-total-count">{totalParsedCount}</span> {t('environments.import.found')}
             </span>
           </ImportModalHeader>
         )}
-        confirmText={selected.size > 0 ? `Import (${selected.size})` : 'Import'}
-        cancelText="Cancel"
+        confirmText={selected.size > 0 ? t('environments.import.importCount', { num: selected.size }) : t('environments.import.import')}
+        cancelText={t('common.cancel')}
         handleConfirm={handleConfirmImport}
         handleCancel={onClose}
         dataTestId={modalTestId}
@@ -92,7 +94,7 @@ const ReviewStep = ({
         footerClassName="!py-3"
         footerLeft={(
           <ImportFooterSummary data-testid="env-import-selected-count">
-            <span className="selected-count">{selected.size}/{totalEnvironments}</span> selected
+            <span className="selected-count">{selected.size}/{totalEnvironments}</span> {t('environments.import.selected')}
           </ImportFooterSummary>
         )}
       >
@@ -106,7 +108,7 @@ const ReviewStep = ({
                       <div className="warning-header">
                         <IconAlertTriangle size={14} strokeWidth={1.5} className="warning-icon" />
                         <span className="warning-message">
-                          <span className="warning-title">{duplicateEnvs.length}</span> already {duplicateEnvs.length > 1 ? 'exist' : 'exists'} with the same name
+                          <span className="warning-title">{duplicateEnvs.length}</span> {t(duplicateEnvs.length > 1 ? 'environments.import.alreadyExistOther' : 'environments.import.alreadyExistOne')}
                         </span>
                       </div>
                     )}
@@ -114,7 +116,7 @@ const ReviewStep = ({
                       <div className="warning-header" data-testid="import-invalid-warning">
                         <IconFileAlert size={14} strokeWidth={1.5} className="error-icon" />
                         <span className="warning-message">
-                          <span className="warning-title">{invalidEnvs.length}</span> could not be read and will be skipped
+                          <span className="warning-title">{invalidEnvs.length}</span> {t('environments.import.unreadableSkipped')}
                         </span>
                       </div>
                     )}
@@ -126,7 +128,7 @@ const ReviewStep = ({
                     <SearchInput
                       searchText={searchText}
                       setSearchText={setSearchText}
-                      placeholder="Filter by name"
+                      placeholder={t('environments.import.filterByName')}
                       className="w-full h-[32px] !px-0"
                       leftIconClassName="!pl-2"
                       data-testid="env-search-input"
@@ -139,7 +141,7 @@ const ReviewStep = ({
 
                 <div className="groups-scroll-area">
                   <EnvironmentGroup
-                    title="New"
+                    title={t('environments.import.groupNew')}
                     environments={filteredNew}
                     countTestId="env-import-new-count"
                     selected={selected}
@@ -152,7 +154,7 @@ const ReviewStep = ({
                   />
 
                   <EnvironmentGroup
-                    title="Already exists"
+                    title={t('environments.import.groupAlreadyExists')}
                     environments={filteredDuplicates}
                     countTestId="env-import-duplicates-count"
                     selected={selected}
@@ -176,7 +178,7 @@ const ReviewStep = ({
 
                   {searchText && filteredDuplicates.length === 0 && filteredNew.length === 0 && filteredInvalid.length === 0 && (
                     <div className="empty-state" data-testid="env-import-no-matches">
-                      No environments match your filter
+                      {t('environments.import.noMatches')}
                     </div>
                   )}
                 </div>

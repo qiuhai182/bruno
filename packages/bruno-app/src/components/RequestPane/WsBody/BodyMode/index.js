@@ -1,4 +1,5 @@
 import React, { useRef, forwardRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { IconCaretDown } from '@tabler/icons';
 import Dropdown from 'components/Dropdown';
 import { humanizeRequestBodyMode } from 'utils/collections';
@@ -20,6 +21,7 @@ const RAW_MODES = [
 ];
 
 const WSRequestBodyMode = ({ mode, onModeChange }) => {
+  const { t } = useTranslation();
   const dropdownTippyRef = useRef();
   const onDropdownCreate = (ref) => (dropdownTippyRef.current = ref);
 
@@ -46,7 +48,7 @@ const WSRequestBodyMode = ({ mode, onModeChange }) => {
           placement="bottom-end"
           appendTo={() => document.body}
         >
-          <div className="label-item font-medium">Raw</div>
+          <div className="label-item font-medium">{t('requestPane.ws.raw')}</div>
           {RAW_MODES.map((d) => (
             <div
               className="dropdown-item"
