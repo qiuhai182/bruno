@@ -36,7 +36,7 @@
  "openApiSync.unableToCheck": "Unable to check for updates",
  "openApiSync.fixConnection": "Fix the connection issue above and check again.",
  "openApiSync.overview.failedToCheck": "Failed to check for spec updates",
- "openApiSync.overview.initialSyncRequired": "Initial sync required ¡ª your collection differs from the spec",
+ "openApiSync.overview.initialSyncRequired": "Initial sync required â€” your collection differs from the spec",
  "openApiSync.overview.initialSyncSubtitle": "Review the changes and sync to bring your collection up to date.",
  "openApiSync.overview.specUpdatesAndCollectionChanges": "New or changed requests are available. Some collection changes may be overwritten.",
  "openApiSync.overview.someOverwrittenSubtitle": "`OpenAPI spec has new updates${versionInfo} and the collection has changes`",

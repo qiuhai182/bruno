@@ -2221,7 +2221,7 @@
   },
   {
     "key": "sidebar.gitRemote.clickToClone",
-    "value": "{{name}} ¡ª click to clone from {{remote}}",
+    "value": "{{name}} â€” click to clone from {{remote}}",
     "status": "ok",
     "files": [
       "packages/bruno-app/src/components/Sidebar/Collections/GitRemoteCollectionRow/index.js"
@@ -3194,7 +3194,7 @@
   },
   {
     "key": "sidebar.postmanReport.installing",
-    "value": "Installing¡­",
+    "value": "Installingâ€¦",
     "status": "ok",
     "files": [
       "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js"

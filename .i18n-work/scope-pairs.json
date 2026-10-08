@@ -733,7 +733,7 @@
   "app.importIssues.issueDetailsCopied": {
     "file": "Toast/ImportIssuesToast/index.js",
     "texts": [
-      "Issue details copied ¡ª paste them into the GitHub issue body"
+      "Issue details copied â€” paste them into the GitHub issue body"
     ]
   },
   "app.importIssues.closeToast": {
@@ -763,7 +763,7 @@
   "app.importIssues.urlTooLongWarning": {
     "file": "Toast/ImportIssuesToast/index.js",
     "texts": [
-      "Issue details are too long to embed in the URL. Clicking &quot;Report on GitHub&quot; will copy them to your clipboard ¡ª paste it once the GitHub issue page opens."
+      "Issue details are too long to embed in the URL. Clicking &quot;Report on GitHub&quot; will copy them to your clipboard â€” paste it once the GitHub issue page opens."
     ]
   },
   "emptyAppState.title": {

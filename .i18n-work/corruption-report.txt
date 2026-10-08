@@ -1,49 +1,49 @@
 ===== packages/bruno-app/src/components/RequestTabs/RequestTab/index.js =====
 --- HEAD lines with non-ASCII ---
-H218: // Close tab shortcut °™ draft-aware, only active for the focused tab
-H262: // Save shortcut °™ tab-type-aware, only active for the focused tab
+H218: // Close tab shortcut ‚Äî draft-aware, only active for the focused tab
+H262: // Save shortcut ‚Äî tab-type-aware, only active for the focused tab
 --- WORK lines with non-ASCII ---
-W220: // Close tab shortcut ùù draft-aware, only active for the focused tab
-W264: // Save shortcut ùù tab-type-aware, only active for the focused tab
+W220: // Close tab shortcut ÊΩ© draft-aware, only active for the focused tab
+W264: // Save shortcut ÊΩ© tab-type-aware, only active for the focused tab
 --- WORK lines with ?? ---
 W297: dispatch(saveFile(item.draft?.raw ?? item.raw, tab.uid, tab.collectionUid));
 W600: ? dispatch(saveFile(item?.draft?.raw ?? item?.raw, item.uid, collection.uid))
 
 ===== packages/bruno-app/src/components/ResponsePane/Timeline/TimelineItem/index.js =====
 --- HEAD lines with non-ASCII ---
-H186: <span className="tl-header-src-icon">®J</span>
+H186: <span className="tl-header-src-icon">‚Üó</span>
 --- WORK lines with non-ASCII ---
-W188: <span className="tl-header-src-icon">ùJ</span>
+W188: <span className="tl-header-src-icon">Êªº</span>
 --- WORK lines with ?? ---
 
 ===== packages/bruno-app/src/components/VariablesEditor/index.js =====
 --- HEAD lines with non-ASCII ---
-H161: // Deliberately not keyed on drawerWidth °™ that changes on every drag frame.
+H161: // Deliberately not keyed on drawerWidth ‚Äî that changes on every drag frame.
 --- WORK lines with non-ASCII ---
-W163: // Deliberately not keyed on drawerWidth ùù that changes on every drag frame.
+W163: // Deliberately not keyed on drawerWidth ÊΩ© that changes on every drag frame.
 --- WORK lines with ?? ---
 W50: const activeEnvironmentUid = collection.activeEnvironmentUid ?? null;
 
 ===== packages/bruno-app/src/components/OpenAPISpecTab/index.js =====
 --- HEAD lines with non-ASCII ---
-H62: // Local file not found °™ fall back to fetching from remote URL
+H62: // Local file not found ‚Äî fall back to fetching from remote URL
 --- WORK lines with non-ASCII ---
-W64: // Local file not found ùù fall back to fetching from remote URL
+W64: // Local file not found ÊΩ© fall back to fetching from remote URL
 --- WORK lines with ?? ---
 W29: return tab?.apiSpecLeftPaneWidth ?? null;
 
 ===== packages/bruno-app/src/components/OpenAPISyncTab/OverviewSection/index.js =====
 --- HEAD lines with non-ASCII ---
-H90: { label: 'Spec Version', value: version ? `v${version}` : '®C' },
-H91: { label: 'Endpoints in Spec', value: endpointCount != null ? endpointCount : '®C' },
-H92: { label: 'Last Synced At', value: lastSyncDate ? moment(lastSyncDate).fromNow() : '®C', tooltip: lastSyncDate ? moment(lastSyncDate).format('MMMM D, YYYY [at] h:mm A') : undefined },
-H102: ? ` (v${specDrift.storedVersion} °˙ v${specDrift.newVersion})`
-H116: title: 'Initial sync required °™ your collection differs from the spec',
-H220: <span className={`summary-count ${resolvedColor}`}>{count != null ? count : '®C'}</span>
+H90: { label: 'Spec Version', value: version ? `v${version}` : '‚Äì' },
+H91: { label: 'Endpoints in Spec', value: endpointCount != null ? endpointCount : '‚Äì' },
+H92: { label: 'Last Synced At', value: lastSyncDate ? moment(lastSyncDate).fromNow() : '‚Äì', tooltip: lastSyncDate ? moment(lastSyncDate).format('MMMM D, YYYY [at] h:mm A') : undefined },
+H102: ? ` (v${specDrift.storedVersion} ‚Üí v${specDrift.newVersion})`
+H116: title: 'Initial sync required ‚Äî your collection differs from the spec',
+H220: <span className={`summary-count ${resolvedColor}`}>{count != null ? count : '‚Äì'}</span>
 --- WORK lines with non-ASCII ---
-W92: { label: t('openApiSync.overview.specVersion'), value: version ? `v${version}` : '®C' },
-W93: { label: t('openApiSync.overview.endpointsInSpec'), value: endpointCount != null ? endpointCount : '®C' },
-W94: { label: t('openApiSync.overview.lastSyncedAt'), value: lastSyncDate ? moment(lastSyncDate).fromNow() : '®C', tooltip: lastSyncDate ? moment(lastSyncDate).format('MMMM D, YYYY [at] h:mm A') : undefined },
+W92: { label: t('openApiSync.overview.specVersion'), value: version ? `v${version}` : '‚Äì' },
+W93: { label: t('openApiSync.overview.endpointsInSpec'), value: endpointCount != null ? endpointCount : '‚Äì' },
+W94: { label: t('openApiSync.overview.lastSyncedAt'), value: lastSyncDate ? moment(lastSyncDate).fromNow() : '‚Äì', tooltip: lastSyncDate ? moment(lastSyncDate).format('MMMM D, YYYY [at] h:mm A') : undefined },
 --- WORK lines with ?? ---
 W51: const endpointCount = specMeta?.endpointCount ?? null;
 W104: ? ` (v${specDrift.storedVersion} ?? v${specDrift.newVersion})`
@@ -51,31 +51,31 @@ W118: title: 'Initial sync required ?? your collection differs from the spec',
 
 ===== packages/bruno-app/src/components/OpenAPISyncTab/SpecDiffModal/index.js =====
 --- HEAD lines with non-ASCII ---
-H25: ? `v${specDrift.storedVersion || '?'} °˙ v${specDrift.newVersion}`
+H25: ? `v${specDrift.storedVersion || '?'} ‚Üí v${specDrift.newVersion}`
 --- WORK lines with non-ASCII ---
-W27: ? `v${specDrift.storedVersion || '?'} ùù v${specDrift.newVersion}`
+W27: ? `v${specDrift.storedVersion || '?'} ÊΩ© v${specDrift.newVersion}`
 --- WORK lines with ?? ---
 
 ===== packages/bruno-app/src/components/OpenAPISyncTab/SpecStatusSection/index.js =====
 --- HEAD lines with non-ASCII ---
-H59: ? ` (v${specDrift.storedVersion} °˙ v${specDrift.newVersion})`
+H59: ? ` (v${specDrift.storedVersion} ‚Üí v${specDrift.newVersion})`
 --- WORK lines with non-ASCII ---
 --- WORK lines with ?? ---
 
 ===== packages/bruno-app/src/components/OpenAPISyncTab/SyncReviewPage/index.js =====
 --- HEAD lines with non-ASCII ---
-H33: // still exist in both stored and remote spec should not appear here °™ they belong
-H40: // the spec should not appear here °™ they belong in "Collection Changes" only.
-H53: // When there's no merge base (noStoredSpec), we can't tell who changed what °™ treat as spec update
-H58: // Only local changed °™ user modification, spec didn't change
-H96: // setTimeout lets the button's spinner paint before the modal mounts °™
-H149: // Bulk actions °™ all spec-driven sections
-H167: // Confirmation summary °™ grouped endpoint lists
-H177: // Accepted °™ changes that will be applied
-H182: // Skipped °™ changes that will be preserved as-is
+H33: // still exist in both stored and remote spec should not appear here ‚Äî they belong
+H40: // the spec should not appear here ‚Äî they belong in "Collection Changes" only.
+H53: // When there's no merge base (noStoredSpec), we can't tell who changed what ‚Äî treat as spec update
+H58: // Only local changed ‚Äî user modification, spec didn't change
+H96: // setTimeout lets the button's spinner paint before the modal mounts ‚Äî
+H149: // Bulk actions ‚Äî all spec-driven sections
+H167: // Confirmation summary ‚Äî grouped endpoint lists
+H177: // Accepted ‚Äî changes that will be applied
+H182: // Skipped ‚Äî changes that will be preserved as-is
 --- WORK lines with non-ASCII ---
-W179: // Accepted ùù changes that will be applied
-W184: // Skipped ùù changes that will be preserved as-is
+W179: // Accepted ÊΩ© changes that will be applied
+W184: // Skipped ÊΩ© changes that will be preserved as-is
 --- WORK lines with ?? ---
 W34: // still exist in both stored and remote spec should not appear here ?? they belong
 W41: // the spec should not appear here ?? they belong in "Collection Changes" only.

@@ -193,7 +193,7 @@
   },
   {
     "file": "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js",
-    "dels": "                <span>Installing {needsInstall.length} package{needsInstall.length === 1 ? '' : 's'}¡­</span>",
+    "dels": "                <span>Installing {needsInstall.length} package{needsInstall.length === 1 ? '' : 's'}â€¦</span>",
     "adds": "                <span>{needsInstall.length === 1 ? t('sidebar.postmanReport.installingOne', { count: needsInstall.length }) : t('sidebar.postmanReport.installingMany', { count: needsInstall.length })}</span>",
     "reason": "structural-split-failed"
   },
