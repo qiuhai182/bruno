@@ -1,0 +1,10 @@
+const fs = require('fs');
+const p = __dirname + '/../packages/bruno-app/src/components/RunnerResults/index.jsx';
+let s = fs.readFileSync(p, 'utf8');
+const OLD = "t('runner.tags')";
+const NEW = "t('runner.tagsLabel')";
+const n = s.split(OLD).length - 1;
+s = s.split(OLD).join(NEW);
+fs.writeFileSync(p, s, 'utf8');
+console.log('replaced', n, 'occurrences of t(runner.tags)');
+console.log('non-ascii in file:', /[^\x00-\x7F]/.test(s));

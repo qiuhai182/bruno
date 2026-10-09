@@ -1,4 +1,4 @@
-﻿import { useDragLayer } from 'react-dnd';
+import { useDragLayer } from 'react-dnd';
 import {
   IconFile,
   IconFolder,

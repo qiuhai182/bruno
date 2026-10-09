@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { IconLoader2 } from '@tabler/icons';
 
 // Messages to cycle through while loading

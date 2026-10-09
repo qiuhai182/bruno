@@ -340,7 +340,7 @@ const ImportCollectionLocation = ({ onClose, handleSubmit, rawData, format, sour
               {showAdvancedOptions && !isZipImport && (
                 <div className="mt-4">
                   <label htmlFor="format" className="flex items-center font-medium">
-                    {t('sidebar.fileFormat')}
+                    {t('sidebar.fileFormatLabel')}
                     <Help width="300">
                       <p>{t('sidebar.fileFormatHelp1')}</p>
                       <p className="mt-2">

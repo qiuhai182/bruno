@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import filter from 'lodash/filter';
 import each from 'lodash/each';
 import { useDispatch, useSelector } from 'react-redux';
@@ -27,17 +28,16 @@ import {
   hasRequestChanges,
   isItemARequest
 } from 'utils/collections';
-import { pluralizeWord } from 'utils/common';
 import { getInvalidVariableNames } from 'utils/common/variables';
 import { isEnvironmentValidationError } from 'utils/environments';
 import Modal from 'components/Modal';
 import Button from 'ui/Button';
 import StyledWrapper from './StyledWrapper';
 
-const PHASE_LABELS = {
-  parsing: 'Converting files',
-  writing: 'Writing yml files',
-  finalizing: 'Removing bru files'
+const PHASE_LABEL_KEYS = {
+  parsing: 'migrateYml.phase.parsing',
+  writing: 'migrateYml.phase.writing',
+  finalizing: 'migrateYml.phase.finalizing'
 };
 
 const MAX_UNSAVED_ITEMS_TO_SHOW = 5;
@@ -103,6 +103,7 @@ const collectCollectionDrafts = (collection) => {
 // collection is removed from the store while it migrates, so a modal hosted under the
 // collection UI would unmount mid-migration.
 const MigrateCollectionToYmlModal = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const migration = useSelector((state) => state.collectionMigration);
   // Present while confirming; gone during migration — name/pathname come from the slice.
@@ -163,10 +164,10 @@ const MigrateCollectionToYmlModal = () => {
         migration.collectionName
       );
       if (result?.success) {
-        toast.success('Collection backup exported');
+        toast.success(t('migrateYml.toast.backupExported'));
       }
     } catch (error) {
-      toast.error('Failed to export backup: ' + error.message);
+      toast.error(t('migrateYml.toast.backupExportFailed', { message: error.message }));
     } finally {
       setIsExporting(false);
     }
@@ -233,7 +234,7 @@ const MigrateCollectionToYmlModal = () => {
         const invalidNames = getInvalidVariableNames(draft.variables);
         if (invalidNames.length > 0) {
           hasSkippedEnvs = true;
-          toast.error(`Cannot save environment "${draft.name}": invalid variable name(s) — ${invalidNames.join(', ')}`);
+          toast.error(t('migrateYml.toast.environmentInvalidVariables', { name: draft.name, names: invalidNames.join(', ') }));
           continue;
         }
 
@@ -243,8 +244,8 @@ const MigrateCollectionToYmlModal = () => {
           hasSkippedEnvs = true;
           toast.error(
             isEnvironmentValidationError(err)
-              ? `Cannot save environment "${draft.name}": ${err.message}`
-              : `Failed to save environment "${draft.name}"`
+              ? t('migrateYml.toast.environmentSaveError', { name: draft.name, message: err.message })
+              : t('migrateYml.toast.environmentSaveFailed', { name: draft.name })
           );
         }
       }
@@ -256,7 +257,7 @@ const MigrateCollectionToYmlModal = () => {
       setShowDraftsStep(false);
       startMigration();
     } catch (error) {
-      toast.error('Failed to save changes');
+      toast.error(t('migrateYml.toast.saveChangesFailed'));
     } finally {
       setIsResolvingDrafts(false);
     }
@@ -272,15 +273,15 @@ const MigrateCollectionToYmlModal = () => {
   const renderDraftLabel = (draft) => {
     switch (draft.type) {
       case 'collection':
-        return `Collection: ${draft.name}`;
+        return t('migrateYml.draftType.collection', { name: draft.name });
       case 'folder':
-        return `Folder: ${draft.name}`;
+        return t('migrateYml.draftType.folder', { name: draft.name });
       case 'collection-environment':
-        return `Environment: ${draft.name}`;
+        return t('migrateYml.draftType.environment', { name: draft.name });
       case 'app':
-        return `App: ${draft.name || draft.filename}`;
+        return t('migrateYml.draftType.app', { name: draft.name || draft.filename });
       default:
-        return `Request: ${draft.filename || draft.name}`;
+        return t('migrateYml.draftType.request', { name: draft.filename || draft.name });
     }
   };
 
@@ -290,7 +291,7 @@ const MigrateCollectionToYmlModal = () => {
       <StyledWrapper>
         <Modal
           size="md"
-          title="Unsaved changes"
+          title={t('migrateYml.unsavedChangesTitle')}
           dataTestId="migration-drafts-step"
           handleCancel={handleBackToConfirm}
           disableEscapeKey={true}
@@ -310,7 +311,7 @@ const MigrateCollectionToYmlModal = () => {
           <ul className="mt-4 ml-2">
             {collectionDrafts.slice(0, MAX_UNSAVED_ITEMS_TO_SHOW).map((draft, index) => (
               <li key={`${draft.type || 'request'}-${draft.uid || draft.folderUid || draft.environmentUid || draft.collectionUid}-${index}`} className="mt-1 text-xs">
-                • {renderDraftLabel(draft)}
+                ? {renderDraftLabel(draft)}
               </li>
             ))}
           </ul>

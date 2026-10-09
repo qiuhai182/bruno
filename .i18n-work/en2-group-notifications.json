@@ -1,0 +1,13 @@
+{
+  "notifications.allCaughtUp": "notif-empty-text",
+  "notifications.clearAll": "Clear all",
+  "notifications.empty": "notif-list-empty",
+  "notifications.markAllRead": "Mark all as read",
+  "notifications.menuAriaLabel": "Open notifications menu",
+  "notifications.openAriaLabel": "Check all Notifications",
+  "notifications.resizeSidebarAriaLabel": "Resize sidebar",
+  "notifications.selectToRead": "notif-empty",
+  "notifications.tabAll": "All",
+  "notifications.tabUnread": "Unread",
+  "notifications.title": "Notifications"
+}

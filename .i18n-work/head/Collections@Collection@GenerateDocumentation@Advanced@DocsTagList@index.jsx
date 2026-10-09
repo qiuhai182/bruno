@@ -1,4 +1,4 @@
-﻿import React, { useId, useState, useRef, useCallback, useLayoutEffect, useEffect } from 'react';
+import React, { useId, useState, useRef, useCallback, useLayoutEffect, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { IconX, IconTag } from '@tabler/icons';
 import { StyledWrapper, Menu } from './StyledWrapper';

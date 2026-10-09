@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const StopWatch = ({ startTime }) => {
+  const { t } = useTranslation();
   const [currentTime, setCurrentTime] = useState(Date.now());
 
   useEffect(() => {
@@ -13,7 +15,7 @@ const StopWatch = ({ startTime }) => {
     return () => clearInterval(intervalId);
   }, [startTime]);
 
-  if (!startTime) return <span>Loading...</span>;
+  if (!startTime) return <span>{t('stopWatch.loading')}</span>;
 
   const elapsedTime = currentTime - startTime;
   if (elapsedTime < 250) return <span>Loading...</span>;

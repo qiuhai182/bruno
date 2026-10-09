@@ -478,7 +478,6 @@
   "runner.reset": "Reset",
   "runner.runAgain": "Run Again",
   "runner.runRequestsCount": "Run {{count}} Request{{s}}",
-  "runner.tags": "Tags",
   "runner.tags.alreadyExcluded": "tag is present in the exclude list!",
   "runner.tags.alreadyIncluded": "tag already present in the include list!",
   "runner.tags.doesNotExist": "tag does not exist!",
@@ -500,5 +499,6 @@
   "variables.sections.environment": "Environment Variables",
   "variables.sections.runtime": "Runtime Variables",
   "variables.showValue": "Show value",
-  "variables.value": "Value"
+  "variables.value": "Value",
+  "runner.tagsLabel": "Tags"
 }

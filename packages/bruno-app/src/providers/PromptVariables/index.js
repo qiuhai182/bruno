@@ -1,9 +1,11 @@
 import PromptVariablesModal from 'components/RequestPane/PromptVariables/PromptVariablesModal';
 import React, { createContext, useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const PromptVariablesContext = createContext();
 
 export function PromptVariablesProvider({ children }) {
+  const { t } = useTranslation();
   const [modalState, setModalState] = useState({ open: false, prompts: [], resolve: null, reject: null });
 
   const prompt = useCallback((prompts) => {
@@ -39,7 +41,7 @@ export function PromptVariablesProvider({ children }) {
       {children}
       {modalState.open && (
         <PromptVariablesModal
-          title="Input Required"
+          title={t('promptVariables.inputRequired')}
           prompts={modalState.prompts}
           onSubmit={handleSubmit}
           onCancel={handleCancel}

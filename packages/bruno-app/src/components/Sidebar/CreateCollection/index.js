@@ -248,7 +248,7 @@ const CreateCollection = ({ onClose, defaultLocation: propDefaultLocation, initi
               {showAdvancedOptions && (
                 <div className="mt-4">
                   <label htmlFor="format" className="flex items-center font-medium">
-                    {t('sidebar.fileFormat')}
+                    {t('sidebar.fileFormatLabel')}
                     <Help width="300">
                       <p>
                         {t('sidebar.fileFormatHelp1')}

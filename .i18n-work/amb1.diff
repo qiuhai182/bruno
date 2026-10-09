@@ -1,4 +1,4 @@
-﻿diff --git a/packages/bruno-app/src/components/GlobalSearchModal/index.js b/packages/bruno-app/src/components/GlobalSearchModal/index.js
+diff --git a/packages/bruno-app/src/components/GlobalSearchModal/index.js b/packages/bruno-app/src/components/GlobalSearchModal/index.js
 index ff891cacf..ee679a955 100644
 --- a/packages/bruno-app/src/components/GlobalSearchModal/index.js
 +++ b/packages/bruno-app/src/components/GlobalSearchModal/index.js

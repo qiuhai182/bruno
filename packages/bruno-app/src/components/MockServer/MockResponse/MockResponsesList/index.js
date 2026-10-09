@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import toast from 'react-hot-toast';
+import { useTranslation } from 'react-i18next';
 import {
   createMockResponse,
   deleteMockResponse,
@@ -33,6 +34,7 @@ import StyledWrapper from './StyledWrapper';
 
 const MockResponsesList = ({ instance, collection }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const [isGenerating, setIsGenerating] = useState(false);
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [showGenerateModal, setShowGenerateModal] = useState(false);
@@ -96,7 +98,7 @@ const MockResponsesList = ({ instance, collection }) => {
         })).unwrap();
 
         openResponseTab(result.response);
-        toast.success('Mock response created from example');
+        toast.success(t('mockServer.responses.createdFromExample'));
         return;
       }
 
@@ -110,7 +112,7 @@ const MockResponsesList = ({ instance, collection }) => {
 
       openResponseTab(result.response);
     } catch (err) {
-      toast.error(err.message || 'Failed to create mock response');
+      toast.error(err.message || t('mockServer.responses.createFailed'));
       // rethrow so CreateMockResponseModal keeps itself open with the entered values
       throw err;
     }
@@ -118,7 +120,7 @@ const MockResponsesList = ({ instance, collection }) => {
 
   const handleGenerateFromSpec = () => {
     if (!spec?.pathname) {
-      toast.error('Open the API spec in this workspace first.');
+      toast.error(t('mockServer.responses.openSpecFirst'));
       return;
     }
 
@@ -135,9 +137,9 @@ const MockResponsesList = ({ instance, collection }) => {
       })).unwrap();
 
       setShowGenerateModal(false);
-      toast.success(`Generated ${result.createdCount} mock response(s) from API spec`);
+      toast.success(t('mockServer.responses.generatedFromSpec', { count: result.createdCount, s: result.createdCount === 1 ? '' : 's' }));
     } catch (err) {
-      toast.error(err.message || 'Failed to generate mock responses from spec');
+      toast.error(err.message || t('mockServer.responses.generateFailed'));
     } finally {
       setIsGenerating(false);
     }
@@ -162,7 +164,7 @@ const MockResponsesList = ({ instance, collection }) => {
 
   const handleConfirmSync = async () => {
     if (!resolvedCollection?.items?.length) {
-      toast.error('Collection is not loaded. Open the linked collection first.');
+      toast.error(t('mockServer.responses.collectionNotLoaded'));
       return;
     }
 
@@ -189,9 +191,9 @@ const MockResponsesList = ({ instance, collection }) => {
       }
 
       setShowSyncModal(false);
-      toast.success('Mock responses synced with collection examples');
+      toast.success(t('mockServer.responses.syncedWithExamples'));
     } catch (err) {
-      toast.error(err.message || 'Failed to sync mock responses');
+      toast.error(err.message || t('mockServer.responses.syncFailed'));
     } finally {
       setIsSyncing(false);
     }
@@ -199,7 +201,7 @@ const MockResponsesList = ({ instance, collection }) => {
 
   const handleSyncWithSpec = () => {
     if (!spec?.pathname) {
-      toast.error('Open the API spec in this workspace first.');
+      toast.error(t('mockServer.responses.openSpecFirst'));
       return;
     }
 
@@ -222,9 +224,9 @@ const MockResponsesList = ({ instance, collection }) => {
       })).unwrap();
 
       setShowSyncSpecModal(false);
-      toast.success('Mock responses synced with spec');
+      toast.success(t('mockServer.responses.syncedWithSpec'));
     } catch (err) {
-      toast.error(err.message || 'Failed to sync mock responses with spec');
+      toast.error(err.message || t('mockServer.responses.syncWithSpecFailed'));
     } finally {
       setIsSyncingSpec(false);
     }
@@ -245,9 +247,9 @@ const MockResponsesList = ({ instance, collection }) => {
       dispatch(closeTabs({ tabUids: [deletingResponse.uid] }));
       dispatch(removeMockResponseEditor({ responseUid: deletingResponse.uid }));
       setDeletingResponse(null);
-      toast.success('Mock response deleted');
+      toast.success(t('mockServer.responses.deleted'));
     } catch (err) {
-      toast.error(err.message || 'Failed to delete mock response');
+      toast.error(err.message || t('mockServer.responses.deleteFailed'));
     } finally {
       setIsDeleting(false);
     }
@@ -261,9 +263,9 @@ const MockResponsesList = ({ instance, collection }) => {
         params: response.request?.params
       });
       await navigator.clipboard.writeText(url);
-      toast.success('URL copied');
+      toast.success(t('mockServer.responses.urlCopied'));
     } catch {
-      toast.error('Failed to copy URL');
+      toast.error(t('mockServer.responses.copyUrlFailed'));
     }
   };
 
@@ -271,8 +273,8 @@ const MockResponsesList = ({ instance, collection }) => {
     <StyledWrapper>
       {deletingResponse ? (
         <MockConfirmModal
-          title="Delete Mock Response"
-          confirmText={isDeleting ? 'Deleting...' : 'Delete'}
+          title={t('mockServer.responses.deleteModalTitle')}
+          confirmText={isDeleting ? t('mockServer.responses.deleting') : t('mockServer.delete.label')}
           confirmDisabled={isDeleting}
           confirmButtonColor="danger"
           dataTestId="delete-mock-response-modal"
@@ -283,10 +285,7 @@ const MockResponsesList = ({ instance, collection }) => {
           }}
           onConfirm={handleConfirmDelete}
         >
-          Are you sure you want to delete the mock response
-          {' '}
-          <span className="font-medium">{deletingResponse?.name}</span>
-          ?
+          {t('mockServer.responses.deleteConfirm', { name: deletingResponse?.name })}
         </MockConfirmModal>
       ) : null}
 
@@ -305,8 +304,8 @@ const MockResponsesList = ({ instance, collection }) => {
 
       {showSyncModal ? (
         <MockConfirmModal
-          title="Sync with Collection Examples"
-          confirmText={isSyncing ? 'Syncing...' : 'Sync'}
+          title={t('mockServer.responses.syncExamplesModalTitle')}
+          confirmText={isSyncing ? t('mockServer.responses.syncing') : t('mockServer.responses.sync')}
           confirmDisabled={isSyncing}
           dataTestId="sync-mock-examples-modal"
           onClose={() => {
@@ -317,18 +316,18 @@ const MockResponsesList = ({ instance, collection }) => {
           onConfirm={handleConfirmSync}
         >
           <p>
-            Mock responses that match collection examples will be overwritten with the latest example data.
+            {t('mockServer.responses.syncExamplesText')}
           </p>
           <p className="mt-3 text-sm opacity-80">
-            Custom mock responses without a matching example will be kept.
+            {t('mockServer.responses.syncExamplesKeepText')}
           </p>
         </MockConfirmModal>
       ) : null}
 
       {showSyncSpecModal ? (
         <MockConfirmModal
-          title="Sync with API Spec"
-          confirmText={isSyncingSpec ? 'Syncing...' : 'Sync'}
+          title={t('mockServer.responses.syncSpecModalTitle')}
+          confirmText={isSyncingSpec ? t('mockServer.responses.syncing') : t('mockServer.responses.sync')}
           confirmDisabled={isSyncingSpec}
           dataTestId="mock-response-sync-spec-modal"
           onClose={() => {
@@ -339,14 +338,10 @@ const MockResponsesList = ({ instance, collection }) => {
           onConfirm={handleConfirmSyncWithSpec}
         >
           <p>
-            Mock responses matching an endpoint in
-            {' '}
-            <span className="font-medium">{spec?.name || instance.specPath || 'this API spec'}</span>
-            {' '}
-            will be overwritten with the latest spec data (bodies generated from schema).
+            {t('mockServer.responses.syncSpecText', { spec: spec?.name || instance.specPath || t('mockServer.responses.thisSpec') })}
           </p>
           <p className="mt-3 text-sm opacity-80">
-            Custom mock responses without a matching endpoint will be kept.
+            {t('mockServer.responses.syncSpecKeepText')}
           </p>
         </MockConfirmModal>
       ) : null}
@@ -368,7 +363,7 @@ const MockResponsesList = ({ instance, collection }) => {
             onClick={() => setShowCreateModal(true)}
             data-testid="mock-response-create-btn"
           >
-            New Mock Response
+            {t('mockServer.responses.newButton')}
           </Button>
 
           {isCollectionServer ? (
@@ -379,7 +374,7 @@ const MockResponsesList = ({ instance, collection }) => {
               disabled={!resolvedCollection}
               data-testid="mock-response-sync-examples-btn"
             >
-              Sync with Examples
+              {t('mockServer.responses.syncWithExamplesBtn')}
             </Button>
           ) : null}
 
@@ -391,7 +386,7 @@ const MockResponsesList = ({ instance, collection }) => {
               disabled={isGenerating || !spec?.pathname}
               data-testid="mock-response-generate-from-spec-btn"
             >
-              {isGenerating ? 'Generating...' : 'Generate from API Spec'}
+              {isGenerating ? t('mockServer.generate.generating') : t('mockServer.responses.generateFromSpecBtn')}
             </Button>
           ) : null}
 
@@ -403,7 +398,7 @@ const MockResponsesList = ({ instance, collection }) => {
               disabled={!spec?.pathname}
               data-testid="mock-response-sync-spec-btn"
             >
-              Sync with Spec
+              {t('mockServer.responses.syncWithSpecBtn')}
             </Button>
           ) : null}
         </div>
@@ -413,7 +408,7 @@ const MockResponsesList = ({ instance, collection }) => {
             className="response-search"
             value={searchQuery}
             onChange={setSearchQuery}
-            placeholder="Search by name, method, or endpoint"
+            placeholder={t('mockServer.responses.searchPlaceholder')}
             data-testid="mock-response-search-input"
           />
         ) : null}
@@ -425,12 +420,12 @@ const MockResponsesList = ({ instance, collection }) => {
         getKey={(response) => response.uid}
         emptyState={{
           icon: <IconServer2 size={22} stroke={1.5} aria-hidden="true" />,
-          title: responses.length ? 'No matching mock responses' : 'No mock responses yet',
+          title: responses.length ? t('mockServer.responses.noMatches') : t('mockServer.responses.emptyTitle'),
           text: responses.length
-            ? 'No mock response matches your search.'
+            ? t('mockServer.responses.noMatchText')
             : isSpecServer
-              ? 'Generate them from your API spec, or create one manually and add rules to match requests.'
-              : 'Create one to define the routes and responses this mock server serves.'
+              ? t('mockServer.responses.emptySpecText')
+              : t('mockServer.responses.emptyText')
         }}
         renderItem={(response) => (
           <ListGroup.Item
@@ -438,14 +433,14 @@ const MockResponsesList = ({ instance, collection }) => {
             actions={(
               <>
                 <ActionIcon
-                  label="Copy mock URL"
+                  label={t('mockServer.responses.copyUrlAction')}
                   onClick={() => handleCopyUrl(response)}
                   data-testid={`mock-response-copy-${response.uid}`}
                 >
                   <IconCopy size={15} stroke={1.5} aria-hidden="true" />
                 </ActionIcon>
                 <ActionIcon
-                  label="Delete mock response"
+                  label={t('mockServer.responses.deleteAction')}
                   onClick={() => setDeletingResponse(response)}
                   data-testid={`mock-response-delete-${response.uid}`}
                 >
@@ -467,8 +462,8 @@ const MockResponsesList = ({ instance, collection }) => {
               </div>
               <div className="response-item-rules">
                 {response.rules?.conditions?.length
-                  ? `${response.rules.conditions.length} rule(s), ${response.rules.operator || 'AND'}`
-                  : 'No rules (default match)'}
+                  ? t('mockServer.responses.rulesSummary', { count: response.rules.conditions.length, operator: response.rules.operator || 'AND' })
+                  : t('mockServer.responses.noRulesDefault')}
               </div>
             </button>
           </ListGroup.Item>

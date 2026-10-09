@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { IconBan, IconBrush } from '@tabler/icons';
 import Dropdown from 'components/Dropdown';
+import { useTranslation } from 'react-i18next';
 import ColorBadge from 'components/ColorBadge';
 import StyledWrapper from './StyledWrapper';
 import { parseToRgb, toColorString } from 'polished';
@@ -80,6 +81,7 @@ const ColorPickerIcon = ({ color }) => {
 };
 
 const ColorPicker = ({ color, onChange, icon }) => {
+  const { t } = useTranslation();
   const [sliderPosition, setSliderPosition] = useState(() =>
     color && !PRESET_COLORS.includes(color) ? findClosestPosition(color) : 0
   );
@@ -105,7 +107,7 @@ const ColorPicker = ({ color, onChange, icon }) => {
   };
 
   const defaultIcon = (
-    <div className="cursor-pointer flex items-center" title="Change color">
+    <div className="cursor-pointer flex items-center" title={t('colorPicker.changeColor')}>
       <ColorPickerIcon color={color} />
     </div>
   );
@@ -117,7 +119,7 @@ const ColorPicker = ({ color, onChange, icon }) => {
           <div
             className="w-5 h-5 cursor-pointer flex items-center justify-center transition-transform duration-100 hover:scale-110"
             onClick={() => handleColorSelect(null)}
-            title="No color"
+            title={t('colorPicker.noColor')}
           >
             <IconBan size={20} strokeWidth={1.5} />
           </div>
@@ -139,7 +141,7 @@ const ColorPicker = ({ color, onChange, icon }) => {
             className="w-5 h-5 rounded-full flex-shrink-0 cursor-pointer"
             style={{ backgroundColor: customColor }}
             onClick={() => handleColorSelect(customColor)}
-            title="Custom color"
+            title={t('colorPicker.customColor')}
           />
           <ColorRangePicker
             className="flex-1 flex"

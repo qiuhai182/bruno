@@ -1,8 +1,10 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import StyledWrapper from './StyledWrapper';
 import Button from 'ui/Button';
 
 const ModeSwitch = ({ isMarkdownMode, onToggle, className, ...props }) => {
+  const { t } = useTranslation();
   return (
     <StyledWrapper className={className} {...props}>
       <Button
@@ -11,7 +13,7 @@ const ModeSwitch = ({ isMarkdownMode, onToggle, className, ...props }) => {
         className={`${!isMarkdownMode ? 'is-active' : ''}`}
         onClick={() => { if (isMarkdownMode) onToggle(); }}
       >
-        <span className="mode-text">Rich Text</span>
+        <span className="mode-text">{t('modeSwitch.richText')}</span>
       </Button>
       <Button
         variant="ghost"
@@ -19,7 +21,7 @@ const ModeSwitch = ({ isMarkdownMode, onToggle, className, ...props }) => {
         className={`${isMarkdownMode ? 'is-active' : ''}`}
         onClick={() => { if (!isMarkdownMode) onToggle(); }}
       >
-        <span className="mode-text">Markdown</span>
+        <span className="mode-text">{t('modeSwitch.markdown')}</span>
       </Button>
     </StyledWrapper>
   );

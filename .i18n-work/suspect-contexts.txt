@@ -1,0 +1,506 @@
+===== collection.auth.apiKey.addTo  (components\CollectionSettings\Auth\ApiKeyAuth\index.js)
+
+          onChange={(val) => handleAuthChange('value', val)}
+          collection={collection}
+          isCompact
+        />
+      </div>
+
+      <label className="block mb-1">{t('collection.auth.apiKey.addTo')}</label>
+      <div className="inline-flex items-center cursor-pointer auth-placement-selector w-fit">
+        <Dropdown onCreate={onDropdownCreate} icon={<Icon />} placement="bottom-end">
+          <div
+
+===== collection.auth.apiKey.key  (components\CollectionSettings\Auth\ApiKeyAuth\index.js)
+
+      })
+    );
+  }, [apikeyAuth]);
+
+  return (
+    <StyledWrapper className="mt-2 w-full">
+      <label className="block mb-1">{t('collection.auth.apiKey.key')}</label>
+      <div className="single-line-editor-wrapper mb-3">
+        <SingleLineEditor
+          value={apikeyAuth.key || ''}
+
+===== collection.auth.apiKey.value  (components\CollectionSettings\Auth\ApiKeyAuth\index.js)
+
+          onChange={(val) => handleAuthChange('key', val)}
+          collection={collection}
+          isCompact
+        />
+      </div>
+
+      <label className="block mb-1">{t('collection.auth.apiKey.value')}</label>
+      <div className="single-line-editor-wrapper mb-3">
+        <SingleLineEditor
+          value={apikeyAuth.value || ''}
+
+===== collection.auth.awsv4.region  (components\CollectionSettings\Auth\AwsV4Auth\index.js)
+
+          onChange={(val) => handleServiceChange(val)}
+          collection={collection}
+          isCompact
+        />
+      </div>
+
+      <label className="block mb-1">{t('collection.auth.awsv4.region')}</label>
+      <div className="single-line-editor-wrapper mb-3">
+        <SingleLineEditor
+          value={awsv4Auth.region || ''}
+
+===== collection.auth.awsv4.service  (components\CollectionSettings\Auth\AwsV4Auth\index.js)
+
+          onChange={(val) => handleSessionTokenChange(val)}
+          collection={collection}
+          isCompact
+        />
+      </div>
+
+      <label className="block mb-1">{t('collection.auth.awsv4.service')}</label>
+      <div className="single-line-editor-wrapper mb-3">
+        <SingleLineEditor
+          value={awsv4Auth.service || ''}
+
+===== collection.auth.domain  (components\CollectionSettings\Auth\NTLMAuth\index.js)
+
+          isSecret={true}
+          isCompact
+        />
+        {showWarning && <SensitiveFieldWarning fieldName="ntlm-password" warningMessage={warningMessage} />}
+      </div>
+
+      <label className="block mb-1">{t('collection.auth.domain')}</label>
+      <div className="single-line-editor-wrapper">
+        <SingleLineEditor
+          value={ntlmAuth.domain || ''}
+
+===== collection.auth.password  (components\CollectionSettings\Auth\BasicAuth\index.js)
+
+          onChange={(val) => handleUsernameChange(val)}
+          collection={collection}
+          isCompact
+        />
+      </div>
+
+      <label className="block mb-1">{t('collection.auth.password')}</label>
+      <div className="single-line-editor-wrapper flex items-center">
+        <SingleLineEditor
+          value={basicAuth.password || ''}
+
+===== collection.auth.token  (components\CollectionSettings\Auth\BearerAuth\index.js)
+
+      })
+    );
+  };
+
+  return (
+    <StyledWrapper className="mt-2 w-full">
+      <label className="block mb-1">{t('collection.auth.token')}</label>
+      <div className="single-line-editor-wrapper flex items-center">
+        <SingleLineEditor
+          value={bearerToken}
+
+===== collection.auth.username  (components\CollectionSettings\Auth\BasicAuth\index.js)
+
+      })
+    );
+  };
+
+  return (
+    <StyledWrapper className="mt-2 w-full">
+      <label className="block mb-1">{t('collection.auth.username')}</label>
+      <div className="single-line-editor-wrapper mb-3">
+        <SingleLineEditor
+          value={basicAuth.username || ''}
+
+===== collection.example.headersSection  (components\ResponseExample\ResponseExampleRequestPane\ResponseExampleHeaders\index.js)
+
+  if (headers.length === 0 && !editMode) {
+    return null;
+  }
+
+  return (
+    <StyledWrapper className="w-full mt-4">
+      <div className="mb-3 title text-xs font-bold">{t('collection.example.headersSection')}</div>
+      <EditableTable
+        tableId="example-headers"
+        columnWidths={exampleHeadersWidths}
+
+===== collection.overview.environments  (components\CollectionSettings\Overview\Info\index.js)
+
+          {/* Environments Row */}
+          <div className="flex items-start">
+            <div className="icon-box environments flex-shrink-0 p-3 rounded-lg">
+              <IconWorld className="w-5 h-5" stroke={1.5} />
+            </div>
+            <div className="ml-4">
+              <div className="font-medium">{t('collection.overview.environments')}</div>
+              <div className="mt-1 flex flex-col gap-1">
+                <button
+                  type="button"
+
+===== collection.overview.location  (components\CollectionSettings\Overview\Info\index.js)
+
+          {/* Location Row */}
+          <div className="flex items-start">
+            <div className="icon-box location flex-shrink-0 p-3 rounded-lg">
+              <IconFolder className="w-5 h-5" stroke={1.5} />
+            </div>
+            <div className="ml-4">
+              <div className="font-medium">{t('collection.overview.location')}</div>
+              <div className="mt-1 text-muted break-all">
+                {collection.pathname}
+              </div>
+
+===== collection.proxy.disabledTip  (components\CollectionSettings\ProxySettings\index.js)
+
+            {t('collection.proxy.config')}
+            <InfoTip infotipId="request-var">
+              <div>
+                <ul>
+                  <li><span style={{ width: '50px', display: 'inline-block' }}>{t('collection.proxy.inherit')}</span> - {t('collection.proxy.inheritTip')}</li>
+                  <li><span style={{ width: '50px', display: 'inline-block' }}>{t('collection.proxy.enabled')}</span> - {t('collection.proxy.enabledTip')}</li>
+                  <li><span style={{ width: '50px', display: 'inline-block' }}>{t('collection.proxy.disabled')}</span> - {t('collection.proxy.disabledTip')}</li>
+                </ul>
+              </div>
+            </InfoTip>
+
+===== collection.proxy.enabledTip  (components\CollectionSettings\ProxySettings\index.js)
+
+          <label className="settings-label flex items-center" htmlFor="enabled">
+            {t('collection.proxy.config')}
+            <InfoTip infotipId="request-var">
+              <div>
+                <ul>
+                  <li><span style={{ width: '50px', display: 'inline-block' }}>{t('collection.proxy.inherit')}</span> - {t('collection.proxy.inheritTip')}</li>
+                  <li><span style={{ width: '50px', display: 'inline-block' }}>{t('collection.proxy.enabled')}</span> - {t('collection.proxy.enabledTip')}</li>
+                  <li><span style={{ width: '50px', display: 'inline-block' }}>{t('collection.proxy.disabled')}</span> - {t('collection.proxy.disabledTip')}</li>
+                </ul>
+              </div>
+
+===== cookies.expiration  (components\Cookies\ModifyCookieModal\index.js)
+
+                </div>
+              </div>
+
+              {/* Date Picker */}
+              <div className="w-full flex items-end">
+                <div>
+                  <label className="block mb-1">{t('cookies.expiration', { timezone: moment.tz.guess() })}</label>
+                  <input
+                    type="datetime-local"
+                    name="expires"
+
+===== environments.import.selected  (components\Environments\Common\ImportEnvironmentModal\ReviewStep\index.js)
+
+        dataTestId={modalTestId}
+        disableCloseOnOutsideClick
+        confirmDisabled={isConfirmDisabled}
+        footerClassName="!py-3"
+        footerLeft={(
+          <ImportFooterSummary data-testid="env-import-selected-count">
+            <span className="selected-count">{selected.size}/{totalEnvironments}</span> {t('environments.import.selected')}
+          </ImportFooterSummary>
+        )}
+      >
+
+===== preferences.ai.autocomplete.keymapLabel  (components\Preferences\AI\AutocompletePane.js)
+
+            })}
+          </div>
+        </div>
+
+        <div className="autocomplete-row px-3.5 py-3">
+          <div className="flex flex-col gap-1">
+            <span className="text-[11.5px] font-medium">{t('preferences.ai.autocomplete.keymapLabel')}</span>
+            <div className="autocomplete-keymap text-[10.5px]">
+              <kbd>Tab</kbd> {t('preferences.ai.autocomplete.keymapAccept')} ¡¤ <kbd>{getPlatformModifierKey()}</kbd>+<kbd>¡ú</kbd> {t('preferences.ai.autocomplete.keymapAcceptWord')} ¡¤ <kbd>Esc</kbd> {t('preferences.ai.autocomplete.keymapDismiss')} ¡¤ <kbd>{getPlatformModifierKey()}</kbd>+<kbd>\</kbd> {t('preferences.ai.autocomplete.keymapTrigger')}
+            </div>
+
+===== requestPane.auth.addTo  (components\RequestPane\Auth\ApiKeyAuth\index.js)
+
+          onRun={handleRun}
+          collection={collection}
+          isCompact
+        />
+      </div>
+
+      <label className="block mb-1">{t('requestPane.auth.addTo')}</label>
+      <div data-testid="auth-placement-selector" className="inline-flex items-center cursor-pointer auth-placement-selector w-fit">
+        <Dropdown onCreate={onDropdownCreate} icon={<Icon />} placement="bottom-end">
+          <div
+
+===== requestPane.auth.domain  (components\RequestPane\Auth\NTLMAuth\index.js)
+
+          isSecret={true}
+          isCompact
+        />
+        {showWarning && <SensitiveFieldWarning fieldName="ntlm-password" warningMessage={warningMessage} />}
+      </div>
+
+      <label className="block mb-1">{t('requestPane.auth.domain')}</label>
+      <div className="single-line-editor-wrapper">
+        <SingleLineEditor
+          value={ntlmAuth.domain || ''}
+
+===== requestPane.auth.key  (components\RequestPane\Auth\ApiKeyAuth\index.js)
+
+      })
+    );
+  }, [apikeyAuth]);
+
+  return (
+    <StyledWrapper className="w-full">
+      <label className="block mb-1">{t('requestPane.auth.key')}</label>
+      <div className="single-line-editor-wrapper mb-3">
+        <SingleLineEditor
+          value={apikeyAuth.key || ''}
+
+===== requestPane.auth.password  (components\RequestPane\Auth\BasicAuth\index.js)
+
+          collection={collection}
+          item={item}
+          isCompact
+        />
+      </div>
+
+      <label className="block mb-1">{t('requestPane.auth.password')}</label>
+      <div className="single-line-editor-wrapper flex items-center">
+        <SingleLineEditor
+          value={basicAuth.password || ''}
+
+===== requestPane.auth.token  (components\RequestPane\Auth\BearerAuth\index.js)
+
+      })
+    );
+  };
+
+  return (
+    <StyledWrapper className="w-full">
+      <label className="block mb-1">{t('requestPane.auth.token')}</label>
+      <div className="single-line-editor-wrapper flex items-center">
+        <SingleLineEditor
+          value={bearerToken}
+
+===== requestPane.auth.username  (components\RequestPane\Auth\BasicAuth\index.js)
+
+      })
+    );
+  };
+
+  return (
+    <StyledWrapper className="w-full">
+      <label className="block mb-1">{t('requestPane.auth.username')}</label>
+      <div className="single-line-editor-wrapper mb-3">
+        <SingleLineEditor
+          value={basicAuth.username || ''}
+
+===== requestPane.aws.region  (components\RequestPane\Auth\AwsV4Auth\index.js)
+
+          collection={collection}
+          item={item}
+          isCompact
+        />
+      </div>
+
+      <label className="block mb-1">{t('requestPane.aws.region')}</label>
+      <div className="single-line-editor-wrapper mb-3">
+        <SingleLineEditor
+          value={awsv4Auth.region || ''}
+
+===== requestPane.aws.service  (components\RequestPane\Auth\AwsV4Auth\index.js)
+
+          collection={collection}
+          item={item}
+          isCompact
+        />
+      </div>
+
+      <label className="block mb-1">{t('requestPane.aws.service')}</label>
+      <div className="single-line-editor-wrapper mb-3">
+        <SingleLineEditor
+          value={awsv4Auth.service || ''}
+
+===== requestPane.common.value  (components\RequestPane\Auth\ApiKeyAuth\index.js)
+
+          onRun={handleRun}
+          collection={collection}
+          isCompact
+        />
+      </div>
+
+      <label className="block mb-1">{t('requestPane.common.value')}</label>
+      <div className="single-line-editor-wrapper mb-3">
+        <SingleLineEditor
+          value={apikeyAuth.value || ''}
+
+===== requestPane.graphql.schema  (components\RequestPane\GraphQLSchemaActions\index.js)
+
+  const MenuIcon = forwardRef((props, ref) => {
+    return (
+      <div ref={ref} className="dropdown-icon cursor-pointer flex hover:underline ml-2">
+        {isSchemaLoading && <IconLoader2 className="animate-spin" size={18} strokeWidth={1.5} />}
+        {!isSchemaLoading && schema && <IconRefresh size={18} strokeWidth={1.5} />}
+        {!isSchemaLoading && !schema && <IconDownload size={18} strokeWidth={1.5} />}
+        <span className="ml-1">{t('requestPane.graphql.schema')}</span>
+      </div>
+    );
+  });
+
+===== requestPane.grpc.addImportPathFailed  (components\RequestPane\GrpcQueryUrl\ProtoFileDropdown\index.js)
+
+      return;
+    }
+
+    const { success: addSuccess, error: addError } = await protoFileManagement.addImportPathFromRequest(directoryPath);
+    if (!addSuccess) {
+      if (addError) {
+        toast.error(t('requestPane.grpc.addImportPathFailed', { error: addError.message }));
+      }
+      return;
+    }
+
+===== requestPane.grpc.browseImportDirFailed  (components\RequestPane\GrpcQueryUrl\ProtoFileDropdown\index.js)
+
+
+  const handleBrowseImportPath = async (e) => {
+    e.stopPropagation();
+    const { success, directoryPath, error } = await protoFileManagement.browseForImportDirectory();
+    if (!success) {
+      if (error) {
+        toast.error(t('requestPane.grpc.browseImportDirFailed', { error: error.message }));
+      }
+      return;
+    }
+
+===== requestPane.grpc.toggleImportPathFailed  (components\RequestPane\GrpcQueryUrl\ProtoFileDropdown\index.js)
+
+  };
+
+  const handleToggleImportPath = async (index) => {
+    const { success, enabled, error } = await protoFileManagement.toggleImportPathFromRequest(index);
+    if (!success) {
+      if (error) {
+        toast.error(t('requestPane.grpc.toggleImportPathFailed', { error: error.message }));
+      }
+      return;
+    }
+
+===== requestPane.oauth1.nonce  (components\RequestPane\Auth\OAuth1\index.js)
+
+                isCompact
+              />
+            </div>
+          </div>
+
+          <div className="flex items-center gap-4 w-full">
+            <label className="block min-w-[140px]">{t('requestPane.oauth1.nonce')}</label>
+            <div className="single-line-editor-wrapper flex-1">
+              <SingleLineEditor
+                value={oauth1.nonce || ''}
+
+===== requestPane.oauth1.realm  (components\RequestPane\Auth\OAuth1\index.js)
+
+                isCompact
+              />
+            </div>
+          </div>
+
+          <div className="flex items-center gap-4 w-full">
+            <label className="block min-w-[140px]">{t('requestPane.oauth1.realm')}</label>
+            <div className="single-line-editor-wrapper flex-1">
+              <SingleLineEditor
+                value={oauth1.realm || ''}
+
+===== requestPane.oauth1.timestamp  (components\RequestPane\Auth\OAuth1\index.js)
+
+                isCompact
+              />
+            </div>
+          </div>
+
+          <div className="flex items-center gap-4 w-full">
+            <label className="block min-w-[140px]">{t('requestPane.oauth1.timestamp')}</label>
+            <div className="single-line-editor-wrapper flex-1">
+              <SingleLineEditor
+                value={oauth1.timestamp || ''}
+
+===== requestPane.oauth1.token  (components\RequestPane\Auth\OAuth1\index.js)
+
+            {consumerSecretSensitive.showWarning && <SensitiveFieldWarning fieldName="oauth1-consumer-secret" warningMessage={consumerSecretSensitive.warningMessage} />}
+          </div>
+        </div>
+      )}
+
+      <div className="flex items-center gap-4 w-full">
+        <label className="block min-w-[140px]">{t('requestPane.oauth1.token')}</label>
+        <div className="single-line-editor-wrapper flex-1">
+          <SingleLineEditor
+            value={oauth1.accessToken || ''}
+
+===== requestPane.oauth1.verifier  (components\RequestPane\Auth\OAuth1\index.js)
+
+                isCompact
+              />
+            </div>
+          </div>
+
+          <div className="flex items-center gap-4 w-full">
+            <label className="block min-w-[140px]">{t('requestPane.oauth1.verifier')}</label>
+            <div className="single-line-editor-wrapper flex-1">
+              <SingleLineEditor
+                value={oauth1.verifier || ''}
+
+===== requestPane.oauth1.version  (components\RequestPane\Auth\OAuth1\index.js)
+
+                isCompact
+              />
+            </div>
+          </div>
+
+          <div className="flex items-center gap-4 w-full">
+            <label className="block min-w-[140px]">{t('requestPane.oauth1.version')}</label>
+            <div className="single-line-editor-wrapper flex-1">
+              <SingleLineEditor
+                value={oauth1.version || ''}
+
+===== requestPane.oauth2.settings  (components\RequestPane\Auth\OAuth2\AuthorizationCode\index.js)
+
+      </div>
+
+      <div className="flex items-center gap-2.5 mt-4">
+        <div className="flex items-center px-2.5 py-1.5 oauth2-icon-container rounded-md">
+          <IconSettings size={14} className="oauth2-icon" />
+        </div>
+        <span className="font-medium">{t('requestPane.oauth2.settings')}</span>
+      </div>
+
+      {/* Automatically Fetch Token */}
+
+===== sidebar.changeVersion.from  (components\Sidebar\Collections\Collection\ChangeCollectionVersion\index.js)
+
+                  data-testid="change-version-input"
+                />
+              </div>
+            </div>
+
+            <p className="preview m-0" data-testid="change-version-preview">
+              {t('sidebar.changeVersion.updates')} <strong>{targetKey}</strong> {t('sidebar.changeVersion.in')} {targetFile} {t('sidebar.changeVersion.from')}
+              <span className="old">{currentVersion || <span className="text-muted italic not-set">({t('sidebar.changeVersion.notSet')})</span>}</span>
+              <IconArrowRight size={13} className="preview-arrow" stroke={1.5} />
+              <span className="new">{trimmedVersion || '¡­'}</span>
+
+===== sidebar.options  (components\Sidebar\Collections\Collection\CollectionItem\CloneCollectionItem\index.js)
+
+    return (
+      <div ref={ref} className="flex mr-2 text-link cursor-pointer items-center">
+        <button
+          className="btn-advanced"
+          type="button"
+        >
+          {t('sidebar.options')}
+        </button>
+        <IconCaretDown className="caret ml-1" size={14} strokeWidth={2} />
+      </div>

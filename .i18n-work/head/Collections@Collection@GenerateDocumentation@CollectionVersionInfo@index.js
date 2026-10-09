@@ -1,4 +1,4 @@
-﻿import React, { memo, Fragment } from 'react';
+import React, { memo, Fragment } from 'react';
 
 const CollectionVersionInfo = ({ name, version, folderCount = 0, requestCount = 0, environmentCount = 0 }) => {
   const folderLabel = folderCount === 1 ? 'Folder' : 'Folders';

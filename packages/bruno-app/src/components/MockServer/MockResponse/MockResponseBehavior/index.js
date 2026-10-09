@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { updateMockResponseBehavior } from 'providers/ReduxStore/slices/collections';
 import StyledWrapper from './StyledWrapper';
 
@@ -12,6 +13,7 @@ const EXTRACT_SOURCES = ['query', 'header', 'param', 'body', 'form'];
  */
 const MockResponseBehavior = ({ responseUid, editMode }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const editor = useSelector((state) => state.collections.mockResponseEditors[responseUid]);
 
   if (!editor) {
@@ -48,7 +50,7 @@ const MockResponseBehavior = ({ responseUid, editMode }) => {
     <StyledWrapper className="mock-behavior-panel" editMode={editMode}>
       <div className="behavior-grid">
         <label>
-          <span title="Delay before sending this response (ms)">Delay (ms)</span>
+          <span title={t('mockServer.behavior.delayTitle')}>{t('mockServer.behavior.delayLabel')}</span>
           <input
             type="text"
             value={behavior.delay}
@@ -57,7 +59,7 @@ const MockResponseBehavior = ({ responseUid, editMode }) => {
           />
         </label>
         <label>
-          <span title="Chance (0-100%) that this response is served when its rules match">Probability (%)</span>
+          <span title={t('mockServer.behavior.probabilityTitle')}>{t('mockServer.behavior.probabilityLabel')}</span>
           <input
             type="text"
             value={behavior.probability}
@@ -66,7 +68,7 @@ const MockResponseBehavior = ({ responseUid, editMode }) => {
           />
         </label>
         <label>
-          <span title="Serve this response on every Nth hit of the route">Counter every</span>
+          <span title={t('mockServer.behavior.counterEveryTitle')}>{t('mockServer.behavior.counterEveryLabel')}</span>
           <input
             type="text"
             value={behavior.counterEvery}
@@ -75,7 +77,7 @@ const MockResponseBehavior = ({ responseUid, editMode }) => {
           />
         </label>
         <label>
-          <span title="Shifts the counter phase">Counter offset</span>
+          <span title={t('mockServer.behavior.counterOffsetTitle')}>{t('mockServer.behavior.counterOffsetLabel')}</span>
           <input
             type="text"
             value={behavior.counterOffset}
@@ -90,15 +92,15 @@ const MockResponseBehavior = ({ responseUid, editMode }) => {
             onChange={(e) => update({ template: e.target.checked })}
             disabled={!editMode}
           />
-          <span title="Render {{param.x}}, {{query.x}}, {{header.x}}, {{body.x}}, {{form.x}} and {{extract.x}} tokens in the response">Template</span>
+          <span title={t('mockServer.behavior.templateTitle', { tokens: '{{param.x}}, {{query.x}}, {{header.x}}, {{body.x}}, {{form.x}} and {{extract.x}}' })}>{t('mockServer.behavior.templateLabel')}</span>
         </label>
       </div>
 
       {behavior.extract.length > 0 || editMode ? (
         <div className="extract-section">
           <div className="extract-header">
-            <span title="Capture request values into template variables ({{extract.name}})">Extract</span>
-            <button type="button" onClick={addExtract} disabled={!editMode}>+ Add</button>
+            <span title={t('mockServer.behavior.extractTitle', { token: '{{extract.name}}' })}>{t('mockServer.behavior.extractLabel')}</span>
+            <button type="button" onClick={addExtract} disabled={!editMode}>{t('mockServer.behavior.addExtract')}</button>
           </div>
           {behavior.extract.map((rule, index) => (
             <div className="extract-row" key={index}>
@@ -113,14 +115,14 @@ const MockResponseBehavior = ({ responseUid, editMode }) => {
               </select>
               <input
                 type="text"
-                placeholder="key (a.b for body)"
+                placeholder={t('mockServer.behavior.keyPlaceholder')}
                 value={rule.key}
                 onChange={(e) => updateExtract(index, { key: e.target.value })}
                 disabled={!editMode}
               />
               <input
                 type="text"
-                placeholder="as (template name)"
+                placeholder={t('mockServer.behavior.asPlaceholder')}
                 value={rule.as}
                 onChange={(e) => updateExtract(index, { as: e.target.value })}
                 disabled={!editMode}

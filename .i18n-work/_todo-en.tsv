@@ -1,0 +1,491 @@
+collection.example.headersTab	Headers
+collection.example.notFound	404 | Not found
+collection.example.responseTab	Response
+collection.example.selectStatus	Select status
+collection.example.tryResultTab	Try Result
+collection.table.key	Key
+docs.edit	Edit
+docs.preview	Preview
+openApiSpec.failedToReadSpecFile	Failed to read spec file
+openApiSpec.loadingSpec	Loading spec...
+openApiSpec.noSpecFile	No spec file found. Sync your collection first.
+openApiSpec.showingRemoteSpec	Showing spec file from {{url}}.
+openApiSync.actions.addedAllToast	Added {{count}} endpoints to collection
+openApiSync.actions.addedEndpointToast	Added {{method}} {{path}} to collection
+openApiSync.actions.allChangesDiscarded	All changes discarded successfully
+openApiSync.actions.deleteAllLocal	Delete All Local Endpoints
+openApiSync.actions.deleteAllMessage	Are you sure you want to delete {{count}} local-only endpoint(s)? This action cannot be undone.
+openApiSync.actions.deleteEndpoint	Delete Endpoint
+openApiSync.actions.deleteEndpointMessage	Are you sure you want to delete "{{method}} {{path}}"? This action cannot be undone.
+openApiSync.actions.deletedAllToast	Deleted {{count}} local-only endpoints
+openApiSync.actions.deletedEndpointToast	Deleted {{method}} {{path}}
+openApiSync.actions.failedToAddEndpoint	Failed to add endpoint
+openApiSync.actions.failedToAddEndpoints	Failed to add endpoints
+openApiSync.actions.failedToDeleteEndpoint	Failed to delete endpoint
+openApiSync.actions.failedToDeleteEndpoints	Failed to delete endpoints
+openApiSync.actions.failedToDiscard	Failed to discard changes
+openApiSync.actions.failedToResetEndpoint	Failed to reset endpoint
+openApiSync.actions.failedToResetEndpoints	Failed to reset endpoints
+openApiSync.actions.resetAllMessage	Are you sure you want to reset {{count}} modified endpoint(s) to match the spec? Your local changes will be lost.
+openApiSync.actions.resetAllModified	Reset All Modified
+openApiSync.actions.resetAllToast	Reset {{count}} endpoints to spec
+openApiSync.actions.resetEndpoint	Reset Endpoint
+openApiSync.actions.resetEndpointMessage	Are you sure you want to reset "{{method}} {{path}}" to match the spec? Your local changes will be lost.
+openApiSync.actions.resetEndpointToast	Reset {{method}} {{path}} to spec
+openApiSync.actions.restoreAllMessage	Are you sure you want to restore {{count}} missing endpoint(s) to your collection?
+openApiSync.actions.restoreAllMissing	Restore All Missing
+openApiSync.actions.restoreEndpoint	Restore Endpoint
+openApiSync.actions.restoreEndpointMessage	Are you sure you want to restore "{{method}} {{path}}" to your collection?
+openApiSync.actions.revertAll	Revert All Changes
+openApiSync.actions.revertAllMessage	Are you sure you want to revert all changes? This will reset {{modifiedCount}} modified, restore {{missingCount}} missing, and delete {{localOnlyCount}} local-only endpoint(s).
+openApiSync.banner.checkedAt	Checked {{time}}
+openApiSync.banner.endpointsAdded	{{count}} endpoint{{s}} added
+openApiSync.banner.endpointsRemoved	{{count}} endpoint{{s}} removed
+openApiSync.banner.endpointsUpdated	{{count}} endpoint{{s}} updated
+openApiSync.banner.invalidSpec	Invalid OpenAPI specification
+openApiSync.banner.sourceFileNotFound	Source file not found at {{url}}
+openApiSync.banner.specUpdated	OpenAPI spec has been updated{{versionInfo}}
+openApiSync.banner.updateConnectionSettings	Update connection settings
+openApiSync.checkingForUpdates	Checking for updates
+openApiSync.collection.addedCount	{{count}} added
+openApiSync.collection.addedToCollection	Added to Collection
+openApiSync.collection.bannerTitle	Collection has changes since last sync
+openApiSync.collection.cannotTrack	Cannot track collection changes
+openApiSync.collection.comparingCollection	Comparing your collection with the last synced spec...
+openApiSync.collection.delete	Delete
+openApiSync.collection.deleteAll	Delete All
+openApiSync.collection.deleteAllTitle	Delete all locally added endpoints
+openApiSync.collection.deleteEndpointTitle	Delete endpoint
+openApiSync.collection.deletedCount	{{count}} deleted
+openApiSync.collection.deletedFromCollection	Deleted from Collection
+openApiSync.collection.modifiedCount	{{count}} modified
+openApiSync.collection.modifiedInCollection	Modified in Collection
+openApiSync.collection.noChanges	No changes in collection
+openApiSync.collection.noChangesDesc	The collection endpoints match the last synced spec. Nothing to review.
+openApiSync.collection.onceYouSync	Once you sync your collection with the spec, local changes will appear here.
+openApiSync.collection.open	Open
+openApiSync.collection.openInTab	Open in tab
+openApiSync.collection.reset	Reset
+openApiSync.collection.resetAll	Reset All
+openApiSync.collection.resetAllTitle	Reset all modified endpoints to match the spec
+openApiSync.collection.resetToSpec	Reset to spec
+openApiSync.collection.restore	Restore
+openApiSync.collection.restoreAll	Restore All
+openApiSync.collection.restoreAllTitle	Add all deleted endpoints back to collection
+openApiSync.collection.restoreToCollection	Restore to collection
+openApiSync.collection.revertAllToSpec	Revert All to Spec
+openApiSync.collection.specMissingDesc	The last synced spec is missing. Go to the 'Spec Updates' tab to restore it, or sync the collection if updates are available to track future changes.
+openApiSync.collection.waitingForInitialSync	Waiting for initial sync
+openApiSync.collection.whatsTrackedBody	Changes to parameters, headers, body and auth compared to the synced spec. Your variables, scripts, tests, assertions, settings etc. are not tracked here.
+openApiSync.collection.whatsTrackedTitle	What's tracked:
+openApiSync.confirmSync.confirmAndSync	Confirm & Sync Collection
+openApiSync.confirmSync.description	The following changes will be applied to your collection. This action cannot be undone. Are you sure you want to proceed?
+openApiSync.confirmSync.inSyncDescription	Your collection is already in sync with the remote spec. Syncing will update the local spec file to match the latest remote version.
+openApiSync.confirmSync.restoreSpecFile	Restore Spec File
+openApiSync.confirmSync.title	Confirm Sync
+openApiSync.connect.button	Connect
+openApiSync.connect.description	Keep your collection synchronized with an OpenAPI specification. Changes in the spec will be detected automatically.
+openApiSync.connect.featureDetectEndpoints	Detect new, modified, and removed endpoints
+openApiSync.connect.featurePreserved	Your tests, assertions, and scripts are preserved during sync
+openApiSync.connect.featureSyncOneClick	Sync collection with a single click
+openApiSync.connect.featureTrackLocalChanges	Track local changes against the spec
+openApiSync.connect.fileHint	Select a local OpenAPI/Swagger JSON or YAML file
+openApiSync.connect.specLabel	OpenAPI Specification
+openApiSync.connect.swaggerNotSupported	Swagger 2.0 is not supported. Please convert your spec to OpenAPI 3.x.
+openApiSync.connect.title	Connect to OpenAPI Spec
+openApiSync.connect.urlHint	Supports OpenAPI 3.x specifications in JSON or YAML format
+openApiSync.decision.add	Add
+openApiSync.decision.delete	Delete
+openApiSync.decision.keep	Keep
+openApiSync.decision.keepCurrent	Keep Current
+openApiSync.decision.skip	Skip
+openApiSync.decision.update	Update
+openApiSync.diff.currentInCollection	Current (in collection)
+openApiSync.diff.expectedFromSpec	Expected (from spec)
+openApiSync.diff.lastSyncedSpec	Last Synced Spec
+openApiSync.diff.sectionAuth	Authentication
+openApiSync.diff.sectionBody	Body
+openApiSync.diff.sectionHeaders	Headers
+openApiSync.diff.sectionParams	Parameters
+openApiSync.disconnect.confirm	Disconnect
+openApiSync.disconnect.message	Are you sure you want to disconnect OpenAPI sync?
+openApiSync.disconnect.note	This will only disconnect the sync configuration. Your collection will remain intact.
+openApiSync.disconnect.title	Disconnect Sync
+openApiSync.endpoint.acceptSpec	Accept Spec
+openApiSync.endpoint.acceptSpecTitle	Accept the spec version
+openApiSync.endpoint.conflict	Conflict
+openApiSync.endpoint.conflictHelp	This endpoint was modified in both the spec and your collection. Choose which version to keep.
+openApiSync.endpoint.deprecated	deprecated
+openApiSync.endpoint.errorWithMessage	Error: {{message}}
+openApiSync.endpoint.failedToLoadDiff	Failed to load diff data
+openApiSync.endpoint.keepLocalTitle	Keep your local version
+openApiSync.endpoint.keepMine	Keep Mine
+openApiSync.errors.failedToCheckUpdates	Failed to check for updates
+openApiSync.errors.failedToConnect	Failed to connect
+openApiSync.errors.failedToDisconnect	Failed to disconnect sync
+openApiSync.errors.failedToSaveSettings	Failed to save settings
+openApiSync.errors.failedToSync	Failed to sync collection
+openApiSync.errors.invalidOpenApiUrl	The URL does not point to a valid OpenAPI 3.x specification
+openApiSync.errors.pleaseEnterUrl	Please enter a URL or select a file
+openApiSync.fixConnection	Fix the connection issue above and check again.
+openApiSync.groups.endpointsToDelete	Endpoints to delete
+openApiSync.groups.endpointsToUpdate	Endpoints to update
+openApiSync.groups.keepingCurrentVersion	Keeping current version (skipped updates)
+openApiSync.groups.keepingLocalVersion	Keeping local version
+openApiSync.groups.newEndpointsToAdd	New endpoints to add
+openApiSync.groups.retainingRemovedEndpoints	Retaining removed endpoints
+openApiSync.groups.skippedNewEndpoints	Skipped new endpoints
+openApiSync.header.checkForUpdates	Check for updates
+openApiSync.header.copyFailed	Failed to copy to clipboard
+openApiSync.header.copyPath	Copy path
+openApiSync.header.copyUrl	Copy URL
+openApiSync.header.editConnectionSettings	Edit connection settings
+openApiSync.header.inSyncTooltip	Collection is up to date with the spec
+openApiSync.header.linkedCollection	Linked Collection:
+openApiSync.header.moreOptions	More options
+openApiSync.header.notInSyncTooltip	Collection is not up to date with the spec
+openApiSync.header.openInFileManagerFailed	Failed to open in file manager
+openApiSync.header.pathCopied	Path copied to clipboard
+openApiSync.header.revealInFileManager	Reveal in file manager
+openApiSync.header.sourceFile	Source File:
+openApiSync.header.sourceUrl	Source URL:
+openApiSync.header.urlCopied	URL copied to clipboard
+openApiSync.header.viewSpec	View spec
+openApiSync.noUpdates	No updates from the spec
+openApiSync.noUpdatesDesc	The spec endpoints have not been updated since the last sync.
+openApiSync.noUpdatesRestoreDesc	The spec endpoints have not been updated since the last sync. You can restore the spec file to track local collection changes.
+openApiSync.overview.autoCheck	Auto Check for Updates
+openApiSync.overview.changedInCollection	Changed in Collection
+openApiSync.overview.changedTooltip	Endpoints modified, deleted, or added locally since last sync
+openApiSync.overview.collectionHasChanges	Collection has changes not in the spec
+openApiSync.overview.conflictCount	({{count}} conflict{{s}})
+openApiSync.overview.disabled	Disabled
+openApiSync.overview.endpointSummary	Endpoint Summary
+openApiSync.overview.endpointsInSpec	Endpoints in Spec
+openApiSync.overview.everyMinutes	Every {{count}} min
+openApiSync.overview.failedToCheck	Failed to check for spec updates
+openApiSync.overview.folderGrouping	Folder Grouping
+openApiSync.overview.goToSpecUpdates	Go to Spec Updates
+openApiSync.overview.inSyncTooltip	Endpoints that currently match the latest spec from the source
+openApiSync.overview.inSyncWithSpec	In Sync with Spec
+openApiSync.overview.initialSyncRequired	Initial sync required — your collection differs from the spec
+openApiSync.overview.initialSyncSubtitle	Review the changes and sync to bring your collection up to date.
+openApiSync.overview.lastSyncedAt	Last Synced At
+openApiSync.overview.lastSyncedSpecDetails	Last Synced Spec Details
+openApiSync.overview.lastSyncedSpecNotFound	Last synced spec not found
+openApiSync.overview.newRequestsAvailable	New or changed requests are available.
+openApiSync.overview.noLongerMatchSubtitle	Some requests have been modified or removed and no longer match the spec.
+openApiSync.overview.pendingTooltip	Spec changes available to sync to your collection
+openApiSync.overview.restoreToTrackSubtitle	The last synced spec is missing in the storage. Restore the latest spec from the source to track collection changes.
+openApiSync.overview.reviewAndSync	Review and Sync Collection
+openApiSync.overview.someOverwrittenSubtitle	New or changed requests are available. Some collection changes may be overwritten.
+openApiSync.overview.specHasNewUpdates	OpenAPI spec has new updates{{versionInfo}}
+openApiSync.overview.specUpdatesAndCollectionChanges	OpenAPI spec has new updates{{versionInfo}} and the collection has changes
+openApiSync.overview.specUpdatesPending	Spec Updates Pending
+openApiSync.overview.specVersion	Spec Version
+openApiSync.overview.totalInCollection	Total in Collection
+openApiSync.overview.totalInCollectionTooltip	Total endpoints in your collection
+openApiSync.overview.viewCollectionChanges	View Collection Changes
+openApiSync.review.acceptAll	Accept All
+openApiSync.review.comparingSpec	Comparing your last synced spec with the latest spec...
+openApiSync.review.conflictCount	{{count}} Conflict{{s}}
+openApiSync.review.conflictsHelp	This section has {{count}} endpoint{{s}} modified in both the spec and your collection. Expand to review and resolve.
+openApiSync.review.newInSpec	New in Spec
+openApiSync.review.newInSpecSubtitle	New endpoints from the spec
+openApiSync.review.noEndpointChanges	No endpoint changes to apply
+openApiSync.review.preserveValues	Preserve values
+openApiSync.review.preserveValuesHelp	When enabled, your edited values are preserved during sync. When disabled, all values are updated to match the OpenAPI spec.
+openApiSync.review.removedFromSpec	Removed from Spec
+openApiSync.review.removedFromSpecSubtitle	These endpoints are in your collection but not in the spec
+openApiSync.review.resolveConflictsAndSync	Resolve {{count}} conflict{{s}} and sync
+openApiSync.review.restoreSpecFile	Restore Spec File
+openApiSync.review.skipAll	Skip All
+openApiSync.review.subtitle	Choose to keep the current version or accept the updated one.
+openApiSync.review.syncCollection	Sync Collection
+openApiSync.review.syncWillUpdateSpecFile	Sync will update the spec file
+openApiSync.review.title	Review Changes
+openApiSync.review.updatedInSpec	Updated in Spec
+openApiSync.review.updatedInSpecSubtitle	The spec has updates for these endpoints
+openApiSync.review.viewSpecDiff	View Spec Diff
+openApiSync.review.whatsUpdatedBody	Parameters, headers, body and auth will be updated. Tests, scripts, and assertions are always preserved.
+openApiSync.review.whatsUpdatedTitle	What gets updated:
+openApiSync.settings.autoCheck	Auto-check for updates
+openApiSync.settings.autoCheckDescription	Automatically check for spec changes at a regular interval
+openApiSync.settings.checkInterval	Check interval
+openApiSync.settings.disconnectSync	Disconnect sync
+openApiSync.settings.failedToReadFile	Failed to read the selected file
+openApiSync.settings.file	File
+openApiSync.settings.intervalMinutes	{{count}} min
+openApiSync.settings.invalidSpecFile	The selected file is not a valid OpenAPI 3.x specification
+openApiSync.settings.selectFile	Select File
+openApiSync.settings.specSource	Spec Source
+openApiSync.settings.title	Connection Settings
+openApiSync.specDiff.addedCount	Added: {{count}}
+openApiSync.specDiff.changeCounter	{{current}} of {{total}} changes
+openApiSync.specDiff.currentSpec	Current Spec
+openApiSync.specDiff.currentSpecMissing	Current Spec (missing)
+openApiSync.specDiff.endpointChanges	Endpoint Changes:
+openApiSync.specDiff.loadingDiff	Loading diff...
+openApiSync.specDiff.missingSpecSubtitle	The current spec file is missing. The full remote spec is shown below.
+openApiSync.specDiff.next	Next
+openApiSync.specDiff.nextChange	Next change
+openApiSync.specDiff.noChanges	No changes
+openApiSync.specDiff.noChangesToDisplay	No changes to display.
+openApiSync.specDiff.noTextDiff	No text diff available.
+openApiSync.specDiff.previous	Previous
+openApiSync.specDiff.previousChange	Previous change
+openApiSync.specDiff.removedCount	Removed: {{count}}
+openApiSync.specDiff.renderError	Diff couldn't be rendered. Please file an issue with the spec.
+openApiSync.specDiff.subtitle	Side-by-side diff of your current spec vs the updated spec from the spec URL.
+openApiSync.specDiff.title	Spec Diff
+openApiSync.specDiff.updatedCount	Updated: {{count}}
+openApiSync.specDiff.updatedSpec	Updated Spec
+openApiSync.tabs.collectionChanges	Collection Changes
+openApiSync.tabs.overview	Overview
+openApiSync.tabs.specUpdates	Spec Updates
+openApiSync.toast.connected	OpenAPI sync connected
+openApiSync.toast.disconnected	OpenAPI sync disconnected
+openApiSync.toast.resetToSpec	Collection reset to spec successfully
+openApiSync.toast.settingsSaved	Settings saved
+openApiSync.toast.specUpdated	Spec updated successfully
+openApiSync.toast.synced	Collection synced successfully
+openApiSync.unableToCheck	Unable to check for updates
+requestTabs.header.actions.export	Export
+requestTabs.header.actions.rename	Rename
+requestTabs.header.advancedOptions	Advanced options
+requestTabs.header.aiAssistant	AI Assistant
+requestTabs.header.create	Create
+requestTabs.header.dismiss	Dismiss
+requestTabs.header.menu.collectionSettings	Collection Settings
+requestTabs.header.migrateToYml	Migrate to YML
+requestTabs.header.migrateToYmlTitle	Migrate this collection to YML
+requestTabs.header.moreActions	More actions
+requestTabs.header.openapiError	OpenAPI Error
+requestTabs.header.openapiUpdates	OpenAPI Updates Available
+requestTabs.header.switchToCodeMode	Switch to Code Mode
+requestTabs.header.switchToFileMode	Switch to File Mode
+requestTabs.header.toast.cannotCloseDefaultWorkspace	Cannot close the default workspace
+requestTabs.header.toast.errorCreatingWorkspace	An error occurred while creating the workspace
+requestTabs.header.toast.errorExportingWorkspace	Error exporting workspace
+requestTabs.header.toast.errorOpeningFolder	Error opening the folder
+requestTabs.header.toast.errorRenamingWorkspace	An error occurred while renaming the workspace
+requestTabs.header.toast.failedToRenameWorkspace	Failed to rename workspace
+requestTabs.header.toast.workspaceCreated	Workspace created!
+requestTabs.header.toast.workspaceExported	Workspace exported successfully
+requestTabs.header.toast.workspaceRenamed	Workspace renamed!
+requestTabs.header.untitledCollection	Untitled Collection
+requestTabs.header.untitledWorkspace	Untitled Workspace
+requestTabs.header.validation.nameRequired	Name is required
+requestTabs.header.validation.nameTooLong	Must be 255 characters or less
+requestTabs.header.viewMode.app	App
+requestTabs.header.viewMode.appView	App view
+requestTabs.header.viewMode.file	File
+requestTabs.header.viewMode.fileView	File view
+requestTabs.header.viewMode.request	Request
+requestTabs.header.viewMode.requestView	Request view
+requestTabs.header.workspaceLabel	Workspace
+requestTabs.menu.cloneRequest	Clone Request
+requestTabs.menu.closeAll	Close All
+requestTabs.menu.closeOthers	Close Others
+requestTabs.menu.closeSaved	Close Saved
+requestTabs.menu.closeToLeft	Close to the Left
+requestTabs.menu.closeToTheRight	Close to the Right
+requestTabs.menu.newRequest	New Request
+requestTabs.menu.revertChanges	Revert Changes
+requestTabs.notFound	Not Found
+requestTabs.save.changesSaved	Changes saved successfully
+requestTabs.save.environmentSaved	Environment saved
+requestTabs.save.failedEnvironment	Failed to save environment
+requestTabs.save.failedGlobalEnvironment	Failed to save global environment
+requestTabs.save.globalEnvironmentSaved	Global environment saved
+requestTabs.scroll.left	Left Chevron
+requestTabs.scroll.right	Right Chevron
+requestTabs.specialTab.beta	Beta
+requestTabs.specialTab.collection	Collection
+requestTabs.specialTab.environments	Environments
+requestTabs.specialTab.folder	Folder
+requestTabs.specialTab.globalEnvironments	Global Environments
+requestTabs.specialTab.mockServer	Mock Server
+requestTabs.specialTab.overview	Overview
+requestTabs.specialTab.runner	Runner
+requestTabs.specialTab.variables	Variables
+requestTabs.specialTab.whatsNew	What's New
+requestTabs.tab.app	App
+responsePane.actions.changeLayout	Change layout
+responsePane.actions.copyResponse	Copy response
+responsePane.actions.downloadResponse	Download response
+responsePane.actions.moreActions	More actions
+responsePane.actions.saveResponse	Save response
+responsePane.bookmark.createdSuccessfully	Example "{{name}}" created successfully
+responsePane.bookmark.modalTitle	Save Response as Example
+responsePane.bookmark.noValidResponse	No valid response to save as example
+responsePane.bookmark.saveTitle	Save current response as example
+responsePane.bookmark.streamingNotSupported	Response Examples aren't supported in streaming responses yet.
+responsePane.bookmark.tooLarge	Response size exceeds 5MB limit. Cannot save as example.
+responsePane.cancelRequest	Cancel Request
+responsePane.clear	Clear response
+responsePane.clearTimeline	Clear Timeline
+responsePane.copy	Copy response to clipboard
+responsePane.copyFailed	Failed to copy response
+responsePane.copySuccess	Response copied to clipboard
+responsePane.download	Save response to file
+responsePane.downloadSuccess	Response downloaded to file
+responsePane.errorOccurred	An error occurred!
+responsePane.filter.jsonPath	Filter with JSONPath
+responsePane.filter.xpath	Filter with XPath
+responsePane.genericError	Something went wrong!
+responsePane.grpc.emptyMessage	Empty message
+responsePane.grpc.error	Error
+responsePane.grpc.errorMetadata	Error Metadata
+responsePane.grpc.event.cancel	Cancelled
+responsePane.grpc.event.end	Stream Ended
+responsePane.grpc.event.error	Error
+responsePane.grpc.event.event	Event
+responsePane.grpc.event.message	Message
+responsePane.grpc.event.metadata	Metadata
+responsePane.grpc.event.request	Request
+responsePane.grpc.event.response	Response Message
+responsePane.grpc.latest	Latest
+responsePane.grpc.message	Message
+responsePane.grpc.metadata	Metadata
+responsePane.grpc.metadataHeaders	Metadata Headers
+responsePane.grpc.noMessagesReceived	No messages received
+responsePane.grpc.noMetadataHeaders	No metadata headers
+responsePane.grpc.noMetadataReceived	No metadata received
+responsePane.grpc.noSystemProxy	No system proxy configured for this request
+responsePane.grpc.noTrailersReceived	No trailers received
+responsePane.grpc.proxy	Proxy
+responsePane.grpc.proxyNotApplicable	Proxy enabled but not applicable for this request
+responsePane.grpc.responseMessageNo	Response Message #{{index}}
+responsePane.grpc.responseNo	Response {{index}}
+responsePane.grpc.streamCancelled	Stream Cancelled
+responsePane.grpc.streamCancelledDesc	The gRPC stream was cancelled
+responsePane.grpc.streamEnded	Stream Ended
+responsePane.grpc.tests.afterCallEnd	After Call End Tests
+responsePane.grpc.tests.afterMessageReceive	After Message Receive Tests
+responsePane.grpc.tests.beforeCallStart	Before Call Start Tests
+responsePane.grpc.tests.beforeMessageSend	Before Message Send Tests
+responsePane.grpc.tests.messageGroup	Message {{index}}
+responsePane.grpc.totalMessages	Total messages: {{count}}
+responsePane.grpc.unknownError	Unknown error
+responsePane.grpc.usingProxy	Using proxy: {{url}}
+responsePane.grpc.usingSystemProxy	Using system proxy: {{url}}
+responsePane.largeResponse.copy	Copy
+responsePane.largeResponse.copyToClipboard	Copy response to clipboard
+responsePane.largeResponse.currentSizePrefix	Size of current response:
+responsePane.largeResponse.descriptionPrefix	Handling responses over
+responsePane.largeResponse.descriptionSuffix	could degrade performance.
+responsePane.largeResponse.download	Download
+responsePane.largeResponse.downloadToFile	Download response to file
+responsePane.largeResponse.showContent	Show response content
+responsePane.largeResponse.title	Large Response Warning
+responsePane.largeResponse.view	View
+responsePane.layout.horizontal	Switch to horizontal layout
+responsePane.layout.vertical	Switch to vertical layout
+responsePane.name	Name
+responsePane.networkError	Network Error
+responsePane.notFound	404 | Not found
+responsePane.placeholder.editEnvironments	Edit Environments
+responsePane.placeholder.newRequest	New Request
+responsePane.placeholder.sendRequest	Send Request
+responsePane.preview.noPreview	No Preview Available
+responsePane.preview.noPreviewDescription	Sorry, no preview is available for this content type.
+responsePane.preview.toggle	Preview
+responsePane.preview.turnOff	Turn off Preview Mode
+responsePane.preview.turnOn	Turn on Preview Mode
+responsePane.queryResult.sslHint	You can disable SSL verification in the Preferences.
+responsePane.queryResult.sslHintOpen	To open the Preferences, click on the gear icon in the bottom left corner.
+responsePane.scriptError.afterCallEnd	After Call End Script Error
+responsePane.scriptError.afterMessageReceive	After Message Receive Script Error
+responsePane.scriptError.beforeCallStart	Before Call Start Script Error
+responsePane.scriptError.beforeMessageSend	Before Message Send Script Error
+responsePane.scriptError.closeError	Close error
+responsePane.scriptError.error	Error
+responsePane.scriptError.hideStackTrace	Hide stack trace
+responsePane.scriptError.iconTooltip	Script execution error occurred
+responsePane.scriptError.postResponse	Post-Response Script Error
+responsePane.scriptError.preRequest	Pre-Request Script Error
+responsePane.scriptError.showStackTrace	Show stack trace
+responsePane.scriptError.source.collection	Collection
+responsePane.scriptError.source.folder	Folder
+responsePane.scriptError.source.folderNamed	Folder: {{name}}
+responsePane.scriptError.source.request	Request
+responsePane.scriptError.test	Test Script Error
+responsePane.skipped	Request skipped
+responsePane.somethingWentWrong	Something went wrong
+responsePane.streaming	 - STREAMING
+responsePane.tabs.headers	Headers
+responsePane.tabs.messages	Messages
+responsePane.tabs.response	Response
+responsePane.tabs.timeline	Timeline
+responsePane.tests.assertions	Assertions
+responsePane.tests.failed	Test failed
+responsePane.tests.label	Tests
+responsePane.tests.noTests	No tests found
+responsePane.tests.passed	Test passed
+responsePane.tests.postResponse	Post-Response Tests
+responsePane.tests.preRequest	Pre-Request Tests
+responsePane.tests.summary	{{title}} ({{total}}), Passed: {{passed}}, Failed: {{failed}}
+responsePane.tests.title	Tests
+responsePane.timeline.body	Body
+responsePane.timeline.filter.all	All
+responsePane.timeline.filter.main	Request
+responsePane.timeline.filter.post	Post-Response
+responsePane.timeline.filter.pre	Pre-Request
+responsePane.timeline.headers	Headers
+responsePane.timeline.noBody	No Body
+responsePane.timeline.noHeaders	No Headers
+responsePane.timeline.openFile	Open {{file}}
+responsePane.timeline.tabs.network	Network
+responsePane.timeline.tabs.request	Request
+responsePane.timeline.tabs.response	Response
+responsePane.ws.latestFirst	Latest First
+responsePane.ws.latestLast	Latest Last
+responsePane.ws.noMessages	No messages yet.
+runner.cancelExecution	Cancel Execution
+runner.clickStatusToViewResponse	Click on the status code to view the response
+runner.closeResponseView	Close response view
+runner.config.deselectAll	Deselect All
+runner.config.loadingRequests	Loading requests...
+runner.config.noRequests	No requests found in this collection
+runner.config.reset	Reset
+runner.config.resetSelectionTitle	Reset selection and order
+runner.config.selectedCount	{{selected}} of {{enabled}} selected
+runner.delayBetweenRequests	Delay between requests (ms)
+runner.delayPlaceholder	e.g. 5
+runner.filter.all	All
+runner.filter.failed	Failed
+runner.filter.passed	Passed
+runner.filter.skipped	Skipped
+runner.filterBy	Filter by:
+runner.inThisCollection	in this collection.
+runner.loading	Loading
+runner.request	request
+runner.requestFailed	(request failed)
+runner.requests	requests
+runner.requestsStillLoading	Requests in this collection are still loading.
+runner.reset	Reset
+runner.runAgain	Run Again
+runner.runRequestsCount	Run {{count}} Request{{s}}
+runner.tags	Tags
+runner.tags.alreadyExcluded	tag is present in the exclude list!
+runner.tags.alreadyIncluded	tag already present in the include list!
+runner.tags.doesNotExist	tag does not exist!
+runner.tags.exclude	Exclude tags
+runner.tags.include	Include tags
+runner.timings	Timings
+runner.title	Runner
+runner.youHave	You have
+variables.copyValue	Copy value
+variables.hideValue	Hide value
+variables.name	Name
+variables.noEnvironment	No environment variables found
+variables.noEnvironmentSelected	No environment selected
+variables.noRuntime	No runtime variables found
+variables.openInDrawer	Open in drawer
+variables.openObjectInDrawer	Open object in drawer
+variables.section.environment	Environment
+variables.section.runtime	Runtime
+variables.sections.environment	Environment Variables
+variables.sections.runtime	Runtime Variables
+variables.showValue	Show value

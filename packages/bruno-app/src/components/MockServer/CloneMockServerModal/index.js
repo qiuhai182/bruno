@@ -3,6 +3,7 @@ import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import toast from 'react-hot-toast';
+import { useTranslation } from 'react-i18next';
 import Portal from 'components/Portal';
 import Modal from 'components/Modal';
 import { loadMockResponses } from 'providers/ReduxStore/slices/mock-server/index';
@@ -30,6 +31,7 @@ const CloneMockServerModal = ({
   onClose
 }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const inputRef = useRef();
   const activeWorkspaceUid = useSelector((state) => state.workspaces.activeWorkspaceUid);
   const configuredInstances = useSelector((state) => getMockServerInstances(state), shallowEqual);
@@ -38,20 +40,20 @@ const CloneMockServerModal = ({
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: {
-      name: `${instance.name} copy`,
+      name: t('mockServer.clone.defaultName', { name: instance.name }),
       port: DEFAULT_MOCK_SERVER_PORT
     },
     validationSchema: Yup.object({
       name: Yup.string()
         .trim()
-        .min(1, 'Must be at least 1 character')
-        .max(255, 'Must be 255 characters or less')
+        .min(1, t('mockServer.create.min1'))
+        .max(255, t('mockServer.create.max255'))
         .test('is-valid-name', function (value) {
           const error = getMockServerNameError(value);
           return error ? this.createError({ message: error }) : true;
         })
-        .required('Name is required')
-        .test('duplicate-name', 'A mock server with this name already exists', (value) => (
+        .required(t('mockServer.create.nameRequired'))
+        .test('duplicate-name', t('mockServer.create.nameTaken'), (value) => (
           !isMockServerNameTaken(existingInstances, value)
         )),
       port: Yup.mixed()
@@ -59,7 +61,7 @@ const CloneMockServerModal = ({
           const error = getMockServerPortRangeError(value);
           return error ? this.createError({ message: error }) : true;
         })
-        .test('duplicate-port', 'This port is already used by another mock server', (value) => {
+        .test('duplicate-port', t('mockServer.clone.portTaken'), (value) => {
           const normalizedPort = Number(value);
           if (!normalizedPort) {
             return true;
@@ -70,7 +72,7 @@ const CloneMockServerModal = ({
     }),
     onSubmit: async (values, { setFieldError }) => {
       if (!workspacePath) {
-        toast.error('Workspace path is required to clone mock responses');
+        toast.error(t('mockServer.clone.workspaceRequired'));
         return;
       }
 
@@ -83,7 +85,7 @@ const CloneMockServerModal = ({
           return;
         }
       } catch (err) {
-        setFieldError('port', err.message || 'Failed to validate port');
+        setFieldError('port', err.message || t('mockServer.create.validatePortFailed'));
         return;
       }
 
@@ -119,10 +121,10 @@ const CloneMockServerModal = ({
         });
 
         dispatch(openMockServerDashboard(savedInstance, tabCollectionUid));
-        toast.success('Mock server cloned');
+        toast.success(t('mockServer.clone.cloned'));
         onClose();
       } catch (err) {
-        toast.error(err.message || 'Failed to clone mock server');
+        toast.error(err.message || t('mockServer.clone.failed'));
       }
     }
   });
@@ -152,8 +154,8 @@ const CloneMockServerModal = ({
     <Portal>
       <Modal
         size="md"
-        title="Clone Mock Server"
-        confirmText="Clone"
+        title={t('mockServer.clone.title')}
+        confirmText={t('mockServer.clone.label')}
         handleConfirm={async () => {
           const errors = await formik.validateForm();
           if (Object.keys(errors).length > 0) {
@@ -172,7 +174,7 @@ const CloneMockServerModal = ({
         <form className="bruno-form" onSubmit={(event) => event.preventDefault()}>
           <div>
             <label htmlFor="mock-server-clone-name" className="block font-medium">
-              Name
+              {t('mockServer.create.nameLabel')}
             </label>
             <input
               id="mock-server-clone-name"
@@ -196,7 +198,7 @@ const CloneMockServerModal = ({
 
           <div className="mt-4">
             <label htmlFor="mock-server-clone-port" className="block font-medium">
-              Port
+              {t('mockServer.create.portLabel')}
             </label>
             <input
               id="mock-server-clone-port"
@@ -221,7 +223,7 @@ const CloneMockServerModal = ({
           </div>
 
           <p className="text-xs opacity-70 mt-4">
-            Clones mock responses and server settings. The clone starts stopped.
+            {t('mockServer.clone.hint')}
           </p>
         </form>
       </Modal>

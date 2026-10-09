@@ -1,4 +1,5 @@
 import React, { useId } from 'react';
+import { useTranslation } from 'react-i18next';
 import { getRelativePathWithinBasePath, getBasename } from 'utils/common/path';
 import { useDispatch } from 'react-redux';
 import { browseFiles } from 'providers/ReduxStore/slices/collections/actions';
@@ -32,6 +33,7 @@ const FilePickerEditor = ({
   icon: CustomIcon
 }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const warningTooltipId = `file-picker-warning-${useId().replace(/:/g, '')}`;
 
   const filePaths = (isSingleFilePicker ? [value] : value || []).filter((v) => v != null && v != '');
@@ -71,10 +73,10 @@ const FilePickerEditor = ({
     if (filenames.length == 1) {
       return filenames[0];
     }
-    return filenames.length + ' file(s) selected';
+    return t('filePicker.selectedCount', { count: filenames.length, s: filenames.length === 1 ? '' : 's' });
   };
 
-  const defaultLabel = isSingleFilePicker ? 'Select File' : 'Select Files';
+  const defaultLabel = isSingleFilePicker ? t('filePicker.selectFile') : t('filePicker.selectFiles');
   const displayLabel = label || defaultLabel;
   const IconComponent = CustomIcon || IconUpload;
 
@@ -120,7 +122,7 @@ const FilePickerEditor = ({
             <button
               className="clear-btn"
               onClick={clear}
-              title="Remove file"
+              title={t('filePicker.removeFile')}
               type="button"
             >
               <IconX size={16} />
@@ -134,7 +136,7 @@ const FilePickerEditor = ({
             >
               <div className="warning-tooltip" data-testid="file-picker-warning-tooltip">
                 <IconAlertTriangleFilled size={14} />
-                <span>The file above is not in the given directory, please upload it again.</span>
+                <span>{t('filePicker.fileMissingWarning')}</span>
               </div>
             </Tooltip>
           )}

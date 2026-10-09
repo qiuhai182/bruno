@@ -1,4 +1,4 @@
-﻿diff --git a/packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/index.js b/packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/index.js
+diff --git a/packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/index.js b/packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/index.js
 index 5e2e5724e..8d424ff81 100644
 --- a/packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/index.js
 +++ b/packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/index.js

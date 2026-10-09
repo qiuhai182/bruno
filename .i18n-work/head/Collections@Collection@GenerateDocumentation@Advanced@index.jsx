@@ -1,4 +1,4 @@
-﻿import React, { useId, useState } from 'react';
+import React, { useId, useState } from 'react';
 import { IconChevronRight, IconListCheck, IconGitBranch, IconInfoCircle } from '@tabler/icons';
 import { Tooltip } from 'react-tooltip';
 import ToggleSwitch from 'components/ToggleSwitch';

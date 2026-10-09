@@ -2,19 +2,7 @@ import React, { useEffect, useMemo, useRef } from 'react';
 import EditableTable from 'components/EditableTable';
 import { uuid } from 'utils/common';
 import StyledWrapper from './StyledWrapper';
-
-const TARGET_OPTIONS = [
-  { value: 'header', label: 'Header' },
-  { value: 'query', label: 'Query' },
-  { value: 'body', label: 'Body' }
-];
-
-const OPERATOR_OPTIONS = [
-  { value: 'equals', label: 'equals' },
-  { value: 'not_equals', label: 'not equals' },
-  { value: 'contains', label: 'contains' },
-  { value: 'matches', label: 'matches' }
-];
+import { useTranslation } from 'react-i18next';
 
 const DEFAULT_CONDITION = {
   target: 'header',
@@ -30,11 +18,25 @@ const KEY_PLACEHOLDERS = {
 };
 
 const MockResponseRules = ({ rules, editMode, onChange, onAddRule }) => {
+  const { t } = useTranslation();
   const conditions = rules?.conditions || [];
   const operator = rules?.operator === 'OR' ? 'OR' : 'AND';
   const rowUidsRef = useRef([]);
   const wrapperRef = useRef(null);
   const focusAddRowPendingRef = useRef(false);
+
+  const targetOptions = [
+    { value: 'header', label: t('mockServer.rules.targetHeader') },
+    { value: 'query', label: t('mockServer.rules.targetQuery') },
+    { value: 'body', label: t('mockServer.rules.targetBody') }
+  ];
+
+  const operatorOptions = [
+    { value: 'equals', label: t('mockServer.rules.equals') },
+    { value: 'not_equals', label: t('mockServer.rules.notEquals') },
+    { value: 'contains', label: t('mockServer.rules.contains') },
+    { value: 'matches', label: t('mockServer.rules.matches') }
+  ];
 
   const handleAddRule = () => {
     focusAddRowPendingRef.current = true;
@@ -90,16 +92,16 @@ const MockResponseRules = ({ rules, editMode, onChange, onAddRule }) => {
   const columns = [
     {
       key: 'target',
-      name: 'Target',
+      name: t('mockServer.rules.colTarget'),
       width: '20%',
       render: ({ value, onChange: onCellChange }) => (
         <select
           value={value || DEFAULT_CONDITION.target}
           disabled={!editMode}
           onChange={(event) => onCellChange(event.target.value)}
-          aria-label="Rule target"
+          aria-label={t('mockServer.rules.targetAria')}
         >
-          {TARGET_OPTIONS.map((option) => (
+          {targetOptions.map((option) => (
             <option key={option.value} value={option.value}>{option.label}</option>
           ))}
         </select>
@@ -107,7 +109,7 @@ const MockResponseRules = ({ rules, editMode, onChange, onAddRule }) => {
     },
     {
       key: 'key',
-      name: 'Key',
+      name: t('mockServer.rules.colKey'),
       isKeyField: true,
       width: '27%',
       readOnly: !editMode,
@@ -127,16 +129,16 @@ const MockResponseRules = ({ rules, editMode, onChange, onAddRule }) => {
     },
     {
       key: 'operator',
-      name: 'Operator',
+      name: t('mockServer.rules.colOperator'),
       width: '22%',
       render: ({ value, onChange: onCellChange }) => (
         <select
           value={value === 'regex' ? 'matches' : (value || DEFAULT_CONDITION.operator)}
           disabled={!editMode}
           onChange={(event) => onCellChange(event.target.value)}
-          aria-label="Rule operator"
+          aria-label={t('mockServer.rules.operatorAria')}
         >
-          {OPERATOR_OPTIONS.map((option) => (
+          {operatorOptions.map((option) => (
             <option key={option.value} value={option.value}>{option.label}</option>
           ))}
         </select>
@@ -144,10 +146,10 @@ const MockResponseRules = ({ rules, editMode, onChange, onAddRule }) => {
     },
     {
       key: 'value',
-      name: 'Value',
+      name: t('mockServer.rules.colValue'),
       width: '31%',
       readOnly: !editMode,
-      placeholder: 'Value'
+      placeholder: t('mockServer.rules.colValue')
     }
   ];
 
@@ -155,7 +157,7 @@ const MockResponseRules = ({ rules, editMode, onChange, onAddRule }) => {
     <StyledWrapper ref={wrapperRef}>
       <div className="flex items-center justify-between mb-3 text-xs">
         <div className="flex items-center gap-2">
-          <label htmlFor="mock-response-rule-operator" className="font-medium">Match</label>
+          <label htmlFor="mock-response-rule-operator" className="font-medium">{t('mockServer.rules.matchLabel')}</label>
           <select
             id="mock-response-rule-operator"
             className="rule-operator"
@@ -163,8 +165,8 @@ const MockResponseRules = ({ rules, editMode, onChange, onAddRule }) => {
             disabled={!editMode}
             onChange={(event) => onChange({ operator: event.target.value, conditions })}
           >
-            <option value="AND">All rules (AND)</option>
-            <option value="OR">Any rule (OR)</option>
+            <option value="AND">{t('mockServer.rules.allAnd')}</option>
+            <option value="OR">{t('mockServer.rules.anyOr')}</option>
           </select>
         </div>
         {!editMode ? (
@@ -174,14 +176,14 @@ const MockResponseRules = ({ rules, editMode, onChange, onAddRule }) => {
             onClick={handleAddRule}
             data-testid="mock-response-add-rule-btn"
           >
-            + Add Rule
+            {t('mockServer.rules.addRule')}
           </button>
         ) : null}
       </div>
 
       {rows.length === 0 && !editMode ? (
         <div className="text-xs opacity-70">
-          No rules - every request on this route gets this response.
+          {t('mockServer.rules.noRulesHint')}
         </div>
       ) : (
         <EditableTable

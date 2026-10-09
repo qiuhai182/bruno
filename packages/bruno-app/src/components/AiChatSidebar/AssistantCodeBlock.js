@@ -1,7 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { IconCopy, IconCheck } from '@tabler/icons';
 
 const AssistantCodeBlock = ({ content, language, isOpen, isStreaming, isLast }) => {
+  const { t } = useTranslation();
   const [isCopied, setIsCopied] = useState(false);
   const preRef = useRef(null);
 
@@ -25,12 +27,12 @@ const AssistantCodeBlock = ({ content, language, isOpen, isStreaming, isLast }) 
     <div className="assistant-code-block">
       <div className="assistant-code-block__header">
         <div className="assistant-code-block__meta">
-          <span className="assistant-code-block__lang">{language || 'code'}</span>
+          <span className="assistant-code-block__lang">{language || t('aiChat.codeBlock.code')}</span>
           {isOpen && <span className="assistant-code-block__spinner" />}
         </div>
-        <button className="assistant-code-block__btn" onClick={handleCopy} title="Copy">
+        <button className="assistant-code-block__btn" onClick={handleCopy} title={t('aiChat.codeBlock.copy')}>
           {isCopied ? <IconCheck size={12} /> : <IconCopy size={12} />}
-          {isCopied ? 'Copied' : 'Copy'}
+          {isCopied ? t('aiChat.codeBlock.copied') : t('aiChat.codeBlock.copy')}
         </button>
       </div>
       <pre ref={preRef} className="assistant-code-block__body">

@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import Modal from 'components/Modal';
 import { useSelector, useDispatch } from 'react-redux';
 import { ignoreFolder, closeTabs } from 'providers/ReduxStore/slices/collections/actions';

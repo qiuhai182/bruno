@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useSelector } from 'react-redux';
 import get from 'lodash/get';
 import Tippy from '@tippyjs/react';
+import { useTranslation } from 'react-i18next';
 import { IconX, IconArrowBackUp, IconPlayerStop } from '@tabler/icons';
 import IconSparkles from 'components/Icons/IconSparkles';
 import Button from 'ui/Button';
@@ -10,59 +11,60 @@ import StyledWrapper, { PopupWrapper } from './StyledWrapper';
 
 const SUGGESTIONS = {
   'tests': [
-    { label: 'Status 200', prompt: 'Add a test asserting the response status code is 200' },
-    { label: 'JSON body', prompt: 'Add tests validating the JSON response body structure and key fields' },
-    { label: 'Headers', prompt: 'Add a test checking the content-type response header' },
-    { label: 'Response time', prompt: 'Add a test asserting the response time is below 1000ms' }
+    { labelKey: 'aiChat.suggestions.tests.status200', prompt: 'Add a test asserting the response status code is 200' },
+    { labelKey: 'aiChat.suggestions.tests.jsonBody', prompt: 'Add tests validating the JSON response body structure and key fields' },
+    { labelKey: 'aiChat.suggestions.tests.headers', prompt: 'Add a test checking the content-type response header' },
+    { labelKey: 'aiChat.suggestions.tests.responseTime', prompt: 'Add a test asserting the response time is below 1000ms' }
   ],
   'pre-request': [
-    { label: 'Auth header', prompt: 'Set an Authorization header from an environment token variable' },
-    { label: 'Timestamp', prompt: 'Set a variable named "timestamp" containing the current epoch ms' },
-    { label: 'Random ID', prompt: 'Set a variable named "requestId" containing a random UUID-style id' }
+    { labelKey: 'aiChat.suggestions.preRequest.authHeader', prompt: 'Set an Authorization header from an environment token variable' },
+    { labelKey: 'aiChat.suggestions.preRequest.timestamp', prompt: 'Set a variable named "timestamp" containing the current epoch ms' },
+    { labelKey: 'aiChat.suggestions.preRequest.randomId', prompt: 'Set a variable named "requestId" containing a random UUID-style id' }
   ],
   'post-response': [
-    { label: 'Save token', prompt: 'Extract a token from the response body and save it to an environment variable' },
-    { label: 'Save id', prompt: 'Extract the primary id from the response body and save it to a variable' },
-    { label: 'Log response', prompt: 'Log the response status and a short summary of the body' }
+    { labelKey: 'aiChat.suggestions.postResponse.saveToken', prompt: 'Extract a token from the response body and save it to an environment variable' },
+    { labelKey: 'aiChat.suggestions.postResponse.saveId', prompt: 'Extract the primary id from the response body and save it to a variable' },
+    { labelKey: 'aiChat.suggestions.postResponse.logResponse', prompt: 'Log the response status and a short summary of the body' }
   ],
   'docs': [
-    { label: 'Overview', prompt: 'Write an overview section describing the purpose and key features' },
-    { label: 'Request', prompt: 'Document the request method, URL, headers, parameters, and body' },
-    { label: 'Examples', prompt: 'Add request and response examples with sample JSON' },
-    { label: 'Errors', prompt: 'Document common error responses and status codes' }
+    { labelKey: 'aiChat.suggestions.docs.overview', prompt: 'Write an overview section describing the purpose and key features' },
+    { labelKey: 'aiChat.suggestions.docs.request', prompt: 'Document the request method, URL, headers, parameters, and body' },
+    { labelKey: 'aiChat.suggestions.docs.examples', prompt: 'Add request and response examples with sample JSON' },
+    { labelKey: 'aiChat.suggestions.docs.errors', prompt: 'Document common error responses and status codes' }
   ],
   'app-request': [
-    { label: 'Send button', prompt: 'Add a button that calls bru.ctx.submitRequest() and displays the response status, headers, and pretty-printed body' },
-    { label: 'Form for body', prompt: 'Build a form whose fields override the request body, then send it with bru.ctx.submitRequest({ runtimeVariables }) and show the result' },
-    { label: 'Response viewer', prompt: 'Render bru.ctx.http.response with collapsible JSON and a banner showing status and response time; update on bru.ctx.http.onResponseChange' },
-    { label: 'Test results', prompt: 'List bru.ctx.tests and bru.ctx.assertions with pass/fail badges; refresh on bru.ctx.onTestsChange and bru.ctx.onAssertionsChange' }
+    { labelKey: 'aiChat.suggestions.appRequest.sendButton', prompt: 'Add a button that calls bru.ctx.submitRequest() and displays the response status, headers, and pretty-printed body' },
+    { labelKey: 'aiChat.suggestions.appRequest.formForBody', prompt: 'Build a form whose fields override the request body, then send it with bru.ctx.submitRequest({ runtimeVariables }) and show the result' },
+    { labelKey: 'aiChat.suggestions.appRequest.responseViewer', prompt: 'Render bru.ctx.http.response with collapsible JSON and a banner showing status and response time; update on bru.ctx.http.onResponseChange' },
+    { labelKey: 'aiChat.suggestions.appRequest.testResults', prompt: 'List bru.ctx.tests and bru.ctx.assertions with pass/fail badges; refresh on bru.ctx.onTestsChange and bru.ctx.onAssertionsChange' }
   ],
   'app-collection': [
-    { label: 'Request list', prompt: 'List all requests from bru.ctx.listRequests() with their method and url, and a Run button next to each that calls bru.ctx.runRequest(pathname)' },
-    { label: 'Dashboard', prompt: 'Build a small dashboard that runs every request from bru.ctx.listRequests() on load and shows status code, response time, and a pass/fail dot for each' },
-    { label: 'Form runner', prompt: 'Render a form, and on submit call bru.ctx.runRequest(pathname, { runtimeVariables }) for a chosen request and display the response' },
-    { label: 'Variables panel', prompt: 'Show bru.ctx.variables.resolved in a table and allow editing values via bru.ctx.variables.runtime.set(name, value); react to bru.ctx.onVariablesChange' }
+    { labelKey: 'aiChat.suggestions.appCollection.requestList', prompt: 'List all requests from bru.ctx.listRequests() with their method and url, and a Run button next to each that calls bru.ctx.runRequest(pathname)' },
+    { labelKey: 'aiChat.suggestions.appCollection.dashboard', prompt: 'Build a small dashboard that runs every request from bru.ctx.listRequests() on load and shows status code, response time, and a pass/fail dot for each' },
+    { labelKey: 'aiChat.suggestions.appCollection.formRunner', prompt: 'Render a form, and on submit call bru.ctx.runRequest(pathname, { runtimeVariables }) for a chosen request and display the response' },
+    { labelKey: 'aiChat.suggestions.appCollection.variablesPanel', prompt: 'Show bru.ctx.variables.resolved in a table and allow editing values via bru.ctx.variables.runtime.set(name, value); react to bru.ctx.onVariablesChange' }
   ]
 };
 
 const TITLES = {
-  'tests': 'Generate Tests',
-  'pre-request': 'Generate Pre-Request Script',
-  'post-response': 'Generate Post-Response Script',
-  'docs': 'Generate Documentation',
-  'app-request': 'Generate App',
-  'app-collection': 'Generate App'
+  'tests': 'aiChat.assist.generateTests',
+  'pre-request': 'aiChat.assist.generatePreRequest',
+  'post-response': 'aiChat.assist.generatePostResponse',
+  'docs': 'aiChat.assist.generateDocs',
+  'app-request': 'aiChat.assist.generateApp',
+  'app-collection': 'aiChat.assist.generateApp'
 };
 
 const PREVIEW_LABELS = {
-  'docs': 'Preview · replaces current documentation',
-  'app-request': 'Preview · replaces current app',
-  'app-collection': 'Preview · replaces current app'
+  'docs': 'aiChat.assist.previewDocs',
+  'app-request': 'aiChat.assist.previewApp',
+  'app-collection': 'aiChat.assist.previewApp'
 };
 
 const isValidType = (t) => SUGGESTIONS[t] !== undefined;
 
 const AIAssist = ({ scriptType, currentScript, requestContext, docsContext, variables, onApply }) => {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [prompt, setPrompt] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -95,8 +97,8 @@ const AIAssist = ({ scriptType, currentScript, requestContext, docsContext, vari
   const isAiEnabled = get(preferences, 'ai.enabled', false);
 
   const suggestions = useMemo(() => SUGGESTIONS[scriptType] || [], [scriptType]);
-  const title = TITLES[scriptType] || 'Generate with AI';
-  const previewLabel = PREVIEW_LABELS[scriptType] || 'Preview · replaces current script';
+  const title = t(TITLES[scriptType] || 'aiChat.assist.generateWithAi');
+  const previewLabel = t(PREVIEW_LABELS[scriptType] || 'aiChat.assist.previewScript');
 
   const close = useCallback(() => {
     tippyRef.current?.hide();
@@ -132,16 +134,16 @@ const AIAssist = ({ scriptType, currentScript, requestContext, docsContext, vari
         if (result?.content) {
           setGenerated(result.content);
         } else {
-          setError('No content was generated. Try rephrasing your prompt.');
+          setError(t('aiChat.assist.noContent'));
         }
       } catch (err) {
-        setError(err?.message || 'Failed to generate script');
+        setError(err?.message || t('aiChat.assist.generateFailed'));
       } finally {
         streamIdRef.current = null;
         setIsLoading(false);
       }
     },
-    [prompt, isLoading, scriptType, currentScript, requestContext, docsContext, variables]
+    [prompt, isLoading, scriptType, currentScript, requestContext, docsContext, variables, t]
   );
 
   const handleStop = useCallback(() => {
@@ -192,7 +194,7 @@ const AIAssist = ({ scriptType, currentScript, requestContext, docsContext, vari
                 <IconSparkles size={12} strokeWidth={1.75} />
                 {title}
               </span>
-              <button className="popup-close" onClick={close} type="button" aria-label="Close">
+              <button className="popup-close" onClick={close} type="button" aria-label={t('aiChat.close')}>
                 <IconX size={14} />
               </button>
             </div>
@@ -210,7 +212,7 @@ const AIAssist = ({ scriptType, currentScript, requestContext, docsContext, vari
                         handleGenerate();
                       }
                     }}
-                    placeholder="Describe what you want to generate..."
+                    placeholder={t('aiChat.assist.promptPlaceholder')}
                     rows={3}
                     disabled={isLoading}
                   />
@@ -219,13 +221,13 @@ const AIAssist = ({ scriptType, currentScript, requestContext, docsContext, vari
                     <div className="popup-suggestions">
                       {suggestions.map((s) => (
                         <button
-                          key={s.label}
+                          key={s.labelKey}
                           className="suggestion-chip"
                           type="button"
                           onClick={() => handleGenerate(s.prompt)}
                           disabled={isLoading}
                         >
-                          {s.label}
+                          {t(s.labelKey)}
                         </button>
                       ))}
                     </div>
@@ -238,10 +240,10 @@ const AIAssist = ({ scriptType, currentScript, requestContext, docsContext, vari
                   {isLoading ? (
                     <span className="popup-loading">
                       <span className="loading-spinner" />
-                      Generating...
+                      {t('aiChat.assist.generating')}
                     </span>
                   ) : (
-                    <span className="popup-hint">Enter to generate · Shift+Enter for newline</span>
+                    <span className="popup-hint">{t('aiChat.assist.enterHint')}</span>
                   )}
                   {isLoading ? (
                     <Button
@@ -251,9 +253,9 @@ const AIAssist = ({ scriptType, currentScript, requestContext, docsContext, vari
                       rounded="sm"
                       icon={<IconPlayerStop size={12} />}
                       onClick={handleStop}
-                      title="Stop generating"
+                      title={t('aiChat.stopGenerating')}
                     >
-                      Stop
+                      {t('aiChat.stop')}
                     </Button>
                   ) : (
                     <button
@@ -262,7 +264,7 @@ const AIAssist = ({ scriptType, currentScript, requestContext, docsContext, vari
                       onClick={() => handleGenerate()}
                       disabled={!prompt.trim()}
                     >
-                      Generate
+                      {t('aiChat.assist.generate')}
                     </button>
                   )}
                 </div>
@@ -281,11 +283,11 @@ const AIAssist = ({ scriptType, currentScript, requestContext, docsContext, vari
                 <div className="popup-footer">
                   <button className="btn-secondary" type="button" onClick={handleBackToPrompt}>
                     <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
-                      <IconArrowBackUp size={12} /> Back
+                      <IconArrowBackUp size={12} /> {t('aiChat.assist.back')}
                     </span>
                   </button>
                   <button className="btn-generate" type="button" onClick={handleApply}>
-                    Apply
+                    {t('aiChat.assist.apply')}
                   </button>
                 </div>
               </>

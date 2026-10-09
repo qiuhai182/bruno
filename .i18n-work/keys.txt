@@ -1,4 +1,4 @@
-﻿TOTAL_SIDEBAR_KEYS: 500
+TOTAL_SIDEBAR_KEYS: 500
 sidebar.actions.addNewCollection <- Sections/CollectionsSection/index.js
 sidebar.actions.moreActions <- Sections/CollectionsSection/index.js
 sidebar.actions.searchRequests <- Sections/CollectionsSection/index.js

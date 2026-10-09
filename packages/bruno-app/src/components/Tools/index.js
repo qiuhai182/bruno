@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import StyledWrapper from './StyledWrapper';
 
 const generateUuid = () => {
@@ -13,6 +14,7 @@ const generateUuid = () => {
 };
 
 const UuidTool = () => {
+  const { t } = useTranslation();
   const [count, setCount] = useState(1);
   const [items, setItems] = useState([generateUuid()]);
 
@@ -26,12 +28,12 @@ const UuidTool = () => {
     <div className="tool-body">
       <div className="tool-row">
         <input type="text" value={count} onChange={(e) => setCount(e.target.value)} />
-        <button type="button" onClick={() => regenerate(count)}>Generate</button>
+        <button type="button" onClick={() => regenerate(count)}>{t('tools.generate')}</button>
       </div>
       {items.map((uuid) => (
         <div className="tool-line" key={uuid}>
           <code>{uuid}</code>
-          <button type="button" className="copy" onClick={() => navigator.clipboard?.writeText(uuid)}>copy</button>
+          <button type="button" className="copy" onClick={() => navigator.clipboard?.writeText(uuid)}>{t('tools.copy')}</button>
         </div>
       ))}
     </div>
@@ -39,6 +41,7 @@ const UuidTool = () => {
 };
 
 const TimestampTool = () => {
+  const { t } = useTranslation();
   const [epoch, setEpoch] = useState('');
   const [iso, setIso] = useState('');
 
@@ -56,7 +59,7 @@ const TimestampTool = () => {
     }
     // treat < 10^12 as seconds, otherwise milliseconds
     const date = new Date(Math.abs(num) < 1e12 ? num * 1000 : num);
-    setIso(Number.isNaN(date.getTime()) ? 'invalid' : date.toISOString());
+    setIso(Number.isNaN(date.getTime()) ? t('tools.invalid') : date.toISOString());
   };
 
   const fromIso = (value) => {
@@ -71,13 +74,13 @@ const TimestampTool = () => {
 
   return (
     <div className="tool-body">
-      <button type="button" className="mb-2" onClick={now}>Now</button>
+      <button type="button" className="mb-2" onClick={now}>{t('tools.now')}</button>
       <label>
-        <span>Epoch (seconds)</span>
+        <span>{t('tools.epochSeconds')}</span>
         <input type="text" value={epoch} onChange={(e) => fromEpoch(e.target.value)} />
       </label>
       <label>
-        <span>ISO 8601</span>
+        <span>{t('tools.iso8601')}</span>
         <input type="text" value={iso} onChange={(e) => fromIso(e.target.value)} />
       </label>
     </div>
@@ -98,6 +101,7 @@ const decodeBase64 = (base64) => {
 };
 
 const Base64Tool = () => {
+  const { t } = useTranslation();
   const [input, setInput] = useState('');
   const [output, setOutput] = useState('');
 
@@ -105,22 +109,22 @@ const Base64Tool = () => {
     try {
       setOutput(mode === 'encode' ? encodeBase64(input) : decodeBase64(input));
     } catch (err) {
-      setOutput(`error: ${err.message}`);
+      setOutput(t('tools.errorPrefix', { message: err.message }));
     }
   };
 
   return (
     <div className="tool-body">
       <label>
-        <span>Input</span>
+        <span>{t('tools.input')}</span>
         <textarea value={input} onChange={(e) => setInput(e.target.value)} rows={4} />
       </label>
       <div className="tool-row">
-        <button type="button" onClick={() => run('encode')}>Encode</button>
-        <button type="button" onClick={() => run('decode')}>Decode</button>
+        <button type="button" onClick={() => run('encode')}>{t('tools.encode')}</button>
+        <button type="button" onClick={() => run('decode')}>{t('tools.decode')}</button>
       </div>
       <label>
-        <span>Output</span>
+        <span>{t('tools.output')}</span>
         <textarea value={output} readOnly rows={4} />
       </label>
     </div>
@@ -128,6 +132,7 @@ const Base64Tool = () => {
 };
 
 const UrlTool = () => {
+  const { t } = useTranslation();
   const [input, setInput] = useState('');
   const [output, setOutput] = useState('');
 
@@ -135,22 +140,22 @@ const UrlTool = () => {
     try {
       setOutput(mode === 'encode' ? encodeURIComponent(input) : decodeURIComponent(input));
     } catch (err) {
-      setOutput(`error: ${err.message}`);
+      setOutput(t('tools.errorPrefix', { message: err.message }));
     }
   };
 
   return (
     <div className="tool-body">
       <label>
-        <span>Input</span>
+        <span>{t('tools.input')}</span>
         <textarea value={input} onChange={(e) => setInput(e.target.value)} rows={4} />
       </label>
       <div className="tool-row">
-        <button type="button" onClick={() => run('encode')}>Encode</button>
-        <button type="button" onClick={() => run('decode')}>Decode</button>
+        <button type="button" onClick={() => run('encode')}>{t('tools.encode')}</button>
+        <button type="button" onClick={() => run('decode')}>{t('tools.decode')}</button>
       </div>
       <label>
-        <span>Output</span>
+        <span>{t('tools.output')}</span>
         <textarea value={output} readOnly rows={4} />
       </label>
     </div>
@@ -158,6 +163,7 @@ const UrlTool = () => {
 };
 
 const JwtTool = () => {
+  const { t } = useTranslation();
   const [token, setToken] = useState('');
   const [result, setResult] = useState('');
 
@@ -165,7 +171,7 @@ const JwtTool = () => {
     try {
       const parts = token.trim().split('.');
       if (parts.length < 2) {
-        throw new Error('not a JWT (expected header.payload.signature)');
+        throw new Error(t('tools.notJwt'));
       }
       const fromBase64Url = (part) => decodeBase64(part.replace(/-/g, '+').replace(/_/g, '/'));
       const header = JSON.parse(fromBase64Url(parts[0]));
@@ -179,16 +185,17 @@ const JwtTool = () => {
   return (
     <div className="tool-body">
       <label>
-        <span>Token</span>
+        <span>{t('tools.token')}</span>
         <textarea value={token} onChange={(e) => setToken(e.target.value)} rows={4} />
       </label>
-      <button type="button" onClick={decode}>Decode</button>
+      <button type="button" onClick={decode}>{t('tools.decode')}</button>
       <textarea value={result} readOnly rows={8} />
     </div>
   );
 };
 
 const RegexTool = () => {
+  const { t } = useTranslation();
   const [pattern, setPattern] = useState('');
   const [flags, setFlags] = useState('g');
   const [text, setText] = useState('');
@@ -212,21 +219,21 @@ const RegexTool = () => {
     <div className="tool-body">
       <div className="tool-row">
         <label className="grow">
-          <span>Pattern</span>
+          <span>{t('tools.pattern')}</span>
           <input type="text" value={pattern} onChange={(e) => setPattern(e.target.value)} />
         </label>
         <label>
-          <span>Flags</span>
+          <span>{t('tools.flags')}</span>
           <input type="text" value={flags} onChange={(e) => setFlags(e.target.value)} />
         </label>
       </div>
       <label>
-        <span>Test string</span>
+        <span>{t('tools.testString')}</span>
         <textarea value={text} onChange={(e) => setText(e.target.value)} rows={4} />
       </label>
       {error ? <div className="tool-error">{error}</div> : null}
       <div className="tool-line">
-        <span>{matches.length} match(es)</span>
+        <span>{t('tools.matches', { count: matches.length, s: matches.length === 1 ? '' : 's' })}</span>
       </div>
       {matches.slice(0, 50).map((entry, i) => (
         <div className="tool-line" key={i}>
@@ -241,6 +248,7 @@ const RegexTool = () => {
 const HASH_ALGOS = ['SHA-1', 'SHA-256', 'SHA-384', 'SHA-512'];
 
 const HashTool = () => {
+  const { t } = useTranslation();
   const [input, setInput] = useState('');
   const [algo, setAlgo] = useState('SHA-256');
   const [output, setOutput] = useState('');
@@ -248,26 +256,26 @@ const HashTool = () => {
   const run = async () => {
     try {
       if (!crypto?.subtle) {
-        throw new Error('WebCrypto not available in this context');
+        throw new Error(t('tools.webCryptoUnavailable'));
       }
       const digest = await crypto.subtle.digest(algo, new TextEncoder().encode(input));
       setOutput(Array.from(new Uint8Array(digest), (b) => b.toString(16).padStart(2, '0')).join(''));
     } catch (err) {
-      setOutput(`error: ${err.message}`);
+      setOutput(t('tools.errorPrefix', { message: err.message }));
     }
   };
 
   return (
     <div className="tool-body">
       <label>
-        <span>Input</span>
+        <span>{t('tools.input')}</span>
         <textarea value={input} onChange={(e) => setInput(e.target.value)} rows={4} />
       </label>
       <div className="tool-row">
         <select value={algo} onChange={(e) => setAlgo(e.target.value)}>
           {HASH_ALGOS.map((option) => <option key={option} value={option}>{option}</option>)}
         </select>
-        <button type="button" onClick={run}>Hash</button>
+        <button type="button" onClick={run}>{t('tools.hash')}</button>
       </div>
       <textarea value={output} readOnly rows={3} />
     </div>
@@ -275,16 +283,17 @@ const HashTool = () => {
 };
 
 const TOOLS = [
-  { id: 'uuid', label: 'UUID', component: UuidTool },
-  { id: 'timestamp', label: 'Timestamp', component: TimestampTool },
-  { id: 'base64', label: 'Base64', component: Base64Tool },
-  { id: 'url', label: 'URL', component: UrlTool },
-  { id: 'jwt', label: 'JWT', component: JwtTool },
-  { id: 'regex', label: 'Regex', component: RegexTool },
-  { id: 'hash', label: 'Hash', component: HashTool }
+  { id: 'uuid', labelKey: 'tools.tab.uuid', component: UuidTool },
+  { id: 'timestamp', labelKey: 'tools.tab.timestamp', component: TimestampTool },
+  { id: 'base64', labelKey: 'tools.tab.base64', component: Base64Tool },
+  { id: 'url', labelKey: 'tools.tab.url', component: UrlTool },
+  { id: 'jwt', labelKey: 'tools.tab.jwt', component: JwtTool },
+  { id: 'regex', labelKey: 'tools.tab.regex', component: RegexTool },
+  { id: 'hash', labelKey: 'tools.tab.hash', component: HashTool }
 ];
 
 const Tools = () => {
+  const { t } = useTranslation();
   const [activeTool, setActiveTool] = useState('uuid');
   const tool = TOOLS.find((entry) => entry.id === activeTool) || TOOLS[0];
   const ToolComponent = tool.component;
@@ -299,7 +308,7 @@ const Tools = () => {
             className={entry.id === tool.id ? 'active' : ''}
             onClick={() => setActiveTool(entry.id)}
           >
-            {entry.label}
+            {t(entry.labelKey)}
           </button>
         ))}
       </div>

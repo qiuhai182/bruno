@@ -1,4 +1,4 @@
-﻿import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { flattenItems, isItemARequest, hasRequestChanges, findCollectionByUid } from 'utils/collections';
 import { pluralizeWord } from 'utils/common';

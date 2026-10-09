@@ -1,4 +1,4 @@
-﻿import React, { useCallback, useEffect, useMemo, useRef, memo } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, memo } from 'react';
 import { Virtuoso } from 'react-virtuoso';
 import { IconDatabase } from '@tabler/icons';
 import ColorBadge from 'components/ColorBadge';

@@ -1,0 +1,391 @@
+{
+  "COMMON.COLLECTIONS": [
+    "section-title"
+  ],
+  "WELCOME.CREATE_COLLECTION": [
+    "Create Collection"
+  ],
+  "WELCOME.IMPORT_COLLECTION": [
+    "Import Collection"
+  ],
+  "collection.auth.password": [
+    "Password"
+  ],
+  "collection.auth.username": [
+    "Username"
+  ],
+  "collection.clientCert.certFileLabel": [
+    "Cert file"
+  ],
+  "collection.clientCert.keyFileLabel": [
+    "Key file"
+  ],
+  "collection.clientCert.pfxFileLabel": [
+    "PFX file"
+  ],
+  "collection.common.removeFile": [
+    "Remove file"
+  ],
+  "collection.presets.defaultRequestType": [
+    "Default Request Type"
+  ],
+  "collection.presets.none": [
+    "None"
+  ],
+  "collection.proxy.disabled": [
+    "disabled"
+  ],
+  "collection.proxy.enabled": [
+    "enabled"
+  ],
+  "collection.proxy.inherit": [
+    "inherit"
+  ],
+  "collection.table.expr": [
+    "Value",
+    ") ? (varType === "
+  ],
+  "collection.table.value": [
+    "request",
+    "string"
+  ],
+  "common.cancel": [
+    "Continue"
+  ],
+  "common.close": [
+    "",
+    "Close",
+    "Close Api Spec",
+    "sm",
+    "md"
+  ],
+  "common.delete": [
+    ""
+  ],
+  "common.postResponse": [
+    "mt-3 mb-3 title text-xs"
+  ],
+  "common.preRequest": [
+    "mb-3 title text-xs"
+  ],
+  "cookies.httpOnly": [
+    "HTTP Only"
+  ],
+  "cookies.secure": [
+    "Secure"
+  ],
+  "cookies.title": [
+    "text-xs font-medium"
+  ],
+  "devtools.errorDetails.noStackTrace": [
+    "No stack trace"
+  ],
+  "devtools.performance.cpuUsage": [
+    "resource-cards"
+  ],
+  "devtools.performance.memoryUsage": [
+    "<SystemResourceCard"
+  ],
+  "devtools.performance.processId": [
+    "<SystemResourceCard"
+  ],
+  "devtools.performance.processRuntime": [
+    "icon=IconClock"
+  ],
+  "devtools.performance.uptime": [
+    "<SystemResourceCard"
+  ],
+  "environments.action.copy": [
+    "Copy"
+  ],
+  "environments.clearSearch": [
+    "env-list-search-clear"
+  ],
+  "environments.delete.confirmPrefix": [
+    "font-semibold"
+  ],
+  "environments.delete.confirmSuffix": [
+    "font-semibold"
+  ],
+  "environments.dotEnv.nameColumn": [
+    "string"
+  ],
+  "environments.dotEnv.valueColumn": [
+    "showValueColumn && Value",
+    "string"
+  ],
+  "environments.export.folder": [
+    "Export as a single environment JSON object"
+  ],
+  "environments.export.singleFile": [
+    "single-object"
+  ],
+  "environments.import.couldNotBeRead": [
+    "group-title"
+  ],
+  "environments.selector.noEnvironment": [
+    "env-text-inactive max-w-36 truncate no-wrap"
+  ],
+  "environments.table.description": [
+    "string"
+  ],
+  "environments.unsaved.dontSave": [
+    ""
+  ],
+  "environments.validation.alreadyExists": [
+    "Environment already exists"
+  ],
+  "globalSearch.brunoDocumentation": [
+    "Bruno Documentation"
+  ],
+  "preferences.ai.autocomplete.modelAuto": [
+    ""
+  ],
+  "preferences.ai.card.apiKeyLabel": [
+    "API Key"
+  ],
+  "preferences.ai.card.keyRemovedToast": [
+    "${provider.label} API key removed"
+  ],
+  "preferences.ai.card.modelsCount": [
+    "${enabledModelsCount}/${models.length} models"
+  ],
+  "preferences.ai.card.notConfigured": [
+    "Not configured"
+  ],
+  "preferences.general.browse": [
+    "Each collection and workspace gets its own folder inside this directory. You can change this later."
+  ],
+  "requestPane.auth.header": [
+    "header"
+  ],
+  "requestPane.auth.headers": [
+    "header"
+  ],
+  "requestPane.auth.noAuth": [
+    "mt-2"
+  ],
+  "requestPane.common.description": [
+    "flex items-center justify-start"
+  ],
+  "requestPane.common.postResponse": [
+    "mt-3 mb-3 title text-xs"
+  ],
+  "requestPane.common.preRequest": [
+    "mb-3 title text-xs"
+  ],
+  "requestPane.common.value": [
+    "name",
+    "Value",
+    "request",
+    "string"
+  ],
+  "requestPane.file.file": [
+    "flex items-center justify-start"
+  ],
+  "requestPane.file.selected": [
+    "flex items-center justify-start min-w-0"
+  ],
+  "requestPane.grpc.defaultMessageName": [
+    "message ${currentMessages.length + 1}"
+  ],
+  "requestPane.grpc.importPathDisabled": [
+    "Import path disabled"
+  ],
+  "requestPane.grpc.importPathEnabled": [
+    "Import path enabled"
+  ],
+  "requestPane.oauth2.autoFetchTokenTooltip": [
+    ""
+  ],
+  "requestPane.oauth2.settings": [
+    "oauth2-section-label"
+  ],
+  "requestPane.queryBuilder.loadFromIntrospection": [
+    "Load from Introspection"
+  ],
+  "requestPane.queryBuilder.selectOption": [
+    ""
+  ],
+  "requestPane.varsTable.expr": [
+    "Value",
+    ") ? (varType === "
+  ],
+  "requestPane.ws.defaultMessageName": [
+    "message ${currentMessages.length + 1}"
+  ],
+  "requestPane.ws.notYet": [
+    "OAuth 1.0"
+  ],
+  "sidebar.apiSpecs.create.defaultsNote": [
+    ""
+  ],
+  "sidebar.bulkImport.bruDesc": [
+    ""
+  ],
+  "sidebar.bulkImport.folderArrangementDesc": [
+    ""
+  ],
+  "sidebar.changeVersion.notSet": [
+    "text-muted italic not-set"
+  ],
+  "sidebar.changeVersion.title": [
+    "customHeader=Change Collection Version"
+  ],
+  "sidebar.cloneCollection.folderNameHelp2": [
+    ""
+  ],
+  "sidebar.collectionNotFound": [
+    "return Collection not found"
+  ],
+  "sidebar.copiedToClipboard": [
+    "Copied to clipboard!"
+  ],
+  "sidebar.create": [
+    "Clone Collection",
+    "Create"
+  ],
+  "sidebar.createCollection.folderNameHelp2": [
+    ""
+  ],
+  "sidebar.deleteItems.confirmSuffix": [
+    "font-medium"
+  ],
+  "sidebar.deleteItems.titleExampleOne": [
+    "Delete Example"
+  ],
+  "sidebar.docs.cdnNote": [
+    ""
+  ],
+  "sidebar.docs.excludeTags": [
+    "Exclude tags"
+  ],
+  "sidebar.docs.includeTags": [
+    "Include tags"
+  ],
+  "sidebar.docs.title": [
+    "Generate Documentation"
+  ],
+  "sidebar.exportToPostman.fileExists": [
+    "fileName"
+  ],
+  "sidebar.fileFormat.bruDesc": [
+    ""
+  ],
+  "sidebar.fileFormat.bruTitle": [
+    ""
+  ],
+  "sidebar.folderName": [
+    "Folder",
+    "folder"
+  ],
+  "sidebar.goldenEdition.supportBruno": [
+    ""
+  ],
+  "sidebar.goldenEdition.title": [
+    "text-lg font-medium"
+  ],
+  "sidebar.ignore.finalPeriod": [
+    ""
+  ],
+  "sidebar.import.folderArrangementDesc": [
+    ""
+  ],
+  "sidebar.import.title": [
+    "md"
+  ],
+  "sidebar.item.cloneError": [
+    "An error occurred while cloning the ${getItemTypeLabel(item).toLowerCase()}"
+  ],
+  "sidebar.item.cloned": [
+    "${getItemTypeLabel(item)} cloned!"
+  ],
+  "sidebar.item.fileNameHelp1": [
+    ""
+  ],
+  "sidebar.item.fileNameHelp2": [
+    ""
+  ],
+  "sidebar.location": [
+    "font-semibold mb-2",
+    "Location"
+  ],
+  "sidebar.locationHelp1": [
+    ""
+  ],
+  "sidebar.locationHelp2": [
+    "mt-2"
+  ],
+  "sidebar.menu.run": [
+    "font-medium"
+  ],
+  "sidebar.moveToWorkspace.description": [
+    ""
+  ],
+  "sidebar.newFolder.folderName": [
+    "font-normal text-muted ml-1"
+  ],
+  "sidebar.newFolder.title": [
+    "md"
+  ],
+  "sidebar.newRequest.fileName": [
+    "File Name",
+    "font-normal text-muted ml-1",
+    "Folder Name"
+  ],
+  "sidebar.newRequest.fileNameHelp1": [
+    ""
+  ],
+  "sidebar.newRequest.onFilesystem": [
+    "File Name"
+  ],
+  "sidebar.newRequest.title": [
+    "md"
+  ],
+  "sidebar.postmanReport.developerMode": [
+    "packages right away."
+  ],
+  "sidebar.postmanReport.packagesNotInstalledHelp": [
+    ""
+  ],
+  "sidebar.preserveScripts": [
+    "checkbox-option-label"
+  ],
+  "sidebar.runCollection.recursiveRun": [
+    "Recursive Run"
+  ],
+  "sidebar.validation.folderNameRequired": [
+    "foldername is required"
+  ],
+  "sidebar.validation.locationRequired": [
+    "Location is required"
+  ],
+  "sidebar.validation.max255": [
+    "must be 255 characters or less"
+  ],
+  "sidebar.validation.min1Char": [
+    "must be at least 1 character"
+  ],
+  "sidebar.validation.nameRequired": [
+    "collection name is required",
+    "name is required"
+  ],
+  "sidebar.validation.reservedFileNames": [
+    "collection"
+  ],
+  "welcome.exploreOnMyOwn": [
+    ""
+  ],
+  "workspace.help.folderName2": [
+    ""
+  ],
+  "workspace.help.location1": [
+    ""
+  ],
+  "workspace.menu.remove": [
+    "Remove"
+  ],
+  "workspace.menu.rename": [
+    "Rename"
+  ]
+}

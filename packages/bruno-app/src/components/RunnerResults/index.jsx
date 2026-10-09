@@ -377,7 +377,7 @@ export default function RunnerResults({ collection }) {
         >
           {areTagsAdded && (
             <div className="pb-2 text-xs flex flex-row gap-1">
-              {t('runner.tags')}:
+              {t('runner.tagsLabel')}:
               <div className="flex flex-row items-center gap-x-2">
                 <div className="text-green">
                   {tags.include.join(', ')}
@@ -435,7 +435,7 @@ export default function RunnerResults({ collection }) {
                     </div>
                     {areTagsAdded && item?.tags?.length > 0 && (
                       <div className="pl-7 text-xs text-muted">
-                        {t('runner.tags')}: {item.tags.filter((t) => tags.include.includes(t)).join(', ')}
+                        {t('runner.tagsLabel')}: {item.tags.filter((t) => tags.include.includes(t)).join(', ')}
                       </div>
                     )}
                     {item.status == 'error' ? <div className="error-message pl-8 pt-2 text-xs" data-testid="runner-iteration-status-label">{item.error}</div> : null}

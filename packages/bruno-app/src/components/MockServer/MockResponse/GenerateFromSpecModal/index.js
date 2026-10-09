@@ -1,14 +1,16 @@
 import { useState } from 'react';
 import MockConfirmModal from 'components/MockServer/MockConfirmModal';
+import { useTranslation } from 'react-i18next';
 
 const GenerateFromSpecModal = ({ specName, onClose, onConfirm, isGenerating }) => {
+  const { t } = useTranslation();
   const [generateFromSchema, setGenerateFromSchema] = useState(true);
 
   return (
     <MockConfirmModal
       size="md"
-      title="Generate from API Spec"
-      confirmText={isGenerating ? 'Generating...' : 'Generate'}
+      title={t('mockServer.generate.title')}
+      confirmText={isGenerating ? t('mockServer.generate.generating') : t('mockServer.generate.generate')}
       onConfirm={() => onConfirm({ generateFromSchema })}
       onClose={onClose}
       confirmDisabled={isGenerating}
@@ -16,10 +18,7 @@ const GenerateFromSpecModal = ({ specName, onClose, onConfirm, isGenerating }) =
     >
       <div className="space-y-4">
         <p className="text-sm leading-relaxed">
-          Generate mock responses from
-          {' '}
-          <span className="font-medium">{specName || 'this API spec'}</span>
-          ? Each operation status code becomes its own mock response. The lowest status code is matched first by default; add rules to route other variants.
+          {t('mockServer.generate.description', { spec: specName || t('mockServer.responses.thisSpec') })}
         </p>
 
         <label className="flex items-start gap-2 text-sm cursor-pointer">
@@ -31,9 +30,9 @@ const GenerateFromSpecModal = ({ specName, onClose, onConfirm, isGenerating }) =
             data-testid="mock-response-generate-from-schema-checkbox"
           />
           <span>
-            Generate response bodies from schema
+            {t('mockServer.generate.fromSchemaLabel')}
             <span className="block text-xs opacity-70 mt-1">
-              Uses faker-backed sample data when a response schema is available. Uncheck to create empty JSON bodies.
+              {t('mockServer.generate.fromSchemaHint')}
             </span>
           </span>
         </label>

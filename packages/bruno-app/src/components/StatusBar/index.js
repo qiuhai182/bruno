@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import find from 'lodash/find';
 import { IconSettings, IconCookie, IconTool, IconSearch, IconPalette, IconBrandGithub } from '@tabler/icons';
 import Mousetrap from 'mousetrap';
@@ -16,6 +17,7 @@ import StyledWrapper from './StyledWrapper';
 
 const StatusBar = () => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const activeWorkspaceUid = useSelector((state) => state.workspaces.activeWorkspaceUid);
   const workspaces = useSelector((state) => state.workspaces.workspaces);
   const showHomePage = useSelector((state) => state.app.showHomePage);
@@ -75,13 +77,13 @@ const StatusBar = () => {
       <div className="status-bar">
         <div className="status-bar-section">
           <div className="status-bar-group">
-            <ToolHint text="Preferences" toolhintId="Preferences" place="top-start" offset={10}>
+            <ToolHint text={t('statusBar.preferences')} toolhintId="Preferences" place="top-start" offset={10}>
               <button
                 className="status-bar-button preferences-button"
                 data-trigger="preferences"
                 onClick={handlePreferencesClick}
                 tabIndex={0}
-                aria-label="Open Preferences"
+                aria-label={t('statusBar.openPreferences')}
               >
                 <IconSettings size={16} strokeWidth={1.5} aria-hidden="true" />
               </button>
@@ -92,26 +94,26 @@ const StatusBar = () => {
                 className="status-bar-button"
                 data-trigger="theme"
                 tabIndex={0}
-                aria-label="Change Theme"
+                aria-label={t('statusBar.changeTheme')}
               >
                 <IconPalette size={16} strokeWidth={1.5} aria-hidden="true" />
               </button>
             </ThemeDropdown>
 
-            <ToolHint text="Notifications" toolhintId="Notifications" place="top" offset={10}>
+            <ToolHint text={t('statusBar.notifications')} toolhintId="Notifications" place="top" offset={10}>
               <div className="status-bar-button">
                 <Notifications />
               </div>
             </ToolHint>
 
-            <ToolHint text="GitHub Repository" toolhintId="GitHub" place="top" offset={10}>
+            <ToolHint text={t('statusBar.githubRepository')} toolhintId="GitHub" place="top" offset={10}>
               <button
                 className="status-bar-button"
                 onClick={() => {
                   window?.ipcRenderer?.openExternal('https://github.com/usebruno/bruno');
                 }}
                 tabIndex={0}
-                aria-label="Open GitHub Repository"
+                aria-label={t('statusBar.openGithubRepository')}
               >
                 <IconBrandGithub size={16} strokeWidth={1.5} aria-hidden="true" />
               </button>
@@ -126,11 +128,11 @@ const StatusBar = () => {
               data-trigger="search"
               onClick={openGlobalSearch}
               tabIndex={0}
-              aria-label="Global Search"
+              aria-label={t('statusBar.globalSearch')}
             >
               <div className="console-button-content">
                 <IconSearch size={16} strokeWidth={1.5} aria-hidden="true" />
-                <span className="console-label">Search</span>
+                <span className="console-label">{t('statusBar.search')}</span>
               </div>
             </button>
 
@@ -139,11 +141,11 @@ const StatusBar = () => {
               data-trigger="cookies"
               onClick={() => setCookiesOpen(true)}
               tabIndex={0}
-              aria-label="Open Cookies"
+              aria-label={t('statusBar.openCookies')}
             >
               <div className="console-button-content">
                 <IconCookie size={16} strokeWidth={1.5} aria-hidden="true" />
-                <span className="console-label">Cookies</span>
+                <span className="console-label">{t('statusBar.cookies')}</span>
               </div>
             </button>
 
@@ -152,11 +154,11 @@ const StatusBar = () => {
               data-trigger="dev-tools"
               onClick={handleConsoleClick}
               tabIndex={0}
-              aria-label={`Open Dev Tools${errorCount > 0 ? ` (${errorCount} errors)` : ''}`}
+              aria-label={errorCount > 0 ? t('statusBar.openDevToolsWithErrors', { count: errorCount }) : t('statusBar.openDevTools')}
             >
               <div className="console-button-content">
                 <IconTool size={16} strokeWidth={1.5} aria-hidden="true" />
-                <span className="console-label">Dev Tools</span>
+                <span className="console-label">{t('statusBar.devTools')}</span>
                 {errorCount > 0 && (
                   <span className="error-count-inline">{errorCount}</span>
                 )}

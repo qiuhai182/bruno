@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { find } from 'lodash';
 import toast from 'react-hot-toast';
+import i18n from '../../../i18n';
 
 const initialState = {
   apiSpecs: [],
@@ -14,7 +15,7 @@ export const apiSpecSlice = createSlice({
     apiSpecAddFileEvent: (state, action) => {
       const { name, raw, uid, filename, pathname, json, resolvedJson } = action?.payload?.data || {};
       if (!uid) {
-        toast.error('Error adding API spec');
+        toast.error(i18n.t('apiSpec.toast.addFailed'));
       }
       const apiSpec = findApiSpecByUid(state.apiSpecs, uid);
       if (apiSpec) {
@@ -114,11 +115,11 @@ export const saveApiSpecToFile
           .invoke('renderer:save-api-spec', pathname, content)
           .then(() => {
             dispatch(saveApiSpec({ content, uid }));
-            toast.success('Saved API spec successfully!');
+            toast.success(i18n.t('apiSpec.toast.saved'));
             resolve();
           })
           .catch((reject) => {
-            toast.error('Error saving file');
+            toast.error(i18n.t('apiSpec.toast.fileSaveFailed'));
             resolve();
           });
       });

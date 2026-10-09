@@ -1,4 +1,4 @@
-﻿{
+{
  "blocks": 693,
  "markedBlocks": 533,
  "keysRecovered": 497,

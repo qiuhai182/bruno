@@ -1,0 +1,1481 @@
+===== app.importIssues.itemsSkipped  (components\Toast\ImportIssuesToast\index.js)
+
+
+  const errors = issues.filter((i) => i.severity === 'error');
+  const warnings = issues.filter((i) => i.severity === 'warning');
+  const parts = [];
+  if (errors.length > 0) parts.push(i18n.t('app.importIssues.itemsSkipped', { total: errors.length }));
+  if (warnings.length > 0) parts.push(i18n.t('app.importIssues.warningsCount', { total: warnings.length }));
+  const summary = parts.join(', ');
+
+===== app.importIssues.warningsCount  (components\Toast\ImportIssuesToast\index.js)
+
+  const errors = issues.filter((i) => i.severity === 'error');
+  const warnings = issues.filter((i) => i.severity === 'warning');
+  const parts = [];
+  if (errors.length > 0) parts.push(i18n.t('app.importIssues.itemsSkipped', { total: errors.length }));
+  if (warnings.length > 0) parts.push(i18n.t('app.importIssues.warningsCount', { total: warnings.length }));
+  const summary = parts.join(', ');
+
+
+===== app.titleBar.switchedToWorkspace  (components\AppTitleBar\index.js)
+
+  const handleWorkspaceSwitch = (workspaceUid) => {
+    if (workspaceUid === activeWorkspaceUid) return;
+
+    dispatch(switchWorkspace(workspaceUid));
+    toast.success(t('app.titleBar.switchedToWorkspace', { name: workspaceDisplayName(workspaces.find((w) => w.uid === workspaceUid)?.name) }));
+  };
+
+
+===== app.titleBar.workspacesLabel  (components\AppTitleBar\index.js)
+
+    });
+
+    // Add label and action items
+    items.push(
+      { type: 'label', label: t('app.titleBar.workspacesLabel') },
+      {
+        id: 'create-workspace',
+
+===== app.skippedPaths.warning  (components\SkippedPathsWarning\index.js)
+
+    <StyledWrapper>
+      <div className="flex items-center justify-between gap-2">
+        <span className="flex items-center gap-2">
+          <IconAlertTriangle size={16} strokeWidth={1.5} className="scan-warning-icon" />
+          {t('app.skippedPaths.warning', { total: paths.length, itemNoun })}
+        </span>
+        <button
+
+===== collection.auth.descriptionMiddle  (components\CollectionSettings\Auth\index.js)
+
+  return (
+    <StyledWrapper className="w-full h-full">
+      <div className="text-xs mb-4 text-muted">
+        {t('collection.auth.descriptionPrefix')}{' '}
+        <span className="font-medium">{t('collection.auth.inherit')}</span> {t('collection.auth.descriptionMiddle')}{' '}
+        <span className="font-medium">{t('collection.auth.authTab')}</span> {t('collection.auth.descriptionSuffix')}
+      </div>
+
+===== collection.auth.descriptionSuffix  (components\CollectionSettings\Auth\index.js)
+
+    <StyledWrapper className="w-full h-full">
+      <div className="text-xs mb-4 text-muted">
+        {t('collection.auth.descriptionPrefix')}{' '}
+        <span className="font-medium">{t('collection.auth.inherit')}</span> {t('collection.auth.descriptionMiddle')}{' '}
+        <span className="font-medium">{t('collection.auth.authTab')}</span> {t('collection.auth.descriptionSuffix')}
+      </div>
+      <div className="flex flex-grow justify-start items-center">
+
+===== collection.auth.inherit  (components\CollectionSettings\Auth\index.js)
+
+  return (
+    <StyledWrapper className="w-full h-full">
+      <div className="text-xs mb-4 text-muted">
+        {t('collection.auth.descriptionPrefix')}{' '}
+        <span className="font-medium">{t('collection.auth.inherit')}</span> {t('collection.auth.descriptionMiddle')}{' '}
+        <span className="font-medium">{t('collection.auth.authTab')}</span> {t('collection.auth.descriptionSuffix')}
+      </div>
+
+===== collection.auth.authTab  (components\CollectionSettings\Auth\index.js)
+
+    <StyledWrapper className="w-full h-full">
+      <div className="text-xs mb-4 text-muted">
+        {t('collection.auth.descriptionPrefix')}{' '}
+        <span className="font-medium">{t('collection.auth.inherit')}</span> {t('collection.auth.descriptionMiddle')}{' '}
+        <span className="font-medium">{t('collection.auth.authTab')}</span> {t('collection.auth.descriptionSuffix')}
+      </div>
+      <div className="flex flex-grow justify-start items-center">
+
+===== collection.example.queryParams  (components\ResponseExample\ResponseExampleRequestPane\ResponseExampleParams\index.js)
+
+  }
+
+  return (
+    <StyledWrapper className="w-full mt-4">
+      <div className="mb-3 title text-xs font-bold">{t('collection.example.queryParams')}</div>
+      <EditableTable
+        tableId="example-query-params"
+
+===== collection.migration.migrateToYml  (components\CollectionSettings\Overview\Migration\index.js)
+
+          <div className="icon-box migration flex-shrink-0 p-3 rounded-lg">
+            <IconFileCode className="w-5 h-5" stroke={1.5} />
+          </div>
+          <div className="ml-4">
+            <div className="font-medium">{t('collection.migration.migrateToYml')}</div>
+            <div className="my-1 text-muted text-sm">
+              {t('collection.migration.description')}{' '}
+
+===== collection.overview.documentation  (components\CollectionSettings\Overview\Info\index.js)
+
+            <div className="icon-box generate-docs flex-shrink-0 p-3 rounded-lg">
+              <IconBook className="w-5 h-5" stroke={1.5} />
+            </div>
+            <div className="ml-4 h-full flex flex-col justify-start">
+              <div className="font-medium h-fit my-auto">{t('collection.overview.documentation')}</div>
+              <div className="group-hover:underline text-link">
+                {t('collection.overview.generateDocs')}
+
+===== collection.overview.requests  (components\CollectionSettings\Overview\Info\index.js)
+
+            <div className="icon-box requests flex-shrink-0 p-3 rounded-lg">
+              <IconApi className="w-5 h-5" stroke={1.5} />
+            </div>
+            <div className="ml-4">
+              <div className="font-medium">{t('collection.overview.requests')}</div>
+              <div className="mt-1 text-muted">
+                {
+
+===== collection.overview.requestsInCollection  (components\CollectionSettings\Overview\Info\index.js)
+
+            <div className="ml-4">
+              <div className="font-medium">{t('collection.overview.requests')}</div>
+              <div className="mt-1 text-muted">
+                {
+                  isCollectionLoading ? t('collection.overview.requestsLoadedProgress', { loaded: totalItems - itemsLoadingCount, total: totalItems }) : t('collection.overview.requestsInCollection', { count: totalRequestsInCollection })
+                }
+              </div>
+
+===== collection.overview.requestsNotLoaded.title  (components\CollectionSettings\Overview\RequestsNotLoaded\index.js)
+
+  return (
+    <StyledWrapper className="w-full card my-2">
+      <div className="flex items-center gap-2 px-3 py-2 title">
+        <IconAlertTriangle size={16} className="warning-icon" />
+        <span className="font-medium">{t('collection.overview.requestsNotLoaded.title')}</span>
+      </div>
+      <table className="w-full border-collapse">
+
+===== collection.protobuf.noImportPaths  (components\CollectionSettings\Protobuf\index.js)
+
+                <tr>
+                  <td colSpan="4" className="text-center">
+                    <div className="empty-state flex flex-col items-center">
+                      <IconFolder size={24} className="empty-icon mb-2" />
+                      <span className="empty-text">{t('collection.protobuf.noImportPaths')}</span>
+                    </div>
+                  </td>
+
+===== collection.share.otherFormat  (components\ShareCollection\index.js)
+
+              <p className="best-for">{t('collection.share.yamlBestFor')}</p>
+            </div>
+          </div>
+
+          <div className="section-title">{t('collection.share.otherFormat')}</div>
+          <div className="other-format-grid">
+            <div
+
+===== collection.share.brunoFormat  (components\ShareCollection\index.js)
+
+            {' '}{t('collection.share.descriptionSuffix')}
+          </p>
+
+          {/* Bruno Format Section */}
+          <div className="section-title">{t('collection.share.brunoFormat')}</div>
+          <div className="bruno-format-grid mb-6">
+            {/* ZIP Option */}
+
+===== cookies.colActions  (components\Cookies\index.js)
+
+                              <th className="py-2 px-4 font-medium">{t('cookies.colPath')}</th>
+                              <th className="py-2 px-4 font-medium">{t('cookies.colExpires')}</th>
+                              <th className="py-2 px-4 font-medium text-center">{t('cookies.secure')}</th>
+                              <th className="py-2 px-4 font-medium text-center">{t('cookies.httpOnly')}</th>
+                              <th className="py-2 px-4 font-medium text-right w-24">{t('cookies.colActions')}</th>
+                            </tr>
+                          </thead>
+
+===== cookies.colExpires  (components\Cookies\index.js)
+
+                            <tr className="text-left">
+                              <th className="py-2 px-4 font-medium w-32">{t('cookies.colName')}</th>
+                              <th className="py-2 px-4 font-medium w-52">{t('cookies.colValue')}</th>
+                              <th className="py-2 px-4 font-medium">{t('cookies.colPath')}</th>
+                              <th className="py-2 px-4 font-medium">{t('cookies.colExpires')}</th>
+                              <th className="py-2 px-4 font-medium text-center">{t('cookies.secure')}</th>
+                              <th className="py-2 px-4 font-medium text-center">{t('cookies.httpOnly')}</th>
+
+===== cookies.colName  (components\Cookies\index.js)
+
+                      <div className="flex items-center justify-between">
+                        <table className="w-full">
+                          <thead>
+                            <tr className="text-left">
+                              <th className="py-2 px-4 font-medium w-32">{t('cookies.colName')}</th>
+                              <th className="py-2 px-4 font-medium w-52">{t('cookies.colValue')}</th>
+                              <th className="py-2 px-4 font-medium">{t('cookies.colPath')}</th>
+
+===== cookies.colPath  (components\Cookies\index.js)
+
+                          <thead>
+                            <tr className="text-left">
+                              <th className="py-2 px-4 font-medium w-32">{t('cookies.colName')}</th>
+                              <th className="py-2 px-4 font-medium w-52">{t('cookies.colValue')}</th>
+                              <th className="py-2 px-4 font-medium">{t('cookies.colPath')}</th>
+                              <th className="py-2 px-4 font-medium">{t('cookies.colExpires')}</th>
+                              <th className="py-2 px-4 font-medium text-center">{t('cookies.secure')}</th>
+
+===== cookies.colValue  (components\Cookies\index.js)
+
+                        <table className="w-full">
+                          <thead>
+                            <tr className="text-left">
+                              <th className="py-2 px-4 font-medium w-32">{t('cookies.colName')}</th>
+                              <th className="py-2 px-4 font-medium w-52">{t('cookies.colValue')}</th>
+                              <th className="py-2 px-4 font-medium">{t('cookies.colPath')}</th>
+                              <th className="py-2 px-4 font-medium">{t('cookies.colExpires')}</th>
+
+===== cookies.clearDomainCookiesTitle  (components\Cookies\index.js)
+
+
+const ClearDomainCookiesModal = ({ onClose, domain, onClear }) => {
+  const { t } = useTranslation();
+  return (
+    <Modal onClose={onClose} handleCancel={onClose} title={t('cookies.clearDomainCookiesTitle')} hideFooter={true}>
+      <div className="flex items-center font-normal">
+        <IconAlertTriangle size={32} strokeWidth={1.5} className="warning-icon" />
+
+===== cookies.deleteCookieTitle  (components\Cookies\index.js)
+
+
+const DeleteCookieModal = ({ onClose, cookieName, onDelete }) => {
+  const { t } = useTranslation();
+  return (
+    <Modal onClose={onClose} handleCancel={onClose} title={t('cookies.deleteCookieTitle')} hideFooter={true}>
+      <div className="flex items-center font-normal">
+        <IconAlertTriangle size={32} strokeWidth={1.5} className="warning-icon" />
+
+===== cookies.setCookieString  (components\Cookies\ModifyCookieModal\index.js)
+
+        <form onSubmit={(e) => e.preventDefault()} className="px-2">
+          {isRawMode ? (
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <label className="block">{t('cookies.setCookieString')}</label>
+                <IconInfoCircle id="cookie-raw-info" size={16} strokeWidth={1.5} className="info-icon" />
+                <Tooltip
+
+===== cookies.title  (components\Cookies\index.js)
+
+  return (
+    <>
+      <Modal
+        size="xl"
+        title={t('cookies.title')}
+        hideFooter={true}
+        handleCancel={onClose}
+
+===== cookies.secure  (components\Cookies\index.js)
+
+                              <th className="py-2 px-4 font-medium w-32">{t('cookies.colName')}</th>
+                              <th className="py-2 px-4 font-medium w-52">{t('cookies.colValue')}</th>
+                              <th className="py-2 px-4 font-medium">{t('cookies.colPath')}</th>
+                              <th className="py-2 px-4 font-medium">{t('cookies.colExpires')}</th>
+                              <th className="py-2 px-4 font-medium text-center">{t('cookies.secure')}</th>
+                              <th className="py-2 px-4 font-medium text-center">{t('cookies.httpOnly')}</th>
+                              <th className="py-2 px-4 font-medium text-right w-24">{t('cookies.colActions')}</th>
+
+===== cookies.noSearchResults  (components\Cookies\index.js)
+
+          ) : cookies.length && !filteredCookies.length ? (
+            // No search results
+            <div className="flex items-center justify-center flex-col">
+              <IconSearch size={48} />
+              <h2 className="text-lg font-medium mt-4">{t('cookies.noSearchResults')}</h2>
+              <p className="empty-text mt-2">{t('cookies.tryDifferentSearch')}</p>
+            </div>
+
+===== cookies.tryDifferentSearch  (components\Cookies\index.js)
+
+            // No search results
+            <div className="flex items-center justify-center flex-col">
+              <IconSearch size={48} />
+              <h2 className="text-lg font-medium mt-4">{t('cookies.noSearchResults')}</h2>
+              <p className="empty-text mt-2">{t('cookies.tryDifferentSearch')}</p>
+            </div>
+          ) : (
+
+===== devtools.requestDetails.requestMethod  (components\Devtools\Console\RequestDetailsPanel\index.js)
+
+            <span className="label">{t('devtools.requestDetails.requestUrl')}</span>
+            <span className="value">{request?.url || t('devtools.requestDetails.na')}</span>
+          </div>
+          <div className="info-item">
+            <span className="label">{t('devtools.requestDetails.requestMethod')}</span>
+            <span className="value">{request?.method || 'GET'}</span>
+          </div>
+
+===== environments.delete.confirmPrefix  (components\Environments\EnvironmentSettings\DeleteDotEnvFile\index.js)
+
+          handleConfirm={handleConfirm}
+          handleCancel={onClose}
+          confirmButtonColor="danger"
+        >
+          {t('environments.delete.confirmPrefix')}<span className="font-medium">{filename}</span>{t('environments.dotEnv.confirmSuffix')}
+        </Modal>
+      </StyledWrapper>
+
+===== environments.delete.confirmSuffix  (components\Environments\EnvironmentSettings\DeleteEnvironment\index.js)
+
+          handleConfirm={onConfirm}
+          handleCancel={onClose}
+          confirmButtonColor="danger"
+        >
+          {t('environments.delete.confirmPrefix')}<span className="font-medium">{environment.name}</span>{t('environments.delete.confirmSuffix')}
+        </Modal>
+      </StyledWrapper>
+
+===== environments.dotEnv.confirmSuffix  (components\Environments\EnvironmentSettings\DeleteDotEnvFile\index.js)
+
+          handleConfirm={handleConfirm}
+          handleCancel={onClose}
+          confirmButtonColor="danger"
+        >
+          {t('environments.delete.confirmPrefix')}<span className="font-medium">{filename}</span>{t('environments.dotEnv.confirmSuffix')}
+        </Modal>
+      </StyledWrapper>
+
+===== environments.export.exportedToFolder  (components\Environments\Common\ExportEnvironmentModal\index.js)
+
+
+      await exportBrunoEnvironment({ environments: selectedEnvs, environmentType, filePath, exportFormat });
+
+      const successMessage = exportFormat === 'folder'
+        ? t('environments.export.exportedToFolder', { type: environmentType })
+        : t('environments.export.exported');
+      toast.success(successMessage);
+
+===== environments.import.found  (components\Environments\Common\ImportEnvironmentModal\ReviewStep\index.js)
+
+        customHeader={(
+          <ImportModalHeader>
+            <span className="title" id="modal-title">{modalTitle}</span>
+            <span className="count">
+              <span data-testid="env-import-total-count">{totalParsedCount}</span> {t('environments.import.found')}
+            </span>
+          </ImportModalHeader>
+
+===== environments.import.import  (components\Environments\Common\ImportEnvironmentModal\ReviewStep\index.js)
+
+              <span data-testid="env-import-total-count">{totalParsedCount}</span> {t('environments.import.found')}
+            </span>
+          </ImportModalHeader>
+        )}
+        confirmText={selected.size > 0 ? t('environments.import.importCount', { num: selected.size }) : t('environments.import.import')}
+        cancelText={t('common.cancel')}
+        handleConfirm={handleConfirmImport}
+
+===== environments.selector.noEnvironmentsActive  (components\Environments\EnvironmentSelector\index.js)
+
+        : selectGlobalEnvironment({ environmentUid: environment?.uid || null });
+
+    dispatch(action)
+      .then(() => {
+        toast.success(environment ? t('environments.selector.environmentChangedTo', { name: environment.name }) : t('environments.selector.noEnvironmentsActive'));
+        hideDropdown();
+      })
+
+===== environments.inheritedFrom  (components\EnvironmentVariablesTable\InheritedVariableRow\index.js)
+
+      <SourceCell>
+        <button
+          type="button"
+          className="inherited-source"
+          title={t('environments.inheritedFrom', { name: variable.inheritedFrom.name })}
+          data-testid="inherited-source"
+          onClick={openInheritedEnvironment}
+
+===== environments.toast.inheritingFrom  (components\Environments\EnvironmentSettings\EnvironmentList\EnvironmentDetails\index.js)
+
+    dispatch(saveEnvironmentExtends({ environmentUid: environment.uid, inheritedEnvironmentName, collectionUid: collection.uid }))
+      .then(() => {
+        toast.success(
+          inheritedEnvironmentName
+            ? t('environments.toast.inheritingFrom', { name: inheritedEnvironmentName })
+            : t('environments.toast.stoppedInheriting')
+        );
+
+===== environments.unsaved.holdOn  (components\Environments\ConfirmCloseEnvironment\index.js)
+
+        hideFooter={true}
+      >
+        <div className="flex items-center font-normal">
+          <IconAlertTriangle size={32} strokeWidth={1.5} className="text-yellow-600" />
+          <h1 className="ml-2 text-lg font-medium">{t('environments.unsaved.holdOn')}</h1>
+        </div>
+        <div className="font-normal mt-4">
+
+===== preferences.ai.autocomplete.keymapLabel  (components\Preferences\AI\AutocompletePane.js)
+
+        </div>
+
+        <div className="autocomplete-row px-3.5 py-3">
+          <div className="flex flex-col gap-1">
+            <span className="text-[11.5px] font-medium">{t('preferences.ai.autocomplete.keymapLabel')}</span>
+            <div className="autocomplete-keymap text-[10.5px]">
+              <kbd>Tab</kbd> {t('preferences.ai.autocomplete.keymapAccept')} · <kbd>{getPlatformModifierKey()}</kbd>+<kbd>→</kbd> {t('preferences.ai.autocomplete.keymapAcceptWord')} · <kbd>Esc</kbd> {t('preferences.ai.autocomplete.keymapDismiss')} · <kbd>{getPlatformModifierKey()}</kbd>+<kbd>\</kbd> {t('preferences.ai.autocomplete.keymapTrigger')}
+
+===== preferences.ai.autocomplete.modelLabel  (components\Preferences\AI\AutocompletePane.js)
+
+        )}
+
+        <div className="autocomplete-row flex items-center justify-between gap-3 px-3.5 py-3">
+          <div className="flex flex-col gap-0.5 min-w-0">
+            <span className="text-[11.5px] font-medium">{t('preferences.ai.autocomplete.modelLabel')}</span>
+            <span className="autocomplete-sub text-[10.5px]">
+              {hasUsableModel
+
+===== preferences.ai.card.modelsCount  (components\Preferences\AI\CompatEndpointCard.js)
+
+        <div className="flex items-center gap-2.5 flex-shrink-0">
+          <span className={`provider-status inline-flex items-center gap-1.5 text-[11px] ${provider.configured ? 'configured' : ''}`}>
+            <span className={`status-dot w-[7px] h-[7px] rounded-full ${provider.configured ? 'configured' : ''}`} />
+            {provider.configured
+              ? t('preferences.ai.card.modelsCount', { count: enabledModelsCount, total: models.length })
+              : t('preferences.ai.card.notConfigured')}
+          </span>
+
+===== preferences.ai.card.keySaved  (components\Preferences\AI\CompatEndpointCard.js)
+
+      onStatusChange?.(status);
+      setKeyDraft('');
+      setShowKey(false);
+      setEditing(false);
+      setFeedback({ type: 'success', message: t('preferences.ai.card.keySaved') });
+    } catch (err) {
+      setFeedback({ type: 'error', message: err.message || t('preferences.ai.card.keySaveFailed') });
+
+===== preferences.ai.defaultEndpointName  (components\Preferences\AI\index.js)
+
+
+  const handleAddEndpoint = async () => {
+    const newEndpoint = {
+      id: uuid(),
+      name: t('preferences.ai.defaultEndpointName', { index: endpoints.length + 1 }),
+      baseURL: '',
+      models: []
+
+===== preferences.ai.endpoint.fallbackName  (components\Preferences\AI\CompatEndpointCard.js)
+
+      const status = await clearAiApiKey({ providerId: provider.id });
+      onStatusChange?.(status);
+      setEditing(false);
+      setKeyDraft('');
+      toast.success(t('preferences.ai.card.keyRemovedToast', { name: endpoint.name || t('preferences.ai.endpoint.fallbackName') }));
+    } catch (err) {
+      toast.error(err.message || t('preferences.ai.card.keyClearFailed'));
+
+===== preferences.ai.security.removeNamed  (components\Preferences\AI\SecurityPane.js)
+
+              <button
+                type="button"
+                className="security-chip-remove"
+                onClick={() => handleRemove(name)}
+                aria-label={t('preferences.ai.security.removeNamed', { name })}
+                data-testid={removeTestIdPrefix ? `${removeTestIdPrefix}-${name}` : undefined}
+              >
+
+===== requestPane.auth.authTab NOT-FOUND
+
+===== requestPane.auth.descriptionMiddle NOT-FOUND
+
+===== requestPane.auth.descriptionSuffix NOT-FOUND
+
+===== requestPane.auth.inherit NOT-FOUND
+
+===== requestPane.oauth1.addParamsTo  (components\RequestPane\Auth\OAuth1\index.js)
+
+        </div>
+      )}
+
+      <div className="flex items-center gap-4 w-full">
+        <label className="block min-w-[140px]">{t('requestPane.oauth1.addParamsTo')}</label>
+        <div className="inline-flex items-center cursor-pointer oauth1-dropdown-selector">
+          <MenuDropdown
+
+===== requestPane.oauth1.privateKey  (components\RequestPane\Auth\OAuth1\index.js)
+
+      </div>
+
+      {oauth1.signatureMethod?.startsWith('RSA-') && (
+        <div className="flex items-start gap-4 w-full">
+          <label className="block min-w-[140px] mt-1">{t('requestPane.oauth1.privateKey')}</label>
+          {isFileRef ? (
+            <div className="private-key-editor-wrapper flex-1 flex items-center gap-2">
+
+===== requestPane.oauth1.signatureMethod  (components\RequestPane\Auth\OAuth1\index.js)
+
+        </span>
+      </div>
+
+      <div className="flex items-center gap-4 w-full">
+        <label className="block min-w-[140px]">{t('requestPane.oauth1.signatureMethod')}</label>
+        <div className="inline-flex items-center cursor-pointer oauth1-dropdown-selector">
+          <MenuDropdown
+
+===== requestPane.oauth1.tokenSecret  (components\RequestPane\Auth\OAuth1\index.js)
+
+        </div>
+      </div>
+
+      <div className="flex items-center gap-4 w-full">
+        <label className="block min-w-[140px]">{t('requestPane.oauth1.tokenSecret')}</label>
+        <div className="single-line-editor-wrapper flex-1 flex items-center">
+          <SingleLineEditor
+
+===== requestPane.oauth1.callbackUrl  (components\RequestPane\Auth\OAuth1\index.js)
+
+
+      {advancedOpen && (
+        <>
+          <div className="flex items-center gap-4 w-full">
+            <label className="block min-w-[140px]">{t('requestPane.oauth1.callbackUrl')}</label>
+            <div className="single-line-editor-wrapper flex-1">
+              <SingleLineEditor
+
+===== requestPane.oauth2.addCredentialsTo  (components\RequestPane\Auth\OAuth2\AuthorizationCode\index.js)
+
+          </div>
+        );
+      })}
+      <div className="flex items-center gap-4 w-full" key="input-credentials-placement">
+        <label className="block min-w-[140px]">{t('requestPane.oauth2.addCredentialsTo')}</label>
+        <div className="inline-flex items-center cursor-pointer token-placement-selector">
+          <MenuDropdown
+
+===== requestPane.oauth2.addTokenTo  (components\RequestPane\Auth\OAuth2\AuthorizationCode\index.js)
+
+          />
+        </div>
+      </div>
+      <div className="flex items-center gap-4 w-full" key="input-token-placement">
+        <label className="block min-w-[140px]">{t('requestPane.oauth2.addTokenTo')}</label>
+        <div className="inline-flex items-center cursor-pointer token-placement-selector">
+          <MenuDropdown
+
+===== requestPane.oauth2.addParameter  (components\RequestPane\Auth\OAuth2\AdditionalParams\index.js)
+
+        className={`add-additional-param-actions w-fit flex items-center mt-2 ${addButtonDisabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+        onClick={addButtonDisabled ? null : handleAddNewAdditionalParam}
+      >
+        <IconPlus size={16} strokeWidth={1.5} style={{ marginLeft: '2px' }} />
+        <span className="ml-1 text-gray-500">{t('requestPane.oauth2.addParameter')}</span>
+      </div>
+    </StyledWrapper>
+
+===== requestPane.oauth2.autoFetchToken  (components\RequestPane\Auth\OAuth2\AuthorizationCode\index.js)
+
+          checked={Boolean(autoFetchToken)}
+          onChange={(e) => handleChange('autoFetchToken', e.target.checked)}
+          className="cursor-pointer ml-1"
+        />
+        <label className="block min-w-[140px]">{t('requestPane.oauth2.autoFetchToken')}</label>
+        <div className="flex items-center gap-2">
+          <div className="relative group cursor-pointer">
+
+===== requestPane.oauth2.autoFetchTokenShort  (components\RequestPane\Auth\OAuth2\Implicit\index.js)
+
+          checked={oAuth.autoFetchToken !== false}
+          onChange={handleAutoFetchTokenToggle}
+          className="cursor-pointer ml-1"
+        />
+        <label className="block min-w-[140px]">{t('requestPane.oauth2.autoFetchTokenShort')}</label>
+        <div className="flex items-center gap-2">
+          <div className="relative group cursor-pointer">
+
+===== requestPane.oauth2.callbackUrl  (components\RequestPane\Auth\OAuth2\AuthorizationCode\index.js)
+
+          {t('requestPane.oauth2.configuration')}
+        </span>
+      </div>
+      <div className="flex items-center gap-4 w-full" key="input-callbackUrl">
+        <label className="block min-w-[140px]">{t('requestPane.oauth2.callbackUrl')}</label>
+        <div className="flex flex-col gap-1 w-full">
+          <div className="single-line-editor-wrapper flex-1 flex items-center">
+
+===== requestPane.oauth2.decodedPayload  (components\RequestPane\Auth\OAuth2\Oauth2TokenViewer\index.js)
+
+            </div>
+          </div>
+          {decodedToken && (
+            <div className="mt-3">
+              <div className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-2">{t('requestPane.oauth2.decodedPayload')}</div>
+              <div className="grid grid-cols-2 gap-x-4 gap-y-1">
+                {Object.entries(decodedToken).map(([key, value]) => (
+
+===== requestPane.oauth2.expiresIn  (components\RequestPane\Auth\OAuth2\Oauth2TokenViewer\index.js)
+
+        ? 'bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400'
+        : 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400'
+      }`}
+    >
+      {timeLeft > 0 ? t('requestPane.oauth2.expiresIn', { time: formatExpiryTime(timeLeft) }) : t('requestPane.oauth2.expired')}
+    </div>
+  );
+
+===== requestPane.oauth2.headerPrefix  (components\RequestPane\Auth\OAuth2\AuthorizationCode\index.js)
+
+      {
+        tokenPlacement === 'header'
+          ? (
+              <div className="flex items-center gap-4 w-full" key="input-token-prefix" data-testid="token-header-prefix">
+                <label className="block min-w-[140px]">{t('requestPane.oauth2.headerPrefix')}</label>
+                <div className="single-line-editor-wrapper flex-1">
+                  <SingleLineEditor
+
+===== requestPane.oauth2.noTokenFound  (components\RequestPane\Auth\OAuth2\Oauth2TokenViewer\index.js)
+
+            ) : null}
+          </div>
+        )
+      ) : (
+        <div className="text-gray-500 dark:text-gray-400">{t('requestPane.oauth2.noTokenFound')}</div>
+      )}
+    </StyledWrapper>
+
+===== requestPane.oauth2.queryParamKey  (components\RequestPane\Auth\OAuth2\AuthorizationCode\index.js)
+
+              </div>
+            )
+          : (
+              <div className="flex items-center gap-4 w-full" key="input-token-query-param-key" data-testid="token-query-param-key">
+                <label className="block min-w-[140px]">{t('requestPane.oauth2.queryParamKey')}</label>
+                <div className="single-line-editor-wrapper flex-1">
+                  <SingleLineEditor
+
+===== requestPane.oauth2.scopeLabel  (components\RequestPane\Auth\OAuth2\Oauth2TokenViewer\index.js)
+
+                    </div>
+                  ) : null}
+                  {creds?.scope ? (
+                    <div className="flex items-center space-x-1 min-w-0">
+                      <span className="font-medium flex-shrink-0">{t('requestPane.oauth2.scopeLabel')}</span>
+                      <span className="text-gray-600 dark:text-gray-300 truncate" title={creds.scope}>
+                        {creds.scope}
+
+===== requestPane.oauth2.tokenFetchError  (components\RequestPane\Auth\OAuth2\Oauth2TokenViewer\index.js)
+
+  return (
+    <StyledWrapper className="relative w-auto h-fit mt-2">
+      {Object.keys(creds)?.length ? (
+        creds?.error ? (
+          <pre className="text-red-600 dark:text-red-400">{t('requestPane.oauth2.tokenFetchError')}</pre>
+        ) : (
+          <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-4 shadow-sm">
+
+===== requestPane.oauth2.tokenId  (components\RequestPane\Auth\OAuth2\AuthorizationCode\index.js)
+
+          </MenuDropdown>
+        </div>
+      </div>
+      <div className="flex items-center gap-4 w-full" key="input-token-name">
+        <label className="block min-w-[140px]">{t('requestPane.oauth2.tokenId')}</label>
+        <div className="single-line-editor-wrapper flex-1">
+          <SingleLineEditor
+
+===== requestPane.oauth2.tokenSource  (components\RequestPane\Auth\OAuth2\AuthorizationCode\index.js)
+
+          {t('requestPane.oauth2.token')}
+        </span>
+      </div>
+      <div className="flex items-center gap-4 w-full" key="input-token-type">
+        <label className="block min-w-[140px]">{t('requestPane.oauth2.tokenSource')}</label>
+        <div className="inline-flex items-center cursor-pointer token-placement-selector">
+          <MenuDropdown
+
+===== requestPane.oauth2.tokenType  (components\RequestPane\Auth\OAuth2\Oauth2TokenViewer\index.js)
+
+              <div className="mt-3 p-2 bg-gray-50 dark:bg-gray-800 rounded-lg text-xs">
+                <div className="grid grid-cols-2 gap-2">
+                  {creds.token_type ? (
+                    <div className="flex items-center space-x-1">
+                      <span className="font-medium">{t('requestPane.oauth2.tokenType')}</span>
+                      <span className="text-gray-600 dark:text-gray-300">{creds.token_type}</span>
+                    </div>
+
+===== requestPane.oauth2.urlQueryKey  (components\RequestPane\Auth\OAuth2\Implicit\index.js)
+
+          </div>
+        </div>
+      ) : (
+        <div className="flex items-center gap-4 w-full" key="input-token-query-key" data-testid="token-query-param-key">
+          <label className="block min-w-[140px]">{t('requestPane.oauth2.urlQueryKey')}</label>
+          <div className="oauth2-input-wrapper flex-1">
+            <SingleLineEditor
+
+===== requestPane.oauth2.usePKCE  (components\RequestPane\Auth\OAuth2\AuthorizationCode\index.js)
+
+          </MenuDropdown>
+        </div>
+      </div>
+      <div className="flex flex-row w-full gap-4" key="pkce">
+        <label className="block">{t('requestPane.oauth2.usePKCE')}</label>
+        <input
+          className="cursor-pointer"
+
+===== requestPane.ws.keepAliveInterval  (components\RequestPane\WSSettingsPane\index.js)
+
+          </div>
+        </div>
+
+        <div>
+          <label className="font-medium mb-2">{t('requestPane.ws.keepAliveInterval')}</label>
+          <InfoTip
+            infotipId="setting-keep-alive"
+
+===== requestPane.ws.keepAliveZero  (components\RequestPane\WSSettingsPane\index.js)
+
+                  <span>
+                    {t('requestPane.ws.keepAliveHint')}
+                  </span>
+                </p>
+                <p className="mt-2">{t('requestPane.ws.keepAliveZero')}</p>
+              </div>
+            )}
+
+===== requestPane.ws.timeout  (components\RequestPane\WSSettingsPane\index.js)
+
+  return (
+    <StyledWrapper className="flex flex-col gap-4 w-full">
+      <section className="grid gap-4 items-center grid-cols-2">
+        <div>
+          <label className="font-medium mb-2">{t('requestPane.ws.timeout')}</label>
+          <InfoTip
+            infotipId="setting-connection-timeout"
+
+===== requestPane.ws.defaultMessageName  (components\RequestPane\WsBody\SingleWSMessage\index.js)
+
+  const collections = useSelector((state) => state.collections.collections);
+
+  const { name, content, type } = message;
+  const displayMode = typeToMode(type);
+  const displayName = name || t('requestPane.ws.defaultMessageName', { number: index + 1 });
+
+  const [isEditing, setIsEditing] = useState(false);
+
+===== requestPane.graphql.schemaLoadError  (components\RequestPane\GraphQLSchemaActions\useGraphqlSchema.js)
+
+      }
+    } catch (err) {
+      setError(err);
+      console.error(err);
+      toast.error(t('requestPane.graphql.schemaLoadError', { errorMessage: err.message }));
+    }
+
+
+===== requestPane.graphql.schemaValidationIssues  (components\RequestPane\GraphQLSchemaActions\useGraphqlSchema.js)
+
+        localStorage.setItem(localStorageKey, JSON.stringify(data));
+
+        if (validationErrors.length > 0) {
+          const errorMessages = validationErrors.map((e) => e.message).join('; ');
+          toast(t('requestPane.graphql.schemaValidationIssues', { errorMessages }), {
+            icon: '⚠️',
+            duration: 5000
+
+===== requestPane.grpc.defaultMessageName  (components\RequestPane\GrpcBody\index.js)
+
+
+  const onEdit = (value) => {
+    const currentMessages = [...(body.grpc || [])];
+    currentMessages[index] = {
+      name: name ? name : t('requestPane.grpc.defaultMessageName', { number: index + 1 }),
+      content: value
+    };
+
+===== requestPane.grpc.loadedMethodsProtoFile  (components\RequestPane\GrpcQueryUrl\index.js)
+
+    setGrpcMethods(methods);
+    setIsReflectionMode(false);
+
+    if (!fromCache) {
+      toast.success(t('requestPane.grpc.loadedMethodsProtoFile', { number: methods.length }));
+    }
+
+
+===== requestPane.grpc.loadedMethodsReflection  (components\RequestPane\GrpcQueryUrl\index.js)
+
+      }));
+    }
+
+    if (!fromCache && methods && methods.length > 0) {
+      toast.success(t('requestPane.grpc.loadedMethodsReflection', { number: methods.length }));
+    }
+
+
+===== requestPane.grpc.saveShortcut  (components\RequestPane\GrpcQueryUrl\index.js)
+
+          </div>
+        </ToolHint>
+
+        <ToolHint
+          text={t('requestPane.grpc.saveShortcut', { shortcut: saveShortcut })}
+          toolhintId="grpc-save-request"
+          place="top"
+
+===== requestPane.grpc.addProtoFileFailed  (components\RequestPane\GrpcQueryUrl\ProtoFileDropdown\index.js)
+
+
+    const { success: addSuccess, relativePath, alreadyExists, error: addError } = await protoFileManagement.addProtoFileFromRequest(filePath);
+    if (!addSuccess) {
+      if (addError) {
+        toast.error(t('requestPane.grpc.addProtoFileFailed', { error: addError.message }));
+      }
+      return;
+
+===== requestPane.grpc.browseProtoFileFailed  (components\RequestPane\GrpcQueryUrl\ProtoFileDropdown\index.js)
+
+    e.stopPropagation();
+    const { success, filePath, error } = await protoFileManagement.browseForProtoFile();
+    if (!success) {
+      if (error) {
+        toast.error(t('requestPane.grpc.browseProtoFileFailed', { error: error.message }));
+      }
+      return;
+
+===== sidebar.apiSpecs.close.confirmPrefix  (components\Sidebar\ApiSpecs\CloseApiSpec\index.js)
+
+        <span className="ml-2 mr-4 font-semibold">{apiSpec.name}</span>
+      </div>
+      <div className="break-words text-xs mt-1">{apiSpec.pathname}</div>
+      <div className="mt-4">
+        {t('sidebar.apiSpecs.close.confirmPrefix')} <span className="font-semibold">{apiSpec.name}</span>{t('sidebar.apiSpecs.close.confirmSuffix')}
+      </div>
+      <div className="mt-4">
+
+===== sidebar.changeVersion.notSet  (components\Sidebar\Collections\Collection\ChangeCollectionVersion\index.js)
+
+            <div className="version-row">
+              <div className="version-col">
+                <div className="col-label">{t('sidebar.changeVersion.currentVersion')}</div>
+                <div className="current-value" data-testid="change-version-current">
+                  {currentVersion || <span className="text-muted italic">{t('sidebar.changeVersion.notSet')}</span>}
+                </div>
+              </div>
+
+===== sidebar.changeVersion.updates  (components\Sidebar\Collections\Collection\ChangeCollectionVersion\index.js)
+
+              </div>
+            </div>
+
+            <p className="preview m-0" data-testid="change-version-preview">
+              {t('sidebar.changeVersion.updates')} <strong>{targetKey}</strong> {t('sidebar.changeVersion.in')} {targetFile} {t('sidebar.changeVersion.from')}
+              <span className="old">{currentVersion || <span className="text-muted italic not-set">({t('sidebar.changeVersion.notSet')})</span>}</span>
+              <IconArrowRight size={13} className="preview-arrow" stroke={1.5} />
+
+===== sidebar.changeVersion.into NOT-FOUND
+
+===== sidebar.changeVersion.from  (components\Sidebar\Collections\Collection\ChangeCollectionVersion\index.js)
+
+              </div>
+            </div>
+
+            <p className="preview m-0" data-testid="change-version-preview">
+              {t('sidebar.changeVersion.updates')} <strong>{targetKey}</strong> {t('sidebar.changeVersion.in')} {targetFile} {t('sidebar.changeVersion.from')}
+              <span className="old">{currentVersion || <span className="text-muted italic not-set">({t('sidebar.changeVersion.notSet')})</span>}</span>
+              <IconArrowRight size={13} className="preview-arrow" stroke={1.5} />
+
+===== sidebar.deleteItems.and  (components\Sidebar\Collections\Collection\CollectionItem\DeleteCollectionItems\index.js)
+
+  const appDescription = appCount > 0 ? (appCount === 1 ? t('sidebar.deleteItems.appOne', { count: appCount }) : t('sidebar.deleteItems.appMany', { count: appCount })) : null;
+  const exampleDescription = exampleCount > 0 ? (exampleCount === 1 ? t('sidebar.deleteItems.exampleOne', { count: exampleCount }) : t('sidebar.deleteItems.exampleMany', { count: exampleCount })) : null;
+
+  const types = [folderDescription, requestDescription, appDescription, exampleDescription].filter(Boolean);
+  const and = ` ${t('sidebar.deleteItems.and')} `;
+  const description = entries.length === 1 ? (
+    <span className="font-medium">{entries[0].type === 'example' ? entries[0].example.name : entries[0].item.name}</span>
+
+===== sidebar.deleteItems.appMany  (components\Sidebar\Collections\Collection\CollectionItem\DeleteCollectionItems\index.js)
+
+  }
+
+  const folderDescription = folderCount > 0 ? (folderCount === 1 ? t('sidebar.deleteItems.folderOne', { count: folderCount }) : t('sidebar.deleteItems.folderMany', { count: folderCount })) : null;
+  const requestDescription = requestCount > 0 ? (requestCount === 1 ? t('sidebar.deleteItems.requestOne', { count: requestCount }) : t('sidebar.deleteItems.requestMany', { count: requestCount })) : null;
+  const appDescription = appCount > 0 ? (appCount === 1 ? t('sidebar.deleteItems.appOne', { count: appCount }) : t('sidebar.deleteItems.appMany', { count: appCount })) : null;
+  const exampleDescription = exampleCount > 0 ? (exampleCount === 1 ? t('sidebar.deleteItems.exampleOne', { count: exampleCount }) : t('sidebar.deleteItems.exampleMany', { count: exampleCount })) : null;
+
+
+===== sidebar.deleteItems.confirmExamplePrefix  (components\Sidebar\Collections\Collection\CollectionItem\ExampleItem\DeleteResponseExampleModal\index.js)
+
+        handleConfirm={onConfirm}
+        handleCancel={onClose}
+        confirmButtonColor="danger"
+      >
+        {t('sidebar.deleteItems.confirmExamplePrefix')} <span className="font-medium">{example.name}</span>{t('sidebar.deleteItems.confirmSuffix')}
+      </Modal>
+    </Portal>
+
+===== sidebar.deleteItems.exampleMany  (components\Sidebar\Collections\Collection\CollectionItem\DeleteCollectionItems\index.js)
+
+
+  const folderDescription = folderCount > 0 ? (folderCount === 1 ? t('sidebar.deleteItems.folderOne', { count: folderCount }) : t('sidebar.deleteItems.folderMany', { count: folderCount })) : null;
+  const requestDescription = requestCount > 0 ? (requestCount === 1 ? t('sidebar.deleteItems.requestOne', { count: requestCount }) : t('sidebar.deleteItems.requestMany', { count: requestCount })) : null;
+  const appDescription = appCount > 0 ? (appCount === 1 ? t('sidebar.deleteItems.appOne', { count: appCount }) : t('sidebar.deleteItems.appMany', { count: appCount })) : null;
+  const exampleDescription = exampleCount > 0 ? (exampleCount === 1 ? t('sidebar.deleteItems.exampleOne', { count: exampleCount }) : t('sidebar.deleteItems.exampleMany', { count: exampleCount })) : null;
+
+  const types = [folderDescription, requestDescription, appDescription, exampleDescription].filter(Boolean);
+
+===== sidebar.deleteItems.folderMany  (components\Sidebar\Collections\Collection\CollectionItem\DeleteCollectionItems\index.js)
+
+    else if (isItemARequest(entry.item)) requestCount++;
+    else if (entry.item.type === 'app') appCount++;
+  }
+
+  const folderDescription = folderCount > 0 ? (folderCount === 1 ? t('sidebar.deleteItems.folderOne', { count: folderCount }) : t('sidebar.deleteItems.folderMany', { count: folderCount })) : null;
+  const requestDescription = requestCount > 0 ? (requestCount === 1 ? t('sidebar.deleteItems.requestOne', { count: requestCount }) : t('sidebar.deleteItems.requestMany', { count: requestCount })) : null;
+  const appDescription = appCount > 0 ? (appCount === 1 ? t('sidebar.deleteItems.appOne', { count: appCount }) : t('sidebar.deleteItems.appMany', { count: appCount })) : null;
+
+===== sidebar.deleteItems.requestMany  (components\Sidebar\Collections\Collection\CollectionItem\DeleteCollectionItems\index.js)
+
+    else if (entry.item.type === 'app') appCount++;
+  }
+
+  const folderDescription = folderCount > 0 ? (folderCount === 1 ? t('sidebar.deleteItems.folderOne', { count: folderCount }) : t('sidebar.deleteItems.folderMany', { count: folderCount })) : null;
+  const requestDescription = requestCount > 0 ? (requestCount === 1 ? t('sidebar.deleteItems.requestOne', { count: requestCount }) : t('sidebar.deleteItems.requestMany', { count: requestCount })) : null;
+  const appDescription = appCount > 0 ? (appCount === 1 ? t('sidebar.deleteItems.appOne', { count: appCount }) : t('sidebar.deleteItems.appMany', { count: appCount })) : null;
+  const exampleDescription = exampleCount > 0 ? (exampleCount === 1 ? t('sidebar.deleteItems.exampleOne', { count: exampleCount }) : t('sidebar.deleteItems.exampleMany', { count: exampleCount })) : null;
+
+===== sidebar.deleteItems.titleAppMany  (components\Sidebar\Collections\Collection\CollectionItem\DeleteCollectionItems\index.js)
+
+      return t('sidebar.deleteItems.titleItems');
+    } else if (folderCount > 0) {
+      return folderCount === 1 ? t('sidebar.deleteItems.titleFolderOne') : t('sidebar.deleteItems.titleFolderMany');
+    } else if (appCount > 0) {
+      return appCount === 1 ? t('sidebar.deleteItems.titleAppOne') : t('sidebar.deleteItems.titleAppMany');
+    } else if (exampleCount > 0) {
+      return exampleCount === 1 ? t('sidebar.deleteItems.titleExampleOne') : t('sidebar.deleteItems.titleExampleMany');
+
+===== sidebar.deleteItems.titleExampleMany  (components\Sidebar\Collections\Collection\CollectionItem\DeleteCollectionItems\index.js)
+
+      return folderCount === 1 ? t('sidebar.deleteItems.titleFolderOne') : t('sidebar.deleteItems.titleFolderMany');
+    } else if (appCount > 0) {
+      return appCount === 1 ? t('sidebar.deleteItems.titleAppOne') : t('sidebar.deleteItems.titleAppMany');
+    } else if (exampleCount > 0) {
+      return exampleCount === 1 ? t('sidebar.deleteItems.titleExampleOne') : t('sidebar.deleteItems.titleExampleMany');
+    }
+    return requestCount === 1 ? t('sidebar.deleteItems.titleRequestOne') : t('sidebar.deleteItems.titleRequestMany');
+
+===== sidebar.deleteItems.titleFolderMany  (components\Sidebar\Collections\Collection\CollectionItem\DeleteCollectionItems\index.js)
+
+  const getTitle = () => {
+    if (types.length > 1) {
+      return t('sidebar.deleteItems.titleItems');
+    } else if (folderCount > 0) {
+      return folderCount === 1 ? t('sidebar.deleteItems.titleFolderOne') : t('sidebar.deleteItems.titleFolderMany');
+    } else if (appCount > 0) {
+      return appCount === 1 ? t('sidebar.deleteItems.titleAppOne') : t('sidebar.deleteItems.titleAppMany');
+
+===== sidebar.deleteItems.titleRequestMany  (components\Sidebar\Collections\Collection\CollectionItem\DeleteCollectionItems\index.js)
+
+      return appCount === 1 ? t('sidebar.deleteItems.titleAppOne') : t('sidebar.deleteItems.titleAppMany');
+    } else if (exampleCount > 0) {
+      return exampleCount === 1 ? t('sidebar.deleteItems.titleExampleOne') : t('sidebar.deleteItems.titleExampleMany');
+    }
+    return requestCount === 1 ? t('sidebar.deleteItems.titleRequestOne') : t('sidebar.deleteItems.titleRequestMany');
+  };
+
+
+===== sidebar.docs.featurePlaybook NOT-FOUND
+
+===== sidebar.docs.filterByTags  (components\Sidebar\Collections\Collection\GenerateDocumentation\Advanced\index.jsx)
+
+      'value': 'tags',
+      'className': 'seg-option',
+      'label': (
+        <span className="seg-with-hint">
+          {t('sidebar.docs.filterByTags')}
+          <span className="seg-hint" data-tooltip-id="docs-tags-hint" data-tooltip-content={tagsHint}>
+            <IconInfoCircle size={16} aria-hidden="true" />
+
+===== sidebar.docs.removeTag  (components\Sidebar\Collections\Collection\GenerateDocumentation\Advanced\DocsTagList\index.jsx)
+
+              </span>
+              <button
+                type="button"
+                className="docs-tag-remove"
+                aria-label={t('sidebar.docs.removeTag', { tag })}
+                onClick={() => handleRemoveTag(tag)}
+              >
+
+===== sidebar.docs.selectAll  (components\Sidebar\Collections\Collection\GenerateDocumentation\EnvironmentSelectionList\index.js)
+
+            checked={allSelected}
+            onChange={handleToggleAll}
+            data-testid="env-select-all"
+          />
+          <span className="env-select-all-label" data-testid="env-select-all-label">{t('sidebar.docs.selectAll')}</span>
+        </label>
+      </div>
+
+===== sidebar.docs.tagExists  (components\Sidebar\Collections\Collection\GenerateDocumentation\Advanced\DocsTagList\index.jsx)
+
+      setError(t('sidebar.docs.tagNameRule'));
+      return;
+    }
+    if (tags.includes(tag)) {
+      setError(t('sidebar.docs.tagExists', { tag }));
+      return;
+    }
+
+===== sidebar.docs.versionLabel  (components\Sidebar\Collections\Collection\GenerateDocumentation\CollectionVersionInfo\index.js)
+
+  return (
+    <div className="version-info" data-testid="version-info">
+      <div className="version-line">
+        <span className="collection-name" data-testid="collection-name">{name}</span>
+        <span className={`version-value ${version ? '' : 'unset'}`} data-testid="version-value">{t('sidebar.docs.versionLabel', { version: version || t('sidebar.docs.notSet') })}</span>
+      </div>
+      <p className="version-summary" data-testid="version-summary">
+
+===== sidebar.drafts.requestItemOne  (components\Sidebar\Collections\Collection\MoveToWorkspace\ConfirmMoveDrafts.js)
+
+        </div>
+        <p className="mt-4">
+          {t('sidebar.drafts.unsavedChangesPrefix')}
+          <span className="font-medium">{allDrafts.length}</span>{' '}
+          {allDrafts.length === 1 ? t('sidebar.drafts.requestItemOne') : t('sidebar.drafts.requestItemMany')}
+        </p>
+
+
+===== sidebar.drafts.unsavedChangesPrefix  (components\Sidebar\Collections\Collection\MoveToWorkspace\ConfirmMoveDrafts.js)
+
+          <IconAlertTriangle size={32} strokeWidth={1.5} className="warning-text" />
+          <h1 className="ml-2 text-lg font-medium">{t('dialogs.holdOn')}</h1>
+        </div>
+        <p className="mt-4">
+          {t('sidebar.drafts.unsavedChangesPrefix')}
+          <span className="font-medium">{allDrafts.length}</span>{' '}
+          {allDrafts.length === 1 ? t('sidebar.drafts.requestItemOne') : t('sidebar.drafts.requestItemMany')}
+
+===== sidebar.dragPreview.items  (components\Sidebar\Collections\Collection\CollectionItem\CollectionItemDragPreview\index.js)
+
+      parts.push(value === 1 ? t(`sidebar.dragPreview.${key}One`, { count: value }) : t(`sidebar.dragPreview.${key}Many`, { count: value }));
+    }
+  }
+
+  if (parts.length === 0) return t('sidebar.dragPreview.items', { count: multiSelectedItems.length });
+  const and = ` ${t('sidebar.dragPreview.and')} `;
+  return parts.join(', ').replace(/, ([^,]*)$/, `${and}$1`);
+
+===== sidebar.gitRemote.clickToClone  (components\Sidebar\Collections\GitRemoteCollectionRow\index.js)
+
+      <div
+        className="git-collection-row"
+        onClick={openCloneModal}
+        onContextMenu={handleRightClick}
+        title={t('sidebar.gitRemote.clickToClone', { name: entry.name, remote: entry.remote })}
+        data-testid="sidebar-git-collection-row"
+      >
+
+===== sidebar.goldenEdition.organizations  (components\Sidebar\GoldenEdition\index.js)
+
+                pricingOption === 'organizations' ? themeBasedActiveTabClassNames : 'text-gray-500'
+              }`}
+              onClick={() => handlePricingOptionChange('organizations')}
+            >
+              <IconUsers className="text-gray-500 mr-2 icon" size={16} strokeWidth={1.5} /> {t('sidebar.goldenEdition.organizations')}
+            </div>
+          </div>
+
+===== sidebar.goldenEdition.perUser  (components\Sidebar\GoldenEdition\index.js)
+
+          ) : (
+            <div>
+              <div className="my-4">
+                <span className="text-3xl font-extrabold">$49</span>
+                <span className="ml-2">{t('sidebar.goldenEdition.perUser')}</span>
+              </div>
+              <p className="bg-yellow-200 text-black rounded-md px-2 py-1 mb-2 inline-flex">{t('sidebar.goldenEdition.oneTimePayment')}</p>
+
+===== sidebar.ignore.hideFrom  (components\Sidebar\Collections\Collection\CollectionItem\IgnoreCollectionItem\index.js)
+
+      {t('sidebar.ignore.prefix')}
+      {' '}
+      <span className="font-medium">{item.name}</span>
+      {' '}
+      {t('sidebar.ignore.hideFrom')}
+      {' '}
+      {isYamlCollection ? 'opencollection (YAML)' : 'Bruno (JSON)'}
+
+===== sidebar.ignore.prefix  (components\Sidebar\Collections\Collection\CollectionItem\IgnoreCollectionItem\index.js)
+
+      confirmText={t('sidebar.menu.ignore')}
+      handleConfirm={onConfirm}
+      handleCancel={onClose}
+    >
+      {t('sidebar.ignore.prefix')}
+      {' '}
+      <span className="font-medium">{item.name}</span>
+
+===== sidebar.ignore.finalPeriod  (components\Sidebar\Collections\Collection\CollectionItem\IgnoreCollectionItem\index.js)
+
+      {' '}
+      {t('sidebar.ignore.listInAfter')}
+      {' '}
+      <span className="font-medium">{configFileName}</span>
+      {t('sidebar.ignore.finalPeriod')}
+    </Modal>
+  );
+
+===== sidebar.import.checkForSpecUpdates  (components\Sidebar\ImportCollectionLocation\index.js)
+
+                  disabled={isSwagger2}
+                  className={`checkbox mt-0.5 ${isSwagger2 ? '' : 'cursor-pointer'}`}
+                />
+                <div>
+                  <span className="checkbox-option-label">{t('sidebar.import.checkForSpecUpdates')}</span>
+                  <p className="checkbox-option-description">
+                    {isSwagger2
+
+===== sidebar.newApp.collectionName  (components\Sidebar\NewApp\index.js)
+
+            <div className="text-xs mt-2 opacity-70">
+              {t('sidebar.newApp.createsIn', {
+                target: item
+                  ? t('sidebar.newApp.thisFolder')
+                  : t('sidebar.newApp.collectionName', { name: collection?.name || '' })
+              })}
+            </div>
+
+===== sidebar.newApp.thisFolder  (components\Sidebar\NewApp\index.js)
+
+          ) : (
+            <div className="text-xs mt-2 opacity-70">
+              {t('sidebar.newApp.createsIn', {
+                target: item
+                  ? t('sidebar.newApp.thisFolder')
+                  : t('sidebar.newApp.collectionName', { name: collection?.name || '' })
+              })}
+
+===== sidebar.openCollection.noneFoundSkipped  (components\Sidebar\OpenCollection\index.js)
+
+        if (items.length === 0) {
+          if (failedScans.length) {
+            toast.error(t(failedScans.length === 1 ? 'sidebar.openCollection.failedToScanOne' : 'sidebar.openCollection.failedToScanMany', { count: failedScans.length }));
+          } else if (skippedItems.length) {
+            toast.error(t('sidebar.openCollection.noneFoundSkipped', { count: skippedItems.length }));
+          } else {
+            toast.error(t('sidebar.openCollection.noneFound'));
+
+===== sidebar.postmanReport.andMore  (components\Sidebar\PostmanPackageReport\index.js)
+
+    return (
+      <Fragment key={name}>
+        {separator}
+        <code>{name}</code>
+        {idx === shown.length - 1 && remainder > 0 ? ` ${t('sidebar.postmanReport.andMore', { count: remainder })}` : ''}
+      </Fragment>
+    );
+
+===== sidebar.postmanReport.devModeTitle  (components\Sidebar\PostmanPackageReport\index.js)
+
+        {needsDevModeOnly && !installDone && !installing && (
+          <div className="pkg-section pkg-devmode">
+            <div className="pkg-devmode-head">
+              <IconAlertTriangle size={18} strokeWidth={1.75} />
+              <span className="pkg-devmode-title">{t('sidebar.postmanReport.devModeTitle')}</span>
+            </div>
+            <p className="pkg-devmode-desc">
+
+===== sidebar.postmanReport.externalModulesTitle  (components\Sidebar\PostmanPackageReport\index.js)
+
+          ) : (
+            <div className="pkg-section pkg-devmode">
+              <div className="pkg-devmode-head">
+                <IconAlertTriangle size={18} strokeWidth={1.75} />
+                <span className="pkg-devmode-title">{t('sidebar.postmanReport.externalModulesTitle')}</span>
+              </div>
+              <p className="pkg-devmode-desc">
+
+===== sidebar.postmanReport.installFailedExitCode  (components\Sidebar\PostmanPackageReport\index.js)
+
+    case 'SPAWN_FAILED':
+    case 'SPAWN_ERROR':
+      return t('sidebar.postmanReport.spawnFailed');
+    default:
+      return t('sidebar.postmanReport.installFailedExitCode', { exitCode: result?.exitCode });
+  }
+};
+
+===== sidebar.postmanReport.installMany  (components\Sidebar\PostmanPackageReport\index.js)
+
+    ? t('sidebar.postmanReport.done')
+    : installing
+      ? t('sidebar.postmanReport.installing')
+      : needsInstall.length > 0
+        ? (needsInstall.length === 1 ? t('sidebar.postmanReport.installOne', { count: needsInstall.length }) : t('sidebar.postmanReport.installMany', { count: needsInstall.length }))
+        : t('sidebar.postmanReport.done');
+  const handleConfirm = isDismissAction ? onClose : handleInstall;
+
+===== sidebar.postmanReport.installOne  (components\Sidebar\PostmanPackageReport\index.js)
+
+    ? t('sidebar.postmanReport.done')
+    : installing
+      ? t('sidebar.postmanReport.installing')
+      : needsInstall.length > 0
+        ? (needsInstall.length === 1 ? t('sidebar.postmanReport.installOne', { count: needsInstall.length }) : t('sidebar.postmanReport.installMany', { count: needsInstall.length }))
+        : t('sidebar.postmanReport.done');
+  const handleConfirm = isDismissAction ? onClose : handleInstall;
+
+===== sidebar.postmanReport.installedMany  (components\Sidebar\PostmanPackageReport\index.js)
+
+      if (result.success) {
+        toast.success(
+          needsInstall.length === 1
+            ? t('sidebar.postmanReport.installedOne', { count: needsInstall.length })
+            : t('sidebar.postmanReport.installedMany', { count: needsInstall.length })
+        );
+      } else {
+
+===== sidebar.postmanReport.installedOne  (components\Sidebar\PostmanPackageReport\index.js)
+
+      setInstallResult(result);
+      if (result.success) {
+        toast.success(
+          needsInstall.length === 1
+            ? t('sidebar.postmanReport.installedOne', { count: needsInstall.length })
+            : t('sidebar.postmanReport.installedMany', { count: needsInstall.length })
+        );
+
+===== sidebar.postmanReport.installedIntoMany  (components\Sidebar\PostmanPackageReport\index.js)
+
+                <IconCircleCheck size={14} strokeWidth={1.75} />
+                <span>
+                  {(installResult.installed || needsInstall).length === 1
+                    ? t('sidebar.postmanReport.installedIntoOne', { count: (installResult.installed || needsInstall).length })
+                    : t('sidebar.postmanReport.installedIntoMany', { count: (installResult.installed || needsInstall).length })}
+                </span>
+              </div>
+
+===== sidebar.postmanReport.installedIntoOne  (components\Sidebar\PostmanPackageReport\index.js)
+
+              <div className="pkg-inline-status pkg-inline-success">
+                <IconCircleCheck size={14} strokeWidth={1.75} />
+                <span>
+                  {(installResult.installed || needsInstall).length === 1
+                    ? t('sidebar.postmanReport.installedIntoOne', { count: (installResult.installed || needsInstall).length })
+                    : t('sidebar.postmanReport.installedIntoMany', { count: (installResult.installed || needsInstall).length })}
+                </span>
+
+===== sidebar.postmanReport.notSupportedTitle  (components\Sidebar\PostmanPackageReport\index.js)
+
+        {unsupported.length > 0 && !installDone && !installing && (
+          <div className="pkg-section pkg-section-danger">
+            <div className="pkg-section-head">
+              <IconBan size={14} strokeWidth={1.75} />
+              <span className="pkg-section-title">{t('sidebar.postmanReport.notSupportedTitle')}</span>
+              <span className="pkg-section-count">{unsupported.length}</span>
+            </div>
+
+===== sidebar.postmanReport.packagesUsedInScripts  (components\Sidebar\PostmanPackageReport\index.js)
+
+      >
+        {needsInstall.length > 0 && (
+          <div className="pkg-section">
+            <div className="pkg-section-head">
+              <span className="pkg-section-title">{t('sidebar.postmanReport.packagesUsedInScripts')}</span>
+              <span className="pkg-section-count">{needsInstall.length}</span>
+            </div>
+
+===== sidebar.runCollection.alreadyRunning  (components\Sidebar\Collections\Collection\CollectionItem\RunCollectionItem\index.js)
+
+            <span className="ml-1 text-xs">{t('sidebar.runCollection.requestCount', { count: totalRequestItemsCountForRecursiveFolderRun })}</span>
+          </div>
+          <div className={`description ${isFolderLoading ? 'mb-2' : 'mb-6'}`}>{t('sidebar.runCollection.recursiveDesc')}</div>
+          {isFolderLoading ? <div className="mb-8 warning">{t('sidebar.runCollection.stillLoading')}</div> : null}
+          {isCollectionRunInProgress ? <div className="mb-6 warning">{t('sidebar.runCollection.alreadyRunning')}</div> : null}
+
+          <hr className="divider" />
+
+===== sidebar.runCollection.folderOnly  (components\Sidebar\Collections\Collection\CollectionItem\RunCollectionItem\index.js)
+
+          <div className="mb-1">
+            <span className="font-medium">{t('sidebar.menu.run')}</span>
+            <span className="ml-1 text-xs">{t('sidebar.runCollection.requestCount', { count: totalRequestItemsCountForFolderRun })}</span>
+          </div>
+          <div className="mb-3 description">{t('sidebar.runCollection.folderOnly')}</div>
+          <div className="mb-1">
+            <span className="font-medium">{t('sidebar.runCollection.recursiveRun')}</span>
+
+===== sidebar.runCollection.recursiveDesc  (components\Sidebar\Collections\Collection\CollectionItem\RunCollectionItem\index.js)
+
+          <div className="mb-1">
+            <span className="font-medium">{t('sidebar.runCollection.recursiveRun')}</span>
+            <span className="ml-1 text-xs">{t('sidebar.runCollection.requestCount', { count: totalRequestItemsCountForRecursiveFolderRun })}</span>
+          </div>
+          <div className={`description ${isFolderLoading ? 'mb-2' : 'mb-6'}`}>{t('sidebar.runCollection.recursiveDesc')}</div>
+          {isFolderLoading ? <div className="mb-8 warning">{t('sidebar.runCollection.stillLoading')}</div> : null}
+          {isCollectionRunInProgress ? <div className="mb-6 warning">{t('sidebar.runCollection.alreadyRunning')}</div> : null}
+
+===== sidebar.runCollection.recursiveRun  (components\Sidebar\Collections\Collection\CollectionItem\RunCollectionItem\index.js)
+
+            <span className="ml-1 text-xs">{t('sidebar.runCollection.requestCount', { count: totalRequestItemsCountForFolderRun })}</span>
+          </div>
+          <div className="mb-3 description">{t('sidebar.runCollection.folderOnly')}</div>
+          <div className="mb-1">
+            <span className="font-medium">{t('sidebar.runCollection.recursiveRun')}</span>
+            <span className="ml-1 text-xs">{t('sidebar.runCollection.requestCount', { count: totalRequestItemsCountForRecursiveFolderRun })}</span>
+          </div>
+
+===== sidebar.runCollection.requestCount  (components\Sidebar\Collections\Collection\CollectionItem\RunCollectionItem\index.js)
+
+      <Modal size="md" title={t('sidebar.runCollection.title')} hideFooter={true} handleCancel={onClose}>
+        <div>
+          <div className="mb-1">
+            <span className="font-medium">{t('sidebar.menu.run')}</span>
+            <span className="ml-1 text-xs">{t('sidebar.runCollection.requestCount', { count: totalRequestItemsCountForFolderRun })}</span>
+          </div>
+          <div className="mb-3 description">{t('sidebar.runCollection.folderOnly')}</div>
+
+===== sidebar.runCollection.stillLoading  (components\Sidebar\Collections\Collection\CollectionItem\RunCollectionItem\index.js)
+
+            <span className="font-medium">{t('sidebar.runCollection.recursiveRun')}</span>
+            <span className="ml-1 text-xs">{t('sidebar.runCollection.requestCount', { count: totalRequestItemsCountForRecursiveFolderRun })}</span>
+          </div>
+          <div className={`description ${isFolderLoading ? 'mb-2' : 'mb-6'}`}>{t('sidebar.runCollection.recursiveDesc')}</div>
+          {isFolderLoading ? <div className="mb-8 warning">{t('sidebar.runCollection.stillLoading')}</div> : null}
+          {isCollectionRunInProgress ? <div className="mb-6 warning">{t('sidebar.runCollection.alreadyRunning')}</div> : null}
+
+
+===== sidebar.runCollection.title  (components\Sidebar\Collections\Collection\CollectionItem\RunCollectionItem\index.js)
+
+  const shouldDisableFolderRun = totalRequestItemsCountForFolderRun <= 0;
+
+  return (
+    <StyledWrapper>
+      <Modal size="md" title={t('sidebar.runCollection.title')} hideFooter={true} handleCancel={onClose}>
+        <div>
+          <div className="mb-1">
+
+===== workspace.badge.notCloned  (components\WorkspaceHome\WorkspaceOverview\CollectionsList\index.js)
+
+                  {collection.failedToOpen && (
+                    <StatusBadge status="danger" size="xs">{t('workspace.badge.failedToOpen')}</StatusBadge>
+                  )}
+                  {isNotCloned(collection) && (
+                    <StatusBadge status="warning" size="xs">{t('workspace.badge.notCloned')}</StatusBadge>
+                  )}
+                </div>
+
+===== workspace.git.removeNoteMid  (components\WorkspaceHome\WorkspaceOverview\CollectionsList\RemoveGitRemote\index.js)
+
+          <p className="mt-2 mb-0 font-mono text-xs text-muted break-all">{remoteUrl}</p>
+        ) : null}
+        <p className="mt-3 mb-0 text-xs text-muted">
+          {t('workspace.git.removeNotePrefix')} <span className="font-mono">workspace.yml</span>
+          {t('workspace.git.removeNoteMid')} <span className="font-mono">.git</span>{' '}
+          {t('workspace.git.removeNoteSuffix')}
+        </p>
+
+===== workspace.git.removeNotePrefix  (components\WorkspaceHome\WorkspaceOverview\CollectionsList\RemoveGitRemote\index.js)
+
+        {remoteUrl ? (
+          <p className="mt-2 mb-0 font-mono text-xs text-muted break-all">{remoteUrl}</p>
+        ) : null}
+        <p className="mt-3 mb-0 text-xs text-muted">
+          {t('workspace.git.removeNotePrefix')} <span className="font-mono">workspace.yml</span>
+          {t('workspace.git.removeNoteMid')} <span className="font-mono">.git</span>{' '}
+          {t('workspace.git.removeNoteSuffix')}
+
+===== workspace.git.removeNoteSuffix  (components\WorkspaceHome\WorkspaceOverview\CollectionsList\RemoveGitRemote\index.js)
+
+        ) : null}
+        <p className="mt-3 mb-0 text-xs text-muted">
+          {t('workspace.git.removeNotePrefix')} <span className="font-mono">workspace.yml</span>
+          {t('workspace.git.removeNoteMid')} <span className="font-mono">.git</span>{' '}
+          {t('workspace.git.removeNoteSuffix')}
+        </p>
+      </div>
+
+===== workspace.git.urlNotePrefix  (components\WorkspaceHome\WorkspaceOverview\CollectionsList\ConnectGitRemote\index.js)
+
+              </span>{' '}
+              {t('workspace.git.linkingSuffix')}
+            </p>
+            <p className="m-0">
+              {t('workspace.git.urlNotePrefix')} <span className="font-mono">workspace.yml</span>{' '}
+              {t('workspace.git.urlNoteSuffix')}
+            </p>
+
+===== workspace.import.fileLabel  (components\WorkspaceSidebar\ImportWorkspace\index.js)
+
+      confirmDisabled={!canSubmit}
+    >
+      <div className="flex flex-col">
+        <div className="mb-4">
+          <h3 className="font-semibold mb-2">{t('workspace.import.fileLabel')}</h3>
+          {selectedFile ? (
+            <div className="flex items-center justify-between p-3 border border-gray-200 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-800">
+
+===== workspace.remove.confirmPrefix  (components\ManageWorkspace\DeleteWorkspace\index.js)
+
+        {workspace?.pathname && (
+          <div className="break-words text-xs mt-1">{workspace.pathname}</div>
+        )}
+        <div className="mt-4">
+          {t('workspace.remove.confirmPrefix')} <span className="font-semibold">{workspace?.name}</span>
+          {t('workspace.remove.confirmSuffix')}
+        </div>
+
+===== workspace.remove.confirmSuffix  (components\ManageWorkspace\DeleteWorkspace\index.js)
+
+          <div className="break-words text-xs mt-1">{workspace.pathname}</div>
+        )}
+        <div className="mt-4">
+          {t('workspace.remove.confirmPrefix')} <span className="font-semibold">{workspace?.name}</span>
+          {t('workspace.remove.confirmSuffix')}
+        </div>
+        <div className="mt-4">
+
+===== workspace.toast.couldNotOpen  (components\WorkspaceHome\WorkspaceOverview\CollectionsList\index.js)
+
+      return;
+    }
+
+    if (collection.failedToOpen) {
+      toast.error(t('workspace.toast.couldNotOpen', { name: collection.name }));
+      return;
+    }
+
+===== workspace.toast.needsClone  (components\WorkspaceHome\WorkspaceOverview\CollectionsList\index.js)
+
+    }
+
+    if (collection.isLoaded === false) {
+      if (collection.isGitBacked) {
+        toast.error(t('workspace.toast.needsClone', { name: collection.name }));
+      } else {
+        toast.error(t('workspace.toast.notOnDisk', { name: collection.name }));
+
+===== workspace.toast.notOnDisk  (components\WorkspaceHome\WorkspaceOverview\CollectionsList\index.js)
+
+    if (collection.isLoaded === false) {
+      if (collection.isGitBacked) {
+        toast.error(t('workspace.toast.needsClone', { name: collection.name }));
+      } else {
+        toast.error(t('workspace.toast.notOnDisk', { name: collection.name }));
+      }
+      return;
+
+===== workspace.toast.switchedTo  (components\ManageWorkspace\index.js)
+
+
+  const handleOpenWorkspace = (workspace) => {
+    dispatch(switchWorkspace(workspace.uid));
+    dispatch(showHomePage());
+    toast.success(t('workspace.toast.switchedTo', { name: workspace.name }));
+  };
+
+
+===== welcome.goToStep  (components\WelcomeModal\index.js)
+
+                type="button"
+                key={i}
+                className={`dot ${i + 1 === step ? 'active' : ''} ${i + 1 < step ? 'completed' : ''}`}
+                onClick={() => goTo(i + 1)}
+                aria-label={t('welcome.goToStep', { step: i + 1 })}
+                aria-current={i + 1 === step ? 'step' : undefined}
+              />

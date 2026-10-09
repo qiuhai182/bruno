@@ -1,4 +1,4 @@
-﻿import Modal from 'components/Modal/index';
+import Modal from 'components/Modal/index';
 import { useMemo } from 'react';
 import CodeView from './CodeView';
 import CodeViewToolbar from './CodeViewToolbar';

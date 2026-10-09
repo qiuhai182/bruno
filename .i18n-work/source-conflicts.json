@@ -1,0 +1,542 @@
+{
+  "sidebar.validation.locationRequired": [
+    "location is required",
+    "location is required,Location is required"
+  ],
+  "sidebar.validation.min1Char": [
+    "must be at least 1 character",
+    "Must be at least 1 character,must be at least 1 character"
+  ],
+  "sidebar.validation.max255": [
+    "must be 255 characters or less",
+    "Must be 255 characters or less,must be 255 characters or less"
+  ],
+  "sidebar.validation.nameRequired": [
+    "collection name is required",
+    "Name is required,collection name is required,name is required"
+  ],
+  "sidebar.create": [
+    "Clone Collection",
+    "Create"
+  ],
+  "sidebar.location": [
+    "Location",
+    "<div className=\"font-semibold\">Location</div>,<div className=\"font-semibold mb-2\">Location</div>,Location"
+  ],
+  "sidebar.changeVersion.title": [
+    "sm",
+    "customHeader={<ModalTitle>Change Collection Version</ModalTitle>}"
+  ],
+  "sidebar.changeVersion.currentVersion": [
+    "Collection: collection.name",
+    "<div className=\"col-label\">Current Version</div>"
+  ],
+  "sidebar.changeVersion.notSet": [
+    "col-label",
+    "{currentVersion || <span className=\"text-muted italic\">Not Set</span>},<span className=\"old\">{currentVersion || <span className=\"text-muted italic not-set\">(Not Set)</span>}</span>"
+  ],
+  "sidebar.changeVersion.newVersion": [
+    "Current Version",
+    "<div className=\"col-label\">New Version</div>"
+  ],
+  "sidebar.changeVersion.in": [
+    "old",
+    "Updates <strong>{targetKey}</strong> in {targetFile} from{' '}"
+  ],
+  "sidebar.changeVersion.from": [
+    "text-muted italic not-set",
+    "Updates <strong>{targetKey}</strong> in {targetFile} from{' '}"
+  ],
+  "sidebar.validation.folderNameRequired": [
+    "folder name is required",
+    "folder name is required,foldername is required"
+  ],
+  "sidebar.cloneCollection.title": [
+    "md",
+    "Clone Collection"
+  ],
+  "sidebar.name": [
+    "Create",
+    "Name"
+  ],
+  "sidebar.folderName": [
+    "Folder Name",
+    "Folder Name,Folder,File"
+  ],
+  "sidebar.cloneCollection.folderNameHelp2": [
+    "-- a/packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/index.jsx",
+    "You can choose a folder name different from your collection's name or one compatible with filesystem rules."
+  ],
+  "sidebar.validation.reservedFileNames": [
+    "collection",
+    "The file names \"collection\" and \"folder\" are reserved in bruno"
+  ],
+  "sidebar.newRequest.fileName": [
+    "font-normal text-muted ml-1",
+    "Folder,File,File Name,File Name <small className=\"font-normal text-muted ml-1\">(on filesystem)</small>"
+  ],
+  "sidebar.newRequest.onFilesystem": [
+    "You can choose to save the folder as a different name on your file system versus what is displayed in the app.",
+    "Folder,File,<small className=\"font-normal text-muted ml-1\">(on filesystem)</small>,Folder Name <small className=\"font-normal text-muted ml-1\">(on filesystem)</small>,File Name <small className=\"font-normal text-muted ml-1\">(on filesystem)</small>"
+  ],
+  "sidebar.newRequest.title": [
+    "md",
+    "New Request"
+  ],
+  "sidebar.newFolder.title": [
+    "md",
+    "New Folder"
+  ],
+  "sidebar.preserveScripts": [
+    "checkbox-option-label",
+    "<span className=\"preserve-scripts-label\">Preserve scripts</span>,<span className=\"checkbox-option-label\">Preserve scripts</span>"
+  ],
+  "sidebar.docs.advanced": [
+    "advanced-label",
+    "<span className=\"advanced-label\">Advanced</span>"
+  ],
+  "sidebar.docs.requestsToInclude": [
+    "Requests to include",
+    "<span>Requests to include</span>"
+  ],
+  "sidebar.docs.folderOne": [
+    "Folder",
+    "request"
+  ],
+  "sidebar.docs.folderMany": [
+    "Folders",
+    "requests"
+  ],
+  "sidebar.docs.notSet": [
+    "}`} data-testid=\"version-value\">{`Version: ${version ||",
+    "Version: ${version || 'Not Set'}"
+  ],
+  "sidebar.docs.noEnvironments": [
+    "0 environments",
+    "<span>0 environments</span>"
+  ],
+  "sidebar.docs.selectedCount": [
+    "title",
+    "({selectedCount}/{environments.length} selected)"
+  ],
+  "sidebar.docs.selectAll": [
+    "env-select-all-label",
+    "<span className=\"env-select-all-label\" data-testid=\"env-select-all-label\">Select All</span>"
+  ],
+  "sidebar.renameCollection.title": [
+    "md",
+    "Rename Collection"
+  ],
+  "sidebar.renameCollection.rename": [
+    "Rename Collection",
+    "Rename"
+  ],
+  "sidebar.createOrOpen.noCollectionsFound": [
+    "No collections found.",
+    "<div>No collections found.</div>"
+  ],
+  "sidebar.createOrOpen.or": [
+    "or  Collection.",
+    "<CreateLink /> or <OpenLink /> Collection."
+  ],
+  "sidebar.createOrOpen.collection": [
+    "-- a/packages/bruno-app/src/components/Sidebar/Collections/GitRemoteCollectionRow/index.js",
+    "<CreateLink /> or <OpenLink /> Collection."
+  ],
+  "sidebar.gitRemote.clickToClone": [
+    "title=`$entry.name ¡ª click to clone from $entry.remote`",
+    "${entry.name} ¡ª click to clone from ${entry.remote}"
+  ],
+  "sidebar.selectCollection.noCollectionsFound": [
+    "No collections found",
+    "<div>No collections found</div>"
+  ],
+  "sidebar.createCollection.invalidFormat": [
+    "bru",
+    "invalid format"
+  ],
+  "sidebar.createCollection.formatRequired": [
+    "yml",
+    "Format is required"
+  ],
+  "sidebar.createCollection.title": [
+    "md",
+    "Create Collection"
+  ],
+  "sidebar.locationHelp1": [
+    "Choose the location where you want to store this collection.",
+    "Bruno stores your collections on your computer's filesystem.,<p>Bruno stores your collections on your computer's filesystem.</p>"
+  ],
+  "sidebar.locationHelp2": [
+    "Choose the location where you want to store this collection.",
+    "Choose the location where you want to store this collection.,<p className=\"mt-2\">Choose the location where you want to store this collection.</p>"
+  ],
+  "sidebar.createCollection.folderNameHelp2": [
+    "The name of the folder used to store the collection.",
+    "You can choose a folder name different from your collection's name or one compatible with filesystem rules."
+  ],
+  "sidebar.fileFormatHelp1": [
+    "Choose the file format for storing requests in this collection.",
+    "Choose the file format for storing requests in this collection.,<p>Choose the file format for storing requests in this collection.</p>"
+  ],
+  "sidebar.fileFormat.ocTitle": [
+    "Choose the file format for storing requests in this collection.",
+    "<strong>OpenCollection (YAML):</strong> Industry-standard YAML format (.yml files)"
+  ],
+  "sidebar.fileFormat.ocDesc": [
+    "Choose the file format for storing requests in this collection.",
+    "<strong>OpenCollection (YAML):</strong> Industry-standard YAML format (.yml files)"
+  ],
+  "sidebar.fileFormat.bruTitle": [
+    "Choose the file format for storing requests in this collection.",
+    "<strong>BRU:</strong> Bruno's native file format (.bru files)"
+  ],
+  "sidebar.fileFormat.bruDesc": [
+    "Choose the file format for storing requests in this collection.",
+    "<strong>BRU:</strong> Bruno's native file format (.bru files)"
+  ],
+  "sidebar.fileFormat.ocOption": [
+    "yml",
+    "<option value=\"yml\">OpenCollection (YAML)</option>"
+  ],
+  "sidebar.fileFormat.bruOption": [
+    "bru",
+    "<option value=\"bru\">BRU Format (.bru)</option>"
+  ],
+  "sidebar.goldenEdition.title": [
+    "sm",
+    "Golden Edition,<h3 className=\"text-lg font-medium\">Golden Edition</h3>"
+  ],
+  "sidebar.goldenEdition.buy": [
+    "ml-2",
+    "<IconHeart size={18} strokeWidth={1.5} /> <span className=\"ml-2\">Buy</span>"
+  ],
+  "sidebar.goldenEdition.oneTimePayment": [
+    "bg-yellow-200 text-black rounded-md px-2 py-1 mb-2 inline-flex",
+    "<p className=\"bg-yellow-200 text-black rounded-md px-2 py-1 mb-2 inline-flex\">One Time Payment</p>"
+  ],
+  "sidebar.goldenEdition.individualsLicense": [
+    "One Time Payment",
+    "<p>perpetual license for 2 devices, with 2 years of updates</p>"
+  ],
+  "sidebar.goldenEdition.perUser": [
+    "perpetual license for 2 devices, with 2 years of updates",
+    "<span className=\"ml-2\">/&nbsp;user</span>"
+  ],
+  "sidebar.goldenEdition.orgLicense": [
+    "/&nbsp;user",
+    "<p>perpetual license with 2 years of updates</p>"
+  ],
+  "sidebar.goldenEdition.individuals": [
+    "text-gray-500 mr-2 icon",
+    "<IconUser className=\"text-gray-500 mr-2 icon\" size={16} strokeWidth={1.5} /> Individuals"
+  ],
+  "sidebar.goldenEdition.organizations": [
+    "text-gray-500 mr-2 icon",
+    "<IconUsers className=\"text-gray-500 mr-2 icon\" size={16} strokeWidth={1.5} /> Organizations"
+  ],
+  "sidebar.goldenEdition.supportBruno": [
+    "Organizations",
+    "<span>Support Bruno's Development</span>"
+  ],
+  "sidebar.goldenEdition.everythingInIndividual": [
+    "Everything in the Individual Plan",
+    "<span>Everything in the Individual Plan</span>"
+  ],
+  "sidebar.import.chooseFiles": [
+    "Supports Bruno, OpenCollection, Postman, Insomnia, OpenAPI 3.x / Swagger 2.0, WSDL, and ZIP formats",
+    "choose file(s)"
+  ],
+  "sidebar.import.supportedFormats": [
+    "-- a/packages/bruno-app/src/components/Sidebar/ImportCollection/FullscreenLoader/index.js",
+    "Supports Bruno, OpenCollection, Postman, Insomnia, OpenAPI 3.x / Swagger 2.0, WSDL, and ZIP formats"
+  ],
+  "sidebar.import.title": [
+    "md",
+    "Import Collection"
+  ],
+  "sidebar.import.preserveScriptsDesc": [
+    "Preserve scripts",
+    "Import Postman scripts without translating them."
+  ],
+  "sidebar.import.folderArrangementDesc": [
+    "Folder arrangement",
+    "Select whether to create folders according to the spec's paths or tags."
+  ],
+  "sidebar.import.checkForSpecUpdates": [
+    "checkbox-option-label",
+    "<span className=\"checkbox-option-label\">Check for Spec Updates</span>"
+  ],
+  "sidebar.import.swagger2Unsupported": [
+    "Check for Spec Updates",
+    "OpenAPI Sync is not supported for Swagger 2.0 specs."
+  ],
+  "sidebar.import.checkForSpecUpdatesDesc": [
+    "OpenAPI Sync is not supported for Swagger 2.0 specs.",
+    "Stay notified of spec changes and sync your collection with the spec."
+  ],
+  "sidebar.newApp.createsIn": [
+    "this folder",
+    "this folder,collection \"${collection?.name || ''}\""
+  ],
+  "sidebar.newApp.thisFolder": [
+    "${collection?.name || ''}",
+    "this folder,collection \"${collection?.name || ''}\""
+  ],
+  "sidebar.newApp.collectionName": [
+    "-- a/packages/bruno-app/src/components/Sidebar/NewFolder/index.js",
+    "this folder,collection \"${collection?.name || ''}\""
+  ],
+  "sidebar.newFolder.folderName": [
+    "New Folder",
+    "Folder Name,Folder Name <small className=\"font-normal text-muted ml-1\">(on filesystem)</small>"
+  ],
+  "sidebar.validation.curlRequired": [
+    "must be at least 1 character",
+    "curlCommand is required"
+  ],
+  "sidebar.validation.invalidCurl": [
+    "curlCommand is required",
+    "Invalid cURL Command"
+  ],
+  "sidebar.newRequest.type": [
+    "New Request",
+    "Type"
+  ],
+  "sidebar.newRequest.fileNameHelp1": [
+    "rules.",
+    "<p>Bruno saves each request as a file in your collection's folder.</p>"
+  ],
+  "sidebar.newRequest.fileNameHelp2": [
+    "rules.",
+    "You can choose a file name different from your request's name or one compatible with filesystem,rules."
+  ],
+  "sidebar.openCollection.selectedOfTotal": [
+    "selectedCollectionPaths.length of collectionPaths.length selected",
+    "<span>{selectedCollectionPaths.length}</span> of {collectionPaths.length} selected"
+  ],
+  "common.close": [
+    "Change Collection Version",
+    "Close"
+  ],
+  "workspace.badge.failedToOpen": [
+    "danger",
+    "Failed to open"
+  ],
+  "workspace.badge.notCloned": [
+    "xs",
+    "Not cloned"
+  ],
+  "workspace.collections.emptyDescription": [
+    "No collections yet",
+    "Create your first collection or open an existing one to get started."
+  ],
+  "workspace.collections.emptyTitle": [
+    "empty-title",
+    "No collections yet"
+  ],
+  "workspace.docs.addDocumentation": [
+    "Resources & FAQs",
+    "Add Documentation"
+  ],
+  "workspace.docs.suggestions.overview": [
+    "You can include:",
+    "Project overview"
+  ],
+  "workspace.docs.suggestions.resources": [
+    "Key workflows",
+    "Resources & FAQs"
+  ],
+  "workspace.docs.suggestions.setup": [
+    "Project overview",
+    "Setup instructions"
+  ],
+  "workspace.docs.suggestions.workflows": [
+    "Setup instructions",
+    "Key workflows"
+  ],
+  "workspace.docs.youCanInclude": [
+    "empty-subtext",
+    "You can include:"
+  ],
+  "workspace.git.remoteUrlLabel": [
+    "modified.",
+    "Git Remote URL"
+  ],
+  "workspace.git.removeNoteMid": [
+    "This only removes the remote URL from workspace.yml. Local collection files",
+    ". Local collection files and any"
+  ],
+  "workspace.git.removeNotePrefix": [
+    "font-mono",
+    "This only removes the remote URL from"
+  ],
+  "workspace.git.removeNoteSuffix": [
+    "font-mono",
+    "folder are left untouched."
+  ],
+  "workspace.git.urlNotePrefix": [
+    "font-mono",
+    "The URL is saved in"
+  ],
+  "workspace.git.urlNoteSuffix": [
+    "The URL is saved in workspace.yml only. Your collection files on disk are not",
+    "only. Your collection files on disk are not modified."
+  ],
+  "workspace.git.validation.invalidUrl": [
+    "is-git-url",
+    "Enter a valid Git URL"
+  ],
+  "workspace.help.folderName2": [
+    "The name of the folder used to store the workspace.",
+    "You can choose a folder name different from your workspace's name or one compatible with filesystem rules."
+  ],
+  "workspace.help.location1": [
+    "Choose the location where you want to store this workspace.",
+    "Bruno stores your workspaces on your computer's filesystem."
+  ],
+  "workspace.import.fileLabel": [
+    "font-semibold mb-2",
+    "Workspace File"
+  ],
+  "workspace.quickActions": [
+    "stat-label",
+    "Quick Actions"
+  ],
+  "workspace.stats.environments": [
+    "Collections",
+    "Environments"
+  ],
+  "workspace.toast.couldNotOpen": [
+    "${collection.name}",
+    "Collection \"{{name}}\" could not be opened"
+  ],
+  "workspace.toast.needsClone": [
+    "${collection.name}",
+    "Collection \"{{name}}\" needs to be cloned first"
+  ],
+  "workspace.toast.notOnDisk": [
+    "${collection.name}",
+    "Collection \"{{name}}\" does not exist on disk"
+  ],
+  "workspace.toast.removeError": [
+    "An error occurred while removing the collection",
+    "An error occurred while removing the workspace"
+  ],
+  "workspace.validation.folderNameRequired": [
+    "Must be 255 characters or less",
+    "Folder name is required"
+  ],
+  "workspace.validation.locationRequired": [
+    "Folder name is required",
+    "Location is required"
+  ],
+  "workspace.validation.minOneChar": [
+    "A workspace with this name already exists",
+    "Must be at least 1 character"
+  ],
+  "workspace.validation.nameAlreadyExists": [
+    "unique-name",
+    "A workspace with this name already exists"
+  ],
+  "workspace.validation.nameEmpty": [
+    "Workspace name can\\",
+    "Workspace name can't be empty"
+  ],
+  "welcome.exploreOnMyOwn": [
+    "-- a/packages/bruno-app/src/components/WorkspaceHome/WorkspaceDocs/index.js",
+    "I'll explore on my own"
+  ],
+  "welcome.goToStep": [
+    "aria-label=`Go to step $i + 1`",
+    "Go to step {{step}}"
+  ],
+  "openApiSync.banner.specUpdated": [
+    "OpenAPI spec has been updated${versionInfo}",
+    "OpenAPI spec has been updated{{versionInfo}}"
+  ],
+  "requestTabs.notFound": [
+    "ml-1",
+    "Not Found"
+  ],
+  "requestTabs.specialTab.apiSpec": [
+    "ml-1 tab-name",
+    "API Spec"
+  ],
+  "requestTabs.specialTab.collection": [
+    "ml-1 tab-name",
+    "Collection"
+  ],
+  "requestTabs.specialTab.environments": [
+    "ml-1 tab-name",
+    "Environments"
+  ],
+  "requestTabs.specialTab.globalEnvironments": [
+    "ml-1 tab-name",
+    "Global Environments"
+  ],
+  "requestTabs.specialTab.overview": [
+    "ml-1 tab-name",
+    "Overview"
+  ],
+  "requestTabs.specialTab.runner": [
+    "ml-1 tab-name",
+    "Runner"
+  ],
+  "requestTabs.specialTab.variables": [
+    "ml-1 tab-name",
+    "Variables"
+  ],
+  "requestTabs.specialTab.whatsNew": [
+    "ml-1 tab-name",
+    "What's New"
+  ],
+  "responsePane.bookmark.createdSuccessfully": [
+    "Example \"${name}\" created successfully",
+    "Example \"{{name}}\" created successfully"
+  ],
+  "responsePane.grpc.errorMetadata": [
+    "content-error-label mb-1",
+    "Error Metadata"
+  ],
+  "responsePane.grpc.message": [
+    "content-request-label mb-1",
+    "Message"
+  ],
+  "responsePane.grpc.metadata": [
+    "content-request-label mb-1",
+    "Metadata"
+  ],
+  "responsePane.grpc.metadataHeaders": [
+    "content-metadata-label mb-1",
+    "Metadata Headers"
+  ],
+  "responsePane.grpc.trailers": [
+    "content-status-label mb-1",
+    "Trailers"
+  ],
+  "responsePane.networkError": [
+    "font-medium text-red-800",
+    "Network Error"
+  ],
+  "responsePane.preview.toggle": [
+    "text-[0.8125rem] preview-response-tab-label",
+    "Preview"
+  ],
+  "responsePane.timeline.openFile": [
+    "Open ${displayFilePath}",
+    "Open {{file}}"
+  ],
+  "runner.filters": [
+    "runner-section-title mt-6",
+    "Filters"
+  ],
+  "variables.noEnvironment": [
+    "muted text-xs px-2 py-1",
+    "No environment variables found"
+  ],
+  "variables.noEnvironmentSelected": [
+    "muted text-xs px-2 py-1",
+    "No environment selected"
+  ]
+}

@@ -1,0 +1,70 @@
+collection.auth.oauth2.tbd	return TBD
+collection.common.removeFile	const CertFileInput = ( label, name, value, inputRef, onSelect, onClear, error, touched, dangerColor ) => (
+collection.common.removeImportPath	Remove import path
+collection.overview.change	group-hover:underline text-link
+collection.presets.defaultBaseUrl	preset-field-label
+collection.presets.defaultEnvironment	preset-field-label
+collection.presets.defaultRequestType	preset-field-label
+collection.presets.defaultRequestTypeSubtitle	preset-field-subtitle
+collection.protobuf.disableImportPath	Disable this import path
+collection.protobuf.enableImportPath	Enable this import path
+collection.protobuf.importPathsTip	Add directories that contain proto files to be imported. These paths help resolve import statements in your proto files.
+collection.protobuf.missingImportPaths	Some import paths cannot be found at their specified locations.
+collection.protobuf.noImportPaths	No import paths added
+collection.proxy.disabled	50px
+collection.proxy.enabled	50px
+collection.proxy.inherit	50px
+devtools.performance.currentCpu	<SystemResourceCard
+devtools.performance.currentMemory	icon=IconDatabase
+devtools.performance.processPid	icon=IconServer
+devtools.requestDetails.noHeaders	empty-state
+devtools.requestDetails.noNetworkLogs	empty-state
+devtools.requestDetails.noResponseData	empty-state
+devtools.terminal.loadingSessions	12px
+devtools.terminal.noActiveSessions	12px
+environments.inheritance.circular	return null
+environments.validation.alreadyExists	duplicate-name
+environments.validation.globalAlreadyExists	duplicate-name
+notifications.menuAriaLabel	const menuIcon = (
+preferences.ai.autocomplete.triggerAria	trigger-pills inline-flex
+preferences.ai.endpoint.modelsEmpty	No models yet. Add the model id your provider expects (e.g. gpt-4o or llama3.1:8b).
+requestPane.errorOccurred	pb-4 px-4
+requestPane.grpc.addImportPathFailed	Failed to add import path: {{error}}
+requestPane.grpc.browseImportDirFailed	Failed to browse for import directory: {{error}}
+requestPane.grpc.errorOccurred	pb-4 px-4
+requestPane.grpc.importPathAdded	Added import path to collection
+requestPane.grpc.manageImportPaths	Manage import paths
+requestPane.grpc.noAuth	return No Auth
+requestPane.grpc.noImportPathsConfigured	No import paths configured in collection settings
+requestPane.grpc.someImportPathsNotFound	Some import paths could not be found.
+requestPane.grpc.toggleImportPathFailed	Failed to toggle import path: {{error}}
+requestPane.oauth2.tbd	return TBD
+requestPane.queryBuilder.errorBoundaryDescription	The Query Builder encountered an unexpected error. Try reloading the schema or manually using the editor.
+requestPane.queryBuilder.failedToLoadSchema	empty-state-title
+requestPane.queryBuilder.noSchemaLoaded	empty-state-title
+requestPane.queryBuilder.somethingWentWrong	empty-state-title
+requestPane.ws.errorOccurred	pb-4 px-4
+requestPane.ws.noAuth	return No Auth
+sidebar.bulkImport.bruDesc	<strong>BRU:</strong> Bruno's native file format (.bru files)
+sidebar.bulkImport.failedToImportCollection	Failed to import collection
+sidebar.bulkImport.groupingTags	const groupingOptions = [
+sidebar.changeVersion.collectionLabel	collection-name
+sidebar.changeVersion.title	const CollectionNotFound = ( onClose ) => (
+sidebar.docs.allRequests	const REQUEST_MODE_ITEMS = [
+sidebar.docs.notSet	}`} data-testid="version-value">{`Version: ${version ||
+sidebar.docs.title	const CollectionNotFound = ( onClose ) => (
+sidebar.exportToPostman.fileExists	const fileExists = formik.errors.fileName === FILE_EXISTS_ERROR
+sidebar.fileFormat.bruDesc	<strong>BRU:</strong> Bruno's native file format (.bru files)
+sidebar.fileFormat.bruTitle	<strong>BRU:</strong> Bruno's native file format (.bru files)
+sidebar.goldenEdition.supportBruno	<span>Support Bruno's Development</span>
+sidebar.ignore.finalPeriod	.
+sidebar.import.dropFiles	Drop file(s) to import or{' '}
+sidebar.import.groupingTags	const groupingOptions = [
+sidebar.import.loading2	const loadingMessages = [
+sidebar.import.urlImportFailed	URL import failed. Please check the URL and try again.
+sidebar.moveToWorkspace.description	This will move the following collection's files into {activeWorkspace?.name} workspace.
+sidebar.newRequest.fileNameHelp1	<p>Bruno saves each request as a file in your collection's folder.</p>
+sidebar.postmanReport.customPackagesMid	{' '}are installed, but this collection is currently running in <strong>Safe Mode</strong>.
+sidebar.postmanReport.customPackagesSuffix	{' '}are installed, but this collection is currently running in <strong>Safe Mode</strong>.
+sidebar.postmanReport.safeMode	{' '}are installed, but this collection is currently running in <strong>Safe Mode</strong>.
+workspace.toast.importFailed	Failed to import workspace

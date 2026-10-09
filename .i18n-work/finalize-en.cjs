@@ -1,44 +1,55 @@
 const fs = require('fs');
 const path = require('path');
 
-const frag = JSON.parse(fs.readFileSync(path.join(__dirname, 'x2-fragment-en.json'), 'utf8'));
-
-// Fixes confirmed against HEAD originals (mojibake / template-literal backticks)
-const fixes = {
-  'sidebar.gitRemote.clickToClone': '{{name}} \u2014 click to clone from {{remote}}',
-  'sidebar.postmanReport.installing': 'Installing\u2026',
-  'sidebar.postmanReport.installingOne': 'Installing {{count}} package\u2026',
-  'sidebar.postmanReport.installingMany': 'Installing {{count}} packages\u2026',
-  'sidebar.docs.tagsHint': 'Tags are labels on requests (e.g. smoke, WIP). Manage tags in Request \u203A Settings',
-  'sidebar.import.parseError': 'Failed to parse the file \u2013 ensure it is valid JSON or YAML',
-  'sidebar.goldenEdition.perUser': '/\u00A0user',
-  'sidebar.validation.invalidCurl': 'Invalid cURL Command',
-  'sidebar.validation.reservedFileNames': 'The file names "collection" and "folder" are reserved in bruno'
+const base = JSON.parse(fs.readFileSync(path.join(__dirname, 'final-key-en.json'), 'utf8'));
+const manual = {
+  'app.deprecation.deprecatedSuffix': '. They are deprecated and will no longer be supported. Learn more in',
+  'app.deprecation.removedIn': '{{feature}} will be removed in',
+  'collection.auth.descriptionPrefix': 'Configures authentication for the entire collection. This applies to all requests using the',
+  'collection.example.nameLabel': 'Example Name',
+  'collection.folder.auth.descriptionPrefix': 'Configures authentication for the entire folder. This applies to all requests using the',
+  'collection.overview.collectionEnvironments': '{{count}} collection environment{{s}}',
+  'collection.overview.globalEnvironments': '{{count}} global environment{{s}}',
+  'collection.share.descriptionPrefix': 'Bruno uses',
+  'collection.share.descriptionSuffix': '- An open format for API collections',
+  'collection.share.nonExportableNote': 'Note: {{types}} requests in this collection will not be exported',
+  'collection.share.title': 'Share Collection',
+  'cookies.clearDomainCookiesConfirm': 'Are you sure you want to clear all cookies for the domain {{domain}}?',
+  'cookies.deleteCookieConfirm': 'Are you sure you want to delete the cookie {{cookieName}}?',
+  'cookies.fieldDomain': 'Domain',
+  'cookies.fieldKey': 'Key',
+  'cookies.fieldValue': 'Value',
+  'devtools.debug.colTime': 'Time',
+  'devtools.performance.na': 'N/A',
+  'devtools.requestDetails.na': 'N/A',
+  'environments.copy.title': 'Copy Environment',
+  'environments.export.exportOne': 'Export {{num}} Environment',
+  'environments.export.inherits': 'inherits',
+  'environments.unsaved.dontSave': "Don't Save",
+  'preferences.ai.autocomplete.modelAuto': 'Autocomplete model',
+  'requestPane.grpc.selectMethod': 'Select Method',
+  'requestPane.oauth1.uploadFile': 'Upload File',
+  'requestPane.oauth2.autoRefreshToken': 'Auto refresh token',
+  'sidebar.changeVersion.versionPlaceholder': 'e.g. v1.0.0',
+  'sidebar.ignore.finalPeriod': '.',
+  'sidebar.postmanReport.devModeDescMid': 'which need Developer Mode to run.',
+  'sidebar.postmanReport.devModeDescSuffix': 'Only enable Developer Mode for collections you trust.',
+  'sidebar.postmanReport.installedIntoMany': 'Installed {{count}} packages into this collection.',
+  'sidebar.postmanReport.installingMany': 'Installing {{count}} packages',
+  'sidebar.postmanReport.installingOne': 'Installing {{count}} package',
+  'sidebar.runCollection.delayPlaceholder': 'e.g. 5'
 };
-for (const [k, v] of Object.entries(fixes)) {
-  if (!(k in frag)) { console.error('FIX TARGET MISSING:', k); process.exit(1); }
-  frag[k] = v;
-}
+const merged = { ...base, ...manual };
+fs.writeFileSync(path.join(__dirname, 'final-key-en.json'), JSON.stringify(Object.fromEntries(Object.entries(merged).sort()), null, 2), 'utf8');
 
-// sanity: no U+FFFD, no backticks, only whitelisted non-ASCII
-const allowedNonAscii = new Set([0x2014, 0x2026, 0x203A, 0x2013, 0x00A0]);
-let bad = 0;
-for (const [k, v] of Object.entries(frag)) {
-  if (v.includes('\uFFFD') || v.includes('`')) { console.error('BAD CHAR in', k); bad++; continue; }
-  for (const ch of v) {
-    const cp = ch.codePointAt(0);
-    if (cp > 126 && !allowedNonAscii.has(cp)) { console.error('UNEXPECTED non-ASCII U+' + cp.toString(16).toUpperCase(), 'in', k); bad++; }
-  }
-  if (v.includes('?')) {
-    // surface remaining '?' values for eyeball check (potential silent mojibake)
-    console.log('NOTE question-mark value:', k, '=>', JSON.stringify(v));
-  }
+// group by top prefix for batch translation
+const groups = {};
+for (const [k, v] of Object.entries(merged)) {
+  const g = k.split('.')[0];
+  (groups[g] = groups[g] || {})[k] = v;
 }
-if (bad) process.exit(1);
-
-const out = {};
-for (const k of Object.keys(frag).sort()) out[k] = frag[k];
-const json = JSON.stringify(out, null, 2) + '\n';
-if (json.charCodeAt(0) === 0xFEFF) { console.error('BOM produced'); process.exit(1); }
-fs.writeFileSync(path.join(__dirname, 'sidebar.en.json'), json, 'utf8');
-console.log('sidebar.en.json written:', Object.keys(out).length, 'keys');
+for (const [g, obj] of Object.entries(groups)) {
+  fs.writeFileSync(path.join(__dirname, 'en-group-' + g + '.json'), JSON.stringify(Object.fromEntries(Object.entries(obj).sort()), null, 2), 'utf8');
+}
+console.log('total EN keys:', Object.keys(merged).length);
+console.log('groups:', Object.entries(groups).map(([g, o]) => g + '=' + Object.keys(o).length).join(', '));

@@ -1,4 +1,4 @@
-﻿diff --git a/packages/bruno-app/src/components/ResponseExample/ResponseExampleResponsePane/ResponseExampleResponseHeaders/index.js b/packages/bruno-app/src/components/ResponseExample/ResponseExampleResponsePane/ResponseExampleResponseHeaders/index.js
+diff --git a/packages/bruno-app/src/components/ResponseExample/ResponseExampleResponsePane/ResponseExampleResponseHeaders/index.js b/packages/bruno-app/src/components/ResponseExample/ResponseExampleResponsePane/ResponseExampleResponseHeaders/index.js
 index 98176035c..3d22cca05 100644
 --- a/packages/bruno-app/src/components/ResponseExample/ResponseExampleResponsePane/ResponseExampleResponseHeaders/index.js
 +++ b/packages/bruno-app/src/components/ResponseExample/ResponseExampleResponsePane/ResponseExampleResponseHeaders/index.js

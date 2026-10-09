@@ -1,0 +1,263 @@
+{
+  "COMMON.COLLECTIONS": [
+    "stat-label",
+    "section-title"
+  ],
+  "collection.auth.password": [
+    "block mb-1",
+    "Password"
+  ],
+  "collection.auth.username": [
+    "block mb-1",
+    "Username"
+  ],
+  "collection.common.postResponse": [
+    "Post Response",
+    "Pre Request"
+  ],
+  "collection.common.preRequest": [
+    "Pre Request",
+    "mb-3 title text-xs"
+  ],
+  "collection.common.removeFile": [
+    "button",
+    "Remove file"
+  ],
+  "collection.presets.defaultRequestType": [
+    "preset-field-label",
+    "preset-field-subtitle"
+  ],
+  "collection.proxy.disabled": [
+    "50px",
+    "disabled"
+  ],
+  "collection.proxy.enabled": [
+    "inline-block",
+    "enabled"
+  ],
+  "collection.proxy.inherit": [
+    "Config",
+    "inherit"
+  ],
+  "collection.table.expr": [
+    "Value",
+    "request",
+    ") ? (varType === "
+  ],
+  "collection.table.value": [
+    "Value",
+    "request",
+    "You can write any valid JS Template Literal here",
+    "string",
+    "You can write any valid JS expression here"
+  ],
+  "common.cancel": [
+    "Cancel",
+    "Continue"
+  ],
+  "common.delete": [
+    "bottom",
+    "Delete",
+    "env-rename-action"
+  ],
+  "common.save": [
+    "Save",
+    "mt-3 mb-3 title text-xs"
+  ],
+  "environments.action.copy": [
+    "Copy Environment",
+    "Rename"
+  ],
+  "environments.action.rename": [
+    "save-all-env",
+    "Rename"
+  ],
+  "environments.clearSearch": [
+    "Clear search",
+    "env-list-search-clear"
+  ],
+  "environments.toast.createError": [
+    "An error occurred while creating the environment",
+    "Global environment created!"
+  ],
+  "environments.validation.alreadyExists": [
+    "Environment already exists",
+    "duplicate-name"
+  ],
+  "requestPane.auth.header": [
+    "Header",
+    "Add token to"
+  ],
+  "requestPane.auth.headers": [
+    "header",
+    "Add Token to"
+  ],
+  "requestPane.auth.noAuth": [
+    "No Auth",
+    "mt-2"
+  ],
+  "requestPane.common.bulkEdit": [
+    "Bulk Edit",
+    "-- a/packages/bruno-app/src/components/RequestPane/Script/index.js"
+  ],
+  "requestPane.common.description": [
+    "flex items-center justify-start min-w-0",
+    "truncate",
+    "Description"
+  ],
+  "requestPane.common.key": [
+    "token",
+    "Key"
+  ],
+  "requestPane.common.postResponse": [
+    "Post Response",
+    "Pre Request"
+  ],
+  "requestPane.common.preRequest": [
+    "Pre Request",
+    "mb-3 title text-xs"
+  ],
+  "requestPane.common.value": [
+    "block mb-1",
+    "token",
+    "Value",
+    "request",
+    "tooltip-mod",
+    "string"
+  ],
+  "requestPane.file.file": [
+    "File",
+    "flex items-center justify-start"
+  ],
+  "requestPane.file.selected": [
+    "File",
+    "Selected"
+  ],
+  "requestPane.grpc.defaultMessageName": [
+    "name: name ? name : `message $index + 1`,",
+    "name: `message $currentMessages.length + 1`,"
+  ],
+  "requestPane.grpc.importPathDisabled": [
+    "disabled",
+    "Import path disabled"
+  ],
+  "requestPane.grpc.importPathEnabled": [
+    "disabled",
+    "Import path enabled"
+  ],
+  "requestPane.headers.openHeadersIn": [
+    "text=`Open headers in $sourceLabel`",
+    "aria-label=`Open headers in $sourceLabel`"
+  ],
+  "requestPane.oauth2.basicAuthHeader": [
+    "body",
+    "credentialsPlacement"
+  ],
+  "requestPane.oauth2.requestBody": [
+    "Add Credentials to",
+    "Request Body"
+  ],
+  "requestPane.oauth2.settings": [
+    "font-medium",
+    "oauth2-section-label"
+  ],
+  "requestPane.queryBuilder.loadFromIntrospection": [
+    "Refresh from Introspection",
+    "Load from Introspection"
+  ],
+  "requestPane.queryBuilder.tryAgain": [
+    "The Query Builder encountered an unexpected error. Try reloading the schema or manually using the editor.",
+    "Try Again"
+  ],
+  "requestPane.varsTable.expr": [
+    "Value",
+    "You can write any valid JS expression here",
+    ") ? (varType === "
+  ],
+  "requestPane.ws.defaultMessageName": [
+    "name: `message $currentMessages.length + 1`,",
+    "const displayName = name || `message $index + 1`;",
+    "",
+    "name: name || `message $index + 1`,"
+  ],
+  "requestPane.ws.notYet": [
+    "OAuth 2 not yet supported by WebSockets. Using no auth instead.",
+    "OAuth 1.0"
+  ],
+  "sidebar.changeVersion.notSet": [
+    "col-label",
+    "-- a/packages/bruno-app/src/components/Sidebar/Collections/Collection/CloneCollection/index.js"
+  ],
+  "sidebar.changeVersion.title": [
+    "sm",
+    "customHeader=Change Collection Version"
+  ],
+  "sidebar.create": [
+    "Clone Collection",
+    "Create"
+  ],
+  "sidebar.goldenEdition.oneTimePayment": [
+    "bg-yellow-200 text-black rounded-md px-2 py-1 mb-2 inline-flex",
+    "ml-2"
+  ],
+  "sidebar.goldenEdition.title": [
+    "sm",
+    "Golden Edition"
+  ],
+  "sidebar.import.title": [
+    "md",
+    "Import Collection"
+  ],
+  "sidebar.locationHelp1": [
+    "Choose the location where you want to store this collection.",
+    "mt-2"
+  ],
+  "sidebar.name": [
+    "Create",
+    "Rename",
+    "Create Collection",
+    "Name"
+  ],
+  "sidebar.newFolder.folderName": [
+    "New Folder",
+    "font-normal text-muted ml-1",
+    "Folder Name"
+  ],
+  "sidebar.newRequest.fileName": [
+    "font-normal text-muted ml-1",
+    "File Name"
+  ],
+  "sidebar.newRequest.onFilesystem": [
+    "You can choose to save the folder as a different name on your file system versus what is displayed in the app.",
+    "rules."
+  ],
+  "sidebar.validation.folderNameRequired": [
+    "folder name is required",
+    "foldername is required"
+  ],
+  "sidebar.validation.locationRequired": [
+    "location is required",
+    "Location is required"
+  ],
+  "sidebar.validation.max255": [
+    "must be 255 characters or less",
+    "Must be 255 characters or less"
+  ],
+  "sidebar.validation.min1Char": [
+    "must be at least 1 character",
+    "Must be at least 1 character",
+    "folder"
+  ],
+  "sidebar.validation.nameRequired": [
+    "collection name is required",
+    "name is required"
+  ],
+  "workspace.validation.locationRequired": [
+    "Folder name is required",
+    "Location is required"
+  ],
+  "workspace.validation.maxTwoFiftyFive": [
+    "Must be 255 characters or less",
+    "Must be at least 1 character"
+  ]
+}

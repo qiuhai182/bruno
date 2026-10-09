@@ -10,6 +10,7 @@ import {
 } from 'providers/ReduxStore/slices/collections';
 import get from 'lodash/get';
 import Button from 'ui/Button';
+import { useTranslation } from 'react-i18next';
 import { getMockResponseDescriptionError, getMockResponseNameInputError } from 'utils/mock-server/mock-responses';
 
 const MockResponseTopBar = ({
@@ -24,6 +25,7 @@ const MockResponseTopBar = ({
   copiedFrom
 }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const example = useMemo(() => {
     return item.draft
@@ -69,7 +71,7 @@ const MockResponseTopBar = ({
                     value={example?.name || ''}
                     onChange={handleNameChange}
                     className="example-input example-input-name"
-                    placeholder="Mock response name"
+                    placeholder={t('mockServer.topBar.namePlaceholder')}
                     autoFocus
                     data-testid="mock-response-name-input"
                   />
@@ -82,7 +84,7 @@ const MockResponseTopBar = ({
                     value={example?.description || ''}
                     onChange={handleDescriptionChange}
                     className="example-input example-input-description"
-                    placeholder="Description"
+                    placeholder={t('mockServer.responses.descriptionLabel')}
                     rows={3}
                     data-testid="mock-response-description-input"
                   />
@@ -92,7 +94,7 @@ const MockResponseTopBar = ({
                 </div>
                 {copiedFrom?.exampleName ? (
                   <div className="text-xs opacity-60">
-                    Copied from example: {copiedFrom.exampleName}
+                    {t('mockServer.topBar.copiedFrom', { name: copiedFrom.exampleName })}
                   </div>
                 ) : null}
               </div>
@@ -105,7 +107,7 @@ const MockResponseTopBar = ({
                 onClick={onCancel}
                 data-testid="mock-response-cancel-btn"
               >
-                Cancel
+                {t('mockServer.topBar.cancel')}
               </Button>
               <Button
                 color="primary"
@@ -115,7 +117,7 @@ const MockResponseTopBar = ({
                 disabled={Boolean(nameError || descriptionError)}
                 data-testid="mock-response-save-btn"
               >
-                Save
+                {t('mockServer.create.save')}
               </Button>
             </div>
           </div>
@@ -139,14 +141,14 @@ const MockResponseTopBar = ({
                 className="response-example-description-container max-w-full"
                 textClassName="response-example-description leading-relaxed max-w-full"
                 buttonClassName="text-blue-600 hover:text-blue-800 font-medium"
-                viewMoreText="View More"
-                viewLessText="View Less"
+                viewMoreText={t('mockServer.topBar.viewMore')}
+                viewLessText={t('mockServer.topBar.viewLess')}
                 dataTestId="mock-response-description"
               />
             ) : null}
             {copiedFrom?.exampleName ? (
               <div className="text-xs opacity-60 mt-1">
-                Copied from example: {copiedFrom.exampleName}
+                {t('mockServer.topBar.copiedFrom', { name: copiedFrom.exampleName })}
               </div>
             ) : null}
           </div>
@@ -159,7 +161,7 @@ const MockResponseTopBar = ({
               onClick={onEditToggle}
               data-testid="mock-response-edit-btn"
             >
-              Edit
+              {t('mockServer.topBar.edit')}
             </Button>
             <Button
               variant="outline"
@@ -168,7 +170,7 @@ const MockResponseTopBar = ({
               onClick={onDelete}
               data-testid="mock-response-delete-btn"
             >
-              Delete
+              {t('mockServer.delete.label')}
             </Button>
           </div>
         </div>

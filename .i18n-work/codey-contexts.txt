@@ -1,0 +1,527 @@
+===== collection.auth.oauth2.tbd  (components\CollectionSettings\Auth\OAuth2\index.js)
+
+      break;
+    case 'implicit':
+      return <OAuth2Implicit save={save} request={request} updateAuth={updateCollectionAuth} collection={collection} />;
+      break;
+    default:
+      return <div>{t('collection.auth.oauth2.tbd')}</div>;
+      break;
+  }
+
+===== collection.common.removeFile  (components\CollectionSettings\ClientCertSettings\index.js)
+
+          <div className="file-chip" data-testid={`file-chip-${name}`}>
+            <IconFile size={14} strokeWidth={1.5} className="flex-shrink-0" />
+            <span className="truncate max-w-[260px]" title={value}>
+              {path.basename(value)}
+            </span>
+            <ActionIcon type="button" label={t('collection.common.removeFile')} size="sm" colorOnHover={dangerColor} onClick={onClear}>
+              <IconX size={14} strokeWidth={1.5} />
+            </ActionIcon>
+
+===== collection.overview.change  (components\CollectionSettings\Overview\Info\index.js)
+
+                    </span>
+                  </ToolHint>
+                ) : (
+                  <span className="text-muted italic" data-testid="info-version-value">{t('collection.overview.notSet')}</span>
+                )}
+                <span className="group-hover:underline text-link" data-testid="info-version-change">{t('collection.overview.change')}</span>
+              </div>
+            </div>
+
+===== collection.presets.defaultBaseUrl  (components\CollectionSettings\Presets\index.js)
+
+            size="sm"
+          />
+        </div>
+
+        <div className="preset-field">
+          <label className="preset-field-label" htmlFor="request-url">{t('collection.presets.defaultBaseUrl')}</label>
+          <p className="preset-field-subtitle">{t('collection.presets.defaultBaseUrlSubtitle')}</p>
+          <input
+
+===== collection.presets.defaultEnvironment  (components\CollectionSettings\Presets\index.js)
+
+            value={currentPresets.requestUrl || ''}
+          />
+        </div>
+
+        <div className="preset-field">
+          <label className="preset-field-label" htmlFor="default-environment">{t('collection.presets.defaultEnvironment')}</label>
+          <p className="preset-field-subtitle">{t('collection.presets.defaultEnvironmentSubtitle')}</p>
+          <div className="default-env-dropdown">
+
+===== collection.presets.defaultRequestType  (components\CollectionSettings\Presets\index.js)
+
+
+  return (
+    <StyledWrapper className="h-full w-full">
+      <div className="bruno-form">
+        <div className="preset-field">
+          <label className="preset-field-label">{t('collection.presets.defaultRequestType')}</label>
+          <p className="preset-field-subtitle">{t('collection.presets.defaultRequestTypeSubtitle')}</p>
+          <SegmentedControl
+
+===== collection.presets.defaultRequestTypeSubtitle  (components\CollectionSettings\Presets\index.js)
+
+  return (
+    <StyledWrapper className="h-full w-full">
+      <div className="bruno-form">
+        <div className="preset-field">
+          <label className="preset-field-label">{t('collection.presets.defaultRequestType')}</label>
+          <p className="preset-field-subtitle">{t('collection.presets.defaultRequestTypeSubtitle')}</p>
+          <SegmentedControl
+            ariaLabel={t('collection.presets.defaultRequestType')}
+
+===== collection.proxy.disabled  (components\CollectionSettings\ProxySettings\index.js)
+
+            <InfoTip infotipId="request-var">
+              <div>
+                <ul>
+                  <li><span style={{ width: '50px', display: 'inline-block' }}>{t('collection.proxy.inherit')}</span> - {t('collection.proxy.inheritTip')}</li>
+                  <li><span style={{ width: '50px', display: 'inline-block' }}>{t('collection.proxy.enabled')}</span> - {t('collection.proxy.enabledTip')}</li>
+                  <li><span style={{ width: '50px', display: 'inline-block' }}>{t('collection.proxy.disabled')}</span> - {t('collection.proxy.disabledTip')}</li>
+                </ul>
+              </div>
+
+===== collection.proxy.enabled  (components\CollectionSettings\ProxySettings\index.js)
+
+            {t('collection.proxy.config')}
+            <InfoTip infotipId="request-var">
+              <div>
+                <ul>
+                  <li><span style={{ width: '50px', display: 'inline-block' }}>{t('collection.proxy.inherit')}</span> - {t('collection.proxy.inheritTip')}</li>
+                  <li><span style={{ width: '50px', display: 'inline-block' }}>{t('collection.proxy.enabled')}</span> - {t('collection.proxy.enabledTip')}</li>
+                  <li><span style={{ width: '50px', display: 'inline-block' }}>{t('collection.proxy.disabled')}</span> - {t('collection.proxy.disabledTip')}</li>
+                </ul>
+
+===== collection.proxy.inherit  (components\CollectionSettings\ProxySettings\index.js)
+
+          <label className="settings-label flex items-center" htmlFor="enabled">
+            {t('collection.proxy.config')}
+            <InfoTip infotipId="request-var">
+              <div>
+                <ul>
+                  <li><span style={{ width: '50px', display: 'inline-block' }}>{t('collection.proxy.inherit')}</span> - {t('collection.proxy.inheritTip')}</li>
+                  <li><span style={{ width: '50px', display: 'inline-block' }}>{t('collection.proxy.enabled')}</span> - {t('collection.proxy.enabledTip')}</li>
+                  <li><span style={{ width: '50px', display: 'inline-block' }}>{t('collection.proxy.disabled')}</span> - {t('collection.proxy.disabledTip')}</li>
+
+===== devtools.performance.currentCpu  (components\Devtools\Performance\index.js)
+
+      <div className="resource-cards">
+        <SystemResourceCard
+          icon={IconCpu}
+          title={t('devtools.performance.cpuUsage')}
+          value={`${process.cpu.toFixed(1)}%`}
+          subtitle={t('devtools.performance.currentCpu')}
+          color={process.cpu > 80 ? 'danger' : process.cpu > 60 ? 'warning' : 'success'}
+        />
+
+===== devtools.performance.currentMemory  (components\Devtools\Performance\index.js)
+
+
+        <SystemResourceCard
+          icon={IconDatabase}
+          title={t('devtools.performance.memoryUsage')}
+          value={formatBytes(process.memory)}
+          subtitle={t('devtools.performance.currentMemory')}
+          color={process.memory > (500 * 1024 * 1024) ? 'danger' : 'default'}
+        />
+
+===== devtools.performance.processPid  (components\Devtools\Performance\index.js)
+
+
+        <SystemResourceCard
+          icon={IconServer}
+          title={t('devtools.performance.processId')}
+          value={process.pid}
+          subtitle={t('devtools.performance.processPid')}
+          color="default"
+        />
+
+===== devtools.requestDetails.noHeaders  (components\Devtools\Console\RequestDetailsPanel\index.js)
+
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <div className="empty-state">{t('devtools.requestDetails.noHeaders')}</div>
+        )}
+      </div>
+
+===== devtools.requestDetails.noNetworkLogs  (components\Devtools\Console\RequestDetailsPanel\index.js)
+
+        <h4>{t('devtools.requestDetails.networkLogs')}</h4>
+        <div className="network-logs-wrapper">
+          {timeline.length > 0 ? (
+            <Network logs={timeline} />
+          ) : (
+            <div className="empty-state">{t('devtools.requestDetails.noNetworkLogs')}</div>
+          )}
+        </div>
+
+===== devtools.requestDetails.noResponseData  (components\Devtools\Console\RequestDetailsPanel\index.js)
+
+              headers={response.headers}
+              error={response.error}
+              disableRunEventListener={true}
+            />
+          ) : (
+            <div className="empty-state">{t('devtools.requestDetails.noResponseData')}</div>
+          )}
+        </div>
+
+===== devtools.terminal.loadingSessions  (components\Devtools\Console\TerminalTab\index.js)
+
+              title={t('devtools.terminal.newSession')}
+            />
+          </div>
+          <div className="terminal-sessions-list">
+            {isLoading ? (
+              <div style={{ padding: '12px', color: '#888', fontSize: '13px' }}>{t('devtools.terminal.loadingSessions')}</div>
+            ) : sessions.length === 0 ? (
+              <div style={{ padding: '12px', color: '#888', fontSize: '13px' }}>{t('devtools.terminal.noActiveSessions')}</div>
+
+===== devtools.terminal.noActiveSessions  (components\Devtools\Console\TerminalTab\index.js)
+
+          </div>
+          <div className="terminal-sessions-list">
+            {isLoading ? (
+              <div style={{ padding: '12px', color: '#888', fontSize: '13px' }}>{t('devtools.terminal.loadingSessions')}</div>
+            ) : sessions.length === 0 ? (
+              <div style={{ padding: '12px', color: '#888', fontSize: '13px' }}>{t('devtools.terminal.noActiveSessions')}</div>
+            ) : (
+              <SessionList
+
+===== environments.inheritance.circular  (components\Environments\Common\EnvironmentInheritanceWarning\index.js)
+
+    }
+
+    if (cyclicInheritancePath) {
+      return {
+        testId: 'env-cyclic-inherited-environment',
+        content: t('environments.inheritance.circular', { path: cyclicInheritancePath.join(' \u2192 ') })
+      };
+    }
+
+===== environments.validation.alreadyExists  (components\Environments\EnvironmentSettings\CreateEnvironment\index.js)
+
+        .test('is-valid-filename', function (value) {
+          const isValid = validateName(value);
+          return isValid ? true : this.createError({ message: validateNameError(value) });
+        })
+        .required(t('environments.validation.nameRequired'))
+        .test('duplicate-name', t('environments.validation.alreadyExists'), validateEnvironmentName)
+    }),
+    onSubmit: (values) => {
+
+===== environments.validation.globalAlreadyExists  (components\WorkspaceHome\WorkspaceEnvironments\CreateEnvironment\index.js)
+
+        .test('is-valid-filename', function (value) {
+          const isValid = validateName(value);
+          return isValid ? true : this.createError({ message: validateNameError(value) });
+        })
+        .required(t('environments.validation.nameRequired'))
+        .test('duplicate-name', t('environments.validation.globalAlreadyExists'), validateEnvironmentName)
+    }),
+    onSubmit: (values) => {
+
+===== notifications.menuAriaLabel  (components\Notifications\NotificationsModal\NotificationTabs.js)
+
+  const { t } = useTranslation();
+  const dropdownTippyRef = useRef(null);
+  const onDropdownCreate = (ref) => (dropdownTippyRef.current = ref);
+  const hideDropdown = () => dropdownTippyRef.current?.hide();
+  const menuIcon = (
+    <span className="notif-menu-trigger" aria-label={t('notifications.menuAriaLabel')}>
+      <IconDotsVertical size={16} strokeWidth={1.5} />
+    </span>
+
+===== preferences.ai.autocomplete.triggerAria  (components\Preferences\AI\AutocompletePane.js)
+
+              {activeTrigger
+                ? t(activeTrigger.descriptionKey, { modifier: getPlatformModifierKey() })
+                : ''}
+            </span>
+          </div>
+          <div className="trigger-pills inline-flex" role="radiogroup" aria-label={t('preferences.ai.autocomplete.triggerAria')}>
+            {TRIGGER_MODES.map((m) => {
+              const isSelected = (triggerMode || 'debounced') === m.value;
+
+===== requestPane.errorOccurred  (components\RequestPane\HttpRequestPane\index.js)
+
+    const Component = TAB_PANELS[effectiveTab];
+    return Component ? <Component key={item.uid} item={item} collection={collection} /> : <div className="mt-4">{t('requestPane.tabNotFound')}</div>;
+  }, [t, effectiveTab, item, collection]);
+
+  if (!activeTabUid || !focusedTab?.uid || !requestPaneTab) {
+    return <div className="pb-4 px-4">{t('requestPane.errorOccurred')}</div>;
+  }
+
+
+===== requestPane.grpc.errorOccurred  (components\RequestPane\GrpcRequestPane\index.js)
+
+    }
+  }, [activeTabUid, focusedTab?.uid, requestPaneTab, selectTab]);
+
+  // Return error for truly missing active/focused tabs
+  if (!activeTabUid || !focusedTab?.uid) {
+    return <div className="pb-4 px-4">{t('requestPane.grpc.errorOccurred')}</div>;
+  }
+
+
+===== requestPane.grpc.noAuth  (components\RequestPane\GrpcRequestPane\GrpcAuth\index.js)
+
+  }, [authMode, collection.uid, dispatch, item.uid]);
+
+  const getAuthView = () => {
+    switch (authMode) {
+      case 'none': {
+        return <div>{t('requestPane.grpc.noAuth')}</div>;
+      }
+      case 'basic': {
+
+===== requestPane.ws.errorOccurred  (components\RequestPane\WSRequestPane\index.js)
+
+      }
+    }
+  }, [requestPaneTab, item, collection, handleRun, addNewMessage, t]);
+
+  if (!activeTabUid || !focusedTab?.uid || !requestPaneTab) {
+    return <div className="pb-4 px-4">{t('requestPane.ws.errorOccurred')}</div>;
+  }
+
+
+===== requestPane.ws.noAuth  (components\RequestPane\WSRequestPane\WSAuth\index.js)
+
+  }, [authMode, collection.uid, dispatch, item.uid]);
+
+  const getAuthView = () => {
+    switch (authMode) {
+      case 'none': {
+        return <div>{t('requestPane.ws.noAuth')}</div>;
+      }
+      case 'basic': {
+
+===== requestPane.queryBuilder.failedToLoadSchema  (components\RequestPane\QueryBuilder\index.js)
+
+      <StyledWrapper>
+        <div className="schema-empty-state">
+          {schemaError ? (
+            <>
+              <IconAlertTriangle size={32} strokeWidth={1.5} className="empty-state-icon warning" />
+              <div className="empty-state-title">{t('requestPane.queryBuilder.failedToLoadSchema')}</div>
+              <div className="empty-state-description">{schemaError.message}</div>
+              <div className="empty-state-actions">
+
+===== requestPane.queryBuilder.noSchemaLoaded  (components\RequestPane\QueryBuilder\index.js)
+
+                </Button>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="empty-state-title">{t('requestPane.queryBuilder.noSchemaLoaded')}</div>
+              <div className="empty-state-description">
+                {t('requestPane.queryBuilder.noSchemaDescription')}
+
+===== requestPane.queryBuilder.somethingWentWrong  (components\RequestPane\QueryBuilder\ErrorBoundary.js)
+
+    if (this.state.hasError) {
+      return (
+        <StyledWrapper>
+          <div className="schema-empty-state">
+            <IconAlertTriangle size={32} strokeWidth={1.5} className="empty-state-icon warning" />
+            <div className="empty-state-title">{i18n.t('requestPane.queryBuilder.somethingWentWrong')}</div>
+            <div className="empty-state-description">
+              {i18n.t('requestPane.queryBuilder.errorBoundaryDescription')}
+
+===== sidebar.bulkImport.groupingTags  (components\Sidebar\BulkImportCollectionLocation\index.js)
+
+  const [selectedError, setSelectedError] = useState(null);
+  const [applyToGlobal, setApplyToGlobal] = useState(true);
+  const [applyToCollection, setApplyToCollection] = useState(false);
+  const [groupingType, setGroupingType] = useState('tags');
+  const groupingOptions = [
+    { value: 'tags', label: t('sidebar.bulkImport.groupingTags'), description: t('sidebar.bulkImport.groupingTagsDesc'), testId: 'grouping-option-tags' },
+    { value: 'path', label: t('sidebar.bulkImport.groupingPaths'), description: t('sidebar.bulkImport.groupingPathsDesc'), testId: 'grouping-option-path' }
+  ];
+
+===== sidebar.changeVersion.collectionLabel  (components\Sidebar\Collections\Collection\ChangeCollectionVersion\index.js)
+
+        confirmDisabled={!canSubmit || isSaving}
+        dataTestId="change-version"
+      >
+        <StyledWrapper className="w-[560px]">
+          <div className="subheader" data-testid="change-version-collection">
+            {t('sidebar.changeVersion.collectionLabel')}
+            <span className="collection-name">{collection.name}</span>
+          </div>
+
+===== sidebar.changeVersion.title  (components\Sidebar\Collections\Collection\ChangeCollectionVersion\index.js)
+
+const CollectionNotFound = ({ onClose }) => {
+  const { t } = useTranslation();
+
+  return (
+    <Portal>
+      <Modal size="sm" title={t('sidebar.changeVersion.title')} confirmText={t('common.close')} handleConfirm={onClose} hideCancel>
+        <StyledWrapper className="w-[480px]">
+          <div className="flex items-center gap-2 text-warning">
+
+===== sidebar.docs.allRequests  (components\Sidebar\Collections\Collection\GenerateDocumentation\Advanced\index.jsx)
+
+  const requestsLabelId = useId();
+
+  const tagsHint = t('sidebar.docs.tagsHint');
+
+  const requestModeItems = [
+    { 'value': 'all', 'label': t('sidebar.docs.allRequests'), 'className': 'seg-option', 'data-testid': 'docs-requests-all' },
+    {
+      'value': 'tags',
+
+===== sidebar.docs.notSet  (components\Sidebar\Collections\Collection\GenerateDocumentation\CollectionVersionInfo\index.js)
+
+
+  return (
+    <div className="version-info" data-testid="version-info">
+      <div className="version-line">
+        <span className="collection-name" data-testid="collection-name">{name}</span>
+        <span className={`version-value ${version ? '' : 'unset'}`} data-testid="version-value">{t('sidebar.docs.versionLabel', { version: version || t('sidebar.docs.notSet') })}</span>
+      </div>
+      <p className="version-summary" data-testid="version-summary">
+
+===== sidebar.docs.title  (components\Sidebar\Collections\Collection\GenerateDocumentation\index.js)
+
+const CollectionNotFound = ({ onClose }) => {
+  const { t } = useTranslation();
+
+  return (
+    <Portal>
+      <Modal size="md" title={t('sidebar.docs.title')} confirmText={t('common.close')} handleConfirm={onClose} hideCancel>
+        <StyledWrapper>
+          <div className="flex items-center gap-2 text-warning">
+
+===== sidebar.exportToPostman.fileExists  (components\Sidebar\Collections\Collection\ExportCollection\ExportToPostman\index.js)
+
+    }),
+    onSubmit: (values) => handleExport(values, false)
+  });
+
+  // a conflicting filename is tracked for showing error
+  const fileExists = formik.errors.fileName === t('sidebar.exportToPostman.fileExists');
+
+  async function handleExport(values, overwrite) {
+
+===== sidebar.fileFormat.bruDesc  (components\Sidebar\CreateCollection\index.js)
+
+                      </p>
+                      <p className="mt-2">
+                        <strong>{t('sidebar.fileFormat.ocTitle')}</strong> {t('sidebar.fileFormat.ocDesc')}
+                      </p>
+                      <p className="mt-1">
+                        <strong>{t('sidebar.fileFormat.bruTitle')}</strong> {t('sidebar.fileFormat.bruDesc')}
+                      </p>
+                    </Help>
+
+===== sidebar.fileFormat.bruTitle  (components\Sidebar\CreateCollection\index.js)
+
+                      </p>
+                      <p className="mt-2">
+                        <strong>{t('sidebar.fileFormat.ocTitle')}</strong> {t('sidebar.fileFormat.ocDesc')}
+                      </p>
+                      <p className="mt-1">
+                        <strong>{t('sidebar.fileFormat.bruTitle')}</strong> {t('sidebar.fileFormat.bruDesc')}
+                      </p>
+                    </Help>
+
+===== sidebar.goldenEdition.supportBruno  (components\Sidebar\GoldenEdition\index.js)
+
+            </div>
+          </div>
+          <ul role="list" className="space-y-3 text-left">
+            <li className="flex items-center space-x-3">
+              <HeartIcon />
+              <span>{t('sidebar.goldenEdition.supportBruno')}</span>
+            </li>
+            {pricingOption === 'individuals' ? (
+
+===== sidebar.import.groupingTags  (components\Sidebar\ImportCollectionLocation\index.js)
+
+    : (activeWorkspace?.pathname ? path.join(activeWorkspace.pathname, 'collections') : '');
+
+  const collectionName = getCollectionName(format, rawData);
+
+  const groupingOptions = [
+    { value: 'tags', label: t('sidebar.import.groupingTags'), description: t('sidebar.import.groupingTagsDesc'), testId: 'grouping-option-tags' },
+    { value: 'path', label: t('sidebar.import.groupingPaths'), description: t('sidebar.import.groupingPathsDesc'), testId: 'grouping-option-path' }
+  ];
+
+===== sidebar.import.loading2  (components\Sidebar\ImportCollection\FullscreenLoader\index.js)
+
+    if (!isLoading) return;
+
+    // Messages to cycle through while loading
+    const loadingMessages = [
+      t('sidebar.import.loading1'),
+      t('sidebar.import.loading2'),
+      t('sidebar.import.loading3'),
+      t('sidebar.import.loading4'),
+
+===== sidebar.moveToWorkspace.description  (components\Sidebar\Collections\Collection\MoveToWorkspace\index.js)
+
+        confirmDisabled={isMoving}
+        handleConfirm={onConfirm}
+        handleCancel={onClose}
+      >
+        <p className="mb-4">
+          {t('sidebar.moveToWorkspace.description', { name: activeWorkspace?.name })}
+        </p>
+        <div className="collection-info-card">
+
+===== sidebar.newRequest.fileNameHelp1  (components\Sidebar\NewRequest\index.js)
+
+              <div className="mt-4">
+                <div className="flex items-center justify-between">
+                  <label htmlFor="filename" className="flex items-center font-medium">
+                    {t('sidebar.newRequest.fileName')} <small className="font-normal text-muted ml-1">{t('sidebar.newRequest.onFilesystem')}</small>
+                    <Help width="300">
+                      <p>{t('sidebar.newRequest.fileNameHelp1')}</p>
+                      <p className="mt-2">
+                        {t('sidebar.newRequest.fileNameHelp2')}
+
+===== sidebar.postmanReport.customPackagesMid  (components\Sidebar\PostmanPackageReport\index.js)
+
+                <span className="pkg-devmode-title">{t('sidebar.postmanReport.externalModulesTitle')}</span>
+              </div>
+              <p className="pkg-devmode-desc">
+                {t('sidebar.postmanReport.customPackagesPrefix')}
+                {renderPackageExamples(installResult.installed || needsInstall, t)}
+                {t('sidebar.postmanReport.customPackagesMid')}
+                <strong>{t('sidebar.postmanReport.safeMode')}</strong>
+                {t('sidebar.postmanReport.customPackagesSuffix')}
+
+===== sidebar.postmanReport.customPackagesSuffix  (components\Sidebar\PostmanPackageReport\index.js)
+
+              <p className="pkg-devmode-desc">
+                {t('sidebar.postmanReport.customPackagesPrefix')}
+                {renderPackageExamples(installResult.installed || needsInstall, t)}
+                {t('sidebar.postmanReport.customPackagesMid')}
+                <strong>{t('sidebar.postmanReport.safeMode')}</strong>
+                {t('sidebar.postmanReport.customPackagesSuffix')}
+              </p>
+              <div className="pkg-devmode-trust">
+
+===== sidebar.postmanReport.safeMode  (components\Sidebar\PostmanPackageReport\index.js)
+
+              </div>
+              <p className="pkg-devmode-desc">
+                {t('sidebar.postmanReport.customPackagesPrefix')}
+                {renderPackageExamples(installResult.installed || needsInstall, t)}
+                {t('sidebar.postmanReport.customPackagesMid')}
+                <strong>{t('sidebar.postmanReport.safeMode')}</strong>
+                {t('sidebar.postmanReport.customPackagesSuffix')}
+              </p>

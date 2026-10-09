@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import toast from 'react-hot-toast';
+import { useTranslation } from 'react-i18next';
 import { updateRequestPaneTabWidth } from 'providers/ReduxStore/slices/tabs';
 import {
   initMockResponseEditor,
@@ -34,6 +35,7 @@ const MIN_BOTTOM_PANE_HEIGHT = 150;
 
 const MockResponse = ({ instance, collection, responseUid }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const collections = useSelector((state) => state.collections.collections);
   const workspaces = useSelector((state) => state.workspaces.workspaces);
   const activeWorkspaceUid = useSelector((state) => state.workspaces.activeWorkspaceUid);
@@ -110,7 +112,7 @@ const MockResponse = ({ instance, collection, responseUid }) => {
         await dispatch(loadMockResponses(location)).unwrap();
       } catch (err) {
         if (!cancelled) {
-          toast.error(err.message || 'Failed to load mock response');
+          toast.error(err.message || t('mockServer.responses.loadFailed'));
         }
       } finally {
         if (!cancelled) {
@@ -252,9 +254,9 @@ const MockResponse = ({ instance, collection, responseUid }) => {
         responseName: result.response.name
       }));
       setEditMode(false);
-      toast.success('Mock response saved');
+      toast.success(t('mockServer.responses.saved'));
     } catch (err) {
-      toast.error(err.message || 'Failed to save mock response');
+      toast.error(err.message || t('mockServer.responses.saveFailed'));
     } finally {
       setIsSaving(false);
     }
@@ -272,9 +274,9 @@ const MockResponse = ({ instance, collection, responseUid }) => {
         responseUid
       })).unwrap();
       dispatch(closeTabs({ tabUids: [responseUid] }));
-      toast.success('Mock response deleted');
+      toast.success(t('mockServer.responses.deleted'));
     } catch (err) {
-      toast.error(err.message || 'Failed to delete mock response');
+      toast.error(err.message || t('mockServer.responses.deleteFailed'));
     }
   };
 
@@ -302,15 +304,15 @@ const MockResponse = ({ instance, collection, responseUid }) => {
         workspacePath: resolveMockServerWorkspacePath(storedInstance, workspaces, activeWorkspace)
       }))).unwrap();
       await dispatch(syncMockServerState(location));
-      toast.success(`Mock server started at ${result.baseUrl}`);
+      toast.success(t('mockServer.dashboard.startedAt', { baseUrl: result.baseUrl }));
     } catch (err) {
-      toast.error(err.message || 'Failed to start mock server');
+      toast.error(err.message || t('mockServer.dashboard.startFailed'));
     }
   };
 
   const handleTry = async () => {
     if (!isServerRunning || !mockServerPort) {
-      toast.error('Start the mock server before trying this response');
+      toast.error(t('mockServer.responses.tryRequiresServer'));
       return;
     }
 
@@ -318,7 +320,7 @@ const MockResponse = ({ instance, collection, responseUid }) => {
       || item?.examples?.find((entry) => entry.uid === responseUid);
 
     if (!example?.request?.url) {
-      toast.error('Set a request URL before trying this response');
+      toast.error(t('mockServer.responses.tryRequiresUrl'));
       return;
     }
 
@@ -334,9 +336,9 @@ const MockResponse = ({ instance, collection, responseUid }) => {
         uid: responseUid,
         responsePaneTab: 'try-result'
       }));
-      toast.success(`Mock returned ${result.status} ${result.statusText || ''}`.trim());
+      toast.success(t('mockServer.responses.tryResult', { status: result.status, statusText: result.statusText || '' }).trim());
     } catch (err) {
-      toast.error(err.message || 'Could not reach the mock server');
+      toast.error(err.message || t('mockServer.responses.tryFailed'));
     } finally {
       setIsTrying(false);
     }
@@ -364,12 +366,12 @@ const MockResponse = ({ instance, collection, responseUid }) => {
       || item?.examples?.find((entry) => entry.uid === responseUid);
 
     if (!example?.request?.url) {
-      toast.error('Set a request URL before opening it as a request');
+      toast.error(t('mockServer.responses.openAsRequestRequiresUrl'));
       return;
     }
 
     if (!resolvedCollection?.uid) {
-      toast.error('Open a collection in this workspace to create a request');
+      toast.error(t('mockServer.responses.openCollectionFirst'));
       return;
     }
 
@@ -379,7 +381,7 @@ const MockResponse = ({ instance, collection, responseUid }) => {
       requestUrl: demoRequest.url,
       params: demoRequest.params
     });
-    const requestName = resolveTransientRequestName(resolvedCollection, storedResponse?.name || 'Mock Request');
+    const requestName = resolveTransientRequestName(resolvedCollection, storedResponse?.name || t('mockServer.responses.defaultRequestName'));
 
     try {
       await dispatch(newHttpRequest({
@@ -394,29 +396,29 @@ const MockResponse = ({ instance, collection, responseUid }) => {
         headers: demoRequest.headers,
         ...(demoRequest.body ? { body: { mode: 'json', json: demoRequest.body.content } } : {})
       }));
-      toast.success('Opened demo request in a new tab');
+      toast.success(t('mockServer.responses.demoRequestOpened'));
     } catch (err) {
-      toast.error(err.message || 'Failed to open the demo request');
+      toast.error(err.message || t('mockServer.responses.openDemoRequestFailed'));
     }
   };
 
   if (isLoading) {
-    return <div className="p-4 text-sm opacity-70">Loading mock response...</div>;
+    return <div className="p-4 text-sm opacity-70">{t('mockServer.responses.loading')}</div>;
   }
 
   if (!storedResponse) {
     return (
       <div className="p-4">
-        <div className="font-medium">Mock response not found</div>
+        <div className="font-medium">{t('mockServer.responses.notFoundTitle')}</div>
         <div className="text-sm mt-2 opacity-70">
-          It may have been deleted. Return to the mock server dashboard and refresh responses.
+          {t('mockServer.responses.notFoundText')}
         </div>
       </div>
     );
   }
 
   if (!item || !editorCollection) {
-    return <div className="p-4 text-sm opacity-70">Loading mock response...</div>;
+    return <div className="p-4 text-sm opacity-70">{t('mockServer.responses.loading')}</div>;
   }
 
   return (
@@ -479,7 +481,7 @@ const MockResponse = ({ instance, collection, responseUid }) => {
             editMode={editMode}
             exampleUid={exampleUid}
             onSave={handleSave}
-            expectedResponseLabel="Expected"
+            expectedResponseLabel={t('mockServer.responses.expectedLabel')}
             tryResult={tryResult}
           />
         </section>

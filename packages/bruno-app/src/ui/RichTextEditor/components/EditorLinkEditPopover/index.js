@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef, forwardRef } from 'react';
 import Button from 'ui/Button';
+import { useTranslation } from 'react-i18next';
 import StyledWrapper from './StyledWrapper';
 
 const EditorLinkEditPopover = forwardRef(({ isOpen, onClose, onSubmit, initialText, initialUrl }, ref) => {
+  const { t } = useTranslation();
   const [text, setText] = useState(initialText || '');
   const [url, setUrl] = useState(initialUrl || '');
   const urlInputRef = useRef(null);
@@ -75,20 +77,20 @@ const EditorLinkEditPopover = forwardRef(({ isOpen, onClose, onSubmit, initialTe
     >
       <div data-testid="editor-link-popover" className="editor-link-popover-content">
         <div>
-          <label htmlFor="linkText">Text</label>
+          <label htmlFor="linkText">{t('richText.link.text')}</label>
           <input
             id="linkText"
             type="text"
             className="popover-input"
             value={text}
             onChange={(e) => setText(e.target.value)}
-            placeholder="Text to display"
+            placeholder={t('richText.link.textPlaceholder')}
             autoComplete="off"
             spellCheck="false"
           />
         </div>
         <div>
-          <label htmlFor="linkUrl">URL</label>
+          <label htmlFor="linkUrl">{t('richText.link.url')}</label>
           <input
             id="linkUrl"
             ref={urlInputRef}
@@ -109,7 +111,7 @@ const EditorLinkEditPopover = forwardRef(({ isOpen, onClose, onSubmit, initialTe
             size="sm"
             onClick={onClose}
           >
-            Cancel
+            {t('common.cancel')}
           </Button>
           <Button
             type="button"
@@ -118,7 +120,7 @@ const EditorLinkEditPopover = forwardRef(({ isOpen, onClose, onSubmit, initialTe
             onClick={handleConfirm}
             disabled={!url.trim()}
           >
-            {initialUrl ? 'Save' : 'Insert'}
+            {initialUrl ? t('common.save') : t('richText.link.insert')}
           </Button>
         </div>
       </div>

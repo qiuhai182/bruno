@@ -1,4 +1,4 @@
-﻿import React, { useCallback, useMemo, useState, Fragment } from 'react';
+import React, { useCallback, useMemo, useState, Fragment } from 'react';
 import { useSelector } from 'react-redux';
 import { cloneDeep } from 'lodash';
 import * as FileSaver from 'file-saver';

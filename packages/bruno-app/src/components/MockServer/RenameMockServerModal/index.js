@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import toast from 'react-hot-toast';
+import { useTranslation } from 'react-i18next';
 import Portal from 'components/Portal';
 import Modal from 'components/Modal';
 import {
@@ -16,6 +17,7 @@ import {
 
 const RenameMockServerModal = ({ instance, onClose }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const inputRef = useRef();
   const activeWorkspaceUid = useSelector((state) => state.workspaces.activeWorkspaceUid);
   const storedInstance = useSelector((state) => (
@@ -31,14 +33,14 @@ const RenameMockServerModal = ({ instance, onClose }) => {
     validationSchema: Yup.object({
       name: Yup.string()
         .trim()
-        .min(1, 'Must be at least 1 character')
-        .max(255, 'Must be 255 characters or less')
+        .min(1, t('mockServer.create.min1'))
+        .max(255, t('mockServer.create.max255'))
         .test('is-valid-name', function (value) {
           const error = getMockServerNameError(value);
           return error ? this.createError({ message: error }) : true;
         })
-        .required('Name is required')
-        .test('duplicate-name', 'A mock server with this name already exists', (value) => (
+        .required(t('mockServer.create.nameRequired'))
+        .test('duplicate-name', t('mockServer.create.nameTaken'), (value) => (
           !isMockServerNameTaken(existingInstances, value, storedInstance.uid)
         ))
     }),
@@ -51,10 +53,10 @@ const RenameMockServerModal = ({ instance, onClose }) => {
       try {
         await dispatch(saveMockServerInstance(nextInstance));
         dispatch(updateMockServerTabName(nextInstance));
-        toast.success('Mock server renamed');
+        toast.success(t('mockServer.rename.renamed'));
         onClose();
       } catch (err) {
-        toast.error(err?.message || 'Failed to rename mock server');
+        toast.error(err?.message || t('mockServer.rename.failed'));
       }
     }
   });
@@ -75,8 +77,8 @@ const RenameMockServerModal = ({ instance, onClose }) => {
     <Portal>
       <Modal
         size="md"
-        title="Rename Mock Server"
-        confirmText="Rename"
+        title={t('mockServer.rename.title')}
+        confirmText={t('mockServer.rename.label')}
         handleConfirm={() => formik.handleSubmit()}
         handleCancel={handleCancel}
         dataTestId="mock-server-rename-modal"
@@ -84,7 +86,7 @@ const RenameMockServerModal = ({ instance, onClose }) => {
         <form className="bruno-form" onSubmit={(event) => event.preventDefault()}>
           <div>
             <label htmlFor="mock-server-rename-name" className="block font-medium">
-              Name
+              {t('mockServer.create.nameLabel')}
             </label>
             <input
               id="mock-server-rename-name"

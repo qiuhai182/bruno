@@ -1,4 +1,4 @@
-﻿ M packages/bruno-app/src/components/CollectionApp/index.js
+ M packages/bruno-app/src/components/CollectionApp/index.js
  M packages/bruno-app/src/components/CollectionSettings/Auth/ApiKeyAuth/index.js
  M packages/bruno-app/src/components/CollectionSettings/Auth/AuthMode/index.js
  M packages/bruno-app/src/components/CollectionSettings/Auth/AwsV4Auth/index.js

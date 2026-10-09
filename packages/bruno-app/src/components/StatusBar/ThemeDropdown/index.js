@@ -1,5 +1,6 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import Tippy from '@tippyjs/react';
+import { useTranslation } from 'react-i18next';
 import { IconCheck, IconSun, IconMoon, IconDeviceDesktop } from '@tabler/icons';
 import ToolHint from 'components/ToolHint';
 import { useTheme } from 'providers/Theme';
@@ -9,12 +10,13 @@ import StyledWrapper from './StyledWrapper';
 // Constants
 const MODES = ['light', 'dark', 'system'];
 const MODE_BUTTONS = [
-  { mode: 'light', icon: IconSun, title: 'Light' },
-  { mode: 'dark', icon: IconMoon, title: 'Dark' },
-  { mode: 'system', icon: IconDeviceDesktop, title: 'System' }
+  { mode: 'light', icon: IconSun, titleKey: 'statusBar.theme.light' },
+  { mode: 'dark', icon: IconMoon, titleKey: 'statusBar.theme.dark' },
+  { mode: 'system', icon: IconDeviceDesktop, titleKey: 'statusBar.theme.system' }
 ];
 
 const ThemeDropdown = ({ children }) => {
+  const { t } = useTranslation();
   // Dropdown state
   const [isOpen, setIsOpen] = useState(false);
   const [tooltipEnabled, setTooltipEnabled] = useState(true);
@@ -213,10 +215,10 @@ const ThemeDropdown = ({ children }) => {
     const isActiveSystemTheme = isSystemMode && ((isLight && displayedTheme === 'light') || (!isLight && displayedTheme === 'dark'));
 
     return (
-      <div className="theme-list" role="listbox" aria-label={label}>
+      <div className="theme-list" role="listbox" aria-label={t(label)}>
         <div className="theme-list-label">
-          {label}
-          {isActiveSystemTheme && <span className="active-badge">Active</span>}
+          {t(label)}
+          {isActiveSystemTheme && <span className="active-badge">{t('statusBar.theme.active')}</span>}
         </div>
         {themes.map((theme, index) => {
           const isActive = currentVariant === theme.id;
@@ -256,7 +258,7 @@ const ThemeDropdown = ({ children }) => {
             tabIndex={-1}
             onClick={() => handleModeSelect(btn.mode)}
             onMouseEnter={() => handleMouseEnter('mode', index)}
-            title={btn.title}
+            title={t(btn.titleKey)}
           >
             <Icon size={18} strokeWidth={1.5} />
           </button>
@@ -272,25 +274,25 @@ const ThemeDropdown = ({ children }) => {
         ref={menuRef}
         className={`theme-menu ${isSystemMode ? 'two-columns' : ''}`}
         role="dialog"
-        aria-label="Theme selector"
+        aria-label={t('statusBar.theme.selector')}
       >
         <div className="mode-section">
-          <div className="mode-label" id="mode-label">Appearance</div>
+          <div className="mode-label" id="mode-label">{t('statusBar.theme.appearance')}</div>
           {renderModeButtons()}
         </div>
 
         <div className={`theme-lists ${isSystemMode ? 'two-columns' : ''}`}>
           {(storedTheme === 'light' || isSystemMode)
-            && renderThemeList(lightThemes, true, themeVariantLight, 'Light theme')}
+            && renderThemeList(lightThemes, true, themeVariantLight, 'statusBar.theme.lightTheme')}
           {(storedTheme === 'dark' || isSystemMode)
-            && renderThemeList(darkThemes, false, themeVariantDark, 'Dark theme')}
+            && renderThemeList(darkThemes, false, themeVariantDark, 'statusBar.theme.darkTheme')}
         </div>
       </div>
     </StyledWrapper>
   );
 
   return (
-    <ToolHint text="Theme" toolhintId="ThemeDropdown" place="top" offset={10} hidden={!tooltipEnabled}>
+    <ToolHint text={t('statusBar.theme.theme')} toolhintId="ThemeDropdown" place="top" offset={10} hidden={!tooltipEnabled}>
       <Tippy
         content={menuContent}
         placement="top-start"

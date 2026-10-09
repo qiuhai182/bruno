@@ -1,4 +1,4 @@
-﻿diff --git a/packages/bruno-app/src/components/Sidebar/ApiSpecs/ApiSpecItem/index.js b/packages/bruno-app/src/components/Sidebar/ApiSpecs/ApiSpecItem/index.js
+diff --git a/packages/bruno-app/src/components/Sidebar/ApiSpecs/ApiSpecItem/index.js b/packages/bruno-app/src/components/Sidebar/ApiSpecs/ApiSpecItem/index.js
 index 17a171bbe..68a2d769d 100644
 --- a/packages/bruno-app/src/components/Sidebar/ApiSpecs/ApiSpecItem/index.js
 +++ b/packages/bruno-app/src/components/Sidebar/ApiSpecs/ApiSpecItem/index.js

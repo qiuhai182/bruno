@@ -1,0 +1,4485 @@
+{
+  "app.deprecation.contactPrefix": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/DeprecationWarning/index.js",
+    "candidates": [
+      " ",
+      "deprecation-warning",
+      "warning-icon",
+      "warning-text",
+      "_blank",
+      "noreferrer",
+      "mailto:support@usebruno.com",
+      "featureName",
+      "will be removed in",
+      ". They are deprecated and will no longer be supported. Learn more in",
+      "this post",
+      "or contact us at",
+      "support@usebruno.com",
+      "with questions."
+    ]
+  },
+  "app.deprecation.contactSuffix": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/DeprecationWarning/index.js",
+    "candidates": [
+      " ",
+      "warning-icon",
+      "warning-text",
+      "_blank",
+      "noreferrer",
+      "mailto:support@usebruno.com",
+      "featureName",
+      "will be removed in",
+      ". They are deprecated and will no longer be supported. Learn more in",
+      "this post",
+      "or contact us at",
+      "support@usebruno.com",
+      "with questions.",
+      "export default DeprecationWarning"
+    ]
+  },
+  "app.deprecation.thisPost": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/DeprecationWarning/index.js",
+    "candidates": [
+      " ",
+      "deprecation-warning",
+      "warning-icon",
+      "warning-text",
+      "_blank",
+      "noreferrer",
+      "mailto:support@usebruno.com",
+      "featureName",
+      "will be removed in",
+      ". They are deprecated and will no longer be supported. Learn more in",
+      "this post",
+      "or contact us at",
+      "support@usebruno.com",
+      "with questions."
+    ]
+  },
+  "app.importIssues.itemsSkipped": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Toast/ImportIssuesToast/index.js",
+    "candidates": [
+      "error",
+      "warning",
+      ", ",
+      "bottom-right",
+      "${errors.length} item(s) skipped",
+      "${warnings.length} warning(s)",
+      "const parts = []",
+      "errors.length",
+      "warnings.length"
+    ]
+  },
+  "app.importIssues.warningsCount": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Toast/ImportIssuesToast/index.js",
+    "candidates": [
+      "error",
+      "warning",
+      ", ",
+      "bottom-right",
+      "${errors.length} item(s) skipped",
+      "${warnings.length} warning(s)",
+      "const parts = []",
+      "errors.length",
+      "warnings.length"
+    ]
+  },
+  "app.titleBar.switchedToWorkspace": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/AppTitleBar/index.js",
+    "candidates": [
+      "Workspace opened successfully",
+      "Switched to ${getWorkspaceDisplayName(workspaces.find((w) => w.uid === workspaceUid)?.name)}",
+      "try"
+    ]
+  },
+  "app.titleBar.workspacesLabel": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/AppTitleBar/index.js",
+    "candidates": [
+      "label",
+      "Workspaces",
+      "create-workspace",
+      "Create workspace",
+      "open-workspace",
+      "// Add label and action items",
+      "leftSection: IconPlus,",
+      "onClick: handleCreateWorkspace",
+      "leftSection: IconFolder,"
+    ]
+  },
+  "collection.auth.apiKey.addTo": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/CollectionSettings/Auth/ApiKeyAuth/index.js",
+    "candidates": [
+      "value",
+      "placement",
+      "header",
+      "block mb-1",
+      "inline-flex items-center cursor-pointer auth-placement-selector w-fit",
+      "bottom-end",
+      "dropdown-item",
+      "theme=",
+      "storedTheme",
+      "onSave=",
+      "handleSave",
+      "onChange=",
+      "collection=",
+      "collection"
+    ]
+  },
+  "collection.auth.apiKey.key": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/CollectionSettings/Auth/ApiKeyAuth/index.js",
+    "candidates": [
+      "header",
+      "key",
+      "mt-2 w-full",
+      "block mb-1",
+      "single-line-editor-wrapper mb-3",
+      "Key",
+      "collection=",
+      "collection"
+    ]
+  },
+  "collection.auth.apiKey.value": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/CollectionSettings/Auth/ApiKeyAuth/index.js",
+    "candidates": [
+      "key",
+      "value",
+      "block mb-1",
+      "single-line-editor-wrapper mb-3",
+      "theme=",
+      "storedTheme",
+      "onSave=",
+      "handleSave",
+      "onChange=",
+      "collection=",
+      "collection",
+      "isCompact",
+      "Value"
+    ]
+  },
+  "collection.auth.authTab": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/CollectionSettings/Auth/index.js",
+    "candidates": [
+      " ",
+      "w-full h-full",
+      "text-xs mb-4 text-muted",
+      "font-medium",
+      "flex flex-grow justify-start items-center",
+      "mt-6",
+      "submit",
+      "sm",
+      "Configures authentication for the entire collection. This applies to all requests using the",
+      "Inherit",
+      "option in the",
+      "Auth",
+      "tab.",
+      "Save"
+    ]
+  },
+  "collection.auth.awsv4.accessKeyId": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/CollectionSettings/Auth/AwsV4Auth/index.js",
+    "candidates": [
+      "mt-2 w-full",
+      "block mb-1",
+      "single-line-editor-wrapper mb-3",
+      "Access Key ID",
+      "collection=",
+      "collection"
+    ]
+  },
+  "collection.auth.awsv4.profileName": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/CollectionSettings/Auth/AwsV4Auth/index.js",
+    "candidates": [
+      "block mb-1",
+      "single-line-editor-wrapper",
+      "theme=",
+      "storedTheme",
+      "onSave=",
+      "handleSave",
+      "onChange=",
+      "collection=",
+      "collection",
+      "isCompact",
+      "Profile Name"
+    ]
+  },
+  "collection.auth.awsv4.region": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/CollectionSettings/Auth/AwsV4Auth/index.js",
+    "candidates": [
+      "block mb-1",
+      "single-line-editor-wrapper mb-3",
+      "theme=",
+      "storedTheme",
+      "onSave=",
+      "handleSave",
+      "onChange=",
+      "collection=",
+      "collection",
+      "isCompact",
+      "Region"
+    ]
+  },
+  "collection.auth.awsv4.secretAccessKey": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/CollectionSettings/Auth/AwsV4Auth/index.js",
+    "candidates": [
+      "block mb-1",
+      "single-line-editor-wrapper mb-3 flex items-center",
+      "theme=",
+      "storedTheme",
+      "onSave=",
+      "handleSave",
+      "onChange=",
+      "collection=",
+      "collection",
+      "isCompact",
+      "Secret Access Key"
+    ]
+  },
+  "collection.auth.awsv4.service": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/CollectionSettings/Auth/AwsV4Auth/index.js",
+    "candidates": [
+      "block mb-1",
+      "single-line-editor-wrapper mb-3",
+      "theme=",
+      "storedTheme",
+      "onSave=",
+      "handleSave",
+      "onChange=",
+      "collection=",
+      "collection",
+      "isCompact",
+      "Service"
+    ]
+  },
+  "collection.auth.awsv4.sessionToken": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/CollectionSettings/Auth/AwsV4Auth/index.js",
+    "candidates": [
+      "awsv4-secret-access-key",
+      "block mb-1",
+      "single-line-editor-wrapper mb-3",
+      "onChange=",
+      "collection=",
+      "collection",
+      "isSecret=",
+      "true",
+      "isCompact",
+      "showWarning &&",
+      "Session Token"
+    ]
+  },
+  "collection.auth.descriptionMiddle": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/CollectionSettings/Auth/index.js",
+    "candidates": [
+      " ",
+      "w-full h-full",
+      "text-xs mb-4 text-muted",
+      "font-medium",
+      "flex flex-grow justify-start items-center",
+      "mt-6",
+      "submit",
+      "sm",
+      "Configures authentication for the entire collection. This applies to all requests using the",
+      "Inherit",
+      "option in the",
+      "Auth",
+      "tab."
+    ]
+  },
+  "collection.auth.descriptionSuffix": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/CollectionSettings/Auth/index.js",
+    "candidates": [
+      " ",
+      "w-full h-full",
+      "text-xs mb-4 text-muted",
+      "font-medium",
+      "flex flex-grow justify-start items-center",
+      "mt-6",
+      "submit",
+      "sm",
+      "Configures authentication for the entire collection. This applies to all requests using the",
+      "Inherit",
+      "option in the",
+      "Auth",
+      "tab.",
+      "Save"
+    ]
+  },
+  "collection.auth.domain": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/CollectionSettings/Auth/NTLMAuth/index.js",
+    "candidates": [
+      "ntlm-password",
+      "block mb-1",
+      "single-line-editor-wrapper",
+      "onChange=",
+      "collection=",
+      "collection",
+      "isSecret=",
+      "true",
+      "isCompact",
+      "showWarning &&",
+      "Domain"
+    ]
+  },
+  "collection.auth.inherit": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/CollectionSettings/Auth/index.js",
+    "candidates": [
+      " ",
+      "w-full h-full",
+      "text-xs mb-4 text-muted",
+      "font-medium",
+      "flex flex-grow justify-start items-center",
+      "mt-6",
+      "submit",
+      "sm",
+      "Configures authentication for the entire collection. This applies to all requests using the",
+      "Inherit",
+      "option in the",
+      "Auth",
+      "tab."
+    ]
+  },
+  "collection.auth.password": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/CollectionSettings/Auth/BasicAuth/index.js",
+    "candidates": [
+      "block mb-1",
+      "single-line-editor-wrapper flex items-center",
+      "theme=",
+      "storedTheme",
+      "onSave=",
+      "handleSave",
+      "onChange=",
+      "collection=",
+      "collection",
+      "isCompact",
+      "Password"
+    ]
+  },
+  "collection.auth.token": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/CollectionSettings/Auth/BearerAuth/index.js",
+    "candidates": [
+      "mt-2 w-full",
+      "block mb-1",
+      "single-line-editor-wrapper flex items-center",
+      "token: token",
+      "Token",
+      "collection=",
+      "collection"
+    ]
+  },
+  "collection.auth.username": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/CollectionSettings/Auth/BasicAuth/index.js",
+    "candidates": [
+      "mt-2 w-full",
+      "block mb-1",
+      "single-line-editor-wrapper mb-3",
+      "Username",
+      "collection=",
+      "collection"
+    ]
+  },
+  "collection.clientCert.subtitle": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/CollectionSettings/ClientCertSettings/index.js",
+    "candidates": [
+      "No client certificates",
+      "Certificates added here are sent automatically with requests to their matching domains.",
+      "w-full h-full",
+      "font-medium text-[0.9375rem]",
+      "text-xs mt-1 text-muted",
+      "mt-5",
+      "client-cert-${index}",
+      "Client Certificates",
+      "Add client certificates to be used for specific domains.",
+      "`client-cert-$",
+      "index",
+      "emptyState=",
+      "icon:"
+    ]
+  },
+  "collection.clientCert.title": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/CollectionSettings/ClientCertSettings/index.js",
+    "candidates": [
+      "No client certificates",
+      "Certificates added here are sent automatically with requests to their matching domains.",
+      "w-full h-full",
+      "font-medium text-[0.9375rem]",
+      "text-xs mt-1 text-muted",
+      "mt-5",
+      "client-cert-${index}",
+      "Client Certificates",
+      "Add client certificates to be used for specific domains.",
+      "`client-cert-$",
+      "index",
+      "emptyState=",
+      "icon:"
+    ]
+  },
+  "collection.common.chooseFile": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/CollectionSettings/ClientCertSettings/index.js",
+    "candidates": [
+      "xs",
+      "outline",
+      "text-red-500 text-xs",
+      "choose-file-${name}",
+      "onClick=",
+      "data-testid=",
+      "`choose-file-$",
+      "name",
+      "Choose file",
+      "touched && error ?",
+      "error",
+      ": null",
+      "collection"
+    ]
+  },
+  "collection.example.fileAlreadyAdded": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleMultipartFormParams/index.js",
+    "candidates": [
+      "${fileBasename(skipped[0])}",
+      "\"${fileBasename(skipped[0])}\" is already added",
+      "${skipped.length} files are already added — skipped",
+      "else",
+      "skipped.length",
+      "let updatedParams"
+    ]
+  },
+  "collection.example.filesAlreadyAdded": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleMultipartFormParams/index.js",
+    "candidates": [
+      "${fileBasename(skipped[0])}",
+      "\"${fileBasename(skipped[0])}\" is already added",
+      "${skipped.length} files are already added — skipped",
+      "else",
+      "skipped.length",
+      "let updatedParams"
+    ]
+  },
+  "collection.example.headersSection": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleHeaders/index.js",
+    "candidates": [
+      "example-headers",
+      "w-full mt-4",
+      "mb-3 title text-xs font-bold",
+      "return null",
+      "Headers",
+      "columns=",
+      "columns",
+      "rows=",
+      "headers || []",
+      "onChange=",
+      "handleHeadersChange"
+    ]
+  },
+  "collection.example.queryParams": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/ResponseExample/ResponseExampleRequestPane/ResponseExampleParams/index.js",
+    "candidates": [
+      "w-full mt-4",
+      "mb-3 title text-xs font-bold",
+      "example-query-params",
+      "return null",
+      "Query parameters",
+      "<EditableTable",
+      "columns=",
+      "queryColumns",
+      "rows=",
+      "queryParams || []",
+      "onChange=",
+      "handleQueryParamsChange",
+      "defaultRow=",
+      "defaultQueryRow"
+    ]
+  },
+  "collection.migration.migrateToYml": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/CollectionSettings/Overview/Migration/index.js",
+    "candidates": [
+      " ",
+      "flex items-start",
+      "icon-box migration flex-shrink-0 p-3 rounded-lg",
+      "w-5 h-5",
+      "ml-4",
+      "font-medium",
+      "my-1 text-muted text-sm",
+      "https://blog.usebruno.com/making-yaml-the-default-in-bruno-v3.1",
+      "_blank",
+      "noopener noreferrer",
+      "Migration",
+      "Migrate to YML file format",
+      "This collection is stored in BRU format.",
+      "Switch to YML."
+    ]
+  },
+  "collection.overview.documentation": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/CollectionSettings/Overview/Info/index.js",
+    "candidates": [
+      "flex items-start group cursor-pointer",
+      "icon-box generate-docs flex-shrink-0 p-3 rounded-lg",
+      "w-5 h-5",
+      "ml-4 h-full flex flex-col justify-start",
+      "font-medium h-fit my-auto",
+      "group-hover:underline text-link",
+      "showShareCollectionModal &&",
+      "Documentation",
+      "Generate Docs",
+      "showGenerateDocumentationModal &&"
+    ]
+  },
+  "collection.overview.environments": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/CollectionSettings/Overview/Info/index.js",
+    "candidates": [
+      "flex items-start",
+      "icon-box environments flex-shrink-0 p-3 rounded-lg",
+      "w-5 h-5",
+      "ml-4",
+      "font-medium",
+      "mt-1 flex flex-col gap-1",
+      "button",
+      "text-link cursor-pointer hover:underline text-left bg-transparent",
+      "showChangeVersionModal &&",
+      "/* Environments Row */",
+      "Environments"
+    ]
+  },
+  "collection.overview.location": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/CollectionSettings/Overview/Info/index.js",
+    "candidates": [
+      "rounded-lg py-6",
+      "grid gap-5",
+      "flex items-start",
+      "icon-box location flex-shrink-0 p-3 rounded-lg",
+      "w-5 h-5",
+      "ml-4",
+      "font-medium",
+      "mt-1 text-muted break-all",
+      "flex items-start group cursor-pointer",
+      "info-version-row",
+      "/* Location Row */",
+      "Location",
+      "collection.pathname"
+    ]
+  },
+  "collection.overview.notSet": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/CollectionSettings/Overview/Info/index.js",
+    "candidates": [
+      "text-muted version-value",
+      "info-version-value",
+      "text-muted italic",
+      "group-hover:underline text-link",
+      "info-version-change",
+      "onMouseEnter=",
+      "handleVersionHover",
+      "collectionVersion",
+      "Not Set",
+      "change",
+      "showChangeVersionModal &&"
+    ]
+  },
+  "collection.overview.requests": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/CollectionSettings/Overview/Info/index.js",
+    "candidates": [
+      "s",
+      "flex items-start",
+      "icon-box requests flex-shrink-0 p-3 rounded-lg",
+      "w-5 h-5",
+      "ml-4",
+      "font-medium",
+      "mt-1 text-muted",
+      "${totalItems - itemsLoadingCount} out of ${totalItems} requests in the collection loaded",
+      "${totalRequestsInCollection} request${totalRequestsInCollection !== 1 ? 's' : ''} in collection",
+      "/* Requests Row */",
+      "Requests",
+      "isCollectionLoading ? `$",
+      "totalItems - itemsLoadingCount",
+      "out of $"
+    ]
+  },
+  "collection.overview.requestsInCollection": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/CollectionSettings/Overview/Info/index.js",
+    "candidates": [
+      "s",
+      "flex items-start",
+      "icon-box requests flex-shrink-0 p-3 rounded-lg",
+      "w-5 h-5",
+      "ml-4",
+      "font-medium",
+      "mt-1 text-muted",
+      "flex items-start group cursor-pointer",
+      "icon-box share flex-shrink-0 p-3 rounded-lg",
+      "${totalItems - itemsLoadingCount} out of ${totalItems} requests in the collection loaded",
+      "${totalRequestsInCollection} request${totalRequestsInCollection !== 1 ? 's' : ''} in collection",
+      "Requests",
+      "isCollectionLoading ? `$",
+      "totalItems - itemsLoadingCount"
+    ]
+  },
+  "collection.overview.requestsNotLoaded.title": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/CollectionSettings/Overview/RequestsNotLoaded/index.js",
+    "candidates": [
+      "w-full card my-2",
+      "flex items-center gap-2 px-3 py-2 title",
+      "warning-icon",
+      "font-medium",
+      "w-full border-collapse",
+      "py-2 px-3 text-left font-medium",
+      "return",
+      "Following requests were not loaded",
+      "Pathname"
+    ]
+  },
+  "collection.overview.share": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/CollectionSettings/Overview/Info/index.js",
+    "candidates": [
+      "flex items-start group cursor-pointer",
+      "icon-box share flex-shrink-0 p-3 rounded-lg",
+      "w-5 h-5",
+      "ml-4 h-full flex flex-col justify-start",
+      "font-medium h-fit my-auto",
+      "group-hover:underline text-link",
+      "Share",
+      "Share Collection",
+      "showShareCollectionModal &&"
+    ]
+  },
+  "collection.overview.version": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/CollectionSettings/Overview/Info/index.js",
+    "candidates": [
+      "flex items-start group cursor-pointer",
+      "info-version-row",
+      "icon-box version flex-shrink-0 p-3 rounded-lg",
+      "w-5 h-5",
+      "ml-4 h-full flex flex-col justify-start",
+      "font-medium h-fit my-auto",
+      "flex flex-wrap items-center gap-2",
+      "top",
+      "info-version-value-${collection.uid}",
+      "Version",
+      "<ToolHint",
+      "text=",
+      "collectionVersion",
+      "toolhintId="
+    ]
+  },
+  "collection.protobuf.noImportPaths": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/CollectionSettings/Protobuf/index.js",
+    "candidates": [
+      "text-right",
+      "4",
+      "text-center",
+      "empty-state flex flex-col items-center",
+      "empty-icon mb-2",
+      "empty-text",
+      "Actions",
+      "No import paths added"
+    ]
+  },
+  "collection.protobuf.noProtoFiles": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/CollectionSettings/Protobuf/index.js",
+    "candidates": [
+      "3",
+      "text-center",
+      "empty-state flex flex-col items-center",
+      "empty-icon mb-2",
+      "empty-text",
+      "Actions",
+      "No proto files added"
+    ]
+  },
+  "collection.proxy.description": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/CollectionSettings/ProxySettings/index.js",
+    "candidates": [
+      "false",
+      "inherit",
+      "true",
+      "h-full w-full",
+      "text-xs mb-4 text-muted",
+      "bruno-form",
+      "mb-3 flex items-center",
+      "settings-label flex items-center",
+      "enabled",
+      "request-var",
+      "// Map new format to UI values",
+      "const disabled = currentProxyConfig.disabled || false",
+      "const inherit = currentProxyConfig.inherit !== undefined ? currentProxyConfig.inherit : true",
+      "Configure proxy settings for this collection."
+    ]
+  },
+  "collection.proxy.disabledTip": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/CollectionSettings/ProxySettings/index.js",
+    "candidates": [
+      "50px",
+      "inline-block",
+      "mb-3 flex items-center",
+      "settings-label flex items-center",
+      "enabled",
+      "request-var",
+      "flex items-center",
+      "Config",
+      "inherit",
+      "- inherit from global preferences",
+      "- use collection-specific proxy config",
+      "disabled",
+      "- disable proxy for this collection",
+      "<input"
+    ]
+  },
+  "collection.proxy.enabledTip": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/CollectionSettings/ProxySettings/index.js",
+    "candidates": [
+      "50px",
+      "inline-block",
+      "bruno-form",
+      "mb-3 flex items-center",
+      "settings-label flex items-center",
+      "enabled",
+      "request-var",
+      "flex items-center",
+      "Config",
+      "inherit",
+      "- inherit from global preferences",
+      "- use collection-specific proxy config",
+      "disabled",
+      "- disable proxy for this collection"
+    ]
+  },
+  "collection.proxy.inheritTip": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/CollectionSettings/ProxySettings/index.js",
+    "candidates": [
+      "50px",
+      "inline-block",
+      "text-xs mb-4 text-muted",
+      "bruno-form",
+      "mb-3 flex items-center",
+      "settings-label flex items-center",
+      "enabled",
+      "request-var",
+      "flex items-center",
+      "Configure proxy settings for this collection.",
+      "Config",
+      "inherit",
+      "- inherit from global preferences",
+      "- use collection-specific proxy config"
+    ]
+  },
+  "collection.share.brunoFormat": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/ShareCollection/index.js",
+    "candidates": [
+      " ",
+      "selected",
+      "} ${isDisabled ? ",
+      " : ",
+      "opencollection-link",
+      "section-title",
+      "bruno-format-grid mb-6",
+      "card-header",
+      "format-card ${selectedFormat === EXPORT_FORMATS.ZIP ? 'selected' : ''} ${isDisabled ? 'opacity-50 cursor-not-allowed' : ''}",
+      "OpenCollection",
+      "- An open format for API collections",
+      "/* Bruno Format Section */",
+      "Bruno Format",
+      "/* ZIP Option */"
+    ]
+  },
+  "collection.share.otherFormat": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/ShareCollection/index.js",
+    "candidates": [
+      "selected",
+      "} ${isDisabled ? ",
+      " : ",
+      "checkmark",
+      "best-for",
+      "section-title",
+      "other-format-grid",
+      "export-format-postman",
+      "format-icon",
+      "other-format-card ${selectedFormat === EXPORT_FORMATS.POSTMAN ? 'selected' : ''} ${isDisabled ? 'opacity-50 cursor-not-allowed' : ''}",
+      "Paste in a gist or attach to an issue",
+      "Best for: Quick sharing as a single file",
+      "Other Format"
+    ]
+  },
+  "collection.tests.description": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/CollectionSettings/Tests/index.js",
+    "candidates": [
+      "test",
+      "w-full flex flex-col h-full",
+      "text-xs mb-4 text-muted",
+      "relative h-full",
+      "collection-tests",
+      "uid: collection.uid,",
+      "editorRef: testsEditorRef,",
+      "These tests will run any time a request in this collection is sent.",
+      "<CodeEditor",
+      "ref=",
+      "testsEditorRef",
+      "collection=",
+      "collection",
+      "value="
+    ]
+  },
+  "cookies.clearDomainCookiesTitle": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Cookies/index.js",
+    "candidates": [
+      "components/Cookies/ModifyCookieModal/index",
+      "./StyledWrapper",
+      "moment",
+      "react-tooltip",
+      "ui/Button",
+      "Clear Domain Cookies",
+      "flex items-center font-normal",
+      "warning-icon",
+      "ml-2 text-lg font-medium",
+      "font-normal mt-4",
+      "import",
+      "Tooltip",
+      "onClose, domain, onClear",
+      "Hold on.."
+    ]
+  },
+  "cookies.colActions": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Cookies/index.js",
+    "candidates": [
+      "py-2 px-4 font-medium text-center",
+      "py-2 px-4 font-medium text-right w-24",
+      "py-2 px-4 truncate",
+      "tooltip-mod",
+      "cookie-key-${cookie.key}",
+      "Secure",
+      "HTTP Only",
+      "Actions",
+      "cookie.key"
+    ]
+  },
+  "cookies.colExpires": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Cookies/index.js",
+    "candidates": [
+      "py-2 px-4 font-medium w-52",
+      "py-2 px-4 font-medium",
+      "py-2 px-4 font-medium text-center",
+      "py-2 px-4 font-medium text-right w-24",
+      "py-2 px-4 truncate",
+      "tooltip-mod",
+      "cookie-key-${cookie.key}",
+      "Value",
+      "Path",
+      "Expires",
+      "Secure",
+      "HTTP Only",
+      "Actions",
+      "cookie.key"
+    ]
+  },
+  "cookies.colName": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Cookies/index.js",
+    "candidates": [
+      "text-left",
+      "py-2 px-4 font-medium w-32",
+      "py-2 px-4 font-medium w-52",
+      "py-2 px-4 font-medium",
+      "py-2 px-4 font-medium text-center",
+      "py-2 px-4 font-medium text-right w-24",
+      "py-2 px-4 truncate",
+      "cookie-key-${cookie.key}",
+      "Name",
+      "Value",
+      "Path",
+      "Expires",
+      "Secure",
+      "HTTP Only"
+    ]
+  },
+  "cookies.colPath": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Cookies/index.js",
+    "candidates": [
+      "py-2 px-4 font-medium w-32",
+      "py-2 px-4 font-medium w-52",
+      "py-2 px-4 font-medium",
+      "py-2 px-4 font-medium text-center",
+      "py-2 px-4 font-medium text-right w-24",
+      "py-2 px-4 truncate",
+      "cookie-key-${cookie.key}",
+      "Name",
+      "Value",
+      "Path",
+      "Expires",
+      "Secure",
+      "HTTP Only",
+      "Actions"
+    ]
+  },
+  "cookies.colValue": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Cookies/index.js",
+    "candidates": [
+      "text-left",
+      "py-2 px-4 font-medium w-32",
+      "py-2 px-4 font-medium w-52",
+      "py-2 px-4 font-medium",
+      "py-2 px-4 font-medium text-center",
+      "py-2 px-4 font-medium text-right w-24",
+      "py-2 px-4 truncate",
+      "cookie-key-${cookie.key}",
+      "Name",
+      "Value",
+      "Path",
+      "Expires",
+      "Secure",
+      "HTTP Only"
+    ]
+  },
+  "cookies.deleteCookieTitle": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Cookies/index.js",
+    "candidates": [
+      "Delete Cookie",
+      "flex items-center font-normal",
+      "warning-icon",
+      "ml-2 text-lg font-medium",
+      "font-normal mt-4",
+      "flex justify-between mt-6",
+      "secondary",
+      "ghost",
+      "onClose, cookieName, onDelete",
+      "Hold on..",
+      "Are you sure you want to delete the cookie",
+      "cookieName"
+    ]
+  },
+  "cookies.editRaw": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Cookies/ModifyCookieModal/index.js",
+    "candidates": [
+      "mr-2",
+      "2xs",
+      "font-normal mr-4 normal-case",
+      "px-2",
+      "Edit Raw"
+    ]
+  },
+  "cookies.emptyHint": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Cookies/index.js",
+    "candidates": [
+      "empty-icon",
+      "text-lg font-medium mt-4",
+      "empty-text mt-2",
+      "submit",
+      "sm",
+      "mt-8",
+      "No cookies found",
+      "Add cookies to get started",
+      "onClick=",
+      "Add Cookie"
+    ]
+  },
+  "cookies.expiration": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Cookies/ModifyCookieModal/index.js",
+    "candidates": [
+      "error-message mt-1",
+      "w-full flex items-end",
+      "block mb-1",
+      "datetime-local",
+      "expires",
+      "formik.errors.value",
+      "/* Date Picker */"
+    ]
+  },
+  "cookies.expirationFuture": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Cookies/ModifyCookieModal/index.js",
+    "candidates": [
+      "future-date",
+      "Expiration date must be in the future"
+    ]
+  },
+  "cookies.fieldPath": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Cookies/ModifyCookieModal/index.js",
+    "candidates": [
+      "block textbox non-passphrase-input w-full disabled:opacity-50",
+      "error-message mt-1",
+      "block mb-1",
+      "text",
+      "path",
+      "disabled=",
+      "!!cookie",
+      "formik.errors.domain",
+      "Path",
+      "<input",
+      "value=",
+      "formik.values.path",
+      "onChange=",
+      "formik.handleChange"
+    ]
+  },
+  "cookies.holdOn": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Cookies/index.js",
+    "candidates": [
+      "react-tooltip",
+      "ui/Button",
+      "Clear Domain Cookies",
+      "flex items-center font-normal",
+      "warning-icon",
+      "ml-2 text-lg font-medium",
+      "font-normal mt-4",
+      "flex justify-between mt-6",
+      "secondary",
+      "ghost",
+      "import",
+      "Tooltip",
+      "onClose, domain, onClear",
+      "Hold on.."
+    ]
+  },
+  "cookies.httpOnly": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Cookies/index.js",
+    "candidates": [
+      "py-2 px-4 font-medium",
+      "py-2 px-4 font-medium text-center",
+      "py-2 px-4 font-medium text-right w-24",
+      "py-2 px-4 truncate",
+      "tooltip-mod",
+      "cookie-key-${cookie.key}",
+      "Expires",
+      "Secure",
+      "HTTP Only",
+      "Actions",
+      "cookie.key"
+    ]
+  },
+  "cookies.noCookies": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Cookies/index.js",
+    "candidates": [
+      "flex items-center justify-center flex-col",
+      "empty-icon",
+      "text-lg font-medium mt-4",
+      "empty-text mt-2",
+      "submit",
+      "sm",
+      "mt-8",
+      "No cookies found",
+      "Add cookies to get started",
+      "onClick=",
+      "Add Cookie"
+    ]
+  },
+  "cookies.noSearchResults": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Cookies/index.js",
+    "candidates": [
+      " ",
+      "flex items-center justify-center flex-col",
+      "text-lg font-medium mt-4",
+      "empty-text mt-2",
+      "scroll-box",
+      "flex items-center",
+      "domain-count ml-2 text-xs",
+      "No search results",
+      "Try a different search term",
+      "// Show cookies list",
+      "domainWithCookies.domain",
+      "domainWithCookies.cookies.length"
+    ]
+  },
+  "cookies.secure": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Cookies/index.js",
+    "candidates": [
+      "py-2 px-4 font-medium",
+      "py-2 px-4 font-medium text-center",
+      "py-2 px-4 font-medium text-right w-24",
+      "py-2 px-4 truncate",
+      "tooltip-mod",
+      "cookie-key-${cookie.key}",
+      "Path",
+      "Expires",
+      "Secure",
+      "HTTP Only",
+      "Actions",
+      "cookie.key",
+      "<Tooltip",
+      "anchorId="
+    ]
+  },
+  "cookies.setCookieString": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Cookies/ModifyCookieModal/index.js",
+    "candidates": [
+      "px-2",
+      "flex items-center gap-2 mb-1",
+      "block",
+      "cookie-raw-info",
+      "info-icon",
+      "tooltip-mod",
+      "Key, Path, and Domain are immutable properties and cannot be modified for existing cookies",
+      "Set-Cookie String"
+    ]
+  },
+  "cookies.tryDifferentSearch": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Cookies/index.js",
+    "candidates": [
+      " ",
+      "cookie",
+      "cookies",
+      "text-lg font-medium mt-4",
+      "empty-text mt-2",
+      "scroll-box",
+      "flex items-center",
+      "domain-count ml-2 text-xs",
+      "No search results",
+      "Try a different search term",
+      "// Show cookies list",
+      "domainWithCookies.domain",
+      "domainWithCookies.cookies.length"
+    ]
+  },
+  "devtools.requestDetails.requestMethod": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Devtools/Console/RequestDetailsPanel/index.js",
+    "candidates": [
+      "N/A",
+      "GET",
+      "section",
+      "info-grid",
+      "info-item",
+      "label",
+      "value",
+      "General",
+      "Request URL:",
+      "Request Method:",
+      "Request Headers"
+    ]
+  },
+  "devtools.requestDetails.requestUrl": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Devtools/Console/RequestDetailsPanel/index.js",
+    "candidates": [
+      "N/A",
+      "GET",
+      "tab-content",
+      "section",
+      "info-grid",
+      "info-item",
+      "label",
+      "value",
+      "General",
+      "Request URL:",
+      "Request Method:"
+    ]
+  },
+  "devtools.terminal.fallbackName": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Devtools/Console/TerminalTab/SessionList.js",
+    "candidates": [
+      " || normalizedPath === ",
+      "Root",
+      "_",
+      "~ (Home Directory)",
+      "Terminal ${shortId}",
+      "return",
+      "// Fallback: use a cool name based on session ID",
+      "name: `Terminal $",
+      "shortId",
+      "return session.cwd"
+    ]
+  },
+  "environments.delete.confirmPrefix": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Environments/EnvironmentSettings/DeleteDotEnvFile/index.js",
+    "candidates": [
+      "sm",
+      "Delete",
+      "danger",
+      "font-medium",
+      "Delete ${filename} File",
+      "Are you sure you want to delete",
+      "filename",
+      "file?",
+      "export default DeleteDotEnvFile"
+    ]
+  },
+  "environments.delete.confirmSuffix": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Environments/EnvironmentSettings/DeleteEnvironment/index.js",
+    "candidates": [
+      "md",
+      "Delete Environment",
+      "Delete",
+      "danger",
+      "font-medium",
+      "Are you sure you want to delete",
+      "environment.name",
+      "export default DeleteEnvironment"
+    ]
+  },
+  "environments.dotEnv.confirmSuffix": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Environments/EnvironmentSettings/DeleteDotEnvFile/index.js",
+    "candidates": [
+      "sm",
+      "Delete",
+      "danger",
+      "font-medium",
+      "Delete ${filename} File",
+      "Are you sure you want to delete",
+      "filename",
+      "file?",
+      "export default DeleteDotEnvFile"
+    ]
+  },
+  "environments.dotEnv.deleteFileTooltip": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Environments/DotEnvFileDetails/index.js",
+    "candidates": [
+      "raw",
+      "active",
+      "dotenv-view-raw",
+      "button",
+      "Delete .env file",
+      "action-btn delete-btn",
+      "toggle-btn ${viewMode === 'raw' ? 'active' : ''}",
+      "className=",
+      "`toggle-btn $",
+      "onClick=",
+      "aria-pressed=",
+      "Raw"
+    ]
+  },
+  "environments.dotEnv.deleteTitle": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Environments/EnvironmentSettings/DeleteDotEnvFile/index.js",
+    "candidates": [
+      "sm",
+      "Delete",
+      "danger",
+      "font-medium",
+      "Delete ${filename} File",
+      "Are you sure you want to delete",
+      "filename",
+      "file?"
+    ]
+  },
+  "environments.export.exportedToFolder": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Environments/Common/ExportEnvironmentModal/index.js",
+    "candidates": [
+      "Please select at least one environment to export",
+      "folder",
+      "Environment(s) exported successfully",
+      "Export error:",
+      "Failed to export environments",
+      "Environments exported successfully to bruno-${environmentType}-environments folder",
+      "return",
+      "environments: selectedEnvs, environmentType, filePath, exportFormat",
+      "? `Environments exported successfully to bruno-$",
+      "environmentType",
+      "-environments folder`",
+      "finally"
+    ]
+  },
+  "environments.import.failedCount": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Environments/Common/ImportEnvironmentModal/hooks/useEnvironmentImport/index.js",
+    "candidates": [
+      "Environment",
+      "${failedCount} environment(s) failed to import",
+      "${importedCount} environment(s) imported successfully, but ${failedCount} failed.",
+      "${importedCount > 1 ? ",
+      " : 'Environment'} imported successfully",
+      "failedCount++",
+      "failedCount",
+      "importedCount",
+      "importedCount > 1 ? `$"
+    ]
+  },
+  "environments.import.found": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Environments/Common/ImportEnvironmentModal/ReviewStep/index.js",
+    "candidates": [
+      "Import",
+      "md",
+      "bruno-modal-header--plain",
+      "title",
+      "modal-title",
+      "count",
+      "env-import-total-count",
+      "Cancel",
+      "Import (${selected.size})",
+      "modalTitle",
+      "totalParsedCount",
+      "found",
+      "confirmText=",
+      "selected.size"
+    ]
+  },
+  "environments.import.import": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Environments/Common/ImportEnvironmentModal/ReviewStep/index.js",
+    "candidates": [
+      "Import",
+      "title",
+      "modal-title",
+      "count",
+      "env-import-total-count",
+      "Cancel",
+      "!py-3",
+      "Import (${selected.size})",
+      "customHeader=",
+      "modalTitle",
+      "totalParsedCount",
+      "found",
+      "confirmText=",
+      "selected.size"
+    ]
+  },
+  "environments.import.optionReplace": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Environments/Common/ImportEnvironmentModal/utils.js",
+    "candidates": [
+      "create_new",
+      "replace",
+      "New",
+      "Import as a new environment",
+      "env-import-create-new-btn",
+      "Replace",
+      "Replace existing",
+      "env-import-replace-btn",
+      "Unknown",
+      "export const RESOLUTION_TYPES =",
+      "export const RESOLUTION_OPTIONS = [",
+      "error,",
+      "status: ENV_STATUS.INVALID"
+    ]
+  },
+  "environments.import.partialSuccess": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Environments/Common/ImportEnvironmentModal/hooks/useEnvironmentImport/index.js",
+    "candidates": [
+      "Environment",
+      "${failedCount} environment(s) failed to import",
+      "${importedCount} environment(s) imported successfully, but ${failedCount} failed.",
+      "${importedCount > 1 ? ",
+      " : 'Environment'} imported successfully",
+      "failedCount++",
+      "failedCount",
+      "importedCount",
+      "importedCount > 1 ? `$"
+    ]
+  },
+  "environments.import.selected": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Environments/Common/ImportEnvironmentModal/ReviewStep/index.js",
+    "candidates": [
+      "!py-3",
+      "env-import-selected-count",
+      "selected-count",
+      "modal-content",
+      "scroll-area",
+      "environments-list-container",
+      "handleConfirm=",
+      "handleConfirmImport",
+      "handleCancel=",
+      "onClose",
+      "dataTestId=",
+      "modalTestId",
+      "disableCloseOnOutsideClick",
+      "confirmDisabled="
+    ]
+  },
+  "environments.inheritedFrom": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/EnvironmentVariablesTable/InheritedVariableRow/index.js",
+    "candidates": [
+      "inherited-description",
+      "button",
+      "inherited-source",
+      "Inherited from ${variable.inheritedFrom.name}",
+      "variable.description"
+    ]
+  },
+  "environments.inheritedSection": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/EnvironmentVariablesTable/index.js",
+    "candidates": [
+      "Secrets",
+      "Variables",
+      "inherited",
+      "own",
+      "Inherited ${tabLabel}",
+      "const variableRows = inheritedEnvironmentVariables.length",
+      "type: ROW_SECTION_HEADER,",
+      "label: `Inherited $",
+      "tabLabel",
+      "count: inheritedVariableRows.length",
+      "label: tabLabel,",
+      "variable"
+    ]
+  },
+  "environments.selector.noEnvironmentsActive": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Environments/EnvironmentSelector/index.js",
+    "candidates": [
+      "collection",
+      "No Environments are active now",
+      "Environment changed to ${environment.name}",
+      "const description = EMPTY_STATE_DESCRIPTIONS[activeTab]",
+      "const action",
+      "environmentUid: environment?.uid || null",
+      "environment.name"
+    ]
+  },
+  "environments.toast.activated": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Environments/EnvironmentSettings/EnvironmentList/index.js",
+    "candidates": [
+      "Failed to activate environment",
+      "${env.name}",
+      "Environment \"${env.name}\" activated",
+      "env.name"
+    ]
+  },
+  "environments.toast.dotEnvCreated": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Environments/EnvironmentSettings/EnvironmentList/index.js",
+    "candidates": [
+      ".env",
+      "dotenv",
+      "${newDotEnvName} file created!",
+      "return",
+      "newDotEnvName"
+    ]
+  },
+  "environments.toast.dotEnvDeleted": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Environments/EnvironmentSettings/EnvironmentList/index.js",
+    "candidates": [
+      "environment",
+      "${filename} file deleted!",
+      "filename",
+      "else"
+    ]
+  },
+  "environments.toast.inheritingFrom": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Environments/EnvironmentSettings/EnvironmentList/EnvironmentDetails/index.js",
+    "candidates": [
+      "Stopped inheriting variables",
+      "An error occurred while saving the inherited environment",
+      "Inheriting variables from ${inheritedEnvironmentName}",
+      "environmentUid: environment.uid, inheritedEnvironmentName, collectionUid: collection.uid",
+      "inheritedEnvironmentName",
+      "? `Inheriting variables from $"
+    ]
+  },
+  "environments.unsaved.holdOn": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Environments/ConfirmCloseEnvironment/index.js",
+    "candidates": [
+      "flex items-center font-normal",
+      "text-yellow-600",
+      "ml-2 text-lg font-medium",
+      "font-normal mt-4",
+      "flex justify-between mt-6",
+      "danger",
+      "env-unsaved-close-without-save",
+      "disableCloseOnOutsideClick=",
+      "true",
+      "closeModalFadeTimeout=",
+      "handleCancel=",
+      "onCancel",
+      "hideFooter=",
+      "Hold on..."
+    ]
+  },
+  "preferences.ai.autocomplete.keymapLabel": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Preferences/AI/AutocompletePane.js",
+    "candidates": [
+      "autocomplete-row px-3.5 py-3",
+      "flex flex-col gap-1",
+      "text-[11.5px] font-medium",
+      "autocomplete-keymap text-[10.5px]",
+      "Keymap",
+      "Tab",
+      "accept ·",
+      "accept word ·",
+      "Esc",
+      "dismiss ·",
+      "trigger"
+    ]
+  },
+  "preferences.ai.autocomplete.modelLabel": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Preferences/AI/AutocompletePane.js",
+    "candidates": [
+      "Lightweight models are recommended for speed",
+      "No model available yet",
+      "autocomplete-blocker px-3.5 py-3 text-[11px]",
+      "autocomplete-row flex items-center justify-between gap-3 px-3.5 py-3",
+      "flex flex-col gap-0.5 min-w-0",
+      "text-[11.5px] font-medium",
+      "autocomplete-sub text-[10.5px]",
+      "model-select-wrap relative inline-flex items-center",
+      "blockerMessage",
+      "Model",
+      "hasUsableModel",
+      "<select"
+    ]
+  },
+  "preferences.ai.autocomplete.title": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Preferences/AI/AutocompletePane.js",
+    "candidates": [
+      "autocomplete-tab flex flex-col gap-3",
+      "autocomplete-card",
+      "autocomplete-header flex items-center justify-between gap-3 px-3.5 py-3",
+      "flex flex-col gap-0.5 min-w-0",
+      "text-[12.5px] font-semibold",
+      "autocomplete-sub text-[11px]",
+      "xs",
+      "Inline Autocomplete",
+      "Ghost-text suggestions in Pre-Request, Post-Response, and Tests scripts"
+    ]
+  },
+  "preferences.ai.autocomplete.triggerLabel": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Preferences/AI/AutocompletePane.js",
+    "candidates": [
+      "debounced",
+      "model-select-chevron",
+      "autocomplete-row flex items-center justify-between gap-3 px-3.5 py-3",
+      "flex flex-col gap-0.5 min-w-0",
+      "text-[11.5px] font-medium",
+      "autocomplete-sub text-[10.5px]",
+      "trigger-pills inline-flex",
+      "radiogroup",
+      "Trigger mode",
+      "Trigger",
+      "activeTrigger?.description"
+    ]
+  },
+  "preferences.ai.card.apiKeyLabel": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Preferences/AI/CompatEndpointCard.js",
+    "candidates": [
+      "key-section-label flex items-center justify-between gap-2 text-[11px] mb-1",
+      "opacity-60",
+      "key-display-row flex items-center justify-between gap-2 h-8 box-border pl-2.5 pr-0.5",
+      "onClick=",
+      "stopBubble",
+      "/* API key */",
+      "API Key"
+    ]
+  },
+  "preferences.ai.card.apiKeyOptional": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Preferences/AI/CompatEndpointCard.js",
+    "candidates": [
+      "key-section-label flex items-center justify-between gap-2 text-[11px] mb-1",
+      "opacity-60",
+      "key-display-row flex items-center justify-between gap-2 h-8 box-border pl-2.5 pr-0.5",
+      "onClick=",
+      "stopBubble",
+      "/* API key */",
+      "API Key"
+    ]
+  },
+  "preferences.ai.card.connectionOk": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Preferences/AI/CompatEndpointCard.js",
+    "candidates": [
+      "success",
+      "Connection successful",
+      "error",
+      "Connection failed",
+      "try",
+      "providerId: provider.id",
+      "else",
+      "finally"
+    ]
+  },
+  "preferences.ai.card.keySaved": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Preferences/AI/CompatEndpointCard.js",
+    "candidates": [
+      "success",
+      "API key saved",
+      "error",
+      "Failed to save API key",
+      "try",
+      "providerId: provider.id, apiKey: trimmed",
+      "finally"
+    ]
+  },
+  "preferences.ai.card.modelsCount": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Preferences/AI/CompatEndpointCard.js",
+    "candidates": [
+      "configured",
+      " : ",
+      "Not configured",
+      "expanded",
+      "provider-status text-[10.5px] truncate",
+      "flex items-center gap-2.5 flex-shrink-0",
+      "flex items-center",
+      "provider-status inline-flex items-center gap-1.5 text-[11px] ${provider.configured ? 'configured' : ''}",
+      "status-dot w-[7px] h-[7px] rounded-full ${provider.configured ? 'configured' : ''}",
+      "${enabledModelsCount}/${models.length} model${models.length === 1 ? '' : 's'}",
+      "chevron flex items-center ${expanded ? 'expanded' : ''}",
+      "endpoint.baseURL",
+      "provider.configured",
+      "enabledModelsCount"
+    ]
+  },
+  "preferences.ai.card.notConfigured": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Preferences/AI/CompatEndpointCard.js",
+    "candidates": [
+      "configured",
+      " : ",
+      "Not configured",
+      "expanded",
+      "flex items-center gap-2.5 flex-shrink-0",
+      "flex items-center",
+      "provider-status inline-flex items-center gap-1.5 text-[11px] ${provider.configured ? 'configured' : ''}",
+      "status-dot w-[7px] h-[7px] rounded-full ${provider.configured ? 'configured' : ''}",
+      "${enabledModelsCount}/${models.length} model${models.length === 1 ? '' : 's'}",
+      "chevron flex items-center ${expanded ? 'expanded' : ''}",
+      "provider.configured",
+      "enabledModelsCount",
+      "models.length",
+      "model$"
+    ]
+  },
+  "preferences.ai.defaultEndpointName": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Preferences/AI/index.js",
+    "candidates": [
+      "openaiCompatibleEndpoints",
+      "models.${modelId}.enabled",
+      "Endpoint ${endpoints.length + 1}",
+      "modelId",
+      "const endpoints = formik.values.openaiCompatibleEndpoints || []",
+      "const newEndpoint =",
+      "name: `Endpoint $",
+      "endpoints.length + 1",
+      "models: []",
+      "const next = [...endpoints, newEndpoint]"
+    ]
+  },
+  "preferences.ai.endpoint.fallbackName": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Preferences/AI/CompatEndpointCard.js",
+    "candidates": [
+      "Endpoint",
+      "Failed to clear API key",
+      "${endpoint.name || 'Endpoint'} API key removed",
+      "try",
+      "providerId: provider.id"
+    ]
+  },
+  "preferences.ai.endpoint.notSet": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Preferences/AI/CompatEndpointCard.js",
+    "candidates": [
+      "key-display-row flex items-center justify-between gap-2 h-8 box-border pl-2.5 pr-0.5",
+      "key-display-mask text-xs",
+      "key-display-mask text-xs opacity-60",
+      "flex items-center gap-0.5",
+      "button",
+      "btn-icon w-7 h-7 box-border inline-flex items-center justify-center cursor-pointer",
+      "Not set",
+      "<button",
+      "onClick=",
+      "handleTest",
+      "disabled=",
+      "testing || pending || !providerEnabled || !endpoint.baseURL"
+    ]
+  },
+  "preferences.ai.security.builtinCovered": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Preferences/AI/SecurityPane.js",
+    "candidates": [
+      "ai-security-custom-var-add",
+      "ai-security-custom-var-remove",
+      "security-row flex flex-col gap-1 px-3.5 py-3",
+      "text-[11px] font-medium security-sub",
+      "security-builtin flex flex-wrap gap-1.5",
+      "security-builtin-chip",
+      "security-builtin-more text-[10.5px]",
+      "Already covered by default",
+      "name",
+      "plus any name matching",
+      "token",
+      "secret",
+      "password",
+      "or"
+    ]
+  },
+  "preferences.ai.security.customHeadersTitle": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Preferences/AI/SecurityPane.js",
+    "candidates": [
+      "security-card",
+      "security-row flex flex-col gap-2 px-3.5 py-3",
+      "flex flex-col gap-0.5",
+      "text-[12.5px] font-semibold",
+      "security-sub text-[11px]",
+      "X-Custom-Token",
+      "ai-security-custom-header-input",
+      "Custom redacted headers",
+      "Exact, case-insensitive header names to always mask on top of the built-in list.",
+      "<ChipListEditor",
+      "list=",
+      "customRedactedHeaders",
+      "onChange=",
+      "onChangeCustomRedactedHeaders"
+    ]
+  },
+  "preferences.ai.security.customVariablesTitle": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Preferences/AI/SecurityPane.js",
+    "candidates": [
+      "ai-security-custom-header-remove",
+      "security-row flex flex-col gap-2 px-3.5 py-3",
+      "flex flex-col gap-0.5",
+      "text-[12.5px] font-semibold",
+      "security-sub text-[11px]",
+      "MY_SESSION_TOKEN",
+      "ai-security-custom-var-input",
+      "Custom redacted variables",
+      "Variable names whose values should always be masked when Bruno lists them for the model — for anything you want redacted besides values already flagged as",
+      "secret",
+      "<ChipListEditor",
+      "list=",
+      "customRedactedVariables",
+      "onChange="
+    ]
+  },
+  "preferences.ai.security.redactBodyTitle": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Preferences/AI/SecurityPane.js",
+    "candidates": [
+      "ai-security-headers-toggle",
+      "security-row flex items-center justify-between gap-3 px-3.5 py-3",
+      "flex flex-col gap-0.5 min-w-0",
+      "text-[12.5px] font-semibold",
+      "security-sub text-[11px]",
+      "xs",
+      "ai-security-body-toggle",
+      "Redact sensitive body keys",
+      "Masks values under keys like",
+      "password",
+      "*_token",
+      "secret",
+      "in JSON and GraphQL variables. Structure and non-sensitive fields still pass through."
+    ]
+  },
+  "preferences.ai.security.redactHeadersTitle": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Preferences/AI/SecurityPane.js",
+    "candidates": [
+      "security-card",
+      "security-row flex items-center justify-between gap-3 px-3.5 py-3",
+      "flex flex-col gap-0.5 min-w-0",
+      "text-[12.5px] font-semibold",
+      "security-sub text-[11px]",
+      "xs",
+      "ai-security-headers-toggle",
+      "Sensitive data is automatically redacted before context is sent to AI providers. Turn off protections if needed, or add custom headers and variables to redact.",
+      "Redact sensitive header values",
+      "Masks Authorization, cookies, API keys and other credential-bearing headers in the request context."
+    ]
+  },
+  "preferences.ai.security.redactResponseTitle": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Preferences/AI/SecurityPane.js",
+    "candidates": [
+      "ai-security-body-toggle",
+      "security-row flex items-center justify-between gap-3 px-3.5 py-3",
+      "flex flex-col gap-0.5 min-w-0",
+      "text-[12.5px] font-semibold",
+      "security-sub text-[11px]",
+      "xs",
+      "ai-security-response-toggle",
+      "Redact response values",
+      "&lt",
+      "string&gt",
+      "number&gt"
+    ]
+  },
+  "preferences.ai.security.redactVariablesTitle": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Preferences/AI/SecurityPane.js",
+    "candidates": [
+      "ai-security-response-toggle",
+      "security-row flex items-center justify-between gap-3 px-3.5 py-3",
+      "flex flex-col gap-0.5 min-w-0",
+      "text-[12.5px] font-semibold",
+      "security-sub text-[11px]",
+      "xs",
+      "ai-security-variables-toggle",
+      "Redact secret variable values",
+      "Masks values whose names look like secrets. Variables explicitly marked",
+      "secret",
+      "are always redacted regardless of this switch."
+    ]
+  },
+  "preferences.ai.security.removeNamed": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Preferences/AI/SecurityPane.js",
+    "candidates": [
+      "security-chip-list flex flex-wrap gap-1.5",
+      "security-chip inline-flex items-center gap-1 min-w-0 max-w-full",
+      "security-chip-text",
+      "button",
+      "security-chip-remove",
+      "Remove ${name}",
+      "${removeTestIdPrefix}-${name}",
+      "name",
+      "aria-label=",
+      "`Remove $",
+      "data-testid=",
+      "removeTestIdPrefix ? `$",
+      "removeTestIdPrefix",
+      "` : undefined"
+    ]
+  },
+  "requestPane.auth.addTo": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/ApiKeyAuth/index.js",
+    "candidates": [
+      "value",
+      "placement",
+      "header",
+      "block mb-1",
+      "auth-placement-selector",
+      "inline-flex items-center cursor-pointer auth-placement-selector w-fit",
+      "bottom-end",
+      "dropdown-item",
+      "onSave=",
+      "handleSave",
+      "onChange=",
+      "onRun=",
+      "handleRun",
+      "collection="
+    ]
+  },
+  "requestPane.auth.domain": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/NTLMAuth/index.js",
+    "candidates": [
+      "ntlm-password",
+      "block mb-1",
+      "single-line-editor-wrapper",
+      "collection=",
+      "collection",
+      "item=",
+      "item",
+      "isSecret=",
+      "true",
+      "isCompact",
+      "showWarning &&",
+      "Domain",
+      "onRun=",
+      "handleRun"
+    ]
+  },
+  "requestPane.auth.key": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/ApiKeyAuth/index.js",
+    "candidates": [
+      "header",
+      "key",
+      "w-full",
+      "block mb-1",
+      "single-line-editor-wrapper mb-3",
+      "Key",
+      "onRun=",
+      "handleRun"
+    ]
+  },
+  "requestPane.auth.password": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/BasicAuth/index.js",
+    "candidates": [
+      "block mb-1",
+      "single-line-editor-wrapper flex items-center",
+      "onChange=",
+      "onRun=",
+      "handleRun",
+      "collection=",
+      "collection",
+      "item=",
+      "item",
+      "isCompact",
+      "Password"
+    ]
+  },
+  "requestPane.auth.token": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/BearerAuth/index.js",
+    "candidates": [
+      "w-full",
+      "block mb-1",
+      "single-line-editor-wrapper flex items-center",
+      "token: token",
+      "Token",
+      "onRun=",
+      "handleRun"
+    ]
+  },
+  "requestPane.auth.username": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/BasicAuth/index.js",
+    "candidates": [
+      "w-full",
+      "block mb-1",
+      "single-line-editor-wrapper mb-3",
+      "Username",
+      "onRun=",
+      "handleRun"
+    ]
+  },
+  "requestPane.aws.accessKeyId": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/AwsV4Auth/index.js",
+    "candidates": [
+      "mt-2 w-full",
+      "block mb-1",
+      "single-line-editor-wrapper mb-3",
+      "Access Key ID",
+      "onRun=",
+      "handleRun"
+    ]
+  },
+  "requestPane.aws.profileName": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/AwsV4Auth/index.js",
+    "candidates": [
+      "block mb-1",
+      "single-line-editor-wrapper",
+      "onChange=",
+      "onRun=",
+      "handleRun",
+      "collection=",
+      "collection",
+      "item=",
+      "item",
+      "isCompact",
+      "Profile Name"
+    ]
+  },
+  "requestPane.aws.region": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/AwsV4Auth/index.js",
+    "candidates": [
+      "block mb-1",
+      "single-line-editor-wrapper mb-3",
+      "onChange=",
+      "onRun=",
+      "handleRun",
+      "collection=",
+      "collection",
+      "item=",
+      "item",
+      "isCompact",
+      "Region"
+    ]
+  },
+  "requestPane.aws.secretAccessKey": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/AwsV4Auth/index.js",
+    "candidates": [
+      "block mb-1",
+      "single-line-editor-wrapper mb-3 flex items-center",
+      "onChange=",
+      "onRun=",
+      "handleRun",
+      "collection=",
+      "collection",
+      "item=",
+      "item",
+      "isCompact",
+      "Secret Access Key"
+    ]
+  },
+  "requestPane.aws.service": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/AwsV4Auth/index.js",
+    "candidates": [
+      "block mb-1",
+      "single-line-editor-wrapper mb-3",
+      "onChange=",
+      "onRun=",
+      "handleRun",
+      "collection=",
+      "collection",
+      "item=",
+      "item",
+      "isCompact",
+      "Service"
+    ]
+  },
+  "requestPane.aws.sessionToken": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/AwsV4Auth/index.js",
+    "candidates": [
+      "awsv4-secret-access-key",
+      "block mb-1",
+      "single-line-editor-wrapper mb-3",
+      "item=",
+      "item",
+      "isSecret=",
+      "true",
+      "isCompact",
+      "showWarning &&",
+      "Session Token",
+      "onRun=",
+      "handleRun"
+    ]
+  },
+  "requestPane.body.noBody": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/RequestBody/index.js",
+    "candidates": [
+      "formUrlEncoded",
+      "multipartForm",
+      "w-full",
+      "return",
+      "No Body",
+      "export default RequestBody"
+    ]
+  },
+  "requestPane.common.value": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/ApiKeyAuth/index.js",
+    "candidates": [
+      "key",
+      "value",
+      "block mb-1",
+      "single-line-editor-wrapper mb-3",
+      "onSave=",
+      "handleSave",
+      "onChange=",
+      "onRun=",
+      "handleRun",
+      "collection=",
+      "collection",
+      "isCompact",
+      "Value"
+    ]
+  },
+  "requestPane.graphql.docs": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/GraphQLSchemaActions/index.js",
+    "candidates": [
+      "introspection",
+      "flex flex-grow justify-end items-center",
+      "flex items-center cursor-pointer hover:underline",
+      "ml-1",
+      "bottom-start",
+      "dropdown-item",
+      "Docs"
+    ]
+  },
+  "requestPane.graphql.schema": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/GraphQLSchemaActions/index.js",
+    "candidates": [
+      "dropdown-icon cursor-pointer flex hover:underline ml-2",
+      "animate-spin",
+      "ml-1",
+      "flex flex-grow justify-end items-center",
+      "flex items-center cursor-pointer hover:underline",
+      "isSchemaLoading &&",
+      "!isSchemaLoading && schema &&",
+      "!isSchemaLoading && !schema &&",
+      "Schema"
+    ]
+  },
+  "requestPane.graphql.schemaLoadError": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/GraphQLSchemaActions/useGraphqlSchema.js",
+    "candidates": [
+      "GraphQL Schema loaded successfully",
+      "Error occurred while loading GraphQL Schema: ${err.message}",
+      "else",
+      "err.message",
+      "return",
+      "isLoading,"
+    ]
+  },
+  "requestPane.graphql.schemaValidationIssues": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/GraphQLSchemaActions/useGraphqlSchema.js",
+    "candidates": [
+      "; ",
+      "⚠️",
+      "GraphQL Schema loaded successfully",
+      "Schema validation issues: ${errorMessages}",
+      "const",
+      "schema, validationErrors",
+      "errorMessages",
+      "duration: 5000",
+      "else"
+    ]
+  },
+  "requestPane.grpc.addImportPathFailed": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/GrpcQueryUrl/ProtoFileDropdown/index.js",
+    "candidates": [
+      "Added import path to collection",
+      "Failed to browse for import directory: ${error.message}",
+      "Failed to add import path: ${addError.message}",
+      "error.message",
+      "return",
+      "const",
+      "success: addSuccess, error: addError",
+      "addError.message"
+    ]
+  },
+  "requestPane.grpc.addProtoFileFailed": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/GrpcQueryUrl/ProtoFileDropdown/index.js",
+    "candidates": [
+      "Proto file already exists in collection settings",
+      "Failed to browse for proto file: ${error.message}",
+      "Failed to add proto file: ${addError.message}",
+      "error.message",
+      "return",
+      "const",
+      "success: addSuccess, relativePath, alreadyExists, error: addError",
+      "addError.message",
+      "else"
+    ]
+  },
+  "requestPane.grpc.browseImportDirFailed": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/GrpcQueryUrl/ProtoFileDropdown/index.js",
+    "candidates": [
+      "Failed to browse for import directory: ${error.message}",
+      "const",
+      "success, directoryPath, error",
+      "error.message",
+      "return",
+      "success: addSuccess, error: addError"
+    ]
+  },
+  "requestPane.grpc.browseProtoFileFailed": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/GrpcQueryUrl/ProtoFileDropdown/index.js",
+    "candidates": [
+      "Failed to browse for proto file: ${error.message}",
+      "const",
+      "success, filePath, error",
+      "error.message",
+      "return",
+      "success: addSuccess, relativePath, alreadyExists, error: addError"
+    ]
+  },
+  "requestPane.grpc.defaultMessageName": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/GrpcBody/index.js",
+    "candidates": [
+      "client-streaming",
+      "bidi-streaming",
+      "message ${index + 1}",
+      "const",
+      "name, content",
+      "= message",
+      "currentMessages[index] =",
+      "name: name ? name : `message $",
+      "index + 1",
+      "content: value",
+      "content: currentMessages,",
+      "itemUid: item.uid,",
+      "collectionUid: collection.uid"
+    ]
+  },
+  "requestPane.grpc.loadedMethodsProtoFile": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/GrpcQueryUrl/index.js",
+    "candidates": [
+      ", type: ",
+      "Loaded ${methods.length} gRPC methods from proto file",
+      "return",
+      "methods.length"
+    ]
+  },
+  "requestPane.grpc.loadedMethodsReflection": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/GrpcQueryUrl/index.js",
+    "candidates": [
+      ", type: ",
+      "Loaded ${methods.length} gRPC methods from reflection",
+      "itemUid: item.uid,",
+      "collectionUid: collection.uid",
+      "methods.length"
+    ]
+  },
+  "requestPane.grpc.saveShortcut": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/GrpcQueryUrl/index.js",
+    "candidates": [
+      "grpc-save-request",
+      "top",
+      "fixed",
+      "flex items-center",
+      "save-request-button",
+      "Save (${saveShortcut})",
+      "color=",
+      "theme.requestTabs.icon.color",
+      "strokeWidth=",
+      "size=",
+      "<div"
+    ]
+  },
+  "requestPane.grpc.tabNotFound": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/GrpcRequestPane/index.js",
+    "candidates": [
+      "script",
+      "docs",
+      "request.body",
+      "request.headers",
+      "request.docs",
+      "mt-4",
+      "return",
+      "default:",
+      "404 | Not found"
+    ]
+  },
+  "requestPane.grpc.toggleImportPathFailed": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/GrpcQueryUrl/ProtoFileDropdown/index.js",
+    "candidates": [
+      "Added import path to collection",
+      "enabled",
+      "disabled",
+      "Failed to toggle import path: ${error.message}",
+      "Import path ${enabled ? 'enabled' : 'disabled'}",
+      "const",
+      "success, enabled, error",
+      "error.message",
+      "return"
+    ]
+  },
+  "requestPane.grpc.unknownError": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/GrpcQueryUrl/index.js",
+    "candidates": [
+      "Unknown error",
+      "Failed to load gRPC methods: ${error.message || 'Unknown error'}",
+      "const requestId = ++latestReflectionRequestIdRef.current",
+      "const",
+      "methods, error, fromCache",
+      "return"
+    ]
+  },
+  "requestPane.headers.collectionSource": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/RequestHeaders/index.js",
+    "candidates": [
+      "Unnamed",
+      "folder",
+      "inherited-header-source",
+      "top-end",
+      "folder “${sourceName}”",
+      "collection “${sourceName}”",
+      "inherited-header-source-hint-${row.uid}",
+      "Open headers in ${sourceLabel}",
+      "? `folder “$",
+      "sourceName",
+      ": `collection “$"
+    ]
+  },
+  "requestPane.headers.folderSource": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/RequestHeaders/index.js",
+    "candidates": [
+      "Unnamed",
+      "folder",
+      "inherited-header-source",
+      "top-end",
+      "folder “${sourceName}”",
+      "collection “${sourceName}”",
+      "inherited-header-source-hint-${row.uid}",
+      "Open headers in ${sourceLabel}",
+      "? `folder “$",
+      "sourceName",
+      ": `collection “$",
+      "<HeaderHint",
+      "id=",
+      "`inherited-header-source-hint-$"
+    ]
+  },
+  "requestPane.headers.openHeadersIn": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/RequestHeaders/index.js",
+    "candidates": [
+      "folder",
+      "unnamed",
+      "inherited-header-source",
+      "top-end",
+      "button",
+      "folder “${sourceName}”",
+      "collection “${sourceName}”",
+      "inherited-header-source-hint-${row.uid}",
+      "Open headers in ${sourceLabel}",
+      "inherited-header-source-${(row.name || 'unnamed').toLowerCase()}",
+      "? `folder “$",
+      "sourceName",
+      ": `collection “$"
+    ]
+  },
+  "requestPane.headers.showAdditional": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/RequestHeaders/index.js",
+    "candidates": [
+      "Hide Additional Headers",
+      "btn-action text-link select-none",
+      "bulk-edit-toggle",
+      "Show Additional Headers (${allInheritedHeaders.length})",
+      "showInheritedHeaders",
+      "allInheritedHeaders.length",
+      "Bulk Edit"
+    ]
+  },
+  "requestPane.multipart.fileAlreadyAdded": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/MultipartFormParams/index.js",
+    "candidates": [
+      "${fileBasename(skipped[0])}",
+      "\"${fileBasename(skipped[0])}\" is already added",
+      "${skipped.length} files are already added — skipped",
+      "else",
+      "skipped.length",
+      "let updatedParams"
+    ]
+  },
+  "requestPane.multipart.filesAlreadyAdded": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/MultipartFormParams/index.js",
+    "candidates": [
+      "${fileBasename(skipped[0])}",
+      "\"${fileBasename(skipped[0])}\" is already added",
+      "${skipped.length} files are already added — skipped",
+      "else",
+      "skipped.length",
+      "let updatedParams"
+    ]
+  },
+  "requestPane.oauth1.addParamsTo": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/OAuth1/index.js",
+    "candidates": [
+      "placement",
+      "flex items-center gap-4 w-full",
+      "block min-w-[140px]",
+      "inline-flex items-center cursor-pointer oauth1-dropdown-selector",
+      "Add Params To",
+      "id: value,",
+      "label,"
+    ]
+  },
+  "requestPane.oauth1.callbackUrl": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/OAuth1/index.js",
+    "candidates": [
+      "rotate-90",
+      "callbackUrl",
+      "flex items-center gap-4 w-full",
+      "block min-w-[140px]",
+      "single-line-editor-wrapper flex-1",
+      "oauth1-icon transition-transform ${advancedOpen ? 'rotate-90' : ''}",
+      "size=",
+      "className=",
+      "`oauth1-icon transition-transform $",
+      "Callback URL",
+      "onRun=",
+      "handleRun"
+    ]
+  },
+  "requestPane.oauth1.nonce": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/OAuth1/index.js",
+    "candidates": [
+      "nonce",
+      "flex items-center gap-4 w-full",
+      "block min-w-[140px]",
+      "single-line-editor-wrapper flex-1",
+      "collection=",
+      "collection",
+      "item=",
+      "item",
+      "isCompact",
+      "Nonce",
+      "onRun=",
+      "handleRun"
+    ]
+  },
+  "requestPane.oauth1.privateKey": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/OAuth1/index.js",
+    "candidates": [
+      "RSA-",
+      "caret ml-1 mr-1",
+      "flex items-start gap-4 w-full",
+      "block min-w-[140px] mt-1",
+      "private-key-editor-wrapper flex-1 flex items-center gap-2",
+      "oauth1-icon flex-shrink-0",
+      "truncate flex-1",
+      "flex-shrink-0 oauth1-icon cursor-pointer",
+      "Private Key",
+      "fileName",
+      "<button",
+      "onClick=",
+      "handleClearFile"
+    ]
+  },
+  "requestPane.oauth1.realm": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/OAuth1/index.js",
+    "candidates": [
+      "realm",
+      "flex items-center gap-4 w-full",
+      "block min-w-[140px]",
+      "single-line-editor-wrapper flex-1",
+      "collection=",
+      "collection",
+      "item=",
+      "item",
+      "isCompact",
+      "Realm",
+      "onRun=",
+      "handleRun"
+    ]
+  },
+  "requestPane.oauth1.signatureMethod": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/OAuth1/index.js",
+    "candidates": [
+      "signatureMethod",
+      "oauth1-icon",
+      "oauth1-section-label",
+      "flex items-center gap-4 w-full",
+      "block min-w-[140px]",
+      "inline-flex items-center cursor-pointer oauth1-dropdown-selector",
+      "Signature",
+      "Signature Method",
+      "id: value,",
+      "label,"
+    ]
+  },
+  "requestPane.oauth1.timestamp": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/OAuth1/index.js",
+    "candidates": [
+      "timestamp",
+      "flex items-center gap-4 w-full",
+      "block min-w-[140px]",
+      "single-line-editor-wrapper flex-1",
+      "collection=",
+      "collection",
+      "item=",
+      "item",
+      "isCompact",
+      "Timestamp",
+      "onRun=",
+      "handleRun"
+    ]
+  },
+  "requestPane.oauth1.token": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/OAuth1/index.js",
+    "candidates": [
+      "accessToken",
+      "oauth1-consumer-secret",
+      "flex items-center gap-4 w-full",
+      "block min-w-[140px]",
+      "single-line-editor-wrapper flex-1",
+      "isCompact",
+      "consumerSecretSensitive.showWarning &&",
+      "Token",
+      "onRun=",
+      "handleRun"
+    ]
+  },
+  "requestPane.oauth1.tokenSecret": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/OAuth1/index.js",
+    "candidates": [
+      "accessTokenSecret",
+      "flex items-center gap-4 w-full",
+      "block min-w-[140px]",
+      "single-line-editor-wrapper flex-1 flex items-center",
+      "collection=",
+      "collection",
+      "item=",
+      "item",
+      "isCompact",
+      "Token Secret",
+      "onRun=",
+      "handleRun"
+    ]
+  },
+  "requestPane.oauth1.verifier": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/OAuth1/index.js",
+    "candidates": [
+      "verifier",
+      "flex items-center gap-4 w-full",
+      "block min-w-[140px]",
+      "single-line-editor-wrapper flex-1",
+      "collection=",
+      "collection",
+      "item=",
+      "item",
+      "isCompact",
+      "Verifier",
+      "onRun=",
+      "handleRun"
+    ]
+  },
+  "requestPane.oauth1.version": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/OAuth1/index.js",
+    "candidates": [
+      "version",
+      "flex items-center gap-4 w-full",
+      "block min-w-[140px]",
+      "single-line-editor-wrapper flex-1",
+      "collection=",
+      "collection",
+      "item=",
+      "item",
+      "isCompact",
+      "Version",
+      "onRun=",
+      "handleRun"
+    ]
+  },
+  "requestPane.oauth2.addCredentialsTo": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/OAuth2/AuthorizationCode/index.js",
+    "candidates": [
+      "body",
+      "Request Body",
+      "credentialsPlacement",
+      "basic_auth_header",
+      "Basic Auth Header",
+      "flex items-center gap-4 w-full",
+      "input-credentials-placement",
+      "block min-w-[140px]",
+      "inline-flex items-center cursor-pointer token-placement-selector",
+      "isCompact",
+      "isSecret && showWarning &&",
+      "Add Credentials to",
+      "selectedItemId="
+    ]
+  },
+  "requestPane.oauth2.addParameter": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/OAuth2/AdditionalParams/index.js",
+    "candidates": [
+      "opacity-50 cursor-not-allowed",
+      "cursor-pointer",
+      "2px",
+      "ml-1 text-gray-500",
+      "add-additional-param-actions w-fit flex items-center mt-2 ${addButtonDisabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}",
+      "Add Parameter",
+      "export default AdditionalParams"
+    ]
+  },
+  "requestPane.oauth2.addTokenTo": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/OAuth2/AuthorizationCode/index.js",
+    "candidates": [
+      "header",
+      "Header",
+      "tokenPlacement",
+      "url",
+      "URL",
+      "flex items-center gap-4 w-full",
+      "input-token-placement",
+      "block min-w-[140px]",
+      "inline-flex items-center cursor-pointer token-placement-selector",
+      "onRun=",
+      "handleRun",
+      "collection=",
+      "collection",
+      "item="
+    ]
+  },
+  "requestPane.oauth2.autoFetchToken": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/OAuth2/AuthorizationCode/index.js",
+    "candidates": [
+      "autoFetchToken",
+      "flex items-center gap-4 w-full",
+      "checkbox",
+      "cursor-pointer ml-1",
+      "block min-w-[140px]",
+      "flex items-center gap-2",
+      "relative group cursor-pointer",
+      "text-gray-500",
+      "group-hover:opacity-100 pointer-events-none opacity-0 max-w-60 absolute left-0 bottom-full mb-1 w-max p-2 text-xs rounded-md transition-opacity duration-200",
+      "/* Automatically Fetch Token */",
+      "Automatically fetch token if not found"
+    ]
+  },
+  "requestPane.oauth2.autoFetchTokenShort": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/OAuth2/Implicit/index.js",
+    "candidates": [
+      "flex items-center gap-4 w-full",
+      "checkbox",
+      "cursor-pointer ml-1",
+      "block min-w-[140px]",
+      "flex items-center gap-2",
+      "relative group cursor-pointer",
+      "text-gray-500",
+      "group-hover:opacity-100 pointer-events-none opacity-0 max-w-60 absolute left-0 bottom-full mb-1 w-max p-2 bg-gray-700 text-white text-xs rounded-md transition-opacity duration-200",
+      "Auto fetch token",
+      "Automatically fetch a new token when the current one expires."
+    ]
+  },
+  "requestPane.oauth2.callbackUrl": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/OAuth2/AuthorizationCode/index.js",
+    "candidates": [
+      "callbackUrl",
+      "flex items-center px-2.5 py-1.5 oauth2-icon-container rounded-md",
+      "oauth2-icon",
+      "oauth2-section-label",
+      "flex items-center gap-4 w-full",
+      "input-callbackUrl",
+      "block min-w-[140px]",
+      "flex flex-col gap-1 w-full",
+      "single-line-editor-wrapper flex-1 flex items-center",
+      "Configuration",
+      "Callback URL"
+    ]
+  },
+  "requestPane.oauth2.decodedPayload": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/OAuth2/Oauth2TokenViewer/index.js",
+    "candidates": [
+      "object",
+      "font-mono text-xs bg-gray-50 dark:bg-gray-800 p-2 rounded break-all",
+      "mt-3",
+      "text-xs font-medium text-gray-500 dark:text-gray-400 mb-2",
+      "grid grid-cols-2 gap-x-4 gap-y-1",
+      "overflow-hidden text-ellipsis",
+      "font-medium text-xs",
+      "text-xs text-gray-600 dark:text-gray-300",
+      "token",
+      "Decoded Payload",
+      "key"
+    ]
+  },
+  "requestPane.oauth2.expiresIn": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/OAuth2/Oauth2TokenViewer/index.js",
+    "candidates": [
+      "bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400",
+      "bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400",
+      "Expires in ${formatExpiryTime(timeLeft)}",
+      "Expired",
+      "timeLeft > 0 ? `Expires in $",
+      "` : `Expired`",
+      "collection, item, url, credentialsId, handleRun",
+      "const",
+      "uid: collectionUid",
+      "= collection"
+    ]
+  },
+  "requestPane.oauth2.headerPrefix": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/OAuth2/AuthorizationCode/index.js",
+    "candidates": [
+      "header",
+      "tokenHeaderPrefix",
+      "flex items-center gap-4 w-full",
+      "input-token-prefix",
+      "token-header-prefix",
+      "block min-w-[140px]",
+      "single-line-editor-wrapper flex-1",
+      "Header Prefix",
+      "onRun=",
+      "handleRun"
+    ]
+  },
+  "requestPane.oauth2.noTokenFound": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/OAuth2/Oauth2TokenViewer/index.js",
+    "candidates": [
+      "text-gray-500 dark:text-gray-400",
+      "No token found",
+      "export default Oauth2TokenViewer"
+    ]
+  },
+  "requestPane.oauth2.queryParamKey": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/OAuth2/AuthorizationCode/index.js",
+    "candidates": [
+      "tokenQueryKey",
+      "flex items-center gap-4 w-full",
+      "input-token-query-param-key",
+      "token-query-param-key",
+      "block min-w-[140px]",
+      "single-line-editor-wrapper flex-1",
+      "collection=",
+      "collection",
+      "isCompact",
+      "Query Param Key",
+      "onRun=",
+      "handleRun"
+    ]
+  },
+  "requestPane.oauth2.scopeLabel": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/OAuth2/Oauth2TokenViewer/index.js",
+    "candidates": [
+      "font-medium",
+      "text-gray-600 dark:text-gray-300",
+      "flex items-center space-x-1 min-w-0",
+      "font-medium flex-shrink-0",
+      "text-gray-600 dark:text-gray-300 truncate",
+      "Token Type:",
+      "creds.token_type",
+      "Scope:",
+      "creds.scope"
+    ]
+  },
+  "requestPane.oauth2.settings": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/OAuth2/AuthorizationCode/index.js",
+    "candidates": [
+      "flex items-center gap-2.5 mt-4",
+      "flex items-center px-2.5 py-1.5 oauth2-icon-container rounded-md",
+      "oauth2-icon",
+      "font-medium",
+      "flex items-center gap-4 w-full",
+      "checkbox",
+      "Settings",
+      "/* Automatically Fetch Token */",
+      "<input",
+      "checked="
+    ]
+  },
+  "requestPane.oauth2.tokenFetchError": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/OAuth2/Oauth2TokenViewer/index.js",
+    "candidates": [
+      "relative w-auto h-fit mt-2",
+      "text-red-600 dark:text-red-400",
+      "border border-gray-200 dark:border-gray-700 rounded-lg p-4 shadow-sm",
+      "Access Token",
+      "Refresh Token",
+      "ID Token",
+      "mt-3 p-2 bg-gray-50 dark:bg-gray-800 rounded-lg text-xs",
+      "grid grid-cols-2 gap-2",
+      "const creds = credentialsData?.credentials ||",
+      "Error fetching token. Check network logs for more details."
+    ]
+  },
+  "requestPane.oauth2.tokenId": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/OAuth2/AuthorizationCode/index.js",
+    "candidates": [
+      "id_token",
+      "ID Token",
+      "Access Token",
+      "credentialsId",
+      "flex items-center justify-end token-placement-label select-none",
+      "caret ml-1 mr-1",
+      "flex items-center gap-4 w-full",
+      "input-token-name",
+      "block min-w-[140px]",
+      "single-line-editor-wrapper flex-1",
+      "Token ID",
+      "onRun=",
+      "handleRun"
+    ]
+  },
+  "requestPane.oauth2.tokenSource": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/OAuth2/AuthorizationCode/index.js",
+    "candidates": [
+      "access_token",
+      "Access Token",
+      "tokenSource",
+      "id_token",
+      "ID Token",
+      "flex items-center px-2.5 py-1.5 oauth2-icon-container rounded-md",
+      "oauth2-icon",
+      "oauth2-section-label",
+      "flex items-center gap-4 w-full",
+      "input-token-type",
+      "block min-w-[140px]",
+      "inline-flex items-center cursor-pointer token-placement-selector",
+      "Token",
+      "Token Source"
+    ]
+  },
+  "requestPane.oauth2.tokenType": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/OAuth2/Oauth2TokenViewer/index.js",
+    "candidates": [
+      "ID Token",
+      "mt-3 p-2 bg-gray-50 dark:bg-gray-800 rounded-lg text-xs",
+      "grid grid-cols-2 gap-2",
+      "flex items-center space-x-1",
+      "font-medium",
+      "text-gray-600 dark:text-gray-300",
+      "flex items-center space-x-1 min-w-0",
+      "font-medium flex-shrink-0",
+      "text-gray-600 dark:text-gray-300 truncate",
+      "Token Type:",
+      "creds.token_type",
+      "Scope:",
+      "creds.scope"
+    ]
+  },
+  "requestPane.oauth2.urlQueryKey": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/OAuth2/Implicit/index.js",
+    "candidates": [
+      "access_token",
+      "tokenQueryKey",
+      "flex items-center gap-4 w-full",
+      "input-token-query-key",
+      "token-query-param-key",
+      "block min-w-[140px]",
+      "oauth2-input-wrapper flex-1",
+      "collection=",
+      "collection",
+      "item=",
+      "item",
+      "isCompact",
+      "URL Query Key",
+      "onRun="
+    ]
+  },
+  "requestPane.oauth2.usePKCE": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Auth/OAuth2/AuthorizationCode/index.js",
+    "candidates": [
+      "body",
+      "Request Body",
+      "Basic Auth Header",
+      "pkce",
+      "flex items-center justify-end token-placement-label select-none",
+      "caret ml-1 mr-1",
+      "flex flex-row w-full gap-4",
+      "block",
+      "cursor-pointer",
+      "checkbox",
+      "Use PKCE"
+    ]
+  },
+  "requestPane.settings.description": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/Settings/index.js",
+    "candidates": [
+      "Enter",
+      "h-full w-full",
+      "text-xs mb-4 text-muted",
+      "bruno-form",
+      "mb-6",
+      "text-xs font-medium text-gray-900 dark:text-gray-100 flex items-center gap-1 mb-4",
+      "Configure request settings for this item.",
+      "Tags"
+    ]
+  },
+  "requestPane.tabNotFound": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/HttpRequestPane/index.js",
+    "candidates": [
+      "app",
+      "mt-4",
+      "pb-4 px-4",
+      "key",
+      "key, label",
+      "key, label, indicator: indicators[key]",
+      "[indicators, appTabEnabled]",
+      "const Component = TAB_PANELS[effectiveTab]",
+      "return Component ?",
+      "404 | Not found",
+      "return",
+      "An error occurred!",
+      "let rightContent = null"
+    ]
+  },
+  "requestPane.ws.defaultMessageName": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/WsBody/SingleWSMessage/index.js",
+    "candidates": [
+      "draft.request.body",
+      "request.body",
+      "message ${index + 1}",
+      "ws-msg-label-${message.uid ?? index}",
+      "const",
+      "displayedTheme",
+      "name, content, type",
+      "= message",
+      "const displayName = name || `message $",
+      "index + 1",
+      "const labelTooltipId = `ws-msg-label-$",
+      "message.uid ?? index",
+      "// Auto-focus the name input when this is a newly created message"
+    ]
+  },
+  "requestPane.ws.keepAliveInterval": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/WSSettingsPane/index.js",
+    "candidates": [
+      "font-medium mb-2",
+      "setting-keep-alive",
+      "tooltip-mod max-w-lg",
+      "collection=",
+      "collection",
+      "Keep Alive Interval"
+    ]
+  },
+  "requestPane.ws.keepAliveZero": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/WSSettingsPane/index.js",
+    "candidates": [
+      "single-line-editor-wrapper",
+      "mt-2",
+      "content=",
+      "<div className=",
+      "error: formErrors.keepAliveInterval"
+    ]
+  },
+  "requestPane.ws.raw": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/WsBody/BodyMode/index.js",
+    "candidates": [
+      "inline-flex items-center cursor-pointer body-mode-selector",
+      "ws-body-mode-selector",
+      "bottom-end",
+      "label-item font-medium",
+      "dropdown-item",
+      "ws-body-mode-item-${d.key}",
+      "appendTo=",
+      "Raw"
+    ]
+  },
+  "requestPane.ws.tabNotFound": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/WSRequestPane/index.js",
+    "candidates": [
+      "auth",
+      "docs",
+      "mt-4",
+      "pb-4 px-4",
+      "return",
+      "default:",
+      "404 | Not found",
+      "An error occurred!"
+    ]
+  },
+  "requestPane.ws.timeout": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/RequestPane/WSSettingsPane/index.js",
+    "candidates": [
+      "flex flex-col gap-4 w-full",
+      "grid gap-4 items-center grid-cols-2",
+      "font-medium mb-2",
+      "setting-connection-timeout",
+      "tooltip-mod max-w-lg",
+      "Timeout",
+      "Timeout in milliseconds"
+    ]
+  },
+  "sidebar.addRequest": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js",
+    "candidates": [
+      "fixed",
+      "add-request-cta-folder",
+      "bottom-start",
+      "ml-1 add-request-link",
+      "+ Add request"
+    ]
+  },
+  "sidebar.apiSpecs.close.confirmPrefix": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/ApiSpecs/CloseApiSpec/index.js",
+    "candidates": [
+      "sm",
+      "Close Api Spec",
+      "Close",
+      "flex items-center",
+      "ml-2 mr-4 font-semibold",
+      "break-words text-xs mt-1",
+      "mt-4",
+      "font-semibold",
+      "apiSpec.name",
+      "apiSpec.pathname",
+      "Are you sure you want to close API Spec",
+      "in Bruno?",
+      "It will still be available in the file system at the above location and can be re-opened later."
+    ]
+  },
+  "sidebar.apiSpecs.close.confirmSuffix": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/ApiSpecs/CloseApiSpec/index.js",
+    "candidates": [
+      "sm",
+      "Close Api Spec",
+      "Close",
+      "flex items-center",
+      "ml-2 mr-4 font-semibold",
+      "break-words text-xs mt-1",
+      "mt-4",
+      "font-semibold",
+      "apiSpec.name",
+      "apiSpec.pathname",
+      "Are you sure you want to close API Spec",
+      "in Bruno?",
+      "It will still be available in the file system at the above location and can be re-opened later."
+    ]
+  },
+  "sidebar.apiSpecs.create.title": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/ApiSpecs/CreateApiSpec/index.js",
+    "candidates": [
+      "md",
+      "Create API Spec",
+      "Create",
+      "bruno-form",
+      "api-spec-location",
+      "block font-semibold mb-2",
+      "flex items-center",
+      "Template",
+      "<input"
+    ]
+  },
+  "sidebar.changeVersion.from": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.js",
+    "candidates": [
+      " ",
+      "…",
+      "preview m-0",
+      "change-version-preview",
+      "old",
+      "text-muted italic not-set",
+      "preview-arrow",
+      "new",
+      "Updates",
+      "targetKey",
+      "in",
+      "targetFile",
+      "from",
+      "currentVersion ||"
+    ]
+  },
+  "sidebar.changeVersion.notSet": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/ChangeCollectionVersion/index.js",
+    "candidates": [
+      "version-row",
+      "version-col",
+      "col-label",
+      "current-value",
+      "change-version-current",
+      "text-muted italic",
+      "arrow",
+      "text",
+      "textbox w-full new-version-input",
+      "Current Version",
+      "currentVersion ||",
+      "Not Set",
+      "New Version",
+      "<input"
+    ]
+  },
+  "sidebar.cloneCollection.title": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CloneCollection/index.js",
+    "candidates": [
+      "md",
+      "Clone Collection",
+      "Create",
+      "bruno-form",
+      "collection-name",
+      "flex items-center font-medium",
+      "Name",
+      "<input"
+    ]
+  },
+  "sidebar.closeWorkspace.confirmPrefix": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/CloseWorkspace/index.js",
+    "candidates": [
+      "flex items-center",
+      "ml-2 mr-4 font-semibold",
+      "break-words text-xs mt-1",
+      "mt-4",
+      "font-semibold",
+      "workspace?.name",
+      "workspace.pathname",
+      "Are you sure you want to close workspace",
+      "It will still be available in the file system at the above location and can be re-opened later."
+    ]
+  },
+  "sidebar.closeWorkspace.confirmSuffix": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/CloseWorkspace/index.js",
+    "candidates": [
+      "flex items-center",
+      "ml-2 mr-4 font-semibold",
+      "break-words text-xs mt-1",
+      "mt-4",
+      "font-semibold",
+      "workspace?.name",
+      "workspace.pathname",
+      "Are you sure you want to close workspace",
+      "It will still be available in the file system at the above location and can be re-opened later."
+    ]
+  },
+  "sidebar.createCollection.title": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+    "candidates": [
+      "caret ml-1",
+      "md",
+      "Create Collection",
+      "bruno-form",
+      "collection-name",
+      "flex items-center font-medium",
+      "Name",
+      "<input"
+    ]
+  },
+  "sidebar.deleteItems.and": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js",
+    "candidates": [
+      "app",
+      "folder",
+      "request",
+      "example",
+      ", ",
+      " and ",
+      "font-medium",
+      "${folderCount} ${pluralizeWord('folder', folderCount)}",
+      "${requestCount} ${pluralizeWord('request', requestCount)}",
+      "${appCount} ${pluralizeWord('app', appCount)}",
+      "${exampleCount} ${pluralizeWord('example', exampleCount)}",
+      "${types.slice(0, -1).join(', ')} and ${types[types.length - 1]}",
+      "const folderDescription = folderCount > 0 ? `$",
+      "folderCount"
+    ]
+  },
+  "sidebar.deleteItems.appMany": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js",
+    "candidates": [
+      "example",
+      "app",
+      "folder",
+      "request",
+      "font-medium",
+      "${folderCount} ${pluralizeWord('folder', folderCount)}",
+      "${requestCount} ${pluralizeWord('request', requestCount)}",
+      "${appCount} ${pluralizeWord('app', appCount)}",
+      "${exampleCount} ${pluralizeWord('example', exampleCount)}",
+      "const folderDescription = folderCount > 0 ? `$",
+      "folderCount",
+      "` : null",
+      "const requestDescription = requestCount > 0 ? `$",
+      "requestCount"
+    ]
+  },
+  "sidebar.deleteItems.confirmExamplePrefix": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/ExampleItem/DeleteResponseExampleModal/index.js",
+    "candidates": [
+      "sm",
+      "Delete Example",
+      "Delete",
+      "danger",
+      "font-medium",
+      "Are you sure you want to delete the example",
+      "example.name",
+      "export default DeleteResponseExampleModal"
+    ]
+  },
+  "sidebar.deleteItems.exampleMany": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js",
+    "candidates": [
+      "example",
+      "app",
+      "folder",
+      "request",
+      "font-medium",
+      "${folderCount} ${pluralizeWord('folder', folderCount)}",
+      "${requestCount} ${pluralizeWord('request', requestCount)}",
+      "${appCount} ${pluralizeWord('app', appCount)}",
+      "${exampleCount} ${pluralizeWord('example', exampleCount)}",
+      "const folderDescription = folderCount > 0 ? `$",
+      "folderCount",
+      "` : null",
+      "const requestDescription = requestCount > 0 ? `$",
+      "requestCount"
+    ]
+  },
+  "sidebar.deleteItems.folderMany": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js",
+    "candidates": [
+      "example",
+      "app",
+      "folder",
+      "request",
+      "${folderCount} ${pluralizeWord('folder', folderCount)}",
+      "${requestCount} ${pluralizeWord('request', requestCount)}",
+      "${appCount} ${pluralizeWord('app', appCount)}",
+      "${exampleCount} ${pluralizeWord('example', exampleCount)}",
+      "let exampleCount = 0",
+      "const folderDescription = folderCount > 0 ? `$",
+      "folderCount",
+      "` : null",
+      "const requestDescription = requestCount > 0 ? `$",
+      "requestCount"
+    ]
+  },
+  "sidebar.deleteItems.requestMany": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js",
+    "candidates": [
+      "example",
+      "app",
+      "folder",
+      "request",
+      "font-medium",
+      "${folderCount} ${pluralizeWord('folder', folderCount)}",
+      "${requestCount} ${pluralizeWord('request', requestCount)}",
+      "${appCount} ${pluralizeWord('app', appCount)}",
+      "${exampleCount} ${pluralizeWord('example', exampleCount)}",
+      "const folderDescription = folderCount > 0 ? `$",
+      "folderCount",
+      "` : null",
+      "const requestDescription = requestCount > 0 ? `$",
+      "requestCount"
+    ]
+  },
+  "sidebar.deleteItems.titleAppMany": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js",
+    "candidates": [
+      "Delete Items",
+      "Folder",
+      "App",
+      "Example",
+      "Request",
+      "Delete ${pluralizeWord('Folder', folderCount)}",
+      "Delete ${pluralizeWord('App', appCount)}",
+      "Delete ${pluralizeWord('Example', exampleCount)}",
+      "Delete ${pluralizeWord('Request', requestCount)}",
+      "return `Delete $"
+    ]
+  },
+  "sidebar.deleteItems.titleExampleMany": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js",
+    "candidates": [
+      "Delete Items",
+      "Folder",
+      "App",
+      "Example",
+      "Request",
+      "Delete ${pluralizeWord('Folder', folderCount)}",
+      "Delete ${pluralizeWord('App', appCount)}",
+      "Delete ${pluralizeWord('Example', exampleCount)}",
+      "Delete ${pluralizeWord('Request', requestCount)}",
+      "return `Delete $"
+    ]
+  },
+  "sidebar.deleteItems.titleFolderMany": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js",
+    "candidates": [
+      ", ",
+      " and ",
+      "Delete Items",
+      "Folder",
+      "App",
+      "Example",
+      "Request",
+      "${types.slice(0, -1).join(', ')} and ${types[types.length - 1]}",
+      "Delete ${pluralizeWord('Folder', folderCount)}",
+      "Delete ${pluralizeWord('App', appCount)}",
+      "Delete ${pluralizeWord('Example', exampleCount)}",
+      "Delete ${pluralizeWord('Request', requestCount)}",
+      "and $",
+      "types[types.length - 1]"
+    ]
+  },
+  "sidebar.deleteItems.titleRequestMany": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/DeleteCollectionItems/index.js",
+    "candidates": [
+      "Delete Items",
+      "Folder",
+      "App",
+      "Example",
+      "Request",
+      "Delete ${pluralizeWord('Folder', folderCount)}",
+      "Delete ${pluralizeWord('App', appCount)}",
+      "Delete ${pluralizeWord('Example', exampleCount)}",
+      "Delete ${pluralizeWord('Request', requestCount)}",
+      "return `Delete $",
+      "// itemUid -> collectionUid"
+    ]
+  },
+  "sidebar.docs.featurePlayground": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/index.js",
+    "candidates": [
+      "const",
+      "folderCount, requestCount",
+      "[collection?.items, activeTags]",
+      "gitCollectionUrl, isResolved: gitUrlLoaded",
+      "try",
+      "// so the generated docs read in the same order as the collection tree."
+    ]
+  },
+  "sidebar.docs.filterByTags": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/index.jsx",
+    "candidates": [
+      "data-testid",
+      "docs-requests-filter",
+      "filterByTags,",
+      "onFilterModeChange,",
+      "tags,",
+      "availableTags,",
+      "onTagsChange,",
+      "includeGitLink,",
+      "onGitLinkToggle,",
+      "hasGitUrl"
+    ]
+  },
+  "sidebar.docs.removeTag": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/DocsTagList/index.jsx",
+    "candidates": [
+      "docs-tag-icon",
+      "true",
+      "docs-tag-text",
+      "button",
+      "docs-tag-remove",
+      "Remove ${tag}",
+      "tag"
+    ]
+  },
+  "sidebar.docs.selectAll": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/EnvironmentSelectionList/index.js",
+    "candidates": [
+      "checkbox",
+      "env-checkbox",
+      "env-select-all",
+      "env-select-all-label",
+      "env-list",
+      "group",
+      "checked=",
+      "allSelected",
+      "onChange=",
+      "handleToggleAll",
+      "Select All",
+      "<Virtuoso",
+      "aria-label=",
+      "title"
+    ]
+  },
+  "sidebar.docs.tagExists": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/Advanced/DocsTagList/index.jsx",
+    "candidates": [
+      "Tags must only contain letters, numbers, spaces, \"-\", \"_\"",
+      "-",
+      "_",
+      "${tag}",
+      "Tag \"${tag}\" already exists",
+      "return",
+      "tag"
+    ]
+  },
+  "sidebar.docs.versionLabel": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/GenerateDocumentation/CollectionVersionInfo/index.js",
+    "candidates": [
+      "Folder",
+      "Folders",
+      "request",
+      "requests",
+      " : ",
+      "}`} data-testid=\"version-value\">{`Version: ${version || ",
+      "version-info",
+      "version-line",
+      "collection-name",
+      "version-value",
+      "version-summary",
+      "version-dot",
+      "true",
+      "version-value ${version ? '' : 'unset'}"
+    ]
+  },
+  "sidebar.drafts.requestItemOne": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js",
+    "candidates": [
+      " ",
+      "request",
+      "Request",
+      "flex items-center",
+      "warning-text",
+      "ml-2 text-lg font-medium",
+      "mt-4",
+      "font-medium",
+      "text-sm font-medium mb-2",
+      "hideFooter=",
+      "true",
+      "Hold on..",
+      "You have unsaved changes in",
+      "allDrafts.length"
+    ]
+  },
+  "sidebar.drafts.unsavedChangesPrefix": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/MoveToWorkspace/ConfirmMoveDrafts.js",
+    "candidates": [
+      " ",
+      "request",
+      "flex items-center",
+      "warning-text",
+      "ml-2 text-lg font-medium",
+      "mt-4",
+      "font-medium",
+      "disableCloseOnOutsideClick=",
+      "true",
+      "closeModalFadeTimeout=",
+      "hideFooter=",
+      "Hold on..",
+      "You have unsaved changes in",
+      "allDrafts.length"
+    ]
+  },
+  "sidebar.dragPreview.items": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CollectionItemDragPreview/index.js",
+    "candidates": [
+      "collection",
+      "folder",
+      "app",
+      "request",
+      "s",
+      ", ",
+      " and $1",
+      "${value} ${key}${value > 1 ? 's' : ''}",
+      "${multiSelectedItems.length} items",
+      "const parts = []",
+      "const value = itemsCount[key]",
+      "value",
+      "key",
+      "multiSelectedItems.length"
+    ]
+  },
+  "sidebar.gitRemote.clickToClone": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/GitRemoteCollectionRow/index.js",
+    "candidates": [
+      "git-collection-row",
+      "sidebar-git-collection-row",
+      "flex flex-grow items-center overflow-hidden",
+      "git-badge ml-1",
+      "true",
+      "git-collection-name w-full",
+      "${entry.name} — click to clone from ${entry.remote}",
+      "remoteUrl=",
+      "entry.remote",
+      "onClose=",
+      "entry.name"
+    ]
+  },
+  "sidebar.goldenEdition.buy": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js",
+    "candidates": [
+      "https://www.usebruno.com/pricing",
+      "_blank",
+      "individuals",
+      "flex text-white bg-yellow-600 hover:bg-yellow-700 font-medium rounded-lg px-4 py-2 text-center cursor-pointer",
+      "ml-2",
+      "my-4",
+      "text-3xl font-extrabold",
+      "Buy"
+    ]
+  },
+  "sidebar.goldenEdition.individuals": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js",
+    "candidates": [
+      "24rem",
+      "individuals",
+      "text-gray-500",
+      "organizations",
+      "text-gray-500 mr-2 icon",
+      "style=",
+      "Individuals"
+    ]
+  },
+  "sidebar.goldenEdition.oneTimePayment": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js",
+    "candidates": [
+      "individuals",
+      "ml-2",
+      "my-4",
+      "text-3xl font-extrabold",
+      "bg-yellow-200 text-black rounded-md px-2 py-1 mb-2 inline-flex",
+      "Buy",
+      "One Time Payment",
+      "perpetual license for 2 devices, with 2 years of updates",
+      "/&nbsp",
+      "user"
+    ]
+  },
+  "sidebar.goldenEdition.organizations": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js",
+    "candidates": [
+      "organizations",
+      "text-gray-500",
+      "text-gray-500 mr-2 icon",
+      "list",
+      "space-y-3 text-left",
+      "flex items-center space-x-3",
+      "Individuals",
+      "Organizations"
+    ]
+  },
+  "sidebar.goldenEdition.perUser": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js",
+    "candidates": [
+      "bg-yellow-200 text-black rounded-md px-2 py-1 mb-2 inline-flex",
+      "my-4",
+      "text-3xl font-extrabold",
+      "ml-2",
+      "flex items-center justify-between my-8 w-40 rounded-full p-1 ${themeBasedTabContainerClassNames}",
+      "One Time Payment",
+      "perpetual license for 2 devices, with 2 years of updates",
+      "/&nbsp",
+      "user",
+      "perpetual license with 2 years of updates",
+      "<div",
+      "className=",
+      "`flex items-center justify-between my-8 w-40 rounded-full p-1 $",
+      "themeBasedTabContainerClassNames"
+    ]
+  },
+  "sidebar.goldenEdition.title": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/GoldenEdition/index.js",
+    "candidates": [
+      "light",
+      "text-gray-900",
+      "text-white",
+      "bg-gray-200",
+      "bg-gray-800",
+      "bg-white text-gray-900 font-medium",
+      "bg-gray-700 text-white font-medium",
+      "https://www.usebruno.com/pricing",
+      "_blank",
+      "sm",
+      "Golden Edition",
+      "flex items-center justify-between",
+      "text-lg font-medium",
+      "flex flex-col w-full ${themeBasedContainerClassNames}"
+    ]
+  },
+  "sidebar.ignore.hideFrom": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js",
+    "candidates": [
+      " ",
+      "opencollection (YAML)",
+      "Bruno (JSON)",
+      "Ignore",
+      "font-medium",
+      "handleConfirm=",
+      "onConfirm",
+      "handleCancel=",
+      "onClose",
+      "Ignoring",
+      "item.name",
+      "will hide it from this",
+      "collection by adding it to the",
+      "ignore"
+    ]
+  },
+  "sidebar.ignore.prefix": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/IgnoreCollectionItem/index.js",
+    "candidates": [
+      " ",
+      "opencollection (YAML)",
+      "Bruno (JSON)",
+      "md",
+      "Ignore Folder",
+      "Ignore",
+      "font-medium",
+      "Ignoring",
+      "item.name",
+      "will hide it from this",
+      "collection by adding it to the",
+      "ignore"
+    ]
+  },
+  "sidebar.import.checkForSpecUpdates": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/ImportCollectionLocation/index.js",
+    "candidates": [
+      " : ",
+      "OpenAPI Sync is not supported for Swagger 2.0 specs.",
+      "Stay notified of spec changes and sync your collection with the spec.",
+      "checkbox",
+      "checkbox-option-label",
+      "checkbox-option-description",
+      "checkbox mt-0.5 ${isSwagger2 ? '' : 'cursor-pointer'}",
+      "checked=",
+      "isSwagger2 ? false : enableCheckForSpecUpdates",
+      "onChange=",
+      "disabled=",
+      "isSwagger2",
+      "className=",
+      "`checkbox mt-0.5 $"
+    ]
+  },
+  "sidebar.item.cloneError": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+    "candidates": [
+      "${itemTypeLabel} cloned!",
+      "An error occurred while cloning the ${itemTypeLabel.toLowerCase()}",
+      "itemTypeLabel"
+    ]
+  },
+  "sidebar.item.cloneTitle": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+    "candidates": [
+      "md",
+      "bruno-form",
+      "name",
+      "block font-medium",
+      "Clone ${itemTypeLabel}",
+      "itemTypeLabel",
+      "Name"
+    ]
+  },
+  "sidebar.item.cloned": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+    "candidates": [
+      "not-reserved",
+      "collection",
+      "folder",
+      "The file names \"collection\" and \"folder\" are reserved in bruno",
+      "${itemTypeLabel} cloned!",
+      "An error occurred while cloning the ${itemTypeLabel.toLowerCase()}",
+      "itemTypeLabel"
+    ]
+  },
+  "sidebar.item.copied": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js",
+    "candidates": [
+      "<source> copy",
+      "${getItemTypeLabel(item)} copied",
+      "${item.name} copy",
+      "pathname: item.pathname",
+      "the filesystem name",
+      "// uniqueness is resolved silently by electron.",
+      "item.name"
+    ]
+  },
+  "sidebar.item.exampleCreated": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/index.js",
+    "candidates": [
+      "OPEN_EXAMPLE",
+      "app",
+      "${name}",
+      "Example \"${name}\" created successfully",
+      "collectionUid: collectionUid,",
+      "itemUid: item.uid,",
+      "exampleIndex: exampleIndex,",
+      "// Freshly created examples start blank, so open the tab in edit mode.",
+      "openInEditMode: true",
+      "name",
+      "const showEmptyFolderMessage"
+    ]
+  },
+  "sidebar.item.exampleRenamed": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/ExampleItem/index.js",
+    "candidates": [
+      "${newName}",
+      "Example renamed to \"${newName}\"",
+      "collectionUid: collection.uid,",
+      "exampleUid: example.uid,",
+      "example:",
+      "name: newName",
+      "newName",
+      "// Build menu items for MenuDropdown",
+      "return ["
+    ]
+  },
+  "sidebar.item.renameTitle": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RenameCollectionItem/index.js",
+    "candidates": [
+      "md",
+      "bruno-form",
+      "flex flex-col mt-2",
+      "name",
+      "block font-medium",
+      "Rename ${itemTypeLabel}",
+      "itemTypeLabel",
+      "Name"
+    ]
+  },
+  "sidebar.location": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/BulkImportCollectionLocation/index.js",
+    "candidates": [
+      "No location selected",
+      "bruno-form",
+      "flex flex-col",
+      "mb-6",
+      "flex items-center justify-between relative mb-5 w-full",
+      "font-semibold",
+      "text-sm border border-slate-600 rounded px-3 py-1.5 ml-4 flex-1",
+      "disableEscapeKey=",
+      "false",
+      "hideCancel=",
+      "importStarted",
+      "Location",
+      "formik.values.collectionLocation"
+    ]
+  },
+  "sidebar.locationHelp1": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/CreateCollection/index.js",
+    "candidates": [
+      "text-red-500",
+      "collection-location",
+      "font-medium mt-3 flex items-center",
+      "mt-2",
+      "formik.errors.collectionName",
+      "Location",
+      "Choose the location where you want to store this collection.",
+      "<input"
+    ]
+  },
+  "sidebar.newApp.collectionName": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/NewApp/index.js",
+    "candidates": [
+      "this folder",
+      "text-red-500 text-xs mt-2",
+      "text-xs mt-2 opacity-70",
+      "${collection?.name || ''}",
+      "collection \"${collection?.name || ''}\"",
+      "formik.errors.appName",
+      "Creates a standalone app file in",
+      "export default NewApp"
+    ]
+  },
+  "sidebar.newApp.thisFolder": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/NewApp/index.js",
+    "candidates": [
+      "this folder",
+      "text-red-500 text-xs mt-2",
+      "text-xs mt-2 opacity-70",
+      "${collection?.name || ''}",
+      "collection \"${collection?.name || ''}\"",
+      "onChange=",
+      "formik.handleChange",
+      "formik.errors.appName",
+      "Creates a standalone app file in",
+      "export default NewApp"
+    ]
+  },
+  "sidebar.newRequest.onFilesystem": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+    "candidates": [
+      "Folder",
+      "File",
+      "text-red-500",
+      "mt-4",
+      "flex items-center justify-between",
+      "filename",
+      "flex items-center font-medium",
+      "font-normal text-muted ml-1",
+      "300",
+      "formik.touched.name && formik.errors.name ?",
+      "formik.errors.name",
+      ": null",
+      "Name",
+      "You can choose to save the folder as a different name on your file system versus what is displayed in the app."
+    ]
+  },
+  "sidebar.openCollection.noneFoundSkipped": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/OpenCollection/index.js",
+    "candidates": [
+      " : ",
+      "No Bruno collections found. Couldn\\",
+      "Failed to scan ${failedScans.length} folder${failedScans.length === 1 ? '' : 's'} for collections",
+      "No Bruno collections found. ${skippedItems.length} skipped, config could not be read",
+      "const skippedItems = [...skippedSet]",
+      "res",
+      "failedScans.length",
+      "folder$",
+      "skippedItems.length",
+      "else",
+      "return"
+    ]
+  },
+  "sidebar.options": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/CloneCollectionItem/index.js",
+    "candidates": [
+      "flex mr-2 text-link cursor-pointer items-center",
+      "btn-advanced",
+      "button",
+      "caret ml-1",
+      "Options"
+    ]
+  },
+  "sidebar.postmanReport.andMore": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js",
+    "candidates": [
+      " and ",
+      ", ",
+      " and ${remainder} more",
+      "separator",
+      "name",
+      "idx === shown.length - 1 && remainder > 0 ? ` and $",
+      "remainder"
+    ]
+  },
+  "sidebar.postmanReport.devModeTitle": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js",
+    "candidates": [
+      ", ",
+      "pkg-section pkg-devmode",
+      "pkg-devmode-head",
+      "pkg-devmode-title",
+      "pkg-devmode-desc",
+      "pkg-devmode-trust",
+      "Scripts use libraries that need Developer Mode",
+      "Your imported scripts call",
+      "which need",
+      "Developer Mode",
+      "to run.",
+      "Only enable Developer Mode for collections you trust."
+    ]
+  },
+  "sidebar.postmanReport.externalModulesTitle": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js",
+    "candidates": [
+      " ",
+      "pkg-section pkg-devmode",
+      "pkg-devmode-head",
+      "pkg-devmode-title",
+      "pkg-devmode-desc",
+      "pkg-devmode-trust",
+      "primary",
+      "sm",
+      "External modules require Developer Mode",
+      "are installed, but this collection is currently running in",
+      "Safe Mode",
+      "Only enable Developer Mode for collections you trust.",
+      "<Button"
+    ]
+  },
+  "sidebar.postmanReport.installFailedExitCode": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js",
+    "candidates": [
+      "NPM_NOT_FOUND",
+      "npm was not found on your PATH. Install Node.js/npm, then retry or run the command manually.",
+      "TIMEOUT",
+      "npm install timed out. Try running the command manually in a terminal.",
+      "SPAWN_FAILED",
+      "SPAWN_ERROR",
+      "Could not start npm install. Try running the command manually.",
+      "npm install failed (exit code ${result?.exitCode}). Try the manual command above.",
+      "default:",
+      "result?.exitCode",
+      "report, collectionPath, onClose"
+    ]
+  },
+  "sidebar.postmanReport.installMany": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js",
+    "candidates": [
+      "Done",
+      "Installing…",
+      " : ",
+      "md",
+      "Install packages",
+      "Install ${needsInstall.length} package${needsInstall.length === 1 ? '' : 's'}",
+      "const isDismissAction = installDone || needsInstall.length === 0",
+      "const confirmText = installDone",
+      ": installing",
+      ": needsInstall.length > 0",
+      "? `Install $",
+      "needsInstall.length",
+      "package$",
+      "const handleConfirm = isDismissAction ? onClose : handleInstall"
+    ]
+  },
+  "sidebar.postmanReport.installOne": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js",
+    "candidates": [
+      "Done",
+      "Installing…",
+      " : ",
+      "md",
+      "Install packages",
+      "Install ${needsInstall.length} package${needsInstall.length === 1 ? '' : 's'}",
+      "const isDismissAction = installDone || needsInstall.length === 0",
+      "const confirmText = installDone",
+      ": installing",
+      ": needsInstall.length > 0",
+      "? `Install $",
+      "needsInstall.length",
+      "package$",
+      "const handleConfirm = isDismissAction ? onClose : handleInstall"
+    ]
+  },
+  "sidebar.postmanReport.installedMany": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js",
+    "candidates": [
+      " : ",
+      "npm install failed. See details below.",
+      "Install failed:",
+      "Failed to start npm install",
+      "Installed ${needsInstall.length} package${needsInstall.length === 1 ? '' : 's'}",
+      "collectionPath,",
+      "needsInstall",
+      "`Installed $",
+      "needsInstall.length",
+      "package$",
+      "else",
+      "finally"
+    ]
+  },
+  "sidebar.postmanReport.installedOne": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js",
+    "candidates": [
+      "renderer:install-postman-packages",
+      " : ",
+      "npm install failed. See details below.",
+      "Install failed:",
+      "Failed to start npm install",
+      "Installed ${needsInstall.length} package${needsInstall.length === 1 ? '' : 's'}",
+      "collectionPath,",
+      "needsInstall",
+      "`Installed $",
+      "needsInstall.length",
+      "package$",
+      "else"
+    ]
+  },
+  "sidebar.postmanReport.notSupportedTitle": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js",
+    "candidates": [
+      "pkg-section pkg-section-danger",
+      "pkg-section-head",
+      "pkg-section-title",
+      "pkg-section-count",
+      "pkg-section-help",
+      "Not supported in Bruno",
+      "unsupported.length",
+      "Postman-specific packages without a Bruno equivalent. Scripts that call these will",
+      "fail at runtime."
+    ]
+  },
+  "sidebar.postmanReport.packagesUsedInScripts": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/PostmanPackageReport/index.js",
+    "candidates": [
+      "postman-package-report-modal",
+      "pkg-section",
+      "pkg-section-head",
+      "pkg-section-title",
+      "pkg-section-count",
+      "pkg-section-help",
+      "disableCloseOnOutsideClick",
+      "Packages used in scripts",
+      "needsInstall.length"
+    ]
+  },
+  "sidebar.renameCollection.title": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/RenameCollection/index.js",
+    "candidates": [
+      "md",
+      "Rename Collection",
+      "Rename",
+      "bruno-form",
+      "name",
+      "block font-medium",
+      "collection-name",
+      "Name",
+      "<input"
+    ]
+  },
+  "sidebar.runCollection.alreadyRunning": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RunCollectionItem/index.js",
+    "candidates": [
+      "mb-2",
+      "mb-6",
+      "mb-3 description",
+      "mb-1",
+      "font-medium",
+      "ml-1 text-xs",
+      "mb-8 warning",
+      "mb-6 warning",
+      "divider",
+      "flex flex-col items-start gap-2 mb-8",
+      "runner-delay",
+      "block text-sm",
+      "description ${isFolderLoading ? 'mb-2' : 'mb-6'}",
+      "This will only run the requests in this folder."
+    ]
+  },
+  "sidebar.runCollection.folderOnly": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RunCollectionItem/index.js",
+    "candidates": [
+      "mb-2",
+      "mb-6",
+      "md",
+      "Collection Runner",
+      "mb-1",
+      "font-medium",
+      "ml-1 text-xs",
+      "mb-3 description",
+      "mb-8 warning",
+      "mb-6 warning",
+      "description ${isFolderLoading ? 'mb-2' : 'mb-6'}",
+      "Run",
+      "totalRequestItemsCountForFolderRun",
+      "This will only run the requests in this folder."
+    ]
+  },
+  "sidebar.runCollection.recursiveDesc": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RunCollectionItem/index.js",
+    "candidates": [
+      "mb-2",
+      "mb-6",
+      "font-medium",
+      "ml-1 text-xs",
+      "mb-3 description",
+      "mb-1",
+      "mb-8 warning",
+      "mb-6 warning",
+      "divider",
+      "flex flex-col items-start gap-2 mb-8",
+      "description ${isFolderLoading ? 'mb-2' : 'mb-6'}",
+      "Run",
+      "totalRequestItemsCountForFolderRun",
+      "This will only run the requests in this folder."
+    ]
+  },
+  "sidebar.runCollection.recursiveRun": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RunCollectionItem/index.js",
+    "candidates": [
+      "mb-2",
+      "mb-6",
+      "md",
+      "Collection Runner",
+      "mb-1",
+      "font-medium",
+      "ml-1 text-xs",
+      "mb-3 description",
+      "mb-8 warning",
+      "mb-6 warning",
+      "divider",
+      "description ${isFolderLoading ? 'mb-2' : 'mb-6'}",
+      "Run",
+      "totalRequestItemsCountForFolderRun"
+    ]
+  },
+  "sidebar.runCollection.requestCount": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RunCollectionItem/index.js",
+    "candidates": [
+      "mb-2",
+      "mb-6",
+      "md",
+      "Collection Runner",
+      "mb-1",
+      "font-medium",
+      "ml-1 text-xs",
+      "mb-3 description",
+      "description ${isFolderLoading ? 'mb-2' : 'mb-6'}",
+      "const shouldDisableFolderRun = totalRequestItemsCountForFolderRun",
+      "Run",
+      "totalRequestItemsCountForFolderRun",
+      "This will only run the requests in this folder.",
+      "Recursive Run"
+    ]
+  },
+  "sidebar.runCollection.stillLoading": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RunCollectionItem/index.js",
+    "candidates": [
+      "mb-2",
+      "mb-6",
+      "ml-1 text-xs",
+      "mb-3 description",
+      "mb-1",
+      "font-medium",
+      "mb-8 warning",
+      "mb-6 warning",
+      "divider",
+      "flex flex-col items-start gap-2 mb-8",
+      "runner-delay",
+      "block text-sm",
+      "description ${isFolderLoading ? 'mb-2' : 'mb-6'}",
+      "totalRequestItemsCountForFolderRun"
+    ]
+  },
+  "sidebar.runCollection.title": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/Sidebar/Collections/Collection/CollectionItem/RunCollectionItem/index.js",
+    "candidates": [
+      "md",
+      "Collection Runner",
+      "mb-1",
+      "font-medium",
+      "ml-1 text-xs",
+      "mb-3 description",
+      "const shouldDisableRecursiveFolderRun = totalRequestItemsCountForRecursiveFolderRun",
+      "Run",
+      "totalRequestItemsCountForFolderRun",
+      "This will only run the requests in this folder."
+    ]
+  },
+  "welcome.goToStep": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/WelcomeModal/index.js",
+    "candidates": [
+      "active",
+      "} ${i + 1 < step ? ",
+      " : ",
+      "step",
+      "welcome-footer",
+      "progress-dots",
+      "button",
+      "footer-buttons",
+      "secondary",
+      "ghost",
+      "dot ${i + 1 === step ? 'active' : ''} ${i + 1 < step ? 'completed' : ''}",
+      "Go to step ${i + 1}",
+      "length: TOTAL_STEPS",
+      "aria-label="
+    ]
+  },
+  "workspace.badge.notCloned": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/CollectionsList/index.js",
+    "candidates": [
+      "danger",
+      "xs",
+      "warning",
+      "collection-path",
+      "collection-remote",
+      "Git",
+      "Failed to open",
+      "Not cloned",
+      "collection.pathname",
+      "collection.gitRemoteUrl"
+    ]
+  },
+  "workspace.git.removeNoteMid": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/CollectionsList/RemoveGitRemote/index.js",
+    "candidates": [
+      " ",
+      "mt-2 mb-0 font-mono text-xs text-muted break-all",
+      "mt-3 mb-0 text-xs text-muted",
+      "font-mono",
+      "from its Git remote?",
+      "remoteUrl",
+      "This only removes the remote URL from",
+      "workspace.yml",
+      ". Local collection files",
+      "and any",
+      ".git",
+      "folder are left untouched.",
+      "export default RemoveGitRemote"
+    ]
+  },
+  "workspace.git.removeNotePrefix": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/CollectionsList/RemoveGitRemote/index.js",
+    "candidates": [
+      " ",
+      "mt-2 mb-0 font-mono text-xs text-muted break-all",
+      "mt-3 mb-0 text-xs text-muted",
+      "font-mono",
+      "collectionName",
+      "from its Git remote?",
+      "remoteUrl",
+      "This only removes the remote URL from",
+      "workspace.yml",
+      ". Local collection files",
+      "and any",
+      ".git",
+      "folder are left untouched."
+    ]
+  },
+  "workspace.git.removeNoteSuffix": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/CollectionsList/RemoveGitRemote/index.js",
+    "candidates": [
+      "mt-2 mb-0 font-mono text-xs text-muted break-all",
+      "mt-3 mb-0 text-xs text-muted",
+      "font-mono",
+      "from its Git remote?",
+      "remoteUrl",
+      "This only removes the remote URL from",
+      "workspace.yml",
+      ". Local collection files",
+      "and any",
+      ".git",
+      "folder are left untouched.",
+      "export default RemoveGitRemote"
+    ]
+  },
+  "workspace.git.urlNotePrefix": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/CollectionsList/ConnectGitRemote/index.js",
+    "candidates": [
+      " ",
+      "m-0",
+      "font-medium text-inherit break-words",
+      "font-mono",
+      "remoteUrl",
+      "block font-medium",
+      "Linking",
+      "collectionName",
+      "to a remote Git repository.",
+      "The URL is saved in",
+      "workspace.yml",
+      "only. Your collection files on disk are not",
+      "modified.",
+      "Git Remote URL"
+    ]
+  },
+  "workspace.import.fileLabel": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/WorkspaceSidebar/ImportWorkspace/index.js",
+    "candidates": [
+      "Importing...",
+      "Import",
+      "Import Workspace",
+      "flex flex-col",
+      "mb-4",
+      "font-semibold mb-2",
+      "flex items-center justify-between p-3 border border-gray-200 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-800",
+      "flex items-center gap-2",
+      "text-gray-500",
+      "text-gray-700 dark:text-gray-300",
+      "confirmText=",
+      "handleConfirm=",
+      "formik.handleSubmit",
+      "handleCancel="
+    ]
+  },
+  "workspace.quickActions": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/index.js",
+    "candidates": [
+      "stat-item",
+      "stat-value",
+      "stat-label",
+      "quick-actions-section",
+      "section-title",
+      "quick-actions-buttons",
+      "light",
+      "sm",
+      "workspaceEnvironmentsCount",
+      "Environments",
+      "Quick Actions",
+      "onClick=",
+      "handleCreateCollection",
+      "disabled="
+    ]
+  },
+  "workspace.remove.confirmPrefix": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/ManageWorkspace/DeleteWorkspace/index.js",
+    "candidates": [
+      "flex items-center",
+      "ml-2 mr-4 font-semibold",
+      "break-words text-xs mt-1",
+      "mt-4",
+      "font-semibold",
+      "workspace?.name",
+      "workspace.pathname",
+      "Are you sure you want to remove workspace",
+      "The workspace will still be available in the file system and can be re-opened later."
+    ]
+  },
+  "workspace.remove.confirmSuffix": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/ManageWorkspace/DeleteWorkspace/index.js",
+    "candidates": [
+      "ml-2 mr-4 font-semibold",
+      "break-words text-xs mt-1",
+      "mt-4",
+      "font-semibold",
+      "workspace?.name",
+      "workspace.pathname",
+      "Are you sure you want to remove workspace",
+      "The workspace will still be available in the file system and can be re-opened later."
+    ]
+  },
+  "workspace.toast.couldNotOpen": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/CollectionsList/index.js",
+    "candidates": [
+      ".collection-menu",
+      "${collection.name}",
+      "Collection \"${collection.name}\" could not be opened",
+      "Collection \"${collection.name}\" needs to be cloned first",
+      "return",
+      "collection.name",
+      "else"
+    ]
+  },
+  "workspace.toast.needsClone": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/CollectionsList/index.js",
+    "candidates": [
+      "${collection.name}",
+      "Collection \"${collection.name}\" could not be opened",
+      "Collection \"${collection.name}\" needs to be cloned first",
+      "Collection \"${collection.name}\" does not exist on disk",
+      "collection.name",
+      "return",
+      "else"
+    ]
+  },
+  "workspace.toast.notOnDisk": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/WorkspaceHome/WorkspaceOverview/CollectionsList/index.js",
+    "candidates": [
+      "${collection.name}",
+      "Collection \"${collection.name}\" could not be opened",
+      "Collection \"${collection.name}\" needs to be cloned first",
+      "Collection \"${collection.name}\" does not exist on disk",
+      "collection.name",
+      "return",
+      "else",
+      "collectionUid: collection.uid,"
+    ]
+  },
+  "workspace.toast.switchedTo": {
+    "commit": "57c9b8c51",
+    "file": "packages/bruno-app/src/components/ManageWorkspace/index.js",
+    "candidates": [
+      "Error opening the folder",
+      "Switched to ${workspace.name}",
+      "workspace.name"
+    ]
+  }
+}

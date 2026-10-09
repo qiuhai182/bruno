@@ -1,0 +1,13 @@
+{
+  "notifications.allCaughtUp": "notif-empty-text",
+  "notifications.clearAll": "全部清除",
+  "notifications.empty": "notif-list-empty",
+  "notifications.markAllRead": "全部标为已读",
+  "notifications.menuAriaLabel": "打开通知菜单",
+  "notifications.openAriaLabel": "查看所有通知",
+  "notifications.resizeSidebarAriaLabel": "调整侧边栏大小",
+  "notifications.selectToRead": "notif-empty",
+  "notifications.tabAll": "全部",
+  "notifications.tabUnread": "未读",
+  "notifications.title": "通知"
+}
