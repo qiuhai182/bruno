@@ -768,26 +768,27 @@
       "brunoFormat": "Bruno 格式",
       "descriptionPrefix": "Bruno 使用",
       "descriptionSuffix": "- 一种开放的 API 集合格式",
-      "exportFailed": "导出集合失败：",
-      "exportForPostman": "format-description",
+      "exportFailed": "导出集合失败：{{message}}",
+      "exportForOpenapi": "OpenAPI 3.0 规范（YAML）",
+      "exportForPostman": "Postman 集合（JSON）",
       "exportSuccess": "集合导出成功",
       "exporting": "正在导出...",
       "nonExportableNote": "注意：此集合中的 {{types}} 请求将不会被导出",
       "otherFormat": "其他格式",
       "proceed": "继续",
-      "recommended": "recommended-badge",
+      "recommended": "推荐",
       "title": "分享集合",
-      "yamlBestFor": "best-for",
-      "yamlDescription": "card-description",
+      "yamlBestFor": "适合粘贴到 gist 或附加到 issue",
+      "yamlDescription": "整个集合保存为单个文件",
       "yamlFeature1": "所有内容都在单个 YAML 文件中",
       "yamlFeature2": "可粘贴到 gist 或附加到 issue",
-      "yamlTitle": "card-title",
-      "zipBestFor": "best-for",
-      "zipDescription": "card-description",
+      "yamlTitle": "Bruno (YAML)",
+      "zipBestFor": "适合版本管理与团队协作",
+      "zipDescription": "整个集合打包为单个 ZIP 压缩包",
       "zipFeature1": "包含独立 .yml 文件的文件夹结构",
       "zipFeature2": "通过 Pull Request 与团队协作",
       "zipFeature3": "解压后可直接在 Bruno 中打开",
-      "zipTitle": "card-title"
+      "zipTitle": "Bruno (ZIP)"
     },
     "tests": {
       "description": "此集合中的请求每次发送时都会运行这些测试。"
@@ -2475,7 +2476,7 @@
       "tagInInclude": "标签已在包含列表中",
       "tagNameRule": "标签只能包含字母、数字、空格、\"-\"、\"_\"",
       "tagPlaceholder": "例如：smoke、regression",
-      "tagsHint": "标签是请求上的标记（例如 smoke、WIP）。可在 请求 › 设置 中管理标签",
+      "tagsHint": "标签是请求上的标记（例如 smoke、WIP）。可在 请求 ? 设置 中管理标签",
       "title": "生成文档",
       "versionLabel": "版本：{{version}}"
     },
@@ -2512,7 +2513,7 @@
     },
     "exportToPostman": {
       "export": "导出",
-      "exportFailed": "导出集合失败：",
+      "exportFailed": "导出集合失败：{{message}}",
       "exportedSuccess": "集合导出成功",
       "fileExists": "已存在同名文件",
       "preserveScriptsDesc": "导出 Bruno 脚本时不进行转换。",
@@ -2680,7 +2681,7 @@
       "rename": "重命名",
       "run": "运行",
       "settings": "设置",
-      "share": "分享"
+      "share": "分享导出"
     },
     "mockServers": {
       "createMockServer": "创建 Mock 服务器"

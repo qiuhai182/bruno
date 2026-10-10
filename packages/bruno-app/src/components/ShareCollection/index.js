@@ -1,21 +1,24 @@
 import React, { useState, useMemo } from 'react';
+import * as FileSaver from 'file-saver';
 import Modal from 'components/Modal';
 import Button from 'ui/Button';
-import { IconCheck, IconAlertTriangle, IconFileExport } from '@tabler/icons';
+import { IconCheck, IconAlertTriangle, IconFileExport, IconFileCode } from '@tabler/icons';
 import StyledWrapper from './StyledWrapper';
 import ExportToPostman from 'components/Sidebar/Collections/Collection/ExportCollection/ExportToPostman';
 import exportOpenCollection from 'utils/exporters/opencollection';
+import { exportApiSpec } from 'utils/exporters/openapi-spec';
 import { cloneDeep } from 'lodash';
-import { transformCollectionToSaveToExportAsFile } from 'utils/collections/index';
+import { sanitizeName } from 'utils/common/regex';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { findCollectionByUid, areItemsLoading } from 'utils/collections/index';
+import { transformCollectionToSaveToExportAsFile, findCollectionByUid, areItemsLoading, flattenItems, getEnvironmentVariables } from 'utils/collections/index';
 import toast from 'react-hot-toast';
 
 const EXPORT_FORMATS = {
   ZIP: 'zip',
   YAML: 'yaml',
-  POSTMAN: 'postman'
+  POSTMAN: 'postman',
+  OPENAPI: 'openapi'
 };
 
 const ShareCollection = ({ onClose, collectionUid }) => {
@@ -65,6 +68,18 @@ const ShareCollection = ({ onClose, collectionUid }) => {
     exportOpenCollection(transformCollectionToSaveToExportAsFile(collectionCopy));
   };
 
+  const handleExportOpenApi = () => {
+    const { content } = exportApiSpec({
+      variables: getEnvironmentVariables(collection),
+      items: flattenItems(collection.items),
+      name: collection.name,
+      environments: collection.environments || []
+    });
+
+    const fileName = `${sanitizeName(collection.name)}.openapi.yaml`;
+    FileSaver.saveAs(new Blob([content], { type: 'application/yaml' }), fileName);
+  };
+
   const handlePostmanModalClose = () => {
     setShowPostmanExportModal(false);
     onClose();
@@ -86,11 +101,17 @@ const ShareCollection = ({ onClose, collectionUid }) => {
           break;
         case EXPORT_FORMATS.YAML:
           handleExportYaml();
+          toast.success(t('collection.share.exportSuccess'));
+          break;
+        case EXPORT_FORMATS.OPENAPI:
+          handleExportOpenApi();
+          toast.success(t('collection.share.exportSuccess'));
           break;
       }
       onClose();
     } catch (error) {
       console.error('Export error:', error);
+      toast.error(t('collection.share.exportFailed', { message: error.message }));
     } finally {
       setIsExporting(false);
     }
@@ -193,9 +214,22 @@ const ShareCollection = ({ onClose, collectionUid }) => {
                 <div className="format-description">{t('collection.share.exportForPostman')}</div>
               </div>
             </div>
+            <div
+              className={`other-format-card ${selectedFormat === EXPORT_FORMATS.OPENAPI ? 'selected' : ''} ${isDisabled ? 'opacity-50 cursor-not-allowed' : ''}`}
+              onClick={() => !isDisabled && setSelectedFormat(EXPORT_FORMATS.OPENAPI)}
+              data-testid="export-format-openapi"
+            >
+              <div className="format-icon">
+                <IconFileCode size={28} strokeWidth={1.5} />
+              </div>
+              <div className="format-info">
+                <div className="format-name">OpenAPI</div>
+                <div className="format-description">{t('collection.share.exportForOpenapi')}</div>
+              </div>
+            </div>
           </div>
 
-          {selectedFormat === EXPORT_FORMATS.POSTMAN && hasNonExportableRequestTypes.has && (
+          {(selectedFormat === EXPORT_FORMATS.POSTMAN || selectedFormat === EXPORT_FORMATS.OPENAPI) && hasNonExportableRequestTypes.has && (
             <div className="flex items-center mt-4 p-3 rounded" style={{ backgroundColor: 'rgba(251, 191, 36, 0.1)' }}>
               <IconAlertTriangle size={16} className="mr-2 flex-shrink-0" style={{ color: '#f59e0b' }} />
               <span className="text-sm" style={{ color: '#f59e0b' }}>
