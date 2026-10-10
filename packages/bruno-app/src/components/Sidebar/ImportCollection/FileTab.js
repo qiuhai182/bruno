@@ -10,7 +10,7 @@ import { isBrunoCollection } from 'utils/importers/bruno-collection';
 import { isOpenCollection } from 'utils/importers/opencollection';
 import { useTheme } from 'providers/Theme';
 import { useTranslation } from 'react-i18next';
-import i18n from '../../i18n';
+import i18n from '../../../i18n';
 
 const convertFileToObject = async (file) => {
   const text = await file.text();

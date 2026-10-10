@@ -321,7 +321,13 @@
         "subtitle": "Ghost-text suggestions in Pre-Request, Post-Response, and Tests scripts",
         "title": "Inline Autocomplete",
         "triggerAria": "Trigger mode",
-        "triggerLabel": "Trigger mode"
+        "triggerLabel": "Trigger mode",
+        "triggerAggressive": "Aggressive",
+        "triggerAggressiveDesc": "Suggest after every keystroke",
+        "triggerDebounced": "Debounced",
+        "triggerDebouncedDesc": "Suggest after you pause typing (default)",
+        "triggerManual": "Manual",
+        "triggerManualDesc": "Only on {{modifier}}+\\"
       },
       "card": {
         "add": "Add",
@@ -402,6 +408,55 @@
         "multipleNonModifiers": "Only one non-modifier key allowed (e.g. Cmd + Shift + K).",
         "reserved": "This shortcut is reserved by the OS.",
         "duplicate": "This shortcut is already in use."
+      },
+      "sections": {
+        "tabs": "Tabs",
+        "sidebar": "Sidebar",
+        "requests": "Requests",
+        "collectionsEnvironment": "Collections & Environment",
+        "search": "Search",
+        "view": "View",
+        "developerTool": "Developer Tool",
+        "others": "Others"
+      },
+      "actions": {
+        "closeTab": "Close Tab",
+        "closeAllTabs": "Close All Tabs",
+        "save": "Save",
+        "saveAllTabs": "Save All Tabs",
+        "reopenLastClosedTab": "Reopen Last Closed Tab",
+        "switchToTabAtPosition": "Switch to Tab at Position",
+        "switchToLastTab": "Switch to Last Tab",
+        "switchToPreviousTab": "Switch to Previous Tab",
+        "switchToNextTab": "Switch to Next Tab",
+        "moveTabLeft": "Move Tab Left",
+        "moveTabRight": "Move Tab Right",
+        "switchToTab1": "Switch to Tab at Position",
+        "switchToTab2": "Switch to Tab at Position",
+        "switchToTab3": "Switch to Tab at Position",
+        "switchToTab4": "Switch to Tab at Position",
+        "switchToTab5": "Switch to Tab at Position",
+        "switchToTab6": "Switch to Tab at Position",
+        "switchToTab7": "Switch to Tab at Position",
+        "switchToTab8": "Switch to Tab at Position",
+        "sidebarSearch": "Search Sidebar",
+        "copyItem": "Copy Item",
+        "pasteItem": "Paste Item",
+        "cloneItem": "Clone Item",
+        "renameItem": "Rename Item",
+        "collapseSidebar": "Collapse Sidebar",
+        "sendRequest": "Send Request",
+        "changeLayout": "Change Orientation",
+        "importCollection": "Import Collection",
+        "editEnvironment": "Edit Environment",
+        "newRequest": "New Request",
+        "globalSearch": "Global Search",
+        "zoomIn": "Zoom In",
+        "zoomOut": "Zoom Out",
+        "resetZoom": "Reset Zoom",
+        "openTerminal": "Open in Terminal",
+        "openPreferences": "Open Preferences",
+        "closeBruno": "Close Bruno"
       }
     }
   },
@@ -452,7 +507,7 @@
       "selectStatus": "Select status",
       "tryResultTab": "Try Result",
       "auto": "Auto",
-      "body": "title text-xs mr-2",
+      "body": "Body",
       "confirmCreate": "confirmText=confirmText",
       "createModalTitle": "title=title",
       "descriptionLabel": "Description",
@@ -518,7 +573,20 @@
       "descriptionSuffix": "tab.",
       "domain": "Domain",
       "edgegrid": {
-        "advancedSettings": "Advanced Settings"
+        "advancedSettings": "Advanced Settings",
+        "accessToken": "Access Token",
+        "clientToken": "Client Token",
+        "clientSecret": "Client Secret",
+        "baseURL": "Base URL",
+        "baseURLTooltip": "Defaults to the request URL if not specified.",
+        "nonce": "Nonce",
+        "nonceTooltip": "A unique nonce is required per request. Defaults to an auto-generated UUID v4 if not provided.",
+        "timestamp": "Timestamp",
+        "timestampTooltip": "UTC timestamp of when the request is signed (yyyyMMddTHH:mm:ss+0000). Defaults to current time if not provided.",
+        "headersToSign": "Headers to Sign",
+        "headersToSignTooltip": "Comma-separated list of headers to include in the signature.",
+        "maxBodySize": "Max Body Size",
+        "maxBodySizeTooltip": "Maximum message body size to include in the signature, in bytes. Defaults to 131072."
       },
       "inherit": "Inherit",
       "mode": {
@@ -1577,7 +1645,7 @@
     "export": {
       "collectionEnvironments": "Global Environments",
       "deselectAll": "Deselect All",
-      "exportCount": "} Environment${selectedCount !== 1 ?",
+      "exportCount": "Export {{num}} Environments",
       "exportOne": "Export {{num}} Environment",
       "exported": "Environment(s) exported successfully",
       "exportedToFolder": "Exported {{type}} environment(s) to folder",
@@ -1621,8 +1689,8 @@
       "optionReplaceTitle": "Replace",
       "partialSuccess": "{{count}} environment(s) failed to import",
       "selected": "selected",
-      "successOne": "${importedCount > 1 ?",
-      "successOther": "Environment",
+      "successOne": "Environment imported successfully",
+      "successOther": "{{num}} environments imported successfully",
       "title": "Import environments",
       "titleGlobal": "Import global environments",
       "unknownFile": "Unknown",
@@ -1664,7 +1732,15 @@
       "noResults": "No results found",
       "readyToGetStarted": "Ready to get started?",
       "searchPlaceholder": "Search environments...",
-      "selectError": "An error occurred while selecting the environment"
+      "selectError": "An error occurred while selecting the environment",
+      "tab": {
+        "collection": "Collection",
+        "global": "Global"
+      },
+      "emptyDescription": {
+        "collection": "Create your first environment to begin working with your collection.",
+        "global": "Create your first global environment to begin working across collections."
+      }
     },
     "tab": {
       "secrets": "Secrets",
@@ -1758,7 +1834,11 @@
     "selectToRead": "notif-empty",
     "tabAll": "All",
     "tabUnread": "Unread",
-    "title": "Notifications"
+    "title": "Notifications",
+    "toast": {
+      "fetchReadFailed": "An error occurred while fetching read notifications",
+      "setReadFailed": "An error occurred while setting read notifications"
+    }
   },
   "requestPane": {
     "auth": {
@@ -1797,7 +1877,13 @@
     "bodyMode": {
       "prettify": "Prettify",
       "prettifyInvalidJson": "Unable to prettify. Invalid JSON format.",
-      "prettifyInvalidXml": "Unable to prettify. Invalid XML format."
+      "prettifyInvalidXml": "Unable to prettify. Invalid XML format.",
+      "groupForm": "Form",
+      "multipartForm": "Multipart Form",
+      "formUrlEncoded": "Form URL Encoded",
+      "groupRaw": "Raw",
+      "groupOther": "Other",
+      "file": "File / Binary"
     },
     "common": {
       "auto": "Auto",
@@ -1913,7 +1999,11 @@
       "toggleImportPathFailed": "Failed to toggle import path: {{error}}",
       "unknownError": "Failed to load gRPC methods: {{error}}",
       "usingReflection": "Using Reflection",
-      "usingServerReflection": "Using server reflection to discover gRPC methods."
+      "usingServerReflection": "Using server reflection to discover gRPC methods.",
+      "scriptBeforeCallStart": "Before Call Start",
+      "scriptBeforeMessageSend": "Before Message Send",
+      "scriptAfterMessageReceive": "After Message Receive",
+      "scriptAfterCallEnd": "After Call End"
     },
     "headers": {
       "autoAdded": "Automatically added at runtime",
@@ -1957,7 +2047,9 @@
       "tokenSecret": "Token Secret",
       "uploadFile": "Upload File",
       "verifier": "Verifier",
-      "version": "Version"
+      "version": "Version",
+      "placementQueryParams": "Query Params",
+      "placementBody": "Body"
     },
     "oauth2": {
       "addCredentialsTo": "Add Credentials To",
@@ -2137,7 +2229,37 @@
       "tabNotFound": "An error occurred!",
       "tabSettings": "Settings",
       "timeout": "Timeout",
-      "timeoutHint": "Timeout in milliseconds"
+      "timeoutHint": "Timeout in milliseconds",
+      "timeoutInvalid": "Timeout needs to be a valid number",
+      "keepAliveInvalid": "Timeout needs to be a valid number"
+    },
+    "edgegrid": {
+      "accessToken": "Access Token",
+      "clientToken": "Client Token",
+      "clientSecret": "Client Secret",
+      "baseURL": "Base URL",
+      "baseURLTooltip": "Defaults to the request URL if not specified.",
+      "nonce": "Nonce",
+      "nonceTooltip": "A unique nonce is required per request. Defaults to an auto-generated UUID v4 if not provided.",
+      "timestamp": "Timestamp",
+      "timestampTooltip": "UTC timestamp of when the request is signed (yyyyMMddTHH:mm:ss+0000). Defaults to current time if not provided.",
+      "headersToSign": "Headers to Sign",
+      "headersToSignTooltip": "Comma-separated list of headers to include in the signature.",
+      "maxBodySize": "Max Body Size",
+      "maxBodySizeTooltip": "Maximum message body size to include in the signature, in bytes. Defaults to 131072."
+    },
+    "tabs": {
+      "params": "Params",
+      "body": "Body",
+      "headers": "Headers",
+      "auth": "Auth",
+      "vars": "Vars",
+      "script": "Script",
+      "assert": "Assert",
+      "tests": "Tests",
+      "docs": "Docs",
+      "app": "App",
+      "settings": "Settings"
     }
   },
   "sidebar": {
@@ -2156,7 +2278,7 @@
         "confirmPrefix": "Are you sure you want to close",
         "confirmSuffix": "? It will still be available in the file system and can be re-opened later.",
         "stillAvailableNote": "It will still be available in the file system at the above location and can be re-opened later.",
-        "title": "Close Api Spec,Close"
+        "title": "Close Api Spec"
       },
       "create": {
         "blankSpec": "Blank spec",
@@ -2373,7 +2495,15 @@
     },
     "dragPreview": {
       "and": ", , and $1",
-      "items": "{{count}} items"
+      "items": "{{count}} items",
+      "collectionOne": "{{count}} collection",
+      "collectionMany": "{{count}} collections",
+      "folderOne": "{{count}} folder",
+      "folderMany": "{{count}} folders",
+      "appOne": "{{count}} app",
+      "appMany": "{{count}} apps",
+      "requestOne": "{{count}} request",
+      "requestMany": "{{count}} requests"
     },
     "example": {
       "nameLabel": "Example Name",
@@ -2757,6 +2887,24 @@
     },
     "toast": {
       "savePreferencesFailed": "Failed to save preferences"
+    },
+    "highlights": {
+      "filesystem": {
+        "title": "Filesystem only",
+        "desc": "Collections are plain files on your disk. No cloud sync, no proprietary lock-in."
+      },
+      "git": {
+        "title": "Git-friendly",
+        "desc": "Every request is a readable file. Commit, branch, review, and collaborate using the tools you already know."
+      },
+      "privacy": {
+        "title": "Privacy-focused",
+        "desc": "No account, no login. Bruno works entirely offline, your API keys never leave your machine."
+      },
+      "fast": {
+        "title": "Fast and lightweight",
+        "desc": "Built to be snappy. No bloated runtimes, just a fast, focused tool for exploring and testing APIs."
+      }
     }
   },
   "workspace": {
@@ -2914,5 +3062,781 @@
       "nameRequired": "Workspace name is required",
       "nameRequiredLower": "name is required"
     }
+  },
+  "mockServer": {
+    "dashboard": {
+      "startedAt": "Mock server started at {{baseUrl}}",
+      "startFailed": "Failed to start mock server",
+      "stopped": "Mock server stopped",
+      "stopFailed": "Failed to stop mock server",
+      "routesRefreshed": "Routes refreshed: {{routes}} routes, {{responses}} responses",
+      "refreshRoutesFailed": "Failed to refresh routes",
+      "refreshRoutes": "Refresh routes",
+      "saveNameFailed": "Failed to save mock server name",
+      "updateDelayFailed": "Failed to update delay",
+      "statusRunning": "Running on port {{port}}",
+      "starting": "Starting...",
+      "stopping": "Stopping...",
+      "statusError": "Error",
+      "statusStopped": "Stopped",
+      "nameAriaLabel": "Mock server name",
+      "source": "Source: {{source}}",
+      "settingsAriaLabel": "Mock server settings",
+      "copyUrlTitle": "Copy mock server URL",
+      "routeCount": "{{count}} routes",
+      "responseCount": "{{count}} responses",
+      "delayLabel": "Delay (ms)",
+      "startServer": "Start Server",
+      "stopServer": "Stop Server",
+      "portMismatch": "Configured port {{configured}} differs from the running port {{running}}.",
+      "tabResponses": "Responses",
+      "tabRoutes": "Routes",
+      "tabRequestLog": "Request Log"
+    },
+    "responses": {
+      "createdFromExample": "Mock response created from example",
+      "createFailed": "Failed to create mock response",
+      "openSpecFirst": "Open the API spec in this workspace first.",
+      "generatedFromSpec": "Generated {{count}} mock response{{s}} from API spec",
+      "generateFailed": "Failed to generate mock responses from spec",
+      "collectionNotLoaded": "Collection is not loaded. Open the linked collection first.",
+      "syncedWithExamples": "Mock responses synced with collection examples",
+      "syncFailed": "Failed to sync mock responses",
+      "syncedWithSpec": "Mock responses synced with spec",
+      "syncWithSpecFailed": "Failed to sync mock responses with spec",
+      "deleted": "Mock response deleted",
+      "deleteFailed": "Failed to delete mock response",
+      "urlCopied": "URL copied",
+      "copyUrlFailed": "Failed to copy URL",
+      "deleteModalTitle": "Delete Mock Response",
+      "deleting": "Deleting...",
+      "deleteConfirm": "Are you sure you want to delete the mock response {{name}}?",
+      "deleteAction": "Delete mock response",
+      "copyUrlAction": "Copy mock URL",
+      "syncing": "Syncing...",
+      "sync": "Sync",
+      "syncExamplesModalTitle": "Sync with Collection Examples",
+      "syncExamplesText": "Mock responses that match collection examples will be overwritten with the latest example data.",
+      "syncExamplesKeepText": "Custom mock responses without a matching example will be kept.",
+      "syncSpecModalTitle": "Sync with API Spec",
+      "syncSpecText": "Mock responses matching an endpoint in {{spec}} will be overwritten with the latest spec data (bodies generated from schema).",
+      "syncSpecKeepText": "Custom mock responses without a matching endpoint will be kept.",
+      "thisSpec": "this API spec",
+      "newButton": "New Mock Response",
+      "syncWithExamplesBtn": "Sync with Examples",
+      "generateFromSpecBtn": "Generate from API Spec",
+      "syncWithSpecBtn": "Sync with Spec",
+      "searchPlaceholder": "Search by name, method, or endpoint",
+      "noMatches": "No matching mock responses",
+      "emptyTitle": "No mock responses yet",
+      "noMatchText": "No mock response matches your search.",
+      "emptySpecText": "Generate them from your API spec, or create one manually and add rules to match requests.",
+      "emptyText": "Create one to define the routes and responses this mock server serves.",
+      "rulesSummary": "{{count}} rule(s), {{operator}}",
+      "noRulesDefault": "No rules (default match)",
+      "loadFailed": "Failed to load mock response",
+      "saved": "Mock response saved",
+      "saveFailed": "Failed to save mock response",
+      "tryRequiresServer": "Start the mock server before trying this response",
+      "tryRequiresUrl": "Set a request URL before trying this response",
+      "tryResult": "Mock returned {{status}} {{statusText}}",
+      "tryFailed": "Could not reach the mock server",
+      "openAsRequestRequiresUrl": "Set a request URL before opening it as a request",
+      "openCollectionFirst": "Open a collection in this workspace to create a request",
+      "defaultRequestName": "Mock Request",
+      "demoRequestOpened": "Opened demo request in a new tab",
+      "openDemoRequestFailed": "Failed to open the demo request",
+      "loading": "Loading mock response...",
+      "notFoundTitle": "Mock response not found",
+      "notFoundText": "It may have been deleted. Return to the mock server dashboard and refresh responses.",
+      "expectedLabel": "Expected",
+      "renamed": "Mock response renamed",
+      "renameFailed": "Failed to rename mock response",
+      "cloned": "Mock response cloned",
+      "cloneFailed": "Failed to clone mock response",
+      "cloning": "Cloning...",
+      "nameTaken": "A mock response with this name already exists",
+      "selectExample": "Select a collection example",
+      "createTitle": "Create Mock Response",
+      "creating": "Creating...",
+      "descriptionLabel": "Description",
+      "statusCodeLabel": "Status Code",
+      "bodyTypeLabel": "Body Type",
+      "copyFromExample": "Copy from a collection example",
+      "copyFromExampleHint": "Reuses the example's request, status code and body instead of starting from an empty response.",
+      "selectExampleOption": "Select an example"
+    },
+    "requestLog": {
+      "missing": "(missing)",
+      "noRulesFallback": "No rules (fallback)",
+      "selectedByRules": "Selected because specific rules matched",
+      "selectedAsFallback": "Selected as fallback response",
+      "noRouteMatched": "No route matched this request",
+      "noRuleMatch": "Route matched, but no response rules passed",
+      "noMatchTrace": "No match trace for this entry.",
+      "matched": "Matched: {{name}}",
+      "noMatch": "No match",
+      "availableRoutes": "Available routes",
+      "responsesConsidered": "Responses considered",
+      "badgeFallback": "fallback",
+      "badgeSelected": "selected",
+      "badgeMatchedNotSelected": "matched, not selected",
+      "pass": "pass",
+      "fail": "fail",
+      "got": "got {{value}}",
+      "matchesAnyRequest": "Matches any request on this route",
+      "ruleGroup": "Rule group: {{operator}}",
+      "filterMatched": "Matched",
+      "filterUnmatched": "Unmatched",
+      "filter2xx": "2xx Success",
+      "filter3xx": "3xx Redirect",
+      "filter4xx": "4xx Client Error",
+      "filter5xx": "5xx Server Error",
+      "matchFilterLabel": "Match",
+      "allRequests": "All Requests",
+      "statusFilterLabel": "Status",
+      "allStatus": "All Status",
+      "requestCount": "{{count}} requests",
+      "clear": "Clear",
+      "empty": "No requests logged yet. Send requests to the mock server to see them here.",
+      "matchTraceAria": "Match trace",
+      "time": "Time",
+      "method": "Method",
+      "path": "Path",
+      "mockResponse": "Mock Response",
+      "status": "Status",
+      "delay": "Delay",
+      "duration": "Duration",
+      "showMatchTrace": "Show match trace"
+    },
+    "behavior": {
+      "delayLabel": "Delay (ms)",
+      "delayTitle": "Delay before sending this response (ms)",
+      "probabilityLabel": "Probability (%)",
+      "probabilityTitle": "Chance (0-100%) that this response is served when its rules match",
+      "counterEveryLabel": "Counter every",
+      "counterEveryTitle": "Serve this response on every Nth hit of the route",
+      "counterOffsetLabel": "Counter offset",
+      "counterOffsetTitle": "Shifts the counter phase",
+      "templateLabel": "Template",
+      "templateTitle": "Render {{tokens}} tokens in the response",
+      "extractLabel": "Extract",
+      "extractTitle": "Capture request values into template variables ({{token}})",
+      "addExtract": "+ Add",
+      "keyPlaceholder": "key (a.b for body)",
+      "asPlaceholder": "as (template name)"
+    },
+    "create": {
+      "title": "Create Mock Server",
+      "settingsTitle": "Mock Server Settings",
+      "save": "Save",
+      "create": "Create",
+      "nameLabel": "Name",
+      "sourceLabel": "Source",
+      "sourceCollection": "Collection",
+      "sourceApiSpec": "API Spec",
+      "sourceStandalone": "Standalone",
+      "selectCollection": "Select a collection",
+      "openCollectionHint": "Open a collection in this workspace to link it here.",
+      "loadingCollection": "Loading collection...",
+      "selectSpec": "Select an API spec",
+      "openSpecHint": "Open an API spec in this workspace to link it here.",
+      "standaloneHint": "A standalone mock server has no source. Add responses manually from the dashboard.",
+      "syncWithSpec": "Sync mock responses with API spec",
+      "syncWithExamples": "Sync mock responses with collection examples",
+      "advancedSettings": "Advanced settings",
+      "portLabel": "Port",
+      "responseDelayLabel": "Response delay (ms)",
+      "autoPortHint": "Bruno will pick the next available port automatically.",
+      "min1": "Must be at least 1 character",
+      "max255": "Must be 255 characters or less",
+      "nameRequired": "Name is required",
+      "nameTaken": "A mock server with this name already exists",
+      "collectionRequired": "Collection is required",
+      "specRequired": "API spec is required",
+      "delayNegative": "Delay cannot be negative",
+      "noActiveWorkspace": "No active workspace found",
+      "validatePortFailed": "Failed to validate port",
+      "collectionUnavailable": "Selected collection is not available",
+      "syncFailedAfterCreate": "Mock server created, but syncing responses failed",
+      "settingsSaved": "Mock server settings saved",
+      "created": "Mock server created",
+      "saveFailed": "Failed to save mock server"
+    },
+    "clone": {
+      "title": "Clone Mock Server",
+      "label": "Clone",
+      "defaultName": "{{name}} copy",
+      "portTaken": "This port is already used by another mock server",
+      "workspaceRequired": "Workspace path is required to clone mock responses",
+      "cloned": "Mock server cloned",
+      "failed": "Failed to clone mock server",
+      "hint": "Clones mock responses and server settings. The clone starts stopped."
+    },
+    "rename": {
+      "title": "Rename Mock Server",
+      "label": "Rename",
+      "renamed": "Mock server renamed",
+      "failed": "Failed to rename mock server"
+    },
+    "delete": {
+      "title": "Delete Mock Server",
+      "label": "Delete",
+      "confirm": "Are you sure you want to delete {{name}}?",
+      "deleted": "Mock server deleted",
+      "failed": "Failed to delete mock server",
+      "specNote": "This removes the mock server configuration only. Your API spec file is not deleted."
+    },
+    "sidebar": {
+      "noServers": "No mock servers yet.",
+      "createHint": "Use the + button to create one.",
+      "settings": "Settings",
+      "toggleResponses": "Toggle mock responses",
+      "serverActionsAria": "Mock server actions",
+      "responseActionsAria": "Mock response actions"
+    },
+    "generate": {
+      "title": "Generate from API Spec",
+      "generate": "Generate",
+      "generating": "Generating...",
+      "description": "Generate mock responses from {{spec}}? Each operation status code becomes its own mock response. The lowest status code is matched first by default; add rules to route other variants.",
+      "fromSchemaLabel": "Generate response bodies from schema",
+      "fromSchemaHint": "Uses faker-backed sample data when a response schema is available. Uncheck to create empty JSON bodies."
+    },
+    "rules": {
+      "targetHeader": "Header",
+      "targetQuery": "Query",
+      "targetBody": "Body",
+      "equals": "equals",
+      "notEquals": "not equals",
+      "contains": "contains",
+      "matches": "matches",
+      "colTarget": "Target",
+      "colKey": "Key",
+      "colOperator": "Operator",
+      "colValue": "Value",
+      "targetAria": "Rule target",
+      "operatorAria": "Rule operator",
+      "matchLabel": "Match",
+      "allAnd": "All rules (AND)",
+      "anyOr": "Any rule (OR)",
+      "addRule": "+ Add Rule",
+      "noRulesHint": "No rules - every request on this route gets this response."
+    },
+    "requestPane": {
+      "tabRules": "Rules",
+      "tabDemoRequest": "Demo Request",
+      "demoHint": "Auto-generated from the rules - a request like this matches this mock response.",
+      "headers": "Headers",
+      "queryParams": "Query Params",
+      "body": "Body",
+      "demoHintNoRules": "No rules defined - any {{method}} {{url}} request matches this response. Add rules to see the matching headers, query params, or body here.",
+      "trying": "Trying...",
+      "try": "Try",
+      "startServerTitle": "Start the mock server to try this response",
+      "openAsRequest": "Open as New Request",
+      "moreTryOptions": "More try options"
+    },
+    "topBar": {
+      "namePlaceholder": "Mock response name",
+      "copiedFrom": "Copied from example: {{name}}",
+      "cancel": "Cancel",
+      "viewMore": "View More",
+      "viewLess": "View Less",
+      "edit": "Edit"
+    }
+  },
+  "aiChat": {
+    "time": {
+      "justNow": "just now",
+      "minutesAgo": "{{count}}m ago",
+      "hoursAgo": "{{count}}h ago",
+      "daysAgo": "{{count}}d ago"
+    },
+    "noPastConversations": "No past conversations",
+    "untitledConversation": "(untitled)",
+    "deleteConversation": "Delete conversation",
+    "untitled": "Untitled",
+    "untitledCollection": "Untitled Collection",
+    "thinking": "Thinking…",
+    "working": "Working…",
+    "contentNotReadWarning": "Content was not read first — changes may overwrite unrelated edits",
+    "contentStaleWarning": "Content has been modified since AI read it",
+    "cancelled": "Cancelled",
+    "assistantTitle": "AI Assistant",
+    "emptyStateSubtitle": "Ask me to generate or modify code, tests, scripts, and docs.",
+    "tryAsking": "Try asking:",
+    "resizeSidebar": "Resize AI sidebar",
+    "switchChat": "Switch chat",
+    "newSession": "New Session",
+    "history": "History",
+    "dockToSidebar": "Dock to sidebar",
+    "openInNewWindow": "Open in new window",
+    "close": "Close",
+    "noModelsAvailable": "No AI models available. Configure a provider and enable models in Preferences > AI.",
+    "stopGenerating": "Stop generating",
+    "stop": "Stop",
+    "sendShortcut": "Send (Enter)",
+    "send": "Send",
+    "auto": "Auto",
+    "diff": {
+      "applied": "Applied",
+      "dismissed": "Dismissed",
+      "dismissChanges": "Dismiss changes",
+      "applyChanges": "Apply changes",
+      "apply": "Apply",
+      "expandUp": "Expand up",
+      "expandDown": "Expand down",
+      "hide": "Hide",
+      "show": "Show ({{count}})"
+    },
+    "codeBlock": {
+      "code": "code",
+      "copy": "Copy",
+      "copied": "Copied"
+    },
+    "assist": {
+      "generateTests": "Generate Tests",
+      "generatePreRequest": "Generate Pre-Request Script",
+      "generatePostResponse": "Generate Post-Response Script",
+      "generateDocs": "Generate Documentation",
+      "generateApp": "Generate App",
+      "generateWithAi": "Generate with AI",
+      "previewDocs": "Preview 路 replaces current documentation",
+      "previewApp": "Preview 路 replaces current app",
+      "previewScript": "Preview 路 replaces current script",
+      "promptPlaceholder": "Describe what you want to generate...",
+      "generating": "Generating...",
+      "enterHint": "Enter to generate 路 Shift+Enter for newline",
+      "noContent": "No content was generated. Try rephrasing your prompt.",
+      "generateFailed": "Failed to generate script",
+      "generate": "Generate",
+      "back": "Back",
+      "apply": "Apply"
+    },
+    "suggestions": {
+      "tests": {
+        "status200": "Status 200",
+        "jsonBody": "JSON body",
+        "headers": "Headers",
+        "responseTime": "Response time"
+      },
+      "preRequest": {
+        "authHeader": "Auth header",
+        "timestamp": "Timestamp",
+        "randomId": "Random ID"
+      },
+      "postResponse": {
+        "saveToken": "Save token",
+        "saveId": "Save id",
+        "logResponse": "Log response"
+      },
+      "docs": {
+        "overview": "Overview",
+        "request": "Request",
+        "examples": "Examples",
+        "errors": "Errors"
+      },
+      "appRequest": {
+        "sendButton": "Send button",
+        "formForBody": "Form for body",
+        "responseViewer": "Response viewer",
+        "testResults": "Test results"
+      },
+      "appCollection": {
+        "requestList": "Request list",
+        "dashboard": "Dashboard",
+        "formRunner": "Form runner",
+        "variablesPanel": "Variables panel"
+      }
+    }
+  },
+  "gitNotFound": {
+    "title": "Git Not Found",
+    "body": "Git was not detected on your system. You need to install Git to proceed.",
+    "downloadPrefix": "You can download Git for",
+    "downloadSuffix": " here:",
+    "downloadLink": "Download Git for {{os}}",
+    "yourOs": "your OS"
+  },
+  "gitDiff": {
+    "field": "Field",
+    "value": "Value",
+    "key": "Key",
+    "authMode": "Auth Mode",
+    "bodyMode": "Body Mode",
+    "queryParameters": "Query Parameters",
+    "pathParameters": "Path Parameters",
+    "filePath": "File Path",
+    "contentType": "Content Type",
+    "messageNumber": "Message {{index}}",
+    "query": "Query",
+    "variables": "Variables",
+    "auth": {
+      "awsSigV4": "AWS Signature v4",
+      "basic": "Basic Auth",
+      "bearer": "Bearer Token",
+      "digest": "Digest Auth",
+      "ntlm": "NTLM",
+      "oauth2": "OAuth 2.0",
+      "wsse": "WSSE",
+      "apiKey": "API Key"
+    },
+    "authField": {
+      "accessKeyId": "Access Key ID",
+      "secretAccessKey": "Secret Access Key",
+      "sessionToken": "Session Token",
+      "service": "Service",
+      "region": "Region",
+      "profileName": "Profile Name",
+      "username": "Username",
+      "password": "Password",
+      "domain": "Domain",
+      "token": "Token",
+      "key": "Key",
+      "value": "Value",
+      "placement": "Placement",
+      "grantType": "Grant Type",
+      "callbackUrl": "Callback URL",
+      "authorizationUrl": "Authorization URL",
+      "accessTokenUrl": "Access Token URL",
+      "refreshTokenUrl": "Refresh Token URL",
+      "clientId": "Client ID",
+      "clientSecret": "Client Secret",
+      "scope": "Scope",
+      "state": "State",
+      "pkce": "PKCE",
+      "credentialsPlacement": "Credentials Placement",
+      "credentialsId": "Credentials ID",
+      "tokenPlacement": "Token Placement",
+      "tokenHeaderPrefix": "Token Header Prefix",
+      "tokenQueryKey": "Token Query Key",
+      "autoFetchToken": "Auto Fetch Token",
+      "autoRefreshToken": "Auto Refresh Token"
+    },
+    "body": {
+      "json": "JSON",
+      "text": "Text",
+      "xml": "XML",
+      "sparql": "SPARQL",
+      "graphql": "GraphQL",
+      "formUrlEncoded": "Form URL Encoded",
+      "multipartForm": "Multipart Form",
+      "file": "File",
+      "grpc": "gRPC",
+      "ws": "WebSocket"
+    }
+  },
+  "tools": {
+    "generate": "Generate",
+    "copy": "Copy",
+    "now": "Now",
+    "epochSeconds": "Epoch (seconds)",
+    "iso8601": "ISO 8601",
+    "invalid": "invalid",
+    "input": "Input",
+    "output": "Output",
+    "encode": "Encode",
+    "decode": "Decode",
+    "errorPrefix": "error: {{message}}",
+    "token": "Token",
+    "notJwt": "not a JWT (expected header.payload.signature)",
+    "pattern": "Pattern",
+    "flags": "Flags",
+    "testString": "Test string",
+    "matches": "{{count}} match{{s}}",
+    "hash": "Hash",
+    "webCryptoUnavailable": "WebCrypto not available in this context",
+    "tab": {
+      "uuid": "UUID",
+      "timestamp": "Timestamp",
+      "base64": "Base64",
+      "url": "URL",
+      "jwt": "JWT",
+      "regex": "Regex",
+      "hash": "Hash"
+    }
+  },
+  "statusBar": {
+    "preferences": "Preferences",
+    "openPreferences": "Open Preferences",
+    "changeTheme": "Change Theme",
+    "notifications": "Notifications",
+    "githubRepository": "GitHub Repository",
+    "openGithubRepository": "Open GitHub Repository",
+    "globalSearch": "Global Search",
+    "search": "Search",
+    "openCookies": "Open Cookies",
+    "cookies": "Cookies",
+    "openDevTools": "Open Dev Tools",
+    "openDevToolsWithErrors": "Open Dev Tools ({{count}} errors)",
+    "devTools": "Dev Tools",
+    "theme": {
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System",
+      "active": "Active",
+      "selector": "Theme selector",
+      "appearance": "Appearance",
+      "lightTheme": "Light theme",
+      "darkTheme": "Dark theme",
+      "theme": "Theme"
+    }
+  },
+  "editorSearch": {
+    "hideReplace": "Hide replace",
+    "showReplace": "Show replace",
+    "searchPlaceholder": "Search...",
+    "noResults": "0 results",
+    "regexSearch": "Regex search",
+    "caseSensitive": "Case sensitive",
+    "wholeWord": "Whole word",
+    "previousShortcut": "Previous (Shift+Enter)",
+    "nextShortcut": "Next (Enter)",
+    "close": "Close",
+    "replacePlaceholder": "Replace...",
+    "replace": "Replace",
+    "replaceAll": "Replace all"
+  },
+  "apiSpecPanel": {
+    "notFound": "API Spec not found!",
+    "apiDesigner": "API Designer",
+    "createApiSpec": "Create API Spec",
+    "openApiSpec": "Open API Spec",
+    "openError": "An error occurred while opening the API spec"
+  },
+  "jsSandbox": {
+    "title": "JavaScript Sandbox",
+    "safeMode": "Safe Mode",
+    "safeModeDescription": "JavaScript code is executed in a secure sandbox and cannot access your filesystem or execute system commands.",
+    "developerMode": "Developer Mode",
+    "developerModeDescription": "JavaScript code has access to the filesystem, can execute system commands and access sensitive information.",
+    "developerModeWarning": "Use only if you trust the authors of the collection",
+    "recommended": "Recommended",
+    "updateFailed": "Failed to update sandbox mode"
+  },
+  "filePicker": {
+    "selectedCount": "{{count}} file{{s}} selected",
+    "selectFile": "Select File",
+    "selectFiles": "Select Files",
+    "removeFile": "Remove file",
+    "fileMissingWarning": "The file above is not in the given directory, please upload it again."
+  },
+  "inheritableInput": {
+    "inherit": "Inherit",
+    "custom": "Custom",
+    "resetToInherit": "Reset to inherit"
+  },
+  "tagList": {
+    "bruFormatError": "Tags in BRU format must only contain letters, numbers, \"-\", \"_\".",
+    "formatError": "Tags must only contain letters, numbers, spaces, \"-\", \"_\"",
+    "alreadyExists": "Tag \"{{tag}}\" already exists",
+    "placeholder": "e.g., smoke, regression",
+    "removeTag": "Remove tag"
+  },
+  "colorPicker": {
+    "changeColor": "Change color",
+    "noColor": "No color",
+    "customColor": "Custom color"
+  },
+  "colorRange": {
+    "adjustColor": "Adjust color"
+  },
+  "modeSwitch": {
+    "richText": "Rich Text",
+    "markdown": "Markdown"
+  },
+  "multipartChips": {
+    "removeFile": "Remove file",
+    "fileCount": "{{count}} file{{s}}",
+    "moreFilesTitle": "{{count}} more file{{s}}",
+    "more": "+{{count}} more",
+    "addFiles": "Add files"
+  },
+  "stopWatch": {
+    "loading": "Loading..."
+  },
+  "richText": {
+    "table": "Table",
+    "moreFormattingOptions": "More formatting options",
+    "link": {
+      "text": "Text",
+      "textPlaceholder": "Text to display",
+      "url": "URL",
+      "insert": "Insert"
+    },
+    "tableMenu": {
+      "rows": "Rows",
+      "columns": "Columns",
+      "deleteTable": "Delete table",
+      "addRowAbove": "Add row above",
+      "addRowBelow": "Add row below",
+      "deleteRow": "Delete row",
+      "addColumnLeft": "Add column left",
+      "addColumnRight": "Add column right",
+      "deleteColumn": "Delete column",
+      "tableOptions": "Table options"
+    }
+  },
+  "promptVariables": {
+    "inputRequired": "Input Required"
+  },
+  "toast": {
+    "requestSaved": "Request saved successfully",
+    "fileSaved": "File saved successfully!",
+    "fileSaveFailed": "Failed to save file!",
+    "requestsSaveFailed": "Failed to save requests!",
+    "collectionSettingsSaved": "Collection Settings saved successfully",
+    "collectionSettingsSaveFailed": "Failed to save collection settings!",
+    "collectionVersionUpdated": "Collection version updated",
+    "collectionVersionUpdateFailed": "Failed to update collection version",
+    "folderSettingsSaved": "Folder Settings saved successfully",
+    "folderSettingsSaveFailed": "Failed to save folder settings!",
+    "requestSent": "Request made successfully",
+    "newFolderCreateFailed": "Failed to create a new folder!",
+    "itemRenameFailed": "Failed to rename the item name",
+    "itemRenamed": "Item renamed successfully",
+    "crossFormatMoveUnsupported": "Moving folders between collections with different formats is not supported",
+    "variableUpdated": "Variable \"{{variableName}}\" updated",
+    "variableCreated": "Variable \"{{variableName}}\" created",
+    "variableUpdateFailed": "Failed to update variable: {{error}}",
+    "collectionAlreadyOpened": "Collection is already opened",
+    "collectionAddedToWorkspace": "Collection added to workspace",
+    "collectionAddToWorkspaceFailed": "Failed to add collection to workspace",
+    "collectionMigratedToYml": "Collection migrated to YML format successfully",
+    "migrationFailed": "Migration failed: {{error}}",
+    "unknownError": "Unknown error",
+    "collectionReopenManually": "Collection could not be reopened automatically. Please reopen it manually."
+  },
+  "apiSpec": {
+    "toast": {
+      "addFailed": "Error adding API spec",
+      "saved": "Saved API spec successfully!",
+      "fileSaveFailed": "Error saving file"
+    }
+  },
+  "migrateYml": {
+    "draftType": {
+      "app": "App: {{name}}",
+      "collection": "Collection: {{name}}",
+      "environment": "Environment: {{name}}",
+      "folder": "Folder: {{name}}",
+      "request": "Request: {{name}}"
+    },
+    "toast": {
+      "backupExportFailed": "Failed to export backup: {{message}}",
+      "backupExported": "Collection backup exported",
+      "environmentInvalidVariables": "Cannot save environment \"{{name}}\": invalid variable name(s) - {{names}}",
+      "environmentSaveError": "Cannot save environment \"{{name}}\": {{message}}",
+      "environmentSaveFailed": "Failed to save environment \"{{name}}\"",
+      "saveChangesFailed": "Failed to save changes"
+    },
+    "unsavedChangesTitle": "Unsaved changes"
+  },
+  "saveTransient": {
+    "browse": "Browse",
+    "cancel": "Cancel",
+    "collectionNameLabel": "Collection name",
+    "collectionNamePlaceholder": "Enter collection name",
+    "collections": "Collections",
+    "create": "Create",
+    "createFolderTitle": "Create folder",
+    "discardAll": "Discard All",
+    "fileFormatLabel": "File Format",
+    "folderNameFilesystemHint": "(on filesystem)",
+    "folderNameLabel": "Folder Name",
+    "help": {
+      "fileFormatBruDesc": "Bruno's native file format (.bru files)",
+      "fileFormatIntro": "Choose the file format for storing requests in this collection.",
+      "fileFormatYamlDesc": "OpenCollection (YAML): Industry-standard YAML format (.yml files)",
+      "folderFilesystemName": "You can choose to save the folder as a different name on your file system versus what is displayed in the app.",
+      "location1": "Choose the location where you want to store this collection.",
+      "location2": "Choose the location where you want to store this collection."
+    },
+    "hideFilesystemName": "Hide filesystem name",
+    "locationLabel": "Location",
+    "newCollection": "New collection",
+    "newFolder": "New Folder",
+    "newFolderName": "New Folder name",
+    "newFolderNameInBruno": "New Folder name (in bruno)",
+    "newFolderPlaceholder": "Untitled new folder",
+    "noCollectionsSubtitle": "Collections help you organize your requests. Create your first one to save this request.",
+    "noCollectionsTitle": "No Collections Yet",
+    "noFoldersAvailable": "No folders available",
+    "noFoldersFound": "No folders found",
+    "optionBru": "BRU Format (.bru)",
+    "requestNameLabel": "Request name",
+    "save": "Save",
+    "saveRequestTitle": "Save Request",
+    "searchFolderPlaceholder": "Search for folder",
+    "selectCollectionTitle": "Select Collection",
+    "selectLocationPlaceholder": "Select location",
+    "showFilesystemName": "Show filesystem name",
+    "toast": {
+      "collectionCreated": "Collection created!",
+      "collectionNameRequired": "Collection name is required",
+      "discardedRequests": "Discarded {{count}} request{{s}}",
+      "folderAddError": "An error occurred while adding the folder",
+      "folderNameRequired": "Folder name is required",
+      "invalidRequestContent": "Invalid request content - fix it in file mode before saving",
+      "locationRequired": "Location is required",
+      "requestNameRequired": "Request name is required",
+      "requestSaved": "Request saved successfully",
+      "saveFailed": "Failed to save request"
+    },
+    "transientRequestsCount": "Request{{s}}",
+    "transientRequestsNote": "These requests need to be saved before you can proceed.",
+    "unsavedCountPrefix": "You have",
+    "unsavedCountSuffix": "unsaved transient request{{s}}",
+    "unsavedHeading": "You have unsaved transient requests",
+    "unsavedTitle": "Unsaved Transient Requests"
+  },
+  "untitledRequest": {
+    "created": "New request created!",
+    "createFailed": "An error occurred while adding the request"
+  },
+  "transientRequest": {
+    "createFailed": "An error occurred while adding the request",
+    "ariaLabel": "New Transient Request"
+  },
+  "requestTabPanel": {
+    "loading": "Loading...",
+    "mockServerNotFound": "Mock server not found",
+    "mockServerNotFoundDesc": "This mock server may have been removed. Create a new one from the Mock Servers sidebar.",
+    "collectionNotFound": "Collection not found!",
+    "grpcUrlRequired": "Please enter a valid gRPC server URL",
+    "grpcMethodRequired": "Please select a gRPC method",
+    "wsUrlRequired": "Please enter a valid WebSocket URL",
+    "closeDocsExplorer": "Close Documentation Explorer",
+    "fileInfo": "File Info",
+    "name": "Name:",
+    "path": "Path:",
+    "size": "Size:",
+    "notLoadedHint": "The request wasn't loaded due to its large size. Please try again with the following options:",
+    "loadRequest": "Load Request",
+    "loadRequestHint": "(Uses a regex based parsing approach)",
+    "requestLabel": "Request",
+    "responseLabel": "Response",
+    "expandPaneAria": "Expand {{label}} pane",
+    "expandPaneHint": "Click to expand {{label}} pane, or drag to resize"
+  },
+  "support": {
+    "title": "Support"
+  },
+  "errorBoundary": {
+    "title": "Oops! Something went wrong",
+    "bugLikely": "If you are using an official production build: the above error is most likely a bug!",
+    "reportAt": "Please report this under:",
+    "returnToApp": "Return to App",
+    "or": "or",
+    "clearCachesOnQuit": "Clear caches on quit",
+    "forceQuit": "Force Quit",
+    "stackTrace": "Stack Trace",
+    "noStackTrace": "No stack trace available"
+  },
+  "main": {
+    "errorTitle": "ERROR:",
+    "ipcMissing": "\"ipcRenderer\" not found in window object.",
+    "ipcMissingDesc": "You most likely opened Bruno inside your web browser. Bruno only works within Electron, you can start Electron in an adjacent terminal using \"npm run dev:electron\"."
   }
 }

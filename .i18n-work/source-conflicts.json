@@ -144,8 +144,8 @@
     "<CreateLink /> or <OpenLink /> Collection."
   ],
   "sidebar.gitRemote.clickToClone": [
-    "title=`$entry.name ¡ª click to clone from $entry.remote`",
-    "${entry.name} ¡ª click to clone from ${entry.remote}"
+    "title=`$entry.name â€” click to clone from $entry.remote`",
+    "${entry.name} â€” click to clone from ${entry.remote}"
   ],
   "sidebar.selectCollection.noCollectionsFound": [
     "No collections found",

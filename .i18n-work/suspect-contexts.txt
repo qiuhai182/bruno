@@ -216,7 +216,7 @@
           <div className="flex flex-col gap-1">
             <span className="text-[11.5px] font-medium">{t('preferences.ai.autocomplete.keymapLabel')}</span>
             <div className="autocomplete-keymap text-[10.5px]">
-              <kbd>Tab</kbd> {t('preferences.ai.autocomplete.keymapAccept')} ¡¤ <kbd>{getPlatformModifierKey()}</kbd>+<kbd>¡ú</kbd> {t('preferences.ai.autocomplete.keymapAcceptWord')} ¡¤ <kbd>Esc</kbd> {t('preferences.ai.autocomplete.keymapDismiss')} ¡¤ <kbd>{getPlatformModifierKey()}</kbd>+<kbd>\</kbd> {t('preferences.ai.autocomplete.keymapTrigger')}
+              <kbd>Tab</kbd> {t('preferences.ai.autocomplete.keymapAccept')} Â· <kbd>{getPlatformModifierKey()}</kbd>+<kbd>â†’</kbd> {t('preferences.ai.autocomplete.keymapAcceptWord')} Â· <kbd>Esc</kbd> {t('preferences.ai.autocomplete.keymapDismiss')} Â· <kbd>{getPlatformModifierKey()}</kbd>+<kbd>\</kbd> {t('preferences.ai.autocomplete.keymapTrigger')}
             </div>
 
 ===== requestPane.auth.addTo  (components\RequestPane\Auth\ApiKeyAuth\index.js)
@@ -490,7 +490,7 @@
               {t('sidebar.changeVersion.updates')} <strong>{targetKey}</strong> {t('sidebar.changeVersion.in')} {targetFile} {t('sidebar.changeVersion.from')}
               <span className="old">{currentVersion || <span className="text-muted italic not-set">({t('sidebar.changeVersion.notSet')})</span>}</span>
               <IconArrowRight size={13} className="preview-arrow" stroke={1.5} />
-              <span className="new">{trimmedVersion || '¡­'}</span>
+              <span className="new">{trimmedVersion || 'â€¦'}</span>
 
 ===== sidebar.options  (components\Sidebar\Collections\Collection\CollectionItem\CloneCollectionItem\index.js)
 

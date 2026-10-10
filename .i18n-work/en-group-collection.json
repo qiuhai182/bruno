@@ -79,7 +79,7 @@
   "collection.example.descriptionPlaceholderLong": "Enter example description...",
   "collection.example.editExample": "Edit Example",
   "collection.example.fileAlreadyAdded": "${fileBasename(skipped[0])}",
-  "collection.example.filesAlreadyAdded": "${skipped.length} files are already added ¡ª skipped",
+  "collection.example.filesAlreadyAdded": "${skipped.length} files are already added â€” skipped",
   "collection.example.generateCode": "Generate Code",
   "collection.example.headersSection": "mb-3 title text-xs font-bold",
   "collection.example.invalidJson": "Unable to prettify. Invalid JSON format.",

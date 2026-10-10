@@ -10,12 +10,14 @@ import { generateTransientRequestName } from 'utils/collections';
 import { get } from 'lodash';
 import { formatIpcError } from 'utils/common/error';
 import { PRESET_REQUEST_TYPES as REQUEST_TYPE } from 'utils/common/constants';
+import { useTranslation } from 'react-i18next';
 
 const CreateTransientRequest = ({ collectionUid }) => {
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const dropdownTippyRef = useRef();
   const dispatch = useDispatch();
   const collections = useSelector((state) => state.collections.collections);
+  const { t } = useTranslation();
 
   const collection = useMemo(() => {
     return collections?.find((c) => c.uid === collectionUid);
@@ -56,8 +58,8 @@ const CreateTransientRequest = ({ collectionUid }) => {
         itemUid: null,
         isTransient: true
       })
-    ).catch((err) => toast.error(formatIpcError(err) || 'An error occurred while adding the request'));
-  }, [dispatch, collection, collectionPresets.requestUrl]);
+    ).catch((err) => toast.error(formatIpcError(err) || t('transientRequest.createFailed')));
+  }, [dispatch, collection, collectionPresets.requestUrl, t]);
 
   const handleCreateGraphQLRequest = useCallback(() => {
     if (!collection) return;
@@ -83,8 +85,8 @@ const CreateTransientRequest = ({ collectionUid }) => {
           }
         }
       })
-    ).catch((err) => toast.error(formatIpcError(err) || 'An error occurred while adding the request'));
-  }, [dispatch, collection, collectionPresets.requestUrl]);
+    ).catch((err) => toast.error(formatIpcError(err) || t('transientRequest.createFailed')));
+  }, [dispatch, collection, collectionPresets.requestUrl, t]);
 
   const handleCreateWebSocketRequest = useCallback(() => {
     if (!collection) return;
@@ -102,8 +104,8 @@ const CreateTransientRequest = ({ collectionUid }) => {
         itemUid: null,
         isTransient: true
       })
-    ).catch((err) => toast.error(formatIpcError(err) || 'An error occurred while adding the request'));
-  }, [dispatch, collection, collectionPresets.requestUrl]);
+    ).catch((err) => toast.error(formatIpcError(err) || t('transientRequest.createFailed')));
+  }, [dispatch, collection, collectionPresets.requestUrl, t]);
 
   const handleCreateGrpcRequest = useCallback(() => {
     if (!collection) return;
@@ -120,8 +122,8 @@ const CreateTransientRequest = ({ collectionUid }) => {
         itemUid: null,
         isTransient: true
       })
-    ).catch((err) => toast.error(formatIpcError(err) || 'An error occurred while adding the request'));
-  }, [dispatch, collection, collectionPresets.requestUrl]);
+    ).catch((err) => toast.error(formatIpcError(err) || t('transientRequest.createFailed')));
+  }, [dispatch, collection, collectionPresets.requestUrl, t]);
 
   const handleItemClick = (type) => {
     if (dropdownTippyRef.current) {
@@ -160,7 +162,7 @@ const CreateTransientRequest = ({ collectionUid }) => {
     <ActionIcon
       onClick={handleLeftClick}
       onContextMenu={handleRightClick}
-      aria-label="New Transient Request"
+      aria-label={t('transientRequest.ariaLabel')}
       size="lg"
       style={{ marginBottom: '3px' }}
     >

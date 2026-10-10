@@ -244,7 +244,7 @@ const CompatEndpointCard = ({
                   onClick={stopBubble}
                 >
                   {provider.hasApiKey ? (
-                    <span className="key-display-mask text-xs">••••••••••••••••</span>
+                    <span className="key-display-mask text-xs">æ™»æ™»æ™»æ™»æ™»æ™»æ™»æ™»</span>
                   ) : (
                     <span className="key-display-mask text-xs opacity-60">{t('preferences.ai.endpoint.notSet')}</span>
                   )}

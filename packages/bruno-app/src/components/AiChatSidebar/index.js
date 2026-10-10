@@ -86,7 +86,7 @@ const ToolActivityGroup = ({ activities }) => {
           <span className="tool-activity-indicator">
             {activity.done ? <IconCheck size={10} /> : <span className="tool-activity-spinner" />}
           </span>
-          <span>{activity.label}{!activity.done ? '��' : ''}</span>
+          <span>{activity.label}{!activity.done ? '??' : ''}</span>
         </div>
       ))}
     </div>
@@ -245,7 +245,7 @@ const AiChatSidebar = ({ collection, variant = 'sidebar' }) => {
       return { kind: 'folder', folder: activeItem, pathname: activeItem.pathname || '', name: activeItem.name };
     }
     // Anything else (collection-settings, runner, variables, openapi-sync,
-    // .js files in File Mode ��) falls back to the collection root so the AI
+    // .js files in File Mode ??) falls back to the collection root so the AI
     // button always opens a useful chat instead of a no-op.
     return { kind: 'collection', pathname: collection.pathname || '', name: collection.name };
   }, [focusedTab, collection, activeItem]);
@@ -276,7 +276,7 @@ const AiChatSidebar = ({ collection, variant = 'sidebar' }) => {
     return () => unsub();
   }, []);
 
-  // Auto = empty string. We don't auto-correct to the first model �� let the
+  // Auto = empty string. We don't auto-correct to the first model ?? let the
   // backend pick, so users get smart defaults that adapt as providers change.
   useEffect(() => {
     if (selectedModel === AUTO_MODEL_ID) return;
@@ -342,7 +342,7 @@ const AiChatSidebar = ({ collection, variant = 'sidebar' }) => {
   // Bind the chat to the active context's pathname so the history list
   // reflects this specific request/folder/collection and persistence keys stay
   // stable across sessions. Restoring the most recent conversation happens
-  // once per tab �� if the user explicitly starts a new chat, we don't
+  // once per tab ?? if the user explicitly starts a new chat, we don't
   // auto-replace it.
   const restoredOnceRef = useRef({});
   useEffect(() => {
@@ -405,7 +405,7 @@ const AiChatSidebar = ({ collection, variant = 'sidebar' }) => {
   const currentContent = allContent[contentType] || '';
 
   // requestContext (URL/method/headers/response shape) only makes sense for
-  // HTTP-style request items. Folder, collection, and App chats skip it ��
+  // HTTP-style request items. Folder, collection, and App chats skip it ??
   // App items live under kind: 'request' but have no URL/method to surface.
   const requestContext = useMemo(() => {
     if (aiContext?.kind !== 'request' || !isItemARequest(aiContext.item)) return null;
@@ -423,7 +423,7 @@ const AiChatSidebar = ({ collection, variant = 'sidebar' }) => {
     };
   }, [aiContext]);
 
-  // Variables payload is collection-scoped �� works for request, folder, and
+  // Variables payload is collection-scoped ?? works for request, folder, and
   // collection chats alike. Each entry is { name, value, scope, secret }; the
   // model gets a name-only preview in the prompt and can call search_variables
   // to fetch values (secrets come back redacted).
@@ -881,7 +881,7 @@ const AiChatSidebar = ({ collection, variant = 'sidebar' }) => {
               <MenuDropdown
                 items={chatsWithMessages.map((chat) => ({
                   id: chat.id,
-                  label: `${chat.method} �� ${chat.name}`,
+                  label: `${chat.method} ?? ${chat.name}`,
                   onClick: () => handleSwitchChat(chat.id)
                 }))}
                 placement="bottom-start"

@@ -142,7 +142,7 @@
   "sidebar.drafts.requestItemOne": "unsaved request",
   "sidebar.drafts.unsavedChangesPrefix": "You have",
   "sidebar.dragPreview.items": "{{count}} items",
-  "sidebar.gitRemote.clickToClone": "{{name}} ¡ª click to clone from {{remote}}",
+  "sidebar.gitRemote.clickToClone": "{{name}} â€” click to clone from {{remote}}",
   "sidebar.goldenEdition.organizations": "Organizations",
   "sidebar.goldenEdition.perUser": "/ user",
   "sidebar.ignore.finalPeriod": ".",

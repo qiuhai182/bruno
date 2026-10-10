@@ -321,7 +321,13 @@
         "subtitle": "在请求前、响应后和测试脚本中提供幽灵文本建议",
         "title": "行内自动补全",
         "triggerAria": "触发模式",
-        "triggerLabel": "触发方式"
+        "triggerLabel": "触发方式",
+        "triggerAggressive": "激进",
+        "triggerAggressiveDesc": "每次键入后都提示",
+        "triggerDebounced": "防抖",
+        "triggerDebouncedDesc": "停止键入后提示（默认）",
+        "triggerManual": "手动",
+        "triggerManualDesc": "仅在 {{modifier}}+\\ 时"
       },
       "card": {
         "add": "添加",
@@ -402,6 +408,55 @@
         "multipleNonModifiers": "只允许一个非修饰键（例如 Cmd + Shift + K）。",
         "reserved": "此快捷键已被操作系统保留。",
         "duplicate": "此快捷键已被占用。"
+      },
+      "sections": {
+        "tabs": "标签页",
+        "sidebar": "侧边栏",
+        "requests": "请求",
+        "collectionsEnvironment": "集合与环境",
+        "search": "搜索",
+        "view": "视图",
+        "developerTool": "开发者工具",
+        "others": "其他"
+      },
+      "actions": {
+        "closeTab": "关闭标签页",
+        "closeAllTabs": "关闭全部标签页",
+        "save": "保存",
+        "saveAllTabs": "保存全部标签页",
+        "reopenLastClosedTab": "重新打开最近关闭的标签页",
+        "switchToTabAtPosition": "切换到指定位置的标签页",
+        "switchToLastTab": "切换到上一个标签页",
+        "switchToPreviousTab": "切换到前一个标签页",
+        "switchToNextTab": "切换到后一个标签页",
+        "moveTabLeft": "标签页左移",
+        "moveTabRight": "标签页右移",
+        "switchToTab1": "切换到第 1 个标签页",
+        "switchToTab2": "切换到第 2 个标签页",
+        "switchToTab3": "切换到第 3 个标签页",
+        "switchToTab4": "切换到第 4 个标签页",
+        "switchToTab5": "切换到第 5 个标签页",
+        "switchToTab6": "切换到第 6 个标签页",
+        "switchToTab7": "切换到第 7 个标签页",
+        "switchToTab8": "切换到第 8 个标签页",
+        "sidebarSearch": "搜索侧边栏",
+        "copyItem": "复制条目",
+        "pasteItem": "粘贴条目",
+        "cloneItem": "克隆条目",
+        "renameItem": "重命名条目",
+        "collapseSidebar": "收起侧边栏",
+        "sendRequest": "发送请求",
+        "changeLayout": "切换布局方向",
+        "importCollection": "导入集合",
+        "editEnvironment": "编辑环境",
+        "newRequest": "新建请求",
+        "globalSearch": "全局搜索",
+        "zoomIn": "放大",
+        "zoomOut": "缩小",
+        "resetZoom": "重置缩放",
+        "openTerminal": "在终端中打开",
+        "openPreferences": "打开偏好设置",
+        "closeBruno": "关闭 Bruno"
       }
     }
   },
@@ -452,7 +507,7 @@
       "selectStatus": "选择状态",
       "tryResultTab": "试运行结果",
       "auto": "自动",
-      "body": "title text-xs mr-2",
+      "body": "请求体",
       "confirmCreate": "confirmText=confirmText",
       "createModalTitle": "title=title",
       "descriptionLabel": "描述",
@@ -518,7 +573,20 @@
       "descriptionSuffix": " 标签页中）。",
       "domain": "域名",
       "edgegrid": {
-        "advancedSettings": "高级设置"
+        "advancedSettings": "高级设置",
+        "accessToken": "访问令牌",
+        "clientToken": "客户端令牌",
+        "clientSecret": "客户端密钥",
+        "baseURL": "Base URL",
+        "baseURLTooltip": "未指定时默认使用请求 URL。",
+        "nonce": "随机数 (Nonce)",
+        "nonceTooltip": "每个请求都需要唯一的随机数。未提供时默认使用自动生成的 UUID v4。",
+        "timestamp": "时间戳",
+        "timestampTooltip": "请求签名时的 UTC 时间戳（yyyyMMddTHH:mm:ss+0000）。未提供时默认使用当前时间。",
+        "headersToSign": "待签名标头",
+        "headersToSignTooltip": "包含在签名中的标头，以逗号分隔。",
+        "maxBodySize": "最大请求体大小",
+        "maxBodySizeTooltip": "包含在签名中的最大消息体大小（字节）。默认 131072。"
       },
       "inherit": "继承",
       "mode": {
@@ -1577,7 +1645,7 @@
     "export": {
       "collectionEnvironments": "全局环境",
       "deselectAll": "取消全选",
-      "exportCount": "} Environment${selectedCount !== 1 ?",
+      "exportCount": "导出 {{num}} 个环境",
       "exportOne": "导出 {{num}} 个环境",
       "exported": "环境导出成功",
       "exportedToFolder": "已将 {{type}} 环境导出到文件夹",
@@ -1621,8 +1689,8 @@
       "optionReplaceTitle": "替换",
       "partialSuccess": "{{count}} 个环境导入失败",
       "selected": "已选择",
-      "successOne": "${importedCount > 1 ?",
-      "successOther": "环境",
+      "successOne": "环境导入成功",
+      "successOther": "{{num}} 个环境导入成功",
       "title": "导入环境",
       "titleGlobal": "导入全局环境",
       "unknownFile": "未知",
@@ -1664,7 +1732,15 @@
       "noResults": "未找到结果",
       "readyToGetStarted": "准备好开始了吗？",
       "searchPlaceholder": "搜索环境...",
-      "selectError": "选择环境时出错"
+      "selectError": "选择环境时出错",
+      "tab": {
+        "collection": "集合",
+        "global": "全局"
+      },
+      "emptyDescription": {
+        "collection": "创建你的第一个环境，开始配合集合工作。",
+        "global": "创建你的第一个全局环境，开始跨集合工作。"
+      }
     },
     "tab": {
       "secrets": "机密",
@@ -1758,7 +1834,11 @@
     "selectToRead": "notif-empty",
     "tabAll": "全部",
     "tabUnread": "未读",
-    "title": "通知"
+    "title": "通知",
+    "toast": {
+      "fetchReadFailed": "获取已读通知时出错",
+      "setReadFailed": "设置已读通知时出错"
+    }
   },
   "requestPane": {
     "auth": {
@@ -1797,7 +1877,13 @@
     "bodyMode": {
       "prettify": "格式化",
       "prettifyInvalidJson": "无法格式化。JSON 格式无效。",
-      "prettifyInvalidXml": "无法格式化。XML 格式无效。"
+      "prettifyInvalidXml": "无法格式化。XML 格式无效。",
+      "groupForm": "表单",
+      "multipartForm": "Multipart 表单",
+      "formUrlEncoded": "Form URL Encoded",
+      "groupRaw": "Raw",
+      "groupOther": "其他",
+      "file": "文件 / 二进制"
     },
     "common": {
       "auto": "自动",
@@ -1913,7 +1999,11 @@
       "toggleImportPathFailed": "切换导入路径状态失败：{{error}}",
       "unknownError": "加载 gRPC 方法失败：{{error}}",
       "usingReflection": "使用反射",
-      "usingServerReflection": "正在使用服务器反射发现 gRPC 方法。"
+      "usingServerReflection": "正在使用服务器反射发现 gRPC 方法。",
+      "scriptBeforeCallStart": "调用开始前",
+      "scriptBeforeMessageSend": "发送消息前",
+      "scriptAfterMessageReceive": "收到消息后",
+      "scriptAfterCallEnd": "调用结束后"
     },
     "headers": {
       "autoAdded": "运行时自动添加",
@@ -1957,7 +2047,9 @@
       "tokenSecret": "令牌密钥",
       "uploadFile": "上传文件",
       "verifier": "验证器",
-      "version": "版本"
+      "version": "版本",
+      "placementQueryParams": "查询参数",
+      "placementBody": "请求体"
     },
     "oauth2": {
       "addCredentialsTo": "将凭据添加到",
@@ -2137,7 +2229,37 @@
       "tabNotFound": "出错了！",
       "tabSettings": "设置",
       "timeout": "超时",
-      "timeoutHint": "超时时间（毫秒）"
+      "timeoutHint": "超时时间（毫秒）",
+      "timeoutInvalid": "超时必须是有效数字",
+      "keepAliveInvalid": "超时必须是有效数字"
+    },
+    "edgegrid": {
+      "accessToken": "访问令牌",
+      "clientToken": "客户端令牌",
+      "clientSecret": "客户端密钥",
+      "baseURL": "Base URL",
+      "baseURLTooltip": "未指定时默认使用请求 URL。",
+      "nonce": "随机数 (Nonce)",
+      "nonceTooltip": "每个请求都需要唯一的随机数。未提供时默认使用自动生成的 UUID v4。",
+      "timestamp": "时间戳",
+      "timestampTooltip": "请求签名时的 UTC 时间戳（yyyyMMddTHH:mm:ss+0000）。未提供时默认使用当前时间。",
+      "headersToSign": "待签名标头",
+      "headersToSignTooltip": "包含在签名中的标头，以逗号分隔。",
+      "maxBodySize": "最大请求体大小",
+      "maxBodySizeTooltip": "包含在签名中的最大消息体大小（字节）。默认 131072。"
+    },
+    "tabs": {
+      "params": "参数",
+      "body": "请求体",
+      "headers": "标头",
+      "auth": "认证",
+      "vars": "变量",
+      "script": "脚本",
+      "assert": "断言",
+      "tests": "测试",
+      "docs": "文档",
+      "app": "应用",
+      "settings": "设置"
     }
   },
   "sidebar": {
@@ -2156,7 +2278,7 @@
         "confirmPrefix": "确定要关闭",
         "confirmSuffix": "吗？它仍会保留在文件系统中，之后可以重新打开。",
         "stillAvailableNote": "它仍会保留在上述位置的文件系统中，之后可以重新打开。",
-        "title": "Close Api Spec,Close"
+        "title": "关闭 API Spec"
       },
       "create": {
         "blankSpec": "空白 Spec",
@@ -2373,7 +2495,15 @@
     },
     "dragPreview": {
       "and": "、以及 $1",
-      "items": "{{count}} 个条目"
+      "items": "{{count}} 个条目",
+      "collectionOne": "{{count}} 个集合",
+      "collectionMany": "{{count}} 个集合",
+      "folderOne": "{{count}} 个文件夹",
+      "folderMany": "{{count}} 个文件夹",
+      "appOne": "{{count}} 个应用",
+      "appMany": "{{count}} 个应用",
+      "requestOne": "{{count}} 个请求",
+      "requestMany": "{{count}} 个请求"
     },
     "example": {
       "nameLabel": "示例名称",
@@ -2757,6 +2887,24 @@
     },
     "toast": {
       "savePreferencesFailed": "保存偏好设置失败"
+    },
+    "highlights": {
+      "filesystem": {
+        "title": "纯文件系统",
+        "desc": "集合就是磁盘上的普通文件。没有云同步，没有私有格式锁定。"
+      },
+      "git": {
+        "title": "Git 友好",
+        "desc": "每个请求都是可读的文件。用你熟悉的工具提交、分支、评审和协作。"
+      },
+      "privacy": {
+        "title": "注重隐私",
+        "desc": "无需账号，无需登录。Bruno 完全离线运行，你的 API 密钥永远不会离开本机。"
+      },
+      "fast": {
+        "title": "快速轻量",
+        "desc": "为流畅体验而生。没有臃肿的运行时，只有一个快速、专注的 API 探索与测试工具。"
+      }
     }
   },
   "workspace": {
@@ -2914,5 +3062,781 @@
       "nameRequired": "工作区名称为必填项",
       "nameRequiredLower": "名称为必填项"
     }
+  },
+  "mockServer": {
+    "dashboard": {
+      "startedAt": "Mock 服务器已启动：{{baseUrl}}",
+      "startFailed": "启动 Mock 服务器失败",
+      "stopped": "Mock 服务器已停止",
+      "stopFailed": "停止 Mock 服务器失败",
+      "routesRefreshed": "路由已刷新：{{routes}} 条路由，{{responses}} 个响应",
+      "refreshRoutesFailed": "刷新路由失败",
+      "refreshRoutes": "刷新路由",
+      "saveNameFailed": "保存 Mock 服务器名称失败",
+      "updateDelayFailed": "更新延迟失败",
+      "statusRunning": "运行中，端口 {{port}}",
+      "starting": "Starting...",
+      "stopping": "Stopping...",
+      "statusError": "错误",
+      "statusStopped": "已停止",
+      "nameAriaLabel": "Mock 服务器名称",
+      "source": "来源：{{source}}",
+      "settingsAriaLabel": "Mock 服务器设置",
+      "copyUrlTitle": "复制 Mock 服务器 URL",
+      "routeCount": "{{count}} 条路由",
+      "responseCount": "{{count}} 个响应",
+      "delayLabel": "延迟 (ms)",
+      "startServer": "启动服务器",
+      "stopServer": "停止服务器",
+      "portMismatch": "配置的端口 {{configured}} 与运行端口 {{running}} 不一致。",
+      "tabResponses": "响应",
+      "tabRoutes": "路由",
+      "tabRequestLog": "请求日志"
+    },
+    "responses": {
+      "createdFromExample": "已从示例创建 Mock 响应",
+      "createFailed": "创建 Mock 响应失败",
+      "openSpecFirst": "请先在此工作区中打开 API Spec。",
+      "generatedFromSpec": "已从 API Spec 生成 {{count}} 个 Mock 响应",
+      "generateFailed": "从 API Spec 生成 Mock 响应失败",
+      "collectionNotLoaded": "集合尚未加载，请先打开关联的集合。",
+      "syncedWithExamples": "Mock 响应已与集合示例同步",
+      "syncFailed": "同步 Mock 响应失败",
+      "syncedWithSpec": "Mock 响应已与 Spec 同步",
+      "syncWithSpecFailed": "与 Spec 同步 Mock 响应失败",
+      "deleted": "Mock 响应已删除",
+      "deleteFailed": "删除 Mock 响应失败",
+      "urlCopied": "URL 已复制",
+      "copyUrlFailed": "复制 URL 失败",
+      "deleteModalTitle": "删除 Mock 响应",
+      "deleting": "删除中...",
+      "deleteConfirm": "确定要删除 Mock 响应 {{name}} 吗？",
+      "deleteAction": "删除 Mock 响应",
+      "copyUrlAction": "复制 Mock URL",
+      "syncing": "同步中...",
+      "sync": "同步",
+      "syncExamplesModalTitle": "与集合示例同步",
+      "syncExamplesText": "与集合示例匹配的 Mock 响应将被最新的示例数据覆盖。",
+      "syncExamplesKeepText": "没有匹配示例的自定义 Mock 响应将被保留。",
+      "syncSpecModalTitle": "与 API Spec 同步",
+      "syncSpecText": "匹配 {{spec}} 中端点的 Mock 响应将被最新的 Spec 数据覆盖（响应体由 Schema 生成）。",
+      "syncSpecKeepText": "没有匹配端点的自定义 Mock 响应将被保留。",
+      "thisSpec": "此 API Spec",
+      "newButton": "新建 Mock 响应",
+      "syncWithExamplesBtn": "与示例同步",
+      "generateFromSpecBtn": "从 API Spec 生成",
+      "syncWithSpecBtn": "与 Spec 同步",
+      "searchPlaceholder": "按名称、方法或端点搜索",
+      "noMatches": "没有匹配的 Mock 响应",
+      "emptyTitle": "暂无 Mock 响应",
+      "noMatchText": "没有 Mock 响应与你的搜索匹配。",
+      "emptySpecText": "可从你的 API Spec 生成，或手动创建并添加规则以匹配请求。",
+      "emptyText": "创建一个响应，以定义此 Mock 服务器提供的路由和响应。",
+      "rulesSummary": "{{count}} 条规则，{{operator}}",
+      "noRulesDefault": "无规则（默认匹配）",
+      "loadFailed": "加载 Mock 响应失败",
+      "saved": "Mock 响应已保存",
+      "saveFailed": "保存 Mock 响应失败",
+      "tryRequiresServer": "请先启动 Mock 服务器再试运行此响应",
+      "tryRequiresUrl": "请先设置请求 URL 再试运行此响应",
+      "tryResult": "Mock 返回 {{status}} {{statusText}}",
+      "tryFailed": "无法连接到 Mock 服务器",
+      "openAsRequestRequiresUrl": "请先设置请求 URL，再将其作为请求打开",
+      "openCollectionFirst": "请先在此工作区中打开一个集合以创建请求",
+      "defaultRequestName": "Mock 请求",
+      "demoRequestOpened": "已在新的标签页中打开演示请求",
+      "openDemoRequestFailed": "打开演示请求失败",
+      "loading": "正在加载 Mock 响应...",
+      "notFoundTitle": "未找到 Mock 响应",
+      "notFoundText": "它可能已被删除。请返回 Mock 服务器仪表板并刷新响应。",
+      "expectedLabel": "预期",
+      "renamed": "Mock 响应已重命名",
+      "renameFailed": "重命名 Mock 响应失败",
+      "cloned": "Mock 响应已克隆",
+      "cloneFailed": "克隆 Mock 响应失败",
+      "cloning": "克隆中...",
+      "nameTaken": "已存在同名 Mock 响应",
+      "selectExample": "选择集合示例",
+      "createTitle": "创建 Mock 响应",
+      "creating": "创建中...",
+      "descriptionLabel": "描述",
+      "statusCodeLabel": "状态码",
+      "bodyTypeLabel": "响应体类型",
+      "copyFromExample": "从集合示例复制",
+      "copyFromExampleHint": "复用示例的请求、状态码和响应体，而不是从空白响应开始。",
+      "selectExampleOption": "选择示例"
+    },
+    "requestLog": {
+      "missing": "（缺失）",
+      "noRulesFallback": "无规则（回退）",
+      "selectedByRules": "因匹配到特定规则而被选中",
+      "selectedAsFallback": "作为回退响应被选中",
+      "noRouteMatched": "没有路由匹配此请求",
+      "noRuleMatch": "路由已匹配，但没有响应规则通过",
+      "noMatchTrace": "此条目没有匹配追踪信息。",
+      "matched": "已匹配：{{name}}",
+      "noMatch": "无匹配",
+      "availableRoutes": "可用路由",
+      "responsesConsidered": "已考虑的响应",
+      "badgeFallback": "回退",
+      "badgeSelected": "已选中",
+      "badgeMatchedNotSelected": "已匹配，未选中",
+      "pass": "通过",
+      "fail": "失败",
+      "got": "实际值 {{value}}",
+      "matchesAnyRequest": "匹配此路由上的任何请求",
+      "ruleGroup": "规则组：{{operator}}",
+      "filterMatched": "已匹配",
+      "filterUnmatched": "未匹配",
+      "filter2xx": "2xx 成功",
+      "filter3xx": "3xx 重定向",
+      "filter4xx": "4xx 客户端错误",
+      "filter5xx": "5xx 服务器错误",
+      "matchFilterLabel": "匹配",
+      "allRequests": "全部请求",
+      "statusFilterLabel": "状态",
+      "allStatus": "全部状态",
+      "requestCount": "{{count}} 个请求",
+      "clear": "清除",
+      "empty": "暂无请求日志。向 Mock 服务器发送请求后将显示在这里。",
+      "matchTraceAria": "匹配追踪",
+      "time": "时间",
+      "method": "方法",
+      "path": "路径",
+      "mockResponse": "Mock 响应",
+      "status": "状态",
+      "delay": "延迟",
+      "duration": "耗时",
+      "showMatchTrace": "查看匹配追踪"
+    },
+    "behavior": {
+      "delayLabel": "延迟 (ms)",
+      "delayTitle": "发送此响应前的延迟 (ms)",
+      "probabilityLabel": "概率 (%)",
+      "probabilityTitle": "规则匹配时此响应被返回的概率（0-100%）",
+      "counterEveryLabel": "每 N 次命中返回",
+      "counterEveryTitle": "每第 N 次命中该路由时返回此响应",
+      "counterOffsetLabel": "计数器偏移",
+      "counterOffsetTitle": "调整计数器相位",
+      "templateLabel": "模板",
+      "templateTitle": "在响应中渲染 {{tokens}} 标记",
+      "extractLabel": "提取",
+      "extractTitle": "将请求值捕获到模板变量中（{{token}}）",
+      "addExtract": "+ 添加",
+      "keyPlaceholder": "key（请求体用 a.b）",
+      "asPlaceholder": "as（模板变量名）"
+    },
+    "create": {
+      "title": "创建 Mock 服务器",
+      "settingsTitle": "Mock 服务器设置",
+      "save": "保存",
+      "create": "创建",
+      "nameLabel": "名称",
+      "sourceLabel": "来源",
+      "sourceCollection": "集合",
+      "sourceApiSpec": "API Spec",
+      "sourceStandalone": "独立",
+      "selectCollection": "选择集合",
+      "openCollectionHint": "请在此工作区中打开一个集合以将其关联到这里。",
+      "loadingCollection": "正在加载集合...",
+      "selectSpec": "选择 API Spec",
+      "openSpecHint": "请在此工作区中打开一个 API Spec 以将其关联到这里。",
+      "standaloneHint": "独立 Mock 服务器没有关联来源，请在仪表板中手动添加响应。",
+      "syncWithSpec": "将 Mock 响应与 API Spec 同步",
+      "syncWithExamples": "将 Mock 响应与集合示例同步",
+      "advancedSettings": "高级设置",
+      "portLabel": "端口",
+      "responseDelayLabel": "响应延迟 (ms)",
+      "autoPortHint": "Bruno 将自动选择下一个可用端口。",
+      "min1": "长度至少为 1 个字符",
+      "max255": "长度不能超过 255 个字符",
+      "nameRequired": "名称为必填项",
+      "nameTaken": "已存在同名 Mock 服务器",
+      "collectionRequired": "集合为必选项",
+      "specRequired": "API Spec 为必选项",
+      "delayNegative": "延迟不能为负数",
+      "noActiveWorkspace": "未找到活动工作区",
+      "validatePortFailed": "端口校验失败",
+      "collectionUnavailable": "所选集合不可用",
+      "syncFailedAfterCreate": "Mock 服务器已创建，但同步响应失败",
+      "settingsSaved": "Mock 服务器设置已保存",
+      "created": "Mock 服务器已创建",
+      "saveFailed": "保存 Mock 服务器失败"
+    },
+    "clone": {
+      "title": "克隆 Mock 服务器",
+      "label": "克隆",
+      "defaultName": "{{name}} 副本",
+      "portTaken": "该端口已被另一个 Mock 服务器占用",
+      "workspaceRequired": "克隆 Mock 响应需要工作区路径",
+      "cloned": "Mock 服务器已克隆",
+      "failed": "克隆 Mock 服务器失败",
+      "hint": "克隆 Mock 响应和服务器设置，克隆出的服务器初始为已停止状态。"
+    },
+    "rename": {
+      "title": "重命名 Mock 服务器",
+      "label": "重命名",
+      "renamed": "Mock 服务器已重命名",
+      "failed": "重命名 Mock 服务器失败"
+    },
+    "delete": {
+      "title": "删除 Mock 服务器",
+      "label": "删除",
+      "confirm": "确定要删除 {{name}} 吗？",
+      "deleted": "Mock 服务器已删除",
+      "failed": "删除 Mock 服务器失败",
+      "specNote": "这只会移除 Mock 服务器配置，不会删除你的 API Spec 文件。"
+    },
+    "sidebar": {
+      "noServers": "暂无 Mock 服务器。",
+      "createHint": "使用 + 按钮创建一个。",
+      "settings": "设置",
+      "toggleResponses": "展开/收起 Mock 响应",
+      "serverActionsAria": "Mock 服务器操作",
+      "responseActionsAria": "Mock 响应操作"
+    },
+    "generate": {
+      "title": "从 API Spec 生成",
+      "generate": "生成",
+      "generating": "生成中...",
+      "description": "从 {{spec}} 生成 Mock 响应？每个操作状态码都会生成独立的 Mock 响应。默认优先匹配最低的状态码，添加规则可路由到其他变体。",
+      "fromSchemaLabel": "根据 Schema 生成响应体",
+      "fromSchemaHint": "当存在响应 Schema 时使用基于 faker 的示例数据，取消勾选则创建空的 JSON 响应体。"
+    },
+    "rules": {
+      "targetHeader": "标头",
+      "targetQuery": "查询参数",
+      "targetBody": "请求体",
+      "equals": "等于",
+      "notEquals": "不等于",
+      "contains": "包含",
+      "matches": "匹配",
+      "colTarget": "目标",
+      "colKey": "键",
+      "colOperator": "操作符",
+      "colValue": "值",
+      "targetAria": "规则目标",
+      "operatorAria": "规则操作符",
+      "matchLabel": "匹配",
+      "allAnd": "所有规则 (AND)",
+      "anyOr": "任一规则 (OR)",
+      "addRule": "+ 添加规则",
+      "noRulesHint": "无规则 - 此路由上的每个请求都会返回此响应。"
+    },
+    "requestPane": {
+      "tabRules": "规则",
+      "tabDemoRequest": "演示请求",
+      "demoHint": "由规则自动生成 - 类似这样的请求会匹配此 Mock 响应。",
+      "headers": "标头",
+      "queryParams": "查询参数",
+      "body": "请求体",
+      "demoHintNoRules": "未定义规则 - 任何 {{method}} {{url}} 请求都会匹配此响应。添加规则后可在此处查看匹配的标头、查询参数或请求体。",
+      "trying": "试运行中...",
+      "try": "试运行",
+      "startServerTitle": "启动 Mock 服务器以试运行此响应",
+      "openAsRequest": "作为新请求打开",
+      "moreTryOptions": "更多试运行选项"
+    },
+    "topBar": {
+      "namePlaceholder": "Mock 响应名称",
+      "copiedFrom": "复制自示例：{{name}}",
+      "cancel": "取消",
+      "viewMore": "展开",
+      "viewLess": "收起",
+      "edit": "编辑"
+    }
+  },
+  "aiChat": {
+    "time": {
+      "justNow": "刚刚",
+      "minutesAgo": "{{count}}分钟前",
+      "hoursAgo": "{{count}}小时前",
+      "daysAgo": "{{count}}天前"
+    },
+    "noPastConversations": "暂无历史会话",
+    "untitledConversation": "（未命名）",
+    "deleteConversation": "删除会话",
+    "untitled": "未命名",
+    "untitledCollection": "未命名集合",
+    "thinking": "思考中…",
+    "working": "处理中…",
+    "contentNotReadWarning": "内容未先读取——更改可能覆盖无关修改",
+    "contentStaleWarning": "AI 读取后内容已被修改",
+    "cancelled": "已取消",
+    "assistantTitle": "AI 助手",
+    "emptyStateSubtitle": "让我帮你生成或修改代码、测试、脚本和文档。",
+    "tryAsking": "试试这样问：",
+    "resizeSidebar": "调整 AI 侧边栏大小",
+    "switchChat": "切换会话",
+    "newSession": "新会话",
+    "history": "历史记录",
+    "dockToSidebar": "停靠到侧边栏",
+    "openInNewWindow": "在新窗口打开",
+    "close": "关闭",
+    "noModelsAvailable": "没有可用的 AI 模型。请在偏好设置 > AI 中配置服务商并启用模型。",
+    "stopGenerating": "停止生成",
+    "stop": "停止",
+    "sendShortcut": "发送（Enter）",
+    "send": "发送",
+    "auto": "自动",
+    "diff": {
+      "applied": "已应用",
+      "dismissed": "已放弃",
+      "dismissChanges": "放弃更改",
+      "applyChanges": "应用更改",
+      "apply": "应用",
+      "expandUp": "向上展开",
+      "expandDown": "向下展开",
+      "hide": "收起",
+      "show": "展开（{{count}}）"
+    },
+    "codeBlock": {
+      "code": "代码",
+      "copy": "复制",
+      "copied": "已复制"
+    },
+    "assist": {
+      "generateTests": "生成测试",
+      "generatePreRequest": "生成前置请求脚本",
+      "generatePostResponse": "生成后置响应脚本",
+      "generateDocs": "生成文档",
+      "generateApp": "生成应用",
+      "generateWithAi": "AI 生成",
+      "previewDocs": "预览 · 将替换当前文档",
+      "previewApp": "预览 · 将替换当前应用",
+      "previewScript": "预览 · 将替换当前脚本",
+      "promptPlaceholder": "描述你想要生成的内容...",
+      "generating": "生成中...",
+      "enterHint": "按 Enter 生成 · Shift+Enter 换行",
+      "noContent": "未生成任何内容，请尝试换一种描述。",
+      "generateFailed": "生成脚本失败",
+      "generate": "生成",
+      "back": "返回",
+      "apply": "应用"
+    },
+    "suggestions": {
+      "tests": {
+        "status200": "状态码 200",
+        "jsonBody": "JSON 请求体",
+        "headers": "标头",
+        "responseTime": "响应时间"
+      },
+      "preRequest": {
+        "authHeader": "认证标头",
+        "timestamp": "时间戳",
+        "randomId": "随机 ID"
+      },
+      "postResponse": {
+        "saveToken": "保存 Token",
+        "saveId": "保存 ID",
+        "logResponse": "记录响应"
+      },
+      "docs": {
+        "overview": "概述",
+        "request": "请求",
+        "examples": "示例",
+        "errors": "错误"
+      },
+      "appRequest": {
+        "sendButton": "发送按钮",
+        "formForBody": "请求体表单",
+        "responseViewer": "响应查看器",
+        "testResults": "测试结果"
+      },
+      "appCollection": {
+        "requestList": "请求列表",
+        "dashboard": "仪表盘",
+        "formRunner": "表单运行器",
+        "variablesPanel": "变量面板"
+      }
+    }
+  },
+  "gitNotFound": {
+    "title": "未找到 Git",
+    "body": "未在系统中检测到 Git，需要安装 Git 才能继续。",
+    "downloadPrefix": "你可以下载适用于",
+    "downloadSuffix": " 的 Git：",
+    "downloadLink": "下载适用于 {{os}} 的 Git",
+    "yourOs": "你的操作系统"
+  },
+  "gitDiff": {
+    "field": "字段",
+    "value": "值",
+    "key": "键",
+    "authMode": "认证模式",
+    "bodyMode": "请求体模式",
+    "queryParameters": "查询参数",
+    "pathParameters": "路径参数",
+    "filePath": "文件路径",
+    "contentType": "内容类型",
+    "messageNumber": "消息 {{index}}",
+    "query": "查询",
+    "variables": "变量",
+    "auth": {
+      "awsSigV4": "AWS Signature v4",
+      "basic": "Basic 认证",
+      "bearer": "Bearer Token",
+      "digest": "Digest 认证",
+      "ntlm": "NTLM",
+      "oauth2": "OAuth 2.0",
+      "wsse": "WSSE",
+      "apiKey": "API 密钥"
+    },
+    "authField": {
+      "accessKeyId": "Access Key ID",
+      "secretAccessKey": "Secret Access Key",
+      "sessionToken": "会话令牌",
+      "service": "服务",
+      "region": "区域",
+      "profileName": "配置文件名称",
+      "username": "用户名",
+      "password": "密码",
+      "domain": "域名",
+      "token": "Token",
+      "key": "键",
+      "value": "值",
+      "placement": "位置",
+      "grantType": "授权类型",
+      "callbackUrl": "回调 URL",
+      "authorizationUrl": "授权 URL",
+      "accessTokenUrl": "访问令牌 URL",
+      "refreshTokenUrl": "刷新令牌 URL",
+      "clientId": "客户端 ID",
+      "clientSecret": "客户端密钥",
+      "scope": "Scope",
+      "state": "State",
+      "pkce": "PKCE",
+      "credentialsPlacement": "凭证位置",
+      "credentialsId": "凭证 ID",
+      "tokenPlacement": "Token 位置",
+      "tokenHeaderPrefix": "Token 标头前缀",
+      "tokenQueryKey": "Token 查询参数键",
+      "autoFetchToken": "自动获取 Token",
+      "autoRefreshToken": "自动刷新 Token"
+    },
+    "body": {
+      "json": "JSON",
+      "text": "文本",
+      "xml": "XML",
+      "sparql": "SPARQL",
+      "graphql": "GraphQL",
+      "formUrlEncoded": "表单 URL 编码",
+      "multipartForm": "Multipart 表单",
+      "file": "文件",
+      "grpc": "gRPC",
+      "ws": "WebSocket"
+    }
+  },
+  "tools": {
+    "generate": "生成",
+    "copy": "复制",
+    "now": "现在",
+    "epochSeconds": "Epoch（秒）",
+    "iso8601": "ISO 8601",
+    "invalid": "无效",
+    "input": "输入",
+    "output": "输出",
+    "encode": "编码",
+    "decode": "解码",
+    "errorPrefix": "错误：{{message}}",
+    "token": "Token",
+    "notJwt": "不是有效的 JWT（应为 header.payload.signature）",
+    "pattern": "模式",
+    "flags": "标志",
+    "testString": "测试字符串",
+    "matches": "{{count}} 个匹配",
+    "hash": "计算哈希",
+    "webCryptoUnavailable": "当前环境不支持 WebCrypto",
+    "tab": {
+      "uuid": "UUID",
+      "timestamp": "时间戳",
+      "base64": "Base64",
+      "url": "URL",
+      "jwt": "JWT",
+      "regex": "正则",
+      "hash": "哈希"
+    }
+  },
+  "statusBar": {
+    "preferences": "偏好设置",
+    "openPreferences": "打开偏好设置",
+    "changeTheme": "更改主题",
+    "notifications": "通知",
+    "githubRepository": "GitHub 仓库",
+    "openGithubRepository": "打开 GitHub 仓库",
+    "globalSearch": "全局搜索",
+    "search": "搜索",
+    "openCookies": "打开 Cookie",
+    "cookies": "Cookie",
+    "openDevTools": "打开开发者工具",
+    "openDevToolsWithErrors": "打开开发者工具（{{count}} 个错误）",
+    "devTools": "开发者工具",
+    "theme": {
+      "light": "浅色",
+      "dark": "深色",
+      "system": "跟随系统",
+      "active": "当前",
+      "selector": "主题选择器",
+      "appearance": "外观",
+      "lightTheme": "浅色主题",
+      "darkTheme": "深色主题",
+      "theme": "主题"
+    }
+  },
+  "editorSearch": {
+    "hideReplace": "隐藏替换",
+    "showReplace": "显示替换",
+    "searchPlaceholder": "搜索...",
+    "noResults": "0 个结果",
+    "regexSearch": "正则搜索",
+    "caseSensitive": "区分大小写",
+    "wholeWord": "全字匹配",
+    "previousShortcut": "上一个 (Shift+Enter)",
+    "nextShortcut": "下一个 (Enter)",
+    "close": "关闭",
+    "replacePlaceholder": "替换...",
+    "replace": "替换",
+    "replaceAll": "全部替换"
+  },
+  "apiSpecPanel": {
+    "notFound": "未找到 API Spec！",
+    "apiDesigner": "API 设计器",
+    "createApiSpec": "创建 API Spec",
+    "openApiSpec": "打开 API Spec",
+    "openError": "打开 API Spec 时发生错误"
+  },
+  "jsSandbox": {
+    "title": "JavaScript 沙箱",
+    "safeMode": "安全模式",
+    "safeModeDescription": "JavaScript 代码在安全的沙箱中执行，无法访问你的文件系统或执行系统命令。",
+    "developerMode": "开发者模式",
+    "developerModeDescription": "JavaScript 代码可以访问文件系统、执行系统命令并访问敏感信息。",
+    "developerModeWarning": "仅在你信任该集合的作者时使用",
+    "recommended": "推荐",
+    "updateFailed": "更新沙箱模式失败"
+  },
+  "filePicker": {
+    "selectedCount": "已选择 {{count}} 个文件",
+    "selectFile": "选择文件",
+    "selectFiles": "选择多个文件",
+    "removeFile": "移除文件",
+    "fileMissingWarning": "上方文件不在指定目录中，请重新上传。"
+  },
+  "inheritableInput": {
+    "inherit": "继承",
+    "custom": "自定义",
+    "resetToInherit": "重置为继承"
+  },
+  "tagList": {
+    "bruFormatError": "BRU 格式的标签只能包含字母、数字、\"-\"、\"_\"。",
+    "formatError": "标签只能包含字母、数字、空格、\"-\"、\"_\"",
+    "alreadyExists": "标签 \"{{tag}}\" 已存在",
+    "placeholder": "例如：smoke、regression",
+    "removeTag": "移除标签"
+  },
+  "colorPicker": {
+    "changeColor": "更改颜色",
+    "noColor": "无颜色",
+    "customColor": "自定义颜色"
+  },
+  "colorRange": {
+    "adjustColor": "调整颜色"
+  },
+  "modeSwitch": {
+    "richText": "富文本",
+    "markdown": "Markdown"
+  },
+  "multipartChips": {
+    "removeFile": "移除文件",
+    "fileCount": "{{count}} 个文件",
+    "moreFilesTitle": "另外 {{count}} 个文件",
+    "more": "另加 {{count}} 个",
+    "addFiles": "添加文件"
+  },
+  "stopWatch": {
+    "loading": "加载中"
+  },
+  "richText": {
+    "table": "表格",
+    "moreFormattingOptions": "更多格式选项",
+    "link": {
+      "text": "文本",
+      "textPlaceholder": "要显示的文本",
+      "url": "URL",
+      "insert": "插入"
+    },
+    "tableMenu": {
+      "rows": "行",
+      "columns": "列",
+      "deleteTable": "删除表格",
+      "addRowAbove": "在上方插入行",
+      "addRowBelow": "在下方插入行",
+      "deleteRow": "删除行",
+      "addColumnLeft": "在左侧插入列",
+      "addColumnRight": "在右侧插入列",
+      "deleteColumn": "删除列",
+      "tableOptions": "表格选项"
+    }
+  },
+  "promptVariables": {
+    "inputRequired": "需要输入"
+  },
+  "toast": {
+    "requestSaved": "请求保存成功",
+    "fileSaved": "文件保存成功！",
+    "fileSaveFailed": "文件保存失败！",
+    "requestsSaveFailed": "保存请求失败！",
+    "collectionSettingsSaved": "集合设置保存成功",
+    "collectionSettingsSaveFailed": "保存集合设置失败！",
+    "collectionVersionUpdated": "集合版本已更新",
+    "collectionVersionUpdateFailed": "更新集合版本失败",
+    "folderSettingsSaved": "文件夹设置保存成功",
+    "folderSettingsSaveFailed": "保存文件夹设置失败！",
+    "requestSent": "请求发送成功",
+    "newFolderCreateFailed": "新建文件夹失败！",
+    "itemRenameFailed": "重命名条目失败",
+    "itemRenamed": "条目重命名成功",
+    "crossFormatMoveUnsupported": "不支持在格式不同的集合之间移动文件夹",
+    "variableUpdated": "变量 \"{{variableName}}\" 已更新",
+    "variableCreated": "变量 \"{{variableName}}\" 已创建",
+    "variableUpdateFailed": "更新变量失败：{{error}}",
+    "collectionAlreadyOpened": "集合已打开",
+    "collectionAddedToWorkspace": "集合已添加到工作区",
+    "collectionAddToWorkspaceFailed": "添加集合到工作区失败",
+    "collectionMigratedToYml": "集合已成功迁移为 YML 格式",
+    "migrationFailed": "迁移失败：{{error}}",
+    "unknownError": "未知错误",
+    "collectionReopenManually": "无法自动重新打开集合，请手动重新打开。"
+  },
+  "apiSpec": {
+    "toast": {
+      "addFailed": "添加 API Spec 出错",
+      "saved": "API Spec 保存成功！",
+      "fileSaveFailed": "保存文件出错"
+    }
+  },
+  "migrateYml": {
+    "draftType": {
+      "app": "应用：{{name}}",
+      "collection": "集合：{{name}}",
+      "environment": "环境：{{name}}",
+      "folder": "文件夹：{{name}}",
+      "request": "请求：{{name}}"
+    },
+    "toast": {
+      "backupExportFailed": "导出备份失败：{{message}}",
+      "backupExported": "集合备份已导出",
+      "environmentInvalidVariables": "无法保存环境 \"{{name}}\"：变量名无效 - {{names}}",
+      "environmentSaveError": "无法保存环境 \"{{name}}\"：{{message}}",
+      "environmentSaveFailed": "保存环境 \"{{name}}\" 失败",
+      "saveChangesFailed": "保存更改失败"
+    },
+    "unsavedChangesTitle": "未保存的更改"
+  },
+  "saveTransient": {
+    "browse": "浏览",
+    "cancel": "取消",
+    "collectionNameLabel": "集合名称",
+    "collectionNamePlaceholder": "输入集合名称",
+    "collections": "集合",
+    "create": "创建",
+    "createFolderTitle": "新建文件夹",
+    "discardAll": "全部放弃",
+    "fileFormatLabel": "文件格式",
+    "folderNameFilesystemHint": "（文件系统中）",
+    "folderNameLabel": "文件夹名称",
+    "help": {
+      "fileFormatBruDesc": "Bruno 的原生文件格式（.bru 文件）",
+      "fileFormatIntro": "选择在此集合中存储请求所用的文件格式。",
+      "fileFormatYamlDesc": "OpenCollection (YAML)：业界标准 YAML 格式（.yml 文件）",
+      "folderFilesystemName": "你可以让文件夹在文件系统中的名称与应用内显示的名称不同。",
+      "location1": "选择你要存储此集合的位置。",
+      "location2": "选择你要存储此集合的位置。"
+    },
+    "hideFilesystemName": "隐藏文件系统名称",
+    "locationLabel": "位置",
+    "newCollection": "新建集合",
+    "newFolder": "新建文件夹",
+    "newFolderName": "新建文件夹名称",
+    "newFolderNameInBruno": "新建文件夹名称（位于 bruno）",
+    "newFolderPlaceholder": "未命名新文件夹",
+    "noCollectionsSubtitle": "集合帮助你组织请求。创建第一个集合以保存此请求。",
+    "noCollectionsTitle": "暂无集合",
+    "noFoldersAvailable": "没有可用的文件夹",
+    "noFoldersFound": "未找到文件夹",
+    "optionBru": "BRU 格式 (.bru)",
+    "requestNameLabel": "请求名称",
+    "save": "保存",
+    "saveRequestTitle": "保存请求",
+    "searchFolderPlaceholder": "搜索文件夹",
+    "selectCollectionTitle": "选择集合",
+    "selectLocationPlaceholder": "选择位置",
+    "showFilesystemName": "显示文件系统名称",
+    "toast": {
+      "collectionCreated": "集合已创建！",
+      "collectionNameRequired": "集合名称不能为空",
+      "discardedRequests": "已放弃 {{count}} 个请求",
+      "folderAddError": "添加文件夹时发生错误",
+      "folderNameRequired": "文件夹名称不能为空",
+      "invalidRequestContent": "请求内容无效 - 请先在文件模式下修复再保存",
+      "locationRequired": "位置不能为空",
+      "requestNameRequired": "请求名称不能为空",
+      "requestSaved": "请求保存成功",
+      "saveFailed": "保存请求失败"
+    },
+    "transientRequestsCount": "个请求",
+    "transientRequestsNote": "需要先保存这些请求才能继续。",
+    "unsavedCountPrefix": "你有",
+    "unsavedCountSuffix": "个未保存的临时请求",
+    "unsavedHeading": "你有未保存的临时请求",
+    "unsavedTitle": "未保存的临时请求"
+  },
+  "untitledRequest": {
+    "created": "新请求已创建！",
+    "createFailed": "添加请求时发生错误"
+  },
+  "transientRequest": {
+    "createFailed": "添加请求时发生错误",
+    "ariaLabel": "新建临时请求"
+  },
+  "requestTabPanel": {
+    "loading": "加载中...",
+    "mockServerNotFound": "未找到 Mock 服务器",
+    "mockServerNotFoundDesc": "该 Mock 服务器可能已被删除。请从侧边栏的 Mock Servers 中新建一个。",
+    "collectionNotFound": "未找到集合！",
+    "grpcUrlRequired": "请输入有效的 gRPC 服务器 URL",
+    "grpcMethodRequired": "请选择 gRPC 方法",
+    "wsUrlRequired": "请输入有效的 WebSocket URL",
+    "closeDocsExplorer": "关闭文档浏览器",
+    "fileInfo": "文件信息",
+    "name": "名称：",
+    "path": "路径：",
+    "size": "大小：",
+    "notLoadedHint": "请求因体积过大而未加载。请尝试以下方式重新加载：",
+    "loadRequest": "加载请求",
+    "loadRequestHint": "（使用基于正则的解析方式）",
+    "requestLabel": "请求",
+    "responseLabel": "响应",
+    "expandPaneAria": "展开{{label}}面板",
+    "expandPaneHint": "点击展开{{label}}面板，或拖动调整大小"
+  },
+  "support": {
+    "title": "支持"
+  },
+  "errorBoundary": {
+    "title": "哎呀！出问题了",
+    "bugLikely": "如果你使用的是官方生产版本：上述错误很可能是个 Bug！",
+    "reportAt": "请在此提交反馈：",
+    "returnToApp": "返回应用",
+    "or": "或",
+    "clearCachesOnQuit": "退出时清除缓存",
+    "forceQuit": "强制退出",
+    "stackTrace": "堆栈跟踪",
+    "noStackTrace": "没有可用的堆栈跟踪"
+  },
+  "main": {
+    "errorTitle": "错误：",
+    "ipcMissing": "window 对象中未找到 \"ipcRenderer\"。",
+    "ipcMissingDesc": "你很可能是在网页浏览器中打开了 Bruno。Bruno 只能在 Electron 中运行，可以在旁边的终端中使用 \"npm run dev:electron\" 启动 Electron。"
   }
 }

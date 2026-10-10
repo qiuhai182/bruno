@@ -195,7 +195,7 @@ const ProviderCard = ({
                   className="key-display-row flex items-center justify-between gap-2 h-8 box-border pl-2.5 pr-0.5"
                   onClick={stopBubble}
                 >
-                  <span className="key-display-mask text-xs">••••••••••••••••</span>
+                  <span className="key-display-mask text-xs">æ™»æ™»æ™»æ™»æ™»æ™»æ™»æ™»</span>
                   <div className="flex items-center gap-0.5">
                     <button
                       type="button"

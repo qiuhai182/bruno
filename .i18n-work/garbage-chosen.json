@@ -214,7 +214,7 @@
   "sidebar.drafts.requestItemOne": "Hold on..",
   "sidebar.drafts.unsavedChangesPrefix": "Hold on..",
   "sidebar.dragPreview.items": "${value} ${key}${value > 1 ? 's' : ''}",
-  "sidebar.gitRemote.clickToClone": "${entry.name} ¡ª click to clone from ${entry.remote}",
+  "sidebar.gitRemote.clickToClone": "${entry.name} â€” click to clone from ${entry.remote}",
   "sidebar.goldenEdition.buy": "Buy",
   "sidebar.goldenEdition.individuals": "Individuals",
   "sidebar.goldenEdition.oneTimePayment": "One Time Payment",

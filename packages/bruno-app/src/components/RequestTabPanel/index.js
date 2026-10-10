@@ -51,6 +51,7 @@ import { resolveMockServerInstance } from 'utils/mock-server/mock-server-instanc
 import CollapsedPanelIndicator from './CollapsedPanelIndicator';
 import { clampRequestHeightForResponse } from './paneSize';
 import { IconLoader2 } from '@tabler/icons';
+import { useTranslation } from 'react-i18next';
 
 const MIN_LEFT_PANE_WIDTH = 350;
 const MIN_RIGHT_PANE_WIDTH = 490;
@@ -68,6 +69,7 @@ const RESPONSE_EXPAND_MIN_HEIGHT = 300;
 const aiAutoCollapsedTabs = new Set();
 
 const RequestTabPanel = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const tabs = useSelector((state) => state.tabs.tabs);
   const activeTabUid = useSelector((state) => state.tabs.activeTabUid);
@@ -420,7 +422,7 @@ const RequestTabPanel = () => {
     return (
       <div className="flex flex-col items-center justify-center h-full gap-3 text-muted">
         <IconLoader2 className="animate-spin" size={24} strokeWidth={1.5} />
-        <span>Loading...</span>
+        <span>{t('requestTabPanel.loading')}</span>
       </div>
     );
   }
@@ -450,9 +452,9 @@ const RequestTabPanel = () => {
     if (!instance) {
       return (
         <div className="pb-4 px-4">
-          <div className="font-medium">Mock server not found</div>
+          <div className="font-medium">{t('requestTabPanel.mockServerNotFound')}</div>
           <div className="text-sm mt-2 opacity-70">
-            This mock server may have been removed. Create a new one from the Mock Servers sidebar.
+            {t('requestTabPanel.mockServerNotFoundDesc')}
           </div>
         </div>
       );
@@ -470,7 +472,7 @@ const RequestTabPanel = () => {
     if (!instance) {
       return (
         <div className="pb-4 px-4">
-          <div className="font-medium">Mock server not found</div>
+          <div className="font-medium">{t('requestTabPanel.mockServerNotFound')}</div>
         </div>
       );
     }
@@ -489,11 +491,11 @@ const RequestTabPanel = () => {
   }
 
   if (!focusedTab.uid || !focusedTab.collectionUid) {
-    return <div className="pb-4 px-4">An error occurred!</div>;
+    return <div className="pb-4 px-4">{t('requestPane.errorOccurred')}</div>;
   }
 
   if (!collection || !collection.uid) {
-    return <div className="pb-4 px-4">Collection not found!</div>;
+    return <div className="pb-4 px-4">{t('requestTabPanel.collectionNotFound')}</div>;
   }
 
   if (focusedTab.type === 'response-example') {
@@ -606,17 +608,17 @@ const RequestTabPanel = () => {
     const request = item.draft ? item.draft.request : item.request;
 
     if (isGrpcRequest && !request.url) {
-      toast.error('Please enter a valid gRPC server URL');
+      toast.error(t('requestTabPanel.grpcUrlRequired'));
       return;
     }
 
     if (isGrpcRequest && !request.method) {
-      toast.error('Please select a gRPC method');
+      toast.error(t('requestTabPanel.grpcMethodRequired'));
       return;
     }
 
     if (isWsRequest && !request.url) {
-      toast.error('Please enter a valid WebSocket URL');
+      toast.error(t('requestTabPanel.wsUrlRequired'));
       return;
     }
     if (item.requestState !== 'sending' && item.requestState !== 'queued') {
@@ -762,7 +764,7 @@ const RequestTabPanel = () => {
         {item.type === 'graphql-request' ? (
           <div className={`graphql-docs-explorer-container ${showGqlDocs ? '' : 'hidden'}`}>
             <DocExplorer schema={schema} ref={(r) => (docExplorerRef.current = r)}>
-              <button className="mr-2" data-testid="graphql-docs-close-button" onClick={() => toggleDocs(false)} aria-label="Close Documentation Explorer">
+              <button className="mr-2" data-testid="graphql-docs-close-button" onClick={() => toggleDocs(false)} aria-label={t('requestTabPanel.closeDocsExplorer')}>
                 {'\u2715'}
               </button>
             </DocExplorer>
